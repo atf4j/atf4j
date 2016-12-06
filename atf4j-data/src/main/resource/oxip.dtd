@@ -1,0 +1,4432 @@
+<?xml version='1.0' encoding="UTF-8" ?>
+
+<!--
+  	$Name: R_oxixmlserver6_85_WH_1-5 $
+	$Header: /cvsroot/OXi/oxixmlserver/dtd/oxip.dtd,v 1.239.10.4 2012/08/30 17:23:54 lwoodhou Exp $
+	OXi DTD for oxip.
+	Copyright (c) 2001, 2002, 2003 Orbis Technology Ltd. All rights reserved.
+-->
+
+<!ELEMENT oxip                      (request | response)>
+<!ATTLIST oxip version (5.1|6.0) #REQUIRED>
+
+<!ELEMENT request                   (reqClientAuth,
+    (
+		reqAccountAcceptTnC         |
+		reqAccountAdd               |
+		reqAccountAddAnon           |
+		reqAccountAddStub           |
+		reqAccountAddLimit          |
+		reqAccountAddAlias          |
+		reqAccountAddExtAlias       |
+		reqAccountAddIdentification |
+		reqAccountUpdAlias          |
+		reqAccountDelLimit          |
+		reqAccountGetLimit          |
+		reqAccountGetLimits         |
+		reqAccountLegSorts          |
+		reqAccountValidateInsecure  |
+		reqAccountValidate1         |
+		reqAccountValidate2         |
+		reqAccountValidate3         |
+		reqAccountLoginMobile       |
+		reqAccountLogout            |
+		reqAccountBalance           |
+		reqAccountCancelPayment     |
+		reqAccountGetExtBalance     |
+		reqAccountGetExtDetails     |
+		reqAccountExtExists         |
+		reqAccountExtModify         |
+		reqAccountSetInitPwdPin     |
+		reqAccountSetPwdPin         |
+		reqAccountSelfExclude       |
+		reqAccountModify            |
+		reqAccountModifyURN         |
+		reqAccountAddPayMethod      |
+		reqAccountGetAlias          |
+		reqAccountCheckUsername     |
+		reqAccountGetCampaigns      |
+		reqAccountGetCustGroups     |
+		reqAccountSetCustGroups     |
+		reqAccountGetFlags          |
+		reqAccountGetDetail         |
+		reqAccountGetPayMethod      |
+		reqAccountGetPayMethods     |
+		reqAccountGetSummary        |
+		reqAccountGetStatusFlags    |
+		reqAccountGetVideoStreams   |
+		reqAccountUpdPayMethod      |
+		reqAccountMakePayment       |
+		reqAccountMakeWalletPayment |
+		reqAccountCompletePayment   |
+		reqAccountFundsTransferCancel       |
+		reqAccountFundsTransfer     |
+		reqAccountFundsTransferStatus |
+		reqAccountWalletTransfer    |
+		reqAccountGetDTVDetails     |
+		reqAccountDelDTVUser        |
+		reqAccountSetFlags          |
+		reqAccountSetStatusFlags    |
+		reqAccountSessionBegin      |
+		reqAccountSessionEnd        |
+		reqAccountSessionGet        |
+		reqAccountSubBegin          |
+		reqAccountSubEnd            |
+		reqAccountSubDetails        |
+		reqAccountAddSubInfo        |
+		reqAccountGetURL            |
+		reqAccountVerify            |
+		reqAccountSearch            |
+		reqAccountUpdRemoteItem     |
+		reqAccountGetChallenge      |
+		reqAccountSetTempPassword   |
+		reqAccountRemoteItemsSummary |
+		reqAccountUnlock            |
+		reqAccountGetTrackingId     |
+		reqAccountRemoteAction      |
+		reqAdminDetail              |
+		reqAdminModify              |
+		reqAffiliateGetDetail       |
+		reqCancelCGExclusion        |
+		reqGetCGExclusions          |
+		reqSetCGExclusion           |
+		reqAddCGCustLimit           |
+		reqCancelCGCustLimit        |
+		reqGetCGCustLimits          |
+		reqAccountChargebackAction  |
+		reqTokenRefresh             |
+		reqTokenTransfer            |
+		reqTransGetJrnlItems1       |
+		reqTransGetBetItems         |
+		reqTransGetPoolBetItems     |
+		reqTransGetCGItems          |
+		reqTransGetBetDetail        |
+		reqTransGetPoolBetDetail    |
+		reqTransGetBetDetails       |
+		reqTransGetBetsPlaced       |
+		reqTransGetCGDetail         |
+		reqTransGetBallsWin         |
+		reqTransGetBallsSub         |
+		reqTransGetPayments         |
+		reqTransGetPokerDetail      |
+		reqTransGetPokerHands       |
+		reqBetBuild                 |
+		reqBetCancel                |
+		reqBetGetSettled            |
+		reqBetPlace                 |
+		reqBetStatus                |
+		reqBetUpdate                |
+		reqBetValidate              |
+		reqPoolBetPlace             |
+		reqPoolBetValidate          |
+		reqBetSettleManual          |
+		reqSlipCancel               |
+		reqSlipCapture              |
+		reqCallBegin                |
+		reqCallEnd                  |
+		reqCallGetOpen              |
+		reqCallGetStopCodes         |
+		reqCallGetTerminal          |
+		reqQueryApplyXSLT           |
+		reqXGamePlace               |
+		reqXGameGetOpenSubs         |
+		reqCustomerRep              |
+		reqAccountGetFreebets       |
+		reqAccountAddPromoCode      |
+		reqGetCountries             |
+		reqGetCurrencies            |
+		reqGetLanguages             |
+		reqGetXSysCurrencies        |
+		reqSessionBegin             |
+		reqSessionCalls             |
+		reqSessionInfo              |
+		reqSessionEnd               |
+		reqShopCalls                |
+		reqShopReport               |
+		reqShopEndOfDay             |
+		reqShopGetSessions          |
+		reqShopLock                 |
+		reqShopMessageAcknowledgement |
+		reqShopSessionInfo          |
+		reqShopStartOfDay           |
+		reqShopTransferFloat        |
+		reqShopTransferTypes        |
+		reqShopCashReconciliation   |
+		reqShopAdd                  |
+		reqShopParamsAdd            |
+		reqShopProfileParamsAdd     |
+		reqShopUpdate               |
+		reqAnonCashout              |
+		reqAnonRedeemVoucher        |
+		reqReceiptStatus            |
+		reqReceiptPayout            |
+		reqTermCheckNif             |
+		reqTermGenerateAccessCode   |
+		reqTermGetParams            |
+		reqTermTransactions         |
+		reqTermInfo                 |
+		reqTermInit                 |
+		reqTermSetFlags             |
+		reqTermValidateAccessCode   |
+		reqPriceTypesByCustomer     |
+		reqGetCommission            |
+		reqFreebetGetOffers         |
+		reqFreebetPromoRedeem       |
+		reqFreebetTrigger           |
+		reqUtilCheckIdentification  |
+		reqUtilPing                 |
+		reqUtilTranslate            |
+		reqPostcodeLookup           |
+		reqErrorNotify              |
+		reqVoucherRedeem            |
+		reqLoyaltyCustomerAdd       |
+		reqGamesFavouriteAdd        |
+		reqGamesFavouriteDel        |
+		reqGamesFavouriteReorder    |
+		reqGamesFavouriteDelAll     |
+		reqGamesFavouriteGet        |
+		reqLoyaltyCustomerModify    |
+		reqTokenStatus              |
+		reqLoyaltyQualify           |
+		reqAccountGetNotices        |
+		reqAccountNotify)
+    )
+>
+
+<!ATTLIST request                   lang CDATA #IMPLIED>
+
+<!ELEMENT response                  (returnStatus,respClientAuth?,
+    (
+		respAccountAcceptTnC?           |
+		respAccountAdd?                 |
+		respAccountAddAnon?             |
+		respAccountAddStub?             |
+		respAccountAddLimit?            |
+		respAccountAddAlias?            |
+		respAccountAddExtAlias?         |
+		respAccountAddIdentification?   |
+		respAccountFundsTransferCancel? |
+		respAccountUpdAlias?            |
+		respAccountDelLimit?            |
+		respAccountGetLimit?            |
+		respAccountGetLimits?           |
+		respAccountValidateInsecure?    |
+		respAccountValidate1?           |
+		respAccountValidate2?           |
+		respAccountValidate3?           |
+		respAccountLegSorts?            |
+		respAccountLoginMobile?         |
+		respAccountLogout?              |
+		respAccountBalance?             |
+		respAccountCancelPayment?       |
+		respAccountGetExtBalance?       |
+		respAccountGetExtDetails?       |
+		respAccountSetInitPwdPin?       |
+		respAccountSetPwdPin?           |
+		respAccountSelfExclude?         |
+		respAccountModify?              |
+		respAccountModifyURN?           |
+		respAccountAddPayMethod?        |
+		respAccountGetAlias?            |
+		respAccountCheckUsername?       |
+		respAccountGetCampaigns?        |
+		respAccountGetCustGroups?       |
+		respAccountSetCustGroups?       |
+		respAccountGetDetail?           |
+		respAccountGetPayMethod?        |
+		respAccountGetPayMethods?       |
+		respAccountGetStatusFlags?      |
+		respAccountGetSummary?          |
+		respAccountGetVideoStreams?     |
+		respAccountExtExists?           |
+		respAccountExtModify?           |
+		respAccountUpdPayMethod?        |
+		respAccountMakePayment?         |
+		respAccountMakeWalletPayment?   |
+		respAccountNotify?              |
+		respAccountCompletePayment?     |
+		respAccountCheckUsername?       |
+		respAccountFundsTransfer?       |
+		respAccountFundsTransferStatus? |
+		respAccountWalletTransfer?      |
+		respAccountGetDTVDetails?       |
+		respAccountDelDTVUser?          |
+		respAccountSetFlags?            |
+		respAccountGetFlags?            |
+		respAccountSetStatusFlags?      |
+		respAccountSubBegin?            |
+		respAccountSubDetails?	        |
+		respAccountSubEnd?              |
+		respAccountSessionBegin?        |
+		respAccountSessionEnd?          |
+		respAccountSessionGet?          |
+		respAccountAddSubInfo?          |
+		respAccountGetURL?              |
+		respAccountVerify?              |
+		respAccountSearch?              |
+		respAccountUpdRemoteItem?       |
+		respAccountGetChallenge?        |
+		respAccountSetTempPassword?     |
+		respAccountRemoteItemsSummary?  |
+		respAccountGetTrackingId?       |
+		respAccountRemoteAction?        |
+		respAccountGetNotices?          |
+		respAccountUnlock?              |
+		respPostcodeLookup?             |
+		respAdminModify?                |
+		respAdminDetail?                |
+		respAffiliateGetDetail?         |
+		respCancelCGExclusion           |
+		respGetCGExclusions             |
+		respSetCGExclusion              |
+		respAddCGCustLimit?             |
+		respCancelCGCustLimit?          |
+		respGetCGCustLimits?            |
+		respAccountChargebackAction?    |
+		respTermSetFlags?               |
+		respTokenRefresh?               |
+		respTokenTransfer?              |
+		respTransGetJrnlItems1?         |
+		respTransGetBetItems?           |
+		respTransGetPoolBetItems?       |
+		respTransGetCGItems?            |
+		respTransGetBetDetail?          |
+		respTransGetPokerDetail?        |
+		respTransGetPokerHands?         |
+		respTransGetPoolBetDetail?      |
+		respTransGetBetDetails?         |
+		respTransGetBetsPlaced?         |
+		respTransGetCGDetail?           |
+		respTransGetBallsWin?           |
+		respTransGetBallsSub?           |
+		respTransGetPayments?           |
+		respBetBuild                    |
+		respBetCancel?                  |
+		respBetGetSettled?              |
+		respBetPlace?                   |
+		respBetStatus?                  |
+		respBetUpdate?                  |
+		respBetValidate?                |
+		respPoolBetPlace?               |
+		respPoolBetValidate?            |
+		respBetSettleManual?            |
+		respSlipCancel?                 |
+		respSlipCapture?                |
+		respCallBegin?                  |
+		respCallEnd?                    |
+		respCallGetStopCodes?           |
+		respCallGetTerminal?            |
+		respQueryApplyXSLT?             |
+		respXGamePlace?                 |
+		respXGameGetOpenSubs?           |
+		respCustomerRep?                |
+		respAccountGetFreebets?         |
+		respAccountAddPromoCode?        |
+		respGetCountries?               |
+		respGetCurrencies?              |
+		respGetLanguages?               |
+		respGetXSysCurrencies?          |
+		respSessionBegin?               |
+		respSessionCalls?               |
+		respSessionInfo?                |
+		respSessionEnd?                 |
+		respShopReport?                 |
+		respShopCalls?                  |
+		respShopEndOfDay?               |
+		respShopGetSessions?            |
+		respShopLock?                   |
+		respShopMessageAcknowledgement? |
+		respShopSessionInfo?            |
+		respShopStartOfDay?             |
+		respShopTransferFloat?          |
+		respShopTransferTypes?          |
+		respShopCashReconciliation?     |
+		respShopAdd?                    |
+		respShopParamsAdd?              |
+		respShopProfileParamsAdd?       |
+		respShopUpdate?                 |
+		respAnonCashout?                |
+		respAnonRedeemVoucher?          |
+		respReceiptStatus?              |
+		respReceiptPayout?              |
+		respTermGetParams?              |
+		respTermTransactions?           |
+		respTermInfo?                   |
+		respTermInit?                   |
+		respTermValidateAccessCode?     |
+		respTermGenerateAccessCode?     |
+		respTermCheckNif?               |
+		respUtilCheckIdentification?    |
+		respUtilPing?                   |
+		respUtilTranslate?              |
+		respPriceTypesByCustomer?       |
+		respGetCommission?              |
+		respErrorNotify?                |
+		respFreebetTrigger?             |
+		respFreebetGetOffers?           |
+		respFreebetPromoRedeem?         |
+		respVoucherRedeem?              |
+		respLoyaltyCustomerAdd?         |
+		respGamesFavouriteAdd           |
+		respGamesFavouriteDel           |
+		respGamesFavouriteReorder       |
+		respGamesFavouriteDelAll        |
+		respGamesFavouriteGet           |
+		respLoyaltyCustomerModify?      |
+		respTokenStatus                 |
+		respLoyaltyQualify              |
+		respAccountGetNotices)
+    )
+>
+<!ATTLIST response                  requestTime CDATA #IMPLIED>
+<!ELEMENT returnStatus              (code, message, debug?)>
+<!ELEMENT reqClientAuth             ((user, password,terminalCode?,ssoid?) | token | (pubUserId,ssoid?))>
+<!ATTLIST reqClientAuth             returnToken CDATA "N">
+<!ATTLIST reqClientAuth             trustedMethod (accountNo|custId|token|externalSystemId) #IMPLIED>
+<!ATTLIST reqClientAuth             trustedHost CDATA #IMPLIED>
+
+<!ELEMENT respClientAuth            (token)>
+
+<!ENTITY % addressAlt "
+	addrUnitNo?,
+	addrPremisesName?,
+	addrPremisesNo?,
+	addrStreetName?,
+	addrStreet1?,
+	addrStreet2?,
+	addrStreet3?,
+	addrStreet4?,
+	countryState?,
+	addrCity?,
+	addrState?,
+	addrStateCode?,
+	addrPostcode?,
+	addrCountry?
+">
+
+<!ENTITY % address "
+		(
+			(addrStreet1, addrStreet2?, addrStreet3?, addrStreet4?) |
+			(addrLevel?, addrUnitType?, addrUnitNo?, addrBuildingNo?, addrAllotment?, addrPremisesName?, addrPremisesNo?, addrStreetName?, addrStreetType?) |
+			(addrUnitNo, addrPremisesName?, addrPremisesNo?, addrStreetName?)
+		),
+		addrCity?,
+		addrState?,
+		addrStateCode?,
+		addrPostcode?,
+		addrCountry?
+">
+
+<!ENTITY % acctFields "
+		userName?,
+		accountNo?,
+		status?,
+		firstName?,
+		lastName?,
+		currency?,
+		maxStakeScale?,
+		title?,
+		gender?,
+		dob?,
+		postcode?,
+		channel?,
+		accountType?,
+		crDate?,
+		language?,
+		(%address;)?,
+		email?,
+		ipAddress?,
+		telephone?,
+		mobile?,
+		productSource?,
+		lang?,
+		contactable?,
+		countryCode?,
+		custId?,
+		language?,
+		nickname?
+">
+
+<!-- AccountAcceptTnC -->
+<!ELEMENT reqAccountAcceptTnC       (token, (systemName | version?))>
+<!ELEMENT respAccountAcceptTnC      (token | (accountFailure, termsAndConditions?, token?))>
+
+<!-- AccountAdd -->
+<!ELEMENT reqAccountAdd (
+	custId?,
+	userName?,
+	accountNo?,
+	((password | encPassword) | (pin | encPin))?,
+	currency,
+	countryCode?,
+	countryState?,
+	challenge1?,
+	response1?,
+	(challenge2,
+	response2)?,
+	significantDate?,
+	title?,
+	firstName?,
+	lastName?,
+	secondLastName?,
+	dob?,
+	gender?,
+	(%address;)?,
+	email?,
+	telephone?,
+	telephoneDialCode?,
+	mobile?,
+	mobileDialCode?,
+	contactable?,
+	contactHow?,
+	partnership?,
+	partnerContactable?,
+	contactPref?,
+	ipAddress?,
+	channel,
+	affId?,
+	affAssetId?,
+	promoCode?,
+	lang?,
+	status?,
+	regCombi?,
+	office?,
+	fax?,
+	houseName?,
+	houseNo?,
+	flatNo?,
+	meccaPersonNo?,
+	grosMemberNo?,
+	priceFormat?,
+	nickname?,
+	nif?,
+	affSubId?,
+	view?,
+	(terminalCode | terminalLocation)?,
+	idCardType?,
+	idCardNumber?,
+	regDocuments?,
+	hearAbout?,
+	hearAboutText?,
+	clientUserAgent?,
+	regStage?,
+	validateOnly?,
+	returnDuplicateAccounts?,
+	accountCardNumber?,
+	accountCardPin?,
+	ident?,
+	identType?,
+	productSource?,
+	businessChannel?,
+	configSet*,
+	document?,
+	birthPlace?)
+>
+<!ELEMENT configSet (config+)>
+<!ATTLIST configSet name CDATA #REQUIRED>
+
+<!ELEMENT respAccountAdd ((userName, accountNo, custId, status*, token) | (accountFailure+, accountDuplicate*) | suggestion*)>
+
+<!-- AccountAddAnon -->
+<!ELEMENT reqAccountAddAnon (
+	ident,
+	identType,
+	reason,
+	notes?,
+	locationId*,
+	source,
+	terminalId,	nickname?)
+>
+
+<!ELEMENT respAccountAddAnon ((token,custId) | accountFailure+ | suggestion*)>
+
+<!-- LoyaltyCustomerAdd -->
+<!ELEMENT reqLoyaltyCustomerAdd (
+	cardNumber,
+	title?,
+	firstName?,
+	lastName,
+	gender?,
+	addrStreet1?,
+	addrStreet2?,
+	addrStreet3?,
+	addrStreet4?,
+	addrCity?,
+	addrPostcode?,
+	countryCode?,
+	dob,
+	email?,
+	mobile?,
+	telephone?,
+	challenge1?,
+	response1?,
+	hearAbout?,
+	hearAboutText?,
+	contactable?,
+	affId?,
+	lang?,
+	shopId?,
+	contactPref?)
+>
+
+<!ELEMENT respLoyaltyCustomerAdd    ((userName) | accountFailure+ | suggestion*)>
+
+<!-- LoyaltyCustomerModify -->
+<!ELEMENT reqLoyaltyCustomerModify (
+	cardNumber,
+	title?,
+	firstName?,
+	lastName?,
+	gender?,
+	addrStreet1?,
+	addrStreet2?,
+	addrStreet3?,
+	addrStreet4?,
+	addrCity?,
+	addrPostcode?,
+	countryCode?,
+	dob?,
+	email?,
+	mobile?,
+	telephone?,
+	challenge1?,
+	response1?,
+	hearAbout?,
+	hearAboutText?,
+	contactable?,
+	affId?,
+	lang?,
+	contactPref? )
+>
+
+<!ELEMENT respLoyaltyCustomerModify    ((userName) | accountFailure+ | suggestion*)>
+
+<!-- AccountAddStub -->
+<!ELEMENT reqAccountAddStub (
+    userName?,
+    (password | pin | encPassword),
+    currency?,
+    title?,
+    firstName?,
+    lastName?,
+    accountNo?,
+    nickname?,
+    dob?,
+    countryCode?,
+    ipAddress?,
+    channel,
+    status?,
+    regCombi?,
+    hearAbout?,
+    hearAboutText?,
+    nif?,
+    affId?,
+    matchingDetails?,
+    view?,
+    email?,
+    contactable?,
+    partnerContactable?,
+	view?,
+    affSubId?,
+	addrCity?,
+	addrPostcode?,
+	externalUniqueId?,
+    gender?,
+	(terminalCode | terminalLocation)?)
+>
+<!ELEMENT respAccountAddStub        ((userName, accountNo, custId, status?, token) | accountFailure | suggestion*)>
+
+<!-- AccountAddLimit -->
+<!ELEMENT reqAccountAddLimit (
+    token,
+    gameId?,
+    limitType?,
+    limitValue?,
+    limitPeriod?,
+    limitRange?,
+    startTime?,
+    endTime?,
+    updateable?,
+    selfExclude?)
+>
+
+<!ELEMENT respAccountAddLimit        ((limitId?, activeDate?, token) | accountFailure)>
+
+<!-- AccountSelfExclude -->
+<!ELEMENT reqAccountSelfExclude  (
+	token,
+	selfExclusionId?,
+	exclusionType?,
+	exclusionMethod?,
+	exclusionPeriod?,
+	coolOffPeriod?,
+	reactivateDate?,
+	reactivateMethod?,
+	startTime?,
+	endTime?,
+	shopId?,
+	config*)
+>
+<!ATTLIST reqAccountSelfExclude action (ADD | DEL | QUEUE_FOR_DEL | ADD_SHOP | UNTIL) #IMPLIED>
+
+<!ELEMENT respAccountSelfExclude (accountFailure?, token)>
+
+<!-- AccountNotify -->
+<!ELEMENT reqAccountNotify  (
+	token?,
+	(failedLogin | selfExclusionOverride))
+>
+<!ATTLIST failedLogin
+	channel         CDATA #IMPLIED
+	reasonCode      CDATA #REQUIRED
+	dateTime        CDATA #REQUIRED
+	shopId          CDATA #IMPLIED
+	username        CDATA #REQUIRED
+	ipAddress       CDATA #IMPLIED>
+<!ATTLIST selfExclusionOverride
+	action          (ADD | DEL) #REQUIRED
+	id              CDATA       #REQUIRED>
+<!ELEMENT respAccountNotify (accountFailure?, token)>
+
+<!-- AccountAddAlias -->
+<!ELEMENT reqAccountAddAlias  (token, (systemName | host), alias, externalSystemId?)>
+<!ELEMENT respAccountAddAlias (accountFailure?, suggestion*, token)>
+
+<!-- AccountAddExtAlias -->
+<!ELEMENT reqAccountAddExtAlias  (token, (systemName | host), alias, externalSystemId?, password?)>
+<!ELEMENT respAccountAddExtAlias (accountFailure?, suggestion*, token)>
+
+<!-- AccountUpdAlias -->
+<!ELEMENT reqAccountUpdAlias  (token, host, alias)>
+<!ELEMENT respAccountUpdAlias (accountFailure?, token)>
+
+<!-- AccountDelLimit -->
+<!ELEMENT reqAccountDelLimit (
+    token,
+    limitId,
+    limitSort?)
+>
+
+<!ELEMENT respAccountDelLimit        ((activeDate? | accountFailure), token)>
+
+<!-- AccountGetLimit -->
+<!ELEMENT reqAccountGetLimit        (token,limitKind?)>
+<!ELEMENT respAccountGetLimit       ((accountFailure | (limitKind, limitAmount, limitAmountUsed, limitAmountRemaining, limitFrequency, limitFrequencyUsed, limitFrequencyRemaining , limitPeriod, limitRange)), token)>
+
+<!-- AccountGetLimits -->
+<!ELEMENT reqAccountGetLimits        (token,limitSort?)>
+<!ELEMENT respAccountGetLimits       ((accountFailure | customerLimit*), token)>
+
+<!-- AccountValidateInsecure -->
+<!ELEMENT reqAccountValidateInsecure (
+	(userName | accountNo),
+	encPassword,
+	timeStamp,
+	verifyHash
+    )
+>
+
+<!ELEMENT respAccountValidateInsecure (
+    accountFailure | (
+		userName?,
+		accountNo?,
+		status?,
+		firstName?,
+		lastName?,
+		currency?,
+		maxStakeScale?,
+		title?,
+		gender?,
+		dob?,
+		postcode?,
+		channel?,
+		accountType?,
+		crDate?,
+		addrStreet1?,
+		addrStreet2?,
+		addrStreet3?,
+		addrStreet4?,
+		addrPostcode?,
+		email?,
+		nickname?,
+		ipAddress?,
+		telephone?,
+		mobile?,
+		countryCode?,
+		custId?,
+		temporaryPassword?,
+		temporaryPin?,
+		nickname?,
+		oddsDisplay?,
+		statusFlags?,
+		termsAndConditions?,
+		custFlags?,
+		insecureToken?,
+		token)?
+    )
+>
+
+<!-- AccountValidate1 -->
+<!ELEMENT reqAccountValidate1 (
+	token?,
+	locationName?,
+	(userName | accountNo)?,
+	(password | pin)?,
+	externalUniqueId?,
+	systemName?,
+	sessionGroup?,
+	dtvStoreDetails?,
+	dtvCardNo?,
+	machineId?,
+	ipAddress?,
+	channel?
+)>
+
+<!ATTLIST reqAccountValidate1
+	returnBalance        (Y|N) "N"
+	returnRefererDetails (Y|N) "N"
+	returnPreferences    (Y|N) "N"
+	returnAlias          (Y|N) "N"
+	returnLastLogin      (Y|N) "N"
+	updateLastLogin      (Y|N) "N"
+>
+
+<!ELEMENT respAccountValidate1 (
+	(accountFailure, loginDetails?) | (
+		%acctFields;,
+		(balance|accountBalance)?,
+		loginDetails?,
+		lastLogin?,
+		nif?,
+		regionCode?,
+		status*,
+		configParam*,
+		oddsDisplay?,
+		statusFlags?,
+		termsAndConditions?,
+		nickname?,
+		temporaryPassword?,
+		temporaryPin?,
+		custFlags?,
+		sysAliases?,
+		customerGroup?,
+		preferences?,
+		refererDetails?,
+		((insecureToken?, sessionId?,token)|selfExclude))?
+	)
+>
+<!ELEMENT preferences               (preference*,team*)>
+<!ATTLIST preferences
+	group CDATA #IMPLIED
+>
+
+<!ELEMENT loginDetails (attemptsRemaining | (lastLoginTime, lastLoginChannel))>
+
+<!ELEMENT refererDetails ((affName, bannerID, profileID, refererURL, promoCode, affRefererString)?)>
+
+<!-- AccountValidate2 -->
+<!ELEMENT reqAccountValidate2       ((userName*, channel?, accountNo*, custId*, externalUniqueId*)+, matchCase?, systemName?, sessionGroup?, ipAddress?)>
+<!ELEMENT respAccountValidate2      (accountFailure | customerDetails*)>
+<!ATTLIST reqAccountValidate2
+	returnPreferences (Y|N) "N"
+	returnLastLogin   (Y|N) "N"
+	updateLastLogin   (Y|N) "N"
+>
+
+<!-- AccountValidate3 -->
+<!ELEMENT reqAccountValidate3       (cardNo, (pin | password)+, cardType?)>
+<!ELEMENT respAccountValidate3 (
+	accountFailure | (
+		%acctFields;,
+		temporaryPassword,
+		temporaryPin,
+		statusFlags?,
+		token)?
+	)
+>
+
+<!-- AccountLoginMobile -->
+<!ELEMENT reqAccountLoginMobile (mobile, encPin?, channel?)>
+<!ELEMENT respAccountLoginMobile (
+	accountFailure | (
+		%acctFields;,
+		temporaryPassword,
+		temporaryPin,
+		token)?
+	)
+>
+
+<!-- AccountLogout -->
+<!ELEMENT reqAccountLogout          (token)>
+<!ELEMENT respAccountLogout         EMPTY>
+
+<!-- AccountBalance -->
+<!ELEMENT reqAccountBalance         (token, wallets?, currency?, systemName?, remoteReference?, (subId | subReference)?, sessionId?)>
+<!ATTLIST reqAccountBalance currencyDisplay (simple|full) #IMPLIED>
+<!ELEMENT respAccountBalance        ((accountFailure | (accountBalance?,convertedBalance?)), token)>
+
+<!-- AccountCancelPayment -->
+<!ELEMENT reqAccountCancelPayment   (token, paymentId?)>
+<!ELEMENT respAccountCancelPayment  ((accountFailure | (totalCancelledAmount, balance)), token)>
+
+<!-- AccountGetExtBalance -->
+<!ELEMENT reqAccountGetExtBalance   (token)>
+<!ELEMENT respAccountGetExtBalance  ((accountFailure | (hasPlayed?, extSystems?,totalAmount))?, token)>
+
+<!-- AccountSetInitPwdPin -->
+<!ELEMENT reqAccountSetInitPwdPin   (cardNo, (userName | accountNo)?, (password | pin), terminalCode?)>
+<!ELEMENT respAccountSetInitPwdPin  (accountFailure | token)>
+
+<!-- AccountSetPwdPin -->
+<!ELEMENT reqAccountSetPwdPin       (token, ((password | encPassword) | (pin | encPin) | (accountCardNumber,accountCardPin,accountCardOldPin)),temporaryPassword?, checkOldPassword?, oldPassword?)>
+<!ELEMENT respAccountSetPwdPin      (accountFailure?, token)>
+
+<!-- AccountModify -->
+<!ELEMENT reqAccountModify (
+	token, (
+		userName?,
+		accountNo?,
+		usernameUpper?,
+		challenge1?,
+		response1?,
+		challenge2?,
+		response2?,
+		title?,
+		firstName?,
+		lastName?,
+		secondLastName?,
+		gender?,
+		(
+			(addrStreet1?, addrStreet2?, addrStreet3?, addrStreet4?) |
+			(addrUnitNo?, addrPremisesName?, addrPremisesNo?, addrStreetName?) |
+			(addrLevel?, addrUnitType?, addrUnitNo?, addrBuildingNo?, addrAllotment?, addrPremisesName?, addrPremisesNo?, addrStreetName?, addrStreetType?)
+		),
+		addrCity?,
+		addrPostcode?,
+		email?,
+		telephone*,
+		telephoneDialCode?,
+		telephoneConfirmed?,
+		mobile?,
+		mobileDialCode?,
+		mobileConfirmed?,
+		contactable?,
+		contactHow?,
+		contactMethods?,
+		subscriptions?,
+		partnership?,
+		partnerContactable?,
+		office?,
+		fax?,
+		houseName?,
+		houseNo?,
+    	flatNo?,
+    	dob?,
+    	countryCode?,
+		countryState?,
+    	significantDate?,
+    	affId?,
+    	affAssetId?,
+    	lang?,
+    	status?,
+        priceFormat?,
+        hearAbout?,
+        hearAboutText?,
+		nickname?,
+		(terminalCode | terminalLocation)?,
+		regStage?,
+		accountCardNumber?,
+		accountCardPin?,
+		ident?,
+		identType?,
+		preferences*,
+		document?,
+		birthPlace?
+	)
+)>
+<!ELEMENT respAccountModify         (accountFailure*, token, status?)>
+
+<!-- AccountModifyURN -->
+<!ELEMENT reqAccountModifyURN (
+		extCustSerial,
+		custId,
+		version,
+		code,
+		master,
+		permanent,
+		extCustId
+    )
+>
+<!ELEMENT respAccountModifyURN       (token)>
+
+<!-- AccountAddIdentification -->
+<!ELEMENT reqAccountAddIdentification (token, drivingLicense?, passport?, proofOfAgeCard?, utilityBill*, dob?, reasonCode?, document?)>
+<!ELEMENT utilityBill (supplier)>
+<!ELEMENT drivingLicense (licenseNo?)>
+<!ELEMENT passport (passportNo?)>
+<!ELEMENT proofOfAgeCard (cardNo?)>
+<!ELEMENT document (config*)>
+<!ATTLIST document type CDATA #IMPLIED>
+<!ELEMENT respAccountAddIdentification (accountFailure?, token)>
+
+
+<!-- AccountAddPayMethod -->
+<!ELEMENT reqAccountAddPayMethod    (token,
+        nickname?,
+       (cardDetails |
+        cashDetails |
+        (useExistingDetails?, authDep?, authWtd?, chequeDetails) |
+        moneybookersDetails |
+        bankDetails  |
+        netellerDetails |
+		ukashDetails |
+        paypalDetails
+))>
+<!ELEMENT respAccountAddPayMethod   ((accountFailure | payMethodId), token)>
+
+<!-- AccountGetAlias -->
+<!ELEMENT reqAccountGetAlias    (token,host?,systemName?)>
+<!ELEMENT respAccountGetAlias   ((accountFailure | alias), token)>
+
+<!-- AccountCheckUsername -->
+<!ELEMENT reqAccountCheckUsername   (userName, channel?, dob?,firstName, lastName)>
+<!ELEMENT respAccountCheckUsername  (accountFailure | (isAvailable, suggestion*))>
+
+<!-- AccountGetCampaigns -->
+<!ELEMENT reqAccountGetCampaigns    (token)>
+<!ELEMENT respAccountGetCampaigns   ((accountFailure | campaignDetail*), token)>
+
+<!ELEMENT campaignDetail (campaignName, campaignActStart)>
+
+<!-- AccountGetCustGroups -->
+<!ELEMENT reqAccountGetCustGroups   (token)>
+<!ELEMENT respAccountGetCustGroups  ((accountFailure | custGroup*), token)>
+
+<!-- respAccountGetCustGroups respAccountSetCustGroups -->
+<!ELEMENT custGroup (
+	(groupValueTxt,groupValueDesc,groupDesc,groupTypeDesc)
+	|
+	(custGroupName,custGroupValue,custGroupPermanent,custGroupDate,custGroupOperId)
+)>
+
+<!-- AccountSetCustGroups -->
+<!ELEMENT reqAccountSetCustGroups (
+	token,
+	custGroup*
+)>
+
+<!ELEMENT respAccountSetCustGroups  (accountFailure?, token?)>
+
+<!-- AccountGetDetail -->
+<!ELEMENT reqAccountGetDetail       ((token|(userName, channel?) | (email, dob)), systemName?, channel?)>
+<!ATTLIST reqAccountGetDetail
+	returnBalance     CDATA "N"
+	returnPreferences CDATA "N"
+	returnLastLogin   CDATA "N"
+>
+<!ELEMENT respAccountGetDetail      ((accountFailure | (userName,
+	accountNo?,
+	accountId?,
+	accountType?,
+	crDate?,
+	challenge1?,
+	response1?,
+	challenge2?,
+	response2?,
+	title?,
+	firstName?,
+	lastName?,
+	secondLastName?,
+	dob?,
+	ipAddress,
+	channel,
+	affId,
+	nickname?,
+	gender?,
+	%addressAlt;,
+	houseName?,
+	houseNo?,
+	flatNo?,
+	email?,
+	telephone*,
+	mobile?,
+	contactable?,
+	partnerContactable?,
+	office?,
+	fax?,
+	contactHow?,
+	priceType?,
+	(balance | accountBalance)?,
+	lang?,
+	countryCode?,
+	countryState?,
+	custId?,
+	ccyCode?,
+	maxStakeScale?,
+	regStage?,
+	custFlags?,
+	sysAliases?,
+	termsAndConditions?,
+	nickname?,
+	status?,
+	contactMethods?,
+	statusFlags?,
+	subscriptions?,
+	affiliate?,
+	customerGroup?,
+	preferences?,
+	lastLogin?,
+	oddsDisplay?,
+	document?,
+	birthPlace?,
+	nif?,
+	timeZone*,
+	externalAccount*
+	)), token?)
+>
+
+<!ELEMENT affiliate                 (affId?, affName?, productSource?, affRefererString?, affPromoWord?,affiliateGroup*)>
+<!ELEMENT affiliateGroup            (blurb*)>
+<!ATTLIST affiliateGroup
+	name          CDATA #IMPLIED>
+<!-- SysAliases -->
+<!ELEMENT sysAliases                (sysAlias+)>
+
+<!-- SysAlias -->
+<!ELEMENT sysAlias                  (host,alias)>
+
+
+<!-- AccountGetPayMethod -->
+<!ELEMENT reqAccountGetPayMethod    (token, payMethodId*, paymentSort?)>
+<!ELEMENT respAccountGetPayMethod   ((accountFailure | (
+	nickname?,
+	netDeposit?,
+	cardDetails?,
+	cashDetails?,
+	chequeDetails?,
+	moneybookersDetails?,
+	bankDetails?,
+	bpayDetails?,
+	netellerDetails?,
+	paypalDetails?,
+	ukashDetails?,
+	config*
+)), token)>
+
+<!-- AccountGetPayMethods -->
+<!ELEMENT reqAccountGetPayMethods   (token, expired?, returnMethodDetails?, payMethodId*, paymentSort?)>
+<!ATTLIST reqAccountGetPayMethods
+	availability          (all | registered | possible) #IMPLIED
+	returnLastPaymentDate (Y | N)                       "N"
+	status                CDATA                 #IMPLIED>
+<!ELEMENT respAccountGetPayMethods  ((accountFailure | (payMethod* , possiblePayMethod*)), token)>
+
+<!-- AccountGetSummary -->
+<!ELEMENT reqAccountGetSummary   	(token, returnSummaryData?)>
+<!ATTLIST reqAccountGetSummary
+	returnAccountDetails  (Y|N) #IMPLIED
+	returnAddressDetails  (Y|N) #IMPLIED
+	returnBetDetails      (Y|N) #IMPLIED
+	returnContactDetails  (Y|N) #IMPLIED
+	returnExternalDetails (Y|N) #IMPLIED
+	returnFreebetDetails  (Y|N) #IMPLIED
+	returnLimitDetails    (Y|N) #IMPLIED
+	returnWeeklyDetails   (Y|N) #IMPLIED
+>
+
+<!ELEMENT respAccountGetSummary  	((accountFailure | (accountDetails?, freeBetDetails?, betDetails?, addressDetails?, contactDetails?, externalSystemDetails?, customerLimitDetails?)), token)>
+
+<!-- AccountGetStatusFlags -->
+<!ELEMENT reqAccountGetStatusFlags  (token)>
+<!ELEMENT respAccountGetStatusFlags ((accountFailure | statusFlag*), token)>
+
+<!-- AccountGetVideoStreams -->
+<!ELEMENT reqAccountGetVideoStreams    (token, ipAddress?, eventId?, channel?, config?)>
+<!ATTLIST reqAccountGetVideoStreams    returnAccessKey (Y|N) #IMPLIED>
+<!ELEMENT respAccountGetVideoStreams   ((accountFailure | streamDetails*), token)>
+<!ELEMENT streamDetails                (provider?)>
+<!ATTLIST streamDetails
+	streamId     CDATA #IMPLIED
+	startTime    CDATA #REQUIRED
+	endTime      CDATA #REQUIRED
+	accessKey    CDATA #IMPLIED
+>
+<!ELEMENT provider                     (config+)>
+<!ATTLIST provider
+	name         CDATA #REQUIRED
+>
+
+
+<!-- AccountUpdPayMethod -->
+<!ELEMENT reqAccountUpdPayMethod    (token, payMethodId?, nickname?, (cardDetails | chequeDetails |netellerDetails| moneybookersDetails | paypalDetails))>
+<!ELEMENT respAccountUpdPayMethod   (accountFailure?, token)>
+
+<!-- AccountMakePayment -->
+<!ELEMENT reqAccountMakePayment     (token,
+		amount,
+		sort,
+		channel,
+		payMethodId,
+		businessChannel?,
+		commission?,
+		callId?,
+		outlet?,
+		( (cv2?, netellerPassword?, ipAddr?) | (ipAddr) | (payer?, chqNo, chqDate, chqSortCode?, chqAcctNo?, reference?, extraInfo?, ipAddr) | billerCode? ),
+		isCancel?,
+		anonPmt?,
+		updateFloat?,
+		sessOpType?,
+		siteViewId?,
+		voucherCode?,
+		((systemName,remoteUniqueId) | remoteUniqueId)?,
+		clientUserAgent?,
+		paymentRequest?,
+		gatewayCurrency?)
+>
+
+<!ATTLIST reqAccountMakePayment
+	returnBalance (Y|N) "N"
+	status                CDATA                 #IMPLIED
+>
+
+<!ELEMENT gatewayCurrency (currency,amount)>
+<!ELEMENT paymentRequest (config*)>
+<!ATTLIST paymentRequest type (CC|MB|PPAL|OPT) #IMPLIED>
+
+<!ELEMENT respAccountMakePayment (
+	(
+		accountFailure |
+		(
+			paymentId,
+			(
+				paymentRedirect |
+				(
+					date,
+					sort,
+					firstDeposit?,
+					orderId?,
+					referenceId?,
+					merchPayMethod?,
+					paymentProcessedEarlier?,
+					accountBalance?
+				)
+			)
+		)
+	),
+	token
+)>
+
+<!ELEMENT paymentRedirect (config*)>
+
+<!ATTLIST paymentRedirect type (CC|MB|PPAL) #IMPLIED>
+
+
+<!-- AccountMakeWalletPayment -->
+<!ELEMENT reqAccountMakeWalletPayment
+		(token,
+		 amount,
+		 sort,
+		 channel,
+		 wallet,
+		 payMethodId?,
+		 businessChannel?,
+		 password,
+		 cv2?)
+>
+<!ELEMENT respAccountMakeWalletPayment    (((accountFailure, paymentId?) | paymentId), token)>
+
+<!-- AccountCompletePayment -->
+<!ELEMENT reqAccountCompletePayment  (token, paymentId, paymentResult)>
+<!ATTLIST reqAccountCompletePayment
+	returnBalance (Y|N) "N"
+>
+
+<!ELEMENT paymentResult (config*)>
+<!ATTLIST paymentResult type (CC|MB|PPAL) #IMPLIED>
+
+<!ELEMENT respAccountCompletePayment ((accountFailure | paymentId), accountBalance?, token)>
+
+<!-- Chargeback Action -->
+<!ELEMENT reqAccountChargebackAction  (paymentMethod, transactionDate, referenceNumber, action)>
+<!ELEMENT respAccountChargebackAction (
+	accountFailure | (
+		  userName,
+		  urn,
+		  title,
+		  firstName,
+		  lastName,
+		  addrStreet1,
+		  addrStreet2,
+		  addrStreet3,
+		  addrStreet4,
+		  postcode,
+		  addrCity,
+		  countryCode,
+		  registerDate,
+		  channel,
+		  registerProduct,
+		  ipAddr,
+		  affId,
+		  paymentId,
+	      accountStatus,
+		  transactionCSCResp,
+		  pointOfDeposit,
+		  transactionIpAddr,
+		  transactionChannel,
+		  cardType,
+	      cardScheme,
+		  bankName,
+		  bankCountry,
+		  expiry)
+	)>
+
+<!-- TokenRefresh -->
+<!ELEMENT reqTokenRefresh           (token,userName?,encPassword?,returnTransferToken?)>
+<!ELEMENT respTokenRefresh          (transferToken?,expiryTime?,timeToLive?,token?)>
+
+<!-- TokenTransfer -->
+<!ELEMENT reqTokenTransfer          (token, source, target)>
+<!ELEMENT respTokenTransfer         (token)>
+
+<!--TokenStatus -->
+<!ELEMENT reqTokenStatus            (token,userName?)>
+<!ELEMENT respTokenStatus           (((loginTime, expiryTime)?, config*) | accountFailure)>
+
+<!-- AccountFundsCancel -->
+<!ELEMENT reqAccountFundsTransferCancel   (
+	transferCancel+
+)>
+
+<!ATTLIST reqAccountFundsTransferCancel
+	systemName            CDATA #REQUIRED
+	batchAsSingleTransfer CDATA #IMPLIED
+	abortOnFailure        CDATA #IMPLIED
+	cancelType            CDATA #IMPLIED>
+
+<!ATTLIST transferCancel
+	custId              CDATA #IMPLIED
+	accountNo           CDATA #IMPLIED
+	sort                CDATA #IMPLIED
+	remoteAction        CDATA #IMPLIED
+	remoteReference     CDATA #IMPLIED
+	remoteAccount       CDATA #IMPLIED
+	remoteUniqueId      CDATA #REQUIRED>
+
+<!ELEMENT respAccountFundsTransferCancel  (
+	(transferCancelResponse+ | accountFailure)
+)>
+
+<!ATTLIST transferCancelResponse
+	code                CDATA #REQUIRED
+	message             CDATA #REQUIRED
+	debug               CDATA #IMPLIED
+	custId              CDATA #IMPLIED
+	accountNo           CDATA #IMPLIED
+	remoteUniqueId      CDATA #REQUIRED
+	amount              CDATA #IMPLIED
+	withdrawableAmount  CDATA #IMPLIED
+	freeMoneyAmount     CDATA #IMPLIED
+>
+
+<!-- reqAccountFundsTransfer elements used in standard and failproof modes -->
+<!ENTITY % transferCommon "
+	amount?,
+	points?,
+	view?,
+	freeMoneyAmount?,
+	currency?,
+	withdrawable?,
+	sort?,
+	sessionId?
+">
+
+<!-- reqAccountFundsTransfer standard elements -->
+<!ENTITY % transferStandard "
+	jrnlOpType?,
+	manAdjType?,
+	manAdjSubType?,
+	desc,
+	affId?,
+	channel?,
+	callId?
+">
+
+<!-- reqAccountFundsTransfer failproof elements -->
+<!ENTITY % transferFailproof "
+	desc?,
+	systemName,
+	(subReference | subId)?,
+	subDesc?,
+	clientIPAddress?,
+	proxyIPAddress?,
+	remoteAction,
+	channel?,
+	remoteReference?,
+	remoteAccount?,
+	remoteItemId?,
+	remoteStatus?,
+	remoteUniqueId,
+	remoteBalance*,
+	transfer?,
+	ipAddr?,
+	desc?,
+	callId?,
+	affId?,
+	status?,
+	subAction*,
+	intCampId?
+">
+
+<!-- Details required to describe a transfer in reqAccountFundsTransfer -->
+<!ENTITY % transferRequest "
+	%transferCommon;,
+	((%transferFailproof;) | (%transferStandard;))
+">
+
+<!-- Full transfer details returned by reqAccountFundsTransfer -->
+<!ENTITY % transferResponse "
+	transferProcessedEarlier,
+	transferFingerprint?,
+	(amount, withdrawableAmount?, currency)?,
+	jrnlId?,
+	redeemedFreebetTokens?,
+	remainingFreebetTokens?
+">
+
+<!-- Transfer details returned by reqTransGetPokerDetail -->
+<!ENTITY % shortTransferResponse "
+	amount,
+	points,
+	jrnlOpType,
+	reason
+">
+
+<!ELEMENT reqAccountFundsTransfer (
+	token,
+	returnRemainingTokens?,
+	userClient?,
+	currency?,
+	sort?,
+	channel?,
+	affId?,
+	((batchAsSingleTransfer?, transfer+) | (%transferRequest;))
+)>
+
+<!ELEMENT transfer (
+	transferId?,
+	((%transferRequest;) | (remoteUniqueId) | (%transferResponse;) | (%shortTransferResponse;))
+)>
+
+<!ATTLIST transfer groupId CDATA #IMPLIED>
+
+<!ELEMENT respAccountFundsTransfer (
+	(
+		accountFailure |
+		(
+			(
+				(transferId, (%transferResponse;)) | transfer+
+			),
+			accountBalance?
+		)
+	),
+	token
+)>
+
+<!ELEMENT redeemedFreebetTokens     (currency?,freebetToken*)>
+<!ELEMENT remainingFreebetTokens    (currency?,freebetToken*)>
+
+<!-- AccountFundsTransferStatus -->
+<!ELEMENT reqAccountFundsTransferStatus (transferStatus+)>
+<!ATTLIST reqAccountFundsTransferStatus	systemName CDATA #IMPLIED>
+
+<!ATTLIST transferStatus
+	custId         CDATA #REQUIRED
+	systemName     CDATA #REQUIRED
+	remoteUniqueId CDATA #REQUIRED>
+
+<!ELEMENT fundsTransferStatus (custId,remoteUniqueId)>
+<!ELEMENT respAccountFundsTransferStatus (transferStatusResponse*)>
+
+<!ATTLIST transferStatusResponse
+	code            CDATA #REQUIRED
+	message         CDATA #REQUIRED
+	debug           CDATA #IMPLIED
+	custId          CDATA #REQUIRED
+	sort            CDATA #IMPLIED
+	transferId      CDATA #IMPLIED
+	amount          CDATA #IMPLIED
+	remoteAction    CDATA #IMPLIED
+	remoteReference CDATA #IMPLIED
+	remoteAccount   CDATA #IMPLIED
+	remoteUniqueId  CDATA #REQUIRED
+	status          CDATA #IMPLIED>
+
+
+<!-- AccountWalletTransfer -->
+<!ELEMENT reqAccountWalletTransfer   (token, amount, fromWallet, toWallet, password)>
+<!ELEMENT respAccountWalletTransfer  (accountFailure?, token)>
+
+<!-- AccountGetDTVDetails -->
+<!ELEMENT reqAccountGetDTVDetails    (dtvCardNo)>
+<!ELEMENT respAccountGetDTVDetails (
+    accountFailure | (
+        userName,
+        accountNo,
+        status,
+        firstName,
+        lastName,
+        currency,
+        maxStakeScale,
+        title,
+        gender,
+        dob,
+        postcode,
+        channel,
+        accountType,
+        crDate,
+		countryCode?)?
+    )
+>
+
+<!-- AccountDelDTVUser -->
+<!ELEMENT reqAccountDelDTVUser    (dtvCardNo,accountNo)>
+<!ELEMENT respAccountDelDTVUser (
+    accountFailure | (
+        userName,
+        accountNo,
+        status,
+        firstName,
+        lastName,
+        currency,
+        maxStakeScale,
+        title,
+        gender,
+        dob,
+        postcode,
+        channel,
+        accountType,
+        crDate,
+		countryCode?)?
+    )
+>
+
+<!-- AccountSetFlags -->
+<!ELEMENT reqAccountSetFlags           ((token,flag*)|customerFlags+)>
+<!ELEMENT respAccountSetFlags          (accountFailure?,token?)>
+<!ELEMENT customerFlags                (custId,flag+)>
+<!ELEMENT flag                         (flagName,flagValue?)>
+
+<!-- AccountSetStatusFlags -->
+<!ELEMENT reqAccountSetStatusFlags     (token,statusFlag*)>
+<!ELEMENT respAccountSetStatusFlags    (accountFailure|token)>
+<!ELEMENT statusFlag                   (flagName,flagStatus,flagReason)>
+
+<!-- AccountGetFlags -->
+<!ELEMENT reqAccountGetFlags    (token,flagName?)>
+<!ELEMENT respAccountGetFlags   (accountFailure|(flag*,token))>
+
+<!-- AccountGetURL -->
+<!ELEMENT reqAccountGetURL          (token?, systemName, URLType+)>
+<!ELEMENT URLType                   (#PCDATA)>
+<!ELEMENT respAccountGetURL         (accountFailure|(AccountURL+, token?))>
+<!ELEMENT AccountURL                (URLType, URLValue)>
+<!ELEMENT URLValue                  (#PCDATA)>
+
+<!ELEMENT reqAccountVerify          (
+		token,
+		(
+			(type, (
+					(licenseNo, postcode?) |
+					(type, passportNo, expiryDay, expiryMonth, expiryYear, countryCode?)
+					)?
+			) |
+			(obAlias, userName?, ipAddress, encData?,systemName?)
+		),
+		channel
+	)>
+
+<!ATTLIST reqAccountVerify
+	validateOnly                    (Y|N) "N"
+	method                          CDATA "OVS">
+
+<!ELEMENT respAccountVerify         (
+		(ovsStatus, ovsFlag, verificationText, token) |
+		(obAlias, verifyResult, verifyReason, config, token)
+	)>
+
+<!-- AccountSessionBegin-->
+<!ELEMENT reqAccountSessionBegin        (token, clientId, systemName?, sessionGroup?)>
+<!ELEMENT respAccountSessionBegin       ((accountFailure | sessionId), token)>
+
+<!-- AccountSessionEnd-->
+<!ELEMENT reqAccountSessionEnd        (token, sessionId)>
+<!ELEMENT respAccountSessionEnd       (accountFailure?, token)>
+
+<!-- AccountSessionGet-->
+<!ELEMENT reqAccountSessionGet        (token, sessionId?)>
+<!ATTLIST reqAccountSessionGet        returnBalance (Y|N) "N">
+<!ELEMENT respAccountSessionGet       ((accountFailure | (clientId, ipAddr, startTime?, winnings?, stakes?, accountBalance?)), token)>
+
+<!-- AccountSubBegin -->
+<!ELEMENT reqAccountSubBegin        (token, systemName, subReference, subDesc, clientIPAddress?, proxyIPAddress?, channel?, failOnDuplicateSub?)>
+<!ELEMENT respAccountSubBegin       ((accountFailure | subId), token)>
+
+<!-- AccountSubEnd -->
+<!ELEMENT reqAccountSubEnd          (token, systemName, (subId | subReference), subAction*)>
+<!ELEMENT respAccountSubEnd         ((subId | subReference | accountFailure), token)>
+
+<!-- AccountSubDetails -->
+<!ELEMENT reqAccountSubDetails      (token, systemName, (subId | subReference))>
+<!ELEMENT respAccountSubDetails     (((systemName, subId, subReference, subStartTime, endTime?, currencyDetail*)| subFailure),token)>
+
+<!-- AccountAddSubInfo -->
+<!ELEMENT reqAccountAddSubInfo      (token, systemName, (subId | subReference), subAction*)>
+<!ELEMENT subAction                 (actionSeqNo?, action, actionInfo*, transferUniqueId?)>
+<!ELEMENT actionInfo                (name,value)>
+<!ELEMENT respAccountAddSubInfo     (accountFailure?, token)>
+
+<!-- AccountGetNotices -->
+<!ELEMENT reqAccountGetNotices      (token,returnNotices?)>
+<!ELEMENT respAccountGetNotices     (numberRead,numberUnread,notice*,token?)>
+
+<!-- AddCGCustLimit -->
+<!ELEMENT reqAddCGCustLimit (
+    (token|custId)?,
+    limitType,
+    limitLevel,
+    limitValue,
+    limitPriority?,
+    limitPeriod?,
+    startTime?,
+    endTime?)
+>
+<!ELEMENT respAddCGCustLimit        ((limitId, token?) | accountFailure)>
+
+<!-- AffiliateGetDetail -->
+<!ELEMENT reqAffiliateGetDetail     ((affId|affPromoWord)+)>
+<!ELEMENT respAffiliateGetDetail    (affiliateFailure|affiliate*)>
+
+<!-- GetCGCustLimits -->
+<!ELEMENT reqGetCGCustLimits (token | custId)>
+
+<!ELEMENT respGetCGCustLimits       ((CGCustLimit*, token?) | accountFailure)>
+
+<!ELEMENT CGCustLimit (
+    limitId,
+    limitType,
+    limitLevel,
+    limitValue,
+    limitPriority,
+    limitPeriod,
+    startTime,
+    endTime)
+>
+
+<!-- CancelCGCustLimit -->
+<!ELEMENT reqCancelCGCustLimit      (token?, limitId)>
+
+<!ELEMENT respCancelCGCustLimit     (accountFailure?, token?)>
+
+<!-- TransGetJrnlItems1 -->
+<!ELEMENT reqTransGetJrnlItems1     (
+	token,
+	(
+		(
+			fromDate?,
+			toDate?,
+			((systemName?, systemGroupName?, remoteReference?)|(gameName|gameClass))?,
+			ordering?,
+			(blockSize, blockNo)?,
+			(includeType* | excludeType*)?
+		)|jrnlId+
+	),
+	returnPoints?,
+	returnGameName?,
+	returnTransferData?,
+	returnCGData?,
+	lang?
+)>
+<!ELEMENT respTransGetJrnlItems1    ((transFailure | (journalEntry*, totalBlocks?)), token)>
+
+<!-- TransGetBetItems -->
+<!ELEMENT reqTransGetBetItems       (token, fromDate?, toDate?, settled?, ordering?, (blockSize, blockNo)?, filter*)>
+<!ELEMENT respTransGetBetItems      ((transFailure | (betItem*, totalBlocks?)), token)>
+
+<!-- TransGetPoolBetItems -->
+<!ELEMENT reqTransGetPoolBetItems   (token, fromDate?, toDate?, ordering?, (blockSize, blockNo)? )>
+<!ELEMENT respTransGetPoolBetItems  ((transFailure | poolBetItem*), token)>
+
+<!-- TransGetCGItems -->
+<!ELEMENT reqTransGetCGItems        (token, fromDate?, toDate?, (gameName|gameClass)?, ordering?, (blockSize, blockNo)? )>
+<!ELEMENT respTransGetCGItems       ((transFailure | (CGItem*, totalBlocks?)), token)>
+
+<!-- TransGetBetDetail -->
+<!ELEMENT reqTransGetBetDetail      (token, channel?, (betId | externalBetId)+, returnFormattedHandicap?)>
+<!ELEMENT returnFormattedHandicap   (#PCDATA)>
+<!ELEMENT respTransGetBetDetail     ((transFailure | bet+), token)>
+
+<!-- TransGetPoolBetDetail -->
+<!ELEMENT reqTransGetPoolBetDetail  (token, poolBetId+)>
+<!ELEMENT respTransGetPoolBetDetail ((transFailure | poolBet+), token)>
+
+
+<!-- TransGetBetDetails -->
+<!ELEMENT reqTransGetBetDetails     (token, ((fromDate?, toDate?) | callId)?, typeId?, classId?, settled?, ordering?, status?, filter*, (blockSize, blockNo)? )>
+<!ELEMENT respTransGetBetDetails    ((transFailure | (bet*,totalBlocks?)), token)>
+
+<!-- TransGetBetsPlaces -->
+<!ELEMENT reqTransGetBetsPlaced     (token, fromDate?, toDate?, ordering?, (blockSize, blockNo)?, eventId+, clientApplication*)>
+<!ELEMENT respTransGetBetsPlaced    ((transFailure | bet*), token)>
+
+<!-- TransGetCGDetail -->
+<!ELEMENT reqTransGetCGDetail       (token, gameSummaryId)>
+<!ELEMENT respTransGetCGDetail      ((transFailure |
+    (
+        started,
+        finished,
+        ipAddr,
+        stakes,
+        progFixedStake,
+        stakePerLine,
+        winnings,
+        progWinnings,
+        affId,
+        name,
+        gameClass,
+        displayName,
+        freePlay,
+        crDate?,
+        (
+            (interaction+)? |
+            (
+                        (reelState, winId, type) |
+                        (diceState, winId, selectedLine) |
+                        (reversePayout, stop, selWinLines, winLines, winPayouts) |
+                        (drawn, ((drawn2, selected, matches, bingoCard)|(gameBet)))
+            )
+        )
+    )), token)
+>
+
+<!ELEMENT interaction
+    (
+        (stake, winnings, numDrops ) |
+        (
+          interactionNo,
+            (
+                  (drawn,
+                          (     (drawn2, ((matches, betType, reversePlay) | (selected, matches, isReverse)) ) |
+                                (numBets, stake, winnings, leftDrawn, rightDrawn)
+                          )
+                  )|
+                  (action,
+                        (       (gameStatus) |
+                                (actionIndex, gameStatus, gameState, currentPlay, currentWinnings) |
+                                (selected, gameStatus, pyramidLevel, level,stake, totalWinnings) |
+                                (status, reversePayout, stop, selWinLines, numFreeSpin, totalStake, stakePerLine, winnings, bonusWinnings ) |
+                                (dealerCard, stake, player, currentHand, handStatus ) |
+                                (actionData, gameState, currentWinnings ) |
+                                (stake, winnings, dealtCards, heldCards, doubleCount, doubleDealer, doubleUser, doubleFirstSelection, doubleSelection)
+                        )
+                )
+          )
+      )
+   )
+>
+
+
+<!-- TransGetBallsWin -->
+<!ELEMENT reqTransGetBallsWin       (token, ballsPayoutId)>
+<!ELEMENT respTransGetBallsWin      ((transFailure | (ballsSubscription, ballsPayout, ballsDraw)), token)>
+
+<!-- TransGetBallsSub -->
+<!ELEMENT reqTransGetBallsSub       (token, ballsSubId)>
+<!ELEMENT respTransGetBallsSub      ((transFailure | ballsSubscription), token)>
+
+<!-- TransGetPayments -->
+<!ELEMENT reqTransGetPayments       (token, ((fromDate?, toDate?, ordering?, (blockSize, blockNo)?, sort?, includeType*, excludeType*)|paymentId+))>
+
+<!ELEMENT respTransGetPayments      ((transFailure | (paymentItem*,totalBlocks?)), token)>
+
+<!-- TransGetPokerDetail -->
+<!ELEMENT reqTransGetPokerDetail       (token,transferId+) >
+<!ELEMENT respTransGetPokerDetail      ((transFailure | pokerGame+), token)>
+
+<!ELEMENT pokerGame (pokerSubscription+,gameId,gameName,gameType,pokerVariantCode,pokerVariantName,gameLimitType,gameSchedule,gameTournament?)>
+
+<!ELEMENT pokerSubscription (
+	transfer*,
+	subscriptionId,
+	custId,
+	subscriptionExternalId?,
+	subscriptionStatus,
+	subscriptionSettled,
+	subscriptionStartedAt,
+	subscriptionStoppedAt,
+	subscriptionFee,
+	subscriptionPointsFee,
+	subscriptionReturns,
+	subscriptionRank,
+	subscriptionNumRebuys,
+	subscriptionNumAddons,
+	subscriptionPointsEarned,
+	subscriptionNumHandsPlayed,
+	pokerPrize*
+	)
+>
+
+<!ELEMENT pokerPrize (prizeId,prizeRank,prizeType,prizeDesc,prizeWon,prizeWonAmount,prizeHidden)>
+
+<!ELEMENT gameSchedule (scheduleType?,scheduledLimits*)>
+<!ELEMENT scheduledLimits (limitValue?,limitLowLimit,limitHighLimit)>
+
+<!ELEMENT gameTournament (
+	tournamentType,
+	tournamentStatus,
+	tournamentLive,
+	tournamentStartTime,
+	tournamentEndTime,
+	tournamentStartedAt,
+	tournamentStoppedAt,
+	tournamentNumRegistrations,
+	tournamentEntryFee,
+	tournamentEntryPrizeContrib,
+	tournamentEntryPointsFee,
+	tournamentPointsOnEntry,
+	tournamentRebuyFee,
+	tournamentRebuyPrizeContrib,
+	tournamentPointsOnRebuy,
+	tournamentAddonFee,
+	tournamentAddonPrizeContrib,
+	tournamentPointsOnAddon,
+	tournamentPrizePoolTotal
+	)
+>
+
+<!ELEMENT reqTransGetPokerHands      (token,subscriptionId) >
+<!ELEMENT respTransGetPokerHands     ((transFailure | subscriptionHands), token)>
+
+<!ELEMENT subscriptionHands (subscriptionId,pokerHand+)>
+
+<!ELEMENT pokerHand (
+	pokerHandId,
+	pokerHandDate,
+	pokerHandPot,
+	pokerHandCustCards,
+	pokerHandCommunityCards,
+	pokerHandCustWin,
+	pokerHandCustStake,
+	pokerHandWinnerNickname,
+	pokerHandWonAmount
+	)
+>
+
+<!-- BetBuild -->
+<!ELEMENT reqBetBuild               (token?, errorDetail?, channel?, callId?, anonBet?, (outcomeGroup|bet)+)>
+<!ATTLIST reqBetBuild
+	returnComplexCombinations (Y|N) "N"
+	returnFreebetTokens       (Y|N) "N"
+	returnOutcomeDetails      (Y|N) "N"
+>
+<!ELEMENT respBetBuild              (betFailure*, betBuild*, outcomeDetails*, token?)>
+
+<!ELEMENT outcomeDetails (alternatePrice*)>
+<!ATTLIST outcomeDetails id CDATA #REQUIRED>
+
+<!-- BetCancel -->
+<!ELEMENT reqBetCancel              (callId?, token?, betCancel+)>
+<!ELEMENT betCancel                 ( (betId | externalBetId | betTicketId)+, reason, limits?, autoWithdrawal?, collectRefund?)>
+
+<!ELEMENT respBetCancel             ((betCancelResponse | betFailure)+)>
+<!ELEMENT betCancelResponse         ((betId | externalBetId), date, refund?, ccyCode?, (betTicketId, barcode)? )>
+
+<!-- BetUpdate -->
+<!ELEMENT reqBetUpdate              (token?, updateBet+)>
+<!ELEMENT respBetUpdate             (updateStatus+, token)>
+
+<!ELEMENT updateBet                 (betId, action, reason?, terminalCode?, callId?, autoWithdrawal?, amount?, adjustedNumLinesWin?, adjustedNumLinesLose?, source?)>
+<!ELEMENT updateStatus              (betId, status, debug?, date?, refund?, ccyCode?)>
+
+<!-- BetGetSettled -->
+<!ELEMENT reqBetGetSettled          (token, (sinceDate | numBetsSettled)?, filter?)>
+<!ELEMENT respBetGetSettled         ((betSettled+), token)>
+
+<!--betSettled-->
+<!ELEMENT betSettled                (tvChannel?, eventId, eventDesc, eventMarketId, eventMarketDesc, eventOutcomeId, eventOutcomeDesc, winnings, settledAt)>
+
+<!-- BetPlace -->
+<!ELEMENT reqBetPlace               (token, errorDetail?, affId?, channel?, externalChannel?, businessChannel? ,view?, callId?, cv2?, anonBet?, fullDetails?, translate?, autoDeposit?, anonCustId?, ipaddr?, remoteUniqueId?, clientUserAgent?, clientUID?, clientApplication?, countryCode?, longitude?, latitude?, ipaddr?, bet+, configParam*)>
+<!ATTLIST reqBetPlace
+	returnFreebetDetails (Y|N) "N"
+	returnBalance (Y|N) "N"
+>
+<!ELEMENT respBetPlace              ((betPlacement+ | betFailure+| betDelay+), accountBalance?, configParam*, token)>
+
+<!-- BetValidate -->
+<!ELEMENT reqBetValidate            (token, errorDetail?, affId?, channel?, externalChannel?, view?, callId?, anonBet?, checkBalance?, bet+)>
+<!ATTLIST reqBetValidate            checkStakeLimits (Y|N) "Y">
+<!ELEMENT respBetValidate           (betFailure*, betValidation*, token)>
+
+<!-- BetStatus -->
+<!ELEMENT reqBetStatus (
+	token,
+	betId*,
+	birToken*,
+	uniqueId*,
+	fullDetails?,
+	translate?,
+	potentialPayout?
+)>
+<!ATTLIST reqBetStatus              returnFreebetDetails (Y|N) "N">
+<!ELEMENT respBetStatus             ((betStatus+ | betFailure+ ), token?)>
+
+<!ELEMENT betStatus (
+	(betId | uniqueId | birToken),
+	status+,
+	originalStake?,
+	originalPriceNum?,
+	originalPriceDen?,
+	originalLegType?,
+	originalHandicapValue?,
+	offeredStake?,
+	offeredPriceNum?,
+	offeredPriceDen?,
+	offeredLegType?,
+	offeredHandicapValue?,
+	originalPriceDec?,
+	offeredPriceDec?,
+	processedDate?,
+	receipt?,
+	delay?,
+	errorDetail?,
+	uniqueId?,
+	betFailureCode?,
+	betFailureReason?,
+	leg*,
+	barcode?,
+	bet?,
+	(betPotentialWin | potentialPayout)?,
+	redeemedFreebetTokens?
+)>
+
+<!-- PoolBetPlace -->
+<!ELEMENT reqPoolBetPlace           (token, errorDetail?, affId?, channel?, callId?, clientUserAgent?, poolBet+)>
+<!ELEMENT respPoolBetPlace          ((betPlacement+ | betFailure+), token)>
+
+<!-- PoolBetValidate -->
+<!ELEMENT reqPoolBetValidate        (token?, errorDetail?, affId?, channel?, callId?, checkBalance?, poolBet+)>
+<!ELEMENT respPoolBetValidate       ((poolBetValidation+ | betFailure+), token?)>
+
+<!-- SlipCancel -->
+<!ELEMENT reqSlipCancel             (token, channel, callId, slipId)>
+<!ELEMENT respSlipCancel            (betFailure?, token)>
+
+<!-- SlipCapture -->
+<!ELEMENT reqSlipCapture            (token, timeStamp, callId, channel, stake, barcode, image)>
+<!ELEMENT respSlipCapture           ((betFailure | slipId), token)>
+
+<!-- CallBegin -->
+<!ELEMENT reqCallBegin              (token, phoneNumber, terminalCode, channel, startTime?, sessionId?)>
+<!ELEMENT respCallBegin             ((callFailure | callId),token)>
+
+<!-- CallEnd -->
+<!ELEMENT reqCallEnd                (token, callId, callCode?, callText?, checkBalance?, checkPendingBets?, cashout?)>
+<!ELEMENT respCallEnd               ((callFailure | (startTime, endTime, noBets, totalStake, callCode, callText, balance?, voucherDetails?)), token)>
+<!ELEMENT voucherDetails            (voucherCode, amount)>
+
+<!-- CallGetOpen -->
+<!ELEMENT reqCallGetOpen            (sessionId)>
+<!ELEMENT respCallGetOpen           (callFailure | call*)>
+
+<!-- Session requets -->
+<!ELEMENT floatPair                 (ccyCode, amount)>
+
+<!-- SessionBegin -->
+<!ELEMENT reqSessionBegin           (terminalCode, token?, floatPair*)>
+<!ELEMENT respSessionBegin          ((sessionId | sessionFailure), token)>
+
+<!-- SessionEnd -->
+<!ELEMENT reqSessionEnd             ((terminalCode | sessionId), token?, floatPair*, transferTo?)>
+<!ELEMENT respSessionEnd            ((sessionResponse | sessionFailure), token)>
+
+<!-- SessionCalls -->
+<!ELEMENT reqSessionCalls            (sessionId, onlyOpen?)>
+<!ELEMENT respSessionCalls           (callFailure | call*)>
+
+<!-- SessionInfo -->
+<!ELEMENT reqSessionInfo            (sessionId)>
+<!ELEMENT respSessionInfo           ((sessionId, termCode, startTime, endTime, shopSessionId) | sessionFailure)>
+
+<!-- ShopCalls -->
+<!ELEMENT reqShopCalls               (locationCode, startTime, endTime)>
+<!ELEMENT respShopCalls              (call*)>
+
+<!-- ShopGetSessions -->
+<!ELEMENT reqShopGetSessions        (locationCode, startTime, endTime)>
+<!ELEMENT respShopGetSessions       (shopSession* | shopFailure)>
+
+<!-- ShopLock -->
+<!ELEMENT reqShopLock               (locationCode)>
+<!ELEMENT respShopLock              (shopSessionResponse | shopFailure)>
+
+<!-- ShopCashReport -->
+<!ELEMENT reqShopReport         (locationCode, shopSessionId?, includeOperator?, fromDate?)>
+<!ATTLIST reqShopReport         terminalReport       (Y|N) "Y">
+<!ATTLIST reqShopReport         cashReport           (Y|N) "Y">
+<!ATTLIST reqShopReport         currencyReport       (Y|N) "Y">
+<!ATTLIST reqShopReport         unpaidOnly           (Y|N) "N">
+<!ELEMENT respShopReport        (shopCashReport | shopFailure)>
+<!ELEMENT shopCashReport            (shopSessionId?, startTime?, endTime?, shopReport, terminalReport*)>
+<!ELEMENT shopReport                (shopCurrencyReport*)>
+<!ELEMENT terminalReport            (terminalCode, terminalName, termType, terminalCurrencyReport*)>
+<!ELEMENT shopCurrencyReport (
+	ccyCode,
+	declaredCash,
+	systemCash,
+	cashDifference,
+	startOfDayBalance,
+	previousDeclaredEOD,
+	float,
+	deposits,
+	depositCount,
+	changePayments,
+	changePaymentCount,
+	issuedCreditSlips,
+	issuedCreditSlipCount,
+	paidCreditSlips,
+	paidCreditSlipCount,
+	betPayouts,
+	betPayoutCount,
+	betRefunds,
+	betRefundCount,
+	totalBets,
+	totalStakes,
+	safeFloat?,
+	unpaidWinnings,
+	unpaidWinningCount,
+	unpaidRefunds,
+	unpaidRefundCount,
+	unpaidCreditSlips,
+	unpaidCreditSlipCount,
+	cashDifferenceLogs,
+	transferLogs
+)>
+
+<!ELEMENT cashDifferenceLogs (cashDifferenceLog*)>
+<!ELEMENT cashDifferenceLog (date, username, firstName, lastName, terminalName, amount)>
+
+<!ELEMENT transferLogs (transferLog*)>
+<!ELEMENT transferLog (
+	fromTerminalCode,
+	toTerminalCode,
+	amount,
+	count,
+	transferDesc
+)>
+
+<!ELEMENT terminalCurrencyReport (
+	ccyCode,
+	deposits,
+	depositCount,
+	float,
+	changePayments,
+	changePaymentCount,
+	paidCreditSlips,
+	paidCreditSlipCount,
+	issuedCreditSlips,
+	issuedCreditSlipCount,
+	betPayouts,
+	betPayoutCount,
+	betRefunds,
+	betRefundCount,
+	betCount,
+	totalStakes
+)>
+
+<!-- ShopCashReconciliation -->
+<!ELEMENT reqShopCashReconciliation (terminalCode, ccyCode, tallyType, denominationQuantity*)>
+<!ELEMENT respShopCashReconciliation (shopCashReconciliationResponse)>
+<!ELEMENT denominationQuantity      (denomination, quantity)>
+
+<!-- ShopSessionInfo -->
+<!ELEMENT reqShopSessionInfo        (locationCode)>
+<!ELEMENT respShopSessionInfo       ((endOfDayState, session+) | shopFailure)>
+
+<!-- ShopStartOfDay -->
+<!ELEMENT reqShopStartOfDay         (terminalCode, floatPair+)>
+<!ELEMENT respShopStartOfDay        (shopSessionId | shopFailure)>
+
+<!-- ShopEndOfDay -->
+<!ELEMENT reqShopEndOfDay           (terminalCode, floatPair+)>
+<!ELEMENT respShopEndOfDay          ((shopCashReport | shopCashReportFailure) | shopFailure)>
+
+<!-- ShopTransferFloat -->
+<!ELEMENT reqShopTransferFloat      (terminalCode, fromTerminalCode, toTerminalCode, ccyCode, amount, transferId?)>
+<!ELEMENT respShopTransferFloat     ((shopTransferFloatResponse,transferDetails) | shopFailure)>
+
+<!ELEMENT reqShopTransferTypes      (status?)>
+<!ELEMENT respShopTransferTypes     (shopTransferType*)>
+<!ELEMENT shopTransferTypes         (shopTransferType*)>
+<!ELEMENT shopTransferType          (transferId,transferType,transferDesc,op,status)>
+
+<!-- ShopAdd -->
+<!ELEMENT reqShopAdd (shopNo, shopName, telephone, districtNo, profileName)>
+<!ELEMENT respShopAdd (shopId | shopFailure)>
+
+<!-- ShopUpdate -->
+<!ELEMENT reqShopUpdate (shopNo, shopName, telephone, districtNo, profileName)>
+<!ELEMENT respShopUpdate (shopId | shopFailure)>
+
+<!-- ShopParamsAdd -->
+<!ELEMENT reqShopParamsAdd (shopNo, param+)>
+<!ELEMENT respShopParamsAdd (shopId | shopFailure)>
+
+<!-- ShopProfileParamsAdd -->
+<!ELEMENT reqShopProfileParamsAdd (profileName, param+)>
+<!ELEMENT respShopProfileParamsAdd (profileName | shopFailure)>
+
+<!-- AnonCashout -->
+<!ELEMENT reqAnonCashout            (callId, channel, token)>
+<!ELEMENT respAnonCashout           (((voucherCode, amount) | anonFailure), token)>
+
+<!-- AnonRedeemVoucher -->
+<!ELEMENT reqAnonRedeemVoucher      (voucherCode, callId?, token)>
+<!ELEMENT respAnonRedeemVoucher     ((cashoutResponse | anonFailure), token)>
+
+<!-- CallGetStopCodes -->
+<!ELEMENT reqCallGetStopCodes       (token, callId?)>
+<!ELEMENT respCallGetStopCodes      ((callFailure | callStopCodes), token)>
+
+<!-- CallGetTerminal -->
+<!ELEMENT reqCallGetTerminal        (token?, phoneNumber, terminalCode)>
+<!ELEMENT respCallGetTerminal       ((crDate, terminalCode, departmentCode,
+									 locationCode, terminalName, status,
+									 ident, betCount, telephone)?, token?)>
+
+<!-- TermGetParams -->
+<!ELEMENT reqTermGetParams          (terminalCode | terminalIdent)>
+<!ELEMENT respTermGetParams ((
+	terminalName,
+	location,
+	termType,
+	department,
+	terminalIdent,
+	status,
+	configParam+) | termFailure
+)>
+
+<!-- TermInit -->
+<!ELEMENT reqTermInit               (terminalCode | terminalIdent)>
+<!ELEMENT respTermInit ((
+	terminalName,
+	terminalId,
+	location,
+	locationId,
+	termType,
+	department,
+	terminalIdent,
+	status,
+	locationCode?,
+	regionAreaDistrictId,
+	defaultLang,
+	defaultCcy,
+	printerType,
+	printerPort,
+	shopSessionId,
+	companyId,
+	companyGroupId,
+	regionId?,
+	betProfileId?,
+	configParam+,
+	termAccount+,
+	sessionInfo?,
+	retailConfiguration?,
+	languages,
+	shopTransferTypes) | termFailure
+)>
+
+<!ELEMENT languages                 (lang*)>
+
+<!-- Retail Configuration -->
+<!ELEMENT retailConfiguration       (configGroup*)>
+<!ELEMENT configGroup               (name,configParam*)>
+
+<!-- TermInfo -->
+<!ELEMENT reqTermInfo               (location)>
+<!ELEMENT respTermInfo              (terminal+ | termFailure)>
+
+<!-- TermCheckNif -->
+<!ELEMENT reqTermCheckNif            (nif)>
+<!ELEMENT respTermCheckNif           (custId?,termFailure?)>
+
+<!-- TermValidateAccessCode -->
+<!ELEMENT reqTermValidateAccessCode  (tac)>
+<!ELEMENT respTermValidateAccessCode (termFailure?)>
+
+<!-- TermGenerateAccessCode -->
+<!ELEMENT reqTermGenerateAccessCode  (nif, terminalCode)>
+<!ELEMENT respTermGenerateAccessCode ((tac,barcode,custId?) | termFailure)>
+
+<!-- ErrorNotify -->
+<!ELEMENT reqErrorNotify  (error+)>
+<!ELEMENT error           (appTag, count, data, severity, operator?, terminalCode?, timeStamp?)>
+<!ELEMENT respErrorNotify (errorTicket+ | errorFailure)>
+
+<!ELEMENT errorTicket                   (#PCDATA)>
+<!ELEMENT errorFailure                  (#PCDATA)>
+
+<!-- ReceiptStatus -->
+<!ELEMENT reqReceiptStatus          ((barcode | receipt | betId | voucherId), fullDetails?, companyDetails?, translate?, terminalCode?, token?)>
+<!ELEMENT respReceiptStatus
+	(
+	(receiptType,
+		(
+			tac
+			|
+			(barcode,
+				((betId, betStrikeTerm, betStrikeTermName, betStrikeLoc, (betPotentialWin | betPotentialPayout), betCcy, bet,
+					(betPayoutTerm, betPayoutTermName, betPayoutLoc, betPayoutTime)?, betPayoutDetails*, betCanCollect, betCanCollectAmount, betCanCancel, betIsParked?, betCustomerType?, float?, betAdjustment*)
+				|
+				(voucherId, voucherValue, voucherCcy, voucherIssuingTerm, voucherIssuingLoc, voucherStatus,
+					(voucherCollectionTerm, voucherCollectionLoc, voucherCollectionTime)?)
+				),
+				betCompanyDetails?
+			)
+		)
+	)
+	|
+	anonFailure)>
+
+<!ELEMENT betCompanyDetails (betCompanyId, betCompanyGroupId)>
+
+<!ELEMENT betPayoutDetails (
+	betPayoutTerm,
+	betPayoutTermName,
+	betPayoutLoc,
+	betPayoutTime,
+	betPayoutAmount
+)>
+
+<!ELEMENT betAdjustment (
+	betAdjType,
+	crDate,
+	oldWinnings,
+	newWinnings,
+	info,
+	status,
+	requestorId,
+	requestorName,
+	(authoriserId, authoriserName, authorisationDate)?
+)>
+
+<!-- ReceiptPayout -->
+<!ELEMENT reqReceiptPayout          (
+	(barcode | betId | voucherId)+,
+	autoWithdrawal?,
+	updateFloat?,
+	nif?,
+	(
+		(initial, lastName, secondLastName?, bankAccountNo, entityNo, branchNo, controlDigit, reference, termCode)? |
+		((firstName, lastName, secondLastName?)?, termCode?)
+	),
+	callId?,
+	token
+)>
+<!ELEMENT respReceiptPayout         ((receiptPayout+ | anonFailure | (payoutAmount, date, payoutCcy, sessOpType, receiptType, id)), token)>
+
+<!--  receiptPayout -->
+<!ELEMENT receiptPayout             (payoutAmount, date, payoutCcy, sessOpType, receiptType, id)>
+
+<!-- TermTransactions -->
+<!ELEMENT reqTermTransactions       (((terminalName | terminalIdent), (callCount | (fromDate, toDate))) | callId)>
+<!ELEMENT respTermTransactions      ((terminalName, terminalIdent, terminalCode, terminalType, call+) | termFailure)>
+
+<!-- QueryApplyXSLT -->
+<!ELEMENT reqQueryApplyXSLT         (token?, styleSheet, styleSheetData?)>
+<!ELEMENT respQueryApplyXSLT        ANY>
+
+<!-- XGamePlace -->
+<!ELEMENT reqXGamePlace             (token?, source, callId?, xgame+)>
+<!ELEMENT respXGamePlace            ((xgameFailure | xgamePlacement+), token)>
+
+<!-- XGameGetOpenSubs -->
+<!ELEMENT reqXGameGetOpenSubs       (token)>
+<!ELEMENT respXGameGetOpenSubs      (xGameSub*,token)>
+
+<!-- CustomerRep -->
+<!ELEMENT reqCustomerRep            (token, status, encPassword, encPin)>
+<!ELEMENT respCustomerRep           (accountFailure?, token)>
+
+<!-- AccountGetFreebets -->
+<!ELEMENT reqAccountGetFreebets     (token,(systemName,remoteReference)?,gameArch?,allStatus?,returnRedeemedTokens?,returnCalledOffers?,returnCalledTriggers?,freebetTokenType?)>
+<!ELEMENT returnCalledOffers        (#PCDATA)>
+<!ATTLIST returnCalledOffers        status (A|C|X) #IMPLIED>
+<!ATTLIST returnCalledOffers        displayed (Y|N) #IMPLIED>
+<!ELEMENT returnCalledTriggers      (#PCDATA)>
+<!ATTLIST returnCalledTriggers      status (A|C|X) #IMPLIED>
+
+<!ELEMENT respAccountGetFreebets    ((accountFailure | (currency?, freebetToken*, redeemedFreebetTokens*, freebetOffer*, freebetCalledOffer*, freebetCalledTrigger*)), token)>
+
+<!--AccountAddPromoCode -->
+<!ELEMENT reqAccountAddPromoCode    (token,promoCode,promoReason,bonusAmount)>
+<!ELEMENT respAccountAddPromoCode   (((redeemed,reason?)|accountFailure),token)>
+
+<!--AccountSearch -->
+<!ELEMENT reqAccountSearch          (userName?,postcode?,email?,lastName?,dob?,accountType?,locationCode?,searchType?, dataFields?, identifier?)>
+<!ELEMENT identifier                (ident, identType)>
+<!ELEMENT respAccountSearch         (accountFailure|custSearchDetails*)>
+
+<!--DataList -->
+<!ELEMENT dataFields (dataField*)>
+
+<!--AdminDetail -->
+<!ELEMENT reqAdminDetail            (terminalCode?)>
+<!ELEMENT respAdminDetail           (
+	accountFailure | (
+		userId,
+		userName,
+		status,
+		firstName,
+		lastName,
+		crDate,
+		lang,
+		token,
+		permissions)?
+)>
+
+<!ELEMENT permissions               (op*)>
+
+<!--AdminModify -->
+<!ELEMENT reqAdminModify            (password?,terminalCode?)>
+<!ELEMENT respAdminModify           (accountFailure | token)>
+
+<!--AccountUpdRemoteItem -->
+<!ELEMENT reqAccountUpdRemoteItem   (token?, systemName, remoteItemId, remoteStatus)>
+<!ELEMENT respAccountUpdRemoteItem  (accountFailure?, token?)>
+
+<!--AccountRemoteItemsSummary -->
+<!ELEMENT reqAccountRemoteItemsSummary (token, systemName, fromDate, remoteStatus)>
+<!ELEMENT respAccountRemoteItemsSummary ((totalAmount, token) | accountFailure+)>
+<!ELEMENT reqAccountRemoteAction (token, systemName?, action, emailType?)>
+<!ELEMENT respAccountRemoteAction ((date?, token) | accountFailure)>
+
+<!--AccountUnlock -->
+<!ELEMENT reqAccountUnlock (accountNo, password)>
+<!ELEMENT respAccountUnlock (accountFailure?)>
+
+<!--ExternalAccountGetDetails -->
+<!ELEMENT reqAccountGetExtDetails  ((token | demoToken), externalAccountType?)>
+<!ELEMENT respAccountGetExtDetails (externalAccount*, custId, (token | demoToken))>
+
+<!ELEMENT reqAccountExtExists   (externalAccount)>
+<!ELEMENT respAccountExtExists  (accountNo)>
+
+<!ELEMENT reqAccountExtModify  (token, externalAccount?)>
+<!ELEMENT respAccountExtModify (token)>
+
+<!ELEMENT externalAccount (externalAccountType, externalId, externalStatus?, externalVerified?)>
+
+<!--AccountGetTrackingId -->
+<!ELEMENT reqAccountGetTrackingId (token)>
+<!ELEMENT respAccountGetTrackingId (trackingId, token)>
+
+<!--ShopMessageAcknowledgement -->
+<!ELEMENT reqShopMessageAcknowledgement    (msgId,terminalCode)>
+<!ELEMENT respShopMessageAcknowledgement   (shopFailure?)>
+
+<!ELEMENT freebetToken
+	(
+		freebetTokenId?,
+		freebetOfferId?,
+		freebetOfferName?,
+		freebetOfferDesc?,
+		freebetTokenDisplayText?,
+		(freebetTokenValue|(freebetAmountRedeemed,freebetRedemptionTime?,freebetAmountRemaining?))*,
+		freebetTokenExpiryDate?,
+		freebetTokenType?,
+		freebetGameName?,
+		freebetTokenStatus?,
+		currency?,
+		tokenPossibleBet*
+	)
+>
+
+<!ELEMENT freebetOffer
+	(
+		freebetOfferId,
+		freebetOfferName,
+		startTime?,
+		endTime,
+		description,
+		freebetOfferRepeatable?,
+		freebetOfferCcyCodes?,
+		freebetTrigger*,
+		freebetToken*
+	)
+>
+
+<!ELEMENT freebetTrigger
+	(
+		freebetTriggerId,
+		freebetTriggerType,
+		freebetTriggerRank,
+		freebetTriggerQualification?,
+		freebetTriggerDisplayText?,
+		freebetTriggerNumActions?,
+		extTriggerId?,
+		freebetTriggerAmount*
+	)
+>
+
+<!ELEMENT freebetTriggerAmount (#PCDATA)>
+<!ATTLIST freebetTriggerAmount currency CDATA "GBP">
+
+<!ELEMENT freebetCalledOffer
+	(
+		freebetCalledOfferId,
+		freebetOfferId,
+		freebetOfferStatus
+	)
+>
+
+<!ELEMENT freebetCalledTrigger
+	(
+		freebetCalledTriggerId,
+		freebetTriggerId,
+		freebetOfferId?,
+		freebetTriggerStatus?,
+		freebetNumFulfilledActons?
+	)
+>
+
+<!ELEMENT freebetCallTrigger (custId, action, value?, source, lang?, ccyCode?, affId?, countryCode?, extTriggerId?, extHost?, remoteUniqueId?, enclosedTriggerName?, enclosedTriggerParams?, repeatTriggerCheck?)>
+
+<!ELEMENT tokenPossibleBet
+	(
+		name?,
+		betLevel?,
+		betType?,
+		betId?,
+		singleOnly?,
+		winOnly?,
+		channels?
+	)
+>
+
+<!-- CancelCGExclusion -->
+<!ELEMENT reqCancelCGExclusion ((token|custId), CGExclusionId)>
+<!ELEMENT respCancelCGExclusion (accountFailure?)>
+
+<!-- GetCGExclusions -->
+<!ELEMENT reqGetCGExclusions (token|custId)>
+<!ELEMENT respGetCGExclusions (accountFailure | (CGExclusion*))>
+
+<!ELEMENT CGExclusion (CGExclusionId, CGExclusionType, startTime, endTime, reason)>
+
+<!-- SetCGExclusion -->
+<!ELEMENT reqSetCGExclusion  ((token | custId), CGExclusionType, startTime?, endTime?, reason?)>
+<!ELEMENT respSetCGExclusion ((accountFailure | CGExclusionId), token?)>
+
+<!-- FreebetGetOffers -->
+<!ELEMENT reqFreebetGetOffers (freebetTriggerType?)>
+<!ATTLIST reqFreebetGetOffers ignoreStartDate (Y|N) "N">
+<!ELEMENT respFreebetGetOffers (freebetOffer*)>
+
+<!-- FreebetPromoRedeem -->
+<!ELEMENT reqFreebetPromoRedeem  (token, promoCode, channel?)>
+<!ELEMENT respFreebetPromoRedeem ((freebetFailure? | redeemed), token)>
+
+<!--RequestFreebetTrigger-->
+<!ELEMENT reqFreebetTrigger   (token, action, value?, remoteUniqueId?, extTriggerId?, extHost?, source?, lang?, ccyCode?, affId?, countryCode?, enclosedTriggerName?, enclosedTriggerParams?, repeatTriggerCheck?, channel?)>
+<!ELEMENT respFreebetTrigger        ((freebetFailure?|freebetCalledTrigger*),token)>
+
+<!--RedeemVoucher-->
+<!ELEMENT reqVoucherRedeem      ((token, voucherCode) | (voucherCode, token))>
+<!ELEMENT respVoucherRedeem     ((redeemed | redeemFailure), token)>
+
+<!ELEMENT accountBalance            (currency?, balance?, availableFunds?, withdrawableFunds?, pendingWithdrawals?, nonPlayableFunds?, heldFunds?, balanceItem*, freeMoneyAmount?, bonusBarPercentage?)>
+<!ELEMENT convertedBalance          (currency?, balance?, availableFunds?, withdrawableFunds?, heldFunds?, freeMoneyAmount?)>
+
+<!ELEMENT balanceItem               (balanceName, balanceCode, balance, withdrawableFunds, currency?)>
+
+
+<!ELEMENT customerLimit             (limitId, status?, gameId?, limitType, limitValue, limitPeriod?, limitRange?, startTime?, endTime?)>
+
+<!ELEMENT callStopCodes             (stopCode*)>
+<!ELEMENT cashDetails               (notes?, minDepLimit?, maxDepLimit?, minWtdLimit?, maxWtdLimit?, callId?)>
+<!ELEMENT bankDetails               (bankName, addrStreet1?, addrStreet2?, addrStreet3?, addrStreet4?, addrCity?, addrPostcode?, countryCode?, bankAccountNo?, sort?, acctName?, bankBranch?, bankStateBranchNumber?, bankIBAN?, bankBranchCode?, bankSwiftCode?, bankCode?, callId?)>
+<!ELEMENT bpayDetails               (billerCode, referenceNumber, minDepLimit?, maxDepLimit?, minWtdLimit?, maxWtdLimit?)>
+<!ELEMENT cardDetails               (cardNo?, start?, expiry?, issueNo?, cardCountry?, cardHolderName?, bankName?, withdrawable?, cardCountry?, cardScheme?, minDepLimit?,maxDepLimit?,minWtdLimit?,maxWtdLimit?,status?,bankName?,callId?,billerCode?)>
+<!ELEMENT chequeDetails             (notes?,
+        payee?,
+        addrStreet1?,
+        addrStreet2?,
+        addrStreet3?,
+        addrStreet4?,
+        addrCity?,
+        addrPostcode?,
+        countryCode?,
+        minDepLimit?,
+        maxDepLimit?,
+        minWtdLimit?,
+        maxWtdLimit?,
+        status?,
+        callId?)
+>
+<!ELEMENT moneybookersDetails       ((email,callId?)      | status)>
+<!ELEMENT netellerDetails           ((netellerId,callId?) | status)>
+<!ELEMENT paypalDetails             ((email?,callId?)     | status)>
+
+<!ELEMENT configParam               (name,value)>
+<!ELEMENT terminal                  (terminalName, terminalCode, terminalIdent, termType, status, termAccount+)>
+<!ELEMENT termAccount               (accountType,userName,ccyCode,payMethodId?,balance?)>
+
+<!ELEMENT session                   (terminalName, terminalCode, terminalIdent, termType, status, sessionId, startTime, endTime, sessionAccount+)>
+<!ELEMENT sessionInfo               (sessionId, startTime, endTime, sessionAccount*)>
+<!ELEMENT sessionAccount            (ccyCode,float,balance?,call*)>
+<!ELEMENT shopSession               (startTime, endTime, shopSessionId?, ccySummary*)>
+<!ELEMENT ccySummary                (ccyCode, startOfDaySystemFloat, startOfDayDeclaredFloat, endOfDaySystemFloat, endOfDayDeclaredFloat)>
+
+<!ELEMENT statusFlags (statusFlagName*)>
+
+<!ELEMENT custFlags (flag*)>
+
+<!ELEMENT termsAndConditions (systemGroupName?, URLValue?)+>
+<!ATTLIST termsAndConditions version CDATA #IMPLIED>
+
+<!ELEMENT custSearchDetails (userName?, addrStreet1?, custId?, lastName?, securityCheck?, accountCardNumber?)>
+<!ELEMENT securityCheck     (challenge1,response1)>
+
+<!ELEMENT customerDetails
+	(
+		%acctFields;,
+		loginDetails?,
+		lastLogin?,
+		nickname?,
+		selfExclude?,
+		temporaryPassword?,
+		temporaryPin?,
+		statusFlags?,
+		oddsDisplay?,
+		customerGroup?,
+		preferences?,
+		insecureToken?,
+		sessionId?,
+		token)
+>
+
+<!ELEMENT matchingDetails
+	(
+		firstName,
+		lastName,
+		email,
+		postcode
+	)
+>
+
+<!ELEMENT accountDetails
+	(
+		custId?,
+		registerDate?,
+		channel?,
+		status?,
+		lang?,
+		currency?,
+		customerGroup?,
+		userName?,
+		accountNo?,
+		accountType?,
+		priceFormat?,
+		title?,
+		firstName?,
+		lastName?,
+		gender?,
+		challenge1?,
+		response1?,
+		challenge2?,
+		response2?,
+		bankCheck?)
+>
+
+<!ELEMENT freeBetDetails
+	(
+		redeemedTokens?,
+		redeemedTokenCount?,
+		openTokens?,
+		openTokenCount?)
+>
+
+<!ELEMENT betDetails
+	(
+		betCount?,
+		lastBet?,
+		maxStakeScale?,
+		totalStakedSettled?,
+		totalStaked*,
+		totalWinnings?,
+		totalRefunds*,
+		totalManualAdjustments?,
+		totalProfitLoss?)
+>
+
+<!ELEMENT addressDetails
+	(
+		houseName?,
+		houseNo?,
+		flatNo?,
+		addrStreet1?,
+		addrStreet2?,
+		addrStreet3?,
+		addrStreet4?,
+		addrCity?,
+		addrPostcode?,
+		addrCountry?,
+		countryState?)
+>
+
+<!ELEMENT contactDetails
+	(
+		email?,
+		telephone?,
+		mobile?,
+		contactable?,
+		partnerContactable?,
+		contactMethods?,
+		subscriptions?,
+		office?,
+		fax?)
+>
+<!ELEMENT contactMethods (contactMethod+)>
+<!ATTLIST contactMethod type CDATA #REQUIRED>
+
+<!ELEMENT subscriptions (subscription+)>
+<!ATTLIST subscription type  CDATA #REQUIRED>
+
+<!ELEMENT externalSystemDetails
+	(
+		activeSystems*,
+		videoStreamAvailable?)
+>
+
+<!ELEMENT customerLimitDetails
+	(
+		SRPFrequency?,
+		SRPFrqDeposit?,
+		SRPMaxDeposit?,
+		pokerMaxDeposit?,
+		pokerMaxWithdrawal?)
+>
+
+<!ELEMENT journalEntry
+    (
+		jrnlId,
+		jrnlOpType,
+		jrnlOpRefKey,
+		jrnlOpRefId,
+		date,
+		amount,
+		desc,
+		balance,
+		points?,
+		pointsBalance?,
+		gameName?,
+		systemName?,
+		remoteAction?,
+		remoteReference?,
+		remoteAccount?,
+		remoteUniqueId?,
+		heldAmount?,
+		channel?,
+		userClient?,
+		systemGroupName?)
+>
+
+<!ELEMENT payMethod
+(
+	payMethodId,
+	type,
+	canDeposit,
+	canWithdraw,
+	nickname?,
+	netDeposit?,
+	lastPaymentDate?,
+	minDepLimit?,
+	maxDepLimit?,
+	minWtdLimit?,
+	maxWtdLimit?,
+	status?,
+	(
+		cardDetails         |
+		cashDetails         |
+		chequeDetails       |
+		moneybookersDetails |
+		bankDetails         |
+		netellerDetails     |
+		paypalDetails       |
+		ukashDetails
+	)?,
+	config*
+)
+>
+<!ELEMENT possiblePayMethod
+(
+	type,
+	subType*,
+	numberAvailable,
+	(minDepLimit,
+	maxDepLimit)?,
+	(minWtdLimit,
+	maxWtdLimit)?
+)
+>
+
+<!ELEMENT betItem
+    (
+        betId,
+        date,
+        source,
+        betType,
+        stake,
+        receipt,
+        winnings,
+        refund,
+        settled,
+        status?,
+        callId?)
+>
+
+<!ELEMENT poolBetItem
+(
+	poolBetId,
+	date,
+	source,
+	poolType,
+	stake,
+	receipt,
+	winnings,
+	refund,
+	settled,
+	callId?,
+	status?,
+	poolName?,
+	legDesc?
+)>
+
+<!ELEMENT CGItem
+(
+	jrnlId,
+	jrnlOpType,
+	jrnlOpRefKey,
+	jrnlOpRefId,
+	date,
+	amount,
+	progAmount,
+	desc,
+	balance,
+	name,
+	gameClass?
+)>
+
+<!ELEMENT paymentItem
+    (
+        paymentId,
+        payMethodId,
+        paymentRefKey,
+        sort,
+        date,
+        amount,
+        commission?,
+        status,
+        source,
+        ipAddr?,
+        callId?,
+        nickname?)
+>
+<!ELEMENT bet
+	(
+		betId?,
+		date?,
+		ipaddr?,
+		source?,
+		placedBy?,
+		userId?,
+		currency?,
+		stake?,
+		tokenValue?,
+		taxType?,
+		tax?,
+		winnings?,
+		refund?,
+		bonus?,
+		taxRate?,
+		status?,
+		settled?,
+		settledAt?,
+		settleInfo?,
+		numSelns?,
+		numLegs?,
+		numLines?,
+		numLinesVoid?,
+		numLinesWin?,
+		numLinesLose?,
+		receipt?,
+		callId?,
+		paid?,
+		betNo?,
+		externalBetId*,
+		uniqueId?,
+		stakePerLine?,
+		betType?,
+		betTypeName?,
+		asyncStatus?,
+		asyncDesc?,
+		asyncOriginalStake?,
+		view?,
+		barcode?,
+		(betPotentialWin | potentialPayout)?,
+		legType?,
+		legTypeDesc?,
+		combinedDividend?,
+		(leg+|manualBetDetail),
+		smsOnSettle?,
+		birToken?,
+		override*,
+		freebetTokenId*,
+		smsOnSettle?,
+		betTag*,
+		(betPotentialWin | potentialPayout)?)
+>
+<!ELEMENT leg
+	(
+		legNo?,
+			(
+				(
+					legSort,
+					legType?,
+					legDesc?,
+					legSortDesc?,
+					legStatus?,
+					legCancelReason?,
+					marketTags?,
+					legFailureCode?,
+					legFailureReason?,
+					numLines?,
+					dividend*
+				) | (
+					description,
+					track,
+					startTime,
+					legDesc?
+				)
+			),
+		part*
+	)
+>
+
+<!ELEMENT part
+    (
+		partNo?,
+		outcome,
+		outcomeName?,
+		variant?,
+		priceType?,
+		(betPriceNum,betPriceDen)?,
+		(priceNum, priceDen)?,
+		eachWayNum?,
+		eachWayDen?,
+		eachWayPlaces?,
+		handicap?,
+		raceNumber?,
+		runnerNum?,
+		fbResult?,
+		description?,
+		sportDesc?,
+		positions?,
+		banker?,
+		noCombi?,
+		eventCategory?,
+		raceNumber?,
+		runnerNum?,
+		eventTypeDesc?,
+		eventId?,
+		eventDesc?,
+		startTime?,
+		marketId?,
+		eventMarketDesc?,
+		eventMarketSort?,
+		priceDecimal?,
+		banker?,
+		noCombinationWith?,
+		eventCategory?,
+		eventClassName?,
+		result?,
+		runnerNum?,
+		resultConf?,
+		resultPlaces?,
+		eventMarketBlurb?,
+		handicap?,
+		betBirIndex?,
+		subTypeName?,
+		birIndex?,
+		priceType?,
+		(banker?, noCombi)?,
+		(placePriceNum, placePriceDen, placePricePlaces)?,
+		priceDecimal?,
+		placePriceDecimal?,
+		marketDesc?,
+		eventClassInfo?,
+		rule4Deductions?,
+		deadHeatWinDeductions?,
+		deadHeatEachWayDeductions?,
+		positions?,
+		dividend*)
+>
+
+
+<!ELEMENT manualBetDetail
+    (
+	    desc,
+		toSettleAt)
+>
+
+<!ELEMENT eventClassInfo (classInfoItem*)>
+
+<!ELEMENT betDelay (
+	betNo,
+	externalBetId*,
+	delay,
+	birToken,
+	status
+)>
+
+<!ELEMENT outcomeGroup
+    (
+        betNo,
+        outcome+)
+>
+
+<!ELEMENT betValidation             (betNo, poolType?, numLines, totalStake, betMinStake, betMaxStake, (potentialPayout | betPotentialWin)?, freebetToken*, combinedDividend?, leg*)>
+<!ELEMENT combinedDividend          (isAvailable,(decimal,fractionNum,fractionDen)?)>
+
+<!ELEMENT betBuild (
+	betNo,
+	betCombination*,
+	nonCombinableLegs*,
+	complexLegCombination*,
+	freebetToken*
+)>
+
+<!ELEMENT betCombination (
+	betType,
+	betNoOfLines,
+	betLegSort?,
+	betTypeName,
+	betMinStake,
+	betMaxStake,
+	betAsyncAvailable?,
+	betPrice?,
+	betPricePlace?,
+	eachWayAvailable?,
+	betMaxStakeEachWay?
+)>
+<!ELEMENT nonCombinableLegs ((legNo, legNo+) | (outcome, outcome+))>
+<!ELEMENT complexLegCombination (outcome, outcome+, leg+)>
+
+<!ELEMENT poolBet
+    (
+		(
+			betNo,
+			poolType,
+			stakePerLine,
+			ccyStakePerLine?,
+			win,
+			place,
+			show,
+			legDesc?,
+			poolItem+
+		)|
+    	(
+    		poolBetId?,
+    		date,
+			ipaddr,
+			source,
+			placedBy,
+			userId,
+			stake,
+			ccyStake,
+			winnings,
+			refund,
+			status,
+			settled,
+			settledAt,
+			settleInfo,
+			numSelns,
+			numLegs,
+			numLines,
+			numLinesVoid,
+			numLinesWin,
+			numLinesLose,
+			receipt,
+			callId,
+			paid,
+			stakePerLine,
+			poolName?,
+			poolType,
+			poolSource?,
+			((legNo,
+			description,
+			track,
+			startTime,
+			legDesc?,
+			partNo,
+			outcome,
+			description,
+			runnerNum?) |
+			leg+)
+		)
+	)
+>
+
+<!ELEMENT poolBetValidation             (betNo, poolType, numLines, totalStake, betMinStake, betMaxStake,lineMinStake?,lineMaxStake?)>
+
+
+<!ELEMENT poolItem
+    (
+    	position?,
+    	poolId,
+    	outcome
+    )
+>
+
+<!ELEMENT ballsSubscription
+    (
+        date,
+        numDraws,
+        seln,
+        firstDrawId,
+        lastDrawId,
+        stake,
+        returns,
+        desc)
+>
+
+<!ELEMENT ballsPayout               (payout, date)>
+<!ELEMENT ballsDraw
+    (
+        ball1,
+        ball2,
+        ball3,
+        ball4,
+        ball5,
+        ball6,
+        date)
+>
+
+<!ELEMENT gameBet (
+		betNo?,
+        betType?,
+        subBetType?,
+        gameSeln?,
+        winnings?,
+        mthAction?,
+        mthNumber?)
+>
+
+<!ELEMENT xgame
+    (
+        betNo,
+        xgameId,
+        sort,
+        stakePerLine,
+        numPicks,
+        picks,
+        numSubscriptions,
+        freeSubscriptions?,
+        draws,
+        betType?,
+        numLines?)
+>
+
+
+<!ELEMENT betPlacement              (betNo, betId, externalBetId*, date?, receipt, barcode?, numLines, totalStake, redeemedFreebetTokens?, heldFunds?, (betPotentialWin | betPotentialPayout)?, status*, bet?)>
+<!ELEMENT xGameSub
+	(
+		date,
+		sort,
+		numBets,
+		numBetsPlaced,
+		numBetsSettled
+	)
+>
+
+<!ELEMENT xgamePlacement            (betNo, subscriptionId)>
+
+<!ELEMENT promoItem                 (promoCode,startTime,endTime,promoId)>
+
+<!ELEMENT call                      (callId, startTime, ccyCode?, endTime, paymentItem*, termBet*, termChangeVoucher*, termCollectedBet*, anonBet?, userName?)>
+<!ELEMENT termBet                   (barcode, betId, bet)>
+<!ELEMENT termCollectedBet          (barcode, betId, collectTime, bet)>
+<!ELEMENT termChangeVoucher         (voucherId, barcode, amount, date)>
+
+<!ELEMENT shopInfo                  (shopState, shopSessionId, endTime, session*)>
+<!ELEMENT transferDetails           (transferUniqueId, date, ccyCode, amount, operator, firstName, lastName, transferType, transferDesc, from, to)>
+<!ELEMENT from                      (terminalCode,terminalName,termType,newBalance,shopId,shopName)>
+<!ELEMENT to                        (terminalCode,terminalName,termType,newBalance,shopId,shopName)>
+
+<!ELEMENT styleSheet                ANY>
+<!ELEMENT styleSheetData            ANY>
+
+<!-- Failure Elements -->
+<!ELEMENT accountFailure            (accountFailureCode, accountFailureKey?, accountFailureReason, accountFailureDebug?, accountFailureElement* ,accountFailureInfo*, accountFailureSpecifics?)>
+<!ELEMENT accountDuplicate          (userName?, affId?, status?, selfExclude?, maxStakeScale?, lastLogin?, lastTransaction?)>
+<!ELEMENT accountFailureSpecifics   (gatewayCurrency?)>
+<!ELEMENT transFailure              (transFailureCode, transFailureKey?, transFailureReason, transFailureDebug?)>
+<!ELEMENT nonCombinableOutcomes     (outcome+)>
+<!ELEMENT betFailure                (betNo?, (betError+ | (betFailureCode, betFailureKey?, betFailureReason, betFailureDebug?, betId?, externalBetId?, view?, betFailureDesc?, betFailureDetail?, nonCombinableOutcomes*)), (betMinStake, betMaxStake)?, config*)>
+<!ELEMENT callFailure               (callFailureCode, callFailureKey?, callFailureReason)>
+<!ELEMENT sessionFailure            (sessionFailureCode, sessionFailureKey?, sessionFailureReason, session*)>
+<!ELEMENT anonFailure               (anonFailureCode, anonFailureKey?, anonFailureReason, anonFailureDebug?)>
+<!ELEMENT xgameFailure              (xgameFailureCode, xgameFailureKey?, xgameFailureReason, xgameFailureElement*)>
+<!ELEMENT betError                  (betFailureCode, betFailureKey?, betFailureReason, betFailureDebug?, betId?, betFailureDesc?, betFailureDetail?, nonCombinableOutcomes*)>
+<!ELEMENT currencyFailure           (currencyFailureCode, currencyFailureKey?, currencyFailureReason, currencyFailureDebug)>
+<!ELEMENT betFailureDetail          (outcomeId, variantId?, eventId, outcomeName, eventName, priceNum, priceDen, priceDecimal?, handicap?,outcomeHandicap?, handicapPrecision?, betBirIndex?, birIndex?, status?, (placePriceNum, placePriceDen, placePricePlaces)?, placePriceDecimal?, (eachWayNum, eachWayDen, eachWayPlaces)?, runnerNum?)>
+<!ELEMENT termFailure               (termFailureCode, termFailureKey?, termFailureReason)>
+<!ELEMENT freebetFailure            (freebetFailureCode, freebetFailureKey?, freebetFailureReason,freebetFailureDebug?)>
+<!ELEMENT subFailure                (subFailureCode, subFailureKey?, subFailureReason)>
+<!ELEMENT languageFailure           (languageFailureCode, languageFailureKey?, languageFailureReason)>
+<!ELEMENT countryFailure            (countryFailureCode, countryFailureKey?, countryFailureReason)>
+<!ELEMENT redeemFailure             (redeemFailureCode, redeemFailureKey?, redeemFailureReason)>
+<!ELEMENT shopFailure               (shopFailureCode, shopFailureKey?, shopFailureReason, shopFailureDebug?, (shopSessionId,endTime,session*)?)>
+<!ELEMENT loyaltyFailure            (loyaltyFailureCode, loyaltyFailureReason, loyaltyFailureDebug)>
+<!ELEMENT affiliateFailure          (affiliateFailureCode, affiliateFailureReason, affiliateFailureDebug)>
+
+<!-- Standard currency request -->
+<!ELEMENT reqGetCurrencies (currency?)>
+
+<!ELEMENT respGetCurrencies (
+    currencyFailure | currencyDetail+
+)>
+
+<!-- XSystem currency request -->
+<!ELEMENT reqGetXSysCurrencies (systemName?, currency?)>
+
+<!ELEMENT respGetXSysCurrencies (
+    currencyFailure | (baseCurrency, currencyDetail+)
+)>
+
+<!ELEMENT currencyDetail (
+    currency,
+    currencyName?,
+    minimumDeposit?,
+    maximumDeposit?,
+    minimumWithdrawal?,
+    maximumWithdrawal?,
+    exchangeRate
+)>
+
+<!-- Languages -->
+<!ELEMENT reqGetLanguages (lang?)>
+<!ELEMENT respGetLanguages (
+    languageFailure | languageDetail+
+)>
+
+<!ELEMENT languageDetail (
+    lang,
+    langName
+)>
+
+<!-- Countries -->
+<!ELEMENT reqGetCountries (countryCode?)>
+<!ELEMENT respGetCountries (
+    countryFailure | countryDetail+
+)>
+
+<!ELEMENT countryDetail (
+    countryCode,
+    countryName,
+    ccyCode?,
+    lang?,
+    telephoneDialCode?,
+    displayOrder?,
+    status?
+)>
+
+<!-- Challenge -->
+<!ELEMENT reqAccountGetChallenge (userName, channel?)>
+<!ELEMENT respAccountGetChallenge (accountFailure | (challenge1, challenge2))>
+
+<!-- Set Temporary Password -->
+<!ELEMENT reqAccountSetTempPassword (
+    userName,
+	channel?,
+    password?,
+    (challenge1, response1)?,
+    (challenge2, response2)?,
+	email?
+)>
+<!ELEMENT respAccountSetTempPassword (
+	accountFailure? |
+	(password?, userName?)
+)>
+
+<!-- Leg Sorts -->
+<!ELEMENT reqAccountLegSorts (
+    token
+)>
+
+<!ELEMENT respAccountLegSorts (
+    legSort*,
+    token
+)>
+
+<!-- Price Types -->
+<!ELEMENT reqPriceTypesByCustomer (
+    token,
+    channel
+)>
+
+<!ELEMENT respPriceTypesByCustomer (
+    priceType*,
+    token
+)>
+
+<!-- Commission -->
+<!ELEMENT reqGetCommission (
+    token,
+    amount,
+    paymentSort,
+    payMethodId
+)>
+
+<!ELEMENT respGetCommission (
+    (accountFailure | commission),
+    token
+)>
+
+<!-- Postcode lookup request -->
+<!ELEMENT reqPostcodeLookup (
+	houseNo?,
+	postcode,
+	returnSingleAddress?
+)>
+<!ATTLIST reqPostcodeLookup type (CAPSCAN|QAS|AFD) #IMPLIED>
+<!-- Postcode lookup response -->
+<!-- made up of Capscan response elements -->
+<!ELEMENT respPostcodeLookup (
+    lookupFailure |
+	(
+	addrOrganisation,
+	addrSubBuilding,
+	addrBuilding,
+	addrBuildingNumber,
+	addrDependentStreet,
+	addrStreet,
+	addrDependentLocality,
+	addrLocality,
+	addrCity,
+	addrCounty,
+	addrPostcode
+	) |
+	(addressDetails*) |
+	(
+	addrProperty,
+	addrStreet,
+	addrLocality,
+	addrTown,
+	addrCounty,
+	addrPostcode
+	)
+)>
+
+<!-- Settlement of manual bets -->
+<!ELEMENT reqBetSettleManual (
+	resettle?,
+	uniqueId,
+	winnings,
+	refund,
+	linesWin,
+	linesLose,
+	linesRefund,
+	comment
+)>
+
+<!-- Add a customers favourite game -->
+<!ELEMENT reqGamesFavouriteAdd (
+	token,
+	gameCode,
+	product
+)>
+
+<!-- Delete a customers favourite game -->
+<!ELEMENT reqGamesFavouriteDel (
+	token,
+	gameCode,
+	product
+)>
+
+<!-- Delete all customer favourite games -->
+<!ELEMENT reqGamesFavouriteDelAll (
+	token,
+	product
+)>
+
+<!-- Get all customers favourite games -->
+<!ELEMENT reqGamesFavouriteGet (
+	token,
+	product
+)>
+
+<!-- Reorder a customers favourite game -->
+<!ELEMENT reqGamesFavouriteReorder (
+	token,
+	gameCode,
+	order,
+	product
+)>
+
+<!ELEMENT respGamesFavouriteAdd     ((gamesFailure | game+),token)>
+<!ELEMENT respGamesFavouriteDel     ((gamesFailure | game+),token)>
+<!ELEMENT respGamesFavouriteReorder ((gamesFailure | game+),token)>
+<!ELEMENT respGamesFavouriteDelAll  ((gamesFailure | product+),token)>
+<!ELEMENT respGamesFavouriteGet     ((gamesFailure | game+),token)>
+
+<!ELEMENT gamesFailure (gamesFailureCode, gamesFailureKey?, gamesFailureReason, gamesFailureDebug?)>
+
+<!ELEMENT gamesFailureCode   (#PCDATA)>
+<!ELEMENT gamesFailureKey    (#PCDATA)>
+<!ELEMENT gamesFailureReason (#PCDATA)>
+<!ELEMENT gamesFailureDebug  (#PCDATA)>
+
+<!ELEMENT game (gameCode, order)>
+
+<!ELEMENT respBetSettleManual (betFailure | (betId, betSettledEarlier))>
+
+<!ELEMENT settleFailure (settleFailureCode, settleFailureKey?, settleFailureReason)>
+
+<!-- UtilPing -->
+<!ELEMENT reqUtilPing     (#PCDATA)>
+<!ELEMENT respUtilPing    (clientIP,component*)>
+<!ELEMENT component           EMPTY>
+<!ATTLIST component
+	name   CDATA #REQUIRED
+	status CDATA #REQUIRED>
+
+<!-- UtilTranslate -->
+<!ELEMENT reqUtilTranslate  (translationCode+)>
+<!ELEMENT translationCode   (#PCDATA)>
+<!ATTLIST translationCode   lang CDATA #IMPLIED>
+
+<!ELEMENT respUtilTranslate (translation+)>
+<!ELEMENT translation       (#PCDATA)>
+<!ATTLIST translation
+	lang CDATA #REQUIRED
+	code CDATA #REQUIRED>
+
+<!-- UtilCheckIdentification -->
+<!ELEMENT reqUtilCheckIdentification (document?)>
+<!ELEMENT respUtilCheckIdentification (utilFailure?)>
+
+<!ELEMENT utilFailure (utilFailureCode, utilFailureKey?, utilFailureReason, utilFailureDebug?, utilFailureElement?)>
+
+<!-- TermSetFlags -->
+<!ELEMENT reqTermSetFlags ((terminalCode,flag+)?)>
+<!ELEMENT respTermSetFlags (#PCDATA)>
+
+<!-- Loyalty Qualify -->
+<!ELEMENT reqLoyaltyQualify (token,action,channel,(accountCardNumber,accountCardType)?,config*)>
+<!ELEMENT respLoyaltyQualify ((token,accountCardStatus?) | loyaltyFailure)>
+
+<!-- Main Elements in alphabetical order -->
+<!ELEMENT accountCardNumber         (#PCDATA)>
+<!ELEMENT accountCardOldPin         (#PCDATA)>
+<!ELEMENT accountCardPin            (#PCDATA)>
+<!ELEMENT accountCardStatus         (#PCDATA)>
+<!ELEMENT accountCardType           (#PCDATA)>
+<!ELEMENT accountFailureCode        (#PCDATA)>
+<!ELEMENT accountFailureDebug       (#PCDATA)>
+<!ELEMENT accountFailureKey         (#PCDATA)>
+<!ELEMENT accountFailureReason      (#PCDATA)>
+<!ELEMENT accountFailureElement     (#PCDATA)>
+<!ELEMENT accountFailureInfo        (#PCDATA)>
+<!ELEMENT accountId                 (#PCDATA)>
+<!ELEMENT accountNo                 (#PCDATA)>
+<!ELEMENT accountStatus             (#PCDATA)>
+<!ELEMENT accountType               (#PCDATA)>
+<!ELEMENT acctName                  (#PCDATA)>
+<!ELEMENT action                    (#PCDATA)>
+<!ELEMENT actionData                (#PCDATA)>
+<!ELEMENT actionIndex               (#PCDATA)>
+<!ELEMENT actionSeqNo               (#PCDATA)>
+<!ELEMENT active                    (#PCDATA)>
+<!ELEMENT activeSystems             (#PCDATA)>
+<!ELEMENT activeDate                (#PCDATA)>
+<!ELEMENT acsURL                    (#PCDATA)>
+<!ELEMENT addrAllotment             (#PCDATA)>
+<!ELEMENT addrBuilding              (#PCDATA)>
+<!ELEMENT addrBuildingNo            (#PCDATA)>
+<!ELEMENT addrBuildingNumber        (#PCDATA)>
+<!ELEMENT addrCity                  (#PCDATA)>
+<!ELEMENT addrCountry               (#PCDATA)>
+<!ELEMENT addrCounty                (#PCDATA)>
+<!ELEMENT addrDependentLocality     (#PCDATA)>
+<!ELEMENT addrDependentStreet       (#PCDATA)>
+<!ELEMENT addrLevel                 (#PCDATA)>
+<!ELEMENT addrLocality              (#PCDATA)>
+<!ELEMENT addrOrganisation          (#PCDATA)>
+<!ELEMENT addrPostcode              (#PCDATA)>
+<!ELEMENT addrPremisesNo            (#PCDATA)>
+<!ELEMENT addrPremisesName          (#PCDATA)>
+<!ELEMENT addrProperty              (#PCDATA)>
+<!ELEMENT addrState                 (#PCDATA)>
+<!ELEMENT addrStateCode             (#PCDATA)>
+<!ELEMENT addrStreet                (#PCDATA)>
+<!ELEMENT addrStreet1               (#PCDATA)>
+<!ELEMENT addrStreet2               (#PCDATA)>
+<!ELEMENT addrStreet3               (#PCDATA)>
+<!ELEMENT addrStreet4               (#PCDATA)>
+<!ELEMENT addrStreetName            (#PCDATA)>
+<!ELEMENT addrStreetType            (#PCDATA)>
+<!ELEMENT addrSubBuilding           (#PCDATA)>
+<!ELEMENT addrTown                  (#PCDATA)>
+<!ELEMENT addrUnitNo                (#PCDATA)>
+<!ELEMENT addrUnitType              (#PCDATA)>
+<!ELEMENT adjustedNumLinesWin       (#PCDATA)>
+<!ELEMENT adjustedNumLinesLose      (#PCDATA)>
+<!ELEMENT affAssetId                (#PCDATA)>
+<!ELEMENT affId                     (#PCDATA)>
+<!ATTLIST affId type           CDATA #IMPLIED>
+<!ELEMENT affiliateFailureCode      (#PCDATA)>
+<!ELEMENT affiliateFailureReason    (#PCDATA)>
+<!ELEMENT affiliateFailureDebug     (#PCDATA)>
+<!ELEMENT affName                   (#PCDATA)>
+<!ELEMENT affPromoWord              (#PCDATA)>
+<!ELEMENT affRefererString          (#PCDATA)>
+<!ELEMENT affSubId                  (#PCDATA)>
+<!ELEMENT alias                     (#PCDATA)>
+<!ELEMENT allStatus                 (#PCDATA)>
+<!ELEMENT alternatePrice            EMPTY>
+<!ATTLIST alternatePrice priceType CDATA #REQUIRED>
+<!ELEMENT amount                    (#PCDATA)>
+<!ELEMENT anonBet                   (#PCDATA)>
+<!ELEMENT anonCustId                (#PCDATA)>
+<!ELEMENT anonFailureCode           (#PCDATA)>
+<!ELEMENT anonFailureDebug          (#PCDATA)>
+<!ELEMENT anonFailureKey            (#PCDATA)>
+<!ELEMENT anonFailureReason         (#PCDATA)>
+<!ELEMENT appTag                    (#PCDATA)>
+<!ELEMENT asyncDesc                 (#PCDATA)>
+<!ELEMENT asyncOriginalStake        (#PCDATA)>
+<!ELEMENT asyncStatus               (#PCDATA)>
+<!ELEMENT attemptsRemaining         (#PCDATA)>
+<!ELEMENT authDep                   (#PCDATA)>
+<!ELEMENT authWtd                   (#PCDATA)>
+<!ELEMENT authorisationDate         (#PCDATA)>
+<!ELEMENT authoriserId              (#PCDATA)>
+<!ELEMENT authoriserName            (#PCDATA)>
+<!ELEMENT autoDeposit               (#PCDATA)>
+<!ELEMENT autoWithdrawal            (#PCDATA)>
+<!ELEMENT availableFunds            (#PCDATA)>
+<!ELEMENT balance                   (#PCDATA)>
+<!ELEMENT balanceName               (#PCDATA)>
+<!ELEMENT balanceCode               (#PCDATA)>
+<!ELEMENT ball1                     (#PCDATA)>
+<!ELEMENT ball2                     (#PCDATA)>
+<!ELEMENT ball3                     (#PCDATA)>
+<!ELEMENT ball4                     (#PCDATA)>
+<!ELEMENT ball5                     (#PCDATA)>
+<!ELEMENT ball6                     (#PCDATA)>
+<!ELEMENT ballsPayoutId             (#PCDATA)>
+<!ELEMENT ballsSubId                (#PCDATA)>
+<!ELEMENT bankAccountNo             (#PCDATA)>
+<!ELEMENT bankBranch                (#PCDATA)>
+<!ELEMENT bankBranchCode            (#PCDATA)>
+<!ELEMENT bankCode                  (#PCDATA)>
+<!ELEMENT bankCheck                 (#PCDATA)>
+<!ELEMENT banker                    (#PCDATA)>
+<!ELEMENT bankIBAN                  (#PCDATA)>
+<!ELEMENT bankName                  (#PCDATA)>
+<!ELEMENT bankStateBranchNumber     (#PCDATA)>
+<!ELEMENT bankSwiftCode             (#PCDATA)>
+<!ELEMENT bankTransfersIn           (#PCDATA)>
+<!ELEMENT bankTransfersInCount      (#PCDATA)>
+<!ELEMENT bankTransfersOut          (#PCDATA)>
+<!ELEMENT bankTransfersOutCount     (#PCDATA)>
+<!ELEMENT bankCountry               (#PCDATA)>
+<!ELEMENT bannerID                  (#PCDATA)>
+<!ELEMENT barcode                   (#PCDATA)>
+<!ELEMENT baseCurrency              (#PCDATA)>
+<!ELEMENT batchAsSingleTransfer     (#PCDATA)>
+<!ELEMENT betAdjType                (#PCDATA)>
+<!ELEMENT betBirIndex               (#PCDATA)>
+<!ELEMENT betCanCollect             (#PCDATA)>
+<!ELEMENT betCanCollectAmount       (#PCDATA)>
+<!ELEMENT betCanCancel              (#PCDATA)>
+<!ELEMENT betCcy                    (#PCDATA)>
+<!ELEMENT betCustomerType           (#PCDATA)>
+<!ELEMENT betCompanyId              (#PCDATA)>
+<!ELEMENT betCompanyGroupId         (#PCDATA)>
+<!ELEMENT betCount                  (#PCDATA)>
+<!ELEMENT betFailureCode            (#PCDATA)>
+<!ELEMENT betFailureDebug           (#PCDATA)>
+<!ELEMENT betFailureDesc            (#PCDATA)>
+<!ELEMENT betFailureKey             (#PCDATA)>
+<!ELEMENT betFailureReason          (#PCDATA)>
+<!ELEMENT betId                     (#PCDATA)>
+<!ATTLIST betId        type (async|standard) #IMPLIED>
+<!ELEMENT betIsParked               (#PCDATA)>
+<!ELEMENT betLegSort                (#PCDATA)>
+<!ELEMENT betLevel                  (#PCDATA)>
+<!ELEMENT betMinStake               (#PCDATA)>
+<!ELEMENT betMaxStake               (#PCDATA)>
+<!ELEMENT betMaxStakeEachWay        (#PCDATA)>
+<!ELEMENT betNoOfLines              (#PCDATA)>
+<!ELEMENT betNo                     (#PCDATA)>
+<!ELEMENT betTag                    (#PCDATA)>
+<!ELEMENT betTicketId               (#PCDATA)>
+<!ELEMENT betType                   (#PCDATA)>
+<!ELEMENT betTypeName               (#PCDATA)>
+<!ELEMENT betPayout                 (#PCDATA)>
+<!ELEMENT betPayoutLoc              (#PCDATA)>
+<!ELEMENT betPayouts                (#PCDATA)>
+<!ELEMENT betPayoutAmount           (#PCDATA)>
+<!ELEMENT betPayoutCount            (#PCDATA)>
+<!ELEMENT betPayoutTerm             (#PCDATA)>
+<!ELEMENT betPayoutTermName         (#PCDATA)>
+<!ELEMENT betPayoutTime             (#PCDATA)>
+<!ELEMENT betPotentialPayout        (#PCDATA)>
+<!ELEMENT betPotentialWin           (#PCDATA)>
+<!ELEMENT betPrice                  (#PCDATA)>
+<!ELEMENT betPriceNum               (#PCDATA)>
+<!ELEMENT betPriceDen               (#PCDATA)>
+<!ELEMENT betPricePlace             (#PCDATA)>
+<!ELEMENT betProfileId              (#PCDATA)>
+<!ELEMENT betRefunds                (#PCDATA)>
+<!ELEMENT betRefundCount            (#PCDATA)>
+<!ELEMENT betSettledEarlier         (#PCDATA)>
+<!ELEMENT betStrikeLoc              (#PCDATA)>
+<!ELEMENT betStrikeTerm             (#PCDATA)>
+<!ELEMENT betStrikeTermName         (#PCDATA)>
+<!ELEMENT bingoCard                 (#PCDATA)>
+<!ELEMENT birIndex                  (#PCDATA)>
+<!ELEMENT birToken                  (#PCDATA)>
+<!ELEMENT betAsyncAvailable         (#PCDATA)>
+<!ELEMENT birthPlace                EMPTY>
+<!ATTLIST birthPlace
+	city            CDATA #REQUIRED
+	province        CDATA #IMPLIED
+	countryCode     CDATA #REQUIRED>
+<!ELEMENT blockNo                   (#PCDATA)>
+<!ELEMENT blockSize                 (#PCDATA)>
+<!ELEMENT blurb                     (#PCDATA)>
+<!ATTLIST blurb          type CDATA #REQUIRED>
+<!ELEMENT bonus                     (#PCDATA)>
+<!ELEMENT bonusBarPercentage        (#PCDATA)>
+<!ELEMENT bonusAmount               (#PCDATA)>
+<!ELEMENT bonusWinnings             (#PCDATA)>
+<!ELEMENT billerCode                (#PCDATA)>
+<!ELEMENT branchNo                  (#PCDATA)>
+<!ELEMENT businessChannel           (#PCDATA)>
+<!ELEMENT callFailureCode           (#PCDATA)>
+<!ELEMENT callFailureKey            (#PCDATA)>
+<!ELEMENT callFailureReason         (#PCDATA)>
+<!ELEMENT callCode                  (#PCDATA)>
+<!ELEMENT callCount                 (#PCDATA)>
+<!ELEMENT callId                    (#PCDATA)>
+<!ELEMENT callText                  (#PCDATA)>
+<!ELEMENT campaignName              (#PCDATA)>
+<!ELEMENT campaignActStart          (#PCDATA)>
+<!ELEMENT clientIP                  (#PCDATA)>
+<!ELEMENT transferCancel            (#PCDATA)>
+<!ELEMENT transferCancelResponse    (#PCDATA)>
+<!ELEMENT canDeposit                (#PCDATA)>
+<!ELEMENT canWithdraw               (#PCDATA)>
+<!ELEMENT cardCountry               (#PCDATA)>
+<!ELEMENT cardNo                    (#PCDATA)>
+<!ELEMENT cardNumber                (#PCDATA)>
+<!ELEMENT cardScheme                (#PCDATA)>
+<!ELEMENT cardHolderName            (#PCDATA)>
+<!ELEMENT cardType                  (#PCDATA)>
+<!ELEMENT cashDifference            (#PCDATA)>
+<!ELEMENT cashoutResponse           (#PCDATA)>
+<!ELEMENT cashout                   (#PCDATA)>
+<!ELEMENT ccyCode                   (#PCDATA)>
+<!ELEMENT ccyStake                  (#PCDATA)>
+<!ELEMENT ccyStakePerLine           (#PCDATA)>
+<!ELEMENT CGExclusionId             (#PCDATA)>
+<!ELEMENT CGExclusionType           (#PCDATA)>
+<!ELEMENT challenge1                (#PCDATA)>
+<!ELEMENT challenge2                (#PCDATA)>
+<!ELEMENT changePayments            (#PCDATA)>
+<!ELEMENT changePaymentCount        (#PCDATA)>
+<!ELEMENT channel                   (#PCDATA)>
+<!ELEMENT channels                  (#PCDATA)>
+<!ELEMENT checkBalance              (#PCDATA)>
+<!ELEMENT checkDuplicates           (#PCDATA)>
+<!ELEMENT checkOldPassword          (#PCDATA)>
+<!ELEMENT checkPendingBets          (#PCDATA)>
+<!ELEMENT chqAcctNo                 (#PCDATA)>
+<!ELEMENT chqDate                   (#PCDATA)>
+<!ELEMENT chqNo                     (#PCDATA)>
+<!ELEMENT chqSortCode               (#PCDATA)>
+<!ELEMENT classId                   (#PCDATA)>
+<!ELEMENT classInfoItem             (#PCDATA)>
+<!ATTLIST classInfoItem  name CDATA #REQUIRED>
+<!ELEMENT clientApplication         (#PCDATA)>
+<!ELEMENT clientId                  (#PCDATA)>
+<!ELEMENT clientIPAddress           (#PCDATA)>
+<!ELEMENT clientUID                 (#PCDATA)>
+<!ELEMENT clientUserAgent           (#PCDATA)>
+<!ELEMENT code                      (#PCDATA)>
+<!ELEMENT codeId                    (#PCDATA)>
+<!ELEMENT companyDetails            (#PCDATA)>
+<!ELEMENT companyId                 (#PCDATA)>
+<!ELEMENT companyGroupId            (#PCDATA)>
+<!ELEMENT controlDigit              (#PCDATA)>
+<!ELEMENT count                     (#PCDATA)>
+<!ELEMENT collectRefund             (#PCDATA)>
+<!ELEMENT collectTime               (#PCDATA)>
+<!ELEMENT comment                   (#PCDATA)>
+<!ELEMENT commission                (#PCDATA)>
+<!ELEMENT config                    (#PCDATA)>
+<!ATTLIST config         name CDATA #REQUIRED>
+<!ELEMENT contactable               (#PCDATA)>
+<!ELEMENT contactHow                (#PCDATA)>
+<!ELEMENT contactMethod             (#PCDATA)>
+<!ELEMENT contactPref               (#PCDATA)>
+<!ELEMENT coolOffPeriod             (#PCDATA)>
+<!ELEMENT countryCode               (#PCDATA)>
+<!ELEMENT countryFailureCode        (#PCDATA)>
+<!ELEMENT countryFailureKey         (#PCDATA)>
+<!ELEMENT countryFailureReason      (#PCDATA)>
+<!ELEMENT countryName               (#PCDATA)>
+<!ELEMENT countryState              (#PCDATA)>
+<!ELEMENT crDate                    (#PCDATA)>
+<!ELEMENT currency                  (#PCDATA)>
+<!ELEMENT currencyFailureCode       (#PCDATA)>
+<!ELEMENT currencyFailureDebug      (#PCDATA)>
+<!ELEMENT currencyFailureKey        (#PCDATA)>
+<!ELEMENT currencyFailureReason     (#PCDATA)>
+<!ELEMENT currencyName              (#PCDATA)>
+<!ELEMENT currentHand               (#PCDATA)>
+<!ELEMENT currentPlay               (#PCDATA)>
+<!ELEMENT currentWinnings           (#PCDATA)>
+<!ELEMENT custId                    (#PCDATA)>
+<!ELEMENT custGroupName             (#PCDATA)>
+<!ELEMENT custGroupValue            (#PCDATA)>
+<!ELEMENT custGroupPermanent        (#PCDATA)>
+<!ELEMENT custGroupDate             (#PCDATA)>
+<!ELEMENT custGroupOperId           (#PCDATA)>
+<!ELEMENT customerGroup             (#PCDATA)>
+<!ATTLIST customerGroup        code CDATA #IMPLIED>
+<!ELEMENT customerTokenId           (#PCDATA)>
+<!ELEMENT cv2                       (#PCDATA)>
+<!ELEMENT data                      (#PCDATA)>
+<!ELEMENT dataField                 (#PCDATA)>
+<!ELEMENT date                      (#PCDATA)>
+<!ELEMENT deadHeatEachWayDeductions (#PCDATA)>
+<!ELEMENT deadHeatWinDeductions     (#PCDATA)>
+<!ELEMENT debug                     (#PCDATA)>
+<!ELEMENT declaredCash              (#PCDATA)>
+<!ELEMENT defaultCcy                (#PCDATA)>
+<!ELEMENT defaultLang               (#PCDATA)>
+<!ELEMENT decimal                   (#PCDATA)>
+<!ELEMENT delay                     (#PCDATA)>
+<!ELEMENT dealerCard                (#PCDATA)>
+<!ELEMENT dealtCards                (#PCDATA)>
+<!ELEMENT denomCountResponse        (#PCDATA)>
+<!ELEMENT denomination              (#PCDATA)>
+<!ELEMENT desc                      (#PCDATA)>
+<!ELEMENT description               (#PCDATA)>
+<!ELEMENT demoToken                 (#PCDATA)>
+<!ELEMENT department                (#PCDATA)>
+<!ELEMENT departmentCode            (#PCDATA)>
+<!ELEMENT deposits                  (#PCDATA)>
+<!ELEMENT depositCount              (#PCDATA)>
+<!ELEMENT diceState                 (#PCDATA)>
+<!ELEMENT displayName               (#PCDATA)>
+<!ELEMENT displayOrder              (#PCDATA)>
+<!ELEMENT displayed                 (#PCDATA)>
+<!ELEMENT districtNo                (#PCDATA)>
+<!ELEMENT dividend                  (#PCDATA)>
+<!ATTLIST dividend
+	legType   CDATA #IMPLIED
+	priceDesc CDATA #REQUIRED>
+<!ELEMENT dob                       (#PCDATA)>
+<!ELEMENT doubleCount               (#PCDATA)>
+<!ELEMENT doubleDealer              (#PCDATA)>
+<!ELEMENT doubleUser                (#PCDATA)>
+<!ELEMENT doubleFirstSelection      (#PCDATA)>
+<!ELEMENT doubleSelection           (#PCDATA)>
+<!ELEMENT drawn                     (#PCDATA)>
+<!ELEMENT drawn2                    (#PCDATA)>
+<!ELEMENT draws                     (#PCDATA)>
+<!ELEMENT licenseNo                 (#PCDATA)>
+<!ELEMENT dtvCardNo                 (#PCDATA)>
+<!ELEMENT dtvStoreDetails           (#PCDATA)>
+<!ELEMENT eachWayAvailable          (#PCDATA)>
+<!ELEMENT eachWayDen                (#PCDATA)>
+<!ELEMENT eachWayNum                (#PCDATA)>
+<!ELEMENT eachWayPlaces             (#PCDATA)>
+<!ELEMENT email                     (#PCDATA)>
+<!ELEMENT emailType                 (#PCDATA)>
+<!ELEMENT encData                   (#PCDATA)>
+<!ELEMENT enclosedTriggerName       (#PCDATA)>
+<!ELEMENT enclosedTriggerParams     (#PCDATA)>
+<!ELEMENT encPassword               (#PCDATA)>
+<!ELEMENT encPin                    (#PCDATA)>
+<!ELEMENT endOfDayDeclaredFloat     (#PCDATA)>
+<!ELEMENT endOfDayState             (#PCDATA)>
+<!ELEMENT endOfDaySystemFloat       (#PCDATA)>
+<!ELEMENT endTime                   (#PCDATA)>
+<!ELEMENT entityNo                  (#PCDATA)>
+<!ELEMENT errorDetail               (#PCDATA)>
+<!ELEMENT eventCategory             (#PCDATA)>
+<!ELEMENT eventClassName            (#PCDATA)>
+<!ELEMENT eventTypeDesc             (#PCDATA)>
+<!ELEMENT eventDesc                 (#PCDATA)>
+<!ELEMENT eventId                   (#PCDATA)>
+<!ELEMENT eventMarketBlurb          (#PCDATA)>
+<!ELEMENT eventMarketDesc           (#PCDATA)>
+<!ELEMENT eventMarketId             (#PCDATA)>
+<!ELEMENT eventMarketSort           (#PCDATA)>
+<!ELEMENT eventName                 (#PCDATA)>
+<!ELEMENT eventOutcomeDesc          (#PCDATA)>
+<!ELEMENT eventOutcomeId            (#PCDATA)>
+<!ELEMENT exchangeRate              (#PCDATA)>
+<!ELEMENT excludeType               (#PCDATA)>
+<!ELEMENT exclusionType             (#PCDATA)>
+<!ELEMENT exclusionMethod           (#PCDATA)>
+<!ELEMENT exclusionPeriod           (#PCDATA)>
+<!ELEMENT expectedBalance           (#PCDATA)>
+<!ELEMENT expensesOut               (#PCDATA)>
+<!ELEMENT expensesOutCount          (#PCDATA)>
+<!ELEMENT expired                   (#PCDATA)>
+<!ELEMENT expiry                    (#PCDATA)>
+<!ELEMENT expiryDay                 (#PCDATA)>
+<!ELEMENT expiryMonth               (#PCDATA)>
+<!ELEMENT expiryTime                (#PCDATA)>
+<!ELEMENT expiryYear                (#PCDATA)>
+<!ELEMENT extCustId                 (#PCDATA)>
+<!ELEMENT extCustSerial             (#PCDATA)>
+<!ELEMENT extHost                   (#PCDATA)>
+<!ELEMENT extTriggerId              (#PCDATA)>
+<!ELEMENT externalAccountType       (#PCDATA)>
+<!ELEMENT externalAlias             (#PCDATA)>
+<!ELEMENT externalId                (#PCDATA)>
+<!ELEMENT externalStatus            (#PCDATA)>
+<!ELEMENT externalBetId             (#PCDATA)>
+<!ATTLIST externalBetId system CDATA #IMPLIED>
+<!ELEMENT externalChannel           (#PCDATA)>
+<!ELEMENT externalSystemId          (#PCDATA)>
+<!ELEMENT externalUniqueId          (#PCDATA)>
+<!ELEMENT externalVerified          (#PCDATA)>
+<!ELEMENT extraInfo                 (#PCDATA)>
+<!ELEMENT extSystems                ANY>
+<!ELEMENT failedLogin               (#PCDATA)>
+<!ELEMENT failOnDuplicateSub        (#PCDATA)>
+<!ELEMENT fax                       (#PCDATA)>
+<!ELEMENT fbResult                  (#PCDATA)>
+<!ELEMENT filter                    (#PCDATA)>
+<!ATTLIST filter type               CDATA #IMPLIED>
+<!ELEMENT finished                  (#PCDATA)>
+<!ELEMENT firstDeposit              (#PCDATA)>
+<!ELEMENT firstDrawId               (#PCDATA)>
+<!ELEMENT firstName                 (#PCDATA)>
+<!ELEMENT flatNo                    (#PCDATA)>
+<!ELEMENT flagName                  (#PCDATA)>
+<!ELEMENT flagStatus                (#PCDATA)>
+<!ELEMENT flagReason                (#PCDATA)>
+<!ELEMENT flagValue                 (#PCDATA)>
+<!ELEMENT float                     (#PCDATA)>
+<!ELEMENT fractionDen               (#PCDATA)>
+<!ELEMENT fractionNum               (#PCDATA)>
+<!ELEMENT freebetAmountRedeemed     (#PCDATA)>
+<!ELEMENT freebetAmountRemaining    (#PCDATA)>
+<!ELEMENT freebetCalledOfferId      (#PCDATA)>
+<!ELEMENT freebetCalledTriggerId    (#PCDATA)>
+<!ELEMENT freebetFailureCode        (#PCDATA)>
+<!ELEMENT freebetFailureDebug       (#PCDATA)>
+<!ELEMENT freebetFailureKey         (#PCDATA)>
+<!ELEMENT freebetFailureReason      (#PCDATA)>
+<!ELEMENT freebetNumFulfilledActons (#PCDATA)>
+<!ELEMENT freebetOfferCcyCodes      (#PCDATA)>
+<!ELEMENT freebetOfferStatus        (#PCDATA)>
+<!ELEMENT freebetOfferId            (#PCDATA)>
+<!ELEMENT freebetOfferName          (#PCDATA)>
+<!ELEMENT freebetOfferDesc          (#PCDATA)>
+<!ELEMENT freebetOfferRepeatable    (#PCDATA)>
+<!ELEMENT freebetRedemptionTime     (#PCDATA)>
+<!ELEMENT freebetTokenExpiryDate    (#PCDATA)>
+<!ELEMENT freebetTokenId            (#PCDATA)>
+<!ELEMENT freebetTokenStatus        (#PCDATA)>
+<!ELEMENT freebetTokenValue         (#PCDATA)>
+<!ATTLIST freebetTokenValue currency CDATA #IMPLIED>
+<!ELEMENT freebetTokenDisplayText   (#PCDATA)>
+<!ELEMENT freebetTriggerStatus      (#PCDATA)>
+<!ELEMENT freePlay                  (#PCDATA)>
+<!ELEMENT freebetTokenType          (#PCDATA)>
+<!ELEMENT freebetGameName           (#PCDATA)>
+<!ELEMENT freebetTriggerDisplayText (#PCDATA)>
+<!ELEMENT freebetTriggerId          (#PCDATA)>
+<!ELEMENT freebetTriggerName        (#PCDATA)>
+<!ELEMENT freebetTriggerNumActions  (#PCDATA)>
+<!ELEMENT freebetTriggerQualification (#PCDATA)>
+<!ELEMENT freebetTriggerRank        (#PCDATA)>
+<!ELEMENT freebetTriggerType        (#PCDATA)>
+<!ELEMENT freeMoneyAmount           (#PCDATA)>
+<!ELEMENT freeSubscriptions         (#PCDATA)>
+<!ELEMENT fromDate                  (#PCDATA)>
+<!ELEMENT fromTerminalCode          (#PCDATA)>
+<!ELEMENT fromWallet                (#PCDATA)>
+<!ELEMENT fullDetails               (#PCDATA)>
+<!ELEMENT gameClass                 (#PCDATA)>
+<!ELEMENT gameArch                  (#PCDATA)>
+<!ELEMENT gameId                    (#PCDATA)>
+<!ELEMENT gameLimitType             (#PCDATA)>
+<!ELEMENT gameName                  (#PCDATA)>
+<!ELEMENT gameCode                  (#PCDATA)>
+<!ELEMENT gameSeln                  (#PCDATA)>
+<!ELEMENT gameState                 (#PCDATA)>
+<!ELEMENT gameStatus                (#PCDATA)>
+<!ELEMENT gameSummaryId             (#PCDATA)>
+<!ELEMENT gameType                  (#PCDATA)>
+<!ELEMENT gender                    (#PCDATA)>
+<!ELEMENT getReceiptFailureKey      (#PCDATA)>
+<!ELEMENT group                     (#PCDATA)>
+<!ELEMENT grosMemberNo              (#PCDATA)>
+<!ELEMENT groupDesc                 (#PCDATA)>
+<!ELEMENT groupTypeDesc             (#PCDATA)>
+<!ELEMENT groupValueDesc            (#PCDATA)>
+<!ELEMENT groupValueTxt             (#PCDATA)>
+<!ELEMENT handicap                  (#PCDATA)>
+<!ATTLIST handicap formatted   (Y|N) #IMPLIED>
+<!ELEMENT handicapPrecision         (#PCDATA)>
+<!ELEMENT handStatus                (#PCDATA)>
+<!ELEMENT hasPlayed                 ANY>
+<!ELEMENT hearAbout                 (#PCDATA)>
+<!ELEMENT hearAboutText             (#PCDATA)>
+<!ELEMENT heldCards                 (#PCDATA)>
+<!ELEMENT houseName                 (#PCDATA)>
+<!ELEMENT houseNo                   (#PCDATA)>
+<!ELEMENT host                      (#PCDATA)>
+<!ELEMENT id                        (#PCDATA)>
+<!ELEMENT idCardType                (#PCDATA)>
+<!ELEMENT idCardNumber              (#PCDATA)>
+<!ELEMENT ident                     (#PCDATA)>
+<!ELEMENT identType                 (#PCDATA)>
+<!ELEMENT image                     (#PCDATA)>
+<!ELEMENT includeOperator           (#PCDATA)>
+<!ELEMENT includeType               (#PCDATA)>
+<!ELEMENT info                      (#PCDATA)>
+<!ELEMENT initial                   (#PCDATA)>
+<!ELEMENT insecureToken             (#PCDATA)>
+<!ELEMENT intCampId                 (#PCDATA)>
+<!ELEMENT interactionNo             (#PCDATA)>
+<!ELEMENT ipaddr                    (#PCDATA)>
+<!ELEMENT ipAddr                    (#PCDATA)>
+<!ELEMENT ipAddress                 (#PCDATA)>
+<!ELEMENT isAvailable               (#PCDATA)>
+<!ELEMENT issueNo                   (#PCDATA)>
+<!ELEMENT isCancel                  (#PCDATA)>
+<!ELEMENT isReverse                 (#PCDATA)>
+<!ELEMENT issuedCreditSlips         (#PCDATA)>
+<!ELEMENT issuedCreditSlipCount     (#PCDATA)>
+<!ELEMENT item                      (#PCDATA)>
+<!ELEMENT jrnlId                    (#PCDATA)>
+<!ELEMENT jrnlOpRefId               (#PCDATA)>
+<!ELEMENT jrnlOpRefKey              (#PCDATA)>
+<!ELEMENT jrnlOpType                (#PCDATA)>
+<!ELEMENT lang                      (#PCDATA)>
+<!ELEMENT language                  (#PCDATA)>
+<!ELEMENT langName                  (#PCDATA)>
+<!ELEMENT languageFailureCode       (#PCDATA)>
+<!ELEMENT languageFailureKey        (#PCDATA)>
+<!ELEMENT languageFailureReason     (#PCDATA)>
+<!ELEMENT lastBet                   (#PCDATA)>
+<!ELEMENT lastDrawId                (#PCDATA)>
+<!ELEMENT lastLogin                 (#PCDATA)>
+<!ELEMENT lastLoginTime             (#PCDATA)>
+<!ELEMENT lastLoginChannel          (#PCDATA)>
+<!ELEMENT lastName                  (#PCDATA)>
+<!ELEMENT lastPaymentDate           (#PCDATA)>
+<!ELEMENT lastTransaction           (#PCDATA)>
+<!ELEMENT lastUpdate                (#PCDATA)>
+<!ELEMENT latitude                  (#PCDATA)>
+<!ELEMENT loyaltyFailureCode        (#PCDATA)>
+<!ELEMENT loyaltyFailureDebug       (#PCDATA)>
+<!ELEMENT loyaltyFailureReason      (#PCDATA)>
+<!ELEMENT leftDrawn                 (#PCDATA)>
+<!ELEMENT legCancelReason           (#PCDATA)>
+<!ELEMENT legDesc                   (#PCDATA)>
+<!ELEMENT legFailureCode            (#PCDATA)>
+<!ELEMENT legFailureReason          (#PCDATA)>
+<!ELEMENT legNo                     (#PCDATA)>
+<!ELEMENT legSort                   (#PCDATA)>
+<!ELEMENT legSortDesc               (#PCDATA)>
+<!ELEMENT legStatus                 (#PCDATA)>
+<!ELEMENT legType                   (#PCDATA)>
+<!ELEMENT legTypeDesc               (#PCDATA)>
+<!ELEMENT level                     (#PCDATA)>
+<!ELEMENT limitId                   (#PCDATA)>
+<!ELEMENT limitFrequency            (#PCDATA)>
+<!ELEMENT limitFrequencyUsed        (#PCDATA)>
+<!ELEMENT limitFrequencyRemaining   (#PCDATA)>
+<!ELEMENT limitAmount               (#PCDATA)>
+<!ELEMENT limitAmountUsed           (#PCDATA)>
+<!ELEMENT limitAmountRemaining      (#PCDATA)>
+<!ELEMENT limitKind                 (#PCDATA)>
+<!ELEMENT limitLevel                (#PCDATA)>
+<!ELEMENT limitLowLimit             (#PCDATA)>
+<!ELEMENT limitHighLimit            (#PCDATA)>
+<!ELEMENT limitType                 (#PCDATA)>
+<!ELEMENT limitPeriod               (#PCDATA)>
+<!ELEMENT limitPriority             (#PCDATA)>
+<!ELEMENT limitRange                (#PCDATA)>
+<!ELEMENT limits                    (#PCDATA)>
+<!ELEMENT limitSort                 (#PCDATA)>
+<!ELEMENT limitValue                (#PCDATA)>
+<!ELEMENT linesLose                 (#PCDATA)>
+<!ELEMENT linesRefund               (#PCDATA)>
+<!ELEMENT linesWin                  (#PCDATA)>
+<!ELEMENT lineMaxStake              (#PCDATA)>
+<!ELEMENT lineMinStake              (#PCDATA)>
+<!ELEMENT locationCode              (#PCDATA)>
+<!ELEMENT locationId                (#PCDATA)>
+<!ELEMENT location                  (#PCDATA)>
+<!ELEMENT loginTime                 (#PCDATA)>
+<!ELEMENT longitude                 (#PCDATA)>
+<!ELEMENT locationName              (#PCDATA)>
+<!ELEMENT lookupFailure             (#PCDATA)>
+<!ELEMENT machineId                 (#PCDATA)>
+<!ELEMENT manAdjSubType             (#PCDATA)>
+<!ELEMENT manAdjType                (#PCDATA)>
+<!ELEMENT matchCase                 (#PCDATA)>
+<!ELEMENT matches                   (#PCDATA)>
+<!ELEMENT marketDesc                (#PCDATA)>
+<!ELEMENT marketTags                (#PCDATA)>
+<!ELEMENT marketId                  (#PCDATA)>
+<!ELEMENT master                    (#PCDATA)>
+<!ELEMENT maxDepLimit               (#PCDATA)>
+<!ELEMENT maximumDeposit            (#PCDATA)>
+<!ELEMENT maximumWithdrawal         (#PCDATA)>
+<!ELEMENT maxStakeScale             (#PCDATA)>
+<!ELEMENT maxWtdLimit               (#PCDATA)>
+<!ELEMENT meccaPersonNo             (#PCDATA)>
+<!ELEMENT merchPayMethod            (#PCDATA)>
+<!ELEMENT message                   (#PCDATA)>
+<!ELEMENT minDepLimit               (#PCDATA)>
+<!ELEMENT minimumDeposit            (#PCDATA)>
+<!ELEMENT minimumWithdrawal         (#PCDATA)>
+<!ELEMENT minWtdLimit               (#PCDATA)>
+<!ELEMENT mobile                    (#PCDATA)>
+<!ELEMENT mobileConfirmed           (#PCDATA)>
+<!ELEMENT mobileDialCode            (#PCDATA)>
+<!ELEMENT msg                       (#PCDATA)>
+<!ELEMENT msgId                     (#PCDATA)>
+<!ELEMENT mthAction                 (#PCDATA)>
+<!ELEMENT mthNumber                 (#PCDATA)>
+<!ELEMENT name                      (#PCDATA)>
+<!ELEMENT netDeposit                (#PCDATA)>
+<!ELEMENT netellerId                (#PCDATA)>
+<!ELEMENT newBalance                (#PCDATA)>
+<!ELEMENT newPassword               (#PCDATA)>
+<!ELEMENT newWinnings               (#PCDATA)>
+<!ELEMENT nickname                  (#PCDATA)>
+<!ATTLIST nickname     generated (Y|N) #IMPLIED>
+<!ELEMENT nif                       (#PCDATA)>
+<!ELEMENT noBets                    (#PCDATA)>
+<!ELEMENT notice                    (#PCDATA)>
+<!ATTLIST notice read (Y|N) #REQUIRED>
+<!ELEMENT noCombi                   (#PCDATA)>
+<!ELEMENT nonPlayableFunds          (#PCDATA)>
+<!ELEMENT heldAmount                (#PCDATA)>
+<!ELEMENT heldFunds                 (#PCDATA)>
+<!ELEMENT netellerPassword          (#PCDATA)>
+<!ELEMENT noCombinationWith         (#PCDATA)>
+<!ELEMENT notes                     (#PCDATA)>
+<!ELEMENT numberAvailable           (#PCDATA)>
+<!ELEMENT numBets                   (#PCDATA)>
+<!ELEMENT numberRead                (#PCDATA)>
+<!ELEMENT numberUnread              (#PCDATA)>
+<!ELEMENT numBetsPlaced             (#PCDATA)>
+<!ELEMENT numBetsSettled            (#PCDATA)>
+<!ELEMENT numDraws                  (#PCDATA)>
+<!ELEMENT numDrops                  (#PCDATA)>
+<!ELEMENT numFreeSpin               (#PCDATA)>
+<!ELEMENT numLegs                   (#PCDATA)>
+<!ELEMENT numLines                  (#PCDATA)>
+<!ELEMENT numLinesLose              (#PCDATA)>
+<!ELEMENT numLinesVoid              (#PCDATA)>
+<!ELEMENT numLinesWin               (#PCDATA)>
+<!ELEMENT numPicks                  (#PCDATA)>
+<!ELEMENT numSelns                  (#PCDATA)>
+<!ELEMENT numSubscriptions          (#PCDATA)>
+<!ELEMENT obAlias                   (#PCDATA)>
+<!ELEMENT oldWinnings               (#PCDATA)>
+<!ELEMENT oddsDisplay               (#PCDATA)>
+<!ELEMENT offerName                 (#PCDATA)>
+<!ELEMENT offeredHandicapValue      (#PCDATA)>
+<!ELEMENT offeredLegType            (#PCDATA)>
+<!ELEMENT offeredPriceDec           (#PCDATA)>
+<!ELEMENT offeredPriceDen           (#PCDATA)>
+<!ELEMENT offeredPriceNum           (#PCDATA)>
+<!ELEMENT offeredStake              (#PCDATA)>
+<!ELEMENT office                    (#PCDATA)>
+<!ELEMENT oldPassword               (#PCDATA)>
+<!ELEMENT op                        (#PCDATA)>
+<!ELEMENT openTokens                (#PCDATA)>
+<!ELEMENT openTokenCount            (#PCDATA)>
+<!ELEMENT operator                  (#PCDATA)>
+<!ELEMENT onlyOpen                  (#PCDATA)>
+<!ELEMENT orderId                   (#PCDATA)>
+<!ELEMENT order                     (#PCDATA)>
+<!ELEMENT originalHandicapValue     (#PCDATA)>
+<!ELEMENT originalLegType           (#PCDATA)>
+<!ELEMENT originalPriceDec          (#PCDATA)>
+<!ELEMENT originalPriceDen          (#PCDATA)>
+<!ELEMENT originalPriceNum          (#PCDATA)>
+<!ELEMENT originalStake             (#PCDATA)>
+<!ELEMENT ordering                  (#PCDATA)>
+<!ELEMENT outcome                   (#PCDATA)>
+<!ELEMENT outcomeHandicap           (#PCDATA)>
+<!ELEMENT outcomeId                 (#PCDATA)>
+<!ELEMENT outcomeName               (#PCDATA)>
+<!ELEMENT outlet                    (#PCDATA)>
+<!ELEMENT override                  (#PCDATA)>
+<!ELEMENT ovsStatus                 (#PCDATA)>
+<!ELEMENT ovsFlag                   (#PCDATA)>
+<!ELEMENT paid                      (#PCDATA)>
+<!ELEMENT paidCreditSlips           (#PCDATA)>
+<!ELEMENT paidCreditSlipCount       (#PCDATA)>
+<!ELEMENT partnerContactable        (#PCDATA)>
+<!ELEMENT partNo                    (#PCDATA)>
+<!ELEMENT param                     (#PCDATA)>
+<!ATTLIST param name           CDATA #IMPLIED>
+<!ELEMENT password                  (#PCDATA)>
+<!ELEMENT passportNo                (#PCDATA)>
+<!ATTLIST passportNo checkDuplicates (Y|N) #IMPLIED>
+<!ELEMENT partnership               (#PCDATA)>
+<!ELEMENT payee                     (#PCDATA)>
+<!ELEMENT payer                     (#PCDATA)>
+<!ELEMENT paymentId                 (#PCDATA)>
+<!ELEMENT paymentSort               (#PCDATA)>
+<!ELEMENT payMethodId               (#PCDATA)>
+<!ELEMENT paymentProcessedEarlier   (#PCDATA)>
+<!ELEMENT paymentRefKey             (#PCDATA)>
+<!ELEMENT paymentMethod             (#PCDATA)>
+<!ELEMENT payout                    (#PCDATA)>
+<!ELEMENT payoutAmount              (#PCDATA)>
+<!ELEMENT payoutCcy                 (#PCDATA)>
+<!ELEMENT permanent                 (#PCDATA)>
+<!ELEMENT pendingWithdrawals        (#PCDATA)>
+<!ELEMENT phoneNumber               (#PCDATA)>
+<!ELEMENT picks                     (#PCDATA)>
+<!ELEMENT pin                       (#PCDATA)>
+<!ELEMENT place                     (#PCDATA)>
+<!ELEMENT placedBy                  (#PCDATA)>
+<!ELEMENT placePriceNum             (#PCDATA)>
+<!ELEMENT placePriceDecimal         (#PCDATA)>
+<!ELEMENT placePriceDen             (#PCDATA)>
+<!ELEMENT placePricePlaces          (#PCDATA)>
+<!ELEMENT player                    (#PCDATA)>
+<!ELEMENT poolBetId                 (#PCDATA)>
+<!ELEMENT pointOfDeposit            (#PCDATA)>
+<!ELEMENT points                    (#PCDATA)>
+<!ELEMENT pointsBalance             (#PCDATA)>
+<!ELEMENT poolId                    (#PCDATA)>
+<!ELEMENT poolName                  (#PCDATA)>
+<!ELEMENT poolSource                (#PCDATA)>
+<!ELEMENT poolType                  (#PCDATA)>
+<!ELEMENT pokerHandId               (#PCDATA)>
+<!ELEMENT pokerHandDate             (#PCDATA)>
+<!ELEMENT pokerHandPot              (#PCDATA)>
+<!ELEMENT pokerHandCustCards        (#PCDATA)>
+<!ELEMENT pokerHandCommunityCards   (#PCDATA)>
+<!ELEMENT pokerHandCustWin          (#PCDATA)>
+<!ELEMENT pokerHandCustStake        (#PCDATA)>
+<!ELEMENT pokerHandWinnerNickname   (#PCDATA)>
+<!ELEMENT pokerHandWonAmount        (#PCDATA)>
+<!ELEMENT pokerMaxDeposit           (#PCDATA)>
+<!ELEMENT pokerMaxWithdrawal        (#PCDATA)>
+<!ELEMENT pokerVariantCode          (#PCDATA)>
+<!ELEMENT pokerVariantName          (#PCDATA)>
+<!ELEMENT position                  (#PCDATA)>
+<!ELEMENT positions                 (#PCDATA)>
+<!ELEMENT postcode                  (#PCDATA)>
+<!ELEMENT potentialPayout           (#PCDATA)>
+<!ELEMENT preference                (#PCDATA)>
+<!ATTLIST preference  name   CDATA  #IMPLIED>
+<!ELEMENT previousDeclaredEOD       (#PCDATA)>
+<!ELEMENT priceDen                  (#PCDATA)>
+<!ELEMENT priceFormat               (#PCDATA)>
+<!ELEMENT priceNum                  (#PCDATA)>
+<!ELEMENT priceType                 (#PCDATA)>
+<!ELEMENT priceDecimal              (#PCDATA)>
+<!ELEMENT printerPort               (#PCDATA)>
+<!ELEMENT printerType               (#PCDATA)>
+<!ELEMENT prizeId                   (#PCDATA)>
+<!ELEMENT prizeRank                 (#PCDATA)>
+<!ELEMENT prizeType                 (#PCDATA)>
+<!ELEMENT prizeDesc                 (#PCDATA)>
+<!ELEMENT prizeWon                  (#PCDATA)>
+<!ELEMENT prizeWonAmount            (#PCDATA)>
+<!ELEMENT prizeHidden               (#PCDATA)>
+<!ELEMENT processedDate             (#PCDATA)>
+<!ELEMENT product                   (#PCDATA)>
+<!ELEMENT productSource             (#PCDATA)>
+<!ELEMENT profileID                 (#PCDATA)>
+<!ELEMENT profileName               (#PCDATA)>
+<!ELEMENT progAmount                (#PCDATA)>
+<!ELEMENT progFixedStake            (#PCDATA)>
+<!ELEMENT progWinnings              (#PCDATA)>
+<!ELEMENT promoCode                 (#PCDATA)>
+<!ELEMENT promoId                   (#PCDATA)>
+<!ELEMENT promoReason               (#PCDATA)>
+<!ELEMENT proxyIPAddress            (#PCDATA)>
+<!ELEMENT pubUserId                 (#PCDATA)>
+<!ELEMENT ssoid                     (#PCDATA)>
+<!ELEMENT pyramidLevel              (#PCDATA)>
+<!ELEMENT quantity                  (#PCDATA)>
+<!ELEMENT raceNumber                (#PCDATA)>
+<!ELEMENT reactivateDate            (#PCDATA)>
+<!ELEMENT reactivateMethod          (#PCDATA)>
+<!ELEMENT readOnly                  (#PCDATA)>
+<!ELEMENT reason                    (#PCDATA)>
+<!ELEMENT reasonCode                (#PCDATA)>
+<!ELEMENT receipt                   (#PCDATA)>
+<!ELEMENT receiptType               (#PCDATA)>
+<!ELEMENT redeemed                  (#PCDATA)>
+<!ELEMENT redeemedTokens            (#PCDATA)>
+<!ELEMENT redeemedTokenCount        (#PCDATA)>
+<!ELEMENT redeemFailureCode         (#PCDATA)>
+<!ELEMENT redeemFailureKey          (#PCDATA)>
+<!ELEMENT redeemFailureReason       (#PCDATA)>
+<!ELEMENT returnRedeemedTokens      (#PCDATA)>
+<!ELEMENT returnRemainingTokens     (#PCDATA)>
+<!ELEMENT reelState                 (#PCDATA)>
+<!ELEMENT refund                    (#PCDATA)>
+<!ELEMENT reference                 (#PCDATA)>
+<!ELEMENT referenceId               (#PCDATA)>
+<!ELEMENT referenceNumber           (#PCDATA)>
+<!ELEMENT referer                   (#PCDATA)>
+<!ELEMENT refererURL                (#PCDATA)>
+<!ELEMENT regCombi                  (#PCDATA)>
+<!ELEMENT regDocuments              (#PCDATA)>
+<!ELEMENT regionAreaDistrictId      (#PCDATA)>
+<!ELEMENT regionCode                (#PCDATA)>
+<!ELEMENT regionId                  (#PCDATA)>
+<!ELEMENT registerDate              (#PCDATA)>
+<!ELEMENT registerProduct           (#PCDATA)>
+<!ELEMENT regStage                  (#PCDATA)>
+<!ELEMENT repeatTriggerCheck        (#PCDATA)>
+<!ELEMENT remoteAccount             (#PCDATA)>
+<!ELEMENT remoteAction              (#PCDATA)>
+<!ELEMENT remoteBalance             (#PCDATA)>
+<!ATTLIST remoteBalance systemName  CDATA #IMPLIED>
+<!ELEMENT remoteReference           (#PCDATA)>
+<!ELEMENT remoteUniqueId            (#PCDATA)>
+<!ELEMENT remoteItemId              (#PCDATA)>
+<!ELEMENT remoteStatus              (#PCDATA)>
+<!ELEMENT requestorId               (#PCDATA)>
+<!ELEMENT requestorName             (#PCDATA)>
+<!ELEMENT resettle                  (#PCDATA)>
+<!ELEMENT response1                 (#PCDATA)>
+<!ELEMENT response2                 (#PCDATA)>
+<!ELEMENT result                    (#PCDATA)>
+<!ELEMENT resultConf                (#PCDATA)>
+<!ELEMENT resultPlaces              (#PCDATA)>
+<!ELEMENT returnMethodDetails       (#PCDATA)>
+<!ELEMENT returnNotices             (#PCDATA)>
+<!ELEMENT returnDuplicateAccounts   (#PCDATA)>
+<!ELEMENT returns                   (#PCDATA)>
+<!ELEMENT returnCGData              (#PCDATA)>
+<!ELEMENT returnPoints              (#PCDATA)>
+<!ELEMENT returnPreferences         (#PCDATA)>
+<!ELEMENT returnTransferToken         (#PCDATA)>
+<!ATTLIST returnTransferToken  from   CDATA  #REQUIRED>
+<!ATTLIST returnTransferToken  target CDATA  #REQUIRED>
+<!ELEMENT returnGameName            (#PCDATA)>
+<!ELEMENT returnSingleAddress       (#PCDATA)>
+<!ELEMENT returnTransferData        (#PCDATA)>
+<!ELEMENT returnSummaryData         (#PCDATA)>
+<!ELEMENT reversePayout             (#PCDATA)>
+<!ELEMENT reversePlay               (#PCDATA)>
+<!ELEMENT rightDrawn                (#PCDATA)>
+<!ELEMENT runnerNum                 (#PCDATA)>
+<!ELEMENT rule4Deductions           (#PCDATA)>
+<!ELEMENT safeCash                  (#PCDATA)>
+<!ELEMENT safeFloat                 (#PCDATA)>
+<!ELEMENT safeTransfersIn           (#PCDATA)>
+<!ELEMENT safeTransfersInCount      (#PCDATA)>
+<!ELEMENT safeTransfersOut          (#PCDATA)>
+<!ELEMENT safeTransfersOutCount     (#PCDATA)>
+<!ELEMENT scheduleType              (#PCDATA)>
+<!ELEMENT searchType                (#PCDATA)>
+<!ELEMENT secondLastName            (#PCDATA)>
+<!ELEMENT selected                  (#PCDATA)>
+<!ELEMENT selectedLine              (#PCDATA)>
+<!ELEMENT selfExclude               (#PCDATA)>
+<!ELEMENT selfExclusionId           (#PCDATA)>
+<!ELEMENT selfExclusionOverride     (#PCDATA)>
+<!ELEMENT seln                      (#PCDATA)>
+<!ELEMENT selWinLines               (#PCDATA)>
+<!ELEMENT sessionFailureCode        (#PCDATA)>
+<!ELEMENT sessionFailureKey         (#PCDATA)>
+<!ELEMENT sessionFailureReason      (#PCDATA)>
+<!ELEMENT sessionId                 (#PCDATA)>
+<!ELEMENT sessionGroup              (#PCDATA)>
+<!ELEMENT sessionResponse           (#PCDATA)>
+<!ELEMENT sessOpType                (#PCDATA)>
+<!ELEMENT settled                   (#PCDATA)>
+<!ELEMENT settledAt                 (#PCDATA)>
+<!ELEMENT settleInfo                (#PCDATA)>
+<!ELEMENT settleFailureCode         (#PCDATA)>
+<!ELEMENT settleFailureKey          (#PCDATA)>
+<!ELEMENT settleFailureReason       (#PCDATA)>
+<!ELEMENT severity                  (#PCDATA)>
+<!ELEMENT shopCashReportFailure     (#PCDATA)>
+<!ELEMENT shopCashReconciliationResponse (#PCDATA)>
+<!ELEMENT shopFailureCode           (#PCDATA)>
+<!ELEMENT shopFailureDebug          (#PCDATA)>
+<!ELEMENT shopFailureKey            (#PCDATA)>
+<!ELEMENT shopFailureReason         (#PCDATA)>
+<!ELEMENT shopId                    (#PCDATA)>
+<!ELEMENT shopName                  (#PCDATA)>
+<!ELEMENT shopNo                    (#PCDATA)>
+<!ELEMENT shopSessionFailureKey     (#PCDATA)>
+<!ELEMENT shopSessionId             (#PCDATA)>
+<!ELEMENT shopSessionResponse       (#PCDATA)>
+<!ELEMENT shopState                 (#PCDATA)>
+<!ELEMENT shopTransferFloatResponse (#PCDATA)>
+<!ELEMENT show                      (#PCDATA)>
+<!ELEMENT significantDate           (#PCDATA)>
+<!ELEMENT sinceDate                 (#PCDATA)>
+<!ELEMENT singleOnly                (#PCDATA)>
+<!ELEMENT siteViewId                (#PCDATA)>
+<!ELEMENT anonPmt                   (#PCDATA)>
+<!ELEMENT slipId                    (#PCDATA)>
+<!ELEMENT smsOnSettle               (#PCDATA)>
+<!ELEMENT sort                      (#PCDATA)>
+<!ELEMENT source                    (#PCDATA)>
+<!ELEMENT sportDesc                 (#PCDATA)>
+<!ELEMENT SRPFrequency              (#PCDATA)>
+<!ATTLIST SRPFrequency    default (Y|N) #IMPLIED>
+<!ELEMENT SRPFrqDeposit             (#PCDATA)>
+<!ATTLIST SRPFrqDeposit   default (Y|N) #IMPLIED>
+<!ELEMENT SRPMaxDeposit             (#PCDATA)>
+<!ATTLIST SRPMaxDeposit   default (Y|N) #IMPLIED>
+<!ELEMENT stackTrace                (#PCDATA)>
+<!ELEMENT stake                     (#PCDATA)>
+<!ELEMENT stakePerLine              (#PCDATA)>
+<!ELEMENT stakes                    (#PCDATA)>
+<!ELEMENT start                     (#PCDATA)>
+<!ELEMENT started                   (#PCDATA)>
+<!ELEMENT startOfDayBalance         (#PCDATA)>
+<!ELEMENT startOfDayDeclaredFloat   (#PCDATA)>
+<!ELEMENT startOfDaySystemFloat     (#PCDATA)>
+<!ELEMENT startTime                 (#PCDATA)>
+<!ELEMENT status                    (#PCDATA)>
+<!ATTLIST status system CDATA #IMPLIED>
+<!ELEMENT statusFlagName            (#PCDATA)>
+<!ELEMENT stop                      (#PCDATA)>
+<!ELEMENT stopCode                  (#PCDATA)>
+<!ELEMENT subBetType                (#PCDATA)>
+<!ELEMENT subDesc                   (#PCDATA)>
+<!ELEMENT subFailureCode            (#PCDATA)>
+<!ELEMENT subFailureKey             (#PCDATA)>
+<!ELEMENT subFailureReason          (#PCDATA)>
+<!ELEMENT subId                     (#PCDATA)>
+<!ATTLIST subId        subControl (CONTINUE|END) #IMPLIED>
+<!ELEMENT subReference              (#PCDATA)>
+<!ATTLIST subReference subControl (BEGIN|CONTINUE|END|INSTANT) #IMPLIED>
+<!ELEMENT subStartTime              (#PCDATA)>
+<!ELEMENT subscription              (#PCDATA)>
+<!ELEMENT subscriptionExternalId    (#PCDATA)>
+<!ELEMENT subscriptionId            (#PCDATA)>
+<!ELEMENT subscriptionStatus        (#PCDATA)>
+<!ELEMENT subscriptionSettled       (#PCDATA)>
+<!ELEMENT subscriptionStartedAt     (#PCDATA)>
+<!ELEMENT subscriptionStoppedAt     (#PCDATA)>
+<!ELEMENT subscriptionFee           (#PCDATA)>
+<!ELEMENT subscriptionPointsFee     (#PCDATA)>
+<!ELEMENT subscriptionReturns       (#PCDATA)>
+<!ELEMENT subscriptionRank          (#PCDATA)>
+<!ELEMENT subscriptionNumRebuys     (#PCDATA)>
+<!ELEMENT subscriptionNumAddons     (#PCDATA)>
+<!ELEMENT subscriptionPointsEarned  (#PCDATA)>
+<!ELEMENT subscriptionNumHandsPlayed (#PCDATA)>
+<!ELEMENT subType                   (#PCDATA)>
+<!ELEMENT subTypeName               (#PCDATA)>
+<!ELEMENT suggestion                (#PCDATA)>
+<!ELEMENT supplier                  (#PCDATA)>
+<!ELEMENT systemBreakdown           (#PCDATA)>
+<!ATTLIST systemBreakdown system CDATA #IMPLIED>
+<!ELEMENT systemCash                (#PCDATA)>
+<!ELEMENT systemGroupName           (#PCDATA)>
+<!ELEMENT systemName                (#PCDATA)>
+<!ELEMENT tac                       (#PCDATA)>
+<!ELEMENT tallyType                 (#PCDATA)>
+<!ELEMENT target                    (#PCDATA)>
+<!ELEMENT tax                       (#PCDATA)>
+<!ELEMENT taxRate                   (#PCDATA)>
+<!ELEMENT taxType                   (#PCDATA)>
+<!ELEMENT team                      (#PCDATA)>
+<!ATTLIST team
+	id      CDATA #IMPLIED
+	name    CDATA #IMPLIED
+	group   CDATA #IMPLIED>
+<!ELEMENT telephone                 (#PCDATA)>
+<!ATTLIST telephone
+	type    CDATA #IMPLIED
+	rank    CDATA #IMPLIED>
+<!ELEMENT telephoneConfirmed        (#PCDATA)>
+<!ELEMENT telephoneDialCode         (#PCDATA)>
+<!ELEMENT temporaryPassword         (#PCDATA)>
+<!ELEMENT temporaryPin              (#PCDATA)>
+<!ELEMENT terminalCode              (#PCDATA)>
+<!ELEMENT termCode                  (#PCDATA)>
+<!ELEMENT termFailureCode           (#PCDATA)>
+<!ELEMENT termFailureKey            (#PCDATA)>
+<!ELEMENT termFailureReason         (#PCDATA)>
+<!ELEMENT terminalId                (#PCDATA)>
+<!ELEMENT terminalLocation          (#PCDATA)>
+<!ELEMENT terminalName              (#PCDATA)>
+<!ELEMENT termTransfersIn           (#PCDATA)>
+<!ELEMENT termTransfersInCount      (#PCDATA)>
+<!ELEMENT termTransfersOut          (#PCDATA)>
+<!ELEMENT termTransfersOutCount     (#PCDATA)>
+<!ELEMENT terminalIdent             (#PCDATA)>
+<!ELEMENT terminalType              (#PCDATA)>
+<!ELEMENT termType                  (#PCDATA)>
+<!ELEMENT title                     (#PCDATA)>
+<!ELEMENT timeStamp                 (#PCDATA)>
+<!ELEMENT timeToLive                (#PCDATA)>
+<!ELEMENT timeZone                  (#PCDATA)>
+<!ELEMENT toDate                    (#PCDATA)>
+<!ELEMENT token                     (#PCDATA)>
+<!ATTLIST token type CDATA #IMPLIED>
+<!ELEMENT tokenValue                (#PCDATA)>
+<!ELEMENT toSettleAt                (#PCDATA)>
+<!ELEMENT totalAmount               (#PCDATA)>
+<!ELEMENT totalBets                 (#PCDATA)>
+<!ELEMENT totalBlocks               (#PCDATA)>
+<!ELEMENT totalCancelledAmount      (#PCDATA)>
+<!ELEMENT totalManualAdjustments    (#PCDATA)>
+<!ELEMENT totalProfitLoss           (#PCDATA)>
+<!ELEMENT totalRefunds              (#PCDATA)>
+<!ATTLIST totalRefunds period CDATA #IMPLIED>
+<!ELEMENT totalStake                (#PCDATA)>
+<!ELEMENT totalStakes               (#PCDATA)>
+<!ELEMENT totalStaked               (#PCDATA)>
+<!ATTLIST totalStaked period CDATA #IMPLIED>
+<!ELEMENT totalStakedSettled        (#PCDATA)>
+<!ELEMENT totalWinnings             (#PCDATA)>
+<!ELEMENT toTerminalCode            (#PCDATA)>
+<!ELEMENT tournamentType            (#PCDATA)>
+<!ELEMENT tournamentStatus          (#PCDATA)>
+<!ELEMENT tournamentLive            (#PCDATA)>
+<!ELEMENT tournamentStartTime       (#PCDATA)>
+<!ELEMENT tournamentEndTime         (#PCDATA)>
+<!ELEMENT tournamentStartedAt       (#PCDATA)>
+<!ELEMENT tournamentStoppedAt       (#PCDATA)>
+<!ELEMENT tournamentNumRegistrations (#PCDATA)>
+<!ELEMENT tournamentEntryFee        (#PCDATA)>
+<!ELEMENT tournamentEntryPrizeContrib (#PCDATA)>
+<!ELEMENT tournamentEntryPointsFee  (#PCDATA)>
+<!ELEMENT tournamentPointsOnEntry   (#PCDATA)>
+<!ELEMENT tournamentRebuyFee        (#PCDATA)>
+<!ELEMENT tournamentRebuyPrizeContrib (#PCDATA)>
+<!ELEMENT tournamentPointsOnRebuy   (#PCDATA)>
+<!ELEMENT tournamentAddonFee        (#PCDATA)>
+<!ELEMENT tournamentAddonPrizeContrib (#PCDATA)>
+<!ELEMENT tournamentPointsOnAddon   (#PCDATA)>
+<!ELEMENT tournamentPrizePoolTotal  (#PCDATA)>
+<!ELEMENT toWallet                  (#PCDATA)>
+<!ELEMENT track                     (#PCDATA)>
+<!ELEMENT trackingId                (#PCDATA)>
+<!ELEMENT transactionDate           (#PCDATA)>
+<!ELEMENT transactionCSCResp        (#PCDATA)>
+<!ELEMENT transactionIpAddr         (#PCDATA)>
+<!ELEMENT transactionChannel        (#PCDATA)>
+<!ELEMENT transferFingerprint       (#PCDATA)>
+<!ELEMENT transferStatus            (#PCDATA)>
+<!ELEMENT transferStatusResponse    (#PCDATA)>
+<!ELEMENT transferToken             (#PCDATA)>
+<!ELEMENT transFailureCode          (#PCDATA)>
+<!ELEMENT transFailureDebug         (#PCDATA)>
+<!ELEMENT transFailureKey           (#PCDATA)>
+<!ELEMENT transFailureReason        (#PCDATA)>
+<!ELEMENT transferUniqueId          (#PCDATA)>
+<!ELEMENT transferId                (#PCDATA)>
+<!ELEMENT transferProcessedEarlier  (#PCDATA)>
+<!ELEMENT transferTo                (#PCDATA)>
+<!ELEMENT transferType              (#PCDATA)>
+<!ELEMENT transferDesc              (#PCDATA)>
+<!ELEMENT translate                 (#PCDATA)>
+<!ELEMENT tvChannel                 (#PCDATA)>
+<!ELEMENT type                      (#PCDATA)>
+<!ELEMENT typeId                    (#PCDATA)>
+<!ELEMENT uniqueId                  (#PCDATA)>
+<!ELEMENT unpaidCreditSlips         (#PCDATA)>
+<!ELEMENT unpaidCreditSlipCount     (#PCDATA)>
+<!ELEMENT unpaidRefunds             (#PCDATA)>
+<!ELEMENT unpaidRefundCount         (#PCDATA)>
+<!ELEMENT unpaidWinnings            (#PCDATA)>
+<!ELEMENT unpaidWinningCount        (#PCDATA)>
+<!ELEMENT updateable                (#PCDATA)>
+<!ELEMENT updateFloat               (#PCDATA)>
+<!ELEMENT useExistingDetails        (#PCDATA)>
+<!ELEMENT user                      (#PCDATA)>
+<!ELEMENT userClient                (#PCDATA)>
+<!ELEMENT userId                    (#PCDATA)>
+<!ELEMENT userName                  (#PCDATA)>
+<!ELEMENT username                  (#PCDATA)>
+<!ELEMENT usernameUpper             (#PCDATA)>
+<!ELEMENT urn                       (#PCDATA)>
+<!ELEMENT utilFailureCode           (#PCDATA)>
+<!ELEMENT utilFailureDebug          (#PCDATA)>
+<!ELEMENT utilFailureElement        (#PCDATA)>
+<!ELEMENT utilFailureKey            (#PCDATA)>
+<!ELEMENT utilFailureReason         (#PCDATA)>
+<!ELEMENT valid                     (#PCDATA)>
+<!ELEMENT validateOnly              (#PCDATA)>
+<!ELEMENT value                     (#PCDATA)>
+<!ELEMENT variant                   (#PCDATA)>
+<!ELEMENT variantId                 (#PCDATA)>
+<!ELEMENT verificationText          (#PCDATA)>
+<!ELEMENT verifyResult              (#PCDATA)>
+<!ELEMENT verifyReason              (#PCDATA)>
+<!ELEMENT voucherCode               (#PCDATA)>
+<!ELEMENT voucherId                 (#PCDATA)>
+<!ELEMENT voucherValue              (#PCDATA)>
+<!ELEMENT voucherCcy                (#PCDATA)>
+<!ELEMENT voucherIssuingLoc         (#PCDATA)>
+<!ELEMENT voucherIssuingTerm        (#PCDATA)>
+<!ELEMENT voucherStatus             (#PCDATA)>
+<!ELEMENT voucherCollectionLoc      (#PCDATA)>
+<!ELEMENT voucherCollectionTerm     (#PCDATA)>
+<!ELEMENT voucherCollectionTime     (#PCDATA)>
+<!ELEMENT wallet                    (#PCDATA)>
+<!ELEMENT wallets                   (#PCDATA)>
+<!ELEMENT win                       (#PCDATA)>
+<!ELEMENT winId                     (#PCDATA)>
+<!ELEMENT winLines                  (#PCDATA)>
+<!ELEMENT winnings                  (#PCDATA)>
+<!ELEMENT winOnly                   (#PCDATA)>
+<!ELEMENT winPayouts                (#PCDATA)>
+<!ELEMENT withdrawable              (#PCDATA)>
+<!ELEMENT withdrawableAmount        (#PCDATA)>
+<!ELEMENT withdrawableFunds         (#PCDATA)>
+<!ELEMENT xgameId                   (#PCDATA)>
+<!ELEMENT xgameFailureCode          (#PCDATA)>
+<!ELEMENT xgameFailureElement       (#PCDATA)>
+<!ELEMENT xgameFailureKey           (#PCDATA)>
+<!ELEMENT xgameFailureReason        (#PCDATA)>
+<!ELEMENT ukashDetails              EMPTY>
+<!ELEMENT verifyHash                (#PCDATA)>
+<!ELEMENT version                   (#PCDATA)>
+<!ELEMENT videoStreamAvailable      (#PCDATA)>
+<!ELEMENT view                      (#PCDATA)>
+<!-- AccountVerify -->
+
+

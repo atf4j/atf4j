@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>net.atf4j</groupId>
+		<artifactId>atf4j</artifactId>
+		<version>0.0.3-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>atf4j-webdriver</artifactId>
+	<packaging>jar</packaging>
+	<name>ATF4J - Selenium WebDriver</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>net.atf4j</groupId>
+			<artifactId>atf4j-core</artifactId>
+			<version>${atf4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+	</dependencies>
+</project>
