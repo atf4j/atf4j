@@ -1,0 +1,15 @@
+# Eclipse
+.classpath
+.project
+.metadata/
+.settings/
+*.class
+*.jar
+*.war
+*.ear
+/target/
+
+*.class
+*.jar
+
+/log4j/

@@ -1,0 +1,1846 @@
+Fri Oct 26 14:59:43 BST 2012:INFO:RunAll Constructor com.eviware.soapui.impl.wsdl.WsdlProject@1910f1
+Fri Oct 26 14:59:43 BST 2012:INFO:Library Context=[runAll:RunAll@1f52f7b, RunCount:0, log:org.apache.log4j.Logger@3b65, ThreadIndex:0]
+Fri Oct 26 14:59:43 BST 2012:INFO:execute: OxiXml - Account (API)
+Fri Oct 26 14:59:43 BST 2012:INFO:with context: [runAll:RunAll@1f52f7b, RunCount:0, log:org.apache.log4j.Logger@3b65, ThreadIndex:0]
+Fri Oct 26 14:59:43 BST 2012:INFO:using: com.eviware.soapui.impl.wsdl.panels.support.MockTestRunner@5d906c
+Fri Oct 26 14:59:43 BST 2012:INFO:OxiXml - Account (API).AccX_001a reqAccountSearch
+Fri Oct 26 14:59:43 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:43 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@ec0362
+Fri Oct 26 14:59:43 BST 2012:INFO:examining response to reqAccountSearch with reqClientAuth
+Fri Oct 26 14:59:43 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:43 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:43 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:43 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:43 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:43 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0151">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:42 Missing Authentication Credentials</debug>
+      </returnStatus>
+      <respClientAuth/>
+   </response>
+</oxip>
+Fri Oct 26 14:59:43 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:43 BST 2012:INFO:examining response to Get Token
+Fri Oct 26 14:59:43 BST 2012:INFO:OxiXml - Account (API).AccX_001b reqAccountSearch
+Fri Oct 26 14:59:43 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:43 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@d24cbe
+Fri Oct 26 14:59:43 BST 2012:INFO:examining response to reqAccountSearch using reqClientAuth with responseDataFields
+Fri Oct 26 14:59:43 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:43 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:43 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:43 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:43 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:43 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0230">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:42 Missing Authentication Credentials</debug>
+      </returnStatus>
+      <respClientAuth/>
+   </response>
+</oxip>
+Fri Oct 26 14:59:43 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:43 BST 2012:INFO:OxiXml - Account (API).AccX_002 reqAccountAcceptTnC
+Fri Oct 26 14:59:43 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:43 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@ac7e94
+Fri Oct 26 14:59:43 BST 2012:INFO:examining response to reqAccountAcceptTnC with reqClientAuth
+Fri Oct 26 14:59:43 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:43 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:43 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:43 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:43 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:43 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0158">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:42 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:43 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:43 BST 2012:INFO:OxiXml - Account (API).AccX_003 reqAccountAdd
+Fri Oct 26 14:59:44 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:44 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@aa47b7
+Fri Oct 26 14:59:44 BST 2012:INFO:examining response to reqAccountAdd with reqClientAuth
+Fri Oct 26 14:59:44 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:44 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:44 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:44 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:44 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:44 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0155">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:43 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:44 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:44 BST 2012:INFO:OxiXml - Account (API).AccX_004 reqAccountAddIdentification
+Fri Oct 26 14:59:44 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:44 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@14a7f52
+Fri Oct 26 14:59:44 BST 2012:INFO:examining response to reqAccountAddIdentification with reqClientAuth
+Fri Oct 26 14:59:44 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:44 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:44 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:44 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:44 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:44 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0180">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:43 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:44 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:44 BST 2012:INFO:OxiXml - Account (API).AccX_005 reqAccountAddAlias
+Fri Oct 26 14:59:44 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:44 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1ece855
+Fri Oct 26 14:59:44 BST 2012:INFO:examining response to reqAccountAddAlias with reqClientAuth - unauthorised
+Fri Oct 26 14:59:44 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:44 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:44 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:44 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:44 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:44 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0178">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:43 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:44 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:44 BST 2012:INFO:OxiXml - Account (API).AccX_006 reqAccountAddAnon
+Fri Oct 26 14:59:44 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:44 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@8957b3
+Fri Oct 26 14:59:44 BST 2012:INFO:examining response to reqAccountAddAnon with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:44 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:44 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:44 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:44 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:44 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:44 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0150">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:43 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:44 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:44 BST 2012:INFO:OxiXml - Account (API).AccX_007 reqAccountAddExtAlias
+Fri Oct 26 14:59:44 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:44 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@dcd527
+Fri Oct 26 14:59:44 BST 2012:INFO:examining response to reqAccountAddIdentification with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:44 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:44 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:44 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:44 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:44 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:44 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0142">
+      <returnStatus>
+         <code>105</code>
+         <message>garbled message</message>
+         <debug>10/26-14:59:44 Validation error at line 10, character 3: Element is not allowed here.</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:44 BST 2012:INFO:expectedMessage = "invalid client credentials" not found - fail
+Fri Oct 26 14:59:44 BST 2012:INFO:OxiXml - Account (API).AccX_008 reqAccountAddLimit
+Fri Oct 26 14:59:45 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:45 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@2e1df1
+Fri Oct 26 14:59:45 BST 2012:INFO:examining response to reqAccountAddLimit with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:45 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:45 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0149">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:44 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:45 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:45 BST 2012:INFO:OxiXml - Account (API).AccX_009 reqAccountAddPayMethod
+Fri Oct 26 14:59:45 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:45 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1afc9b8
+Fri Oct 26 14:59:45 BST 2012:INFO:examining response to reqAccountAddPayMethod with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:45 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:45 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0160">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:44 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:45 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:45 BST 2012:INFO:OxiXml - Account (API).AccX_010 reqAccountAddPromoCode
+Fri Oct 26 14:59:45 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:45 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1e4698a
+Fri Oct 26 14:59:45 BST 2012:INFO:examining response to reqAccountAddPromoCode with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:45 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:45 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0156">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:44 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:45 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:45 BST 2012:INFO:OxiXml - Account (API).AccX_017 reqAccountCompletePayment
+Fri Oct 26 14:59:45 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:45 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@cd1121
+Fri Oct 26 14:59:45 BST 2012:INFO:examining response to reqAccountCompletePayment with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:45 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:45 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0151">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:44 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:45 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:45 BST 2012:INFO:OxiXml - Account (API).AccX_011 reqAccountAddStub
+Fri Oct 26 14:59:45 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:45 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@11f9f60
+Fri Oct 26 14:59:45 BST 2012:INFO:examining response to reqAccountAddStub with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:45 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:45 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0161">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:44 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:45 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:45 BST 2012:INFO:OxiXml - Account (API).AccX_012 reqAccountAddSubInfo
+Fri Oct 26 14:59:45 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:45 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1187b14
+Fri Oct 26 14:59:45 BST 2012:INFO:examining response to reqAccountAddSubInfo with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:45 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:45 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:45 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0153">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:45 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:45 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:45 BST 2012:INFO:OxiXml - Account (API).AccX_013 reqAccountBalance
+Fri Oct 26 14:59:46 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:46 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@386dff
+Fri Oct 26 14:59:46 BST 2012:INFO:examining response to reqAccountBalance with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:46 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:46 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0148">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:45 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:46 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:46 BST 2012:INFO:OxiXml - Account (API).AccX_014 reqAccountCancelPayment
+Fri Oct 26 14:59:46 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:46 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@bd8075
+Fri Oct 26 14:59:46 BST 2012:INFO:examining response to reqAccountCancelPayment with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:46 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:46 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0150">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:45 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:46 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:46 BST 2012:INFO:OxiXml - Account (API).AccX_015 reqAccountChargebackAction
+Fri Oct 26 14:59:46 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:46 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@13cbf40
+Fri Oct 26 14:59:46 BST 2012:INFO:examining response to reqAccountChargebackAction with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:46 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:46 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0146">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:45 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:46 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:46 BST 2012:INFO:OxiXml - Account (API).AccX_016 reqAccountCheckUsername
+Fri Oct 26 14:59:46 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:46 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@130349f
+Fri Oct 26 14:59:46 BST 2012:INFO:examining response to reqAccountCheckUsername with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:46 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:46 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0146">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:45 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:46 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:46 BST 2012:INFO:OxiXml - Account (API).AccX_018 reqAccountDelDTVUser
+Fri Oct 26 14:59:46 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:46 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1cee17e
+Fri Oct 26 14:59:46 BST 2012:INFO:examining response to reqAccountGetDTVDetails with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:46 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:46 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0154">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:45 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:46 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:46 BST 2012:INFO:OxiXml - Account (API).AccX_019 reqAccountDelLimit
+Fri Oct 26 14:59:46 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:46 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@13634d8
+Fri Oct 26 14:59:46 BST 2012:INFO:examining response to reqAccountDelLimit with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:46 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:46 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:46 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0144">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:45 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:46 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:46 BST 2012:INFO:OxiXml - Account (API).AccX_020 reqAccountFundsTransfer
+Fri Oct 26 14:59:47 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:47 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1c7704d
+Fri Oct 26 14:59:47 BST 2012:INFO:examining response to reqAccountFundsTransfer with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:47 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:47 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0153">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:46 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:47 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:47 BST 2012:INFO:OxiXml - Account (API).AccX_021 reqAccountFundsTransferCancel
+Fri Oct 26 14:59:47 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:47 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@9de8c3
+Fri Oct 26 14:59:47 BST 2012:INFO:examining response to reqAccountFundsTransferCancel with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:47 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:47 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0148">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:46 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:47 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:47 BST 2012:INFO:OxiXml - Account (API).AccX_022 reqAccountFundsTransferStatus
+Fri Oct 26 14:59:47 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:47 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@11c68e2
+Fri Oct 26 14:59:47 BST 2012:INFO:examining response to reqAccountFundsTransferStatus with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:47 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:47 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0144">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:46 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:47 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:47 BST 2012:INFO:OxiXml - Account (API).AccX_023 reqAccountGetAlias
+Fri Oct 26 14:59:47 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:47 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@29efd9
+Fri Oct 26 14:59:47 BST 2012:INFO:examining response to reqAccountGetAlias with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:47 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:47 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0151">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:46 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:47 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:47 BST 2012:INFO:OxiXml - Account (API).AccX_024 reqAccountGetCampaigns
+Fri Oct 26 14:59:47 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:47 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@141d044
+Fri Oct 26 14:59:47 BST 2012:INFO:examining response to reqAccountGetCampaigns with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:47 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:47 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0156">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:46 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:47 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:47 BST 2012:INFO:OxiXml - Account (API).AccX_025 reqAccountGetChallenge
+Fri Oct 26 14:59:47 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:47 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1d05b79
+Fri Oct 26 14:59:47 BST 2012:INFO:examining response to reqAccountGetChallenge with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:47 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:47 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0143">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:46 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:47 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:47 BST 2012:INFO:OxiXml - Account (API).AccX_026 reqAccountGetCustGroups
+Fri Oct 26 14:59:47 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:47 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@259927
+Fri Oct 26 14:59:47 BST 2012:INFO:examining response to reqAccountGetCustGroups with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:47 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:47 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:47 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0142">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:46 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:47 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:47 BST 2012:INFO:OxiXml - Account (API).AccX_027 reqAccountGetDetail
+Fri Oct 26 14:59:48 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:48 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@69f993
+Fri Oct 26 14:59:48 BST 2012:INFO:examining response to reqAccountGetDetail with unauthorised credentials
+Fri Oct 26 14:59:48 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:48 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0147">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:47 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:48 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:48 BST 2012:INFO:OxiXml - Account (API).AccX_028 reqAccountGetDTVDetails
+Fri Oct 26 14:59:48 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:48 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@180338b
+Fri Oct 26 14:59:48 BST 2012:INFO:examining response to reqAccountGetDTVDetails with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:48 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:48 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0146">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:47 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:48 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:48 BST 2012:INFO:OxiXml - Account (API).AccX_029 reqAccountGetExtBalance
+Fri Oct 26 14:59:48 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:48 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1b8199b
+Fri Oct 26 14:59:48 BST 2012:INFO:examining response to reqAccountGetExtBalance with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:48 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:48 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0148">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:47 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:48 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:48 BST 2012:INFO:OxiXml - Account (API).AccX_030 reqAccountGetExtDetails
+Fri Oct 26 14:59:48 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:48 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1992ec5
+Fri Oct 26 14:59:48 BST 2012:INFO:examining response to reqAccountGetExtDetails with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:48 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:48 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0157">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:47 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:48 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:48 BST 2012:INFO:OxiXml - Account (API).AccX_031 reqAccountGetFlags
+Fri Oct 26 14:59:48 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:48 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1cd8854
+Fri Oct 26 14:59:48 BST 2012:INFO:examining response to reqAccountGetFlags with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:48 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:48 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0153">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:47 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:48 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:48 BST 2012:INFO:OxiXml - Account (API).AccX_032 reqAccountGetFreebets (V6)
+Fri Oct 26 14:59:48 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:48 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@b17c24
+Fri Oct 26 14:59:48 BST 2012:INFO:examining response to reqAccountGetFreebets with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:48 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:48 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0143">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:47 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:48 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:48 BST 2012:INFO:OxiXml - Account (API).AccX_032 reqAccountGetFreebets (V7)
+Fri Oct 26 14:59:48 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:48 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@4d2f3a
+Fri Oct 26 14:59:48 BST 2012:INFO:examining response to reqAccountGetFreebets with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:48 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:48 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:48 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0144">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:47 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:48 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:48 BST 2012:INFO:OxiXml - Account (API).AccX_033 reqAccountGetLimit
+Fri Oct 26 14:59:49 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:49 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1579446
+Fri Oct 26 14:59:49 BST 2012:INFO:examining response to reqAccountGetLimit with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:49 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:49 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0147">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:48 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:49 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:49 BST 2012:INFO:OxiXml - Account (API).AccX_034 reqAccountGetLimits
+Fri Oct 26 14:59:49 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:49 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@c792d1
+Fri Oct 26 14:59:49 BST 2012:INFO:examining response to reqAccountGetLimits with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:49 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:49 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0154">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:48 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:49 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:49 BST 2012:INFO:OxiXml - Account (API).AccX_035 reqAccountGetNotices
+Fri Oct 26 14:59:49 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:49 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@77e40c
+Fri Oct 26 14:59:49 BST 2012:INFO:examining response to reqAccountGetNotices with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:49 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:49 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0146">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:48 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:49 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:49 BST 2012:INFO:OxiXml - Account (API).AccX_036 reqAccountGetPayMethod
+Fri Oct 26 14:59:49 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:49 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@11cfc2d
+Fri Oct 26 14:59:49 BST 2012:INFO:examining response to reqAccountGetPayMethod with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:49 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:49 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0154">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:48 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:49 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:49 BST 2012:INFO:OxiXml - Account (API).AccX_037 reqAccountGetPayMethods
+Fri Oct 26 14:59:49 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:49 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1f01c0f
+Fri Oct 26 14:59:49 BST 2012:INFO:examining response to with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:49 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:49 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0149">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:48 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:49 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:49 BST 2012:INFO:OxiXml - Account (API).AccX_038 reqAccountGetStatusFlags
+Fri Oct 26 14:59:49 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:49 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@c25d61
+Fri Oct 26 14:59:49 BST 2012:INFO:examining response to reqAccountGetStatusFlags with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:49 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:49 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0143">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:48 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:49 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:49 BST 2012:INFO:OxiXml - Account (API).AccX_039 reqAccountGetSummary
+Fri Oct 26 14:59:49 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:49 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@809b0d
+Fri Oct 26 14:59:49 BST 2012:INFO:examining response to reqAccountGetSummary with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:49 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:49 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:49 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0147">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:49 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:49 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:49 BST 2012:INFO:OxiXml - Account (API).AccX_040 reqAccountGetTrackingId
+Fri Oct 26 14:59:50 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:50 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@143a91b
+Fri Oct 26 14:59:50 BST 2012:INFO:examining response to reqAccountGetTrackingId with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:50 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:50 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0338">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:49 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:50 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:50 BST 2012:INFO:OxiXml - Account (API).AccX_042 reqAccountGetVideoStreams
+Fri Oct 26 14:59:50 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:50 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1f471fe
+Fri Oct 26 14:59:50 BST 2012:INFO:examining response to reqAccountSearch with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:50 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:50 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0162">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:49 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:50 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:50 BST 2012:INFO:OxiXml - Account (API).AccX_043 reqAccountLegSorts
+Fri Oct 26 14:59:50 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:50 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@167f65e
+Fri Oct 26 14:59:50 BST 2012:INFO:examining response to reqAccountLegSorts with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:50 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:50 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0149">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:49 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:50 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:50 BST 2012:INFO:OxiXml - Account (API).AccX_044 reqAccountLoginMobile
+Fri Oct 26 14:59:50 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:50 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@5fb7e4
+Fri Oct 26 14:59:50 BST 2012:INFO:examining response to reqAccountLoginMobile with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:50 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:50 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0152">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:49 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:50 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:50 BST 2012:INFO:OxiXml - Account (API).AccX_045 reqAccountLogout
+Fri Oct 26 14:59:50 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:50 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@220a23
+Fri Oct 26 14:59:50 BST 2012:INFO:examining response to reqAccountLogout with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:50 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:50 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0152">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:49 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:50 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:50 BST 2012:INFO:OxiXml - Account (API).AccX_046 reqAccountMakePayment
+Fri Oct 26 14:59:50 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:50 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@c7b01d
+Fri Oct 26 14:59:50 BST 2012:INFO:examining response to reqAccountMakePayment with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:50 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:50 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:50 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0151">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:49 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:50 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:50 BST 2012:INFO:OxiXml - Account (API).AccX_047 reqAccountMakeWalletPayment
+Fri Oct 26 14:59:51 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:51 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1fb4679
+Fri Oct 26 14:59:51 BST 2012:INFO:examining response to reqAccountMakeWalletPayment with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:51 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:51 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0150">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:50 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:51 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:51 BST 2012:INFO:OxiXml - Account (API).AccX_048 reqAccountModify
+Fri Oct 26 14:59:51 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:51 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1cfb70d
+Fri Oct 26 14:59:51 BST 2012:INFO:examining response to reqAccountModify with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:51 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:51 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0151">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:50 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:51 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:51 BST 2012:INFO:OxiXml - Account (API).AccX_049 reqAccountRemoteAction
+Fri Oct 26 14:59:51 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:51 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1fadf6a
+Fri Oct 26 14:59:51 BST 2012:INFO:examining response to reqAccountRemoteAction with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:51 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:51 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0151">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:50 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:51 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:51 BST 2012:INFO:OxiXml - Account (API).AccX_050 reqAccountRemoteItemsSummary
+Fri Oct 26 14:59:51 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:51 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@161d025
+Fri Oct 26 14:59:51 BST 2012:INFO:examining response to reqAccountRemoteItemsSummary with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:51 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:51 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0154">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:50 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:51 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:51 BST 2012:INFO:OxiXml - Account (API).AccX_051 reqAccountSelfExclude
+Fri Oct 26 14:59:51 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:51 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@a8360d
+Fri Oct 26 14:59:51 BST 2012:INFO:examining response to reqAccountSelfExclude with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:51 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:51 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0148">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:50 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:51 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:51 BST 2012:INFO:OxiXml - Account (API).AccX_052 reqAccountSessionBegin
+Fri Oct 26 14:59:51 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:51 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@174a662
+Fri Oct 26 14:59:51 BST 2012:INFO:examining response to reqAccountSessionBegin with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:51 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:51 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0174">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:50 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:51 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:51 BST 2012:INFO:OxiXml - Account (API).AccX_053 reqAccountSessionEnd
+Fri Oct 26 14:59:51 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:51 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@15798c9
+Fri Oct 26 14:59:51 BST 2012:INFO:examining response to reqAccountSessionEnd with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:51 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:51 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:51 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0155">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:51 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:51 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:51 BST 2012:INFO:OxiXml - Account (API).AccX_054 reqAccountSessionGet
+Fri Oct 26 14:59:52 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:52 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1efca5a
+Fri Oct 26 14:59:52 BST 2012:INFO:examining response to reqAccountSessionGet with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:52 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:52 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0736">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:51 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:52 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:52 BST 2012:INFO:OxiXml - Account (API).AccX_055 reqAccountSetCustGroups
+Fri Oct 26 14:59:52 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:52 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1cddcba
+Fri Oct 26 14:59:52 BST 2012:INFO:examining response to reqAccountSetCustGroups with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:52 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:52 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0195">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:51 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:52 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:52 BST 2012:INFO:OxiXml - Account (API).AccX_056 reqAccountSetFlags
+Fri Oct 26 14:59:52 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:52 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@5672bb
+Fri Oct 26 14:59:52 BST 2012:INFO:examining response to reqAccountSetFlags with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:52 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:52 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0150">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:51 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:52 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:52 BST 2012:INFO:OxiXml - Account (API).AccX_057 reqAccountSetInitPwdPin
+Fri Oct 26 14:59:52 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:52 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1867c31
+Fri Oct 26 14:59:52 BST 2012:INFO:examining response to reqAccountSetInitPwdPin with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:52 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:52 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0149">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:51 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:52 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:52 BST 2012:INFO:OxiXml - Account (API).AccX_058 reqAccountSetPwdPin
+Fri Oct 26 14:59:52 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:52 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@43a3e8
+Fri Oct 26 14:59:52 BST 2012:INFO:examining response to reqAccountSetPwdPin with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:52 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:52 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0146">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:51 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:52 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:52 BST 2012:INFO:OxiXml - Account (API).AccX_059 reqAccountSetStatusFlags
+Fri Oct 26 14:59:52 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:52 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@be02a4
+Fri Oct 26 14:59:52 BST 2012:INFO:examining response to reqAccountSetStatusFlags with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:52 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:52 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:52 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0151">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:51 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:52 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:52 BST 2012:INFO:OxiXml - Account (API).AccX_060 reqAccountSetTempPassword
+Fri Oct 26 14:59:53 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:53 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@9f648b
+Fri Oct 26 14:59:53 BST 2012:INFO:examining response to reqAccountSetTempPassword with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:53 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:53 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0150">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:52 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:53 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:53 BST 2012:INFO:OxiXml - Account (API).AccX_061 reqAccountSubBegin
+Fri Oct 26 14:59:53 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:53 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@82112e
+Fri Oct 26 14:59:53 BST 2012:INFO:examining response to reqAccountSubBegin with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:53 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:53 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0144">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:52 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:53 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:53 BST 2012:INFO:OxiXml - Account (API).AccX_062 reqAccountSubDetails
+Fri Oct 26 14:59:53 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:53 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@136168f
+Fri Oct 26 14:59:53 BST 2012:INFO:examining response to reqAccountSubDetails with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:53 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:53 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0149">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:52 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:53 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:53 BST 2012:INFO:OxiXml - Account (API).AccX_063 reqAccountSubEnd
+Fri Oct 26 14:59:53 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:53 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@31230
+Fri Oct 26 14:59:53 BST 2012:INFO:examining response to reqAccountSubEnd with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:53 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:53 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0155">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:52 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:53 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:53 BST 2012:INFO:OxiXml - Account (API).AccX_064 reqAccountUpdAlias
+Fri Oct 26 14:59:53 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:53 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@19f3e8e
+Fri Oct 26 14:59:53 BST 2012:INFO:examining response to reqAccountUpdAlias with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:53 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:53 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0164">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:52 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:53 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:53 BST 2012:INFO:OxiXml - Account (API).AccX_065 reqAccountUpdPayMethod
+Fri Oct 26 14:59:53 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:53 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1c412ce
+Fri Oct 26 14:59:53 BST 2012:INFO:examining response to reqAccountUpdPayMethod with reqClientAuth 1 - unauthorised
+Fri Oct 26 14:59:53 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:53 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0148">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:52 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:53 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:53 BST 2012:INFO:OxiXml - Account (API).AccX_066 reqAccountUpdRemoteItem
+Fri Oct 26 14:59:53 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:53 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1aebe5f
+Fri Oct 26 14:59:53 BST 2012:INFO:examining response to reqAccountUpdRemoteItem with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:53 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:53 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:53 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0144">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:53 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:53 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:53 BST 2012:INFO:OxiXml - Account (API).AccX_067 reqAccountValidate1
+Fri Oct 26 14:59:54 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:54 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1546d95
+Fri Oct 26 14:59:54 BST 2012:INFO:examining response to reqAccountValidate1 with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:54 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:54 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0147">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:53 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:54 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:54 BST 2012:INFO:OxiXml - Account (API).AccX_068 reqAccountValidate2
+Fri Oct 26 14:59:54 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:54 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1e678dc
+Fri Oct 26 14:59:54 BST 2012:INFO:examining response to reqAccountValidate2 with reqClientAuth unauthorised
+Fri Oct 26 14:59:54 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:54 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0144">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:53 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:54 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:54 BST 2012:INFO:OxiXml - Account (API).AccX_069 reqAccountValidate3
+Fri Oct 26 14:59:54 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:54 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@8e5ba
+Fri Oct 26 14:59:54 BST 2012:INFO:examining response to reqAccountValidate3 with reqClientAuth unauthorised
+Fri Oct 26 14:59:54 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:54 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0152">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:53 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:54 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:54 BST 2012:INFO:OxiXml - Account (API).AccX_070 reqAccountVerify
+Fri Oct 26 14:59:54 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:54 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@22489e
+Fri Oct 26 14:59:54 BST 2012:INFO:examining response to reqClientAuth with reqClientAuth unauthorised
+Fri Oct 26 14:59:54 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:54 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0152">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:53 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:54 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:54 BST 2012:INFO:OxiXml - Account (API).AccX_071 reqAccountWalletTransfer
+Fri Oct 26 14:59:54 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:54 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@cd98d6
+Fri Oct 26 14:59:54 BST 2012:INFO:examining response to reqAccountWalletTransfer with reqClientAuth unauthorised
+Fri Oct 26 14:59:54 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:54 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0151">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:53 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:54 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:54 BST 2012:INFO:OxiXml - Account (API).AccX_072 reqAddCGCustLimit
+Fri Oct 26 14:59:54 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:54 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1ed0c10
+Fri Oct 26 14:59:54 BST 2012:INFO:examining response to reqAddCGCustLimit with reqClientAuth unauthorised
+Fri Oct 26 14:59:54 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:54 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:54 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0157">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:53 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:54 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:54 BST 2012:INFO:OxiXml - Account (API).AccX_073 reqAdminDetail
+Fri Oct 26 14:59:54 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:55 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1b31a82
+Fri Oct 26 14:59:55 BST 2012:INFO:examining response to reqAdminDetail with reqClientAuth unauthorised
+Fri Oct 26 14:59:55 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:55 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0143">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:54 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:55 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:55 BST 2012:INFO:OxiXml - Account (API).AccX_074 reqAdminModify
+Fri Oct 26 14:59:55 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:55 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1916c73
+Fri Oct 26 14:59:55 BST 2012:INFO:examining response to reqAdminModify with reqClientAuth authorised
+Fri Oct 26 14:59:55 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:55 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0236">
+      <returnStatus>
+         <code>104</code>
+         <message>request not authorised</message>
+         <debug>10/26-14:59:54 inf_exec_stmt: (-746) user autoWhapiAll does not have AdminModify permission</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:55 BST 2012:INFO:expectedMessage = "invalid client credentials" not found - fail
+Fri Oct 26 14:59:55 BST 2012:INFO:OxiXml - Account (API).AccX_075 reqCancelCGCustLimit
+Fri Oct 26 14:59:55 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:55 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@670f8b
+Fri Oct 26 14:59:55 BST 2012:INFO:examining response to reqCancelCGCustLimit with reqClientAuth authorised
+Fri Oct 26 14:59:55 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:55 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0286">
+      <returnStatus>
+         <code>104</code>
+         <message>request not authorised</message>
+         <debug>10/26-14:59:54 inf_exec_stmt: (-746) user autoWhapiAll does not have CancelCGCustLimit permission</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:55 BST 2012:INFO:expectedMessage = "invalid client credentials" not found - fail
+Fri Oct 26 14:59:55 BST 2012:INFO:OxiXml - Account (API).AccX_076 reqCancelCGExclusion
+Fri Oct 26 14:59:55 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:55 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@2dad75
+Fri Oct 26 14:59:55 BST 2012:INFO:examining response to reqCancelCGExclusion with reqClientAuth unauthorised
+Fri Oct 26 14:59:55 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:55 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0145">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:54 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:55 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:55 BST 2012:INFO:OxiXml - Account (API).AccX_077 reqCustomerRep
+Fri Oct 26 14:59:55 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:55 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@d6de77
+Fri Oct 26 14:59:55 BST 2012:INFO:examining response to reqCustomerRep with reqClientAuth unauthorised
+Fri Oct 26 14:59:55 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:55 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0143">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:54 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:55 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:55 BST 2012:INFO:OxiXml - Account (API).AccX_078 reqGetCGCustLimits
+Fri Oct 26 14:59:55 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:55 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@a7811e
+Fri Oct 26 14:59:55 BST 2012:INFO:examining response to reqGetCGCustLimits with reqClientAuth unauthorised
+Fri Oct 26 14:59:55 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:55 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:55 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0149">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:55 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:55 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:55 BST 2012:INFO:OxiXml - Account (API).AccX_079 reqGetCGExclusions
+Fri Oct 26 14:59:56 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:56 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@10de537
+Fri Oct 26 14:59:56 BST 2012:INFO:examining response to reqGetCGExclusions with reqClientAuth unauthorised
+Fri Oct 26 14:59:56 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:56 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0144">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:55 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:56 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:56 BST 2012:INFO:OxiXml - Account (API).AccX_080 reqGetCommission
+Fri Oct 26 14:59:56 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:56 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1438cc7
+Fri Oct 26 14:59:56 BST 2012:INFO:examining response to reqGetCommission with reqClientAuth unauthorised
+Fri Oct 26 14:59:56 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:56 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0147">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:55 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:56 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:56 BST 2012:INFO:OxiXml - Account (API).AccX_081 reqLoyaltyCustomerAdd
+Fri Oct 26 14:59:56 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:56 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1cf9c0a
+Fri Oct 26 14:59:56 BST 2012:INFO:examining response to reqLoyaltyCustomerAdd with reqClientAuth unauthorised
+Fri Oct 26 14:59:56 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:56 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0165">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:55 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:56 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:56 BST 2012:INFO:OxiXml - Account (API).AccX_082 reqLoyaltyCustomerModify
+Fri Oct 26 14:59:56 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:56 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@10d5ca2
+Fri Oct 26 14:59:56 BST 2012:INFO:examining response to reqLoyaltyCustomerModify with reqClientAuth unauthorised
+Fri Oct 26 14:59:56 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:56 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0159">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:55 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:56 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:56 BST 2012:INFO:OxiXml - Account (API).AccX_083 reqPostcodeLookup
+Fri Oct 26 14:59:56 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:56 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@3c934b
+Fri Oct 26 14:59:56 BST 2012:INFO:examining response to reqPostcodeLookup with reqClientAuth unauthorised
+Fri Oct 26 14:59:56 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:56 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0149">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:55 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:56 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:56 BST 2012:INFO:OxiXml - Account (API).AccX_084 reqPriceTypesByCustomer
+Fri Oct 26 14:59:56 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:56 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@ea61ac
+Fri Oct 26 14:59:56 BST 2012:INFO:examining response to reqPriceTypesByCustomer with reqClientAuth unauthorised
+Fri Oct 26 14:59:56 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:56 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0146">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:55 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:56 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:56 BST 2012:INFO:OxiXml - Account (API).AccX_085 reqSetCGExclusion
+Fri Oct 26 14:59:56 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:56 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1b2816b
+Fri Oct 26 14:59:56 BST 2012:INFO:examining response to reqSetCGExclusion with reqClientAuth unauthorised
+Fri Oct 26 14:59:56 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:56 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:56 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0147">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:55 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:56 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:56 BST 2012:INFO:OxiXml - Account (API).AccX_086 reqTokenRefresh
+Fri Oct 26 14:59:57 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:57 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@4ed21d
+Fri Oct 26 14:59:57 BST 2012:INFO:examining response to reqTokenRefresh with reqClientAuth unauthorised
+Fri Oct 26 14:59:57 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:57 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0149">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:56 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:57 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:57 BST 2012:INFO:OxiXml - Account (API).AccX_087 reqTokenStatus
+Fri Oct 26 14:59:57 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:57 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@c4aeb3
+Fri Oct 26 14:59:57 BST 2012:INFO:examining response to reqTokenStatus with reqClientAuth unauthorised
+Fri Oct 26 14:59:57 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:57 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0145">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:56 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:57 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:57 BST 2012:INFO:OxiXml - Account (API).AccX_088 reqTokenTransfer
+Fri Oct 26 14:59:57 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:57 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@a99f81
+Fri Oct 26 14:59:57 BST 2012:INFO:examining response to reqTokenTransfer with reqClientAuth - unauthorised
+Fri Oct 26 14:59:57 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:57 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0146">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:56 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:57 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:57 BST 2012:INFO:OxiXml - Account (API).AccX_089 reqAccountNotify
+Fri Oct 26 14:59:57 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:57 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@26f36b
+Fri Oct 26 14:59:57 BST 2012:INFO:examining response to reqAccountNotify with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:57 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:57 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0152">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:56 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:57 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:57 BST 2012:INFO:OxiXml - Account (API).AccX_091 reqAccountExtExists
+Fri Oct 26 14:59:57 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:57 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@1115c9b
+Fri Oct 26 14:59:57 BST 2012:INFO:examining response to reqAccountExtExists with reqClientAuth unauthorised
+Fri Oct 26 14:59:57 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:57 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0144">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:56 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:57 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:57 BST 2012:INFO:OxiXml - Account (API).AccX_092 reqAccountExtModify
+Fri Oct 26 14:59:57 BST 2012:INFO:waiting...
+Fri Oct 26 14:59:57 BST 2012:INFO:...finished com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase@d6da34
+Fri Oct 26 14:59:57 BST 2012:INFO:examining response to reqAccountExtModify with reqClientAuth using Credentials - unauthorised
+Fri Oct 26 14:59:57 BST 2012:INFO:Valid HTTP Status Codes VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:XPath Match OXIP version 6 VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:Contains OXIP DOCTYPE VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:XPath Match OXIP version VALID
+Fri Oct 26 14:59:57 BST 2012:INFO:Additional Assertions
+Fri Oct 26 14:59:57 BST 2012:INFO:testResponse=<!DOCTYPE oxip SYSTEM "oxip.dtd">
+<oxip version="6.0">
+   <response requestTime="0.0148">
+      <returnStatus>
+         <code>100</code>
+         <message>invalid client credentials</message>
+         <debug>10/26-14:59:56 Missing Authentication Credentials</debug>
+      </returnStatus>
+   </response>
+</oxip>
+Fri Oct 26 14:59:57 BST 2012:INFO:expectedMessage = "invalid client credentials" found - valid
+Fri Oct 26 14:59:57 BST 2012:INFO:assertionList.isEmpty()
