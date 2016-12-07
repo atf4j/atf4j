@@ -20,11 +20,16 @@ import java.io.IOException;
 import java.util.Enumeration;
 
 import net.atf4j.core.AbstractConfig;
-import net.atf4j.data.CsvFile;
+import net.atf4j.csv.CsvFile;
 
+/**
+ * A factory for creating AbstractData objects.
+ */
 public class AbstractDataFactory extends AbstractConfig {
 
-	public AbstractDataFactory() throws Exception {
+	protected CsvFile dataFile;
+
+    public AbstractDataFactory() throws Exception {
 		super();
 		loadData();
 	}
@@ -42,7 +47,7 @@ public class AbstractDataFactory extends AbstractConfig {
 
 	private void loadData(final String dataFilename) throws Exception {
 		try {
-			final CsvFile dataFile = new CsvFile(dataFilename);
+			dataFile = new CsvFile(dataFilename);
 		} catch (final IOException e) {
 			e.printStackTrace();
 		}

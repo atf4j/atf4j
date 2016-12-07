@@ -4,26 +4,27 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import net.atf4j.data.JdbcData;
+
 public class JdbcDataTest {
 
 	@Test
 	public void testSetUp() {
-		fail("Not yet implemented");
+	    new JdbcData().setUp();
 	}
 
 	@Test
 	public void testReset() {
-		fail("Not yet implemented");
+	    new JdbcData().reset();
 	}
 
 	@Test
 	public void testTearDown() {
-		fail("Not yet implemented");
+        new JdbcData().tearDown();
 	}
 
 	@Test
 	public void testJdbcData() {
-		fail("Not yet implemented");
+        new JdbcData();
 	}
-
 }

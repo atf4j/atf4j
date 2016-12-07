@@ -28,6 +28,7 @@ import org.junit.Test;
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
 public class LogicalGuiMapTest {
+
 	public class LogicalGuiMap extends AbstractGuiMap {
 	}
 
@@ -47,5 +48,4 @@ public class LogicalGuiMapTest {
 			Assert.assertNotNull(value);
 		}
 	}
-
 }

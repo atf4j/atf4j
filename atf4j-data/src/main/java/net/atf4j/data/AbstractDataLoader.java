@@ -26,53 +26,58 @@ import java.io.InputStreamReader;
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
 public abstract class AbstractDataLoader {
-	
-	/** The Constant BUFFER_SIZE. */
-	private static final int BUFFER_SIZE = 4096;
 
-	/**
-	 * Load.
-	 *
-	 * @return the object
-	 * @throws Exception the exception
-	 */
-	public Object load() throws Exception {
-		final String dataFilename = this.getClass().getSimpleName() + ".csv";
-		return load(dataFilename);
-	}
+    /** The Constant BUFFER_SIZE. */
+    private static final int BUFFER_SIZE = 4096;
 
-	/**
-	 * Load.
-	 *
-	 * @param dataFilename the data filename
-	 * @return the object
-	 * @throws Exception the exception
-	 */
-	public Object load(final String dataFilename) throws Exception {
-		ClassLoader classLoader = this.getClass().getClassLoader();
-		InputStream in = classLoader.getResourceAsStream(dataFilename);
-		return load(in);
-	}
+    /**
+     * Load.
+     *
+     * @return the object
+     * @throws Exception
+     *             the exception
+     */
+    public Object load() throws Exception {
+        final String dataFilename = this.getClass().getSimpleName() + ".csv";
+        return load(dataFilename);
+    }
 
-	/**
-	 * Load.
-	 *
-	 * @param in the in
-	 * @return the byte[]
-	 * @throws Exception the exception
-	 */
-	public byte[] load(final InputStream in) throws Exception {
-		InputStreamReader inputStreamReader = new InputStreamReader(in);
-		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-		byte[] buf = new byte[BUFFER_SIZE];
-		while(true) {
-		  int n = in.read(buf);
-		  if( n < 0 ) break;
-		  byteArrayOutputStream.write(buf,0,n);
-		}
-		inputStreamReader.close();
+    /**
+     * Load.
+     *
+     * @param dataFilename
+     *            the data filename
+     * @return the object
+     * @throws Exception
+     *             the exception
+     */
+    public Object load(final String dataFilename) throws Exception {
+        ClassLoader classLoader = this.getClass().getClassLoader();
+        InputStream in = classLoader.getResourceAsStream(dataFilename);
+        return load(in);
+    }
 
-		return byteArrayOutputStream.toByteArray();
-		}
+    /**
+     * Load.
+     *
+     * @param in
+     *            the in
+     * @return the byte[]
+     * @throws Exception
+     *             the exception
+     */
+    public byte[] load(final InputStream in) throws Exception {
+        InputStreamReader inputStreamReader = new InputStreamReader(in);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] buf = new byte[BUFFER_SIZE];
+        while (true) {
+            int n = in.read(buf);
+            if (n < 0)
+                break;
+            byteArrayOutputStream.write(buf, 0, n);
+        }
+        inputStreamReader.close();
 
+        return byteArrayOutputStream.toByteArray();
+    }
 }

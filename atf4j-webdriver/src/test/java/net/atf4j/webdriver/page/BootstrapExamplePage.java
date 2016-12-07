@@ -15,7 +15,7 @@
  * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package net.atf4j.core.webdriver.page;
+package net.atf4j.webdriver.page;
 
 import java.util.Map;
 
@@ -26,7 +26,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BootstrapPage {
+public class BootstrapExamplePage {
 	private Map<String, String> data;
 	private WebDriver driver;
 	private int timeout = 15;
@@ -55,20 +55,20 @@ public class BootstrapPage {
 	@CacheLookup
 	private WebElement toggleNavigation;
 
-	private BootstrapPage() {
+	private BootstrapExamplePage() {
 	}
 
-	public BootstrapPage(final WebDriver driver) {
+	public BootstrapExamplePage(final WebDriver driver) {
 		this();
 		this.driver = driver;
 	}
 
-	public BootstrapPage(final WebDriver driver, final Map<String, String> data) {
+	public BootstrapExamplePage(final WebDriver driver, final Map<String, String> data) {
 		this(driver);
 		this.data = data;
 	}
 
-	public BootstrapPage(final WebDriver driver, final Map<String, String> data, final int timeout) {
+	public BootstrapExamplePage(final WebDriver driver, final Map<String, String> data, final int timeout) {
 		this(driver, data);
 		this.timeout = timeout;
 	}
@@ -78,7 +78,7 @@ public class BootstrapPage {
 	 *
 	 * @return the BootStrapPage class instance.
 	 */
-	public BootstrapPage clickAboutLink() {
+	public BootstrapExamplePage clickAboutLink() {
 		this.about.click();
 		return this;
 	}
@@ -88,7 +88,7 @@ public class BootstrapPage {
 	 *
 	 * @return the BootStrapPage class instance.
 	 */
-	public BootstrapPage clickContactLink() {
+	public BootstrapExamplePage clickContactLink() {
 		this.contact.click();
 		return this;
 	}
@@ -98,7 +98,7 @@ public class BootstrapPage {
 	 *
 	 * @return the BootStrapPage class instance.
 	 */
-	public BootstrapPage clickHomeLink() {
+	public BootstrapExamplePage clickHomeLink() {
 		this.home.click();
 		return this;
 	}
@@ -108,7 +108,7 @@ public class BootstrapPage {
 	 *
 	 * @return the BootStrapPage class instance.
 	 */
-	public BootstrapPage clickProjectNameLink() {
+	public BootstrapExamplePage clickProjectNameLink() {
 		this.projectName.click();
 		return this;
 	}
@@ -118,7 +118,7 @@ public class BootstrapPage {
 	 *
 	 * @return the BootStrapPage class instance.
 	 */
-	public BootstrapPage clickToggleNavigationButton() {
+	public BootstrapExamplePage clickToggleNavigationButton() {
 		this.toggleNavigation.click();
 		return this;
 	}
@@ -128,11 +128,11 @@ public class BootstrapPage {
 	 *
 	 * @return the BootStrapPage class instance.
 	 */
-	public BootstrapPage verifyPageLoaded() {
+	public BootstrapExamplePage verifyPageLoaded() {
 		new WebDriverWait(this.driver, this.timeout).until(new ExpectedCondition<Boolean>() {
 			@Override
 			public Boolean apply(final WebDriver d) {
-				return d.getPageSource().contains(BootstrapPage.this.pageLoadedText);
+				return d.getPageSource().contains(BootstrapExamplePage.this.pageLoadedText);
 			}
 		});
 		return this;
@@ -143,11 +143,11 @@ public class BootstrapPage {
 	 *
 	 * @return the BootStrapPage class instance.
 	 */
-	public BootstrapPage verifyPageUrl() {
+	public BootstrapExamplePage verifyPageUrl() {
 		new WebDriverWait(this.driver, this.timeout).until(new ExpectedCondition<Boolean>() {
 			@Override
 			public Boolean apply(final WebDriver d) {
-				return d.getCurrentUrl().contains(BootstrapPage.this.pageUrl);
+				return d.getCurrentUrl().contains(BootstrapExamplePage.this.pageUrl);
 			}
 		});
 		return this;

@@ -16,6 +16,9 @@
  */
 package net.atf4j.data;
 
+/**
+ * The Class SetUpData.
+ */
 public abstract class SetUpData extends AbstractConfig {
 
 	public SetUpData() {

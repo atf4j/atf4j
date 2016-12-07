@@ -4,26 +4,28 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import net.atf4j.data.RestfulData;
+
 public class RestfulDataTest {
 
 	@Test
 	public void testSetUp() {
-		fail("Not yet implemented");
+	    new RestfulData().setUp();
 	}
 
 	@Test
 	public void testReset() {
-		fail("Not yet implemented");
-	}
+	    new RestfulData().reset();
+	    }
 
 	@Test
 	public void testTearDown() {
-		fail("Not yet implemented");
+        new RestfulData().tearDown();
 	}
 
 	@Test
 	public void testRestfulData() {
-		fail("Not yet implemented");
+        new RestfulData();
 	}
 
 }

@@ -4,26 +4,28 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import net.atf4j.data.JmsData;
+
 public class JmsDataTest {
 
 	@Test
 	public void testSetUp() {
-		fail("Not yet implemented");
+	    new JmsData().setUp();
 	}
 
 	@Test
 	public void testReset() {
-		fail("Not yet implemented");
+        new JmsData().reset();
 	}
 
 	@Test
 	public void testTearDown() {
-		fail("Not yet implemented");
+        new JmsData().tearDown();
 	}
 
 	@Test
 	public void testJmsData() {
-		fail("Not yet implemented");
+        new JmsData();
 	}
 
 }
