@@ -14,45 +14,41 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.atf4j.data;
+package net.atf4j.csv;
 
 import java.util.Arrays;
 
 /**
- * The Class CsvRow.
+ * The Class HeaderLine.
  */
-public class CsvRow {
-	
-	/** The fields. */
+public class HeaderLine {
+
 	private final String[] fields;
 
 	/**
-	 * Instantiates a new csv row.
+	 * Instantiates a new header line.
 	 *
-	 * @param line the line
+	 * @param line
+	 *            the line
 	 */
-	public CsvRow(final String line) {
-		this.fields = line.split(",");
+	public HeaderLine(final String line) {
+		this.fields = line.split("\\w");
 	}
 
 	/**
-	 * Gets the fields.
+	 * Gets the.
 	 *
+	 * @param columnNumber
+	 *            the column number
 	 * @return the fields
 	 */
-	public String[] getFields() {
-		return this.fields;
+	public String get(final int columnNumber) {
+		return this.fields[columnNumber];
 	}
 
-	/**
-	 * To string.
-	 *
-	 * @return the string
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
-		return String.format("CsvRow [fields=%s]", Arrays.toString(this.fields));
+		return String.format("HeaderLine [fields=%s]", Arrays.toString(this.fields));
 	}
 
 }
