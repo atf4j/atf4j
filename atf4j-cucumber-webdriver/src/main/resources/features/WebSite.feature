@@ -5,18 +5,18 @@ Feature: Gherkin for Selenium WebDriver
 
 Scenario: Open URL with Chrome Browser
 	Given the "Chrome" Browser
-	When the target Url is http://127.0.0.1:8080 is opened
+	When the target Url is "http://127.0.0.1:8080" is opened
 	Then the pageTitle is "Tomcat"
 	And the cookie "name" exists
 
 Scenario: Open URL with Chromium Browser
 	Given the 'Chromium' Browser
-	When the target Url is http://127.0.0.1:8080 is opened
+	When the target Url is 'http://127.0.0.1:8080' is opened
 	Then the pageTitle is 'Tomcat'
 	And the cookie 'name' exists
 
 Scenario: Open URL with Firefox Browser
 	Given the (Firefox) Browser
-	When the target URL http://127.0.0.1:8080 is opened
+	When the target URL (http://127.0.0.1:8080) is opened
 	Then the pageTitle is (Tomcat)
 	And the cookie (name) exists
