@@ -22,7 +22,12 @@ import static org.junit.Assert.assertNotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * The Class LoggedTest.
+ */
 public abstract class LoggedTest {
+	
+	/** The Constant log. */
 	protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
 	/**
@@ -46,6 +51,12 @@ public abstract class LoggedTest {
 		return message;
 	}
 
+	/**
+	 * To description.
+	 *
+	 * @return the string
+	 * @throws ClassNotFoundException the class not found exception
+	 */
 	protected String toDescription() throws ClassNotFoundException {
 		final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
 		for (final StackTraceElement stackTraceElement : stackTrace) {

@@ -22,12 +22,14 @@ import java.util.MissingResourceException;
 import org.junit.Assert;
 import org.junit.Test;
 
+import net.atf4j.core.LoggedTest;
+
 /**
  * LogicalGuiMapTest
  *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
-public class LogicalGuiMapTest {
+public class LogicalGuiMapTest extends LoggedTest {
 
 	public class LogicalGuiMap extends AbstractGuiMap {
 	}

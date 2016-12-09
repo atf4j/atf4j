@@ -26,6 +26,7 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class AbstractConfig implements ToName {
 
+	/** The Constant logger. */
 	protected static final Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
 	/** The properties. */
@@ -66,6 +67,9 @@ public abstract class AbstractConfig implements ToName {
 		load(propertyFilename);
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return String.format("AbstractConfig [properties=%s]", this.properties);
@@ -93,8 +97,9 @@ public abstract class AbstractConfig implements ToName {
 	}
 
 	/**
-	 * (non-Javadoc)
+	 * (non-Javadoc).
 	 *
+	 * @return the string
 	 * @see net.atf4j.core.ToName#toName()
 	 */
 	@Override
@@ -123,6 +128,9 @@ public abstract class AbstractConfig implements ToName {
 			this.expectedPropertyFilename = propertyFilename;
 		}
 
+		/* (non-Javadoc)
+		 * @see java.lang.Throwable#toString()
+		 */
 		@Override
 		public String toString() {
 			return String.format("MissingPropertyFileException [propertyFilename=%s]", this.expectedPropertyFilename);
@@ -133,10 +141,9 @@ public abstract class AbstractConfig implements ToName {
 	 * Get a property
 	 * from System Property if available, otherwise
 	 * from Property File if available, otherwise
-	 * default
+	 * default.
 	 *
-	 * @param key
-	 *            the key
+	 * @param key            the key
 	 * @return the string
 	 */
 	public String get(final String key) {
@@ -152,12 +159,10 @@ public abstract class AbstractConfig implements ToName {
 	}
 
 	/**
-	 * Gets a configuration property by key,
+	 * Gets a configuration property by key,.
 	 *
-	 * @param key
-	 *            the key
-	 * @param defaultValue
-	 *            the default value
+	 * @param key            the key
+	 * @param defaultValue            the default value
 	 * @return the configuration property as a String
 	 */
 	public String get(final String key, final String defaultValue) {
@@ -165,12 +170,10 @@ public abstract class AbstractConfig implements ToName {
 	}
 
 	/**
-	 * Gets a configuration property by key,
+	 * Gets a configuration property by key,.
 	 *
-	 * @param key
-	 *            the key
-	 * @param defaultValue
-	 *            the default value
+	 * @param key            the key
+	 * @param defaultValue            the default value
 	 * @return the configuration property as a boolean
 	 */
 	public boolean get(final String key, final boolean defaultValue) {
@@ -178,12 +181,10 @@ public abstract class AbstractConfig implements ToName {
 	}
 
 	/**
-	 * Gets a configuration property by key,
+	 * Gets a configuration property by key,.
 	 *
-	 * @param key
-	 *            the key
-	 * @param defaultValue
-	 *            the default value
+	 * @param key            the key
+	 * @param defaultValue            the default value
 	 * @return the configuration property as a boolean
 	 */
 	public int get(final String key, final int defaultValue) {

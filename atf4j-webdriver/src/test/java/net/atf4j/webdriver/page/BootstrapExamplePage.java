@@ -26,48 +26,85 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+/**
+ * The Class BootstrapExamplePage.
+ */
 public class BootstrapExamplePage {
+	
+	/** The data. */
 	private Map<String, String> data;
+	
+	/** The driver. */
 	private WebDriver driver;
+	
+	/** The timeout. */
 	private int timeout = 15;
 
+	/** The about. */
 	@FindBy(css = "a[href='#about']")
 	@CacheLookup
 	private WebElement about;
 
+	/** The contact. */
 	@FindBy(css = "a[href='#contact']")
 	@CacheLookup
 	private WebElement contact;
 
+	/** The home. */
 	@FindBy(css = "#navbar ul.nav.navbar-nav li:nth-of-type(1) a")
 	@CacheLookup
 	private WebElement home;
 
+	/** The page loaded text. */
 	private final String pageLoadedText = "Use this document as a way to quickly start any new project";
 
+	/** The page url. */
 	private final String pageUrl = "/bootstrap/docs/examples/starter-template/";
 
+	/** The project name. */
 	@FindBy(css = "a.navbar-brand")
 	@CacheLookup
 	private WebElement projectName;
 
+	/** The toggle navigation. */
 	@FindBy(css = "button.navbar-toggle.collapsed")
 	@CacheLookup
 	private WebElement toggleNavigation;
 
+	/**
+	 * Instantiates a new bootstrap example page.
+	 */
 	private BootstrapExamplePage() {
 	}
 
+	/**
+	 * Instantiates a new bootstrap example page.
+	 *
+	 * @param driver the driver
+	 */
 	public BootstrapExamplePage(final WebDriver driver) {
 		this();
 		this.driver = driver;
 	}
 
+	/**
+	 * Instantiates a new bootstrap example page.
+	 *
+	 * @param driver the driver
+	 * @param data the data
+	 */
 	public BootstrapExamplePage(final WebDriver driver, final Map<String, String> data) {
 		this(driver);
 		this.data = data;
 	}
 
+	/**
+	 * Instantiates a new bootstrap example page.
+	 *
+	 * @param driver the driver
+	 * @param data the data
+	 * @param timeout the timeout
+	 */
 	public BootstrapExamplePage(final WebDriver driver, final Map<String, String> data, final int timeout) {
 		this(driver, data);
 		this.timeout = timeout;

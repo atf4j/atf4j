@@ -23,8 +23,9 @@ import org.junit.Test;
 import net.atf4j.bdd.AbstractLoggedScenario;
 import net.atf4j.bdd.Atf4j;
 import net.atf4j.bdd.ScenarioRunner;
+import net.atf4j.core.LoggedTest;
 
-public class ScenarioRunnerTest {
+public class ScenarioRunnerTest extends LoggedTest {
 
 	public class Scenario extends AbstractLoggedScenario {
 		@Atf4j.Given("Given")

@@ -16,7 +16,6 @@
  */
 package net.atf4j.core;
 
-
 /**
  * The ToName Marker Interface.
  * 

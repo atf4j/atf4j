@@ -1,7 +1,7 @@
 /*
  * 
  */
-package net.atf4j.core.annotations;
+package net.atf4j.bdd.annotations;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -10,15 +10,15 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Given Predicate annotation. contains the short name for the test.
- *
+ * The AutomatedTestId annotation; contains the external reference for the test.
+ * 
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  * @version $Revision: 1.0 $
  */
 @Documented
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Given {
+public @interface TestId {
 
 	/**
 	 * Value.

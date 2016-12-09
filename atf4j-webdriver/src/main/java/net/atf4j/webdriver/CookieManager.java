@@ -28,7 +28,11 @@ import org.openqa.selenium.WebDriver;
  * @version $Revision: 1.0 $
  */
 public class CookieManager {
-	private WebDriver webDriver = null;
+
+    /** The web driver. */
+    private WebDriver webDriver = null;
+	
+	/** The cookies. */
 	private Set<Cookie> cookies = null;
 
 	/**
@@ -41,6 +45,45 @@ public class CookieManager {
 		this.webDriver = webDriver;
 	}
 
+    /**
+     * Checks if is empty.
+     *
+     * @return true, if is empty
+     */
+    public boolean isEmpty() {
+        return cookies.isEmpty();
+    }
+
+    /**
+     * Contains.
+     *
+     * @param o the o
+     * @return true, if successful
+     */
+    public boolean contains(Cookie o) {
+        return cookies.contains(o);
+    }
+
+    /**
+     * Adds the.
+     *
+     * @param e the e
+     * @return true, if successful
+     */
+    public boolean add(Cookie e) {
+        return cookies.add(e);
+    }
+
+    /**
+     * Removes the.
+     *
+     * @param o the o
+     * @return true, if successful
+     */
+    public boolean remove(Cookie o) {
+        return cookies.remove(o);
+    }
+	
 	/**
 	 * Save.
 	 */

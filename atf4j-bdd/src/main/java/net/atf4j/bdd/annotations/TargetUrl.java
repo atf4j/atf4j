@@ -1,7 +1,7 @@
 /*
  * 
  */
-package net.atf4j.core.annotations;
+package net.atf4j.bdd.annotations;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -10,7 +10,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * AutomatedTestScript.
+ * The TargetUrl annotation for PageObjects. Contains the starting URL for a
+ * AbstractTestSuite / AbstractWebDriverScript.
  *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  * @version $Revision: 1.0 $
@@ -18,6 +19,12 @@ import java.lang.annotation.Target;
 @Documented
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface TestScript {
+public @interface TargetUrl {
+	/**
+	 * Value is String representation of a URL.
+	 *
+	 * @return the string
+	 */
+	String value();
 
 }

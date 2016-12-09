@@ -26,9 +26,8 @@ public enum TestStatus {
 	 * The test has not yet been run.
 	 */
 	PENDING("Unrun"),
-	/**
-	 * False premise - Failed Assumption
-	 */
+	
+	/** False premise - Failed Assumption. */
 	FALSE("False"),
 	/**
 	 * The test has been run and passed.

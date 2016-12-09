@@ -19,14 +19,16 @@ package net.atf4j.webdriver.page;
 import net.atf4j.webdriver.WebDriverConfig;
 
 /**
- * PageConfig
+ * PageConfig.
  *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
 public class PageConfig extends WebDriverConfig {
 
 	/**
-	 * @throws MissingPropertyFileException
+	 * Instantiates a new page config.
+	 *
+	 * @throws MissingPropertyFileException the missing property file exception
 	 */
 	public PageConfig() throws MissingPropertyFileException {
 		super();

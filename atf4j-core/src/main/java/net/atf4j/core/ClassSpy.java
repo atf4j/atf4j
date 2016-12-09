@@ -43,9 +43,7 @@ public class ClassSpy {
 	public static void main(final String... args) {
 		try {
 			final Class<?> aClass = Class.forName(args[0]);
-
 			out.format("Class:%n  %s%n%n", aClass.getCanonicalName());
-
 			final Package aPackage = aClass.getPackage();
 			out.format("Package:%n  %s%n%n", (aPackage != null ? aPackage.getName() : "-- No Package --"));
 

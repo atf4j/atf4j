@@ -1,7 +1,8 @@
+package net.atf4j.webdriver;
 /*
  * 
  */
-package net.atf4j.core.annotations;
+
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -10,18 +11,18 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * The AutomatedTestId annotation; contains the external reference for the test.
- * 
+ * The TargetUrl annotation for PageObjects. Contains the starting URL for a
+ * AbstractTestSuite / AbstractWebDriverScript.
+ *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  * @version $Revision: 1.0 $
  */
 @Documented
-@Target(ElementType.METHOD)
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface TestId {
-
+public @interface TargetUrl {
 	/**
-	 * Value.
+	 * Value is String representation of a URL.
 	 *
 	 * @return the string
 	 */

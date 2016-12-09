@@ -1,7 +1,7 @@
 /*
  * 
  */
-package net.atf4j.core.annotations;
+package net.atf4j.bdd.annotations;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

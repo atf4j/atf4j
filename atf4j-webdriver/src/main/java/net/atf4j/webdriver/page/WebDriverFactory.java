@@ -18,12 +18,26 @@ package net.atf4j.webdriver.page;
 
 import org.openqa.selenium.WebDriver;
 
+/**
+ * A factory for creating WebDriver objects.
+ */
 public class WebDriverFactory {
 
+	/**
+	 * New web driver.
+	 *
+	 * @return the web driver
+	 */
 	public static WebDriver newWebDriver() {
 		return null;
 	}
 
+	/**
+	 * New web driver.
+	 *
+	 * @param targetBrowser the target browser
+	 * @return the web driver
+	 */
 	public static WebDriver newWebDriver(String targetBrowser) {
 		return null;
 	}

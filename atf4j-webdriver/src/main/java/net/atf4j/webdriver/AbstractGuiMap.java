@@ -22,7 +22,6 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Set;
 
-
 /**
  * A base abstraction to encapsulate GUI Mapping logical elements.
  *

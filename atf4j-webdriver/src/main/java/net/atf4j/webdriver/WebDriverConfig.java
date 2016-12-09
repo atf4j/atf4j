@@ -35,26 +35,56 @@ public class WebDriverConfig extends AbstractConfig {
 		super();
 	}
 
+	/**
+	 * Gets the target browser.
+	 *
+	 * @return the target browser
+	 */
 	public String getTargetBrowser() {
 		return this.get("targetBrowser");
 	}
 
+	/**
+	 * Gets the target url.
+	 *
+	 * @return the target url
+	 */
 	public String getTargetUrl() {
 		return this.get("targetUrl");
 	}
 
+	/**
+	 * Gets the page load timeout.
+	 *
+	 * @return the page load timeout
+	 */
 	public String getPageLoadTimeout() {
 		return this.get("pageLoadTimeOut");
 	}
 
+	/**
+	 * Gets the page load timeout unit.
+	 *
+	 * @return the page load timeout unit
+	 */
 	public String getPageLoadTimeoutUnit() {
 		return this.get("pageLoadTimeOutUnit");
 	}
 
+	/**
+	 * Gets the implicitly wait.
+	 *
+	 * @return the implicitly wait
+	 */
 	public String getImplicitlyWait() {
 		return this.get("implicitlyWait");
 	}
 
+	/**
+	 * Gets the implicitly wait unit.
+	 *
+	 * @return the implicitly wait unit
+	 */
 	public String getImplicitlyWaitUnit() {
 		return this.get("implicitlyWaitUnit");
 	}

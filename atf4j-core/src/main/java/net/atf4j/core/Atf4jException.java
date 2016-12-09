@@ -16,7 +16,6 @@
  */
 package net.atf4j.core;
 
-
 /**
  * Atf4jException.
  */

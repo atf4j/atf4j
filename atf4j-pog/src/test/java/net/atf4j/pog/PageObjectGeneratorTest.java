@@ -13,7 +13,9 @@ import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import org.junit.Test;
 
-public class PageObjectGeneratorTest {
+import net.atf4j.core.LoggedTest;
+
+public class PageObjectGeneratorTest extends LoggedTest {
 
 	@Test
 	public void test() {

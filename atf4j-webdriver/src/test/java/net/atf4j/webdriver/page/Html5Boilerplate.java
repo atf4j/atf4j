@@ -17,7 +17,7 @@
 
 package net.atf4j.webdriver.page;
 
-import net.atf4j.core.annotations.TargetUrl;
+import net.atf4j.webdriver.TargetUrl;
 
 /**
  * Html5Boilerplate class.

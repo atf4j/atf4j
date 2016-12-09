@@ -18,7 +18,7 @@
 package net.atf4j.webdriver.page;
 
 import net.atf4j.core.AbstractConfig.MissingPropertyFileException;
-import net.atf4j.core.annotations.TargetUrl;
+import net.atf4j.webdriver.TargetUrl;
 
 /**
  * BootStrapPage class.
@@ -28,10 +28,20 @@ import net.atf4j.core.annotations.TargetUrl;
 @TargetUrl("http://127.0.0.1:8080/bootstrap")
 public class BootstrapPage extends WebPage {
 
+	/**
+	 * Instantiates a new bootstrap page.
+	 *
+	 * @throws MissingPropertyFileException the missing property file exception
+	 */
 	public BootstrapPage() throws MissingPropertyFileException {
 		super();
 	}
 
+	/**
+	 * Url should be unchanged.
+	 *
+	 * @return the web page
+	 */
 	public WebPage urlShouldBeUnchanged() {
 		final String currentUrl = this.webDriver.getCurrentUrl();
 		currentUrl.equals(this.config.getTargetUrl());

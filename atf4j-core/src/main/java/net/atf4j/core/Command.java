@@ -18,7 +18,6 @@ package net.atf4j.core;
 
 import java.util.Properties;
 
-
 /**
  * Command.
  *

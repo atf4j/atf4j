@@ -20,7 +20,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import net.atf4j.core.LoggedTest;
-import net.atf4j.core.annotations.TestName;
 import net.atf4j.core.timers.ITimer;
 import net.atf4j.core.timers.MilliTimer;
 
@@ -41,7 +40,6 @@ public class TimerTest extends LoggedTest {
 	 * {@link net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
 	 */
 	@Test
-	@TestName("Zero timer: Establish delta")
 	public final void testTimer0() {
 		final ITimer timer = new MilliTimer(this.getClass().getSimpleName());
 		timer.start();
@@ -59,7 +57,6 @@ public class TimerTest extends LoggedTest {
 	 * {@link net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
 	 */
 	@Test
-	@TestName("Test one second timer.")
 	public final void testTimerOneSec() {
 		final ITimer timer = new MilliTimer(this.getClass().getSimpleName());
 		timer.start();
@@ -81,5 +78,4 @@ public class TimerTest extends LoggedTest {
 			interruptedException.printStackTrace(System.err);
 		}
 	}
-
 }

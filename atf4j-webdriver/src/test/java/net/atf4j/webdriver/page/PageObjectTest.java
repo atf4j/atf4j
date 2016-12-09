@@ -22,22 +22,41 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
- * PageObjectTest
+ * PageObjectTest.
  *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
 public class PageObjectTest {
+	
+	/** The Constant url. */
 	public static final String url = null;
 
+	/**
+	 * The Class MockPage.
+	 */
 	public class MockPage extends WebPage {
+		
+		/**
+		 * Instantiates a new mock page.
+		 */
 		public MockPage() {
 			super();
 		}
 
+		/**
+		 * Instantiates a new mock page.
+		 *
+		 * @param url the url
+		 */
 		public MockPage(final String url) {
 			super(url);
 		}
 
+		/**
+		 * Instantiates a new mock page.
+		 *
+		 * @param webDriver the web driver
+		 */
 		public MockPage(final WebDriver webDriver) {
 			super(webDriver);
 		}

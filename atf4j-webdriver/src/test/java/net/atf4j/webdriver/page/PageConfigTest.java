@@ -23,13 +23,22 @@ import org.junit.Test;
 import net.atf4j.core.AbstractConfig.MissingPropertyFileException;
 
 /**
- * PageConfigTest
+ * PageConfigTest.
  *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
 public abstract class PageConfigTest {
 
+	/**
+	 * The Class MockPageConfig.
+	 */
 	public class MockPageConfig extends AbstractPageConfig {
+		
+		/**
+		 * Instantiates a new mock page config.
+		 *
+		 * @throws MissingPropertyFileException the missing property file exception
+		 */
 		public MockPageConfig() throws MissingPropertyFileException {
 			super();
 		}
@@ -39,7 +48,7 @@ public abstract class PageConfigTest {
 	 * Test method for
 	 * {@link net.atf4j.webdriver.page.AbstractPageConfig#PageConfig()}.
 	 *
-	 * @throws MissingPropertyFileException
+	 * @throws MissingPropertyFileException the missing property file exception
 	 */
 	@Test
 	public final void testPageConfig() throws MissingPropertyFileException {
