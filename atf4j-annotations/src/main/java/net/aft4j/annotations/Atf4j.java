@@ -23,33 +23,29 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Interface Atf4j.
+ * Atf4j Interface.
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Atf4j {
-
 	/**
-	 * The Interface AutomatedTestScript.
-	 *
-	 * @author Martin Spamer <Martin.Spamer@atf4j.net>
+	 * Automated Test Script Annotation Interface.
 	 */
 	@Documented
 	@Target(ElementType.TYPE)
 	@Retention(RetentionPolicy.RUNTIME)
 	public @interface TestScript {
-
 	}
 
 	/**
-	 * The Interface TestId.
+	 * Test Id Annotation Interface.
 	 */
 	@Documented
 	@Target(ElementType.METHOD)
 	@Retention(RetentionPolicy.RUNTIME)
 	public @interface TestId {
 		/**
-		 * Value.
+		 * Value of test id.
 		 *
 		 * @return the string
 		 */
@@ -57,15 +53,14 @@ public @interface Atf4j {
 	}
 
 	/**
-	 * The Interface TestName.
+	 * Test Name Annotation Interface.
 	 */
 	@Documented
 	@Target(ElementType.METHOD)
 	@Retention(RetentionPolicy.RUNTIME)
 	public @interface TestName {
-
 		/**
-		 * Value.
+		 * Value of test name.
 		 *
 		 * @return the string
 		 */
@@ -73,15 +68,14 @@ public @interface Atf4j {
 	}
 
 	/**
-	 * The Interface TestDescription.
+	 * Test Description Annotation Interface.
 	 */
 	@Documented
 	@Target(ElementType.METHOD)
 	@Retention(RetentionPolicy.RUNTIME)
 	public @interface TestDescription {
-
 		/**
-		 * Value.
+		 * Value of test description.
 		 *
 		 * @return the string
 		 */

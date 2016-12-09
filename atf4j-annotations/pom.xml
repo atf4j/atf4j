@@ -21,4 +21,6 @@
 		</dependency>
 	</dependencies>
 
+	<url>http://atf4j.net</url>
+	<description>Automated Testing Framework for Java Test Annotations.</description>
 </project>

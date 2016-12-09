@@ -23,7 +23,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The Class AnnotationHelper.
+ * An Annotation Helper class.
  */
 class AnnotationHelper {
 	

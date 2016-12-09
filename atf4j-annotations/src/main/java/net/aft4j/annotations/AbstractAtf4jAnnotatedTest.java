@@ -22,20 +22,20 @@ import org.slf4j.LoggerFactory;
 import net.atf4j.core.LoggedTest;;
 
 /**
- * The AbstractAnnotatedTest Class.
+ * Abstract Annotated Test class.
  */
 @Atf4j.TestScript
 public abstract class AbstractAtf4jAnnotatedTest extends LoggedTest {
-	
+
 	/** The Constant log. */
 	public static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
-	
+
 	/** The Constant EXPECTED_TEST_ID. */
 	private static final String EXPECTED_TEST_ID = "Expected @Atf4j.TestId annotation, but not found.";
-	
+
 	/** The Constant EXPECTED_TEST_NAME. */
 	private static final String EXPECTED_TEST_NAME = "Expected @Atf4j.TestName annotation, but not found.";
-	
+
 	/** The Constant EXPECTED_TEST_DESCRIPTION. */
 	private static final String EXPECTED_TEST_DESCRIPTION = "Expected @Atf4j.TestDescription, but annotation not found.";
 
@@ -56,9 +56,7 @@ public abstract class AbstractAtf4jAnnotatedTest extends LoggedTest {
 		}
 
 		final Method testMethod = findTestMethod(stackTrace);
-
 		final Atf4j.TestId atf4jTestId = testMethod.getAnnotation(Atf4j.TestId.class);
-
 		return atf4jTestId.value() == null ? EXPECTED_TEST_ID : atf4jTestId.value();
 	}
 
@@ -88,11 +86,8 @@ public abstract class AbstractAtf4jAnnotatedTest extends LoggedTest {
 	 */
 	protected String getTestId() throws Exception {
 		log.trace("AbstractAtf4jAnnotatedTest.getTestId");
-
 		final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-
 		final Method testMethod = findTestMethod(stackTrace);
-
 		if (testMethod == null) {
 			return EXPECTED_TEST_ID;
 		} else {
@@ -126,11 +121,8 @@ public abstract class AbstractAtf4jAnnotatedTest extends LoggedTest {
 	 */
 	protected String getTestName() throws Exception {
 		log.trace("AbstractAtf4jAnnotatedTest.getTestName");
-
 		final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-
 		final Method testMethod = findTestMethod(stackTrace);
-
 		if (testMethod == null) {
 			return EXPECTED_TEST_NAME;
 		} else {
@@ -165,11 +157,8 @@ public abstract class AbstractAtf4jAnnotatedTest extends LoggedTest {
 	 */
 	protected String getTestDescription() throws Exception {
 		log.trace("AbstractAtf4jAnnotatedTest.getTestName");
-
 		final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-
 		final Method testMethod = findTestMethod(stackTrace);
-
 		if (testMethod == null) {
 			return EXPECTED_TEST_DESCRIPTION;
 		} else {

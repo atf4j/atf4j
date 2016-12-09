@@ -11,7 +11,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * The Interface AutomatedTestScript.
+ * Automated Test Script Annotation Interface.
  *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
@@ -19,5 +19,4 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Atf4jTestScript {
-
 }

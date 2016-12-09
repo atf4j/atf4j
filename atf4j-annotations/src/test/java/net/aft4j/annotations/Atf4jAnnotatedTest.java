@@ -18,9 +18,7 @@ package net.aft4j.annotations;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-
 import org.junit.Test;
-
 
 /**
  * AnnotatedTest Class.
@@ -32,7 +30,7 @@ public class Atf4jAnnotatedTest extends AbstractAtf4jAnnotatedTest {
 	private static final String TEST_DESCRIPTION = "\n\tGiven predicates\n\tWhen command\n\tThen acceptance criteria\n";
 
 	/**
-	 * Test eample.
+	 * Test example.
 	 *
 	 * @throws Exception the exception
 	 */
