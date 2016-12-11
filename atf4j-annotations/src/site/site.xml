@@ -4,10 +4,12 @@
   <body>
     <links>
       <item name="Maven" href="http://maven.apache.org/"/>
-    </links>
-
-    <menu name="Documentation">
-      <!--<item name="Xdoc Example" href="xdoc.html"/>-->
-    </menu>
+    </links>    
+<menu name="Project overview" inherit="top">
+  <item name="Home" href="./index.html" />
+  <item name="Installation" href="./usage/installation.html" />
+  <item name="Maven" href="./usage/index.html" />
+  <item name="Automation" href="./development/index.html" />
+</menu>
   </body>
 </project>

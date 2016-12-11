@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
 import net.atf4j.core.timers.NestedTimers;
 
 /**
- * The Class Atf4j.
+ * The Atf4j class.
  */
 public class Atf4j {
 
