@@ -14,10 +14,8 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.aft4j.bdd;
+package net.atf4j.bdd;
 
-import org.junit.Assert;
-import org.junit.Assume;
 import org.junit.Test;
 
 import net.atf4j.bdd.AbstractLoggedScenario;
@@ -26,26 +24,23 @@ import net.atf4j.bdd.Atf4j.Scenario;
 import net.atf4j.bdd.ScenarioRunner;
 
 @Scenario("Scenario")
-public class ScenarioTest extends AbstractLoggedScenario {
+public class ScenarioMissingGiven extends AbstractLoggedScenario {
 
 	@Test
 	public void testScenarioRunner() {
 		new ScenarioRunner(this).execute();
 	}
 
-	@Atf4j.Given("Given")
-	public void testPassGiven() {
-		Assume.assumeTrue(true);
-	}
+	// @Atf4j.Given("Given")
+	// public void testPassGiven() {
+	// }
 
 	@Atf4j.When("When")
 	public void testPassWhen() {
-		Assert.assertTrue(true);
 	}
 
 	@Atf4j.Then("Then")
 	public void testPassThen() {
-		Assert.assertTrue(true);
 	}
 
 }

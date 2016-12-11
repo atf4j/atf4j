@@ -1,11 +1,11 @@
-package net.aft4j.annotations;
+package net.atf4j.annotations;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import static net.aft4j.annotations.AnnotationHelper.*;
+import static net.atf4j.annotations.AnnotationHelper.*;
 
 /**
  * The Class AnnotatedTestExampleOne.

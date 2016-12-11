@@ -1,4 +1,4 @@
-package net.aft4j.bdd;
+package net.atf4j.bdd;
 
 import org.junit.Test;
 

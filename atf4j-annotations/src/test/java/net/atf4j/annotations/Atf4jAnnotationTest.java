@@ -11,14 +11,15 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.aft4j.annotations;
+package net.atf4j.annotations;
 
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
+import net.atf4j.annotations.AbstractAtf4jAnnotatedTest;
+import net.atf4j.annotations.Atf4j;
 import net.atf4j.core.LoggedTest;
-
 
 /**
  * An AnnotatedTest Class.

@@ -1,4 +1,4 @@
-package net.aft4j.annotations;
+package net.atf4j.annotations;
 
 import static org.junit.Assert.*;
 

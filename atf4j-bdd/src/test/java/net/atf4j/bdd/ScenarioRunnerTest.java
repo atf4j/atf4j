@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.aft4j.bdd;
+package net.atf4j.bdd;
 
 import org.junit.Assert;
 import org.junit.Assume;

@@ -14,12 +14,13 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.aft4j.annotations;
+package net.atf4j.annotations;
 
 import java.lang.annotation.Annotation;
 
 import org.junit.Test;
 
+import net.atf4j.annotations.AbstractAtf4jAnnotatedTest;
 
 /**
  * TestAnnotationReport.
@@ -27,7 +28,6 @@ import org.junit.Test;
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
 public class TestAnnotationReport extends AbstractAtf4jAnnotatedTest {
-	
 	/**
 	 * Package annotations test.
 	 *
@@ -35,13 +35,13 @@ public class TestAnnotationReport extends AbstractAtf4jAnnotatedTest {
 	 */
 	@Test
 	public void packageAnnotationsTest() throws Throwable {
-		log.trace("TestAnnotationReport.packageAnnotationsTest");
+		log.info("TestAnnotationReport.packageAnnotationsTest");
 		final Package[] allPackages = Package.getPackages();
 		for (final Package namespace : allPackages) {
-			log.trace("Package:" + namespace.toString());
+			log.info("Package:" + namespace.toString());
 			final Annotation[] annotations = namespace.getAnnotations();
 			for (final Annotation annotation : annotations) {
-				log.trace(annotation.toString());
+				log.info(annotation.toString());
 			}
 		}
 	}

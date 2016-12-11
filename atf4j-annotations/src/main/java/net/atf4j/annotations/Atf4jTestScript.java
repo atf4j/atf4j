@@ -2,7 +2,7 @@
  * 
  */
 
-package net.aft4j.annotations;
+package net.atf4j.annotations;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
