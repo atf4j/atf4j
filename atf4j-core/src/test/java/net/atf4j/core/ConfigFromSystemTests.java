@@ -30,49 +30,49 @@ import net.atf4j.core.AbstractConfig.MissingPropertyFileException;
  */
 public class ConfigFromSystemTests extends LoggedTest {
 
-	/**
-	 * MockConfig Class.
-	 */
-	private class ConfigFromSystem extends AbstractConfig {
-		public ConfigFromSystem() throws MissingPropertyFileException {
-			super();
-		}
+    /**
+     * MockConfig Class.
+     */
+    private class ConfigFromSystem extends AbstractConfig {
+        public ConfigFromSystem() throws MissingPropertyFileException {
+            super();
+        }
 
-		public boolean getSystemPropertyAsBoolean(final String key) {
-			final boolean property = Boolean.getBoolean(key);
-			return property;
-		}
+        public boolean getSystemPropertyAsBoolean(final String key) {
+            final boolean property = Boolean.getBoolean(key);
+            return property;
+        }
 
-		public String getSystemPropertyAsString(final String key) {
-			final String property = System.getProperty(key);
-			return property;
-		}
-	}
+        public String getSystemPropertyAsString(final String key) {
+            final String property = System.getProperty(key);
+            return property;
+        }
+    }
 
-	@Test
-	public void testSystemString() throws MissingPropertyFileException {
-		// Given a system property string
-		final String systemPropertyKey = "stringFromSystem";
-		final String systemPropertyValue = "present";
-		System.setProperty(systemPropertyKey, systemPropertyValue);
-		final ConfigFromSystem mockConfig = new ConfigFromSystem();
-		assertNotNull(mockConfig);
-		final String systemPropertyAsString = mockConfig.getSystemPropertyAsString(systemPropertyKey);
-		assertEquals(systemPropertyValue, systemPropertyAsString);
-	}
+    @Test
+    public void testSystemString() throws MissingPropertyFileException {
+        // Given a system property string
+        final String systemPropertyKey = "stringFromSystem";
+        final String systemPropertyValue = "present";
+        System.setProperty(systemPropertyKey, systemPropertyValue);
+        final ConfigFromSystem mockConfig = new ConfigFromSystem();
+        assertNotNull(mockConfig);
+        final String systemPropertyAsString = mockConfig.getSystemPropertyAsString(systemPropertyKey);
+        assertEquals(systemPropertyValue, systemPropertyAsString);
+    }
 
-	@Test
-	public void testSystemBoolean() throws MissingPropertyFileException {
-		// Given a system property boolean
-		final String systemPropertyKey = "booleanFromSystem";
-		final String systemPropertyValue = "true";
-		System.setProperty(systemPropertyKey, systemPropertyValue);
-		log.info(System.getProperties().toString());
+    @Test
+    public void testSystemBoolean() throws MissingPropertyFileException {
+        // Given a system property boolean
+        final String systemPropertyKey = "booleanFromSystem";
+        final String systemPropertyValue = "true";
+        System.setProperty(systemPropertyKey, systemPropertyValue);
+        log.info(System.getProperties().toString());
 
-		// When
-		final ConfigFromSystem mockConfig = new ConfigFromSystem();
-		assertNotNull(mockConfig);
-		final boolean booleanFromSystem = mockConfig.getSystemPropertyAsBoolean(systemPropertyKey);
-		assertEquals(true, booleanFromSystem);
-	}
+        // When
+        final ConfigFromSystem mockConfig = new ConfigFromSystem();
+        assertNotNull(mockConfig);
+        final boolean booleanFromSystem = mockConfig.getSystemPropertyAsBoolean(systemPropertyKey);
+        assertEquals(true, booleanFromSystem);
+    }
 }

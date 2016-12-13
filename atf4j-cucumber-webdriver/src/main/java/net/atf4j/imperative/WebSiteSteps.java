@@ -19,41 +19,40 @@ package net.atf4j.imperative;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class WebSiteSteps {
 
-	protected static final Logger log = LoggerFactory.getLogger(WebSiteSteps.class);
+    protected static final Logger log = LoggerFactory.getLogger(WebSiteSteps.class);
 
-	private WebSite webSite;
+    private WebSite webSite;
 
-	@Given("^ the [Chrome|Firefox|Headless] Browser$")
-	public void namedBrowser(final String browserName) throws Throwable {
-		this.webSite.useBrowser(browserName);
-	}
+    @Given("^ the [Chrome|Firefox|Headless] Browser$")
+    public void namedBrowser(final String browserName) throws Throwable {
+        this.webSite.useBrowser(browserName);
+    }
 
-	@When("^the target url (\\a*) is opened$")
-	public void theTargetUrlIsHttpIsOpened(final String targetUrl) throws Throwable {
-		this.webSite.open(targetUrl);
-	}
+    @When("^the target url (\\a*) is opened$")
+    public void theTargetUrlIsHttpIsOpened(final String targetUrl) throws Throwable {
+        this.webSite.open(targetUrl);
+    }
 
-	@Then("^the pageTitle is \"([^\"]*)\"$")
-	public void thePageTitleIs(final String expectedPageTitle) throws Throwable {
-		this.webSite.ensurePageTitleIs(expectedPageTitle);
-		this.webSite.pageTitleSouldBe(expectedPageTitle);
-	}
+    @Then("^the pageTitle is \"([^\"]*)\"$")
+    public void thePageTitleIs(final String expectedPageTitle) throws Throwable {
+        this.webSite.ensurePageTitleIs(expectedPageTitle);
+        this.webSite.pageTitleSouldBe(expectedPageTitle);
+    }
 
-	@Then("^the cookie \"([^\"]*)\" exists$")
-	public void theCookieExists(final String cookieName) throws Throwable {
-		this.webSite.ensureCookieExists(cookieName);
-	}
+    @Then("^the cookie \"([^\"]*)\" exists$")
+    public void theCookieExists(final String cookieName) throws Throwable {
+        this.webSite.ensureCookieExists(cookieName);
+    }
 
-	@Then("^the cookie \"([^\"]*)\" has value \"([^\"]*)\"$")
-	public void theCookieHasValue(final String cookieName, final String cookieValue) throws Throwable {
-		this.webSite.theCookieHasValue(cookieName);
-	}
+    @Then("^the cookie \"([^\"]*)\" has value \"([^\"]*)\"$")
+    public void theCookieHasValue(final String cookieName, final String cookieValue) throws Throwable {
+        this.webSite.theCookieHasValue(cookieName);
+    }
 
 }

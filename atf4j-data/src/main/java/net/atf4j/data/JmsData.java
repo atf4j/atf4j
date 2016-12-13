@@ -18,23 +18,23 @@ package net.atf4j.data;
 
 public class JmsData extends SetUpData {
 
-	public JmsData() {
-		super();
-	}
+    public JmsData() {
+        super();
+    }
 
-	@Override
-	public boolean setUp() {
-		return true;
-	}
+    @Override
+    public boolean setUp() {
+        return true;
+    }
 
-	@Override
-	public boolean reset() {
-		return true;
-	}
+    @Override
+    public boolean reset() {
+        return true;
+    }
 
-	@Override
-	public boolean tearDown() {
-		return true;
-	}
+    @Override
+    public boolean tearDown() {
+        return true;
+    }
 
 }

@@ -23,8 +23,8 @@ package net.atf4j.data.factory;
  */
 public class PersonFactory extends DataFactory implements FactoryMethod {
 
-	public PersonFactory() throws Exception {
-		super();
-	}
+    public PersonFactory() throws Exception {
+        super();
+    }
 
 }

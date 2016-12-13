@@ -21,33 +21,33 @@ import org.slf4j.LoggerFactory;
 
 public class WebSite {
 
-	protected static final Logger log = LoggerFactory.getLogger(WebSiteSteps.class);
+    protected static final Logger log = LoggerFactory.getLogger(WebSiteSteps.class);
 
-	public void useBrowser(final String browserName) {
-		log.debug("{}.useBrowser({})", this, browserName);
-	}
+    public void useBrowser(final String browserName) {
+        log.debug("{}.useBrowser({})", this, browserName);
+    }
 
-	public void open(final String targetUrl) {
-		log.debug("{}.open({})", this, targetUrl);
-	}
+    public void open(final String targetUrl) {
+        log.debug("{}.open({})", this, targetUrl);
+    }
 
-	public void verify() {
-		log.debug("{}.verify({})", this);
-	}
+    public void verify() {
+        log.debug("{}.verify({})", this);
+    }
 
-	public void ensurePageTitleIs(final String expectedPageTitle) {
-		log.debug("{}.ensurePageTitleIs({})", this);
-	}
+    public void ensurePageTitleIs(final String expectedPageTitle) {
+        log.debug("{}.ensurePageTitleIs({})", this);
+    }
 
-	public void pageTitleSouldBe(final String expectedPageTitle) {
-		log.debug("{}.pageTitleSouldBe({})", this);
-	}
+    public void pageTitleSouldBe(final String expectedPageTitle) {
+        log.debug("{}.pageTitleSouldBe({})", this);
+    }
 
-	public void ensureCookieExists(final String cookieName) {
-		log.debug("{}.ensureCookieExists({})", this);
-	}
+    public void ensureCookieExists(final String cookieName) {
+        log.debug("{}.ensureCookieExists({})", this);
+    }
 
-	public void theCookieHasValue(final String cookieName) {
-		log.debug("{}.theCookieHasValue({})", this);
-	}
+    public void theCookieHasValue(final String cookieName) {
+        log.debug("{}.theCookieHasValue({})", this);
+    }
 }

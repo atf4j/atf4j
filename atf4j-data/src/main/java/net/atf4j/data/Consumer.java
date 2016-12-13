@@ -17,13 +17,13 @@
 package net.atf4j.data;
 
 public class Consumer {
-	// Title
-	protected Forename forename;
-	protected Surname surename;
+    // Title
+    protected Forename forename;
+    protected Surname surename;
 
-	public Consumer() {
-		super();
-		this.forename = new Forename(null);
-		this.surename = new Surname(null);
-	}
+    public Consumer() {
+        super();
+        this.forename = new Forename(null);
+        this.surename = new Surname(null);
+    }
 }

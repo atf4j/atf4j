@@ -21,7 +21,6 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.atf4j.core.AbstractConfig.MissingPropertyFileException;
 import net.atf4j.core.LoggedTest;
 
 /**
@@ -30,42 +29,44 @@ import net.atf4j.core.LoggedTest;
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
 public class DataFactoryTest extends LoggedTest {
-	protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+    protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
-	/**
-	 * Test Data Mock.
-	 */
-	public class TestData extends AddressFactory {
-		/**
-		 * Instantiates a new mock data.
-		 * @throws Exception 
-		 */
-		public TestData() throws Exception {
-			super();
-		}
-	}
+    /**
+     * Test Data Mock.
+     */
+    public class TestData extends AddressFactory {
+        /**
+         * Instantiates a new mock data.
+         * 
+         * @throws Exception
+         */
+        public TestData() throws Exception {
+            super();
+        }
+    }
 
-	/**
-	 * Test default constructor.
-	 * @throws Exception 
-	 */
-	@Test
-	public final void testDefaultConstructor() throws Exception {
-		final AbstractDataFactory dataFactory = new TestData();
-		Assert.assertNotNull(dataFactory);
-	}
+    /**
+     * Test default constructor.
+     * 
+     * @throws Exception
+     */
+    @Test
+    public final void testDefaultConstructor() throws Exception {
+        final AbstractDataFactory dataFactory = new TestData();
+        Assert.assertNotNull(dataFactory);
+    }
 
-	@Test
-	public void testSomeThing() throws Exception {
-		// DataFactory.dateOfBirth();
-		// DataFactory.dobOver18();
-		// DataFactory.dobUnder18();
-		// DataFactory.futureDate().thisYear();
-		// DataFactory.pastDate();
-		// DataFactory.thisYear();
-		// DataFactory.thisMonth();
-		// DataFactory.familyName();
-		// DataFactory.givenName();
-	}
+    @Test
+    public void testSomeThing() throws Exception {
+        // DataFactory.dateOfBirth();
+        // DataFactory.dobOver18();
+        // DataFactory.dobUnder18();
+        // DataFactory.futureDate().thisYear();
+        // DataFactory.pastDate();
+        // DataFactory.thisYear();
+        // DataFactory.thisMonth();
+        // DataFactory.familyName();
+        // DataFactory.givenName();
+    }
 
 }

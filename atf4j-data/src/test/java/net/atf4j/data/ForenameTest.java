@@ -28,14 +28,14 @@ import net.atf4j.core.LoggedTest;
  */
 public class ForenameTest extends LoggedTest {
 
-	private static final String FORENAME = "Forename";
+    private static final String FORENAME = "Forename";
 
-	/**
-	 * Test method for {@link net.atf4j.data.Forename()}.
-	 */
-	@Test
-	public final void testConstructor() {
-		Assert.assertEquals(FORENAME, new Forename(FORENAME).getName());
-	}
+    /**
+     * Test method for {@link net.atf4j.data.Forename()}.
+     */
+    @Test
+    public final void testConstructor() {
+        Assert.assertEquals(FORENAME, new Forename(FORENAME).getName());
+    }
 
 }

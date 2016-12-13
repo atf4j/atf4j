@@ -30,57 +30,57 @@ import net.atf4j.core.AbstractConfig.MissingPropertyFileException;
  */
 public class ConfigLoadingTests extends LoggedTest {
 
-	/**
-	 * MissingPropertiesMock Class.
-	 */
-	private class MissingProperties extends AbstractConfig {
-		public MissingProperties() throws MissingPropertyFileException {
-			super();
-		}
-	}
+    /**
+     * MissingPropertiesMock Class.
+     */
+    private class MissingProperties extends AbstractConfig {
+        public MissingProperties() throws MissingPropertyFileException {
+            super();
+        }
+    }
 
-	private class SimpleConfiguration extends AbstractConfig {
-		public SimpleConfiguration() throws MissingPropertyFileException {
-			super();
-		}
+    private class SimpleConfiguration extends AbstractConfig {
+        public SimpleConfiguration() throws MissingPropertyFileException {
+            super();
+        }
 
-		public String getPropertyFilename() {
-			logger.info(get("loaded"));
-			final String propertiesFilename = super.get("propertiesFilename");
-			logger.info(propertiesFilename);
-			return propertiesFilename;
-		}
-	}
+        public String getPropertyFilename() {
+            logger.info(get("loaded"));
+            final String propertiesFilename = super.get("propertiesFilename");
+            logger.info(propertiesFilename);
+            return propertiesFilename;
+        }
+    }
 
-	/**
-	 * Test method for {@link net.atf4j.core.AbstractConfig#Config()}.
-	 *
-	 * @throws MissingPropertyFileException
-	 *             the missing property file exception
-	 */
-	@Test(expected = MissingPropertyFileException.class)
-	public void testConfig() throws MissingPropertyFileException {
-		new MissingProperties();
-	}
+    /**
+     * Test method for {@link net.atf4j.core.AbstractConfig#Config()}.
+     *
+     * @throws MissingPropertyFileException
+     *             the missing property file exception
+     */
+    @Test(expected = MissingPropertyFileException.class)
+    public void testConfig() throws MissingPropertyFileException {
+        new MissingProperties();
+    }
 
-	/**
-	 * Test method for {@link net.atf4j.core.AbstractConfig#load()}.
-	 *
-	 * @throws MissingPropertyFileException
-	 *             the missing property file exception
-	 */
-	@Test(expected = MissingPropertyFileException.class)
-	public void testLoad() throws MissingPropertyFileException {
-		final AbstractConfig mockConfig = new MissingProperties();
-		assertNotNull(mockConfig);
-		log.info(mockConfig.toString());
-	}
+    /**
+     * Test method for {@link net.atf4j.core.AbstractConfig#load()}.
+     *
+     * @throws MissingPropertyFileException
+     *             the missing property file exception
+     */
+    @Test(expected = MissingPropertyFileException.class)
+    public void testLoad() throws MissingPropertyFileException {
+        final AbstractConfig mockConfig = new MissingProperties();
+        assertNotNull(mockConfig);
+        log.info(mockConfig.toString());
+    }
 
-	@Test
-	public void testSuggestedUsage() throws MissingPropertyFileException {
-		final SimpleConfiguration simpleConfig = new SimpleConfiguration();
-		final String propertyFilename = simpleConfig.getPropertyFilename();
-		Assert.assertEquals("/SimpleConfiguration.properties", propertyFilename);
-	}
+    @Test
+    public void testSuggestedUsage() throws MissingPropertyFileException {
+        final SimpleConfiguration simpleConfig = new SimpleConfiguration();
+        final String propertyFilename = simpleConfig.getPropertyFilename();
+        Assert.assertEquals("/SimpleConfiguration.properties", propertyFilename);
+    }
 
 }

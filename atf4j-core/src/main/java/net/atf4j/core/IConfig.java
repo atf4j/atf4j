@@ -23,24 +23,24 @@ package net.atf4j.core;
  */
 public interface IConfig {
 
-	/**
-	 * Use property.
-	 *
-	 * @param key
-	 *            the lookup key for the property.
-	 * @return property value as String object.
-	 */
-	public abstract Property useProperty(final String key);
+    /**
+     * Use property.
+     *
+     * @param key
+     *            the lookup key for the property.
+     * @return property value as String object.
+     */
+    public abstract Property useProperty(final String key);
 
-	/**
-	 * Use property if available other wise use default.
-	 *
-	 * @param key
-	 *            the lookup key for the property.
-	 * @param defaultValue
-	 *            the default value as String object.
-	 * @return property value as String object.
-	 */
-	public abstract Property useProperty(final String key, final String defaultValue);
+    /**
+     * Use property if available other wise use default.
+     *
+     * @param key
+     *            the lookup key for the property.
+     * @param defaultValue
+     *            the default value as String object.
+     * @return property value as String object.
+     */
+    public abstract Property useProperty(final String key, final String defaultValue);
 
 }

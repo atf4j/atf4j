@@ -20,27 +20,27 @@ package net.atf4j.core.model;
  * TestStatus.
  */
 public enum TestStatus {
-	/**
-	 * The test has not yet be run.
-	 */
-	NOT_RUN("NOT RUN"),
-	/**
-	 * The test has been run and passed.
-	 */
-	PASSED("PASSED"),
-	/**
-	 * The test has been run and failed.
-	 */
-	FAILED("FAILED"),
-	/**
-	 * The Test failed to complete. Note : Perhaps not necessary, FAILED might
-	 * cover
-	 */
-	EXCEPTION("EXCEPTION");
+    /**
+     * The test has not yet be run.
+     */
+    NOT_RUN("NOT RUN"),
+    /**
+     * The test has been run and passed.
+     */
+    PASSED("PASSED"),
+    /**
+     * The test has been run and failed.
+     */
+    FAILED("FAILED"),
+    /**
+     * The Test failed to complete. Note : Perhaps not necessary, FAILED might
+     * cover
+     */
+    EXCEPTION("EXCEPTION");
 
-	private String status;
+    private String status;
 
-	TestStatus(final String name) {
-		this.status = name;
-	}
+    TestStatus(final String name) {
+        this.status = name;
+    }
 }

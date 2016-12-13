@@ -52,8 +52,8 @@ public abstract class AbstractDataLoader {
      *             the exception
      */
     public Object load(final String dataFilename) throws Exception {
-        ClassLoader classLoader = this.getClass().getClassLoader();
-        InputStream in = classLoader.getResourceAsStream(dataFilename);
+        final ClassLoader classLoader = this.getClass().getClassLoader();
+        final InputStream in = classLoader.getResourceAsStream(dataFilename);
         return load(in);
     }
 
@@ -67,13 +67,14 @@ public abstract class AbstractDataLoader {
      *             the exception
      */
     public byte[] load(final InputStream in) throws Exception {
-        InputStreamReader inputStreamReader = new InputStreamReader(in);
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        byte[] buf = new byte[BUFFER_SIZE];
+        final InputStreamReader inputStreamReader = new InputStreamReader(in);
+        final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        final byte[] buf = new byte[BUFFER_SIZE];
         while (true) {
-            int n = in.read(buf);
-            if (n < 0)
+            final int n = in.read(buf);
+            if (n < 0) {
                 break;
+            }
             byteArrayOutputStream.write(buf, 0, n);
         }
         inputStreamReader.close();

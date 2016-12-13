@@ -26,57 +26,57 @@ import java.util.regex.Pattern;
  */
 public class NationalInsuranceNumber {
 
-	/** The Constant pattern. */
-	private static final Pattern pattern = Pattern.compile("");
+    /** The Constant pattern. */
+    private static final Pattern pattern = Pattern.compile("");
 
-	/** The code. */
-	private String code;
+    /** The code. */
+    private String code;
 
-	/**
-	 * Instantiates a new national insurance number.
-	 */
-	public NationalInsuranceNumber() {
-		super();
-	}
+    /**
+     * Instantiates a new national insurance number.
+     */
+    public NationalInsuranceNumber() {
+        super();
+    }
 
-	/**
-	 * Instantiates a new national insurance number.
-	 *
-	 * @param code
-	 *            the code
-	 */
-	public NationalInsuranceNumber(final String code) {
-		super();
-		this.code = code;
-	}
+    /**
+     * Instantiates a new national insurance number.
+     *
+     * @param code
+     *            the code
+     */
+    public NationalInsuranceNumber(final String code) {
+        super();
+        this.code = code;
+    }
 
-	/**
-	 * Verify.
-	 *
-	 * @param code
-	 *            the code
-	 * @return true, if successful
-	 */
-	public boolean verify(final String code) {
-		final Matcher matcher = pattern.matcher(code);
-		return matcher.find();
-	}
+    /**
+     * Verify.
+     *
+     * @param code
+     *            the code
+     * @return true, if successful
+     */
+    public boolean verify(final String code) {
+        final Matcher matcher = pattern.matcher(code);
+        return matcher.find();
+    }
 
-	/**
-	 * @return the code
-	 */
-	public String getCode() {
-		return this.code;
-	}
+    /**
+     * @return the code
+     */
+    public String getCode() {
+        return this.code;
+    }
 
-	/**
-	 * @param code
-	 *            the code to set
-	 * @return
-	 */
-	public NationalInsuranceNumber setCode(final String code) {
-		this.code = code;
-		return this;
-	}
+    /**
+     * @param code
+     *            the code to set
+     * @return
+     */
+    public NationalInsuranceNumber setCode(final String code) {
+        this.code = code;
+        return this;
+    }
 
 }

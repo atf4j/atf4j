@@ -30,163 +30,169 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * The Class BootstrapExamplePage.
  */
 public class BootstrapExamplePage {
-	
-	/** The data. */
-	private Map<String, String> data;
-	
-	/** The driver. */
-	private WebDriver driver;
-	
-	/** The timeout. */
-	private int timeout = 15;
 
-	/** The about. */
-	@FindBy(css = "a[href='#about']")
-	@CacheLookup
-	private WebElement about;
+    /** The data. */
+    private Map<String, String> data;
 
-	/** The contact. */
-	@FindBy(css = "a[href='#contact']")
-	@CacheLookup
-	private WebElement contact;
+    /** The driver. */
+    private WebDriver driver;
 
-	/** The home. */
-	@FindBy(css = "#navbar ul.nav.navbar-nav li:nth-of-type(1) a")
-	@CacheLookup
-	private WebElement home;
+    /** The timeout. */
+    private int timeout = 15;
 
-	/** The page loaded text. */
-	private final String pageLoadedText = "Use this document as a way to quickly start any new project";
+    /** The about. */
+    @FindBy(css = "a[href='#about']")
+    @CacheLookup
+    private WebElement about;
 
-	/** The page url. */
-	private final String pageUrl = "/bootstrap/docs/examples/starter-template/";
+    /** The contact. */
+    @FindBy(css = "a[href='#contact']")
+    @CacheLookup
+    private WebElement contact;
 
-	/** The project name. */
-	@FindBy(css = "a.navbar-brand")
-	@CacheLookup
-	private WebElement projectName;
+    /** The home. */
+    @FindBy(css = "#navbar ul.nav.navbar-nav li:nth-of-type(1) a")
+    @CacheLookup
+    private WebElement home;
 
-	/** The toggle navigation. */
-	@FindBy(css = "button.navbar-toggle.collapsed")
-	@CacheLookup
-	private WebElement toggleNavigation;
+    /** The page loaded text. */
+    private final String pageLoadedText = "Use this document as a way to quickly start any new project";
 
-	/**
-	 * Instantiates a new bootstrap example page.
-	 */
-	private BootstrapExamplePage() {
-	}
+    /** The page url. */
+    private final String pageUrl = "/bootstrap/docs/examples/starter-template/";
 
-	/**
-	 * Instantiates a new bootstrap example page.
-	 *
-	 * @param driver the driver
-	 */
-	public BootstrapExamplePage(final WebDriver driver) {
-		this();
-		this.driver = driver;
-	}
+    /** The project name. */
+    @FindBy(css = "a.navbar-brand")
+    @CacheLookup
+    private WebElement projectName;
 
-	/**
-	 * Instantiates a new bootstrap example page.
-	 *
-	 * @param driver the driver
-	 * @param data the data
-	 */
-	public BootstrapExamplePage(final WebDriver driver, final Map<String, String> data) {
-		this(driver);
-		this.data = data;
-	}
+    /** The toggle navigation. */
+    @FindBy(css = "button.navbar-toggle.collapsed")
+    @CacheLookup
+    private WebElement toggleNavigation;
 
-	/**
-	 * Instantiates a new bootstrap example page.
-	 *
-	 * @param driver the driver
-	 * @param data the data
-	 * @param timeout the timeout
-	 */
-	public BootstrapExamplePage(final WebDriver driver, final Map<String, String> data, final int timeout) {
-		this(driver, data);
-		this.timeout = timeout;
-	}
+    /**
+     * Instantiates a new bootstrap example page.
+     */
+    private BootstrapExamplePage() {
+    }
 
-	/**
-	 * Click on About Link.
-	 *
-	 * @return the BootStrapPage class instance.
-	 */
-	public BootstrapExamplePage clickAboutLink() {
-		this.about.click();
-		return this;
-	}
+    /**
+     * Instantiates a new bootstrap example page.
+     *
+     * @param driver
+     *            the driver
+     */
+    public BootstrapExamplePage(final WebDriver driver) {
+        this();
+        this.driver = driver;
+    }
 
-	/**
-	 * Click on Contact Link.
-	 *
-	 * @return the BootStrapPage class instance.
-	 */
-	public BootstrapExamplePage clickContactLink() {
-		this.contact.click();
-		return this;
-	}
+    /**
+     * Instantiates a new bootstrap example page.
+     *
+     * @param driver
+     *            the driver
+     * @param data
+     *            the data
+     */
+    public BootstrapExamplePage(final WebDriver driver, final Map<String, String> data) {
+        this(driver);
+        this.data = data;
+    }
 
-	/**
-	 * Click on Home Link.
-	 *
-	 * @return the BootStrapPage class instance.
-	 */
-	public BootstrapExamplePage clickHomeLink() {
-		this.home.click();
-		return this;
-	}
+    /**
+     * Instantiates a new bootstrap example page.
+     *
+     * @param driver
+     *            the driver
+     * @param data
+     *            the data
+     * @param timeout
+     *            the timeout
+     */
+    public BootstrapExamplePage(final WebDriver driver, final Map<String, String> data, final int timeout) {
+        this(driver, data);
+        this.timeout = timeout;
+    }
 
-	/**
-	 * Click on Project Name Link.
-	 *
-	 * @return the BootStrapPage class instance.
-	 */
-	public BootstrapExamplePage clickProjectNameLink() {
-		this.projectName.click();
-		return this;
-	}
+    /**
+     * Click on About Link.
+     *
+     * @return the BootStrapPage class instance.
+     */
+    public BootstrapExamplePage clickAboutLink() {
+        this.about.click();
+        return this;
+    }
 
-	/**
-	 * Click on Toggle Navigation Button.
-	 *
-	 * @return the BootStrapPage class instance.
-	 */
-	public BootstrapExamplePage clickToggleNavigationButton() {
-		this.toggleNavigation.click();
-		return this;
-	}
+    /**
+     * Click on Contact Link.
+     *
+     * @return the BootStrapPage class instance.
+     */
+    public BootstrapExamplePage clickContactLink() {
+        this.contact.click();
+        return this;
+    }
 
-	/**
-	 * Verify that the page loaded completely.
-	 *
-	 * @return the BootStrapPage class instance.
-	 */
-	public BootstrapExamplePage verifyPageLoaded() {
-		new WebDriverWait(this.driver, this.timeout).until(new ExpectedCondition<Boolean>() {
-			@Override
-			public Boolean apply(final WebDriver d) {
-				return d.getPageSource().contains(BootstrapExamplePage.this.pageLoadedText);
-			}
-		});
-		return this;
-	}
+    /**
+     * Click on Home Link.
+     *
+     * @return the BootStrapPage class instance.
+     */
+    public BootstrapExamplePage clickHomeLink() {
+        this.home.click();
+        return this;
+    }
 
-	/**
-	 * Verify that current page URL matches the expected URL.
-	 *
-	 * @return the BootStrapPage class instance.
-	 */
-	public BootstrapExamplePage verifyPageUrl() {
-		new WebDriverWait(this.driver, this.timeout).until(new ExpectedCondition<Boolean>() {
-			@Override
-			public Boolean apply(final WebDriver d) {
-				return d.getCurrentUrl().contains(BootstrapExamplePage.this.pageUrl);
-			}
-		});
-		return this;
-	}
+    /**
+     * Click on Project Name Link.
+     *
+     * @return the BootStrapPage class instance.
+     */
+    public BootstrapExamplePage clickProjectNameLink() {
+        this.projectName.click();
+        return this;
+    }
+
+    /**
+     * Click on Toggle Navigation Button.
+     *
+     * @return the BootStrapPage class instance.
+     */
+    public BootstrapExamplePage clickToggleNavigationButton() {
+        this.toggleNavigation.click();
+        return this;
+    }
+
+    /**
+     * Verify that the page loaded completely.
+     *
+     * @return the BootStrapPage class instance.
+     */
+    public BootstrapExamplePage verifyPageLoaded() {
+        new WebDriverWait(this.driver, this.timeout).until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(final WebDriver d) {
+                return d.getPageSource().contains(BootstrapExamplePage.this.pageLoadedText);
+            }
+        });
+        return this;
+    }
+
+    /**
+     * Verify that current page URL matches the expected URL.
+     *
+     * @return the BootStrapPage class instance.
+     */
+    public BootstrapExamplePage verifyPageUrl() {
+        new WebDriverWait(this.driver, this.timeout).until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(final WebDriver d) {
+                return d.getCurrentUrl().contains(BootstrapExamplePage.this.pageUrl);
+            }
+        });
+        return this;
+    }
 }

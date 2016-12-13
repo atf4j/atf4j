@@ -20,109 +20,106 @@ import org.junit.Assert;
 import org.junit.Assume;
 import org.junit.Test;
 
-import net.atf4j.bdd.AbstractLoggedScenario;
-import net.atf4j.bdd.Atf4j;
-import net.atf4j.bdd.ScenarioRunner;
 import net.atf4j.core.LoggedTest;
 
 public class ScenarioRunnerTest extends LoggedTest {
 
-	public class Scenario extends AbstractLoggedScenario {
-		@Atf4j.Given("Given")
-		public void testPassGiven() {
-			Assume.assumeTrue(true);
-		}
+    public class Scenario extends AbstractLoggedScenario {
+        @Atf4j.Given("Given")
+        public void testPassGiven() {
+            Assume.assumeTrue(true);
+        }
 
-		@Atf4j.When("When")
-		public void testPassWhen() {
-			Assert.assertTrue(true);
-		}
+        @Atf4j.When("When")
+        public void testPassWhen() {
+            Assert.assertTrue(true);
+        }
 
-		@Atf4j.Then("Then")
-		public void testPassThen() {
-			Assert.assertTrue(true);
-		}
-	}
+        @Atf4j.Then("Then")
+        public void testPassThen() {
+            Assert.assertTrue(true);
+        }
+    }
 
-	public class FailGivenScenario extends AbstractLoggedScenario {
-		@Atf4j.Given("Given")
-		public void testPassGiven() {
-			Assume.assumeTrue(false);
-		}
+    public class FailGivenScenario extends AbstractLoggedScenario {
+        @Atf4j.Given("Given")
+        public void testPassGiven() {
+            Assume.assumeTrue(false);
+        }
 
-		@Atf4j.When("When")
-		public void testPassWhen() {
-			Assert.assertTrue(true);
-		}
+        @Atf4j.When("When")
+        public void testPassWhen() {
+            Assert.assertTrue(true);
+        }
 
-		@Atf4j.Then("Then")
-		public void testPassThen() {
-			Assert.assertTrue(true);
-		}
-	}
+        @Atf4j.Then("Then")
+        public void testPassThen() {
+            Assert.assertTrue(true);
+        }
+    }
 
-	public class FailWhenScenario extends AbstractLoggedScenario {
-		@Atf4j.Given("Given")
-		public void testPassGiven() {
-			Assume.assumeTrue(true);
-		}
+    public class FailWhenScenario extends AbstractLoggedScenario {
+        @Atf4j.Given("Given")
+        public void testPassGiven() {
+            Assume.assumeTrue(true);
+        }
 
-		@Atf4j.When("When")
-		public void testPassWhen() {
-			Assert.assertTrue(false);
-		}
+        @Atf4j.When("When")
+        public void testPassWhen() {
+            Assert.assertTrue(false);
+        }
 
-		@Atf4j.Then("Then")
-		public void testPassThen() {
-			Assert.assertTrue(true);
-		}
-	}
+        @Atf4j.Then("Then")
+        public void testPassThen() {
+            Assert.assertTrue(true);
+        }
+    }
 
-	public class FailThenScenario extends AbstractLoggedScenario {
-		@Atf4j.Given("Given")
-		public void testPassGiven() {
-			Assume.assumeTrue(true);
-		}
+    public class FailThenScenario extends AbstractLoggedScenario {
+        @Atf4j.Given("Given")
+        public void testPassGiven() {
+            Assume.assumeTrue(true);
+        }
 
-		@Atf4j.When("When")
-		public void testPassWhen() {
-			Assert.assertTrue(true);
-		}
+        @Atf4j.When("When")
+        public void testPassWhen() {
+            Assert.assertTrue(true);
+        }
 
-		@Atf4j.Then("Then")
-		public void testPassThen() {
-			Assert.assertTrue(false);
-		}
-	}
+        @Atf4j.Then("Then")
+        public void testPassThen() {
+            Assert.assertTrue(false);
+        }
+    }
 
-	@Test
-	public void testScenarioExecution() {
-		final ScenarioRunner scenarioRunner = new ScenarioRunner();
-		scenarioRunner.execute(new Scenario());
-	}
+    @Test
+    public void testScenarioExecution() {
+        final ScenarioRunner scenarioRunner = new ScenarioRunner();
+        scenarioRunner.execute(new Scenario());
+    }
 
-	@Test
-	public void testFailGivenScenario() {
-		final ScenarioRunner scenarioRunner = new ScenarioRunner();
-		scenarioRunner.execute(new FailGivenScenario());
-	}
+    @Test
+    public void testFailGivenScenario() {
+        final ScenarioRunner scenarioRunner = new ScenarioRunner();
+        scenarioRunner.execute(new FailGivenScenario());
+    }
 
-	@Test
-	public void testFailWhenScenario() {
-		final ScenarioRunner scenarioRunner = new ScenarioRunner();
-		scenarioRunner.execute(new FailWhenScenario());
-	}
+    @Test
+    public void testFailWhenScenario() {
+        final ScenarioRunner scenarioRunner = new ScenarioRunner();
+        scenarioRunner.execute(new FailWhenScenario());
+    }
 
-	@Test
-	public void testFailThenScenario() {
-		final ScenarioRunner scenarioRunner = new ScenarioRunner();
-		scenarioRunner.execute(new FailThenScenario());
-	}
+    @Test
+    public void testFailThenScenario() {
+        final ScenarioRunner scenarioRunner = new ScenarioRunner();
+        scenarioRunner.execute(new FailThenScenario());
+    }
 
-	@Test
-	public void testScenarioRunner() {
-		final ScenarioRunner scenarioRunner = new ScenarioRunner(new Scenario());
-		scenarioRunner.execute();
-	}
+    @Test
+    public void testScenarioRunner() {
+        final ScenarioRunner scenarioRunner = new ScenarioRunner(new Scenario());
+        scenarioRunner.execute();
+    }
 
 }

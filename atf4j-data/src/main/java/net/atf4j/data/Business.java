@@ -21,46 +21,46 @@ package net.atf4j.data;
  */
 public class Business {
 
-	/** The name. */
-	private Name name;
+    /** The name. */
+    private Name name;
 
-	/**
-	 * Instantiates a new business.
-	 */
-	public Business() {
-		super();
-	}
+    /**
+     * Instantiates a new business.
+     */
+    public Business() {
+        super();
+    }
 
-	/**
-	 * Instantiates a new business.
-	 *
-	 * @param name
-	 *            the name
-	 */
-	public Business(final Name name) {
-		super();
-		this.name = name;
-	}
+    /**
+     * Instantiates a new business.
+     *
+     * @param name
+     *            the name
+     */
+    public Business(final Name name) {
+        super();
+        this.name = name;
+    }
 
-	/**
-	 * Sets the name.
-	 *
-	 * @param name
-	 *            the name to set
-	 * @return the business
-	 */
-	public Business setName(final Name name) {
-		this.name = name;
-		return this;
-	}
+    /**
+     * Sets the name.
+     *
+     * @param name
+     *            the name to set
+     * @return the business
+     */
+    public Business setName(final Name name) {
+        this.name = name;
+        return this;
+    }
 
-	/**
-	 * Gets the name.
-	 *
-	 * @return the name
-	 */
-	public Name getName() {
-		return this.name;
-	}
+    /**
+     * Gets the name.
+     *
+     * @return the name
+     */
+    public Name getName() {
+        return this.name;
+    }
 
 }

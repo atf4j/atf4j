@@ -31,23 +31,22 @@ import net.atf4j.core.LoggedTest;
  */
 public class LogicalGuiMapTest extends LoggedTest {
 
-	public class LogicalGuiMap extends AbstractGuiMap {
-	}
+    public class LogicalGuiMap extends AbstractGuiMap {
+    }
 
-	/**
-	 * Test method for
-	 * {@link net.atf4j.webdriver.AbstractGuiMap#getKeys()}.
-	 */
-	@Test(expected = MissingResourceException.class)
-	public final void testGuiMapping() {
-		final AbstractGuiMap instance = new LogicalGuiMap();
-		final Enumeration<String> bundleKeys = instance.getKeys();
-		while (bundleKeys.hasMoreElements()) {
-			final String key = bundleKeys.nextElement();
-			Assert.assertNotNull(key);
-			Assert.assertTrue(instance.containsKey(key));
-			final String value = instance.getString(key);
-			Assert.assertNotNull(value);
-		}
-	}
+    /**
+     * Test method for {@link net.atf4j.webdriver.AbstractGuiMap#getKeys()}.
+     */
+    @Test(expected = MissingResourceException.class)
+    public final void testGuiMapping() {
+        final AbstractGuiMap instance = new LogicalGuiMap();
+        final Enumeration<String> bundleKeys = instance.getKeys();
+        while (bundleKeys.hasMoreElements()) {
+            final String key = bundleKeys.nextElement();
+            Assert.assertNotNull(key);
+            Assert.assertTrue(instance.containsKey(key));
+            final String value = instance.getString(key);
+            Assert.assertNotNull(value);
+        }
+    }
 }

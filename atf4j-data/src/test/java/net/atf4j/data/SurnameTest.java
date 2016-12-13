@@ -23,14 +23,14 @@ import net.atf4j.core.LoggedTest;
 
 public class SurnameTest extends LoggedTest {
 
-	private static final String SURNAME = "Surname";
+    private static final String SURNAME = "Surname";
 
-	/**
-	 * Test method for {@link net.atf4j.data.Surname()}.
-	 */
-	@Test
-	public final void testSurname() {
-		Assert.assertEquals(SURNAME, new Surname(SURNAME).getName());
-	}
+    /**
+     * Test method for {@link net.atf4j.data.Surname()}.
+     */
+    @Test
+    public final void testSurname() {
+        Assert.assertEquals(SURNAME, new Surname(SURNAME).getName());
+    }
 
 }

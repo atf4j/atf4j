@@ -18,29 +18,26 @@ package net.atf4j.bdd;
 
 import org.junit.Test;
 
-import net.atf4j.bdd.AbstractLoggedScenario;
-import net.atf4j.bdd.Atf4j;
 import net.atf4j.bdd.Atf4j.Scenario;
-import net.atf4j.bdd.ScenarioRunner;
 
 @Scenario("Scenario")
 public class ScenarioMissingWhen extends AbstractLoggedScenario {
 
-	@Test
-	public void testScenarioRunner() {
-		new ScenarioRunner(this).execute();
-	}
+    @Test
+    public void testScenarioRunner() {
+        new ScenarioRunner(this).execute();
+    }
 
-	@Atf4j.Given("Given")
-	public void testPassGiven() {
-	}
+    @Atf4j.Given("Given")
+    public void testPassGiven() {
+    }
 
-	// @Atf4j.When("When")
-	// public void testPassWhen() {
-	// }
+    // @Atf4j.When("When")
+    // public void testPassWhen() {
+    // }
 
-	@Atf4j.Then("Then")
-	public void testPassThen() {
-	}
+    @Atf4j.Then("Then")
+    public void testPassThen() {
+    }
 
 }

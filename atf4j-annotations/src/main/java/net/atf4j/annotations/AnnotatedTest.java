@@ -13,13 +13,16 @@
  */
 package net.atf4j.annotations;
 
-import net.atf4j.core.LoggedTest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Abstract Annotated Test class.
  */
 @Atf4j.TestScript
-public abstract class AnnotatedTest extends LoggedTest {
+public abstract class AnnotatedTest {
+
+    protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
     /**
      * Retrieve the Test Id from the annotation.

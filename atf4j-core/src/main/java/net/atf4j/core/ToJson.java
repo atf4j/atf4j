@@ -18,15 +18,15 @@ package net.atf4j.core;
 
 /**
  * ToJson Marker Interface.
- * 
+ *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
 public interface ToJson {
 
-	/**
-	 * To json.
-	 *
-	 * @return the string
-	 */
-	public String toJson();
+    /**
+     * To json.
+     *
+     * @return the string
+     */
+    public String toJson();
 }

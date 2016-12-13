@@ -29,30 +29,32 @@ import net.atf4j.core.AbstractConfig.MissingPropertyFileException;
  */
 public abstract class PageConfigTest {
 
-	/**
-	 * The Class MockPageConfig.
-	 */
-	public class MockPageConfig extends AbstractPageConfig {
-		
-		/**
-		 * Instantiates a new mock page config.
-		 *
-		 * @throws MissingPropertyFileException the missing property file exception
-		 */
-		public MockPageConfig() throws MissingPropertyFileException {
-			super();
-		}
-	}
+    /**
+     * The Class MockPageConfig.
+     */
+    public class MockPageConfig extends AbstractPageConfig {
 
-	/**
-	 * Test method for
-	 * {@link net.atf4j.webdriver.page.AbstractPageConfig#PageConfig()}.
-	 *
-	 * @throws MissingPropertyFileException the missing property file exception
-	 */
-	@Test
-	public final void testPageConfig() throws MissingPropertyFileException {
-		final AbstractPageConfig pageConfig = new MockPageConfig();
-		assertNotNull(pageConfig);
-	}
+        /**
+         * Instantiates a new mock page config.
+         *
+         * @throws MissingPropertyFileException
+         *             the missing property file exception
+         */
+        public MockPageConfig() throws MissingPropertyFileException {
+            super();
+        }
+    }
+
+    /**
+     * Test method for
+     * {@link net.atf4j.webdriver.page.AbstractPageConfig#PageConfig()}.
+     *
+     * @throws MissingPropertyFileException
+     *             the missing property file exception
+     */
+    @Test
+    public final void testPageConfig() throws MissingPropertyFileException {
+        final AbstractPageConfig pageConfig = new MockPageConfig();
+        assertNotNull(pageConfig);
+    }
 }

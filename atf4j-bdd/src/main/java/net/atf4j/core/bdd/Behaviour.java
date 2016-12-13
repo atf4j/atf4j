@@ -32,63 +32,64 @@ import net.atf4j.core.Command;
  */
 public abstract class Behaviour implements Command {
 
-	/** The given situation. */
-	private final List<Given> givenList = new ArrayList<Given>();
+    /** The given situation. */
+    private final List<Given> givenList = new ArrayList<Given>();
 
-	/** The when and Event occurs. */
-	private final List<When> whenList = new ArrayList<When>();
+    /** The when and Event occurs. */
+    private final List<When> whenList = new ArrayList<When>();
 
-	/** The then Expectation is confirmed. */
-	private final List<Then> thenList = new ArrayList<Then>();
+    /** The then Expectation is confirmed. */
+    private final List<Then> thenList = new ArrayList<Then>();
 
-	/**
-	 * given.
-	 *
-	 * @param given
-	 *            the given
-	 * @return the behaviour
-	 */
-	protected Behaviour given(final Given given) {
-		this.givenList.add(given);
-		return this;
-	}
+    /**
+     * given.
+     *
+     * @param given
+     *            the given
+     * @return the behaviour
+     */
+    protected Behaviour given(final Given given) {
+        this.givenList.add(given);
+        return this;
+    }
 
-	/**
-	 * when.
-	 *
-	 * @param when
-	 *            the when
-	 * @return the behaviour
-	 */
-	protected Behaviour when(final When when) {
-		this.whenList.add(when);
-		return this;
-	}
+    /**
+     * when.
+     *
+     * @param when
+     *            the when
+     * @return the behaviour
+     */
+    protected Behaviour when(final When when) {
+        this.whenList.add(when);
+        return this;
+    }
 
-	/**
-	 * then.
-	 *
-	 * @param then
-	 *            the then
-	 * @return the behaviour
-	 */
-	protected Behaviour then(final Then then) {
-		this.thenList.add(then);
-		return this;
-	}
+    /**
+     * then.
+     *
+     * @param then
+     *            the then
+     * @return the behaviour
+     */
+    protected Behaviour then(final Then then) {
+        this.thenList.add(then);
+        return this;
+    }
 
-	public Properties execute(final Properties properties) {
-		for (final Given given : this.givenList) {
-			Assert.assertNotNull(given.execute(properties));
-		}
-		for (final When when : this.whenList) {
-			Assert.assertNotNull(when.execute(properties));
-		}
-		for (final Then then : this.thenList) {
-			Assert.assertNotNull(then.execute(properties));
-		}
+    @Override
+    public Properties execute(final Properties properties) {
+        for (final Given given : this.givenList) {
+            Assert.assertNotNull(given.execute(properties));
+        }
+        for (final When when : this.whenList) {
+            Assert.assertNotNull(when.execute(properties));
+        }
+        for (final Then then : this.thenList) {
+            Assert.assertNotNull(then.execute(properties));
+        }
 
-		return properties;
-	}
+        return properties;
+    }
 
 }

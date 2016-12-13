@@ -1,3 +1,19 @@
+/**
+ * This file is part of Automated Testing Framework for Java (atf4j).
+ *
+ * Atf4j is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Atf4j is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package net.atf4j.pog;
 
 import java.io.BufferedWriter;
@@ -17,37 +33,37 @@ import net.atf4j.core.LoggedTest;
 
 public class PageObjectGeneratorTest extends LoggedTest {
 
-	@Test
-	public void test() {
-		PageObjectGenerator pog = new PageObjectGenerator("PageObject.vm");
-		pog.with("name", "MyPage");
-		pog.generate("http://atf4j.net");
-	}
+    @Test
+    public void test() {
+        final PageObjectGenerator pog = new PageObjectGenerator("PageObject.vm");
+        pog.with("name", "MyPage");
+        pog.generate("http://atf4j.net");
+    }
 
-	@Test
-	public void testVelocity() throws Exception {
-		VelocityEngine ve = new VelocityEngine();
+    @Test
+    public void testVelocity() throws Exception {
+        final VelocityEngine ve = new VelocityEngine();
         ve.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
         ve.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
 
         ve.init();
 
         final String templatePath = "templates/PageObject.vm";
-        InputStream input = this.getClass().getClassLoader().getResourceAsStream(templatePath);
-        InputStreamReader reader = new InputStreamReader(input);
+        final InputStream input = this.getClass().getClassLoader().getResourceAsStream(templatePath);
+        final InputStreamReader reader = new InputStreamReader(input);
 
-        VelocityContext context = new VelocityContext();
+        final VelocityContext context = new VelocityContext();
 
-//        if (properties != null) {
-//            stringfyNulls(properties);
-//            for (Map.Entry<String, Object> property : properties.entrySet()) {
-//                context.put(property.getKey(), property.getValue());
-//            }
-//        }
+        // if (properties != null) {
+        // stringfyNulls(properties);
+        // for (Map.Entry<String, Object> property : properties.entrySet()) {
+        // context.put(property.getKey(), property.getValue());
+        // }
+        // }
 
-        Template template = ve.getTemplate(templatePath, "UTF-8");
-        String outFileName = File.createTempFile("report", ".html").getAbsolutePath();
-        BufferedWriter writer = new BufferedWriter(new FileWriter(new File(outFileName)));
+        final Template template = ve.getTemplate(templatePath, "UTF-8");
+        final String outFileName = File.createTempFile("report", ".html").getAbsolutePath();
+        final BufferedWriter writer = new BufferedWriter(new FileWriter(new File(outFileName)));
 
         if (!ve.evaluate(context, writer, templatePath, reader)) {
             throw new Exception("Failed to convert the template into html.");
@@ -56,7 +72,7 @@ public class PageObjectGeneratorTest extends LoggedTest {
         template.merge(context, writer);
 
         writer.flush();
-        writer.close();		
-	}
-	
+        writer.close();
+    }
+
 }

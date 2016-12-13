@@ -21,38 +21,38 @@ package net.atf4j.core;
  */
 public class Atf4jException extends Exception {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 6901121472157982735L;
+    /** The Constant serialVersionUID. */
+    private static final long serialVersionUID = 6901121472157982735L;
 
-	/**
-	 * Atf4jException.
-	 *
-	 * @param message
-	 *            the message
-	 * @param cause
-	 *            the cause
-	 */
-	public Atf4jException(final String message, final Throwable cause) {
-		super(message, cause);
-	}
+    /**
+     * Atf4jException.
+     *
+     * @param message
+     *            the message
+     * @param cause
+     *            the cause
+     */
+    public Atf4jException(final String message, final Throwable cause) {
+        super(message, cause);
+    }
 
-	/**
-	 * Atf4jException.
-	 *
-	 * @param message
-	 *            the message
-	 */
-	public Atf4jException(final String message) {
-		super(message);
-	}
+    /**
+     * Atf4jException.
+     *
+     * @param message
+     *            the message
+     */
+    public Atf4jException(final String message) {
+        super(message);
+    }
 
-	/**
-	 * Atf4jException.
-	 *
-	 * @param cause
-	 *            the cause
-	 */
-	public Atf4jException(final Throwable cause) {
-		super(cause);
-	}
+    /**
+     * Atf4jException.
+     *
+     * @param cause
+     *            the cause
+     */
+    public Atf4jException(final Throwable cause) {
+        super(cause);
+    }
 }

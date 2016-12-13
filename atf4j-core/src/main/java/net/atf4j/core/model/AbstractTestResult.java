@@ -18,37 +18,37 @@ package net.atf4j.core.model;
 
 public abstract class AbstractTestResult {
 
-	private TestStatus testStatus;
+    private TestStatus testStatus;
 
-	public AbstractTestResult() {
-		super();
-	}
+    public AbstractTestResult() {
+        super();
+    }
 
-	public AbstractTestResult(final TestStatus testStatus) {
-		super();
-		this.testStatus = testStatus;
-	}
+    public AbstractTestResult(final TestStatus testStatus) {
+        super();
+        this.testStatus = testStatus;
+    }
 
-	/**
-	 * Gets the test status.
-	 *
-	 * @return the testStatus
-	 */
-	public TestStatus getTestStatus() {
-		return testStatus;
-	}
+    /**
+     * Gets the test status.
+     *
+     * @return the testStatus
+     */
+    public TestStatus getTestStatus() {
+        return this.testStatus;
+    }
 
-	public AbstractTestResult from(final AbstractTestResult testResult) {
-		testStatus = testResult.getTestStatus();
-		return this;
-	}
+    public AbstractTestResult from(final AbstractTestResult testResult) {
+        this.testStatus = testResult.getTestStatus();
+        return this;
+    }
 
-	/**
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return String.format("AbstractTestResult [testStatus=%s]", testStatus);
-	}
+    /**
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return String.format("AbstractTestResult [testStatus=%s]", this.testStatus);
+    }
 
 }

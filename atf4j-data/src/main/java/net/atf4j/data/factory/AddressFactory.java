@@ -25,13 +25,13 @@ import net.atf4j.data.Address;
  */
 public class AddressFactory extends DataFactory implements FactoryMethod {
 
-	public AddressFactory() throws Exception {
-		super();
-	}
+    public AddressFactory() throws Exception {
+        super();
+    }
 
-	@Override
-	public Address create() {
-		return new Address();
-	}
+    @Override
+    public Address create() {
+        return new Address();
+    }
 
 }

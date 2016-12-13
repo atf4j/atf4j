@@ -31,83 +31,83 @@ import org.slf4j.LoggerFactory;
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
 public abstract class AbstractConfig implements IConfig {
-	
-	/** logging. */
-	protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
-	
-	/** The properties. */
-	protected Properties properties;
 
-	/**
-	 * Instantiates a new abstract config.
-	 */
-	public AbstractConfig() {
-		super();
-	}
+    /** logging. */
+    protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
-	/**
-	 * Use properties.
-	 *
-	 * @param propertiesIn
-	 *            as Properties object.
-	 * @see net.atf4j.data.IConfig#properties(java.util.Properties)
-	 */
-	@Override
-	public void properties(final Properties propertiesIn) {
-		this.properties = propertiesIn;
-	}
+    /** The properties. */
+    protected Properties properties;
 
-	/**
-	 * load Properties.
-	 *
-	 * @throws FileNotFoundException
-	 *             the file not found exception
-	 * @throws IOException
-	 *             Signals that an I/O exception has occurred.
-	 */
-	@Override
-	public void load() throws Exception {
-		this.properties.load(new FileReader(this.getClass().getName() + ".properties"));
-	}
+    /**
+     * Instantiates a new abstract config.
+     */
+    public AbstractConfig() {
+        super();
+    }
 
-	/**
-	 * load Properties.
-	 *
-	 * @param propertiesFile
-	 *            name as String.
-	 * @throws FileNotFoundException
-	 *             the file not found exception
-	 * @throws IOException
-	 *             Signals that an I/O exception has occurred.
-	 */
-	@Override
-	public void load(final String propertiesFile) throws Exception {
-		this.properties.load(new FileReader(propertiesFile));
-	}
+    /**
+     * Use properties.
+     *
+     * @param propertiesIn
+     *            as Properties object.
+     * @see net.atf4j.data.IConfig#properties(java.util.Properties)
+     */
+    @Override
+    public void properties(final Properties propertiesIn) {
+        this.properties = propertiesIn;
+    }
 
-	/**
-	 * load Properties.
-	 *
-	 * @param propertiesFile
-	 *            file as File object,
-	 * @throws FileNotFoundException
-	 *             the file not found exception
-	 * @throws IOException
-	 *             Signals that an I/O exception has occurred.
-	 */
-	@Override
-	public void load(final File propertiesFile) throws Exception {
-		this.properties.load(new FileReader(propertiesFile));
-	}
+    /**
+     * load Properties.
+     *
+     * @throws FileNotFoundException
+     *             the file not found exception
+     * @throws IOException
+     *             Signals that an I/O exception has occurred.
+     */
+    @Override
+    public void load() throws Exception {
+        this.properties.load(new FileReader(this.getClass().getName() + ".properties"));
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return String.format("%s [properties=%s]", this.getClass().getSimpleName(), this.properties);
-	}
+    /**
+     * load Properties.
+     *
+     * @param propertiesFile
+     *            name as String.
+     * @throws FileNotFoundException
+     *             the file not found exception
+     * @throws IOException
+     *             Signals that an I/O exception has occurred.
+     */
+    @Override
+    public void load(final String propertiesFile) throws Exception {
+        this.properties.load(new FileReader(propertiesFile));
+    }
+
+    /**
+     * load Properties.
+     *
+     * @param propertiesFile
+     *            file as File object,
+     * @throws FileNotFoundException
+     *             the file not found exception
+     * @throws IOException
+     *             Signals that an I/O exception has occurred.
+     */
+    @Override
+    public void load(final File propertiesFile) throws Exception {
+        this.properties.load(new FileReader(propertiesFile));
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return String.format("%s [properties=%s]", this.getClass().getSimpleName(), this.properties);
+    }
 
 }

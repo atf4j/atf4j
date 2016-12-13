@@ -26,13 +26,13 @@ import java.util.Properties;
  */
 public interface Command {
 
-	/**
-	 * Command Pattern execute method.
-	 *
-	 * @param properties
-	 *            the properties
-	 * @return the properties
-	 */
-	Properties execute(Properties properties);
+    /**
+     * Command Pattern execute method.
+     *
+     * @param properties
+     *            the properties
+     * @return the properties
+     */
+    Properties execute(Properties properties);
 
 }

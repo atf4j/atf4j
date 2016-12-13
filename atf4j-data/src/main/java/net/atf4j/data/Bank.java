@@ -24,54 +24,54 @@ import net.atf4j.data.factory.AddressFactory;
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
 public abstract class Bank extends Business {
-	private AddressFactory bankAddress;
-	private BankSortCode bankSortCode;
+    private AddressFactory bankAddress;
+    private BankSortCode bankSortCode;
 
-	/**
-	 * @return the bankAddress
-	 */
-	public AddressFactory getBankAddress() {
-		return this.bankAddress;
-	}
+    /**
+     * @return the bankAddress
+     */
+    public AddressFactory getBankAddress() {
+        return this.bankAddress;
+    }
 
-	/**
-	 * @param bankAddress
-	 *            the bankAddress to set
-	 */
-	public void setBankAddress(final AddressFactory bankAddress) {
-		this.bankAddress = bankAddress;
-	}
+    /**
+     * @param bankAddress
+     *            the bankAddress to set
+     */
+    public void setBankAddress(final AddressFactory bankAddress) {
+        this.bankAddress = bankAddress;
+    }
 
-	/**
-	 * @return the bankSortCode
-	 */
-	public BankSortCode getBankSortCode() {
-		return this.bankSortCode;
-	}
+    /**
+     * @return the bankSortCode
+     */
+    public BankSortCode getBankSortCode() {
+        return this.bankSortCode;
+    }
 
-	/**
-	 * @param bankSortCode
-	 *            the bankSortCode to set
-	 */
-	public void setBankSortCode(final BankSortCode bankSortCode) {
-		this.bankSortCode = bankSortCode;
-	}
+    /**
+     * @param bankSortCode
+     *            the bankSortCode to set
+     */
+    public void setBankSortCode(final BankSortCode bankSortCode) {
+        this.bankSortCode = bankSortCode;
+    }
 
-	/**
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		final StringBuilder builder = new StringBuilder();
-		builder.append("Bank [");
-		if (this.bankAddress != null) {
-			builder.append("bankAddress=").append(this.bankAddress).append(", ");
-		}
-		if (this.bankSortCode != null) {
-			builder.append("bankSortCode=").append(this.bankSortCode);
-		}
-		builder.append("]");
-		return builder.toString();
-	}
+    /**
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        final StringBuilder builder = new StringBuilder();
+        builder.append("Bank [");
+        if (this.bankAddress != null) {
+            builder.append("bankAddress=").append(this.bankAddress).append(", ");
+        }
+        if (this.bankSortCode != null) {
+            builder.append("bankSortCode=").append(this.bankSortCode);
+        }
+        builder.append("]");
+        return builder.toString();
+    }
 
 }

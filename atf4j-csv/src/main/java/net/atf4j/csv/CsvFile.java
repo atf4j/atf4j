@@ -33,7 +33,7 @@ import org.slf4j.LoggerFactory;
  */
 public class CsvFile {
 
-    /** The Constant log. */
+    /** The logger. */
     protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
     /** The header. */
@@ -44,7 +44,7 @@ public class CsvFile {
 
     /**
      * Default Constructor Instantiates a new CsvFile object.
-     * 
+     *
      * @throws Exception
      *             Signals that an I/O exception has occurred.
      */
@@ -55,22 +55,26 @@ public class CsvFile {
     /**
      * Instantiates a new csv file.
      *
-     * @param dataFilename            the data filename
-     * @throws Exception the exception
+     * @param dataFilename
+     *            the data filename
+     * @throws Exception
+     *             the exception
      */
     public CsvFile(final String dataFilename) throws Exception {
         super();
         load(dataFilename);
     }
-    
+
     /**
      * Read.
      *
-     * @param dataFilename the data filename
+     * @param dataFilename
+     *            the data filename
      * @return the csv file
-     * @throws Exception             the exception
+     * @throws Exception
+     *             the exception
      */
-    public static CsvFile read(String dataFilename) throws Exception {
+    public static CsvFile read(final String dataFilename) throws Exception {
         return new CsvFile(dataFilename);
     }
 
@@ -94,8 +98,8 @@ public class CsvFile {
      *             the exception
      */
     public void load(final String dataFilename) throws Exception {
-        ClassLoader classLoader = this.getClass().getClassLoader();
-        InputStream in = classLoader.getResourceAsStream(dataFilename);
+        final ClassLoader classLoader = this.getClass().getClassLoader();
+        final InputStream in = classLoader.getResourceAsStream(dataFilename);
         if (in != null) {
             load(in);
         } else {
@@ -112,8 +116,8 @@ public class CsvFile {
      *             the exception
      */
     public void load(final InputStream in) throws Exception {
-        InputStreamReader inputStreamReader = new InputStreamReader(in);
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        final InputStreamReader inputStreamReader = new InputStreamReader(in);
+        final BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         try {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
@@ -214,7 +218,7 @@ public class CsvFile {
      */
     @Override
     public String toString() {
-        return String.format("CsvFile [header=%s, data=%s]", this.getClass().getSimpleName(), header, data);
+        return String.format("%s [header=%s, data=%s]", this.getClass().getSimpleName(), this.header, this.data);
     }
 
 }

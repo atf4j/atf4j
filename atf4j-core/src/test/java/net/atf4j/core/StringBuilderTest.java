@@ -26,101 +26,102 @@ import org.junit.Test;
  */
 public class StringBuilderTest extends LoggedTest {
 
-	String string = "StringBuilderTest";
-	boolean bool = true;
-	double real = Math.PI;
-	int number = 999;
+    String string = "StringBuilderTest";
+    boolean bool = true;
+    double real = Math.PI;
+    int number = 999;
 
-	/**
-	 * SubClassWithoutProperties Class.
-	 */
-	public class SubClassWithoutProperties extends StringBuilderTest {
-		@Override
-		public String toString() {
-			return String.format("SubClassWithoutProperties [%s]", super.toString());
-		}
-	}
+    /**
+     * SubClassWithoutProperties Class.
+     */
+    public class SubClassWithoutProperties extends StringBuilderTest {
+        @Override
+        public String toString() {
+            return String.format("SubClassWithoutProperties [%s]", super.toString());
+        }
+    }
 
-	/**
-	 * The Class SubClassWithProperties.
-	 */
-	public class SubClassWithProperties extends StringBuilderTest {
+    /**
+     * The Class SubClassWithProperties.
+     */
+    public class SubClassWithProperties extends StringBuilderTest {
 
-		/** The Constant CONSTANT. */
-		private static final String CONSTANT = "CONSTANT";
+        /** The Constant CONSTANT. */
+        private static final String CONSTANT = "CONSTANT";
 
-		/** The Constant π. */
-		public static final double π = 3.14159;
+        /** The Constant π. */
+        public static final double π = 3.14159;
 
-		/** The super class. */
-		private final String superClass = "SubClassWithProperties";
+        /** The super class. */
+        private final String superClass = "SubClassWithProperties";
 
-		/** The protected string. */
-		protected String protectedString = "protectedString";
+        /** The protected string. */
+        protected String protectedString = "protectedString";
 
-		/** The public string. */
-		public String publicString = "publicString";
+        /** The public string. */
+        public String publicString = "publicString";
 
-		@Override
-		public String toString() {
-			return String.format("%s [%s, protectedString=%s, publicString=%s]", this.getClass().getSimpleName(),
-					super.toString(), protectedString, publicString);
-		}
-	}
+        @Override
+        public String toString() {
+            return String.format("%s [%s, protectedString=%s, publicString=%s]", this.getClass().getSimpleName(),
+                    super.toString(), this.protectedString, this.publicString);
+        }
+    }
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return String.format("StringBuilderTest [string=%s, bool=%s, real=%s, number=%s]", string, bool, real, number);
-	}
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return String.format("StringBuilderTest [string=%s, bool=%s, real=%s, number=%s]", this.string, this.bool,
+                this.real, this.number);
+    }
 
-	/**
-	 * Test null class.
-	 */
-	@Test
-	public void testNullClass() {
-		final String reflectionToString = ToStringBuilder.reflectObjectToString(null);
-		log.info(reflectionToString);
-		Assert.assertTrue("|testNullClass|", reflectionToString.equals("[NULL]"));
-	}
+    /**
+     * Test null class.
+     */
+    @Test
+    public void testNullClass() {
+        final String reflectionToString = ToStringBuilder.reflectObjectToString(null);
+        log.info(reflectionToString);
+        Assert.assertTrue("|testNullClass|", reflectionToString.equals("[NULL]"));
+    }
 
-	/**
-	 * Test this class.
-	 */
-	@Test
-	public void testThisClass() {
-		final String reflectionToString = ToStringBuilder.reflectObjectToString(this);
-		log.info(reflectionToString);
-		Assert.assertNotNull("|testThisClass|", reflectionToString);
-		Assert.assertTrue("|testThisClass|", reflectionToString.length() > 0);
-	}
+    /**
+     * Test this class.
+     */
+    @Test
+    public void testThisClass() {
+        final String reflectionToString = ToStringBuilder.reflectObjectToString(this);
+        log.info(reflectionToString);
+        Assert.assertNotNull("|testThisClass|", reflectionToString);
+        Assert.assertTrue("|testThisClass|", reflectionToString.length() > 0);
+    }
 
-	/**
-	 * Test sub class without properties.
-	 */
-	@Test
-	public void testSubClassWithoutProperties() {
-		final SubClassWithoutProperties superClassWithoutProperties = new SubClassWithoutProperties();
-		final String reflectionToString = ToStringBuilder.reflectObjectToString(superClassWithoutProperties);
-		log.info(reflectionToString);
-		Assert.assertNotNull("|testSubClassWithoutProperties|", reflectionToString);
-		Assert.assertTrue("|testSubClassWithoutProperties|", reflectionToString.length() > 0);
-	}
+    /**
+     * Test sub class without properties.
+     */
+    @Test
+    public void testSubClassWithoutProperties() {
+        final SubClassWithoutProperties superClassWithoutProperties = new SubClassWithoutProperties();
+        final String reflectionToString = ToStringBuilder.reflectObjectToString(superClassWithoutProperties);
+        log.info(reflectionToString);
+        Assert.assertNotNull("|testSubClassWithoutProperties|", reflectionToString);
+        Assert.assertTrue("|testSubClassWithoutProperties|", reflectionToString.length() > 0);
+    }
 
-	/**
-	 * Test sub class with properties.
-	 */
-	@Test
-	public void testSubClassWithProperties() {
-		final SubClassWithProperties superClassWithProperties = new SubClassWithProperties();
-		final String reflectionToString = ToStringBuilder.reflectObjectToString(superClassWithProperties);
-		log.info(reflectionToString);
-		Assert.assertNotNull("|testSubClassWithProperties|", reflectionToString);
-		Assert.assertTrue("|testSubClassWithProperties|", reflectionToString.length() > 0);
-	}
+    /**
+     * Test sub class with properties.
+     */
+    @Test
+    public void testSubClassWithProperties() {
+        final SubClassWithProperties superClassWithProperties = new SubClassWithProperties();
+        final String reflectionToString = ToStringBuilder.reflectObjectToString(superClassWithProperties);
+        log.info(reflectionToString);
+        Assert.assertNotNull("|testSubClassWithProperties|", reflectionToString);
+        Assert.assertTrue("|testSubClassWithProperties|", reflectionToString.length() > 0);
+    }
 
 }

@@ -23,62 +23,62 @@ package net.atf4j.data;
  *
  */
 public class Name extends Datum {
-	private String name;
+    private String name;
 
-	/**
-	 * Instantiates a new name.
-	 *
-	 * @param name
-	 *            the name
-	 */
-	public Name(final String name) {
-		this.name = name;
-	}
+    /**
+     * Instantiates a new name.
+     *
+     * @param name
+     *            the name
+     */
+    public Name(final String name) {
+        this.name = name;
+    }
 
-	/**
-	 * Sets the name.
-	 *
-	 * @param name
-	 *            the new name
-	 */
-	public Name setName(final String name) {
-		this.name = name;
-		return this;
-	}
+    /**
+     * Sets the name.
+     *
+     * @param name
+     *            the new name
+     */
+    public Name setName(final String name) {
+        this.name = name;
+        return this;
+    }
 
-	/**
-	 * Gets the name.
-	 *
-	 * @return the name
-	 */
-	public String getName() {
-		return this.name;
-	}
+    /**
+     * Gets the name.
+     *
+     * @return the name
+     */
+    public String getName() {
+        return this.name;
+    }
 
-	/**
-	 * Capitalise as Name.
-	 *
-	 * @param input
-	 *            as String.
-	 * @return string input as capitalised String.
-	 */
-	protected String capitalise(final String input) {
-		if (input.length() > 0) {
-			final StringBuffer buffer = new StringBuffer(input.trim().toLowerCase());
-			buffer.setCharAt(0, Character.toUpperCase(input.charAt(0)));
-			return buffer.toString();
-		} else {
-			return "";
-		}
-	}
+    /**
+     * Capitalise as Name.
+     *
+     * @param input
+     *            as String.
+     * @return string input as capitalised String.
+     */
+    protected String capitalise(final String input) {
+        if (input.length() > 0) {
+            final StringBuffer buffer = new StringBuffer(input.trim().toLowerCase());
+            buffer.setCharAt(0, Character.toUpperCase(input.charAt(0)));
+            return buffer.toString();
+        } else {
+            return "";
+        }
+    }
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see net.atf4j.data.Datum#toString()
-	 */
-	@Override
-	public String toString() {
-		return String.format("%s [name=%s]", this.getClass().getSimpleName(), this.name);
-	}
+    /*
+     * (non-Javadoc)
+     *
+     * @see net.atf4j.data.Datum#toString()
+     */
+    @Override
+    public String toString() {
+        return String.format("%s [name=%s]", this.getClass().getSimpleName(), this.name);
+    }
 }

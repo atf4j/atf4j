@@ -16,43 +16,50 @@
  */
 package net.atf4j.csv;
 
-import java.util.Arrays;
-
 /**
  * The Class CsvRow.
  */
 public class CsvRow {
-	
-	/** The fields. */
-	private final String[] fields;
 
-	/**
-	 * Instantiates a new csv row.
-	 *
-	 * @param line the line
-	 */
-	public CsvRow(final String line) {
-		this.fields = line.split(",");
-	}
+    /** The fields. */
+    private final String[] fields;
 
-	/**
-	 * Gets the fields.
-	 *
-	 * @return the fields
-	 */
-	public String[] getFields() {
-		return this.fields;
-	}
+    public CsvRow() {
+        this.fields = new String[] {};
+    }
 
-	/**
-	 * To string.
-	 *
-	 * @return the string
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return String.format("CsvRow [fields=%s]", Arrays.toString(this.fields));
-	}
+    /**
+     * Instantiates a new csv row.
+     *
+     * @param line
+     *            the line
+     */
+    public CsvRow(final String line) {
+        this.fields = line.split(",");
+    }
+
+    public String getField(final int columnNumber) {
+        return this.fields[columnNumber - 1];
+    }
+
+    /**
+     * Gets the fields.
+     *
+     * @return the fields
+     */
+    public String[] getFields() {
+        return this.fields;
+    }
+
+    /**
+     * To string.
+     *
+     * @return the string
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return String.format("CsvRow [fields=%s]", this.fields);
+    }
 
 }

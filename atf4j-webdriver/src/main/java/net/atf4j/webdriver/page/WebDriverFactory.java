@@ -23,23 +23,24 @@ import org.openqa.selenium.WebDriver;
  */
 public class WebDriverFactory {
 
-	/**
-	 * New web driver.
-	 *
-	 * @return the web driver
-	 */
-	public static WebDriver newWebDriver() {
-		return null;
-	}
+    /**
+     * New web driver.
+     *
+     * @return the web driver
+     */
+    public static WebDriver newWebDriver() {
+        return null;
+    }
 
-	/**
-	 * New web driver.
-	 *
-	 * @param targetBrowser the target browser
-	 * @return the web driver
-	 */
-	public static WebDriver newWebDriver(String targetBrowser) {
-		return null;
-	}
+    /**
+     * New web driver.
+     *
+     * @param targetBrowser
+     *            the target browser
+     * @return the web driver
+     */
+    public static WebDriver newWebDriver(final String targetBrowser) {
+        return null;
+    }
 
 }

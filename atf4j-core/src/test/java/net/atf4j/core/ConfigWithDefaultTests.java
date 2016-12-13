@@ -30,56 +30,56 @@ import net.atf4j.core.AbstractConfig.MissingPropertyFileException;
  */
 public class ConfigWithDefaultTests extends LoggedTest {
 
-	/**
-	 * MockConfig Class.
-	 */
-	private class ConfigWithDefaults extends AbstractConfig {
-		public ConfigWithDefaults() throws MissingPropertyFileException {
-			super();
-		}
+    /**
+     * MockConfig Class.
+     */
+    private class ConfigWithDefaults extends AbstractConfig {
+        public ConfigWithDefaults() throws MissingPropertyFileException {
+            super();
+        }
 
-		public boolean getTrueAsBoolean(final String key) {
-			return super.get(key, true);
-		}
+        public boolean getTrueAsBoolean(final String key) {
+            return super.get(key, true);
+        }
 
-		public boolean getFalseAsBoolean(final String key) {
-			return super.get(key, false);
-		}
+        public boolean getFalseAsBoolean(final String key) {
+            return super.get(key, false);
+        }
 
-		public String getFooAsString(final String key) {
-			return super.get(key, "DEFAULT_STRING");
-		}
+        public String getFooAsString(final String key) {
+            return super.get(key, "DEFAULT_STRING");
+        }
 
-		public Object getMax(final String key) {
-			return super.get(key, Integer.MAX_VALUE);
-		}
+        public Object getMax(final String key) {
+            return super.get(key, Integer.MAX_VALUE);
+        }
 
-		public Object getMin(final String key) {
-			return super.get(key, Integer.MIN_VALUE);
-		}
-	}
+        public Object getMin(final String key) {
+            return super.get(key, Integer.MIN_VALUE);
+        }
+    }
 
-	@Test
-	public void testDefaultString() throws MissingPropertyFileException {
-		final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
-		assertNotNull(mockConfig);
-		assertEquals("DEFAULT_STRING", mockConfig.getFooAsString("missing"));
-	}
+    @Test
+    public void testDefaultString() throws MissingPropertyFileException {
+        final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
+        assertNotNull(mockConfig);
+        assertEquals("DEFAULT_STRING", mockConfig.getFooAsString("missing"));
+    }
 
-	@Test
-	public void testDefaultBoolean() throws MissingPropertyFileException {
-		final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
-		assertNotNull(mockConfig);
-		assertEquals(true, mockConfig.getTrueAsBoolean("missing"));
-		assertEquals(false, mockConfig.getFalseAsBoolean("missing"));
-	}
+    @Test
+    public void testDefaultBoolean() throws MissingPropertyFileException {
+        final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
+        assertNotNull(mockConfig);
+        assertEquals(true, mockConfig.getTrueAsBoolean("missing"));
+        assertEquals(false, mockConfig.getFalseAsBoolean("missing"));
+    }
 
-	@Test
-	public void testDefaultInt() throws MissingPropertyFileException {
-		final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
-		assertNotNull(mockConfig);
-		assertEquals(Integer.MAX_VALUE, mockConfig.getMax("missing"));
-		assertEquals(Integer.MIN_VALUE, mockConfig.getMin("missing"));
-	}
+    @Test
+    public void testDefaultInt() throws MissingPropertyFileException {
+        final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
+        assertNotNull(mockConfig);
+        assertEquals(Integer.MAX_VALUE, mockConfig.getMax("missing"));
+        assertEquals(Integer.MIN_VALUE, mockConfig.getMin("missing"));
+    }
 
 }

@@ -23,38 +23,38 @@ import java.util.Arrays;
  */
 public class HeaderLine {
 
-	/** The fields. */
-	private final String[] fields;
+    /** The fields. */
+    private final String[] fields;
 
-	/**
-	 * Instantiates a new header line.
-	 *
-	 * @param line
-	 *            the line
-	 */
-	public HeaderLine(final String line) {
-		this.fields = line.split("\\w");
-	}
+    /**
+     * Instantiates a new header line.
+     *
+     * @param line
+     *            the line
+     */
+    public HeaderLine(final String line) {
+        this.fields = line.split("\\w");
+    }
 
-	/**
-	 * Gets the.
-	 *
-	 * @param columnNumber
-	 *            the column number
-	 * @return the fields
-	 */
-	public String get(final int columnNumber) {
-		return this.fields[columnNumber];
-	}
+    /**
+     * Gets the.
+     *
+     * @param columnNumber
+     *            the column number
+     * @return the fields
+     */
+    public String get(final int columnNumber) {
+        return this.fields[columnNumber];
+    }
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return String.format("HeaderLine [fields=%s]", Arrays.toString(this.fields));
-	}
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return String.format("HeaderLine [fields=%s]", Arrays.toString(this.fields));
+    }
 
 }

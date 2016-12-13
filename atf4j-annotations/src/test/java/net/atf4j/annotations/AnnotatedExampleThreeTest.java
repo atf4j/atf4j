@@ -14,44 +14,42 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.atf4j.annotations.examples;
+package net.atf4j.annotations;
 
+import static net.atf4j.annotations.AnnotationHelper.getTestDescription;
+import static net.atf4j.annotations.AnnotationHelper.getTestId;
+import static net.atf4j.annotations.AnnotationHelper.getTestName;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.atf4j.annotations.AnnotationHelper;
-import net.atf4j.annotations.Atf4j.TestDescription;
-import net.atf4j.annotations.Atf4j.TestId;
-import net.atf4j.annotations.Atf4j.TestName;
-
 /**
- * Annotated Test Example One. using static imports. Allows annotations to be
+ * Annotated Test Example Two, using static imports. Allows annotations to be
  * accessed directly with the functions getTestId(); getTestName();
  * getTestDescription();
  */
-public class AnnotatedExampleOneTest {
+public class AnnotatedExampleThreeTest {
 
-    /** The Constant log. */
     protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
     /**
-     * Annotated Test example.
+     * Annotated Test example two.
      *
      * @throws Exception
      *             the exception
      */
     @Test
-    @TestId("EXAMPLE-0001-1")
-    @TestName("testExampleOne")
-    @TestDescription("Example showing annotations with static context")
+    @Atf4j.TestId("EXAMPLE-0003")
+    @Atf4j.TestName("testExampleThree")
+    @Atf4j.TestDescription("Example showing annotations with static import")
     public final void testExample() throws Exception {
         log.trace(this.getClass().getSimpleName() + ".testAnnotationsWithPass");
-        log.info("Test ID : = {} ", AnnotationHelper.getTestId());
-        log.info("Test Name : = {} ", AnnotationHelper.getTestName());
-        log.info("Test Description : = {} ", AnnotationHelper.getTestDescription());
+        log.info("Test ID : = {} ", getTestId());
+        log.info("Test Name : = {} ", getTestName());
+        log.info("Test Description : = {} ", getTestDescription());
         assertTrue(true);
     }
+
 }

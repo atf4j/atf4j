@@ -25,38 +25,38 @@ import java.util.Collection;
  */
 public class ProductCatalog {
 
-	/** The catalog. */
-	private Collection<Product> catalog;
+    /** The catalog. */
+    private Collection<Product> catalog;
 
-	/**
-	 * add a Product to catalog.
-	 *
-	 * @param e
-	 *            the e
-	 * @return true, if successful
-	 * @see java.util.Collection#add(java.lang.Object)
-	 */
-	public boolean add(final Product e) {
-		return this.catalog.add(e);
-	}
+    /**
+     * add a Product to catalog.
+     *
+     * @param e
+     *            the e
+     * @return true, if successful
+     * @see java.util.Collection#add(java.lang.Object)
+     */
+    public boolean add(final Product e) {
+        return this.catalog.add(e);
+    }
 
-	/**
-	 * Gets the product list.
-	 *
-	 * @return the productList
-	 */
-	public Collection<Product> getProductList() {
-		return this.catalog;
-	}
+    /**
+     * Gets the product list.
+     *
+     * @return the productList
+     */
+    public Collection<Product> getProductList() {
+        return this.catalog;
+    }
 
-	/**
-	 * Sets the product list.
-	 *
-	 * @param productList
-	 *            the productList to set
-	 */
-	public void setProductList(final Collection<Product> productList) {
-		this.catalog = productList;
-	}
+    /**
+     * Sets the product list.
+     *
+     * @param productList
+     *            the productList to set
+     */
+    public void setProductList(final Collection<Product> productList) {
+        this.catalog = productList;
+    }
 
 }

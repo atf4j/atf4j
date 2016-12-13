@@ -25,13 +25,13 @@ import net.atf4j.data.BankAccount;
  */
 public class BankAccountFactory extends DataFactory implements FactoryMethod {
 
-	protected BankAccountFactory() throws Exception {
-		super();
-	}
+    protected BankAccountFactory() throws Exception {
+        super();
+    }
 
-	@Override
-	public BankAccount create() {
-		return new BankAccount();
-	}
+    @Override
+    public BankAccount create() {
+        return new BankAccount();
+    }
 
 }

@@ -23,32 +23,32 @@ import java.util.Arrays;
  */
 public class HeaderLine {
 
-	private final String[] fields;
+    private final String[] fields;
 
-	/**
-	 * Instantiates a new header line.
-	 *
-	 * @param line
-	 *            the line
-	 */
-	public HeaderLine(final String line) {
-		this.fields = line.split("\\w");
-	}
+    /**
+     * Instantiates a new header line.
+     *
+     * @param line
+     *            the line
+     */
+    public HeaderLine(final String line) {
+        this.fields = line.split(",");
+    }
 
-	/**
-	 * Gets the.
-	 *
-	 * @param columnNumber
-	 *            the column number
-	 * @return the fields
-	 */
-	public String get(final int columnNumber) {
-		return this.fields[columnNumber];
-	}
+    /**
+     * get the content of a column by index
+     *
+     * @param columnNumber
+     *            the column number
+     * @return the fields
+     */
+    public String get(final int columnNumber) {
+        return this.fields[columnNumber - 1];
+    }
 
-	@Override
-	public String toString() {
-		return String.format("HeaderLine [fields=%s]", Arrays.toString(this.fields));
-	}
+    @Override
+    public String toString() {
+        return String.format("%s [fields=%s]", this.getClass().getSimpleName(), Arrays.toString(this.fields));
+    }
 
 }

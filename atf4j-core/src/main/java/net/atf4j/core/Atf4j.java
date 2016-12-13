@@ -23,71 +23,74 @@ import net.atf4j.core.timers.NestedTimers;
  */
 public class Atf4j {
 
-	/** The Constant log. */
-	protected static final Logger log = LoggerFactory.getLogger(Atf4j.class);
-	
-	/** The Constant multiTimers. */
-	protected static final NestedTimers multiTimers = NestedTimers.getInstance();
+    /** The Constant log. */
+    protected static final Logger log = LoggerFactory.getLogger(Atf4j.class);
 
-	/**
-	 * Start test.
-	 */
-	public static void startTest() {
-		log.info(document(Thread.currentThread().getStackTrace()));
-	}
+    /** The Constant multiTimers. */
+    protected static final NestedTimers multiTimers = NestedTimers.getInstance();
 
-	/**
-	 * Start test.
-	 *
-	 * @param description the description
-	 */
-	public static void startTest(final String description) {
-		log.info(description);
-		log.info(multiTimers.startTimer(description).toString());
-	}
+    /**
+     * Start test.
+     */
+    public static void startTest() {
+        log.info(document(Thread.currentThread().getStackTrace()));
+    }
 
-	/**
-	 * End test.
-	 */
-	public static void endTest() {
-		log.info(multiTimers.stopTimer().toString());
-		log.info("endTest");
-	}
+    /**
+     * Start test.
+     *
+     * @param description
+     *            the description
+     */
+    public static void startTest(final String description) {
+        log.info(description);
+        log.info(multiTimers.startTimer(description).toString());
+    }
 
-	/**
-	 * Start step.
-	 */
-	public static void startStep() {
-		log.info("startStep");
-	}
+    /**
+     * End test.
+     */
+    public static void endTest() {
+        log.info(multiTimers.stopTimer().toString());
+        log.info("endTest");
+    }
 
-	/**
-	 * Start step.
-	 *
-	 * @param description the description
-	 */
-	public static void startStep(final String description) {
-		log.info(description);
-	}
+    /**
+     * Start step.
+     */
+    public static void startStep() {
+        log.info("startStep");
+    }
 
-	/**
-	 * End step.
-	 */
-	public static void endStep() {
-		log.info("endStep");
-	}
+    /**
+     * Start step.
+     *
+     * @param description
+     *            the description
+     */
+    public static void startStep(final String description) {
+        log.info(description);
+    }
 
-	/**
-	 * Document.
-	 *
-	 * @param stackTrace the stack trace
-	 * @return the string
-	 */
-	private static String document(final StackTraceElement[] stackTrace) {
-		for (final StackTraceElement stackTraceElement : stackTrace) {
-			log.info(stackTraceElement.toString());
-			final String methodName = stackTraceElement.getMethodName();
-		}
-		return null;
-	}
+    /**
+     * End step.
+     */
+    public static void endStep() {
+        log.info("endStep");
+    }
+
+    /**
+     * Document.
+     *
+     * @param stackTrace
+     *            the stack trace
+     * @return the string
+     */
+    private static String document(final StackTraceElement[] stackTrace) {
+        for (final StackTraceElement stackTraceElement : stackTrace) {
+            log.info(stackTraceElement.toString());
+            final String methodName = stackTraceElement.getMethodName();
+        }
+        return null;
+    }
 }

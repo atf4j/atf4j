@@ -21,90 +21,90 @@ import java.lang.reflect.Field;
 /**
  * ToStringBuilder.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net> 
-
+ * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public class ToStringBuilder {
 
-	/** The Constant LAYOUT_STYLE. */
-	private static final String LAYOUT_STYLE = "%s [%s]";
+    /** The Constant LAYOUT_STYLE. */
+    private static final String LAYOUT_STYLE = "%s [%s]";
 
-	/**
-	 * Use Reflection to produce String by introspection.
-	 *
-	 * @param object
-	 *            the object
-	 * @return the string Object.
-	 */
-	public static String reflectObjectToString(final Object object) {
-		if (object != null) {
-			final StringBuilder stringBuilder = new StringBuilder();
-			final Class<? extends Object> aClass = object.getClass();
+    /**
+     * Use Reflection to produce String by introspection.
+     *
+     * @param object
+     *            the object
+     * @return the string Object.
+     */
+    public static String reflectObjectToString(final Object object) {
+        if (object != null) {
+            final StringBuilder stringBuilder = new StringBuilder();
+            final Class<? extends Object> aClass = object.getClass();
 
-			stringBuilder.append(ToStringBuilder.reflectClassToString(object, aClass));
+            stringBuilder.append(ToStringBuilder.reflectClassToString(object, aClass));
 
-			return String.format(LAYOUT_STYLE, aClass.getSimpleName(), stringBuilder.toString());
-		} else {
-			return "[NULL]";
-		}
-	}
+            return String.format(LAYOUT_STYLE, aClass.getSimpleName(), stringBuilder.toString());
+        } else {
+            return "[NULL]";
+        }
+    }
 
-	/**
-	 * Reflect class to string.
-	 *
-	 * @param object
-	 *            the object
-	 * @param aClass
-	 *            the a class
-	 * @return the string
-	 */
-	private static String reflectClassToString(final Object object, final Class<? extends Object> aClass) {
-		final StringBuilder stringBuilder = new StringBuilder();
-		final Class<? extends Object> superClass = aClass.getSuperclass();
+    /**
+     * Reflect class to string.
+     *
+     * @param object
+     *            the object
+     * @param aClass
+     *            the a class
+     * @return the string
+     */
+    private static String reflectClassToString(final Object object, final Class<? extends Object> aClass) {
+        final StringBuilder stringBuilder = new StringBuilder();
+        final Class<? extends Object> superClass = aClass.getSuperclass();
 
-		if (superClass != null) {
-			if (!superClass.isInstance(Object.class)) {
-				stringBuilder.append(String.format(LAYOUT_STYLE, superClass.getSimpleName(),
-						ToStringBuilder.reflectClassToString(object, superClass)));
-			} else {
-				stringBuilder.append(ToStringBuilder.membersToString(object, aClass));
-			}
-		} else {
-			stringBuilder.append("superClass == null");
-		}
-		return stringBuilder.toString();
-	}
+        if (superClass != null) {
+            if (!superClass.isInstance(Object.class)) {
+                stringBuilder.append(String.format(LAYOUT_STYLE, superClass.getSimpleName(),
+                        ToStringBuilder.reflectClassToString(object, superClass)));
+            } else {
+                stringBuilder.append(ToStringBuilder.membersToString(object, aClass));
+            }
+        } else {
+            stringBuilder.append("superClass == null");
+        }
+        return stringBuilder.toString();
+    }
 
-	/**
-	 * Members to string.
-	 *
-	 * @param object
-	 *            the object
-	 * @param aClass
-	 *            the a class
-	 * @return the string
-	 */
-	private static String membersToString(final Object object, final Class<?> aClass) {
-		if (object != null) {
-			final StringBuilder stringBuilder = new StringBuilder();
-			final Field[] declaredFields = aClass.getDeclaredFields();
-			if (declaredFields.length > 0) {
-				for (final Field field : declaredFields) {
-					try {
-						field.setAccessible(true);
-						stringBuilder.append(String.format("%s=%s,", field.getName(), field.get(object)));
-					} catch (final Exception e) {
-						e.printStackTrace();
-					}
-				}
-				stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-				return stringBuilder.toString();
-			} else {
-				return "[NONE]";
-			}
-		} else {
-			return "[NULL]";
-		}
-	}
+    /**
+     * Members to string.
+     *
+     * @param object
+     *            the object
+     * @param aClass
+     *            the a class
+     * @return the string
+     */
+    private static String membersToString(final Object object, final Class<?> aClass) {
+        if (object != null) {
+            final StringBuilder stringBuilder = new StringBuilder();
+            final Field[] declaredFields = aClass.getDeclaredFields();
+            if (declaredFields.length > 0) {
+                for (final Field field : declaredFields) {
+                    try {
+                        field.setAccessible(true);
+                        stringBuilder.append(String.format("%s=%s,", field.getName(), field.get(object)));
+                    } catch (final Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+                return stringBuilder.toString();
+            } else {
+                return "[NONE]";
+            }
+        } else {
+            return "[NULL]";
+        }
+    }
 
 }

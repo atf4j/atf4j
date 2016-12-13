@@ -25,22 +25,22 @@ import java.util.regex.Pattern;
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
 public class EmailAddress {
-	private static final Pattern pattern = Pattern
-			.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-	private String email;
+    private static final Pattern pattern = Pattern
+            .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+    private String email;
 
-	public EmailAddress() {
-		super();
-	}
+    public EmailAddress() {
+        super();
+    }
 
-	public EmailAddress(final String email) {
-		super();
-		this.email = email;
-	}
+    public EmailAddress(final String email) {
+        super();
+        this.email = email;
+    }
 
-	public boolean verify(final String postcode) {
-		final Matcher matcher = pattern.matcher(postcode);
-		return matcher.find();
-	}
+    public boolean verify(final String postcode) {
+        final Matcher matcher = pattern.matcher(postcode);
+        return matcher.find();
+    }
 
 }

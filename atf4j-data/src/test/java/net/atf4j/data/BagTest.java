@@ -25,32 +25,32 @@ import net.atf4j.core.LoggedTest;
 
 public class BagTest extends LoggedTest {
 
-	@Test(expected = NullPointerException.class)
-	public void testNullBag() {
-		new SimpleBag(null);
-	}
+    @Test(expected = NullPointerException.class)
+    public void testNullBag() {
+        new SimpleBag(null);
+    }
 
-	@Test
-	public void testEmptyBag() {
-		final SimpleBag bag = new SimpleBag(new String[0]);
-		assertNotNull(bag);
-		assertEquals(0, bag.count());
-		assertEquals(0, bag.clear().count());
-		assertEquals(0, bag.reset().count());
-	}
+    @Test
+    public void testEmptyBag() {
+        final SimpleBag bag = new SimpleBag(new String[0]);
+        assertNotNull(bag);
+        assertEquals(0, bag.count());
+        assertEquals(0, bag.clear().count());
+        assertEquals(0, bag.reset().count());
+    }
 
-	@Test
-	public void testBag() {
-		final String[] pets = { "Fish", "Cat", "Dog", "Rabbit", "Bird" };
-		final SimpleBag bag = new SimpleBag(pets);
-		assertNotNull(bag);
-		assertEquals(5, bag.count());
-		assertEquals(0, bag.clear().count());
-		assertEquals(5, bag.reset().count());
-		while (!bag.isEmpty()) {
-			log.trace(bag.pick());
-		}
-		bag.clear().reset();
-	}
+    @Test
+    public void testBag() {
+        final String[] pets = { "Fish", "Cat", "Dog", "Rabbit", "Bird" };
+        final SimpleBag bag = new SimpleBag(pets);
+        assertNotNull(bag);
+        assertEquals(5, bag.count());
+        assertEquals(0, bag.clear().count());
+        assertEquals(5, bag.reset().count());
+        while (!bag.isEmpty()) {
+            log.trace(bag.pick());
+        }
+        bag.clear().reset();
+    }
 
 }

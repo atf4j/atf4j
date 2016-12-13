@@ -31,51 +31,51 @@ import net.atf4j.core.LoggedTest;
  */
 public class DatumTest extends LoggedTest {
 
-	class MockDatum extends Datum {
-	}
+    class MockDatum extends Datum {
+    }
 
-	/**
-	 * Test method for {@link net.atf4j.data.Datum#setDeleted(boolean)}.
-	 */
-	@Test
-	public final void testIsDeleted() {
-		final MockDatum mockDatum = new MockDatum();
-		Assume.assumeFalse(mockDatum.isDeleted());
-		mockDatum.setDeleted(true);
-		assertTrue(mockDatum.isDeleted());
-	}
+    /**
+     * Test method for {@link net.atf4j.data.Datum#setDeleted(boolean)}.
+     */
+    @Test
+    public final void testIsDeleted() {
+        final MockDatum mockDatum = new MockDatum();
+        Assume.assumeFalse(mockDatum.isDeleted());
+        mockDatum.setDeleted(true);
+        assertTrue(mockDatum.isDeleted());
+    }
 
-	/**
-	 * Test method for {@link net.atf4j.data.Datum#isDirty()}.
-	 */
-	@Test
-	public final void testIsDirty() {
-		final MockDatum mockDatum = new MockDatum();
-		Assume.assumeFalse(mockDatum.isDirty());
-		mockDatum.setDirty(true);
-		assertTrue(mockDatum.isDirty());
-	}
+    /**
+     * Test method for {@link net.atf4j.data.Datum#isDirty()}.
+     */
+    @Test
+    public final void testIsDirty() {
+        final MockDatum mockDatum = new MockDatum();
+        Assume.assumeFalse(mockDatum.isDirty());
+        mockDatum.setDirty(true);
+        assertTrue(mockDatum.isDirty());
+    }
 
-	/**
-	 * Test method for {@link net.atf4j.data.Datum#isNew()}.
-	 */
-	@Test
-	public final void testIsNew() {
-		final MockDatum mockDatum = new MockDatum();
-		Assume.assumeTrue(mockDatum.isNew());
-		mockDatum.setNew(false);
-		assertFalse(mockDatum.isNew());
-	}
+    /**
+     * Test method for {@link net.atf4j.data.Datum#isNew()}.
+     */
+    @Test
+    public final void testIsNew() {
+        final MockDatum mockDatum = new MockDatum();
+        Assume.assumeTrue(mockDatum.isNew());
+        mockDatum.setNew(false);
+        assertFalse(mockDatum.isNew());
+    }
 
-	/**
-	 * Test method for {@link net.atf4j.data.Datum#setUsed(boolean)}.
-	 */
-	@Test
-	public final void testIsUsed() {
-		final MockDatum mockDatum = new MockDatum();
-		Assume.assumeFalse(mockDatum.isUsed());
-		mockDatum.setUsed(true);
-		assertTrue(mockDatum.isUsed());
-	}
+    /**
+     * Test method for {@link net.atf4j.data.Datum#setUsed(boolean)}.
+     */
+    @Test
+    public final void testIsUsed() {
+        final MockDatum mockDatum = new MockDatum();
+        Assume.assumeFalse(mockDatum.isUsed());
+        mockDatum.setUsed(true);
+        assertTrue(mockDatum.isUsed());
+    }
 
 }

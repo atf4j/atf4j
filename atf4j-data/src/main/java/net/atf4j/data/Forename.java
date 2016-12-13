@@ -23,13 +23,13 @@ package net.atf4j.data;
  *
  */
 public class Forename extends Name {
-	/**
-	 * The Constructor.
-	 *
-	 * @param forename
-	 *            the forename
-	 */
-	public Forename(final String forename) {
-		super(forename);
-	}
+    /**
+     * The Constructor.
+     *
+     * @param forename
+     *            the forename
+     */
+    public Forename(final String forename) {
+        super(forename);
+    }
 }

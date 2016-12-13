@@ -30,10 +30,10 @@ import net.atf4j.core.LoggedTest;
  */
 public class AddressTest extends LoggedTest {
 
-	@Test
-	public void testDefaultConstructor() {
-		final Address address = new Address();
-		assertNotNull(address);
-	}
+    @Test
+    public void testDefaultConstructor() {
+        final Address address = new Address();
+        assertNotNull(address);
+    }
 
 }

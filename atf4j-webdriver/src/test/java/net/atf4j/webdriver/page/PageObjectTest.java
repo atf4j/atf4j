@@ -27,98 +27,100 @@ import org.openqa.selenium.chrome.ChromeDriver;
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
 public class PageObjectTest {
-	
-	/** The Constant url. */
-	public static final String url = null;
 
-	/**
-	 * The Class MockPage.
-	 */
-	public class MockPage extends WebPage {
-		
-		/**
-		 * Instantiates a new mock page.
-		 */
-		public MockPage() {
-			super();
-		}
+    /** The Constant url. */
+    public static final String url = null;
 
-		/**
-		 * Instantiates a new mock page.
-		 *
-		 * @param url the url
-		 */
-		public MockPage(final String url) {
-			super(url);
-		}
+    /**
+     * The Class MockPage.
+     */
+    public class MockPage extends WebPage {
 
-		/**
-		 * Instantiates a new mock page.
-		 *
-		 * @param webDriver the web driver
-		 */
-		public MockPage(final WebDriver webDriver) {
-			super(webDriver);
-		}
-	}
+        /**
+         * Instantiates a new mock page.
+         */
+        public MockPage() {
+            super();
+        }
 
-	/**
-	 * Test method for
-	 * {@link net.atf4j.webdriver.page.WebPage#AbstractPageObject()}.
-	 */
-	@Test
-	public final void testDefaultConstruction() {
-		new MockPage();
-	}
+        /**
+         * Instantiates a new mock page.
+         *
+         * @param url
+         *            the url
+         */
+        public MockPage(final String url) {
+            super(url);
+        }
 
-	/**
-	 * Test method for {@link net.atf4j.webdriver.page.WebPage#open()}.
-	 */
-	@Test
-	public final void testDefaultOpen() {
-		new MockPage().open();
-	}
+        /**
+         * Instantiates a new mock page.
+         *
+         * @param webDriver
+         *            the web driver
+         */
+        public MockPage(final WebDriver webDriver) {
+            super(webDriver);
+        }
+    }
 
-	/**
-	 * Test method for {@link net.atf4j.webdriver.page.WebPage#open()}.
-	 */
-	@Test
-	public final void testOpen() {
-		new MockPage("http://127.0.0.1:8080").open();
-	}
+    /**
+     * Test method for
+     * {@link net.atf4j.webdriver.page.WebPage#AbstractPageObject()}.
+     */
+    @Test
+    public final void testDefaultConstruction() {
+        new MockPage();
+    }
 
-	/**
-	 * Test method for
-	 * {@link net.atf4j.webdriver.page.WebPage#open(java.lang.String)}.
-	 */
-	@Test
-	public final void testOpenString() {
-		new MockPage().open("http://127.0.0.1:8080");
-	}
+    /**
+     * Test method for {@link net.atf4j.webdriver.page.WebPage#open()}.
+     */
+    @Test
+    public final void testDefaultOpen() {
+        new MockPage().open();
+    }
 
-	/**
-	 * Test method for {@link net.atf4j.webdriver.page.WebPage#verify()}.
-	 */
-	@Test
-	public final void testVerify() {
-		new MockPage().open().verify();
-	}
+    /**
+     * Test method for {@link net.atf4j.webdriver.page.WebPage#open()}.
+     */
+    @Test
+    public final void testOpen() {
+        new MockPage("http://127.0.0.1:8080").open();
+    }
 
-	/**
-	 * Test method for {@link net.atf4j.webdriver.page.WebPage#getWebDriver()}.
-	 */
-	@Test
-	public final void testGetWebDriver() {
-		Assert.assertNotNull(new MockPage().webDriver);
-	}
+    /**
+     * Test method for
+     * {@link net.atf4j.webdriver.page.WebPage#open(java.lang.String)}.
+     */
+    @Test
+    public final void testOpenString() {
+        new MockPage().open("http://127.0.0.1:8080");
+    }
 
-	/**
-	 * Test method for
-	 * {@link net.atf4j.webdriver.page.WebPage#setWebDriver(org.openqa.selenium.WebDriver)}.
-	 */
-	@Test
-	public final void testSetWebDriver() {
-		new MockPage().setWebDriver(new ChromeDriver());
-	}
+    /**
+     * Test method for {@link net.atf4j.webdriver.page.WebPage#verify()}.
+     */
+    @Test
+    public final void testVerify() {
+        new MockPage().open().verify();
+    }
+
+    /**
+     * Test method for {@link net.atf4j.webdriver.page.WebPage#getWebDriver()}.
+     */
+    @Test
+    public final void testGetWebDriver() {
+        Assert.assertNotNull(new MockPage().webDriver);
+    }
+
+    /**
+     * Test method for
+     * {@link net.atf4j.webdriver.page.WebPage#setWebDriver(org.openqa.selenium.WebDriver)}.
+     */
+    @Test
+    public final void testSetWebDriver() {
+        new MockPage().setWebDriver(new ChromeDriver());
+    }
 
 }

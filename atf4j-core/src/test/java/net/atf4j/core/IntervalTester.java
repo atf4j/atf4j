@@ -26,74 +26,74 @@ import net.atf4j.core.waits.Interval;
  */
 public class IntervalTester extends LoggedTest {
 
-	/** The Constant DEFAULT_INTERVAL. */
-	private static final long DEFAULT_INTERVAL = 1000L;
+    /** The Constant DEFAULT_INTERVAL. */
+    private static final long DEFAULT_INTERVAL = 1000L;
 
-	/** The Constant DELTA. */
-	private static final long DELTA = 0L;
+    /** The Constant DELTA. */
+    private static final long DELTA = 0L;
 
-	/**
-	 * Test interval.
-	 */
-	@Test
-	public void testInterval() {
-		Assert.assertEquals(DEFAULT_INTERVAL, new Interval(DEFAULT_INTERVAL).asMilliSeconds(), DELTA);
-	}
+    /**
+     * Test interval.
+     */
+    @Test
+    public void testInterval() {
+        Assert.assertEquals(DEFAULT_INTERVAL, new Interval(DEFAULT_INTERVAL).asMilliSeconds(), DELTA);
+    }
 
-	/**
-	 * Test in milli seconds.
-	 */
-	@Test
-	public void testInMilliSeconds() {
-		Assert.assertEquals(DEFAULT_INTERVAL, Interval.inMilliSeconds(DEFAULT_INTERVAL).asMilliSeconds(), DELTA);
-	}
+    /**
+     * Test in milli seconds.
+     */
+    @Test
+    public void testInMilliSeconds() {
+        Assert.assertEquals(DEFAULT_INTERVAL, Interval.inMilliSeconds(DEFAULT_INTERVAL).asMilliSeconds(), DELTA);
+    }
 
-	/**
-	 * Test in seconds.
-	 */
-	@Test
-	public void testInSeconds() {
-		Assert.assertEquals(DEFAULT_INTERVAL * 1, Interval.inSeconds(1).asMilliSeconds(), DELTA);
-	}
+    /**
+     * Test in seconds.
+     */
+    @Test
+    public void testInSeconds() {
+        Assert.assertEquals(DEFAULT_INTERVAL * 1, Interval.inSeconds(1).asMilliSeconds(), DELTA);
+    }
 
-	/**
-	 * Test in minutes.
-	 */
-	@Test
-	public void testInMinutes() {
-		Assert.assertEquals(DEFAULT_INTERVAL * 60, Interval.inMinutes(1).asMilliSeconds(), DELTA);
-	}
+    /**
+     * Test in minutes.
+     */
+    @Test
+    public void testInMinutes() {
+        Assert.assertEquals(DEFAULT_INTERVAL * 60, Interval.inMinutes(1).asMilliSeconds(), DELTA);
+    }
 
-	/**
-	 * Test in hours.
-	 */
-	@Test
-	public void testInHours() {
-		Assert.assertEquals(DEFAULT_INTERVAL * 60 * 60, Interval.inHours(1).asMilliSeconds(), DELTA);
-	}
+    /**
+     * Test in hours.
+     */
+    @Test
+    public void testInHours() {
+        Assert.assertEquals(DEFAULT_INTERVAL * 60 * 60, Interval.inHours(1).asMilliSeconds(), DELTA);
+    }
 
-	/**
-	 * Test in days.
-	 */
-	@Test
-	public void testInDays() {
-		Assert.assertEquals(DEFAULT_INTERVAL * 60 * 60 * 24, Interval.inDays(1).asMilliSeconds(), DELTA);
-	}
+    /**
+     * Test in days.
+     */
+    @Test
+    public void testInDays() {
+        Assert.assertEquals(DEFAULT_INTERVAL * 60 * 60 * 24, Interval.inDays(1).asMilliSeconds(), DELTA);
+    }
 
-	/**
-	 * Test as milli seconds.
-	 */
-	@Test
-	public void testAsMilliSeconds() {
-		Assert.assertEquals(DEFAULT_INTERVAL, new Interval(DEFAULT_INTERVAL).asMilliSeconds(), DELTA);
-	}
+    /**
+     * Test as milli seconds.
+     */
+    @Test
+    public void testAsMilliSeconds() {
+        Assert.assertEquals(DEFAULT_INTERVAL, new Interval(DEFAULT_INTERVAL).asMilliSeconds(), DELTA);
+    }
 
-	/**
-	 * Test as long.
-	 */
-	@Test
-	public void testAsLong() {
-		Assert.assertEquals(DEFAULT_INTERVAL, new Interval(DEFAULT_INTERVAL).asLong(), DELTA);
-	}
+    /**
+     * Test as long.
+     */
+    @Test
+    public void testAsLong() {
+        Assert.assertEquals(DEFAULT_INTERVAL, new Interval(DEFAULT_INTERVAL).asLong(), DELTA);
+    }
 
 }

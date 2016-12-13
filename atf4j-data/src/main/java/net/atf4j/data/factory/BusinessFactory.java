@@ -25,13 +25,13 @@ import net.atf4j.data.Business;
  */
 public class BusinessFactory extends DataFactory implements FactoryMethod {
 
-	protected BusinessFactory() throws Exception {
-		super();
-	}
+    protected BusinessFactory() throws Exception {
+        super();
+    }
 
-	@Override
-	public Business create() {
-		return new Business();
-	}
+    @Override
+    public Business create() {
+        return new Business();
+    }
 
 }

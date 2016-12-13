@@ -25,21 +25,21 @@ import net.atf4j.data.Card;
  */
 public class CardFactory extends DataFactory implements FactoryMethod {
 
-	public CardFactory() throws Exception {
-		super();
-	}
+    public CardFactory() throws Exception {
+        super();
+    }
 
-	@Override
-	public Card create() {
-		return new Card();
-	}
+    @Override
+    public Card create() {
+        return new Card();
+    }
 
-	// Card Provider
-	// Card Number
-	// Card Account
-	// Card Name
-	// Card Type
-	// Card End Date
-	// Card Start Date
-	// Card CVV
+    // Card Provider
+    // Card Number
+    // Card Account
+    // Card Name
+    // Card Type
+    // Card End Date
+    // Card Start Date
+    // Card CVV
 }

@@ -26,86 +26,90 @@ import net.atf4j.core.ToStringBuilder;
  */
 public class NanoTimer implements ITimer {
 
-	/** The start time. */
-	private long startTime = -1L;
+    /** The start time. */
+    private long startTime = -1L;
 
-	/** The stop time. */
-	private long stopTime = -1L;
+    /** The stop time. */
+    private long stopTime = -1L;
 
-	/** The elapsed time. */
-	private long elapsedTime = -1L;
+    /** The elapsed time. */
+    private long elapsedTime = -1L;
 
-	/** The timer name. */
-	private final String timerName;
+    /** The timer name. */
+    private final String timerName;
 
-	/**
-	 * Instantiates a new timer.
-	 */
-	public NanoTimer() {
-		this.timerName = UUID.randomUUID().toString();
-	}
+    /**
+     * Instantiates a new timer.
+     */
+    public NanoTimer() {
+        this.timerName = UUID.randomUUID().toString();
+    }
 
-	/**
-	 * Instantiates a new named timer.
-	 *
-	 * @param useName
-	 *            is a name for this Timer
-	 */
-	public NanoTimer(final String useName) {
-		this.timerName = useName;
-	}
+    /**
+     * Instantiates a new named timer.
+     *
+     * @param useName
+     *            is a name for this Timer
+     */
+    public NanoTimer(final String useName) {
+        this.timerName = useName;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see net.atf4j.core.timers.ITimer#start()
-	 */
-	public final NanoTimer start() {
-		this.startTime = System.nanoTime();
-		return this;
-	}
+    /*
+     * (non-Javadoc)
+     *
+     * @see net.atf4j.core.timers.ITimer#start()
+     */
+    @Override
+    public final NanoTimer start() {
+        this.startTime = System.nanoTime();
+        return this;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see net.atf4j.core.timers.ITimer#stop()
-	 */
-	public final NanoTimer stop() {
-		this.stopTime = System.nanoTime();
-		this.elapsedTime = this.stopTime - this.startTime;
-		return this;
-	}
+    /*
+     * (non-Javadoc)
+     *
+     * @see net.atf4j.core.timers.ITimer#stop()
+     */
+    @Override
+    public final NanoTimer stop() {
+        this.stopTime = System.nanoTime();
+        this.elapsedTime = this.stopTime - this.startTime;
+        return this;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see net.atf4j.core.timers.ITimer#getStartTime()
-	 */
-	public final long getStartTime() {
-		return this.startTime;
-	}
+    /*
+     * (non-Javadoc)
+     *
+     * @see net.atf4j.core.timers.ITimer#getStartTime()
+     */
+    @Override
+    public final long getStartTime() {
+        return this.startTime;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see net.atf4j.core.timers.ITimer#getElapsedTime()
-	 */
-	public long getElapsedTime() {
-		return this.elapsedTime;
-	}
+    /*
+     * (non-Javadoc)
+     *
+     * @see net.atf4j.core.timers.ITimer#getElapsedTime()
+     */
+    @Override
+    public long getElapsedTime() {
+        return this.elapsedTime;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public final String toString() {
-		return ToStringBuilder.reflectObjectToString(this);
-	}
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public final String toString() {
+        return ToStringBuilder.reflectObjectToString(this);
+    }
 
-	public String getTimerName() {
-		return this.timerName;
-	}
+    public String getTimerName() {
+        return this.timerName;
+    }
 
 }

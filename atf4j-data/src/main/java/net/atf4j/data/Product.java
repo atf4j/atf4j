@@ -16,7 +16,6 @@
  */
 package net.atf4j.data;
 
-
 /**
  * Product.
  *
@@ -24,54 +23,54 @@ package net.atf4j.data;
  */
 public class Product {
 
-	/** The details. */
-	private String details;
+    /** The details. */
+    private String details;
 
-	/**
-	 * Product.
-	 *
-	 * @param details
-	 *            the details
-	 */
-	public Product(final String details) {
-		super();
-		setDetails(details);
-	}
+    /**
+     * Product.
+     *
+     * @param details
+     *            the details
+     */
+    public Product(final String details) {
+        super();
+        setDetails(details);
+    }
 
-	/**
-	 * Sets the details.
-	 *
-	 * @param details
-	 *            the details to set
-	 */
-	public void setDetails(final String details) {
-		this.details = details;
-	}
+    /**
+     * Sets the details.
+     *
+     * @param details
+     *            the details to set
+     */
+    public void setDetails(final String details) {
+        this.details = details;
+    }
 
-	/**
-	 * Gets the details.
-	 *
-	 * @return the details
-	 */
-	public String getDetails() {
-		return this.details;
-	}
+    /**
+     * Gets the details.
+     *
+     * @return the details
+     */
+    public String getDetails() {
+        return this.details;
+    }
 
-	/**
-	 * To string.
-	 *
-	 * @return the string
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		final StringBuilder builder = new StringBuilder();
-		builder.append("Product [");
-		if (this.details != null) {
-			builder.append("details=").append(this.details);
-		}
-		builder.append("]");
-		return builder.toString();
-	}
+    /**
+     * To string.
+     *
+     * @return the string
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        final StringBuilder builder = new StringBuilder();
+        builder.append("Product [");
+        if (this.details != null) {
+            builder.append("details=").append(this.details);
+        }
+        builder.append("]");
+        return builder.toString();
+    }
 
 }

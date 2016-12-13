@@ -26,92 +26,93 @@ import net.atf4j.core.Atf4jException;
  * TestCase.
  */
 public class TestCase extends TestBase {
-	// private String uniqueIdentifier;
-	/** The test steps. */
-	// private String name;
-	private Collection<TestStep> testSteps;
+    // private String uniqueIdentifier;
+    /** The test steps. */
+    // private String name;
+    private Collection<TestStep> testSteps;
 
-	/**
-	 * Execute.
-	 *
-	 * @param context
-	 *            the context
-	 * @return the test result
-	 * @throws Atf4jException
-	 *             the atf4j exception
-	 * @see net.atf4j.core.model.TestBase#execute(net.atf4j.core.model.TestContext)
-	 */
-	@Override
-	public AbstractTestResult execute(final TestContext context) throws Atf4jException {
-		for (final TestStep testStep : this.testSteps) {
-			testStep.execute(context);
-		}
-		return null;
-	}
+    /**
+     * Execute.
+     *
+     * @param context
+     *            the context
+     * @return the test result
+     * @throws Atf4jException
+     *             the atf4j exception
+     * @see net.atf4j.core.model.TestBase#execute(net.atf4j.core.model.TestContext)
+     */
+    @Override
+    public AbstractTestResult execute(final TestContext context) throws Atf4jException {
+        for (final TestStep testStep : this.testSteps) {
+            testStep.execute(context);
+        }
+        return null;
+    }
 
-	/**
-	 * Register logging.
-	 *
-	 * @param logging
-	 *            the logging
-	 * @throws Atf4jException
-	 *             the atf4j exception
-	 * @see net.atf4j.core.model.TestBase#registerLogging(TestResultLoggingInterface)
-	 */
-	@Override
-	public void registerLogging(final TestResultLoggingInterface logging) throws Atf4jException {
-		super.registerLogging(logging);
-	}
+    /**
+     * Register logging.
+     *
+     * @param logging
+     *            the logging
+     * @throws Atf4jException
+     *             the atf4j exception
+     * @see net.atf4j.core.model.TestBase#registerLogging(TestResultLoggingInterface)
+     */
+    @Override
+    public void registerLogging(final TestResultLoggingInterface logging) throws Atf4jException {
+        super.registerLogging(logging);
+    }
 
-	/**
-	 * numberOfTestSteps.
-	 *
-	 * @return size of testStep collection as int.
-	 * @see java.util.Collection#size()
-	 */
-	public int numberOfTestSteps() {
-		return this.testSteps.size();
-	}
+    /**
+     * numberOfTestSteps.
+     *
+     * @return size of testStep collection as int.
+     * @see java.util.Collection#size()
+     */
+    public int numberOfTestSteps() {
+        return this.testSteps.size();
+    }
 
-	/**
-	 * Iterator.
-	 *
-	 * @return Iterator<TestCase>
-	 * @see java.util.Collection#iterator()
-	 */
-	public Iterator<TestStep> iterator() {
-		return this.testSteps.iterator();
-	}
+    /**
+     * Iterator.
+     *
+     * @return Iterator<TestCase>
+     * @see java.util.Collection#iterator()
+     */
+    public Iterator<TestStep> iterator() {
+        return this.testSteps.iterator();
+    }
 
-	/**
-	 * Adds the test step.
-	 *
-	 * @param newTestStep
-	 *            as TestStep Object.
-	 * @return success as boolean.
-	 * @see java.util.Collection#add(java.lang.Object)
-	 */
-	public boolean addTestStep(final TestStep newTestStep) {
-		return this.testSteps.add(newTestStep);
-	}
+    /**
+     * Adds the test step.
+     *
+     * @param newTestStep
+     *            as TestStep Object.
+     * @return success as boolean.
+     * @see java.util.Collection#add(java.lang.Object)
+     */
+    public boolean addTestStep(final TestStep newTestStep) {
+        return this.testSteps.add(newTestStep);
+    }
 
-	/**
-	 * Adds the test steps.
-	 *
-	 * @param newTestSteps
-	 *            as Collection<TestStep>
-	 * @return success as boolean.
-	 * @see java.util.Collection#addAll(java.util.Collection)
-	 */
-	public boolean addTestSteps(final Collection<? extends TestStep> newTestSteps) {
-		return this.testSteps.addAll(newTestSteps);
-	}
+    /**
+     * Adds the test steps.
+     *
+     * @param newTestSteps
+     *            as Collection<TestStep>
+     * @return success as boolean.
+     * @see java.util.Collection#addAll(java.util.Collection)
+     */
+    public boolean addTestSteps(final Collection<? extends TestStep> newTestSteps) {
+        return this.testSteps.addAll(newTestSteps);
+    }
 
-	public Properties execute(final Properties properties) {
-		return null;
-	}
+    @Override
+    public Properties execute(final Properties properties) {
+        return null;
+    }
 
-	// Register Logging.
-	// Add Test Case
-	// Run all
+    // Register Logging.
+    // Add Test Case
+    // Run all
 }

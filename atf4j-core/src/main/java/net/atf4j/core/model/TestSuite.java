@@ -26,111 +26,112 @@ import net.atf4j.core.Atf4jException;
  * TestSuite.
  */
 public class TestSuite extends TestBase {
-	protected String id;
-	protected String name;
-	protected String description;
-	protected Collection<TestCase> testCases;
+    protected String id;
+    protected String name;
+    protected String description;
+    protected Collection<TestCase> testCases;
 
-	public TestSuite(final String id, final String name, final String description) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.description = description;
-	}
+    public TestSuite(final String id, final String name, final String description) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
 
-	/**
-	 * Execute.
-	 *
-	 * @param context
-	 *            the context
-	 * @return the test result
-	 * @throws Atf4jException
-	 *             the atf4j exception
-	 * @see net.atf4j.core.model.TestBase#execute(net.atf4j.core.model.TestContext)
-	 */
-	@Override
-	public AbstractTestResult execute(final TestContext context) throws Atf4jException {
-		final AbstractTestResult restResult = new TestResult();
-		for (final TestCase testCase : this.testCases) {
-			restResult.from(testCase.execute(context));
-		}
-		return restResult;
-	}
+    /**
+     * Execute.
+     *
+     * @param context
+     *            the context
+     * @return the test result
+     * @throws Atf4jException
+     *             the atf4j exception
+     * @see net.atf4j.core.model.TestBase#execute(net.atf4j.core.model.TestContext)
+     */
+    @Override
+    public AbstractTestResult execute(final TestContext context) throws Atf4jException {
+        final TestResult restResult = TestResult.FAILED;
+        for (final TestCase testCase : this.testCases) {
+            restResult.from(testCase.execute(context));
+        }
+        return null;
+    }
 
-	/**
-	 * Register logging.
-	 *
-	 * @param logging
-	 *            the logging
-	 * @throws Atf4jException
-	 *             the atf4j exception
-	 * @see net.atf4j.core.model.TestBase#registerLogging(TestResultLoggingInterface)
-	 */
-	@Override
-	public void registerLogging(final TestResultLoggingInterface logging) throws Atf4jException {
-		super.registerLogging(logging);
+    /**
+     * Register logging.
+     *
+     * @param logging
+     *            the logging
+     * @throws Atf4jException
+     *             the atf4j exception
+     * @see net.atf4j.core.model.TestBase#registerLogging(TestResultLoggingInterface)
+     */
+    @Override
+    public void registerLogging(final TestResultLoggingInterface logging) throws Atf4jException {
+        super.registerLogging(logging);
 
-		for (final TestCase testCase : this.testCases) {
-			testCase.registerLogging(logging);
-		}
-	}
+        for (final TestCase testCase : this.testCases) {
+            testCase.registerLogging(logging);
+        }
+    }
 
-	/**
-	 * numberOfTestCases.
-	 *
-	 * @return size of testStep collection as int.
-	 * @see java.util.Collection#size()
-	 */
-	public int numberOfTestCases() {
-		return this.testCases.size();
-	}
+    /**
+     * numberOfTestCases.
+     *
+     * @return size of testStep collection as int.
+     * @see java.util.Collection#size()
+     */
+    public int numberOfTestCases() {
+        return this.testCases.size();
+    }
 
-	/**
-	 * Iterator.
-	 *
-	 * @return Iterator<TestCase>
-	 * @see java.util.Collection#iterator()
-	 */
-	public Iterator<TestCase> iterator() {
-		return this.testCases.iterator();
-	}
+    /**
+     * Iterator.
+     *
+     * @return Iterator<TestCase>
+     * @see java.util.Collection#iterator()
+     */
+    public Iterator<TestCase> iterator() {
+        return this.testCases.iterator();
+    }
 
-	/**
-	 * Adds the test case.
-	 *
-	 * @param newTestCase
-	 *            as TestCase
-	 * @return success as boolean.
-	 * @see java.util.Collection#add(java.lang.Object)
-	 */
-	public boolean addTestCase(final TestCase newTestCase) {
-		return this.testCases.add(newTestCase);
-	}
+    /**
+     * Adds the test case.
+     *
+     * @param newTestCase
+     *            as TestCase
+     * @return success as boolean.
+     * @see java.util.Collection#add(java.lang.Object)
+     */
+    public boolean addTestCase(final TestCase newTestCase) {
+        return this.testCases.add(newTestCase);
+    }
 
-	/**
-	 * Adds the all.
-	 *
-	 * @param newTestCases
-	 *            as Collection<TestCase>
-	 * @return success as boolean.
-	 * @see java.util.Collection#addAll(java.util.Collection)
-	 */
-	public boolean addAll(final Collection<? extends TestCase> newTestCases) {
-		return this.testCases.addAll(newTestCases);
-	}
+    /**
+     * Adds the all.
+     *
+     * @param newTestCases
+     *            as Collection<TestCase>
+     * @return success as boolean.
+     * @see java.util.Collection#addAll(java.util.Collection)
+     */
+    public boolean addAll(final Collection<? extends TestCase> newTestCases) {
+        return this.testCases.addAll(newTestCases);
+    }
 
-	public void startTestSuite() {
-	}
+    public void startTestSuite() {
+    }
 
-	public void endTestSuite() {
-	}
+    public void endTestSuite() {
+    }
 
-	public Properties execute(final Properties properties) {
-		return null;
-	}
+    @Override
+    public Properties execute(final Properties properties) {
+        return null;
+    }
 
-	// Register Logging.
-	// Add Test Case
-	// Run all
+    // Register Logging.
+    // Add Test Case
+    // Run all
 
 }

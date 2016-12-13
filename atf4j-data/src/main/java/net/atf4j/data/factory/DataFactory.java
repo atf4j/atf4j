@@ -26,13 +26,13 @@ import net.atf4j.data.FactoryMethod;
  */
 public class DataFactory extends AbstractDataFactory implements FactoryMethod {
 
-	protected DataFactory() throws Exception {
-		super();
-	}
+    protected DataFactory() throws Exception {
+        super();
+    }
 
-	@Override
-	public Object create() {
-		return null;
-	}
+    @Override
+    public Object create() {
+        return null;
+    }
 
 }

@@ -16,79 +16,85 @@
  */
 package net.atf4j.csv;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import java.io.FileNotFoundException;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import net.atf4j.core.LoggedTest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The Class CsvFileTest.
  */
-public class CsvFileTest extends LoggedTest {
+public class CsvFileTest {
+    protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
-	/** The Constant MISSING_CSV. */
-	private static final String MISSING_CSV = "missing.csv";
-	
-	/** The Constant TEST_DATA_CSV. */
-	private static final String TEST_DATA_CSV = "TestData.csv";
+    /** The Constant MISSING_CSV. */
+    private static final String MISSING_CSV = "missing.csv";
 
-	/**
-	 * Test constructor with missing file.
-	 *
-	 * @throws Exception the exception
-	 */
-	@Test(expected = FileNotFoundException.class)
-	public void testConstructorWithMissingFile() throws Exception {
-		CsvFile csvFile = new CsvFile(MISSING_CSV);
-		assertNotNull(csvFile);
-	}
+    /** The Constant TEST_DATA_CSV. */
+    private static final String TEST_DATA_CSV = "TestData.csv";
+
+    /**
+     * Test constructor with missing file.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    @Test(expected = FileNotFoundException.class)
+    public void testConstructorWithMissingFile() throws Exception {
+        final CsvFile csvFile = new CsvFile(MISSING_CSV);
+        assertNotNull(csvFile);
+    }
 
     /**
      * Test read missing file.
      *
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     @Test(expected = FileNotFoundException.class)
     public void testReadMissingFile() throws Exception {
-        CsvFile data = CsvFile.read(MISSING_CSV);
+        final CsvFile data = CsvFile.read(MISSING_CSV);
         assertNotNull(data);
     }
 
     /**
      * Test load missing file.
      *
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     @Test(expected = FileNotFoundException.class)
     public void testLoadMissingFile() throws Exception {
-        CsvFile csvFile = new CsvFile();
+        final CsvFile csvFile = new CsvFile();
         csvFile.load(MISSING_CSV);
     }
 
-	/**
-	 * Test constructor with data present.
-	 *
-	 * @throws Exception the exception
-	 */
-	@Test
-	public void testConstructorWithDataPresent() throws Exception {
-		CsvFile csvFile = new CsvFile(TEST_DATA_CSV);
+    /**
+     * Test constructor with data present.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    @Test
+    public void testConstructorWithDataPresent() throws Exception {
+        final CsvFile csvFile = new CsvFile(TEST_DATA_CSV);
         Assert.assertNotNull(csvFile);
         log.info(csvFile.toString());
-	}
+    }
 
     /**
      * Test read present data.
      *
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     @Test
     public void testReadPresentData() throws Exception {
-        CsvFile csvFile = CsvFile.read(TEST_DATA_CSV);
+        final CsvFile csvFile = CsvFile.read(TEST_DATA_CSV);
         Assert.assertNotNull(csvFile);
         log.info(csvFile.toString());
     }
@@ -96,14 +102,15 @@ public class CsvFileTest extends LoggedTest {
     /**
      * Test load present data.
      *
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     @Test
     public void testLoadPresentData() throws Exception {
-        CsvFile csvFile = new CsvFile();
+        final CsvFile csvFile = new CsvFile();
         Assert.assertNotNull(csvFile);
         csvFile.load(TEST_DATA_CSV);
         log.info(csvFile.toString());
     }
-    
+
 }

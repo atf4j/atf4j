@@ -27,28 +27,29 @@ import net.atf4j.core.Command;
  */
 public class HoareStep implements Command {
 
-	protected String string;
+    protected String string;
 
-	/**
-	 * Instantiates a new hoare step.
-	 */
-	public HoareStep() {
-	}
+    /**
+     * Instantiates a new hoare step.
+     */
+    public HoareStep() {
+    }
 
-	/**
-	 * Instantiates a new hoare step.
-	 *
-	 * @param string
-	 *            the string2
-	 */
-	public HoareStep(final String string) {
-	}
+    /**
+     * Instantiates a new hoare step.
+     *
+     * @param string
+     *            the string2
+     */
+    public HoareStep(final String string) {
+    }
 
-	public void execute() {
-	}
+    public void execute() {
+    }
 
-	public Properties execute(final Properties properties) {
-		return properties;
-	}
+    @Override
+    public Properties execute(final Properties properties) {
+        return properties;
+    }
 
 }

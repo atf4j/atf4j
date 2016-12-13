@@ -24,118 +24,118 @@ import java.util.Random;
  * A Simple Bag class.
  */
 public class SimpleBag {
-	private String[] values;
-	private final List<String> bag = new ArrayList<String>();
-	private final Random rnd = new Random();
+    private String[] values;
+    private final List<String> bag = new ArrayList<String>();
+    private final Random rnd = new Random();
 
-	/**
-	 * Instantiates a new empty simple bag.
-	 */
-	public SimpleBag() {
-		super();
-	}
+    /**
+     * Instantiates a new empty simple bag.
+     */
+    public SimpleBag() {
+        super();
+    }
 
-	/**
-	 * Instantiates a new simple bag.
-	 *
-	 * @param values
-	 *            the values
-	 */
-	public SimpleBag(final String[] values) {
-		fill(values);
-	}
+    /**
+     * Instantiates a new simple bag.
+     *
+     * @param values
+     *            the values
+     */
+    public SimpleBag(final String[] values) {
+        fill(values);
+    }
 
-	/**
-	 * Fill.
-	 *
-	 * @param values
-	 *            the values
-	 * @return the simple bag
-	 */
-	public SimpleBag fill(final String[] values) {
-		this.values = values;
-		for (final String value : values) {
-			this.bag.add(value);
-		}
-		return this;
-	}
+    /**
+     * Fill.
+     *
+     * @param values
+     *            the values
+     * @return the simple bag
+     */
+    public SimpleBag fill(final String[] values) {
+        this.values = values;
+        for (final String value : values) {
+            this.bag.add(value);
+        }
+        return this;
+    }
 
-	/**
-	 * Pick.
-	 *
-	 * @return the string
-	 */
-	public String pick() {
-		return this.bag.remove(this.rnd.nextInt(this.bag.size()));
-	}
+    /**
+     * Pick.
+     *
+     * @return the string
+     */
+    public String pick() {
+        return this.bag.remove(this.rnd.nextInt(this.bag.size()));
+    }
 
-	/**
-	 * Take.
-	 *
-	 * @return the string
-	 */
-	public String take() {
-		return pick();
-	}
+    /**
+     * Take.
+     *
+     * @return the string
+     */
+    public String take() {
+        return pick();
+    }
 
-	/**
-	 * Put.
-	 *
-	 * @param item
-	 *            the item
-	 * @return the simple bag
-	 */
-	public SimpleBag put(final String item) {
-		this.bag.add(item);
-		return this;
-	}
+    /**
+     * Put.
+     *
+     * @param item
+     *            the item
+     * @return the simple bag
+     */
+    public SimpleBag put(final String item) {
+        this.bag.add(item);
+        return this;
+    }
 
-	/**
-	 * Reset.
-	 *
-	 * @return the simple bag
-	 */
-	public SimpleBag reset() {
-		return fill(this.values);
-	}
+    /**
+     * Reset.
+     *
+     * @return the simple bag
+     */
+    public SimpleBag reset() {
+        return fill(this.values);
+    }
 
-	/**
-	 * Clear.
-	 *
-	 * @return the simple bag
-	 * @see java.util.List#clear()
-	 */
-	public SimpleBag clear() {
-		this.bag.clear();
-		return this;
-	}
+    /**
+     * Clear.
+     *
+     * @return the simple bag
+     * @see java.util.List#clear()
+     */
+    public SimpleBag clear() {
+        this.bag.clear();
+        return this;
+    }
 
-	/**
-	 * the current size of bag.
-	 *
-	 * @return the int
-	 */
-	public int count() {
-		return this.bag.size();
-	}
+    /**
+     * the current size of bag.
+     *
+     * @return the int
+     */
+    public int count() {
+        return this.bag.size();
+    }
 
-	/**
-	 * Checks if is empty.
-	 *
-	 * @return true, if is empty
-	 * @see java.util.List#isEmpty()
-	 */
-	public boolean isEmpty() {
-		return this.bag.isEmpty();
-	}
+    /**
+     * Checks if is empty.
+     *
+     * @return true, if is empty
+     * @see java.util.List#isEmpty()
+     */
+    public boolean isEmpty() {
+        return this.bag.isEmpty();
+    }
 
-	/**
-	 * Occupied.
-	 *
-	 * @return true, if successful
-	 */
-	public boolean occupied() {
-		return !this.bag.isEmpty();
-	}
+    /**
+     * Occupied.
+     *
+     * @return true, if successful
+     */
+    public boolean occupied() {
+        return !this.bag.isEmpty();
+    }
 
 }

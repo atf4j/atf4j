@@ -21,14 +21,14 @@ package net.atf4j.data;
  */
 public abstract class SetUpData extends AbstractConfig {
 
-	public SetUpData() {
-		super();
-	}
+    public SetUpData() {
+        super();
+    }
 
-	public abstract boolean setUp();
+    public abstract boolean setUp();
 
-	public abstract boolean reset();
+    public abstract boolean reset();
 
-	public abstract boolean tearDown();
+    public abstract boolean tearDown();
 
 }

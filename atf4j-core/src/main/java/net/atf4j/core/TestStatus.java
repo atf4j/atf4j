@@ -18,67 +18,67 @@ package net.atf4j.core;
 
 /**
  * TestStatus. IGNORED SKIPPED
- * 
+ *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
 public enum TestStatus {
-	/**
-	 * The test has not yet been run.
-	 */
-	PENDING("Unrun"),
-	
-	/** False premise - Failed Assumption. */
-	FALSE("False"),
-	/**
-	 * The test has been run and passed.
-	 */
-	PASSED("Passed"),
-	/**
-	 * The test has been run and failed.
-	 */
-	FAILED("Failed"),
-	/**
-	 * The Test failed to complete. Note : Distinction
-	 */
-	EXCEPTION("Exception");
+    /**
+     * The test has not yet been run.
+     */
+    PENDING("Unrun"),
 
-	/** The value. */
-	private final String value;
+    /** False premise - Failed Assumption. */
+    FALSE("False"),
+    /**
+     * The test has been run and passed.
+     */
+    PASSED("Passed"),
+    /**
+     * The test has been run and failed.
+     */
+    FAILED("Failed"),
+    /**
+     * The Test failed to complete. Note : Distinction
+     */
+    EXCEPTION("Exception");
 
-	/**
-	 * Constructor for Status.
-	 *
-	 * @param asText
-	 *            the as text
-	 */
-	TestStatus(final String asText) {
-		this.value = asText;
-	}
+    /** The value. */
+    private final String value;
 
-	/**
-	 * Status forString.
-	 *
-	 * @param asText
-	 *            the as text
-	 * @return Status value
-	 */
-	public static TestStatus forString(final String asText) {
-		for (final TestStatus value : values()) {
-			if (value.value.equals(asText)) {
-				return value;
-			}
-		}
-		return null;
-	}
+    /**
+     * Constructor for Status.
+     *
+     * @param asText
+     *            the as text
+     */
+    TestStatus(final String asText) {
+        this.value = asText;
+    }
 
-	/**
-	 * toString.
-	 *
-	 * @return Status value
-	 */
-	@Override
-	public String toString() {
-		return this.value;
-	}
+    /**
+     * Status forString.
+     *
+     * @param asText
+     *            the as text
+     * @return Status value
+     */
+    public static TestStatus forString(final String asText) {
+        for (final TestStatus value : values()) {
+            if (value.value.equals(asText)) {
+                return value;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * toString.
+     *
+     * @return Status value
+     */
+    @Override
+    public String toString() {
+        return this.value;
+    }
 
 }

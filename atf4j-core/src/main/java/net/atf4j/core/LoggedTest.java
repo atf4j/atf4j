@@ -24,42 +24,43 @@ import org.slf4j.LoggerFactory;
 
 public abstract class LoggedTest {
 
-	/** The Constant log. */
-	protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+    /** The Constant log. */
+    protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
-	/**
-	 * Verify two Strings are equal.
-	 *
-	 * @param expected
-	 *            the expected value.
-	 * @param actual
-	 *            the actual value.
-	 * @return the string
-	 */
-	protected String verify(final Object expected, final Object actual) {
-		log.trace("{}.getTestId", this.getClass().getSimpleName());
-		assertNotNull(expected);
-		assertNotNull(actual);
-		final boolean result = actual.equals(actual);
-		final String message = String.format("actual(%s) == expected(%s) - %s", expected, actual,
-				(result ? "PASSED" : "FAILED"));
-		log.info(message);
-		assertEquals(expected, actual);
-		return message;
-	}
+    /**
+     * Verify two Strings are equal.
+     *
+     * @param expected
+     *            the expected value.
+     * @param actual
+     *            the actual value.
+     * @return the string
+     */
+    protected String verify(final Object expected, final Object actual) {
+        log.trace("{}.getTestId", this.getClass().getSimpleName());
+        assertNotNull(expected);
+        assertNotNull(actual);
+        final boolean result = actual.equals(actual);
+        final String message = String.format("actual(%s) == expected(%s) - %s", expected, actual,
+                result ? "PASSED" : "FAILED");
+        log.info(message);
+        assertEquals(expected, actual);
+        return message;
+    }
 
-	/**
-	 * To description.
-	 *
-	 * @return the string
-	 * @throws ClassNotFoundException the class not found exception
-	 */
-	protected String toDescription() throws ClassNotFoundException {
-		final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-		for (final StackTraceElement stackTraceElement : stackTrace) {
-			final String candidateMethodName = stackTraceElement.getMethodName();
-			log.info(candidateMethodName);
-		}
-		return null;
-	}
+    /**
+     * To description.
+     *
+     * @return the string
+     * @throws ClassNotFoundException
+     *             the class not found exception
+     */
+    protected String toDescription() throws ClassNotFoundException {
+        final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        for (final StackTraceElement stackTraceElement : stackTrace) {
+            final String candidateMethodName = stackTraceElement.getMethodName();
+            log.info(candidateMethodName);
+        }
+        return null;
+    }
 }

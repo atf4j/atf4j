@@ -23,83 +23,83 @@ import java.util.Arrays;
  */
 public class Address {
 
-	/** The address. */
-	private String[] address;
+    /** The address. */
+    private String[] address;
 
-	/** The postcode. */
-	private Postcode postcode;
+    /** The postcode. */
+    private Postcode postcode;
 
-	/**
-	 * Instantiates a new address.
-	 */
-	public Address() {
-		super();
-	}
+    /**
+     * Instantiates a new address.
+     */
+    public Address() {
+        super();
+    }
 
-	/**
-	 * Instantiates a new address.
-	 *
-	 * @param address
-	 *            the address
-	 * @param postcode
-	 *            the postcode
-	 */
-	public Address(final String[] address, final Postcode postcode) {
-		super();
-		setAddress(address);
-		setPostcode(postcode);
-	}
+    /**
+     * Instantiates a new address.
+     *
+     * @param address
+     *            the address
+     * @param postcode
+     *            the postcode
+     */
+    public Address(final String[] address, final Postcode postcode) {
+        super();
+        setAddress(address);
+        setPostcode(postcode);
+    }
 
-	/**
-	 * Gets the address.
-	 *
-	 * @return the address
-	 */
-	public String[] getAddress() {
-		return this.address;
-	}
+    /**
+     * Gets the address.
+     *
+     * @return the address
+     */
+    public String[] getAddress() {
+        return this.address;
+    }
 
-	/**
-	 * Sets the address.
-	 *
-	 * @param address
-	 *            the new address
-	 * @return
-	 */
-	public Address setAddress(final String[] address) {
-		this.address = address;
-		return this;
-	}
+    /**
+     * Sets the address.
+     *
+     * @param address
+     *            the new address
+     * @return
+     */
+    public Address setAddress(final String[] address) {
+        this.address = address;
+        return this;
+    }
 
-	/**
-	 * Gets the postcode.
-	 *
-	 * @return the postcode
-	 */
-	public Postcode getPostcode() {
-		return this.postcode;
-	}
+    /**
+     * Gets the postcode.
+     *
+     * @return the postcode
+     */
+    public Postcode getPostcode() {
+        return this.postcode;
+    }
 
-	/**
-	 * Sets the postcode.
-	 *
-	 * @param postcode
-	 *            the new postcode
-	 * @return
-	 */
-	public Address setPostcode(final Postcode postcode) {
-		this.postcode = postcode;
-		return this;
-	}
+    /**
+     * Sets the postcode.
+     *
+     * @param postcode
+     *            the new postcode
+     * @return
+     */
+    public Address setPostcode(final Postcode postcode) {
+        this.postcode = postcode;
+        return this;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return String.format("Address [address=%s, postcode=%s]", Arrays.toString(this.address), this.postcode);
-	}
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return String.format("Address [address=%s, postcode=%s]", Arrays.toString(this.address), this.postcode);
+    }
 
 }

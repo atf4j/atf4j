@@ -26,50 +26,50 @@ import java.util.regex.Pattern;
  */
 public class Postcode {
 
-	/** The Constant pattern. */
-	private static final Pattern pattern = Pattern.compile("^[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][ABD-HJLNP-UW-Z]{2}$");
+    /** The Constant pattern. */
+    private static final Pattern pattern = Pattern.compile("^[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][ABD-HJLNP-UW-Z]{2}$");
 
-	/** The post code. */
-	private String postCode;
+    /** The post code. */
+    private String postCode;
 
-	/**
-	 * Instantiates a new postcode.
-	 */
-	public Postcode() {
-		super();
-	}
+    /**
+     * Instantiates a new postcode.
+     */
+    public Postcode() {
+        super();
+    }
 
-	/**
-	 * Instantiates a new postcode.
-	 *
-	 * @param postCode
-	 *            the post code
-	 */
-	public Postcode(final String postCode) {
-		super();
-		this.postCode = postCode;
-	}
+    /**
+     * Instantiates a new postcode.
+     *
+     * @param postCode
+     *            the post code
+     */
+    public Postcode(final String postCode) {
+        super();
+        this.postCode = postCode;
+    }
 
-	/**
-	 * Verify.
-	 *
-	 * @param postcode
-	 *            the postcode
-	 * @return true, if successful
-	 */
-	public boolean verify(final String postcode) {
-		final Matcher matcher = pattern.matcher(postcode);
-		return matcher.find();
-	}
+    /**
+     * Verify.
+     *
+     * @param postcode
+     *            the postcode
+     * @return true, if successful
+     */
+    public boolean verify(final String postcode) {
+        final Matcher matcher = pattern.matcher(postcode);
+        return matcher.find();
+    }
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return String.format("Postcode [postCode=%s]", this.postCode);
-	}
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return String.format("Postcode [postCode=%s]", this.postCode);
+    }
 
 }

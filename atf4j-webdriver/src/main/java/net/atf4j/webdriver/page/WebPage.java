@@ -31,106 +31,109 @@ import net.atf4j.webdriver.WebDriverConfig;
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
 public abstract class WebPage {
-	
-	/** The Constant log. */
-	protected static final Logger log = LoggerFactory.getLogger(WebPage.class);
-	
-	/** The config. */
-	protected WebDriverConfig config;
-	
-	/** The web driver. */
-	protected WebDriver webDriver;
-	
-	/** The timeout. */
-	protected int timeout = 15;
-	
-	/** The page url. */
-	protected String pageUrl = "http://127.0.0.1:8080";
 
-	/**
-	 * Instantiates a new web page.
-	 */
-	public WebPage() {
-		try {
-			this.config = new WebDriverConfig();
-		} catch (final MissingPropertyFileException e) {
-			WebPage.log.error(e.toString());
-		}
-		this.webDriver = new HtmlUnitDriver();
-	}
+    /** The Constant log. */
+    protected static final Logger log = LoggerFactory.getLogger(WebPage.class);
 
-	/**
-	 * Instantiates a new web page.
-	 *
-	 * @param url the url
-	 */
-	public WebPage(final String url) {
-		open(url);
-	}
+    /** The config. */
+    protected WebDriverConfig config;
 
-	/**
-	 * Instantiates a new abstract page object.
-	 *
-	 * @param webDriver
-	 *            the web driver
-	 */
-	public WebPage(final WebDriver webDriver) {
-		setWebDriver(webDriver);
-	}
+    /** The web driver. */
+    protected WebDriver webDriver;
 
-	/**
-	 * Open.
-	 *
-	 * @return the web page
-	 */
-	public WebPage open() {
-		final String targetUrl = this.config.getTargetUrl();
-		return open(targetUrl);
-	}
+    /** The timeout. */
+    protected int timeout = 15;
 
-	/**
-	 * Open.
-	 *
-	 * @param pageUrl the page url
-	 * @return the open as PageInterface
-	 * @see net.atf4j.webdriver.page.PageInterface#open()
-	 */
-	public WebPage open(final String pageUrl) {
-		this.webDriver.get(pageUrl);
-		PageFactory.initElements(this.webDriver, this);
-		return this;
-	}
+    /** The page url. */
+    protected String pageUrl = "http://127.0.0.1:8080";
 
-	/**
-	 * Verify that page is valid.
-	 *
-	 * @return false to ensure this method is implemented.
-	 * @see net.atf4j.webdriver.page.PageInterface#verify()
-	 */
-	public boolean verify() {
-		this.webDriver.getTitle();
-		return true;
-	}
+    /**
+     * Instantiates a new web page.
+     */
+    public WebPage() {
+        try {
+            this.config = new WebDriverConfig();
+        } catch (final MissingPropertyFileException e) {
+            WebPage.log.error(e.toString());
+        }
+        this.webDriver = new HtmlUnitDriver();
+    }
 
-	/**
-	 * Sets the web driver.
-	 *
-	 * @param webDriver            the new web driver
-	 * @return the web page
-	 */
-	protected WebPage setWebDriver(final WebDriver webDriver) {
-		this.webDriver = webDriver;
-		return this;
-	}
+    /**
+     * Instantiates a new web page.
+     *
+     * @param url
+     *            the url
+     */
+    public WebPage(final String url) {
+        open(url);
+    }
 
-	/**
-	 * Close.
-	 *
-	 * @return the web page
-	 */
-	public WebPage close() {
-		this.webDriver.close();
-		return this;
-	}
+    /**
+     * Instantiates a new abstract page object.
+     *
+     * @param webDriver
+     *            the web driver
+     */
+    public WebPage(final WebDriver webDriver) {
+        setWebDriver(webDriver);
+    }
+
+    /**
+     * Open.
+     *
+     * @return the web page
+     */
+    public WebPage open() {
+        final String targetUrl = this.config.getTargetUrl();
+        return open(targetUrl);
+    }
+
+    /**
+     * Open.
+     *
+     * @param pageUrl
+     *            the page url
+     * @return the open as PageInterface
+     * @see net.atf4j.webdriver.page.PageInterface#open()
+     */
+    public WebPage open(final String pageUrl) {
+        this.webDriver.get(pageUrl);
+        PageFactory.initElements(this.webDriver, this);
+        return this;
+    }
+
+    /**
+     * Verify that page is valid.
+     *
+     * @return false to ensure this method is implemented.
+     * @see net.atf4j.webdriver.page.PageInterface#verify()
+     */
+    public boolean verify() {
+        this.webDriver.getTitle();
+        return true;
+    }
+
+    /**
+     * Sets the web driver.
+     *
+     * @param webDriver
+     *            the new web driver
+     * @return the web page
+     */
+    protected WebPage setWebDriver(final WebDriver webDriver) {
+        this.webDriver = webDriver;
+        return this;
+    }
+
+    /**
+     * Close.
+     *
+     * @return the web page
+     */
+    public WebPage close() {
+        this.webDriver.close();
+        return this;
+    }
 
 }

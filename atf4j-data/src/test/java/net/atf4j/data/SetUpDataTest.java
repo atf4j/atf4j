@@ -21,23 +21,23 @@ import org.junit.Test;
 
 public class SetUpDataTest {
 
-	protected SetUpData jdbcData = new JdbcData();
-	protected SetUpData jmsData = new JmsData();
-	protected SetUpData restfulData = new RestfulData();
+    protected SetUpData jdbcData = new JdbcData();
+    protected SetUpData jmsData = new JmsData();
+    protected SetUpData restfulData = new RestfulData();
 
-	@Before
-	public void before() {
-		assertTrue(this.jdbcData.setUp());
-	}
+    @Before
+    public void before() {
+        assertTrue(this.jdbcData.setUp());
+    }
 
-	@After
-	public void after() {
-		assertTrue(this.jdbcData.tearDown());
-	}
+    @After
+    public void after() {
+        assertTrue(this.jdbcData.tearDown());
+    }
 
-	@Test
-	public void test() {
-		assertTrue(this.jdbcData.reset());
-	}
+    @Test
+    public void test() {
+        assertTrue(this.jdbcData.reset());
+    }
 
 }

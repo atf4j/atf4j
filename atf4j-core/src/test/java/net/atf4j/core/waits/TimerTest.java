@@ -28,54 +28,54 @@ import net.atf4j.core.timers.MilliTimer;
  */
 public class TimerTest extends LoggedTest {
 
-	/** The Constant DEFAULT_INTERVAL. */
-	private static final int DEFAULT_INTERVAL = 100;
+    /** The Constant DEFAULT_INTERVAL. */
+    private static final int DEFAULT_INTERVAL = 100;
 
-	/** The delta. */
-	private long delta = 1000;
+    /** The delta. */
+    private long delta = 1000;
 
-	/**
-	 * Instrument the actual timer its self. Calculates the delta for tests.
-	 * Test method for
-	 * {@link net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
-	 */
-	@Test
-	public final void testTimer0() {
-		final ITimer timer = new MilliTimer(this.getClass().getSimpleName());
-		timer.start();
-		// NOP elapsed time should be close to zero
-		timer.stop();
-		log.info("testTimer0.Start Time=" + timer.getStartTime());
-		log.info("testTimer0.Elapsed Time=" + timer.getElapsedTime());
-		log.info("testTimer0." + timer.toString() + " Elapsed time not within delta (" + delta + ")");
-		org.junit.Assume.assumeTrue(timer.getElapsedTime() <= delta);
-		delta = timer.getElapsedTime();
-	}
+    /**
+     * Instrument the actual timer its self. Calculates the delta for tests.
+     * Test method for
+     * {@link net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
+     */
+    @Test
+    public final void testTimer0() {
+        final ITimer timer = new MilliTimer(this.getClass().getSimpleName());
+        timer.start();
+        // NOP elapsed time should be close to zero
+        timer.stop();
+        log.info("testTimer0.Start Time=" + timer.getStartTime());
+        log.info("testTimer0.Elapsed Time=" + timer.getElapsedTime());
+        log.info("testTimer0." + timer.toString() + " Elapsed time not within delta (" + this.delta + ")");
+        org.junit.Assume.assumeTrue(timer.getElapsedTime() <= this.delta);
+        this.delta = timer.getElapsedTime();
+    }
 
-	/**
-	 * Test method for
-	 * {@link net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
-	 */
-	@Test
-	public final void testTimerOneSec() {
-		final ITimer timer = new MilliTimer(this.getClass().getSimpleName());
-		timer.start();
-		waitDefaultInterval();
-		timer.stop();
-		log.info("testTimerOneSec.Start Time=" + timer.getStartTime());
-		log.info("testTimerOneSec.Elapsed Time=" + timer.getElapsedTime());
-		Assert.assertTrue(timer.toString() + " Elapsed time not within delta (" + delta + ")",
-				timer.getElapsedTime() <= (DEFAULT_INTERVAL + delta));
-	}
+    /**
+     * Test method for
+     * {@link net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
+     */
+    @Test
+    public final void testTimerOneSec() {
+        final ITimer timer = new MilliTimer(this.getClass().getSimpleName());
+        timer.start();
+        waitDefaultInterval();
+        timer.stop();
+        log.info("testTimerOneSec.Start Time=" + timer.getStartTime());
+        log.info("testTimerOneSec.Elapsed Time=" + timer.getElapsedTime());
+        Assert.assertTrue(timer.toString() + " Elapsed time not within delta (" + this.delta + ")",
+                timer.getElapsedTime() <= DEFAULT_INTERVAL + this.delta);
+    }
 
-	/**
-	 * Wait default interval.
-	 */
-	private void waitDefaultInterval() {
-		try {
-			Thread.sleep(TimerTest.DEFAULT_INTERVAL);
-		} catch (final InterruptedException interruptedException) {
-			interruptedException.printStackTrace(System.err);
-		}
-	}
+    /**
+     * Wait default interval.
+     */
+    private void waitDefaultInterval() {
+        try {
+            Thread.sleep(TimerTest.DEFAULT_INTERVAL);
+        } catch (final InterruptedException interruptedException) {
+            interruptedException.printStackTrace(System.err);
+        }
+    }
 }

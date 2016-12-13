@@ -18,15 +18,15 @@ package net.atf4j.core;
 
 /**
  * The ToName Marker Interface.
- * 
+ *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
 public interface ToName {
 
-	/**
-	 * To name.
-	 *
-	 * @return the string
-	 */
-	public String toName();
+    /**
+     * To name.
+     *
+     * @return the string
+     */
+    public String toName();
 }

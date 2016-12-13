@@ -23,111 +23,111 @@ import net.atf4j.core.timers.NestedTimers;
  */
 public class NestedTimersTest extends LoggedTest {
 
-	/** The Constant DEFAULT_INTERVAL. */
-	private static final int DEFAULT_INTERVAL = 1000;
+    /** The Constant DEFAULT_INTERVAL. */
+    private static final int DEFAULT_INTERVAL = 1000;
 
-	@Test
-	public final void test() {
-		Atf4j.startTest("startTest");
-		Atf4j.startStep("startStepOne");
-		Atf4j.endStep();
-		Atf4j.startStep("startStepTwo");
-		Atf4j.endStep();
-		Atf4j.endTest();
-	}
+    @Test
+    public final void test() {
+        Atf4j.startTest("startTest");
+        Atf4j.startStep("startStepOne");
+        Atf4j.endStep();
+        Atf4j.startStep("startStepTwo");
+        Atf4j.endStep();
+        Atf4j.endTest();
+    }
 
-	@Test
-	public final void testNestedTimers() {
-		final NestedTimers multiTimers = NestedTimers.getInstance();
-		for (int i = 0; i < 10; i++) {
-			log.info(multiTimers.startTimer(String.format("Test case Timer %s", i)).toString());
-		}
-		for (int i = 0; i < 10; i++) {
-			log.info(multiTimers.stopTimer().toString());
-		}
-	}
+    @Test
+    public final void testNestedTimers() {
+        final NestedTimers multiTimers = NestedTimers.getInstance();
+        for (int i = 0; i < 10; i++) {
+            log.info(multiTimers.startTimer(String.format("Test case Timer %s", i)).toString());
+        }
+        for (int i = 0; i < 10; i++) {
+            log.info(multiTimers.stopTimer().toString());
+        }
+    }
 
-	/**
-	 * Test method for
-	 * {@link net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
-	 */
-	@Ignore
-	@Test
-	public final void testTimerInstance() {
-		final NestedTimers multiTimers = NestedTimers.getInstance();
-		multiTimers.startTimer("Timer Instance : Test case 1");
-		waitDefaultInterval();
-		multiTimers.startTimer("Timer Instance : Test case 2");
-		waitDefaultInterval();
-		multiTimers.startTimer("Timer Instance : Test case 3");
-		waitDefaultInterval();
-		multiTimers.startTimer("Timer Instance : Test case 4");
-		waitDefaultInterval();
-		multiTimers.startTimer("Timer Instance : Test case 5");
-		waitDefaultInterval();
-		System.err.println("runningTimersAsString\n" + multiTimers.runningTimersAsString());
-		System.err.println("stop : " + multiTimers.stopTimer().toString());
-		System.err.println("stop : " + multiTimers.stopTimer().toString());
-		System.err.println("stop : " + multiTimers.stopTimer().toString());
-		System.err.println("stop : " + multiTimers.stopTimer().toString());
-		System.err.println("stop : " + multiTimers.stopTimer().toString());
-		NestedTimers.stopAll();
-		System.err.println("stoppedTimersAsString()\n" + multiTimers.stoppedTimersAsString());
-	}
+    /**
+     * Test method for
+     * {@link net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
+     */
+    @Ignore
+    @Test
+    public final void testTimerInstance() {
+        final NestedTimers multiTimers = NestedTimers.getInstance();
+        multiTimers.startTimer("Timer Instance : Test case 1");
+        waitDefaultInterval();
+        multiTimers.startTimer("Timer Instance : Test case 2");
+        waitDefaultInterval();
+        multiTimers.startTimer("Timer Instance : Test case 3");
+        waitDefaultInterval();
+        multiTimers.startTimer("Timer Instance : Test case 4");
+        waitDefaultInterval();
+        multiTimers.startTimer("Timer Instance : Test case 5");
+        waitDefaultInterval();
+        System.err.println("runningTimersAsString\n" + multiTimers.runningTimersAsString());
+        System.err.println("stop : " + multiTimers.stopTimer().toString());
+        System.err.println("stop : " + multiTimers.stopTimer().toString());
+        System.err.println("stop : " + multiTimers.stopTimer().toString());
+        System.err.println("stop : " + multiTimers.stopTimer().toString());
+        System.err.println("stop : " + multiTimers.stopTimer().toString());
+        NestedTimers.stopAll();
+        System.err.println("stoppedTimersAsString()\n" + multiTimers.stoppedTimersAsString());
+    }
 
-	/**
-	 * Test method for
-	 * {@link net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
-	 */
-	@Ignore
-	@Test
-	public final void testStaticNamedTimers() {
-		NestedTimers.start("Static Named Timers Test case 1");
-		waitDefaultInterval();
-		NestedTimers.start("Static Named Timers Test case 2");
-		waitDefaultInterval();
-		NestedTimers.start("Static Named Timers Test case 3");
-		waitDefaultInterval();
-		NestedTimers.start("Static Named Timers Test case 4");
-		waitDefaultInterval();
-		NestedTimers.start("Static Named Timers Test case 5");
-		waitDefaultInterval();
-		System.err.println(NestedTimers.stop().toString());
-		System.err.println(NestedTimers.stop().toString());
-		System.err.println(NestedTimers.stop().toString());
-		System.err.println(NestedTimers.stop().toString());
-		System.err.println(NestedTimers.stop().toString());
-		NestedTimers.stopAll();
-	}
+    /**
+     * Test method for
+     * {@link net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
+     */
+    @Ignore
+    @Test
+    public final void testStaticNamedTimers() {
+        NestedTimers.start("Static Named Timers Test case 1");
+        waitDefaultInterval();
+        NestedTimers.start("Static Named Timers Test case 2");
+        waitDefaultInterval();
+        NestedTimers.start("Static Named Timers Test case 3");
+        waitDefaultInterval();
+        NestedTimers.start("Static Named Timers Test case 4");
+        waitDefaultInterval();
+        NestedTimers.start("Static Named Timers Test case 5");
+        waitDefaultInterval();
+        System.err.println(NestedTimers.stop().toString());
+        System.err.println(NestedTimers.stop().toString());
+        System.err.println(NestedTimers.stop().toString());
+        System.err.println(NestedTimers.stop().toString());
+        System.err.println(NestedTimers.stop().toString());
+        NestedTimers.stopAll();
+    }
 
-	/**
-	 * Test method for
-	 * {@link net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
-	 */
-	@Ignore
-	@Test
-	public final void testTimerStarting() {
-		NestedTimers.start("Timer Starting Test case 1");
-		waitDefaultInterval();
-		NestedTimers.start("Timer Starting Test case 2");
-		waitDefaultInterval();
-		NestedTimers.start("Timer Starting Test case 3");
-		waitDefaultInterval();
-		NestedTimers.start("Timer Starting Test case 4");
-		waitDefaultInterval();
-		NestedTimers.start("Timer Starting Test case 5");
-		waitDefaultInterval();
-		NestedTimers.stopAll();
-	}
+    /**
+     * Test method for
+     * {@link net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
+     */
+    @Ignore
+    @Test
+    public final void testTimerStarting() {
+        NestedTimers.start("Timer Starting Test case 1");
+        waitDefaultInterval();
+        NestedTimers.start("Timer Starting Test case 2");
+        waitDefaultInterval();
+        NestedTimers.start("Timer Starting Test case 3");
+        waitDefaultInterval();
+        NestedTimers.start("Timer Starting Test case 4");
+        waitDefaultInterval();
+        NestedTimers.start("Timer Starting Test case 5");
+        waitDefaultInterval();
+        NestedTimers.stopAll();
+    }
 
-	/**
-	 * Wait default interval.
-	 */
-	private void waitDefaultInterval() {
-		try {
-			Thread.sleep(DEFAULT_INTERVAL);
-		} catch (final InterruptedException interruptedException) {
-			interruptedException.printStackTrace(System.err);
-		}
-	}
+    /**
+     * Wait default interval.
+     */
+    private void waitDefaultInterval() {
+        try {
+            Thread.sleep(DEFAULT_INTERVAL);
+        } catch (final InterruptedException interruptedException) {
+            interruptedException.printStackTrace(System.err);
+        }
+    }
 }

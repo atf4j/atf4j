@@ -29,38 +29,39 @@ import net.atf4j.data.AbstractDataLoader;
  */
 public class DataLoaderTest extends LoggedTest {
 
-	protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+    protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
-	/**
-	 * The Class MissingData.
-	 */
-	protected class MissingData extends AbstractDataLoader {
-	}
+    /**
+     * The Class MissingData.
+     */
+    protected class MissingData extends AbstractDataLoader {
+    }
 
-	/**
-	 * The Class TestData.
-	 */
-	protected class TestData extends AbstractDataLoader {
-	}
+    /**
+     * The Class TestData.
+     */
+    protected class TestData extends AbstractDataLoader {
+    }
 
-	/**
-	 * Test missing data.
-	 */
-	@Test
-	public void testMissingData() {
-		final MissingData missingData = new MissingData();
-		Assert.assertNotNull(missingData);
-	}
+    /**
+     * Test missing data.
+     */
+    @Test
+    public void testMissingData() {
+        final MissingData missingData = new MissingData();
+        Assert.assertNotNull(missingData);
+    }
 
-	/**
-	 * Test load data.
-	 * @throws Exception 
-	 */
-	@Test
-	public void testLoadData() throws Exception {
-		final TestData testData = new TestData();
-		Assert.assertNotNull(testData);
-		log.debug(testData.load().toString());
-	}
+    /**
+     * Test load data.
+     * 
+     * @throws Exception
+     */
+    @Test
+    public void testLoadData() throws Exception {
+        final TestData testData = new TestData();
+        Assert.assertNotNull(testData);
+        log.debug(testData.load().toString());
+    }
 
 }

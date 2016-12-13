@@ -22,34 +22,34 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.atf4j.core.AbstractConfig.MissingPropertyFileException;
-
 /**
  * The Class AddressFactoryTest.
  */
 public class AddressFactoryTest {
-	protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+    protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
-	/**
-	 * Test Data Mock.
-	 */
-	public class TestData extends AddressFactory {
-		/**
-		 * Instantiates a new mock data.
-		 * @throws Exception 
-		 */
-		public TestData() throws Exception {
-			super();
-		}
-	}
+    /**
+     * Test Data Mock.
+     */
+    public class TestData extends AddressFactory {
+        /**
+         * Instantiates a new mock data.
+         * 
+         * @throws Exception
+         */
+        public TestData() throws Exception {
+            super();
+        }
+    }
 
-	/**
-	 * Test create.
-	 * @throws Exception 
-	 */
-	@Test
-	public void testCreate() throws Exception {
-		final TestData mockData = new TestData();
-		assertNotNull(mockData);
-	}
+    /**
+     * Test create.
+     * 
+     * @throws Exception
+     */
+    @Test
+    public void testCreate() throws Exception {
+        final TestData mockData = new TestData();
+        assertNotNull(mockData);
+    }
 }

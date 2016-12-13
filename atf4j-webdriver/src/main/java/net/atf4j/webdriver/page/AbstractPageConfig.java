@@ -25,13 +25,14 @@ import net.atf4j.webdriver.WebDriverConfig;
  */
 public abstract class AbstractPageConfig extends WebDriverConfig {
 
-	/**
-	 * Instantiates a new abstract page config.
-	 *
-	 * @throws MissingPropertyFileException the missing property file exception
-	 */
-	public AbstractPageConfig() throws MissingPropertyFileException {
-		super();
-	}
+    /**
+     * Instantiates a new abstract page config.
+     *
+     * @throws MissingPropertyFileException
+     *             the missing property file exception
+     */
+    public AbstractPageConfig() throws MissingPropertyFileException {
+        super();
+    }
 
 }

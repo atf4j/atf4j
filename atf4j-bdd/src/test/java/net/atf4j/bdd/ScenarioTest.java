@@ -20,32 +20,29 @@ import org.junit.Assert;
 import org.junit.Assume;
 import org.junit.Test;
 
-import net.atf4j.bdd.AbstractLoggedScenario;
-import net.atf4j.bdd.Atf4j;
 import net.atf4j.bdd.Atf4j.Scenario;
-import net.atf4j.bdd.ScenarioRunner;
 
 @Scenario("Scenario")
 public class ScenarioTest extends AbstractLoggedScenario {
 
-	@Test
-	public void testScenarioRunner() {
-		new ScenarioRunner(this).execute();
-	}
+    @Test
+    public void testScenarioRunner() {
+        new ScenarioRunner(this).execute();
+    }
 
-	@Atf4j.Given("Given")
-	public void testPassGiven() {
-		Assume.assumeTrue(true);
-	}
+    @Atf4j.Given("Given")
+    public void testPassGiven() {
+        Assume.assumeTrue(true);
+    }
 
-	@Atf4j.When("When")
-	public void testPassWhen() {
-		Assert.assertTrue(true);
-	}
+    @Atf4j.When("When")
+    public void testPassWhen() {
+        Assert.assertTrue(true);
+    }
 
-	@Atf4j.Then("Then")
-	public void testPassThen() {
-		Assert.assertTrue(true);
-	}
+    @Atf4j.Then("Then")
+    public void testPassThen() {
+        Assert.assertTrue(true);
+    }
 
 }

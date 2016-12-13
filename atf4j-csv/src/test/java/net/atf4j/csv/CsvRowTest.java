@@ -14,8 +14,34 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.atf4j.data;
+package net.atf4j.csv;
 
-public enum FieldStatus {
-    PRISTINE, CHANGED, PERSISTED, UNWANTED;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+public class CsvRowTest {
+    @Test
+    public void testDefaultCsvRow() {
+        new CsvRow();
+    }
+
+    @Test
+    public void testEmptyCsvRow() {
+        new CsvRow("");
+    }
+
+    @Test
+    public void testGetFields() {
+        final CsvRow csvRow = new CsvRow("One,Two,Three,Four");
+        assertEquals("One", csvRow.getField(1));
+        assertEquals("Two", csvRow.getField(2));
+        assertEquals("Three", csvRow.getField(3));
+        assertEquals("Four", csvRow.getField(4));
+    }
+
+    @Test
+    public void testToString() {
+        new CsvRow("1,2,3,4");
+    }
 }

@@ -3,10 +3,12 @@
 
 ## Code
 
+A simple example using the logger to report
+
 	@Test
 	@Atf4j.TestId("EXAMPLE-0001-1")
 	@Atf4j.TestName("testEample")
-	@Atf4j.TestDescription("Example showing annotations with static context")
+	@Atf4j.TestDescription("Example showing test annotation definition and retrieval")
 	public final void testExample() throws Exception {
 		log.trace(this.getClass().getSimpleName() + ".testAnnotationsWithPass");
 		log.info("Test ID : = {} ", AnnotationHelper.getTestId());

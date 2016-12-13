@@ -25,13 +25,14 @@ import net.atf4j.webdriver.WebDriverConfig;
  */
 public class PageConfig extends WebDriverConfig {
 
-	/**
-	 * Instantiates a new page config.
-	 *
-	 * @throws MissingPropertyFileException the missing property file exception
-	 */
-	public PageConfig() throws MissingPropertyFileException {
-		super();
-	}
+    /**
+     * Instantiates a new page config.
+     *
+     * @throws MissingPropertyFileException
+     *             the missing property file exception
+     */
+    public PageConfig() throws MissingPropertyFileException {
+        super();
+    }
 
 }

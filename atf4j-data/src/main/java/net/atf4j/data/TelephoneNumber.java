@@ -23,50 +23,50 @@ package net.atf4j.data;
  */
 public class TelephoneNumber {
 
-	/** The number. */
-	private String number;
-	// Type Mobile|Landline|Fax|other
-	// Country Code
-	// Area Code
-	// Number
+    /** The number. */
+    private String number;
+    // Type Mobile|Landline|Fax|other
+    // Country Code
+    // Area Code
+    // Number
 
-	/**
-	 * Instantiates a new telephone number.
-	 */
-	public TelephoneNumber() {
-		super();
-	}
+    /**
+     * Instantiates a new telephone number.
+     */
+    public TelephoneNumber() {
+        super();
+    }
 
-	/**
-	 * Instantiates a new telephone number.
-	 *
-	 * @param number
-	 *            the number
-	 */
-	public TelephoneNumber(final String number) {
-		super();
-		this.number = number;
-	}
+    /**
+     * Instantiates a new telephone number.
+     *
+     * @param number
+     *            the number
+     */
+    public TelephoneNumber(final String number) {
+        super();
+        this.number = number;
+    }
 
-	/**
-	 * Gets the number.
-	 *
-	 * @return the number
-	 */
-	public String getNumber() {
-		return this.number;
-	}
+    /**
+     * Gets the number.
+     *
+     * @return the number
+     */
+    public String getNumber() {
+        return this.number;
+    }
 
-	/**
-	 * Sets the number.
-	 *
-	 * @param number
-	 *            the number to set
-	 * @return the telephone number
-	 */
-	public TelephoneNumber setNumber(final String number) {
-		this.number = number;
-		return this;
-	}
+    /**
+     * Sets the number.
+     *
+     * @param number
+     *            the number to set
+     * @return the telephone number
+     */
+    public TelephoneNumber setNumber(final String number) {
+        this.number = number;
+        return this;
+    }
 
 }

@@ -27,30 +27,30 @@ import net.atf4j.csv.CsvFile;
  */
 public class AbstractDataFactory extends AbstractConfig {
 
-	protected CsvFile dataFile;
+    protected CsvFile dataFile;
 
     public AbstractDataFactory() throws Exception {
-		super();
-		loadData();
-	}
+        super();
+        loadData();
+    }
 
-	protected void loadData() throws Exception {
-		final Enumeration<Object> keys = this.properties.keys();
-		while (keys.hasMoreElements()) {
-			final String key = (String) keys.nextElement();
-			if (key.startsWith("datafile.")) {
-				final String dataFilename = this.properties.getProperty(key);
-				loadData(dataFilename);
-			}
-		}
-	}
+    protected void loadData() throws Exception {
+        final Enumeration<Object> keys = this.properties.keys();
+        while (keys.hasMoreElements()) {
+            final String key = (String) keys.nextElement();
+            if (key.startsWith("datafile.")) {
+                final String dataFilename = this.properties.getProperty(key);
+                loadData(dataFilename);
+            }
+        }
+    }
 
-	private void loadData(final String dataFilename) throws Exception {
-		try {
-			dataFile = new CsvFile(dataFilename);
-		} catch (final IOException e) {
-			e.printStackTrace();
-		}
-	}
+    private void loadData(final String dataFilename) throws Exception {
+        try {
+            this.dataFile = new CsvFile(dataFilename);
+        } catch (final IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

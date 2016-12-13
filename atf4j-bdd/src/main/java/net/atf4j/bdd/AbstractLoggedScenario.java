@@ -21,6 +21,6 @@ import org.slf4j.LoggerFactory;
 
 public abstract class AbstractLoggedScenario {
 
-	protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+    protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
 }

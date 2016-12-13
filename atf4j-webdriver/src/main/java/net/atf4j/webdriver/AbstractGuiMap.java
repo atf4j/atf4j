@@ -29,129 +29,129 @@ import java.util.Set;
  */
 public abstract class AbstractGuiMap {
 
-	/** The resource bundle. */
-	private final ResourceBundle resourceBundle;
+    /** The resource bundle. */
+    private final ResourceBundle resourceBundle;
 
-	/**
-	 * Gets the string array.
-	 *
-	 * @param key
-	 *            the key
-	 * @return the string array
-	 * @see java.util.ResourceBundle#getStringArray(java.lang.String)
-	 */
-	public final String[] getStringArray(final String key) {
-		return this.resourceBundle.getStringArray(key);
-	}
+    /**
+     * Gets the string array.
+     *
+     * @param key
+     *            the key
+     * @return the string array
+     * @see java.util.ResourceBundle#getStringArray(java.lang.String)
+     */
+    public final String[] getStringArray(final String key) {
+        return this.resourceBundle.getStringArray(key);
+    }
 
-	/**
-	 * Gets the locale.
-	 *
-	 * @return the locale
-	 * @see java.util.ResourceBundle#getLocale()
-	 */
-	public Locale getLocale() {
-		return this.resourceBundle.getLocale();
-	}
+    /**
+     * Gets the locale.
+     *
+     * @return the locale
+     * @see java.util.ResourceBundle#getLocale()
+     */
+    public Locale getLocale() {
+        return this.resourceBundle.getLocale();
+    }
 
-	/**
-	 * Key set.
-	 *
-	 * @return the sets the
-	 * @see java.util.ResourceBundle#keySet()
-	 */
-	public Set<String> keySet() {
-		return this.resourceBundle.keySet();
-	}
+    /**
+     * Key set.
+     *
+     * @return the sets the
+     * @see java.util.ResourceBundle#keySet()
+     */
+    public Set<String> keySet() {
+        return this.resourceBundle.keySet();
+    }
 
-	/**
-	 * Instantiates a new abstract gui map.
-	 */
-	public AbstractGuiMap() {
-		this.resourceBundle = ResourceBundle.getBundle(this.getClass().getName());
-	}
+    /**
+     * Instantiates a new abstract gui map.
+     */
+    public AbstractGuiMap() {
+        this.resourceBundle = ResourceBundle.getBundle(this.getClass().getName());
+    }
 
-	/**
-	 * Instantiates a new logical gui map.
-	 *
-	 * @param aClass
-	 *            the a class
-	 */
-	public AbstractGuiMap(final Class<?> aClass) {
-		this.resourceBundle = ResourceBundle.getBundle(aClass.getName());
-		Class<?> currentClass = aClass;
-		do {
-			ResourceBundle.getBundle(currentClass.getName());
-			final Class<?> superClass = currentClass.getSuperclass();
-			currentClass = superClass;
-		} while (currentClass != null);
-	}
+    /**
+     * Instantiates a new logical gui map.
+     *
+     * @param aClass
+     *            the a class
+     */
+    public AbstractGuiMap(final Class<?> aClass) {
+        this.resourceBundle = ResourceBundle.getBundle(aClass.getName());
+        Class<?> currentClass = aClass;
+        do {
+            ResourceBundle.getBundle(currentClass.getName());
+            final Class<?> superClass = currentClass.getSuperclass();
+            currentClass = superClass;
+        } while (currentClass != null);
+    }
 
-	/**
-	 * Instantiates a new logical gui map.
-	 *
-	 * @param useBundleName
-	 *            the use bundle name
-	 */
-	public AbstractGuiMap(final String useBundleName) {
-		this.resourceBundle = ResourceBundle.getBundle(useBundleName);
-	}
+    /**
+     * Instantiates a new logical gui map.
+     *
+     * @param useBundleName
+     *            the use bundle name
+     */
+    public AbstractGuiMap(final String useBundleName) {
+        this.resourceBundle = ResourceBundle.getBundle(useBundleName);
+    }
 
-	/**
-	 * Gets the string.
-	 *
-	 * @param key
-	 *            the key
-	 * @return the string
-	 */
-	public final String getString(final String key) {
-		return this.resourceBundle.getString(key);
-	}
+    /**
+     * Gets the string.
+     *
+     * @param key
+     *            the key
+     * @return the string
+     */
+    public final String getString(final String key) {
+        return this.resourceBundle.getString(key);
+    }
 
-	/**
-	 * Gets the keys.
-	 *
-	 * @return the keys
-	 */
-	public Enumeration<String> getKeys() {
-		return this.resourceBundle.getKeys();
-	}
+    /**
+     * Gets the keys.
+     *
+     * @return the keys
+     */
+    public Enumeration<String> getKeys() {
+        return this.resourceBundle.getKeys();
+    }
 
-	/**
-	 * Contains key.
-	 *
-	 * @param key
-	 *            the key
-	 * @return true, if successful
-	 */
-	public boolean containsKey(final String key) {
-		return this.resourceBundle.containsKey(key);
-	}
+    /**
+     * Contains key.
+     *
+     * @param key
+     *            the key
+     * @return true, if successful
+     */
+    public boolean containsKey(final String key) {
+        return this.resourceBundle.containsKey(key);
+    }
 
-	/**
-	 * Dump the Resource Bundle data to a PrintStream.
-	 *
-	 * @param out
-	 *            the destination Print Stream.
-	 */
-	public void dumpTo(final PrintStream out) {
-		out.println(this.getClass().getSimpleName());
-		final Enumeration<String> keys = this.resourceBundle.getKeys();
-		while (keys.hasMoreElements()) {
-			final String key = keys.nextElement();
-			out.println(key + "=" + this.resourceBundle.getString(key));
-		}
-		out.flush();
-	}
+    /**
+     * Dump the Resource Bundle data to a PrintStream.
+     *
+     * @param out
+     *            the destination Print Stream.
+     */
+    public void dumpTo(final PrintStream out) {
+        out.println(this.getClass().getSimpleName());
+        final Enumeration<String> keys = this.resourceBundle.getKeys();
+        while (keys.hasMoreElements()) {
+            final String key = keys.nextElement();
+            out.println(key + "=" + this.resourceBundle.getString(key));
+        }
+        out.flush();
+    }
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public final String toString() {
-		return this.resourceBundle.toString();
-	}
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public final String toString() {
+        return this.resourceBundle.toString();
+    }
 
 }
