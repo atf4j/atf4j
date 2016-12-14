@@ -45,8 +45,8 @@ public class HeaderLineTest {
     @Test
     public void testGet() {
         final HeaderLine headerLine = new HeaderLine("ColumnOne,ColumnTwo");
-        assertEquals("ColumnOne", headerLine.get(1));
-        assertEquals("ColumnTwo", headerLine.get(2));
+        assertEquals("ColumnOne", headerLine.getField(1));
+        assertEquals("ColumnTwo", headerLine.getField(2));
         assertEquals("HeaderLine [fields=[ColumnOne, ColumnTwo]]", headerLine.toString());
     }
 

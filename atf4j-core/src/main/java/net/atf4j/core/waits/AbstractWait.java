@@ -26,7 +26,7 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class AbstractWait {
 
-    protected static final Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /** The Constant DEFAULT_SLEEP_INTERVAL. */
     protected static final long DEFAULT_SLEEP_INTERVAL = 1000;

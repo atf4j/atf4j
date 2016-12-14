@@ -42,6 +42,6 @@ public class CsvRowTest {
 
     @Test
     public void testToString() {
-        new CsvRow("1,2,3,4");
+        assertEquals("CsvRow [fields=[One, Two, Three, Four]]", new CsvRow("One,Two,Three,Four").toString());
     }
 }

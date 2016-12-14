@@ -16,39 +16,46 @@
  */
 package net.atf4j.csv;
 
-import java.util.Arrays;
-
 /**
  * The Class HeaderLine.
  */
-public class HeaderLine {
+public class HeaderLine extends CsvRow {
 
-    private final String[] fields;
+    public HeaderLine() {
+        super();
+    }
 
-    /**
-     * Instantiates a new header line.
-     *
-     * @param line
-     *            the line
-     */
     public HeaderLine(final String line) {
-        this.fields = line.split(",");
+        super(line);
     }
 
-    /**
-     * get the content of a column by index
-     *
-     * @param columnNumber
-     *            the column number
-     * @return the fields
-     */
-    public String get(final int columnNumber) {
-        return this.fields[columnNumber - 1];
-    }
-
-    @Override
-    public String toString() {
-        return String.format("%s [fields=%s]", this.getClass().getSimpleName(), Arrays.toString(this.fields));
-    }
+    // private final String[] fields;
+    //
+    // /**
+    // * Instantiates a new header line.
+    // *
+    // * @param line
+    // * the line
+    // */
+    // public HeaderLine(final String line) {
+    // this.fields = line.split(",");
+    // }
+    //
+    // /**
+    // * get the content of a column by index
+    // *
+    // * @param columnNumber
+    // * the column number
+    // * @return the fields
+    // */
+    // public String get(final int columnNumber) {
+    // return this.fields[columnNumber - 1];
+    // }
+    //
+    // @Override
+    // public String toString() {
+    // return String.format("%s [fields=%s]", this.getClass().getSimpleName(),
+    // Arrays.toString(this.fields));
+    // }
 
 }

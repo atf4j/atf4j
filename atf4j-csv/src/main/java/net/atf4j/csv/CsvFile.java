@@ -119,14 +119,15 @@ public class CsvFile {
         final InputStreamReader inputStreamReader = new InputStreamReader(in);
         final BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         try {
-            String line;
+            String line = bufferedReader.readLine();
+            if (line.startsWith("#")) {
+                this.header = new HeaderLine(line);
+            } else {
+                this.data.add(new CsvRow(line));
+            }
             while ((line = bufferedReader.readLine()) != null) {
                 log.trace(line);
-                if (line.startsWith("#")) {
-                    this.header = new HeaderLine(line);
-                } else {
-                    this.data.add(new CsvRow(line));
-                }
+                this.data.add(new CsvRow(line));
             }
         } finally {
             bufferedReader.close();
@@ -171,7 +172,7 @@ public class CsvFile {
      * @return the header
      */
     public String getHeader(final int columnNumber) {
-        return this.header.get(columnNumber);
+        return this.header.getField(columnNumber);
     }
 
     /**

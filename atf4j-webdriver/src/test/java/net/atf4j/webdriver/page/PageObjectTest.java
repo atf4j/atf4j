@@ -28,19 +28,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
  */
 public class PageObjectTest {
 
-    /** The Constant url. */
-    public static final String url = null;
-
     /**
      * The Class MockPage.
      */
     public class MockPage extends WebPage {
+        protected static final String TARGET_URL = "http://127.0.0.1:8080";
 
         /**
          * Instantiates a new mock page.
          */
         public MockPage() {
-            super();
+            super(TARGET_URL);
         }
 
         /**
@@ -86,7 +84,7 @@ public class PageObjectTest {
      */
     @Test
     public final void testOpen() {
-        new MockPage("http://127.0.0.1:8080").open();
+        new MockPage(MockPage.TARGET_URL).open();
     }
 
     /**
@@ -95,7 +93,7 @@ public class PageObjectTest {
      */
     @Test
     public final void testOpenString() {
-        new MockPage().open("http://127.0.0.1:8080");
+        new MockPage().open(MockPage.TARGET_URL);
     }
 
     /**

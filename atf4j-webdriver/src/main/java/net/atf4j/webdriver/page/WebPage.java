@@ -66,6 +66,12 @@ public abstract class WebPage {
      *            the url
      */
     public WebPage(final String url) {
+        try {
+            this.config = new WebDriverConfig();
+        } catch (final MissingPropertyFileException e) {
+            WebPage.log.error(e.toString());
+        }
+        this.webDriver = new HtmlUnitDriver();
         open(url);
     }
 

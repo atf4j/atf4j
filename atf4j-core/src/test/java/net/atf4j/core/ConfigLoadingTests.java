@@ -45,9 +45,9 @@ public class ConfigLoadingTests extends LoggedTest {
         }
 
         public String getPropertyFilename() {
-            logger.info(get("loaded"));
+            log.info(get("loaded"));
             final String propertiesFilename = super.get("propertiesFilename");
-            logger.info(propertiesFilename);
+            log.info(propertiesFilename);
             return propertiesFilename;
         }
     }

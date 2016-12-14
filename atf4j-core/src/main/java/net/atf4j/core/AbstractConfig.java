@@ -26,8 +26,8 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class AbstractConfig implements ToName {
 
-    /** The Constant logger. */
-    protected static final Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+    /** logging. */
+    protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
     /** The properties. */
     protected final Properties properties = new Properties();
@@ -69,7 +69,7 @@ public abstract class AbstractConfig implements ToName {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override
@@ -93,7 +93,7 @@ public abstract class AbstractConfig implements ToName {
             this.properties.load(resourceAsStream);
             this.properties.setProperty("propertiesFilename", propertyFilename);
         } catch (final Exception exception) {
-            logger.info(exception.toString());
+            log.error(exception.toString());
             throw new MissingPropertyFileException(propertyFilename);
         }
     }
@@ -132,7 +132,7 @@ public abstract class AbstractConfig implements ToName {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see java.lang.Throwable#toString()
          */
         @Override
@@ -151,10 +151,10 @@ public abstract class AbstractConfig implements ToName {
      */
     public String get(final String key) {
         final String systemProperty = System.getProperty(key);
-        logger.trace("Using system property for key {} = {}", key, systemProperty);
+        this.log.trace("Using system property for key {} = {}", key, systemProperty);
         if (systemProperty == null) {
             final String property = this.properties.getProperty(key);
-            logger.trace("Using property file for key {} = {}", key, property);
+            this.log.trace("Using property file for key {} = {}", key, property);
             return property;
         } else {
             return systemProperty;

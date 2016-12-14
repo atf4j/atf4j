@@ -16,6 +16,8 @@
  */
 package net.atf4j.csv;
 
+import java.util.Arrays;
+
 /**
  * The Class CsvRow.
  */
@@ -59,7 +61,7 @@ public class CsvRow {
      */
     @Override
     public String toString() {
-        return String.format("CsvRow [fields=%s]", this.fields);
+        return String.format("%s [fields=%s]", this.getClass().getSimpleName(), Arrays.toString(this.fields));
     }
 
 }

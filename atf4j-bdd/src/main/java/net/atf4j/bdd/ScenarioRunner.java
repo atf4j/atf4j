@@ -23,7 +23,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class ScenarioRunner {
-    protected static final Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     private AbstractLoggedScenario targetScenario;
 
@@ -54,11 +55,11 @@ public class ScenarioRunner {
     private ScenarioRunner executeGiven(final AbstractLoggedScenario scenario) {
         final Class<?> candidateClass = this.targetScenario.getClass();
         if (candidateClass.isAnnotationPresent(Atf4j.Scenario.class)) {
-            logger.info(candidateClass.toGenericString());
+            this.log.info(candidateClass.toGenericString());
             final Method[] declaredMethods = candidateClass.getDeclaredMethods();
             for (final Method method : declaredMethods) {
                 if (method.isAnnotationPresent(Atf4j.Given.class)) {
-                    logger.info(method.toGenericString());
+                    this.log.info(method.toGenericString());
                 }
             }
         }
@@ -73,11 +74,11 @@ public class ScenarioRunner {
     private ScenarioRunner executeWhen(final AbstractLoggedScenario scenario) {
         final Class<?> candidateClass = this.targetScenario.getClass();
         if (candidateClass.isAnnotationPresent(Atf4j.Scenario.class)) {
-            logger.info(candidateClass.toGenericString());
+            this.log.info(candidateClass.toGenericString());
             final Method[] declaredMethods = candidateClass.getDeclaredMethods();
             for (final Method method : declaredMethods) {
                 if (method.isAnnotationPresent(Atf4j.Given.class)) {
-                    logger.info(method.toGenericString());
+                    this.log.info(method.toGenericString());
                 }
             }
         }
@@ -92,11 +93,11 @@ public class ScenarioRunner {
     private ScenarioRunner executeThen(final AbstractLoggedScenario scenario) {
         final Class<?> candidateClass = this.targetScenario.getClass();
         if (candidateClass.isAnnotationPresent(Atf4j.Scenario.class)) {
-            logger.info(candidateClass.toGenericString());
+            this.log.info(candidateClass.toGenericString());
             final Method[] declaredMethods = candidateClass.getDeclaredMethods();
             for (final Method method : declaredMethods) {
                 if (method.isAnnotationPresent(Atf4j.Given.class)) {
-                    logger.info(method.toGenericString());
+                    this.log.info(method.toGenericString());
                 }
             }
         }

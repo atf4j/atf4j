@@ -48,7 +48,7 @@ public class XmlDriverTest {
 			Atf4j.assertThat("xmlPage is instantiated", xmlPage != null);
 			final String pageAsXml = xmlPage.asXml();
 			Atf4j.assertThat("pageAsXml is instantiated", pageAsXml != null);
-			// logger.info(pageAsXml);
+			// log.info(pageAsXml);
 			// System.out.flush();
 			// webClient.closeAllWindows();
 			// Atf4j.endStep();
@@ -77,7 +77,7 @@ public class XmlDriverTest {
 			Atf4j.assertThat("xmlPage is instantiated", xmlPage != null);
 			final String pageAsText = xmlPage.asText();
 			Atf4j.assertThat("pageAsText is instantiated", pageAsText != null);
-			// logger.info(pageAsText);
+			// log.info(pageAsText);
 			// System.out.flush();
 			// webClient.closeAllWindows();
 			// Atf4j.endStep();

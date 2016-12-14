@@ -113,25 +113,25 @@ public class WaitTester extends AbstractWait {
     public void testZeroWait() {
         long start = System.currentTimeMillis();
         newTestWait(ACTUAL_TIMEOUT_INTERVAL).whileTrue(new FalseTestCondition());
-        logger.info("Zero AbstractWait Test 1 Ended after :" + (System.currentTimeMillis() - start)
+        this.log.info("Zero AbstractWait Test 1 Ended after :" + (System.currentTimeMillis() - start)
                 + "ms. expect close to zero.");
         Assert.assertEquals(start, System.currentTimeMillis(), DELTA);
 
         start = System.currentTimeMillis();
         newTestWait(Interval.inMilliSeconds(1000L)).whileFalse(new TrueTestCondition());
-        logger.info("Zero AbstractWait Test 2 Ended after :" + (System.currentTimeMillis() - start)
+        this.log.info("Zero AbstractWait Test 2 Ended after :" + (System.currentTimeMillis() - start)
                 + "ms. expect close to zero.");
         Assert.assertEquals(start, System.currentTimeMillis(), DELTA);
 
         start = System.currentTimeMillis();
         newTestWait(Interval.inSeconds(10)).untilTrue(new TrueTestCondition());
-        logger.info("Zero AbstractWait Test 3 Ended after :" + (System.currentTimeMillis() - start)
+        this.log.info("Zero AbstractWait Test 3 Ended after :" + (System.currentTimeMillis() - start)
                 + "ms. expect close to zero.");
         Assert.assertEquals(start, System.currentTimeMillis(), DELTA);
 
         start = System.currentTimeMillis();
         newTestWait(Interval.inSeconds(10)).untilFalse(new FalseTestCondition());
-        logger.info("Zero AbstractWait Test 4 Ended after :" + (System.currentTimeMillis() - start)
+        this.log.info("Zero AbstractWait Test 4 Ended after :" + (System.currentTimeMillis() - start)
                 + "ms. expect close to zero.");
         Assert.assertEquals(start, System.currentTimeMillis(), DELTA);
     }
@@ -148,50 +148,50 @@ public class WaitTester extends AbstractWait {
     public void testFullWait() {
         long start = System.currentTimeMillis();
         newTestWait(1000l).whileTrue(new TrueTestCondition());
-        logger.info("Full AbstractWait Test 1 Ended after :" + (System.currentTimeMillis() - start)
+        this.log.info("Full AbstractWait Test 1 Ended after :" + (System.currentTimeMillis() - start)
                 + "ms. expect close to 1s.");
         Assert.assertEquals(ACTUAL_TIMEOUT_INTERVAL, System.currentTimeMillis() - start, DELTA);
 
         start = System.currentTimeMillis();
         newTestWait(Interval.inMilliSeconds(1000l)).whileFalse(new FalseTestCondition());
-        logger.info("Full AbstractWait Test 2 ended after :" + (System.currentTimeMillis() - start)
+        this.log.info("Full AbstractWait Test 2 ended after :" + (System.currentTimeMillis() - start)
                 + "ms. expect close to 1s.");
         Assert.assertEquals(ACTUAL_TIMEOUT_INTERVAL, System.currentTimeMillis() - start, DELTA);
 
         start = System.currentTimeMillis();
         newTestWait(Interval.inSeconds(10)).untilTrue(new FalseTestCondition());
-        logger.info("Full AbstractWait Test 3 ended after :" + (System.currentTimeMillis() - start)
+        this.log.info("Full AbstractWait Test 3 ended after :" + (System.currentTimeMillis() - start)
                 + "ms. expect close to 10s.");
         Assert.assertEquals(ACTUAL_TIMEOUT_INTERVAL * 10, System.currentTimeMillis() - start, DELTA);
 
         start = System.currentTimeMillis();
         newTestWait(Interval.inSeconds(10)).untilFalse(new TrueTestCondition());
-        logger.info("Full AbstractWait Test 4 ended after :" + (System.currentTimeMillis() - start)
+        this.log.info("Full AbstractWait Test 4 ended after :" + (System.currentTimeMillis() - start)
                 + "ms. expect close to 10s.");
         Assert.assertEquals(ACTUAL_TIMEOUT_INTERVAL * 10, System.currentTimeMillis() - start, DELTA);
 
         start = System.currentTimeMillis();
         newTestWait(Interval.inMinutes(1)).untilTrue(new FalseTestCondition());
-        logger.info("Full AbstractWait Test 5 ended after :" + (System.currentTimeMillis() - start)
+        this.log.info("Full AbstractWait Test 5 ended after :" + (System.currentTimeMillis() - start)
                 + "ms. expect close to 1m.");
         Assert.assertEquals(ACTUAL_TIMEOUT_INTERVAL * 60, System.currentTimeMillis() - start, DELTA);
 
         start = System.currentTimeMillis();
         newTestWait(Interval.inMinutes(1)).untilFalse(new TrueTestCondition());
-        logger.info("Full AbstractWait Test 6 ended after :" + (System.currentTimeMillis() - start)
+        this.log.info("Full AbstractWait Test 6 ended after :" + (System.currentTimeMillis() - start)
                 + "ms. expect close to 1m.");
         Assert.assertEquals(ACTUAL_TIMEOUT_INTERVAL * 60, System.currentTimeMillis() - start, DELTA);
 
         // newTestWait( Interval.inHours(1) ).untilTrue(new
         // FalseTestCondition());
-        // logger.info("Full AbstractWait Test 3 ended after :"+
+        // log.info("Full AbstractWait Test 3 ended after :"+
         // (System.currentTimeMillis() - start)+"ms. expect close to 1h.");
         // Assert.assertEquals(ACTUAL_TIMEOUT_INTERVAL*60*60,
         // System.currentTimeMillis()-start, DELTA);
 
         // newTestWait( Interval.inHours(1) ).untilFalse(new
         // TrueTestCondition());
-        // logger.info("Full AbstractWait Test 4 ended after :"+
+        // log.info("Full AbstractWait Test 4 ended after :"+
         // (System.currentTimeMillis() - start)+"ms. expect close to 1h.");
         // Assert.assertEquals(ACTUAL_TIMEOUT_INTERVAL*60*60,
         // System.currentTimeMillis()-start, DELTA);
@@ -205,19 +205,19 @@ public class WaitTester extends AbstractWait {
         long start = System.currentTimeMillis();
         final WaitTester testWait1a = new WaitTester();
         testWait1a.timeout();
-        logger.info("Test1a ended after :" + (System.currentTimeMillis() - start) + "ms. expect close to 1 second.");
+        this.log.info("Test1a ended after :" + (System.currentTimeMillis() - start) + "ms. expect close to 1 second.");
         Assert.assertEquals(ACTUAL_TIMEOUT_INTERVAL, System.currentTimeMillis() - start, DELTA);
 
         start = System.currentTimeMillis();
         final WaitTester testWait1b = new WaitTester(4000L);
         testWait1b.timeout();
-        logger.info("Test1b ended after :" + (System.currentTimeMillis() - start) + "ms. expect close to 4 seconds.");
+        this.log.info("Test1b ended after :" + (System.currentTimeMillis() - start) + "ms. expect close to 4 seconds.");
         Assert.assertEquals(ACTUAL_TIMEOUT_INTERVAL * 4, System.currentTimeMillis() - start, DELTA);
 
         start = System.currentTimeMillis();
         final WaitTester testWait1c = new WaitTester(Interval.inMilliSeconds(4000));
         testWait1c.timeout();
-        logger.info("Test1c ended after :" + (System.currentTimeMillis() - start) + "ms. expect close to 4 seconds.");
+        this.log.info("Test1c ended after :" + (System.currentTimeMillis() - start) + "ms. expect close to 4 seconds.");
         Assert.assertEquals(ACTUAL_TIMEOUT_INTERVAL * 4, System.currentTimeMillis() - start, DELTA);
     }
 
@@ -229,19 +229,19 @@ public class WaitTester extends AbstractWait {
         long start = System.currentTimeMillis();
         final WaitTester testWait2a = WaitTester.newTestWait(ACTUAL_TIMEOUT_INTERVAL);
         testWait2a.timeout();
-        logger.info("Test2a ended after :" + (System.currentTimeMillis() - start) + "ms. expect close to 1 second.");
+        this.log.info("Test2a ended after :" + (System.currentTimeMillis() - start) + "ms. expect close to 1 second.");
         Assert.assertEquals(ACTUAL_TIMEOUT_INTERVAL, System.currentTimeMillis() - start, DELTA);
 
         start = System.currentTimeMillis();
         final WaitTester testWait2b = WaitTester.newTestWait(4000L);
         testWait2b.timeout();
-        logger.info("Test2b ended after :" + (System.currentTimeMillis() - start) + "ms. expect close to 4 seconds.");
+        this.log.info("Test2b ended after :" + (System.currentTimeMillis() - start) + "ms. expect close to 4 seconds.");
         Assert.assertEquals(ACTUAL_TIMEOUT_INTERVAL * 4, System.currentTimeMillis() - start, DELTA);
 
         start = System.currentTimeMillis();
         final WaitTester testWait2c = WaitTester.newTestWait(Interval.inMilliSeconds(4000));
         testWait2c.timeout();
-        logger.info("Test2c ended after :" + (System.currentTimeMillis() - start) + "ms. expect close to 4 seconds.");
+        this.log.info("Test2c ended after :" + (System.currentTimeMillis() - start) + "ms. expect close to 4 seconds.");
         Assert.assertEquals(ACTUAL_TIMEOUT_INTERVAL * 4, System.currentTimeMillis() - start, DELTA);
     }
 
@@ -253,20 +253,20 @@ public class WaitTester extends AbstractWait {
         long start = System.currentTimeMillis();
         final WaitTester testWait3a = new WaitTester();
         testWait3a.interval().timeout();
-        logger.info("Test3a ended after :" + (System.currentTimeMillis() - start) + "ms. expect close to "
+        this.log.info("Test3a ended after :" + (System.currentTimeMillis() - start) + "ms. expect close to "
                 + DEFAULT_TIMEOUT_INTERVAL);
         Assert.assertEquals(DEFAULT_TIMEOUT_INTERVAL, System.currentTimeMillis() - start, DELTA);
 
         start = System.currentTimeMillis();
         final WaitTester testWait3b = new WaitTester(1000L);
         testWait3b.interval(4000).timeout();
-        logger.info("Test3b ended after :" + (System.currentTimeMillis() - start) + "ms. expect close to 4 seconds.");
+        this.log.info("Test3b ended after :" + (System.currentTimeMillis() - start) + "ms. expect close to 4 seconds.");
         Assert.assertEquals(ACTUAL_TIMEOUT_INTERVAL * 4, System.currentTimeMillis() - start, DELTA);
 
         start = System.currentTimeMillis();
         final WaitTester testWait3c = new WaitTester(Interval.inMilliSeconds(1000));
         testWait3c.interval(Interval.inMilliSeconds(4000)).timeout();
-        logger.info("Test3c ended after :" + (System.currentTimeMillis() - start) + "ms. expect close to 4 seconds.");
+        this.log.info("Test3c ended after :" + (System.currentTimeMillis() - start) + "ms. expect close to 4 seconds.");
         Assert.assertEquals(ACTUAL_TIMEOUT_INTERVAL * 4, System.currentTimeMillis() - start, DELTA);
     }
 
@@ -274,13 +274,8 @@ public class WaitTester extends AbstractWait {
         // new FluentWait(new Interval(1)).until(new TestCondition(true));
     }
 
-    /**
-     * main.
-     *
-     * @param args
-     *            the arguments
-     */
-    public static void main(final String[] args) {
+    @Test
+    public void test(final String[] args) {
         try {
             long start = System.currentTimeMillis();
             new AbstractWait(new Interval(10000)) {
@@ -289,7 +284,7 @@ public class WaitTester extends AbstractWait {
                     return true;
                 }
             }.timeout();
-            logger.info("AbstractWait ended " + (System.currentTimeMillis() - start));
+            this.log.info("AbstractWait ended " + (System.currentTimeMillis() - start));
 
             start = System.currentTimeMillis();
             new AbstractWait(10000L) {
@@ -298,34 +293,34 @@ public class WaitTester extends AbstractWait {
                     return false;
                 }
             }.timeout();
-            logger.info("AbstractWait ended " + (System.currentTimeMillis() - start));
+            this.log.info("AbstractWait ended " + (System.currentTimeMillis() - start));
 
             start = System.currentTimeMillis();
             newTestWait(Interval.inMilliSeconds(1000L)).timeout();
-            logger.info(" AbstractWait Test 1 Ended after :" + (System.currentTimeMillis() - start)
+            this.log.info(" AbstractWait Test 1 Ended after :" + (System.currentTimeMillis() - start)
                     + "ms. expect close to 1s");
             org.junit.Assume.assumeTrue(System.currentTimeMillis() - (start + 1000L) < DELTA);
 
             start = System.currentTimeMillis();
             newTestWait(Interval.inMilliSeconds(1000L)).timeout();
-            logger.info(" AbstractWait Test 2 Ended after :" + (System.currentTimeMillis() - start)
+            this.log.info(" AbstractWait Test 2 Ended after :" + (System.currentTimeMillis() - start)
                     + "ms. expect close to 1s.");
             org.junit.Assume.assumeTrue(System.currentTimeMillis() - (start + 1000L) < DELTA);
 
             start = System.currentTimeMillis();
             newTestWait(Interval.inSeconds(10)).timeout();
-            logger.info(" AbstractWait Test 3 Ended after :" + (System.currentTimeMillis() - start)
+            this.log.info(" AbstractWait Test 3 Ended after :" + (System.currentTimeMillis() - start)
                     + "ms. expect close to 10s.");
             org.junit.Assume.assumeTrue(System.currentTimeMillis() - (start + 10000L) < DELTA);
 
             start = System.currentTimeMillis();
             newTestWait(Interval.inSeconds(10)).timeout();
-            logger.info(" AbstractWait Test 4 Ended after :" + (System.currentTimeMillis() - start)
+            this.log.info(" AbstractWait Test 4 Ended after :" + (System.currentTimeMillis() - start)
                     + "ms. expect close to 10s.");
             org.junit.Assume.assumeTrue(System.currentTimeMillis() - (start + 10000L) < DELTA);
-            logger.info(" AbstractWait Tests completed.");
+            this.log.info(" AbstractWait Tests completed.");
         } catch (final Exception exception) {
-            System.err.println(exception.toString());
+            this.log.error(exception.toString());
         }
     }
 }
