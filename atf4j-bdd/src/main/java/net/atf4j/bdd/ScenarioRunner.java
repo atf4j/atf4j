@@ -26,18 +26,18 @@ public class ScenarioRunner {
 
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
-    private AbstractLoggedScenario targetScenario;
+    private LoggedScenario targetScenario;
 
     public ScenarioRunner() {
         super();
     }
 
-    public ScenarioRunner(final AbstractLoggedScenario targetScenario) {
+    public ScenarioRunner(final LoggedScenario targetScenario) {
         super();
         this.targetScenario = targetScenario;
     }
 
-    public ScenarioRunner execute(final AbstractLoggedScenario scenario) {
+    public ScenarioRunner execute(final LoggedScenario scenario) {
         this.targetScenario = scenario;
         return this;
     }
@@ -52,7 +52,7 @@ public class ScenarioRunner {
         return executeGiven(this.targetScenario);
     }
 
-    private ScenarioRunner executeGiven(final AbstractLoggedScenario scenario) {
+    private ScenarioRunner executeGiven(final LoggedScenario scenario) {
         final Class<?> candidateClass = this.targetScenario.getClass();
         if (candidateClass.isAnnotationPresent(Atf4j.Scenario.class)) {
             this.log.info(candidateClass.toGenericString());
@@ -71,7 +71,7 @@ public class ScenarioRunner {
         return executeWhen(this.targetScenario);
     }
 
-    private ScenarioRunner executeWhen(final AbstractLoggedScenario scenario) {
+    private ScenarioRunner executeWhen(final LoggedScenario scenario) {
         final Class<?> candidateClass = this.targetScenario.getClass();
         if (candidateClass.isAnnotationPresent(Atf4j.Scenario.class)) {
             this.log.info(candidateClass.toGenericString());
@@ -90,7 +90,7 @@ public class ScenarioRunner {
         return executeThen(this.targetScenario);
     }
 
-    private ScenarioRunner executeThen(final AbstractLoggedScenario scenario) {
+    private ScenarioRunner executeThen(final LoggedScenario scenario) {
         final Class<?> candidateClass = this.targetScenario.getClass();
         if (candidateClass.isAnnotationPresent(Atf4j.Scenario.class)) {
             this.log.info(candidateClass.toGenericString());

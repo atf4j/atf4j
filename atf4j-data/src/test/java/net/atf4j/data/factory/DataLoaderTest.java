@@ -29,7 +29,7 @@ import net.atf4j.data.AbstractDataLoader;
  */
 public class DataLoaderTest extends LoggedTest {
 
-    protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * The Class MissingData.

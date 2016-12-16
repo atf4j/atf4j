@@ -24,7 +24,7 @@ import net.atf4j.core.LoggedTest;
 
 public class ScenarioRunnerTest extends LoggedTest {
 
-    public class Scenario extends AbstractLoggedScenario {
+    public class Scenario extends LoggedScenario {
         @Atf4j.Given("Given")
         public void testPassGiven() {
             Assume.assumeTrue(true);
@@ -41,7 +41,7 @@ public class ScenarioRunnerTest extends LoggedTest {
         }
     }
 
-    public class FailGivenScenario extends AbstractLoggedScenario {
+    public class FailGivenScenario extends LoggedScenario {
         @Atf4j.Given("Given")
         public void testPassGiven() {
             Assume.assumeTrue(false);
@@ -58,7 +58,7 @@ public class ScenarioRunnerTest extends LoggedTest {
         }
     }
 
-    public class FailWhenScenario extends AbstractLoggedScenario {
+    public class FailWhenScenario extends LoggedScenario {
         @Atf4j.Given("Given")
         public void testPassGiven() {
             Assume.assumeTrue(true);
@@ -75,7 +75,7 @@ public class ScenarioRunnerTest extends LoggedTest {
         }
     }
 
-    public class FailThenScenario extends AbstractLoggedScenario {
+    public class FailThenScenario extends LoggedScenario {
         @Atf4j.Given("Given")
         public void testPassGiven() {
             Assume.assumeTrue(true);

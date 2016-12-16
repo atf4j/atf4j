@@ -17,6 +17,7 @@
 
 package net.atf4j.webdriver.page;
 
+import net.atf4j.core.AbstractConfig.MissingPropertyFileException;
 import net.atf4j.webdriver.TargetUrl;
 
 /**
@@ -25,5 +26,9 @@ import net.atf4j.webdriver.TargetUrl;
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
 @TargetUrl("http://127.0.0.1:8080/html5boilerplate")
-public class Html5Boilerplate extends WebPage {
+public class Html5Boilerplate extends AbstractPageObject {
+
+    public Html5Boilerplate() throws MissingPropertyFileException {
+        super();
+    }
 }

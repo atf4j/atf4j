@@ -27,7 +27,7 @@ import org.slf4j.LoggerFactory;
 public abstract class AbstractConfig implements ToName {
 
     /** logging. */
-    protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /** The properties. */
     protected final Properties properties = new Properties();

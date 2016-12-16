@@ -34,7 +34,7 @@ import org.slf4j.LoggerFactory;
 public class CsvFile {
 
     /** The logger. */
-    protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /** The header. */
     private HeaderLine header;

@@ -85,7 +85,7 @@ public class StringBuilderTest extends LoggedTest {
     @Test
     public void testNullClass() {
         final String reflectionToString = ToStringBuilder.reflectObjectToString(null);
-        log.info(reflectionToString);
+        this.log.info(reflectionToString);
         Assert.assertTrue("|testNullClass|", reflectionToString.equals("[NULL]"));
     }
 
@@ -95,7 +95,7 @@ public class StringBuilderTest extends LoggedTest {
     @Test
     public void testThisClass() {
         final String reflectionToString = ToStringBuilder.reflectObjectToString(this);
-        log.info(reflectionToString);
+        this.log.info(reflectionToString);
         Assert.assertNotNull("|testThisClass|", reflectionToString);
         Assert.assertTrue("|testThisClass|", reflectionToString.length() > 0);
     }
@@ -107,7 +107,7 @@ public class StringBuilderTest extends LoggedTest {
     public void testSubClassWithoutProperties() {
         final SubClassWithoutProperties superClassWithoutProperties = new SubClassWithoutProperties();
         final String reflectionToString = ToStringBuilder.reflectObjectToString(superClassWithoutProperties);
-        log.info(reflectionToString);
+        this.log.info(reflectionToString);
         Assert.assertNotNull("|testSubClassWithoutProperties|", reflectionToString);
         Assert.assertTrue("|testSubClassWithoutProperties|", reflectionToString.length() > 0);
     }
@@ -119,9 +119,8 @@ public class StringBuilderTest extends LoggedTest {
     public void testSubClassWithProperties() {
         final SubClassWithProperties superClassWithProperties = new SubClassWithProperties();
         final String reflectionToString = ToStringBuilder.reflectObjectToString(superClassWithProperties);
-        log.info(reflectionToString);
+        this.log.info(reflectionToString);
         Assert.assertNotNull("|testSubClassWithProperties|", reflectionToString);
         Assert.assertTrue("|testSubClassWithProperties|", reflectionToString.length() > 0);
     }
-
 }

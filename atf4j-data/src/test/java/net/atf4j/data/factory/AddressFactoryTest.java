@@ -22,34 +22,37 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import net.atf4j.core.LoggedTest;
+
 /**
  * The Class AddressFactoryTest.
  */
-public class AddressFactoryTest {
-    protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+public class AddressFactoryTest extends LoggedTest {
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Test Data Mock.
      */
-    public class TestData extends AddressFactory {
+    public class MoclAddressFactory extends AddressFactory {
         /**
          * Instantiates a new mock data.
-         * 
+         *
          * @throws Exception
          */
-        public TestData() throws Exception {
+        public MoclAddressFactory() throws Exception {
             super();
         }
     }
 
     /**
      * Test create.
-     * 
+     *
      * @throws Exception
      */
     @Test
     public void testCreate() throws Exception {
-        final TestData mockData = new TestData();
+        final MoclAddressFactory mockData = new MoclAddressFactory();
         assertNotNull(mockData);
+        this.log.info(mockData.toString());
     }
 }

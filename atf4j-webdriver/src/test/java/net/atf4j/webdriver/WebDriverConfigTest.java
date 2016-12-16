@@ -16,6 +16,7 @@
  */
 package net.atf4j.webdriver;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Assert;
@@ -81,10 +82,9 @@ public class WebDriverConfigTest {
     public final void testHappyPath() throws MissingPropertyFileException {
         final TestWebDriverConfig config = new TestWebDriverConfig();
         assertNotNull(config);
-        config.getPageLoadTimeout();
-        config.getPageLoadTimeoutUnit();
-        config.getImplicitlyWait();
-        config.getImplicitlyWaitUnit();
-        // assertNotNull(config.get);
+        assertEquals(0,config.getPageLoadTimeout());
+        assertEquals(0,config.getPageLoadTimeoutUnit());
+        assertEquals(0,config.getImplicitlyWait());
+        assertEquals(0,config.getImplicitlyWaitUnit());
     }
 }

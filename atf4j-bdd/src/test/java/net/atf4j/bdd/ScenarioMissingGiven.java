@@ -21,7 +21,7 @@ import org.junit.Test;
 import net.atf4j.bdd.Atf4j.Scenario;
 
 @Scenario("Scenario")
-public class ScenarioMissingGiven extends AbstractLoggedScenario {
+public class ScenarioMissingGiven extends LoggedScenario {
 
     @Test
     public void testScenarioRunner() {

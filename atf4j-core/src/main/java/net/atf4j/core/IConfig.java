@@ -30,7 +30,7 @@ public interface IConfig {
      *            the lookup key for the property.
      * @return property value as String object.
      */
-    public abstract Property useProperty(final String key);
+    public abstract Property valueFrom(final String key);
 
     /**
      * Use property if available other wise use default.
@@ -41,6 +41,6 @@ public interface IConfig {
      *            the default value as String object.
      * @return property value as String object.
      */
-    public abstract Property useProperty(final String key, final String defaultValue);
+    public abstract Property valueFrom(final String key, final String defaultValue);
 
 }

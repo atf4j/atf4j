@@ -27,7 +27,7 @@ public class WebSiteSteps {
 
     protected static final Logger log = LoggerFactory.getLogger(WebSiteSteps.class);
 
-    private WebSite webSite;
+    private SystemUnderTest webSite;
 
     @Given("^ the [Chrome|Firefox|Headless] Browser$")
     public void namedBrowser(final String browserName) throws Throwable {

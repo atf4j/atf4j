@@ -16,27 +16,33 @@
  */
 package net.atf4j.imperative;
 
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.After;
+import org.junit.Before;
 import org.junit.runner.RunWith;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
 import cucumber.api.junit.Cucumber;
-import net.atf4j.core.LoggedTest;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(strict = true, snippets = SnippetType.CAMELCASE, features = "classpath:features", tags = {
-        "~@Ignore" })
-public class AbstractTestRunner extends LoggedTest {
+@CucumberOptions(
+        monochrome = true,
+        strict = true,
+        snippets = SnippetType.CAMELCASE,
+        features = "classpath:features",
+        tags = { "~@Ignore" })
+public abstract class AbstractTestRunner {
 
     @Before
-    public void before() {
-        log.info("before");
+    public void beforeTest() {
+        final String targetEnvironment = System.getProperty("targetEnvironment");
+        assertNotNull("Expected -DtargetEnvironment to be defined", targetEnvironment);
     }
 
     @After
     public void after() {
-        log.info("after");
     }
+
 }

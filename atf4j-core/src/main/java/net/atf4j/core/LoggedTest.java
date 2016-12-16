@@ -24,8 +24,8 @@ import org.slf4j.LoggerFactory;
 
 public abstract class LoggedTest {
 
-    /** The Constant log. */
-    protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+    /** logging. */
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Verify two Strings are equal.

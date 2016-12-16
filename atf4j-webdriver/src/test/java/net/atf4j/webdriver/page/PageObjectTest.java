@@ -16,10 +16,10 @@
  */
 package net.atf4j.webdriver.page;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
+import net.atf4j.core.AbstractConfig.MissingPropertyFileException;
 
 /**
  * PageObjectTest.
@@ -31,24 +31,16 @@ public class PageObjectTest {
     /**
      * The Class MockPage.
      */
-    public class MockPage extends WebPage {
+    public class MockPage extends AbstractPageObject {
+
         protected static final String TARGET_URL = "http://127.0.0.1:8080";
 
-        /**
-         * Instantiates a new mock page.
-         */
-        public MockPage() {
-            super(TARGET_URL);
+        public MockPage() throws MissingPropertyFileException {
+            super();
         }
 
-        /**
-         * Instantiates a new mock page.
-         *
-         * @param url
-         *            the url
-         */
-        public MockPage(final String url) {
-            super(url);
+        public MockPage(final String targetUrl) throws MissingPropertyFileException {
+            super(targetUrl);
         }
 
         /**
@@ -64,61 +56,57 @@ public class PageObjectTest {
 
     /**
      * Test method for
-     * {@link net.atf4j.webdriver.page.WebPage#AbstractPageObject()}.
+     * {@link net.net.atf4j.webdriver.page.AbstractPageObject#AbstractPageObject()}.
+     * 
+     * @throws MissingPropertyFileException
      */
     @Test
-    public final void testDefaultConstruction() {
+    public final void testDefaultConstruction() throws MissingPropertyFileException {
         new MockPage();
     }
 
     /**
-     * Test method for {@link net.atf4j.webdriver.page.WebPage#open()}.
+     * Test method for
+     * {@link net.net.atf4j.webdriver.page.AbstractPageObject#open()}.
+     * 
+     * @throws MissingPropertyFileException
      */
     @Test
-    public final void testDefaultOpen() {
+    public final void testDefaultOpen() throws MissingPropertyFileException {
         new MockPage().open();
     }
 
     /**
-     * Test method for {@link net.atf4j.webdriver.page.WebPage#open()}.
+     * Test method for
+     * {@link net.net.atf4j.webdriver.page.AbstractPageObject#open()}.
+     * 
+     * @throws MissingPropertyFileException
      */
     @Test
-    public final void testOpen() {
+    public final void testOpen() throws MissingPropertyFileException {
         new MockPage(MockPage.TARGET_URL).open();
     }
 
     /**
      * Test method for
-     * {@link net.atf4j.webdriver.page.WebPage#open(java.lang.String)}.
+     * {@link net.net.atf4j.webdriver.page.AbstractPageObject#open(java.lang.String)}.
+     * 
+     * @throws MissingPropertyFileException
      */
     @Test
-    public final void testOpenString() {
+    public final void testOpenString() throws MissingPropertyFileException {
         new MockPage().open(MockPage.TARGET_URL);
     }
 
     /**
-     * Test method for {@link net.atf4j.webdriver.page.WebPage#verify()}.
-     */
-    @Test
-    public final void testVerify() {
-        new MockPage().open().verify();
-    }
-
-    /**
-     * Test method for {@link net.atf4j.webdriver.page.WebPage#getWebDriver()}.
-     */
-    @Test
-    public final void testGetWebDriver() {
-        Assert.assertNotNull(new MockPage().webDriver);
-    }
-
-    /**
      * Test method for
-     * {@link net.atf4j.webdriver.page.WebPage#setWebDriver(org.openqa.selenium.WebDriver)}.
+     * {@link net.net.atf4j.webdriver.page.AbstractPageObject#verify()}.
+     * 
+     * @throws MissingPropertyFileException
      */
     @Test
-    public final void testSetWebDriver() {
-        new MockPage().setWebDriver(new ChromeDriver());
+    public final void testVerify() throws MissingPropertyFileException {
+        new MockPage().open().verify();
     }
 
 }

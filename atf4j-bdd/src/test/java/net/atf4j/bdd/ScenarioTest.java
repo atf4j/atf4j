@@ -23,7 +23,7 @@ import org.junit.Test;
 import net.atf4j.bdd.Atf4j.Scenario;
 
 @Scenario("Scenario")
-public class ScenarioTest extends AbstractLoggedScenario {
+public class ScenarioTest extends LoggedScenario {
 
     @Test
     public void testScenarioRunner() {

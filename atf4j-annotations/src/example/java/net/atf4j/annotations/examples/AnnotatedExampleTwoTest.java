@@ -21,7 +21,11 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import net.atf4j.annotations.AnnotatedTest;
+import net.atf4j.annotations.AnnotationHelper;
 import net.atf4j.annotations.Atf4j;
+import net.atf4j.annotations.Atf4j.TestDescription;
+import net.atf4j.annotations.Atf4j.TestId;
+import net.atf4j.annotations.Atf4j.TestName;
 
 /**
  * Annotated Test Example Two, using static imports. Allows annotations to be
@@ -38,13 +42,13 @@ public class AnnotatedExampleTwoTest extends AnnotatedTest {
      */
     @Test
     @Atf4j.TestId("EXAMPLE-0002")
-    @Atf4j.TestName("testExampleTwo")
+    @Atf4j.TestName("testEample")
     @Atf4j.TestDescription("Example showing annotations with inherited context")
     public final void testExample() throws Exception {
-        log.trace(this.getClass().getSimpleName() + ".testAnnotationsWithPass");
-        log.info("Test ID : = {} ", testId());
-        log.info("Test Name : = {} ", testName());
-        log.info("Test Description : = {} ", testDescription());
+        log.trace("{}.testExample", this.getClass().getSimpleName());
+        log.info("Test ID : = {} ", AnnotationHelper.getTestId());
+        log.info("Test Name : = {} ", AnnotationHelper.getTestName());
+        log.info("Test Description : = {} ", AnnotationHelper.getTestDescription());
         assertTrue(true);
     }
 

@@ -18,7 +18,7 @@ package net.atf4j.bdd;
 
 import org.junit.Test;
 
-public class Scenario extends AbstractLoggedScenario {
+public class Scenario extends LoggedScenario {
     @Test
     public void testScenarioRunner() {
         new ScenarioRunner(this).execute();

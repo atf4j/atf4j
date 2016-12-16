@@ -26,7 +26,7 @@ import net.atf4j.webdriver.TargetUrl;
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
 @TargetUrl("http://127.0.0.1:8080/bootstrap")
-public class BootstrapPage extends WebPage {
+public class BootstrapPage extends AbstractPageObject {
 
     /**
      * Instantiates a new bootstrap page.
@@ -38,14 +38,4 @@ public class BootstrapPage extends WebPage {
         super();
     }
 
-    /**
-     * Url should be unchanged.
-     *
-     * @return the web page
-     */
-    public WebPage urlShouldBeUnchanged() {
-        final String currentUrl = this.webDriver.getCurrentUrl();
-        currentUrl.equals(this.config.getTargetUrl());
-        return this;
-    }
 }

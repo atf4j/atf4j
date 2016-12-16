@@ -25,7 +25,7 @@ import net.atf4j.csv.CsvFile;
 /**
  * A factory for creating AbstractData objects.
  */
-public class AbstractDataFactory extends AbstractConfig {
+public abstract class AbstractDataFactory extends AbstractConfig {
 
     protected CsvFile dataFile;
 

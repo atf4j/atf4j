@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-# Cucumber project, featuring Java and JUnit
+# Cucumber Selenium WebDriver 
+## Automated Test Framework for Java
 
 This is the simplest possible build script setup for Cucumber using Java.
 There is nothing fancy like a webapp or browser testing. All this does is to show you how
@@ -11,16 +11,13 @@ Open a command window and run:
 
     mvn test
 
-This runs Cucumber features using Cucumber's JUnit runner. The `@RunWith(Cucumber.class)` annotation on the `RunCukesTest`
-class tells JUnit to kick off Cucumber.
+This runs Cucumber features using Cucumber's JUnit runner. The `@RunWith(Cucumber.class)` annotation on the `RunCukesTest` class tells JUnit to kick off Cucumber.
 
 ## Overriding options
 
-The Cucumber runtime parses command line options to know what features to run, where the glue code lives, what plugins to use etc.
-When you use the JUnit runner, these options are generated from the `@CucumberOptions` annotation on your test.
+The Cucumber runtime parses command line options to know what features to run, where the glue code lives, what plugins to use etc. When you use the JUnit runner, these options are generated from the `@CucumberOptions` annotation on your test.
 
-Sometimes it can be useful to override these options without changing or recompiling the JUnit class. This can be done with the
-`cucumber.options` system property. The general form is:
+Sometimes it can be useful to override these options without changing or recompiling the JUnit class. This can be done with the `cucumber.options` system property. The general form is:
 
     mvn -Dcucumber.options="..." test
 
@@ -32,11 +29,7 @@ That should list all the available options.
 
 *IMPORTANT*
 
-When you override options with `-Dcucumber.options`, you will completely override whatever options are hard-coded in
-your `@CucumberOptions` or in the script calling `cucumber.api.cli.Main`. There is one exception to this rule, and that
-is the `--plugin` option. This will not _override_, but _add_ a plugin. The reason for this is to make it easier
-for 3rd party tools (such as [Cucumber Pro](https://cucumber.pro/)) to automatically configure additional plugins by appending arguments to a `cucumber.properties`
-file.
+When you override options with `-Dcucumber.options`, you will completely override whatever options are hard-coded in your `@CucumberOptions` or in the script calling `cucumber.api.cli.Main`. There is one exception to this rule, and that is the `--plugin` option. This will not _override_, but _add_ a plugin. The reason for this is to make it easier for 3rd party tools to automatically configure additional plugins by appending arguments to a `cucumber.properties` file.
 
 ### Run a subset of Features or Scenarios
 
@@ -64,14 +57,3 @@ This works as long as you have the `rerun` formatter enabled.
 For example a JUnit formatter:
 
     -Dcucumber.options="--plugin junit:target/cucumber-junit-report.xml"
-=======
-# Selenium WebDriver 
-## Automated Test Framework for Java
-
-## Usage
-
-Open a command window and run:
-
-    mvn test
-
->>>>>>> branch 'master' of https://github.com/atf4j/atf4j.git

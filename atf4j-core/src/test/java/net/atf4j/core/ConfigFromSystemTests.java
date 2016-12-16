@@ -24,7 +24,7 @@ import org.junit.Test;
 import net.atf4j.core.AbstractConfig.MissingPropertyFileException;
 
 /**
- * ConfigFromSystemTests Class.
+ * UnitTests for ConfigFromSystem.
  *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
@@ -51,10 +51,11 @@ public class ConfigFromSystemTests extends LoggedTest {
 
     @Test
     public void testSystemString() throws MissingPropertyFileException {
-        // Given a system property string
         final String systemPropertyKey = "stringFromSystem";
         final String systemPropertyValue = "present";
         System.setProperty(systemPropertyKey, systemPropertyValue);
+
+        // When
         final ConfigFromSystem mockConfig = new ConfigFromSystem();
         assertNotNull(mockConfig);
         final String systemPropertyAsString = mockConfig.getSystemPropertyAsString(systemPropertyKey);
@@ -63,11 +64,10 @@ public class ConfigFromSystemTests extends LoggedTest {
 
     @Test
     public void testSystemBoolean() throws MissingPropertyFileException {
-        // Given a system property boolean
         final String systemPropertyKey = "booleanFromSystem";
         final String systemPropertyValue = "true";
         System.setProperty(systemPropertyKey, systemPropertyValue);
-        log.info(System.getProperties().toString());
+        this.log.info(System.getProperties().toString());
 
         // When
         final ConfigFromSystem mockConfig = new ConfigFromSystem();

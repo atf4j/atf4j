@@ -16,7 +16,12 @@
  */
 package net.atf4j.annotations.examples;
 
+import static net.atf4j.core.Atf4j.endStep;
+import static net.atf4j.core.Atf4j.endTest;
+import static net.atf4j.core.Atf4j.startStep;
+import static net.atf4j.core.Atf4j.startTest;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assume.assumeTrue;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -34,8 +39,8 @@ import net.atf4j.annotations.Atf4j.TestName;
  */
 public class AnnotatedExampleOneTest {
 
-    /** The Constant log. */
-    protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+    /** logging. */
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Annotated Test example.
@@ -44,14 +49,34 @@ public class AnnotatedExampleOneTest {
      *             the exception
      */
     @Test
-    @TestId("EXAMPLE-0001-1")
-    @TestName("testExampleOne")
+    @TestId("EXAMPLE-0001")
+    @TestName("testEample")
     @TestDescription("Example showing annotations with static context")
     public final void testExample() throws Exception {
-        log.trace(this.getClass().getSimpleName() + ".testAnnotationsWithPass");
-        log.info("Test ID : = {} ", AnnotationHelper.getTestId());
-        log.info("Test Name : = {} ", AnnotationHelper.getTestName());
-        log.info("Test Description : = {} ", AnnotationHelper.getTestDescription());
+        this.log.trace("{}.testExample", this.getClass().getSimpleName());
+        this.log.info("Test ID : = {} ", AnnotationHelper.getTestId());
+        this.log.info("Test Name : = {} ", AnnotationHelper.getTestName());
+        this.log.info("Test Description : = {} ", AnnotationHelper.getTestDescription());
         assertTrue(true);
     }
+
+    @Test
+    public void testSteps() {
+        startTest("start test");
+        {
+            startStep("step One");
+            {
+                assumeTrue(true);
+            }
+            endStep();
+
+            startStep("step Two");
+            {
+                assumeTrue(true);
+            }
+            endStep();
+        }
+        endTest();
+    }
+
 }

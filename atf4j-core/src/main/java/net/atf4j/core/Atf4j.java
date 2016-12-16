@@ -23,7 +23,7 @@ import net.atf4j.core.timers.NestedTimers;
  */
 public class Atf4j {
 
-    /** The Constant log. */
+    /** logging. */
     protected static final Logger log = LoggerFactory.getLogger(Atf4j.class);
 
     /** The Constant multiTimers. */
@@ -33,7 +33,8 @@ public class Atf4j {
      * Start test.
      */
     public static void startTest() {
-        log.info(document(Thread.currentThread().getStackTrace()));
+        log.info("startTest");
+        log.info(multiTimers.startTimer("startTest").toString());
     }
 
     /**
@@ -60,6 +61,7 @@ public class Atf4j {
      */
     public static void startStep() {
         log.info("startStep");
+        log.info(multiTimers.startTimer("startStep").toString());
     }
 
     /**
@@ -70,12 +72,14 @@ public class Atf4j {
      */
     public static void startStep(final String description) {
         log.info(description);
+        log.info(multiTimers.startTimer(description).toString());
     }
 
     /**
      * End step.
      */
     public static void endStep() {
+        log.info(multiTimers.stopTimer().toString());
         log.info("endStep");
     }
 
@@ -90,6 +94,8 @@ public class Atf4j {
         for (final StackTraceElement stackTraceElement : stackTrace) {
             log.info(stackTraceElement.toString());
             final String methodName = stackTraceElement.getMethodName();
+            log.info(methodName);
+            return methodName;
         }
         return null;
     }

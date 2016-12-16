@@ -1,14 +1,11 @@
 def pool = ['a'..'z',0..9].flatten()
+
 Random rand = new Random(System.currentTimeMillis())
 def randomChars = (0..3).collect { pool[rand.nextInt(pool.size())] }
 def endOfWord = randomChars.join()
-newUserName = "whapi" + endOfWord
+newUserName = "userName" + endOfWord
 newUserEmail = newUserName + "@example.com"
 def testCase = testRunner.testCase
-testCase.setPropertyValue("newUserEmail", newUserEmail)
-testCase.setPropertyValue("newUserName", newUserName)
-log.info "userName="+ newUserName
-log.info "userEmail="+ newUserEmail
 
 	def tester()
 	{

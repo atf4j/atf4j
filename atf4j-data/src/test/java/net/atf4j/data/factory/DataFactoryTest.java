@@ -29,7 +29,7 @@ import net.atf4j.core.LoggedTest;
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
 public class DataFactoryTest extends LoggedTest {
-    protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Test Data Mock.
@@ -37,7 +37,7 @@ public class DataFactoryTest extends LoggedTest {
     public class TestData extends AddressFactory {
         /**
          * Instantiates a new mock data.
-         * 
+         *
          * @throws Exception
          */
         public TestData() throws Exception {
@@ -47,26 +47,27 @@ public class DataFactoryTest extends LoggedTest {
 
     /**
      * Test default constructor.
-     * 
+     *
      * @throws Exception
      */
     @Test
     public final void testDefaultConstructor() throws Exception {
-        final AbstractDataFactory dataFactory = new TestData();
-        Assert.assertNotNull(dataFactory);
+        final AbstractDataFactory testData = new TestData();
+        Assert.assertNotNull(testData);
+        this.log.info(testData.toString());
     }
 
     @Test
     public void testSomeThing() throws Exception {
-        // DataFactory.dateOfBirth();
-        // DataFactory.dobOver18();
-        // DataFactory.dobUnder18();
-        // DataFactory.futureDate().thisYear();
-        // DataFactory.pastDate();
-        // DataFactory.thisYear();
-        // DataFactory.thisMonth();
-        // DataFactory.familyName();
-        // DataFactory.givenName();
+        this.log.info(DataFactory.dateOfBirth().toString());
+        this.log.info(DataFactory.dobOver18().toString());
+        this.log.info(DataFactory.dobUnder18().toString());
+        this.log.info(DataFactory.futureDate().toString());
+        this.log.info(DataFactory.pastDate().toString());
+        this.log.info(DataFactory.thisYear().toString());
+        this.log.info(DataFactory.thisMonth().toString());
+        this.log.info(DataFactory.familyName().toString());
+        this.log.info(DataFactory.givenName().toString());
     }
 
 }

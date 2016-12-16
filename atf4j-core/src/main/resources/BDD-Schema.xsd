@@ -14,10 +14,10 @@
 
 	<xs:complexType name="narrativeType">
 		<xs:sequence>
-			<xs:element name="Narrative-Text" type="xs:string" />
-			<xs:element name="in-order-to" type="xs:string" />
-			<xs:element name="as-a-role" type="xs:string" />
-			<xs:element name="I-want" type="xs:string" />
+			<xs:element name="narrative" type="xs:string" />
+			<xs:element name="value" type="xs:string" />
+			<xs:element name="role" type="xs:string" />
+			<xs:element name="want" type="xs:string" />
 		</xs:sequence>
 	</xs:complexType>
 

@@ -29,7 +29,7 @@ import org.slf4j.LoggerFactory;
  * The Class CsvFileTest.
  */
 public class CsvFileTest {
-    protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /** The Constant MISSING_CSV. */
     private static final String MISSING_CSV = "missing.csv";

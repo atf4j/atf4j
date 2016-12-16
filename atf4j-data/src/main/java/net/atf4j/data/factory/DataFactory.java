@@ -16,6 +16,8 @@
  */
 package net.atf4j.data.factory;
 
+import java.util.Date;
+
 import net.atf4j.data.FactoryMethod;
 
 /**
@@ -32,6 +34,46 @@ public class DataFactory extends AbstractDataFactory implements FactoryMethod {
 
     @Override
     public Object create() {
+        return null;
+    }
+
+    public static Date today() {
+        return new Date();
+    }
+
+    public static Date dateOfBirth() {
+        return null;
+    }
+
+    public static Date dobOver18() {
+        return null;
+    }
+
+    public static Date dobUnder18() {
+        return null;
+    }
+
+    public static Date futureDate() {
+        return null;
+    }
+
+    public static Date pastDate() {
+        return null;
+    }
+
+    public static String thisYear() {
+        return null;
+    }
+
+    public static String thisMonth() {
+        return null;
+    }
+
+    public static String familyName() {
+        return null;
+    }
+
+    public static String givenName() {
         return null;
     }
 

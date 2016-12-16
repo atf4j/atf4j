@@ -27,16 +27,11 @@ import org.slf4j.LoggerFactory;
  */
 public class AnnotationHelper {
 
-    /** The Constant log. */
+    /** logging. */
     private static final Logger log = LoggerFactory.getLogger(AnnotationHelper.class);
 
-    /** The Constant EXPECTED_TEST_ID. */
     private static final String EXPECTED_TEST_ID = "Expected @Atf4j.TestId annotation not found.";
-
-    /** The Constant EXPECTED_TEST_NAME. */
     private static final String EXPECTED_TEST_NAME = "Expected @Atf4j.TestName annotation not found.";
-
-    /** The Constant EXPECTED_TEST_DESCRIPTION. */
     private static final String EXPECTED_TEST_DESCRIPTION = "Expected @Atf4j.TestDescription annotation not found.";
 
     /**
@@ -120,11 +115,9 @@ public class AnnotationHelper {
                     }
                 }
             } catch (final ClassNotFoundException classNotFoundException) {
-                classNotFoundException.printStackTrace();
-                throw new RuntimeException(classNotFoundException);
+                log.error(classNotFoundException.toString());
             } catch (final SecurityException securityException) {
-                securityException.printStackTrace();
-                throw new RuntimeException(securityException);
+                log.error(securityException.toString());
             }
         }
         return null;

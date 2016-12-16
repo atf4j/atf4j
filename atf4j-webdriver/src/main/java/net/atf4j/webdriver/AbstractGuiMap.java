@@ -139,7 +139,7 @@ public abstract class AbstractGuiMap {
         final Enumeration<String> keys = this.resourceBundle.getKeys();
         while (keys.hasMoreElements()) {
             final String key = keys.nextElement();
-            out.println(key + "=" + this.resourceBundle.getString(key));
+            out.println(key + "=" + this.resourceBundle.getString(key)); //$NON-NLS-1$
         }
         out.flush();
     }

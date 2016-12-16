@@ -17,7 +17,7 @@
 package net.atf4j.data;
 
 /**
- * Name.
+ * A Name
  *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  *
