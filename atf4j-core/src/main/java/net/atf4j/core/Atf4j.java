@@ -27,60 +27,15 @@ public class Atf4j {
     protected static final Logger log = LoggerFactory.getLogger(Atf4j.class);
 
     /** The Constant multiTimers. */
-    protected static final NestedTimers multiTimers = NestedTimers.getInstance();
+    protected static final NestedTimers nestedTimers = NestedTimers.getInstance();
 
-    /**
-     * Start test.
-     */
-    public static void startTest() {
-        log.info("startTest");
-        log.info(multiTimers.startTimer("startTest").toString());
+    public static void start(final String string) {
+        log.info(string);
+        nestedTimers.startTimer("start");
     }
 
-    /**
-     * Start test.
-     *
-     * @param description
-     *            the description
-     */
-    public static void startTest(final String description) {
-        log.info(description);
-        log.info(multiTimers.startTimer(description).toString());
-    }
-
-    /**
-     * End test.
-     */
-    public static void endTest() {
-        log.info(multiTimers.stopTimer().toString());
-        log.info("endTest");
-    }
-
-    /**
-     * Start step.
-     */
-    public static void startStep() {
-        log.info("startStep");
-        log.info(multiTimers.startTimer("startStep").toString());
-    }
-
-    /**
-     * Start step.
-     *
-     * @param description
-     *            the description
-     */
-    public static void startStep(final String description) {
-        log.info(description);
-        log.info(multiTimers.startTimer(description).toString());
-    }
-
-    /**
-     * End step.
-     */
-    public static void endStep() {
-        log.info(multiTimers.stopTimer().toString());
-        log.info("endStep");
+    public static void end() {
+        log.info(nestedTimers.stopTimer().toString());
     }
 
     /**
@@ -90,7 +45,7 @@ public class Atf4j {
      *            the stack trace
      * @return the string
      */
-    private static String document(final StackTraceElement[] stackTrace) {
+    public static String document(final StackTraceElement[] stackTrace) {
         for (final StackTraceElement stackTraceElement : stackTrace) {
             log.info(stackTraceElement.toString());
             final String methodName = stackTraceElement.getMethodName();

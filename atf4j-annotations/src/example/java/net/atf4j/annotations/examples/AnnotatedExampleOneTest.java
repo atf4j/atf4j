@@ -16,12 +16,7 @@
  */
 package net.atf4j.annotations.examples;
 
-import static net.atf4j.core.Atf4j.endStep;
-import static net.atf4j.core.Atf4j.endTest;
-import static net.atf4j.core.Atf4j.startStep;
-import static net.atf4j.core.Atf4j.startTest;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assume.assumeTrue;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -58,25 +53,6 @@ public class AnnotatedExampleOneTest {
         this.log.info("Test Name : = {} ", AnnotationHelper.getTestName());
         this.log.info("Test Description : = {} ", AnnotationHelper.getTestDescription());
         assertTrue(true);
-    }
-
-    @Test
-    public void testSteps() {
-        startTest("start test");
-        {
-            startStep("step One");
-            {
-                assumeTrue(true);
-            }
-            endStep();
-
-            startStep("step Two");
-            {
-                assumeTrue(true);
-            }
-            endStep();
-        }
-        endTest();
     }
 
 }

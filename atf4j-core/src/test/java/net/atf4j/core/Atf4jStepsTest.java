@@ -16,10 +16,9 @@
  */
 package net.atf4j.core;
 
-import static net.atf4j.core.Atf4j.endStep;
-import static net.atf4j.core.Atf4j.endTest;
-import static net.atf4j.core.Atf4j.startStep;
-import static net.atf4j.core.Atf4j.startTest;
+import static net.atf4j.core.Atf4j.document;
+import static net.atf4j.core.Atf4j.end;
+import static net.atf4j.core.Atf4j.start;
 import static org.junit.Assume.assumeTrue;
 
 import org.junit.Test;
@@ -27,21 +26,34 @@ import org.junit.Test;
 public class Atf4jStepsTest {
 
     @Test
-    public void testSteps() {
-        startTest("start test");
+    public void testSimpleStep() {
+        start("start test");
         {
-            startStep("step One");
+            start("step One");
             {
-                assumeTrue(true);
+                document(Thread.currentThread().getStackTrace());
             }
-            endStep();
-
-            startStep("step Two");
-            {
-                assumeTrue(true);
-            }
-            endStep();
+            end();
         }
-        endTest();
+        end();
+    }
+
+    @Test
+    public void testSteps() {
+        start("start test");
+        {
+            start("step One");
+            {
+                assumeTrue(true);
+            }
+            end();
+
+            start("step Two");
+            {
+                assumeTrue(true);
+            }
+            end();
+        }
+        end();
     }
 }

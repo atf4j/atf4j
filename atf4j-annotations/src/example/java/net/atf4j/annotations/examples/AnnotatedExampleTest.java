@@ -19,10 +19,9 @@ package net.atf4j.annotations.examples;
 import static net.atf4j.annotations.AnnotationHelper.getTestDescription;
 import static net.atf4j.annotations.AnnotationHelper.getTestId;
 import static net.atf4j.annotations.AnnotationHelper.getTestName;
-import static net.atf4j.core.Atf4j.endStep;
-import static net.atf4j.core.Atf4j.endTest;
-import static net.atf4j.core.Atf4j.startStep;
-import static net.atf4j.core.Atf4j.startTest;
+import static net.atf4j.core.Atf4j.document;
+import static net.atf4j.core.Atf4j.end;
+import static net.atf4j.core.Atf4j.start;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -53,14 +52,15 @@ public class AnnotatedExampleTest {
     @TestName("testEample")
     @TestDescription("Example showing annotations with static context")
     public void testSteps() {
-        startTest(getTestId());
+        start(getTestId());
         {
-            startStep(getTestName());
+            start(getTestName());
             {
                 this.log.info("Test Description : = {} ", getTestDescription());
+                document(Thread.currentThread().getStackTrace());
             }
-            endStep();
+            end();
         }
-        endTest();
+        end();
     }
 }
