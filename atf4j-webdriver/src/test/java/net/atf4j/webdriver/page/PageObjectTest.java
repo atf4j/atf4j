@@ -18,8 +18,9 @@ package net.atf4j.webdriver.page;
 
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
-import net.atf4j.core.AbstractConfig.MissingPropertyFileException;
+import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 
 /**
  * PageObjectTest.
@@ -35,12 +36,14 @@ public class PageObjectTest {
 
         protected static final String TARGET_URL = "http://127.0.0.1:8080";
 
-        public MockPage() throws MissingPropertyFileException {
+        /**
+         * Instantiates a new mock page.
+         *
+         * @throws ConfigurationNotLoaded
+         *             the configuration not loaded
+         */
+        public MockPage() throws ConfigurationNotLoaded {
             super();
-        }
-
-        public MockPage(final String targetUrl) throws MissingPropertyFileException {
-            super(targetUrl);
         }
 
         /**
@@ -52,60 +55,93 @@ public class PageObjectTest {
         public MockPage(final WebDriver webDriver) {
             super(webDriver);
         }
+
+        /**
+         * Instantiates a new mock page.
+         *
+         * @param targetUrl
+         *            the target url
+         * @throws ConfigurationNotLoaded
+         *             the configuration not loaded
+         */
+        public MockPage(final String targetUrl) throws ConfigurationNotLoaded {
+            super(targetUrl);
+        }
+
     }
 
     /**
      * Test method for
      * {@link net.net.atf4j.webdriver.page.AbstractPageObject#AbstractPageObject()}.
-     * 
-     * @throws MissingPropertyFileException
+     *
+     * @throws ConfigurationNotLoaded
      */
     @Test
-    public final void testDefaultConstruction() throws MissingPropertyFileException {
+    public final void testDefaultConstructor() throws ConfigurationNotLoaded {
         new MockPage();
+    }
+
+    /**
+     * test PageObject object.
+     *
+     * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
+     */
+    public final void testWebDriverConstructor() throws ConfigurationNotLoaded {
+        new MockPage(new HtmlUnitDriver());
+    }
+
+    /**
+     * test PageObject object.
+     *
+     * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
+     */
+    public final void testTargetUrlConstruction() throws ConfigurationNotLoaded {
+        new MockPage("http://localhost:8080/");
     }
 
     /**
      * Test method for
      * {@link net.net.atf4j.webdriver.page.AbstractPageObject#open()}.
-     * 
-     * @throws MissingPropertyFileException
+     *
+     * @throws ConfigurationNotLoaded
      */
     @Test
-    public final void testDefaultOpen() throws MissingPropertyFileException {
+    public final void testDefaultOpen() throws ConfigurationNotLoaded {
         new MockPage().open();
     }
 
     /**
      * Test method for
      * {@link net.net.atf4j.webdriver.page.AbstractPageObject#open()}.
-     * 
-     * @throws MissingPropertyFileException
+     *
+     * @throws ConfigurationNotLoaded
      */
     @Test
-    public final void testOpen() throws MissingPropertyFileException {
+    public final void testOpen() throws ConfigurationNotLoaded {
         new MockPage(MockPage.TARGET_URL).open();
     }
 
     /**
      * Test method for
      * {@link net.net.atf4j.webdriver.page.AbstractPageObject#open(java.lang.String)}.
-     * 
-     * @throws MissingPropertyFileException
+     *
+     * @throws ConfigurationNotLoaded
      */
     @Test
-    public final void testOpenString() throws MissingPropertyFileException {
+    public final void testOpenString() throws ConfigurationNotLoaded {
         new MockPage().open(MockPage.TARGET_URL);
     }
 
     /**
      * Test method for
      * {@link net.net.atf4j.webdriver.page.AbstractPageObject#verify()}.
-     * 
-     * @throws MissingPropertyFileException
+     *
+     * @throws ConfigurationNotLoaded
      */
     @Test
-    public final void testVerify() throws MissingPropertyFileException {
+    public final void testVerify() throws ConfigurationNotLoaded {
         new MockPage().open().verify();
     }
 

@@ -24,7 +24,7 @@ import org.junit.Test;
  *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
-public class StringBuilderTest extends LoggedTest {
+public class StringBuilderTest extends Reporting {
 
     String string = "StringBuilderTest";
     boolean bool = true;

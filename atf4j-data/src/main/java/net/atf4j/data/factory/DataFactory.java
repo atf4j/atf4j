@@ -18,23 +18,16 @@ package net.atf4j.data.factory;
 
 import java.util.Date;
 
-import net.atf4j.data.FactoryMethod;
-
 /**
  * DataFactory.
  *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  *
  */
-public class DataFactory extends AbstractDataFactory implements FactoryMethod {
+public class DataFactory extends AbstractDataFactory {
 
     protected DataFactory() throws Exception {
         super();
-    }
-
-    @Override
-    public Object create() {
-        return null;
     }
 
     public static Date today() {

@@ -16,75 +16,46 @@
  */
 package net.atf4j.webdriver;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import org.junit.Assert;
 import org.junit.Test;
 
-import net.atf4j.core.AbstractConfig.MissingPropertyFileException;
+import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
+import net.atf4j.core.Reporting;
 
 /**
  * WebDriverConfigTest Class.
  *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
-public class WebDriverConfigTest {
-
-    /**
-     * The Class MockWebDriverConfig.
-     */
-    public class TestWebDriverConfig extends WebDriverConfig {
-
-        /**
-         * Instantiates a new mock web driver config.
-         *
-         * @throws MissingPropertyFileException
-         *             the missing property file exception
-         */
-        public TestWebDriverConfig() throws MissingPropertyFileException {
-            super();
-        }
-
-    }
+public class WebDriverConfigTest extends Reporting {
 
     /**
      * Test method for
      * {@link net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.
      *
-     * @throws MissingPropertyFileException
+     * @throws ConfigurationNotLoaded
      *             the missing property file exception
      */
     @Test
-    public final void testDefaultConstructor() throws MissingPropertyFileException {
-        final TestWebDriverConfig config = new TestWebDriverConfig();
+    public final void testDefaultConstructor() throws ConfigurationNotLoaded {
+        final WebDriverConfig config = new WebDriverConfig();
         assertNotNull(config);
     }
 
     /**
-     * Test method for
-     * {@link net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.
+     * test WebDriverConfig object.
      *
-     * @throws MissingPropertyFileException
-     *             the missing property file exception
+     * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
      */
     @Test
-    public final void testSystemOveridesConfig() throws MissingPropertyFileException {
-        final TestWebDriverConfig config = new TestWebDriverConfig();
+    public final void testHappyPath() throws ConfigurationNotLoaded {
+        final WebDriverConfig config = new WebDriverConfig();
         assertNotNull(config);
-        final String key = "targetUrl";
-        final String value = "SystemOveridesConfig";
-        System.setProperty(key, value);
-        Assert.assertEquals(value, config.getTargetUrl());
+        verifyEquals(1000, config.getPageLoadTimeout());
+        verifyEquals(1000, config.getImplicitlyWait());
+        verifyEquals(1000, config.getImplicitlyWaitUnit());
     }
 
-    @Test
-    public final void testHappyPath() throws MissingPropertyFileException {
-        final TestWebDriverConfig config = new TestWebDriverConfig();
-        assertNotNull(config);
-        assertEquals(0,config.getPageLoadTimeout());
-        assertEquals(0,config.getPageLoadTimeoutUnit());
-        assertEquals(0,config.getImplicitlyWait());
-        assertEquals(0,config.getImplicitlyWaitUnit());
-    }
 }

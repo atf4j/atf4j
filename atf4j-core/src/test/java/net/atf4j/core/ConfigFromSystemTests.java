@@ -21,20 +21,20 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.AbstractConfig.MissingPropertyFileException;
+import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 
 /**
  * UnitTests for ConfigFromSystem.
  *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
-public class ConfigFromSystemTests extends LoggedTest {
+public class ConfigFromSystemTests extends Reporting {
 
     /**
-     * MockConfig Class.
+     * Mock Configuration from System settings.
      */
     private class ConfigFromSystem extends AbstractConfig {
-        public ConfigFromSystem() throws MissingPropertyFileException {
+        public ConfigFromSystem() throws ConfigurationNotLoaded {
             super();
         }
 
@@ -50,7 +50,7 @@ public class ConfigFromSystemTests extends LoggedTest {
     }
 
     @Test
-    public void testSystemString() throws MissingPropertyFileException {
+    public void testSystemString() throws ConfigurationNotLoaded {
         final String systemPropertyKey = "stringFromSystem";
         final String systemPropertyValue = "present";
         System.setProperty(systemPropertyKey, systemPropertyValue);
@@ -63,7 +63,7 @@ public class ConfigFromSystemTests extends LoggedTest {
     }
 
     @Test
-    public void testSystemBoolean() throws MissingPropertyFileException {
+    public void testSystemBoolean() throws ConfigurationNotLoaded {
         final String systemPropertyKey = "booleanFromSystem";
         final String systemPropertyValue = "true";
         System.setProperty(systemPropertyKey, systemPropertyValue);

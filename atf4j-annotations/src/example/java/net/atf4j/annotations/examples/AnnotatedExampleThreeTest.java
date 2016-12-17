@@ -26,9 +26,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.atf4j.annotations.Atf4j;
-import net.atf4j.annotations.Atf4j.TestDescription;
-import net.atf4j.annotations.Atf4j.TestId;
-import net.atf4j.annotations.Atf4j.TestName;
 
 /**
  * Annotated Test Example Two, using static imports. Allows annotations to be
@@ -50,10 +47,10 @@ public class AnnotatedExampleThreeTest {
     @Atf4j.TestName("testExampleThree")
     @Atf4j.TestDescription("Example showing annotations with static import")
     public final void testExample() throws Exception {
-        log.trace(this.getClass().getSimpleName() + ".testAnnotationsWithPass");
-        log.info("Test ID : = {} ", getTestId());
-        log.info("Test Name : = {} ", getTestName());
-        log.info("Test Description : = {} ", getTestDescription());
+        this.log.trace(this.getClass().getSimpleName() + ".testAnnotationsWithPass");
+        this.log.info("Test ID : = {} ", getTestId());
+        this.log.info("Test Name : = {} ", getTestName());
+        this.log.info("Test Description : = {} ", getTestDescription());
         assertTrue(true);
     }
 

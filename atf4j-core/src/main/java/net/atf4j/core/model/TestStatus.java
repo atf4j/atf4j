@@ -43,4 +43,5 @@ public enum TestStatus {
     TestStatus(final String name) {
         this.status = name;
     }
+
 }

@@ -1,2 +1,3 @@
 # atf4j-pog
-Automation Test Framework for Java
+## Page Object Generator for Selenium WebDriver
+### Automation Test Framework for Java

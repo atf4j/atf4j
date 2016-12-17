@@ -34,7 +34,7 @@ public abstract class AbstractDataFactory extends AbstractConfig {
         loadData();
     }
 
-    protected void loadData() throws Exception {
+    protected AbstractDataFactory loadData() throws Exception {
         final Enumeration<Object> keys = this.properties.keys();
         while (keys.hasMoreElements()) {
             final String key = (String) keys.nextElement();
@@ -43,14 +43,15 @@ public abstract class AbstractDataFactory extends AbstractConfig {
                 loadData(dataFilename);
             }
         }
+        return this;
     }
 
-    private void loadData(final String dataFilename) throws Exception {
+    private AbstractDataFactory loadData(final String dataFilename) throws Exception {
         try {
             this.dataFile = new CsvFile(dataFilename);
         } catch (final IOException e) {
             e.printStackTrace();
         }
+        return this;
     }
-
 }

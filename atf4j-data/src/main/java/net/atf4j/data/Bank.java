@@ -23,7 +23,7 @@ import net.atf4j.data.factory.AddressFactory;
  *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
-public abstract class Bank extends Business {
+public class Bank extends Business {
     private AddressFactory bankAddress;
     private BankSortCode bankSortCode;
 

@@ -23,8 +23,19 @@ package net.atf4j.data;
  */
 public class Product {
 
-    /** The details. */
+    private String id;
+    private String name;
     private String details;
+
+    public Product() {
+    }
+
+    public Product(final String id, final String name, final String details) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.details = details;
+    }
 
     /**
      * Product.

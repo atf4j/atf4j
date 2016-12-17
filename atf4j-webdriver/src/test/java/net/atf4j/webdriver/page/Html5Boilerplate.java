@@ -17,7 +17,9 @@
 
 package net.atf4j.webdriver.page;
 
-import net.atf4j.core.AbstractConfig.MissingPropertyFileException;
+import org.openqa.selenium.WebDriver;
+
+import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 import net.atf4j.webdriver.TargetUrl;
 
 /**
@@ -28,7 +30,16 @@ import net.atf4j.webdriver.TargetUrl;
 @TargetUrl("http://127.0.0.1:8080/html5boilerplate")
 public class Html5Boilerplate extends AbstractPageObject {
 
-    public Html5Boilerplate() throws MissingPropertyFileException {
+    public Html5Boilerplate() throws ConfigurationNotLoaded {
         super();
     }
+
+    public Html5Boilerplate(final String targetUrl) throws ConfigurationNotLoaded {
+        super(targetUrl);
+    }
+
+    public Html5Boilerplate(final WebDriver webDriver) {
+        super(webDriver);
+    }
+
 }

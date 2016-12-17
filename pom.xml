@@ -2,6 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<properties>
 		<atf4j.version>0.0.3-SNAPSHOT</atf4j.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -11,14 +12,36 @@
 		<slf4j.version>1.7.21</slf4j.version>
 		<cucumber.version>1.2.4</cucumber.version>
 		<selenium.version>2.53.1</selenium.version>
-		<javadoc.version>2.10.4</javadoc.version>
-		<resource.version>3.0.1</resource.version>
-		<pmd.version>3.7</pmd.version>
-		<checkstyle.version>2.17</checkstyle.version>
-		<jxr.version>2.5</jxr.version>
-		<surefire.version>2.19.1</surefire.version>
-		<failsafe.version>2.19.1</failsafe.version>
+		<maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
+		<maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
+		<maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
+		<maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>
+		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+		<maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
+		<maven-failsafe-plugin.version>2.19.1</maven-failsafe-plugin.version>
+		<maven-project-info-reports-plugin>2.9</maven-project-info-reports-plugin>
+		<maven-jxr-plugin.version>2.5</maven-jxr-plugin.version>
+		<maven-pmd-plugin.version>3.7</maven-pmd-plugin.version>
+		<maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
 	</properties>
+
+	<groupId>net.atf4j</groupId>
+	<artifactId>atf4j</artifactId>
+	<version>0.0.3-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Automation Test Framework for Java</name>
+	<description>Automated Testing Framework for Java.</description>
+	<url>http://atf4j.net</url>
+
+	<licenses>
+		<license>
+			<name>GNU General Public License, Version 3</name>
+			<url>http://www.gnu.org/licenses/gpl-3.0.html</url>
+			<distribution>manual</distribution>
+			<comments>A free, copyleft license for software and other kinds of works</comments>
+		</license>
+	</licenses>
+
 	<modules>
 		<module>atf4j-annotations</module>
 		<module>atf4j-bdd</module>
@@ -30,57 +53,38 @@
 		<module>atf4j-webdriver</module>
 		<module>atf4j-cucumber-webdriver</module>
 	</modules>
-	<groupId>net.atf4j</groupId>
-	<artifactId>atf4j</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
-	<packaging>pom</packaging>
-	<name>Automation Test Framework for Java</name>
-	<licenses>
-		<license>
-			<name>GNU General Public License, Version 3</name>
-			<url>http://www.gnu.org/licenses/gpl-3.0.html</url>
-			<distribution>manual</distribution>
-			<comments>A free, copyleft license for software and other kinds of works</comments>
-		</license>
-	</licenses>
-	<distributionManagement>
-		<site>
-			<id>atf4j.net</id>
-			<url>scp://atf4j.net/project/</url>
-		</site>
-	</distributionManagement>
+
 	<dependencies>
-		<dependency>
-		    <groupId>org.testng</groupId>
-		    <artifactId>testng</artifactId>
-		    <version>6.10</version>
-		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
 	</dependencies>
+
 	<build>
 		<finalName>${project.artifactId} </finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.1</version>
+				<version>${maven-jar-plugin.version}</version>
 				<configuration>
 					<archive>
 						<manifest>
@@ -90,21 +94,26 @@
 					</archive>
 				</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
+				<version>${maven-resources-plugin.version}</version>
 				<configuration>
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven-javadoc-plugin.version}</version>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>3.0.1</version>
+				<version>${maven-source-plugin.version}</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -115,9 +124,11 @@
 					</execution>
 				</executions>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>${maven-failsafe-plugin.version}</version>
 				<executions>
 					<execution>
 						<goals>
@@ -128,17 +139,19 @@
 				</executions>
 			</plugin>
 		</plugins>
+
 		<pluginManagement>
 			<plugins>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
-					<version>${surefire.version}</version>
+					<version>${maven-surefire-plugin.version}</version>
 				</plugin>
+
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-failsafe-plugin</artifactId>
-					<version>${failsafe.version}</version>
+					<version>${maven-failsafe-plugin.version}</version>
 					<executions>
 						<execution>
 							<id>integration-test</id>
@@ -152,12 +165,13 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+
 	<reporting>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>2.6</version>
+				<version>${maven-project-info-reports-plugin.version}</version>
 				<reportSets>
 					<reportSet>
 						<reports>
@@ -166,10 +180,11 @@
 					</reportSet>
 				</reportSets>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9</version>
+				<version>${maven-javadoc-plugin.version}</version>
 				<reportSets>
 					<reportSet><!-- by default, id = "default" -->
 						<reports><!-- select non-aggregate reports -->
@@ -186,15 +201,17 @@
 					</reportSet>
 				</reportSets>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<!-- <version>${javadoc.version}</version> -->
+				<version>${maven-javadoc-plugin.version}</version>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-report-plugin</artifactId>
-				<version>${surefire.version}</version>
+				<version>${maven-surefire-report-plugin.version}</version>
 				<reportSets>
 					<reportSet>
 						<id>integration-tests</id>
@@ -204,15 +221,17 @@
 					</reportSet>
 				</reportSets>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
-				<version>${pmd.version}</version>
+				<version>${maven-pmd-plugin.version}</version>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>${checkstyle.version}</version>
+				<version>${maven-checkstyle-plugin.version}</version>
 				<reportSets>
 					<reportSet>
 						<reports>
@@ -221,13 +240,12 @@
 					</reportSet>
 				</reportSets>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jxr-plugin</artifactId>
-				<version>${jxr.version}</version>
+				<version>${maven-jxr-plugin.version}</version>
 			</plugin>
 		</plugins>
 	</reporting>
-	<url>http://atf4j.net</url>
-	<description>Automated Testing Framework for Java.</description>
 </project>

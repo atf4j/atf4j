@@ -16,22 +16,21 @@
  */
 package net.atf4j.data.factory;
 
-import net.atf4j.data.Address;
+import net.atf4j.data.PostalAddress;
 
 /**
  * AddressFactory.
  *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
-public class AddressFactory extends DataFactory implements FactoryMethod {
+public class AddressFactory extends DataFactory {
 
     public AddressFactory() throws Exception {
         super();
     }
 
-    @Override
-    public Address create() {
-        return new Address();
+    public static PostalAddress create() {
+        return new PostalAddress();
     }
 
 }

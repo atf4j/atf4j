@@ -20,7 +20,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.LoggedTest;
+import net.atf4j.core.Reporting;
 
 /**
  * AddressTest.
@@ -28,12 +28,22 @@ import net.atf4j.core.LoggedTest;
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  *
  */
-public class AddressTest extends LoggedTest {
+public class AddressTest extends Reporting {
 
     @Test
     public void testDefaultConstructor() {
-        final Address address = new Address();
+        final PostalAddress address = new PostalAddress();
         assertNotNull(address);
+    }
+
+    @Test
+    public void testAddress() {
+        PostalAddress.create();
+    }
+
+    @Test
+    public void testToString() {
+        assertNotNull(new PostalAddress().toString());
     }
 
 }

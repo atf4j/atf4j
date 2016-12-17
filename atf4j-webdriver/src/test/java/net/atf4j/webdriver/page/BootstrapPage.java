@@ -17,7 +17,9 @@
 
 package net.atf4j.webdriver.page;
 
-import net.atf4j.core.AbstractConfig.MissingPropertyFileException;
+import org.openqa.selenium.WebDriver;
+
+import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 import net.atf4j.webdriver.TargetUrl;
 
 /**
@@ -31,11 +33,33 @@ public class BootstrapPage extends AbstractPageObject {
     /**
      * Instantiates a new bootstrap page.
      *
-     * @throws MissingPropertyFileException
+     * @throws ConfigurationNotLoaded
      *             the missing property file exception
      */
-    public BootstrapPage() throws MissingPropertyFileException {
+    public BootstrapPage() throws ConfigurationNotLoaded {
         super();
+    }
+
+    /**
+     * Instantiates a new bootstrap page.
+     *
+     * @param targetUrl
+     *            the target url
+     * @throws ConfigurationNotLoaded
+     *             the missing property file exception
+     */
+    public BootstrapPage(final String targetUrl) throws ConfigurationNotLoaded {
+        super(targetUrl);
+    }
+
+    /**
+     * Instantiates a new bootstrap page.
+     *
+     * @param webDriver
+     *            the web driver
+     */
+    public BootstrapPage(final WebDriver webDriver) {
+        super(webDriver);
     }
 
 }

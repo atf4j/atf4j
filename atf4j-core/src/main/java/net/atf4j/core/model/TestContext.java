@@ -17,15 +17,62 @@
 package net.atf4j.core.model;
 
 /**
- * The Class TestContext.
+ * Test Context.
  */
 public class TestContext {
 
-    /** The platform. */
-    String platform;
+    private String platform;
+    private String context;
 
-    /** The context. */
-    String context;
+    /**
+     * Checks if is local.
+     *
+     * @return true, if is local
+     */
+    public static boolean isLocal() {
+        return Boolean.getBoolean("isLocal");
+    }
+
+    /**
+     * Checks if is selenium.
+     *
+     * @return true, if is selenium
+     */
+    public static boolean isSelenium() {
+        return Boolean.getBoolean("isSelenium");
+    }
+
+    /**
+     * Checks if is jenkins.
+     *
+     * @return true, if is jenkins
+     */
+    public static boolean isJenkins() {
+        return Boolean.getBoolean("isJenkins");
+    }
+
+    /**
+     * Sets the platform.
+     *
+     * @param platform
+     *            the platform to set
+     */
+    public TestContext setPlatform(final String platform) {
+        this.platform = platform;
+        return this;
+    }
+
+    /**
+     * Sets the context.
+     *
+     * @param context
+     *            the context
+     * @return the test context
+     */
+    public TestContext setContext(final String context) {
+        this.context = context;
+        return this;
+    }
 
     /**
      * Gets the platform.
@@ -37,24 +84,12 @@ public class TestContext {
     }
 
     /**
-     * Sets the platform.
+     * Gets the context.
      *
-     * @param platform
-     *            the platform to set
+     * @return the context
      */
-    public void setPlatform(final String platform) {
-        this.platform = platform;
-    }
-
-    /**
-     * (non-Javadoc).
-     *
-     * @return the string
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
-        return "TestContext [platform=" + this.platform + ", context=" + this.context + "]";
+    public String getContext() {
+        return this.context;
     }
 
 }

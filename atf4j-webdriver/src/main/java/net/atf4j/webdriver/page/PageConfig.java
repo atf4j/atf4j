@@ -28,10 +28,10 @@ public class PageConfig extends WebDriverConfig {
     /**
      * Instantiates a new page config.
      *
-     * @throws MissingPropertyFileException
+     * @throws ConfigurationNotLoaded
      *             the missing property file exception
      */
-    public PageConfig() throws MissingPropertyFileException {
+    public PageConfig() throws ConfigurationNotLoaded {
         super();
     }
 

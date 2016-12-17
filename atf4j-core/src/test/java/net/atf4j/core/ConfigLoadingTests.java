@@ -16,68 +16,33 @@
  */
 package net.atf4j.core;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Assert;
 import org.junit.Test;
 
-import net.atf4j.core.AbstractConfig.MissingPropertyFileException;
+import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 
 /**
  * ConfigLoadingTests Class.
  *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
-public class ConfigLoadingTests extends LoggedTest {
-
-    /**
-     * MissingPropertiesMock Class.
-     */
-    private class MissingProperties extends AbstractConfig {
-        public MissingProperties() throws MissingPropertyFileException {
-            super();
-        }
-    }
+public class ConfigLoadingTests extends Reporting {
 
     private class SimpleConfiguration extends AbstractConfig {
-        public SimpleConfiguration() throws MissingPropertyFileException {
+        public SimpleConfiguration() throws ConfigurationNotLoaded {
             super();
         }
 
         public String getPropertyFilename() {
-            log.info(get("loaded"));
+            this.log.info(get("loaded"));
             final String propertiesFilename = super.get("propertiesFilename");
-            log.info(propertiesFilename);
+            this.log.info(propertiesFilename);
             return propertiesFilename;
         }
     }
 
-    /**
-     * Test method for {@link net.atf4j.core.AbstractConfig#Config()}.
-     *
-     * @throws MissingPropertyFileException
-     *             the missing property file exception
-     */
-    @Test(expected = MissingPropertyFileException.class)
-    public void testConfig() throws MissingPropertyFileException {
-        new MissingProperties();
-    }
-
-    /**
-     * Test method for {@link net.atf4j.core.AbstractConfig#load()}.
-     *
-     * @throws MissingPropertyFileException
-     *             the missing property file exception
-     */
-    @Test(expected = MissingPropertyFileException.class)
-    public void testLoad() throws MissingPropertyFileException {
-        final AbstractConfig mockConfig = new MissingProperties();
-        assertNotNull(mockConfig);
-        log.info(mockConfig.toString());
-    }
-
     @Test
-    public void testSuggestedUsage() throws MissingPropertyFileException {
+    public void testSuggestedUsage() throws ConfigurationNotLoaded {
         final SimpleConfiguration simpleConfig = new SimpleConfiguration();
         final String propertyFilename = simpleConfig.getPropertyFilename();
         Assert.assertEquals("/SimpleConfiguration.properties", propertyFilename);

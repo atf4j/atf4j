@@ -20,7 +20,7 @@ import net.atf4j.core.timers.NestedTimers;
 /**
  * NestedTimersTest Class.
  */
-public class NestedTimersTest extends LoggedTest {
+public class NestedTimersTest extends Reporting {
 
     /** The Constant DEFAULT_INTERVAL. */
     private static final int DEFAULT_INTERVAL = 100;

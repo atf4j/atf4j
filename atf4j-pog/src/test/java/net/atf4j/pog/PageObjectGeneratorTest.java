@@ -27,19 +27,36 @@ import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
+import org.junit.Ignore;
 import org.junit.Test;
 
-import net.atf4j.core.LoggedTest;
+import net.atf4j.core.Reporting;
 
-public class PageObjectGeneratorTest extends LoggedTest {
+/**
+ * A UnitTest for PageObjectGenerator objects.
+ */
+@Ignore
+public class PageObjectGeneratorTest extends Reporting {
 
     @Test
-    public void test() {
-        final PageObjectGenerator pog = new PageObjectGenerator("PageObject.vm");
-        pog.with("name", "MyPage");
-        pog.generate("http://atf4j.net");
+    public void testMissingTemplate() {
+        new PageObjectGenerator("Missing.vm");
     }
 
+    @Test
+    public void testPageObjectGenerator() {
+        final PageObjectGenerator pog = new PageObjectGenerator("PageObject.vm");
+        pog.target("http://atf4j.net");
+        pog.with("name", "MyPage");
+        pog.generate();
+    }
+
+    /**
+     * test PageObjectGenerator object.
+     *
+     * @throws Exception
+     *             the exception
+     */
     @Test
     public void testVelocity() throws Exception {
         final VelocityEngine ve = new VelocityEngine();
@@ -48,9 +65,9 @@ public class PageObjectGeneratorTest extends LoggedTest {
 
         ve.init();
 
-        final String templatePath = "templates/PageObject.vm";
-        final InputStream input = this.getClass().getClassLoader().getResourceAsStream(templatePath);
-        final InputStreamReader reader = new InputStreamReader(input);
+        final String templatePath = "/templates/PageObject.vm";
+        final InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(templatePath);
+        final InputStreamReader reader = new InputStreamReader(inputStream);
 
         final VelocityContext context = new VelocityContext();
 

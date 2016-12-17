@@ -16,6 +16,8 @@
  */
 package net.atf4j.webdriver.page;
 
+import static org.junit.Assume.assumeNotNull;
+
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
@@ -26,7 +28,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.atf4j.core.AbstractConfig.MissingPropertyFileException;
+import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 import net.atf4j.webdriver.BrowserFactory;
 import net.atf4j.webdriver.WebDriverConfig;
 
@@ -51,7 +53,7 @@ public abstract class AbstractPageObject {
      * @throws Exception
      *             the exception
      */
-    public AbstractPageObject() throws MissingPropertyFileException {
+    public AbstractPageObject() throws ConfigurationNotLoaded {
         super();
         this.config = new WebDriverConfig();
         this.webDriver = BrowserFactory.webDriver();
@@ -60,7 +62,7 @@ public abstract class AbstractPageObject {
         configureTimeOut();
     }
 
-    public AbstractPageObject(final String targetUrl) throws MissingPropertyFileException {
+    public AbstractPageObject(final String targetUrl) throws ConfigurationNotLoaded {
         super();
         this.config = new WebDriverConfig();
         this.webDriver = BrowserFactory.webDriver();
@@ -96,7 +98,7 @@ public abstract class AbstractPageObject {
             this.webDriverWait = new WebDriverWait(this.webDriver, 8000, 1000);
 
         } catch (final Exception exception) {
-            System.err.println(exception.toString());
+            log.error(exception.toString());
         }
     }
 
@@ -106,6 +108,7 @@ public abstract class AbstractPageObject {
      * @return this as AbstractPageObject
      */
     public AbstractPageObject open() {
+        assumeNotNull(this.config);
         final String targetUrl = this.config.getTargetUrl();
         return open(targetUrl);
     }
@@ -119,6 +122,7 @@ public abstract class AbstractPageObject {
      * @see net.atf4j.webdriver.page.PageInterface#open()
      */
     public AbstractPageObject open(final String pageUrl) {
+        assumeNotNull(this.webDriver);
         this.webDriver.get(pageUrl);
         PageFactory.initElements(this.webDriver, this);
         return this;
@@ -131,6 +135,7 @@ public abstract class AbstractPageObject {
      * @see net.atf4j.webdriver.page.PageInterface#verify()
      */
     public boolean verify() {
+        assumeNotNull(this.webDriver);
         this.webDriver.getTitle();
         return true;
     }
@@ -143,6 +148,7 @@ public abstract class AbstractPageObject {
      * @return
      */
     protected AbstractPageObject openPage(final String pageUrl) {
+        assumeNotNull(this.webDriver);
         this.webDriver.get(pageUrl);
         PageFactory.initElements(this.webDriver, this);
         return this;
@@ -154,16 +160,19 @@ public abstract class AbstractPageObject {
      * @return the web page
      */
     public AbstractPageObject urlShouldBeUnchanged() {
+        assumeNotNull(this.webDriver);
         final String currentUrl = this.webDriver.getCurrentUrl();
         currentUrl.equals(this.config.getTargetUrl());
         return this;
     }
 
     protected String getCurrentUrl() {
+        assumeNotNull(this.webDriver);
         return this.webDriver.getCurrentUrl();
     }
 
     protected String getTitle() {
+        assumeNotNull(this.webDriver);
         return this.webDriver.getTitle();
     }
 
@@ -183,10 +192,12 @@ public abstract class AbstractPageObject {
     }
 
     protected void close() {
+        assumeNotNull(this.webDriver);
         this.webDriver.close();
     }
 
     protected void quit() {
+        assumeNotNull(this.webDriver);
         this.webDriver.quit();
     }
 

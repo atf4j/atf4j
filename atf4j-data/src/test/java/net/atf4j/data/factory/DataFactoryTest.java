@@ -18,32 +18,15 @@ package net.atf4j.data.factory;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import net.atf4j.core.LoggedTest;
+import net.atf4j.core.Reporting;
 
 /**
  * PeopleFactoryTest.
  *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
-public class DataFactoryTest extends LoggedTest {
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
-
-    /**
-     * Test Data Mock.
-     */
-    public class TestData extends AddressFactory {
-        /**
-         * Instantiates a new mock data.
-         *
-         * @throws Exception
-         */
-        public TestData() throws Exception {
-            super();
-        }
-    }
+public class DataFactoryTest extends Reporting {
 
     /**
      * Test default constructor.
@@ -52,22 +35,8 @@ public class DataFactoryTest extends LoggedTest {
      */
     @Test
     public final void testDefaultConstructor() throws Exception {
-        final AbstractDataFactory testData = new TestData();
+        final DataFactory testData = new DataFactory();
         Assert.assertNotNull(testData);
         this.log.info(testData.toString());
     }
-
-    @Test
-    public void testSomeThing() throws Exception {
-        this.log.info(DataFactory.dateOfBirth().toString());
-        this.log.info(DataFactory.dobOver18().toString());
-        this.log.info(DataFactory.dobUnder18().toString());
-        this.log.info(DataFactory.futureDate().toString());
-        this.log.info(DataFactory.pastDate().toString());
-        this.log.info(DataFactory.thisYear().toString());
-        this.log.info(DataFactory.thisMonth().toString());
-        this.log.info(DataFactory.familyName().toString());
-        this.log.info(DataFactory.givenName().toString());
-    }
-
 }

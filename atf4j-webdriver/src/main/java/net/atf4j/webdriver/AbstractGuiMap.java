@@ -24,6 +24,8 @@ import java.util.Set;
 
 /**
  * A base abstraction to encapsulate GUI Mapping logical elements.
+ * Uses Resource Bundles with basename_languageCode_countryCode
+ * example: PageObjectGuiMap uses PageObjectGuiMap_en_GB.properties
  *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
@@ -68,7 +70,8 @@ public abstract class AbstractGuiMap {
      * Instantiates a new abstract gui map.
      */
     public AbstractGuiMap() {
-        this.resourceBundle = ResourceBundle.getBundle(this.getClass().getName());
+        final String name = this.getClass().getSimpleName();
+        this.resourceBundle = ResourceBundle.getBundle(name);
     }
 
     /**

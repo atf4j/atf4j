@@ -23,9 +23,6 @@ import org.junit.Test;
 import net.atf4j.annotations.AnnotatedTest;
 import net.atf4j.annotations.AnnotationHelper;
 import net.atf4j.annotations.Atf4j;
-import net.atf4j.annotations.Atf4j.TestDescription;
-import net.atf4j.annotations.Atf4j.TestId;
-import net.atf4j.annotations.Atf4j.TestName;
 
 /**
  * Annotated Test Example Two, using static imports. Allows annotations to be

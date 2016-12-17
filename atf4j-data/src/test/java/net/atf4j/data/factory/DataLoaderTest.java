@@ -21,13 +21,13 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.atf4j.core.LoggedTest;
+import net.atf4j.core.Reporting;
 import net.atf4j.data.AbstractDataLoader;
 
 /**
  * The Class DataLoaderTest.
  */
-public class DataLoaderTest extends LoggedTest {
+public class DataLoaderTest extends Reporting {
 
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
@@ -54,14 +54,14 @@ public class DataLoaderTest extends LoggedTest {
 
     /**
      * Test load data.
-     * 
+     *
      * @throws Exception
      */
     @Test
     public void testLoadData() throws Exception {
         final TestData testData = new TestData();
         Assert.assertNotNull(testData);
-        log.debug(testData.load().toString());
+        Assert.assertNotNull(testData.load());
     }
 
 }

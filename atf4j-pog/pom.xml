@@ -17,7 +17,7 @@
 		<dependency>
 			<groupId>net.atf4j</groupId>
 			<artifactId>atf4j-core</artifactId>
-			<version>${atf4j.version}</version>
+			<version>0.0.3-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
@@ -30,12 +30,6 @@
 			<groupId>org.apache.velocity</groupId>
 			<artifactId>velocity</artifactId>
 			<version>1.7</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>${selenium.version}</version>
 		</dependency>
 	</dependencies>
 </project>

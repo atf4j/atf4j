@@ -17,13 +17,13 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import net.atf4j.core.LoggedTest;
+import net.atf4j.core.Reporting;
 
 /**
  * An AnnotatedTest Class.
  */
 @Atf4j.TestScript
-public class AnnotationHelperTest extends LoggedTest {
+public class AnnotationHelperTest extends Reporting {
 
     private static final String TEST_FAIL_ID = "FAIL-0001";
     private static final String TEST_PASS_ID = "PASS-0001";

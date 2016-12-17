@@ -24,7 +24,7 @@ import net.atf4j.core.waits.Interval;
 /**
  * IntervalTester Class.
  */
-public class IntervalTester extends LoggedTest {
+public class IntervalTester extends Reporting {
 
     /** The Constant DEFAULT_INTERVAL. */
     private static final long DEFAULT_INTERVAL = 1000L;

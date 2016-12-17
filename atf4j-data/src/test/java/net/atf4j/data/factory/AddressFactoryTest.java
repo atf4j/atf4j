@@ -19,30 +19,13 @@ package net.atf4j.data.factory;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import net.atf4j.core.LoggedTest;
+import net.atf4j.core.Reporting;
 
 /**
  * The Class AddressFactoryTest.
  */
-public class AddressFactoryTest extends LoggedTest {
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
-
-    /**
-     * Test Data Mock.
-     */
-    public class MoclAddressFactory extends AddressFactory {
-        /**
-         * Instantiates a new mock data.
-         *
-         * @throws Exception
-         */
-        public MoclAddressFactory() throws Exception {
-            super();
-        }
-    }
+public class AddressFactoryTest extends Reporting {
 
     /**
      * Test create.
@@ -51,8 +34,8 @@ public class AddressFactoryTest extends LoggedTest {
      */
     @Test
     public void testCreate() throws Exception {
-        final MoclAddressFactory mockData = new MoclAddressFactory();
+        AddressFactory.create();
+        final AddressFactory mockData = new AddressFactory();
         assertNotNull(mockData);
-        this.log.info(mockData.toString());
     }
 }

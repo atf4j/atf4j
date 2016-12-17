@@ -19,16 +19,16 @@ package net.atf4j.core.waits;
 import org.junit.Assert;
 import org.junit.Test;
 
-import net.atf4j.core.LoggedTest;
+import net.atf4j.core.Reporting;
 import net.atf4j.core.timers.ITimer;
 import net.atf4j.core.timers.MilliTimer;
 
 /**
  * TimerTest.
  */
-public class TimerTest extends LoggedTest {
+public class TimerTest extends Reporting {
 
-    /** The Constant DEFAULT_INTERVAL. */
+    /** The Constant DEFAULT_INTERVAL */
     private static final int DEFAULT_INTERVAL = 100;
 
     /** The delta. */
@@ -45,9 +45,9 @@ public class TimerTest extends LoggedTest {
         timer.start();
         // NOP elapsed time should be close to zero
         timer.stop();
-        log.info("testTimer0.Start Time=" + timer.getStartTime());
-        log.info("testTimer0.Elapsed Time=" + timer.getElapsedTime());
-        log.info("testTimer0." + timer.toString() + " Elapsed time not within delta (" + this.delta + ")");
+        this.log.info("testTimer0.Start Time=" + timer.getStartTime());
+        this.log.info("testTimer0.Elapsed Time=" + timer.getElapsedTime());
+        this.log.info("testTimer0." + timer.toString() + " Elapsed time not within delta (" + this.delta + ")");
         org.junit.Assume.assumeTrue(timer.getElapsedTime() <= this.delta);
         this.delta = timer.getElapsedTime();
     }
@@ -62,10 +62,10 @@ public class TimerTest extends LoggedTest {
         timer.start();
         waitDefaultInterval();
         timer.stop();
-        log.info("testTimerOneSec.Start Time=" + timer.getStartTime());
-        log.info("testTimerOneSec.Elapsed Time=" + timer.getElapsedTime());
-        Assert.assertTrue(timer.toString() + " Elapsed time not within delta (" + this.delta + ")",
-                timer.getElapsedTime() <= DEFAULT_INTERVAL + this.delta);
+        this.log.info("testTimerOneSec.Start Time=" + timer.getStartTime());
+        this.log.info("testTimerOneSec.Elapsed Time=" + timer.getElapsedTime());
+        final String message = timer.toString() + " Elapsed time not within delta (" + this.delta + ")";
+        Assert.assertTrue(message, timer.getElapsedTime() <= DEFAULT_INTERVAL + this.delta);
     }
 
     /**

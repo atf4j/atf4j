@@ -1,19 +1,38 @@
+/**
+ * This file is part of Automated Testing Framework for Java (atf4j).
+ *
+ * Atf4j is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Atf4j is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package net.atf4j.data;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
 public class BankSortCodeTest {
 
+    private static final String DATA = "99:99:99";
+
     @Test
-    public void testGetBankSortCode() {
-        fail("Not yet implemented");
+    public void testBankSortCode() {
+        new BankSortCode();
+        new BankSortCode(DATA);
     }
 
     @Test
-    public void testSetBankSortCode() {
-        fail("Not yet implemented");
+    public void testSetGetBankSortCode() {
+        assertEquals(DATA, new BankSortCode().setBankSortCode(DATA).getBankSortCode());
     }
 
 }

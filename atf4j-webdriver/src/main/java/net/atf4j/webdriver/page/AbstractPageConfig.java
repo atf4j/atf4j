@@ -28,10 +28,10 @@ public abstract class AbstractPageConfig extends WebDriverConfig {
     /**
      * Instantiates a new abstract page config.
      *
-     * @throws MissingPropertyFileException
+     * @throws ConfigurationNotLoaded
      *             the missing property file exception
      */
-    public AbstractPageConfig() throws MissingPropertyFileException {
+    public AbstractPageConfig() throws ConfigurationNotLoaded {
         super();
     }
 

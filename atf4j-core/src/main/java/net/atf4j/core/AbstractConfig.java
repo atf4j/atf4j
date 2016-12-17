@@ -33,25 +33,25 @@ public abstract class AbstractConfig implements ToName {
     protected final Properties properties = new Properties();
 
     /**
-     * Instantiates a new config.
+     * Default Constructor for Configuration.
      *
-     * @throws MissingPropertyFileException
+     * @throws ConfigurationNotLoaded
      *             the missing exception
      */
-    public AbstractConfig() throws MissingPropertyFileException {
+    public AbstractConfig() throws ConfigurationNotLoaded {
         super();
         load();
     }
 
     /**
-     * Instantiates a new config.
+     * Instantiates a new configuration.
      *
      * @param propertyFilename
      *            as String
-     * @throws MissingPropertyFileException
+     * @throws ConfigurationNotLoaded
      *             the missing exception
      */
-    public AbstractConfig(final String propertyFilename) throws MissingPropertyFileException {
+    public AbstractConfig(final String propertyFilename) throws ConfigurationNotLoaded {
         super();
         load(propertyFilename);
     }
@@ -59,47 +59,42 @@ public abstract class AbstractConfig implements ToName {
     /**
      * Load.
      *
-     * @throws MissingPropertyFileException
+     * @throws ConfigurationNotLoaded
      *             the missing exception
      */
-    protected void load() throws MissingPropertyFileException {
+    protected void load() throws ConfigurationNotLoaded {
         final String propertyFilename = String.format("/%s.properties", this.getClass().getSimpleName());
         load(propertyFilename);
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Load properties file.
+     *
+     * @param propertyFilename
+     *            the property filename
+     * @throws ConfigurationNotLoaded
+     *             the missing exception
+     */
+    private void load(final String propertyFilename) throws ConfigurationNotLoaded {
+        try {
+            final InputStream resourceAsStream = this.getClass().getResourceAsStream(propertyFilename);
+            this.properties.load(resourceAsStream);
+            this.properties.setProperty("propertiesFilename", propertyFilename);
+        } catch (final Exception e) {
+            throw new ConfigurationNotLoaded(propertyFilename);
+        }
+    }
+
+    /**
      *
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return String.format("AbstractConfig [properties=%s]", this.properties);
+        return String.format("%s [properties=%s]", this.getClass().getSimpleName(), this.properties);
     }
 
     /**
-     * Load.
-     *
-     * @param propertyFilename
-     *            the property filename
-     * @throws MissingPropertyFileException
-     *             the missing exception
-     */
-    private void load(final String propertyFilename) throws MissingPropertyFileException {
-        try {
-            // final InputStream resourceAsStream =
-            // this.getClass().getClassLoader().getResourceAsStream(propertyFilename);
-            final InputStream resourceAsStream = this.getClass().getResourceAsStream(propertyFilename);
-            this.properties.load(resourceAsStream);
-            this.properties.setProperty("propertiesFilename", propertyFilename);
-        } catch (final Exception exception) {
-            log.error(exception.toString());
-            throw new MissingPropertyFileException(propertyFilename);
-        }
-    }
-
-    /**
-     * (non-Javadoc).
      *
      * @return the string
      * @see net.atf4j.core.ToName#toName()
@@ -112,7 +107,7 @@ public abstract class AbstractConfig implements ToName {
     /**
      * MissingPropertyFileException.
      */
-    public class MissingPropertyFileException extends Exception {
+    public class ConfigurationNotLoaded extends Atf4jException {
 
         /** The Constant serialVersionUID. */
         private static final long serialVersionUID = 1L;
@@ -126,7 +121,7 @@ public abstract class AbstractConfig implements ToName {
          * @param propertyFilename
          *            the property filename
          */
-        public MissingPropertyFileException(final String propertyFilename) {
+        public ConfigurationNotLoaded(final String propertyFilename) {
             this.expectedPropertyFilename = propertyFilename;
         }
 

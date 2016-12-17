@@ -1,0 +1,98 @@
+/**
+ * This file is part of Automated Testing Framework for Java (atf4j).
+ *
+ * Atf4j is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Atf4j is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
+ */
+package net.atf4j.core;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
+
+public class ConfigTest extends Reporting {
+
+    /**
+     * MissingPropertiesMock Class.
+     */
+    private class MissingProperties extends AbstractConfig {
+        public MissingProperties() throws ConfigurationNotLoaded {
+            super();
+        }
+    }
+
+    /**
+     * A Test Configuration from file.
+     */
+    private class ConfigFromFile extends AbstractConfig {
+        public ConfigFromFile() throws ConfigurationNotLoaded {
+            super("/ConfigFromFile.properties");
+        }
+    }
+
+    /**
+     * Test method for {@link net.atf4j.core.AbstractConfig#Config()}.
+     *
+     * @throws ConfigurationNotLoaded
+     *             the missing property file exception
+     */
+    @Test(expected = ConfigurationNotLoaded.class)
+    public void testConfig() throws ConfigurationNotLoaded {
+        new MissingProperties();
+    }
+
+    /**
+     * Test method for {@link net.atf4j.core.AbstractConfig#load()}.
+     *
+     * @throws ConfigurationNotLoaded
+     *             the missing property file exception
+     */
+    @Test(expected = ConfigurationNotLoaded.class)
+    public void testLoad() throws ConfigurationNotLoaded {
+        final AbstractConfig mockConfig = new MissingProperties();
+        assertNotNull(mockConfig);
+        this.log.info(mockConfig.toString());
+    }
+
+    @Test
+    public void testConfigFromFile() throws ConfigurationNotLoaded {
+        final ConfigFromFile config = new ConfigFromFile();
+        assertNotNull(config);
+        assertEquals("true", config.get("loaded"));
+        assertEquals(true, config.get("loaded", false));
+        assertEquals("ConfigFromSystem.properties", config.get("name"));
+        assertEquals(null, config.get("missing"));
+    }
+
+    /**
+     * Test method for
+     * {@link net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.
+     *
+     * @throws ConfigurationNotLoaded
+     *             the missing property file exception
+     */
+    @Test
+    public final void testSystemOveridesConfig() throws ConfigurationNotLoaded {
+        final ConfigFromFile config = new ConfigFromFile();
+        assertNotNull(config);
+        final String key = "property";
+        final String value = "FromSystem";
+        System.setProperty(key, value);
+        Assert.assertEquals(value, config.get(key));
+    }
+
+}

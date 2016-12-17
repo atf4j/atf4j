@@ -19,14 +19,14 @@ package net.atf4j.data;
 import org.junit.Assert;
 import org.junit.Test;
 
-import net.atf4j.core.LoggedTest;
+import net.atf4j.core.Reporting;
 
 /**
  * ForenameTest.
  *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
-public class ForenameTest extends LoggedTest {
+public class ForenameTest extends Reporting {
 
     private static final String FORENAME = "Forename";
 

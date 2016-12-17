@@ -16,25 +16,13 @@
  */
 package net.atf4j.core.bdd;
 
-import java.util.Properties;
-
-import net.atf4j.core.Command;
-
-public class When implements Command {
-    private Event event;
-    private String eventString;
-
-    public When() {
-    }
+public class When extends HoareStep {
 
     /**
-     * When a event occurs.
-     *
-     * @param newEventString
-     *            the new event string
+     * Instantiates a new when.
      */
-    public When(final String newEventString) {
-        this.eventString = newEventString;
+    public When() {
+        super();
     }
 
     /**
@@ -43,13 +31,8 @@ public class When implements Command {
      * @param newEvent
      *            the new event
      */
-    public When(final Event newEvent) {
-        this.event = newEvent;
-    }
-
-    @Override
-    public Properties execute(final Properties properties) {
-        return properties;
+    public When(final String string) {
+        super(string);
     }
 
 }

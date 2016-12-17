@@ -28,10 +28,10 @@ public class WebDriverConfig extends AbstractConfig {
     /**
      * Instantiates a new web driver config.
      *
-     * @throws MissingPropertyFileException
+     * @throws ConfigurationNotLoaded
      *             the missing property file exception
      */
-    public WebDriverConfig() throws MissingPropertyFileException {
+    public WebDriverConfig() throws ConfigurationNotLoaded {
         super();
     }
 
@@ -58,17 +58,8 @@ public class WebDriverConfig extends AbstractConfig {
      *
      * @return the page load timeout
      */
-    public String getPageLoadTimeout() {
-        return this.get("pageLoadTimeOut");
-    }
-
-    /**
-     * Gets the page load timeout unit.
-     *
-     * @return the page load timeout unit
-     */
-    public String getPageLoadTimeoutUnit() {
-        return this.get("pageLoadTimeOutUnit");
+    public long getPageLoadTimeout() {
+        return this.get("pageLoadTimeOut", 1000);
     }
 
     /**
@@ -76,8 +67,8 @@ public class WebDriverConfig extends AbstractConfig {
      *
      * @return the implicitly wait
      */
-    public String getImplicitlyWait() {
-        return this.get("implicitlyWait");
+    public long getImplicitlyWait() {
+        return this.get("implicitlyWait", 1000);
     }
 
     /**
@@ -85,8 +76,8 @@ public class WebDriverConfig extends AbstractConfig {
      *
      * @return the implicitly wait unit
      */
-    public String getImplicitlyWaitUnit() {
-        return this.get("implicitlyWaitUnit");
+    public long getImplicitlyWaitUnit() {
+        return this.get("implicitlyWaitUnit", 1000);
     }
 
 }

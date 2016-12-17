@@ -27,4 +27,9 @@ public class ContactFactory extends DataFactory implements FactoryMethod {
         super();
     }
 
+    @Override
+    public Object create() {
+        return null;
+    }
+
 }

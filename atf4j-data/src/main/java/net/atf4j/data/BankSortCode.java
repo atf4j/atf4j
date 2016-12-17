@@ -25,18 +25,26 @@ package net.atf4j.data;
 public class BankSortCode {
     private String bankSortCode;
 
-    /**
-     * @return the bankSortCode
-     */
-    public String getBankSortCode() {
-        return this.bankSortCode;
+    public BankSortCode() {
+    }
+
+    public BankSortCode(final String string) {
     }
 
     /**
      * @param bankSortCode
      *            the bankSortCode to set
+     * @return
      */
-    public void setBankSortCode(final String bankSortCode) {
+    public BankSortCode setBankSortCode(final String bankSortCode) {
         this.bankSortCode = bankSortCode;
+        return this;
+    }
+
+    /**
+     * @return the bankSortCode
+     */
+    public String getBankSortCode() {
+        return this.bankSortCode;
     }
 }

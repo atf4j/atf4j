@@ -23,6 +23,7 @@ package net.atf4j.core.bdd;
  * @author Martin Spamer <Martin.Spamer@atf4j.net> <Martin@atf4j.net>
  */
 public class Given extends PreCondition {
+
     /**
      * Instantiates a new Hoare pre-condition as given.
      */

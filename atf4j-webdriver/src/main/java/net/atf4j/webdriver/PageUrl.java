@@ -15,9 +15,6 @@
  * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
  */
 package net.atf4j.webdriver;
-/*
- *
- */
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

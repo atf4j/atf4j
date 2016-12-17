@@ -19,9 +19,9 @@ package net.atf4j.data;
 import org.junit.Assert;
 import org.junit.Test;
 
-import net.atf4j.core.LoggedTest;
+import net.atf4j.core.Reporting;
 
-public class SurnameTest extends LoggedTest {
+public class SurnameTest extends Reporting {
 
     private static final String SURNAME = "Surname";
 

@@ -57,7 +57,7 @@ public class NationalInsurance {
      *            the code
      * @return true, if successful
      */
-    public boolean verify(final String code) {
+    public static boolean verify(final String code) {
         final Matcher matcher = pattern.matcher(code);
         return matcher.find();
     }

@@ -16,38 +16,52 @@
  */
 package net.atf4j.webdriver;
 
+import static org.junit.Assume.assumeNotNull;
+
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-import net.atf4j.core.LoggedTest;
+import net.atf4j.core.Reporting;
 
 /**
  * A UnitTest for BrowserFactory objects.
  */
-public class BrowserFactoryTest extends LoggedTest {
+public class BrowserFactoryTest extends Reporting {
 
+    /**
+     * test BrowserFactory object.
+     */
     @Test
     public void testWebDriver() {
         System.setProperty("targetBrowser", "HtmlUnitDriver");
         final WebDriver webDriver = BrowserFactory.webDriver();
+        assumeNotNull(webDriver);
         webDriver.get("http://127.0.0.1:8080");
         this.log.info(webDriver.getCurrentUrl());
         this.log.info(webDriver.getTitle());
     }
 
+    /**
+     * test BrowserFactory object.
+     */
     @Test
     public void testChrome() {
         System.setProperty("targetBrowser", "chromeDriver");
         final WebDriver webDriver = BrowserFactory.webDriver();
+        assumeNotNull(webDriver);
         webDriver.get("http://127.0.0.1:8080");
         this.log.info(webDriver.getCurrentUrl());
         this.log.info(webDriver.getTitle());
     }
 
+    /**
+     * test BrowserFactory object.
+     */
     @Test
     public void testFirefox() {
         System.setProperty("targetBrowser", "firefoxDriver");
         final WebDriver webDriver = BrowserFactory.webDriver();
+        assumeNotNull(webDriver);
         webDriver.get("http://127.0.0.1:8080");
         this.log.info(webDriver.getCurrentUrl());
         this.log.info(webDriver.getTitle());

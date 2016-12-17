@@ -18,11 +18,19 @@ package net.atf4j.core;
 
 import org.junit.Test;
 
-public class Atf4jExceptionTest {
+/**
+ * A UnitTest for Atf4jException objects.
+ */
+public class Atf4jExceptionTest extends Reporting {
 
-    @Test
-    public void testAtf4jExceptionStringThrowable() throws Atf4jException {
+    /**
+     * test Atf4jException object.
+     *
+     * @throws Atf4jException
+     *             the atf4j exception
+     */
+    @Test(expected = Atf4jException.class)
+    public void testAtf4jException() throws Atf4jException {
         throw new Atf4jException();
     }
-
 }

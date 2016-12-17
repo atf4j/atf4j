@@ -22,14 +22,14 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Assume;
 import org.junit.Test;
 
-import net.atf4j.core.LoggedTest;
+import net.atf4j.core.Reporting;
 
 /**
  * DatumTest.
  *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
-public class DatumTest extends LoggedTest {
+public class DatumTest extends Reporting {
 
     class MockDatum extends Datum {
     }

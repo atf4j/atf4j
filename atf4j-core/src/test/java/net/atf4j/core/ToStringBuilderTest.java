@@ -18,7 +18,7 @@ package net.atf4j.core;
 
 import org.junit.Test;
 
-public class ToStringBuilderTest extends LoggedTest {
+public class ToStringBuilderTest extends Reporting {
 
     @Test
     public void test() {

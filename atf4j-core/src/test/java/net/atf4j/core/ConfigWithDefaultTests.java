@@ -21,20 +21,20 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.AbstractConfig.MissingPropertyFileException;
+import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 
 /**
  * ConfigDefaultsTest Class.
  *
  * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
-public class ConfigWithDefaultTests extends LoggedTest {
+public class ConfigWithDefaultTests extends Reporting {
 
     /**
-     * MockConfig Class.
+     * A Mock Configuration with default values.
      */
     private class ConfigWithDefaults extends AbstractConfig {
-        public ConfigWithDefaults() throws MissingPropertyFileException {
+        public ConfigWithDefaults() throws ConfigurationNotLoaded {
             super();
         }
 
@@ -60,14 +60,14 @@ public class ConfigWithDefaultTests extends LoggedTest {
     }
 
     @Test
-    public void testDefaultString() throws MissingPropertyFileException {
+    public void testDefaultString() throws ConfigurationNotLoaded {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
         assertNotNull(mockConfig);
         assertEquals("DEFAULT_STRING", mockConfig.getFooAsString("missing"));
     }
 
     @Test
-    public void testDefaultBoolean() throws MissingPropertyFileException {
+    public void testDefaultBoolean() throws ConfigurationNotLoaded {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
         assertNotNull(mockConfig);
         assertEquals(true, mockConfig.getTrueAsBoolean("missing"));
@@ -75,7 +75,7 @@ public class ConfigWithDefaultTests extends LoggedTest {
     }
 
     @Test
-    public void testDefaultInt() throws MissingPropertyFileException {
+    public void testDefaultInt() throws ConfigurationNotLoaded {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
         assertNotNull(mockConfig);
         assertEquals(Integer.MAX_VALUE, mockConfig.getMax("missing"));

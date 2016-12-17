@@ -1,2 +1,3 @@
-# atf4j
-Automated Testing Framework for Java
+# atf4j-junit
+## JUnit Helper
+### Automated Testing Framework for Java

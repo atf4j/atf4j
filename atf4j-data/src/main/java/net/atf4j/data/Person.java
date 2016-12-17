@@ -56,6 +56,10 @@ public class Person {
         setSurname(surname);
     }
 
+    public Person() {
+        // TODO Auto-generated constructor stub
+    }
+
     /**
      * Sets the forename.
      *
