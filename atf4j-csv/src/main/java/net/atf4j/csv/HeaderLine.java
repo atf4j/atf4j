@@ -17,45 +17,25 @@
 package net.atf4j.csv;
 
 /**
- * The Class HeaderLine.
+ * Csv Header Line.
  */
 public class HeaderLine extends CsvRow {
 
+    /**
+     * A new blank header line.
+     */
     public HeaderLine() {
         super();
     }
 
+    /**
+     * A new header line.
+     *
+     * @param line
+     *            the line
+     */
     public HeaderLine(final String line) {
         super(line);
     }
-
-    // private final String[] fields;
-    //
-    // /**
-    // * Instantiates a new header line.
-    // *
-    // * @param line
-    // * the line
-    // */
-    // public HeaderLine(final String line) {
-    // this.fields = line.split(",");
-    // }
-    //
-    // /**
-    // * get the content of a column by index
-    // *
-    // * @param columnNumber
-    // * the column number
-    // * @return the fields
-    // */
-    // public String get(final int columnNumber) {
-    // return this.fields[columnNumber - 1];
-    // }
-    //
-    // @Override
-    // public String toString() {
-    // return String.format("%s [fields=%s]", this.getClass().getSimpleName(),
-    // Arrays.toString(this.fields));
-    // }
 
 }

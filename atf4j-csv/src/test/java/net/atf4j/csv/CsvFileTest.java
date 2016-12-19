@@ -16,6 +16,7 @@
  */
 package net.atf4j.csv;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.FileNotFoundException;
@@ -26,15 +27,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The Class CsvFileTest.
+ * Unit Test for CsvFile class.
  */
 public class CsvFileTest {
+    private static final String EXPECTED_HEADER = "HeaderLine [fields=[ ColumnOne, ColumnTwo, ColumnThree, ColumnFour]]";
+
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
-    /** The Constant MISSING_CSV. */
     private static final String MISSING_CSV = "missing.csv";
-
-    /** The Constant TEST_DATA_CSV. */
     private static final String TEST_DATA_CSV = "TestData.csv";
 
     /**
@@ -83,7 +83,7 @@ public class CsvFileTest {
     public void testConstructorWithDataPresent() throws Exception {
         final CsvFile csvFile = new CsvFile(TEST_DATA_CSV);
         Assert.assertNotNull(csvFile);
-        log.info(csvFile.toString());
+        this.log.info(csvFile.toString());
     }
 
     /**
@@ -96,7 +96,18 @@ public class CsvFileTest {
     public void testReadPresentData() throws Exception {
         final CsvFile csvFile = CsvFile.read(TEST_DATA_CSV);
         Assert.assertNotNull(csvFile);
-        log.info(csvFile.toString());
+        final HeaderLine header = csvFile.getHeader();
+        assertEquals(EXPECTED_HEADER, header.toString());
+        this.log.debug("{}", header);
+        for (int i = 1; i < csvFile.length(); i++) {
+            final CsvRow csvRow = csvFile.get(i);
+            this.log.debug("{}", csvRow);
+            for (int j = 1; j < csvRow.length(); j++) {
+                final String expected = String.format("data-%s-%s", i, j);
+                final String actual = csvRow.getField(j);
+                assertEquals(expected, actual);
+            }
+        }
     }
 
     /**
@@ -110,7 +121,17 @@ public class CsvFileTest {
         final CsvFile csvFile = new CsvFile();
         Assert.assertNotNull(csvFile);
         csvFile.load(TEST_DATA_CSV);
-        log.info(csvFile.toString());
+        final HeaderLine header = csvFile.getHeader();
+        assertEquals(EXPECTED_HEADER, header.toString());
+        this.log.debug("{}", header);
+        for (int i = 1; i < csvFile.length(); i++) {
+            final CsvRow csvRow = csvFile.get(i);
+            this.log.debug("{}", csvRow);
+            for (int j = 1; j < csvRow.length(); j++) {
+                final String expected = String.format("data-%s-%s", i, j);
+                final String actual = csvRow.getField(j);
+                assertEquals(expected, actual);
+            }
+        }
     }
-
 }

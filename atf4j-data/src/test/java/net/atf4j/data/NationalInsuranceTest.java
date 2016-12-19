@@ -20,18 +20,28 @@ import static org.junit.Assert.assertFalse;
 
 import org.junit.Test;
 
+/**
+ * A UnitTest for NationalInsurance objects.
+ */
 public class NationalInsuranceTest {
 
     private static final String BLANK_NI = "";
 
+    /**
+     * test NationalInsurance object.
+     */
     @Test
     public void testNationalInsurance() {
         new NationalInsurance();
     }
 
+    /**
+     * test NationalInsurance object.
+     */
     @Test
     public void testVerify() {
-        assertFalse(NationalInsurance.verify(null));
+        assertFalse(NationalInsurance.verify(BLANK_NI));
+        assertFalse(NationalInsurance.verify(BLANK_NI));
         assertFalse(NationalInsurance.verify(BLANK_NI));
     }
 

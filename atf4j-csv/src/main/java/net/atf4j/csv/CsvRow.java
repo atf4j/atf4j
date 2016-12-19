@@ -19,13 +19,15 @@ package net.atf4j.csv;
 import java.util.Arrays;
 
 /**
- * The Class CsvRow.
+ * Row from a CSV file.
  */
 public class CsvRow {
 
-    /** The fields. */
     private final String[] fields;
 
+    /**
+     * Instantiates a new csv row.
+     */
     public CsvRow() {
         this.fields = new String[] {};
     }
@@ -40,6 +42,22 @@ public class CsvRow {
         this.fields = line.split(",");
     }
 
+    /**
+     * Length.
+     *
+     * @return the int
+     */
+    public int length() {
+        return this.fields.length;
+    }
+
+    /**
+     * Gets the field.
+     *
+     * @param columnNumber
+     *            the column number
+     * @return the field
+     */
     public String getField(final int columnNumber) {
         return this.fields[columnNumber - 1];
     }

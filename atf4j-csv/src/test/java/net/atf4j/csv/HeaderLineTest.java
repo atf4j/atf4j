@@ -22,32 +22,33 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * A UnitTest for HeaderLine objects.
+ */
 public class HeaderLineTest {
 
     /** The logger. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
+    /**
+     * test HeaderLine object.
+     */
     @Test
     public void testBlankHeaderLine() {
         final HeaderLine headerLine = new HeaderLine("");
         assertEquals("HeaderLine [fields=[]]", headerLine.toString());
-        log.info(headerLine.toString());
     }
 
+    /**
+     * test HeaderLine object.
+     */
     @Test
     public void testHeaderLine() {
         final HeaderLine headerLine = new HeaderLine("ColumnOne,ColumnTwo");
         final String headerLineString = headerLine.toString();
         assertEquals("HeaderLine [fields=[ColumnOne, ColumnTwo]]", headerLineString);
-        log.info(headerLineString);
-    }
-
-    @Test
-    public void testGet() {
-        final HeaderLine headerLine = new HeaderLine("ColumnOne,ColumnTwo");
         assertEquals("ColumnOne", headerLine.getField(1));
         assertEquals("ColumnTwo", headerLine.getField(2));
-        assertEquals("HeaderLine [fields=[ColumnOne, ColumnTwo]]", headerLine.toString());
     }
 
 }

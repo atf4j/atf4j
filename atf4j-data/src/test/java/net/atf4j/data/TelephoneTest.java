@@ -35,7 +35,7 @@ public class TelephoneTest {
     public void testTelephoneString() {
         final Telephone telephone = new Telephone(_0123456789);
         assertNotNull(telephone);
-        assertEquals(_0123456789, telephone.toString());
+        assertEquals("Telephone [number=0123456789]", telephone.toString());
     }
 
     @Test

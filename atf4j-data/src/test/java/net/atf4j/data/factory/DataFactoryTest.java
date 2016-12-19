@@ -16,15 +16,16 @@
  */
 package net.atf4j.data.factory;
 
-import org.junit.Assert;
+import static org.junit.Assert.assertNotNull;
+
+import java.util.Date;
+
 import org.junit.Test;
 
 import net.atf4j.core.Reporting;
 
 /**
- * PeopleFactoryTest.
- *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * A UnitTest for DataFactory objects.
  */
 public class DataFactoryTest extends Reporting {
 
@@ -36,7 +37,37 @@ public class DataFactoryTest extends Reporting {
     @Test
     public final void testDefaultConstructor() throws Exception {
         final DataFactory testData = new DataFactory();
-        Assert.assertNotNull(testData);
+        assertNotNull(testData);
         this.log.info(testData.toString());
+    }
+
+    @Test
+    public final void testToday() throws Exception {
+        final Date today = DataFactory.today();
+    }
+
+    @Test
+    public final void testPastDate() throws Exception {
+        DataFactory.pastDate();
+    }
+
+    @Test
+    public final void testFutureDate() throws Exception {
+        DataFactory.futureDate();
+    }
+
+    @Test
+    public final void testDateOfBirth() throws Exception {
+        DataFactory.dateOfBirth();
+    }
+
+    @Test
+    public final void testOver18() throws Exception {
+        DataFactory.dobOver18();
+    }
+
+    @Test
+    public final void testUnder18() throws Exception {
+        DataFactory.dobUnder18();
     }
 }

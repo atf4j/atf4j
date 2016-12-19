@@ -20,6 +20,9 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+/**
+ * A UnitTest for CsvRow objects.
+ */
 public class CsvRowTest {
     @Test
     public void testDefaultCsvRow() {

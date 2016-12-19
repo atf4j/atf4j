@@ -32,14 +32,8 @@ import org.slf4j.LoggerFactory;
  * The CsvFile Class.
  */
 public class CsvFile {
-
-    /** The logger. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
-
-    /** The header. */
     private HeaderLine header;
-
-    /** The data. */
     private final List<CsvRow> data = new ArrayList<CsvRow>();
 
     /**
@@ -53,7 +47,7 @@ public class CsvFile {
     }
 
     /**
-     * Instantiates a new csv file.
+     * Instantiates a new CSV file.
      *
      * @param dataFilename
      *            the data filename
@@ -119,14 +113,14 @@ public class CsvFile {
         final InputStreamReader inputStreamReader = new InputStreamReader(in);
         final BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         try {
-            String line = bufferedReader.readLine();
+            String line = bufferedReader.readLine().trim();
             if (line.startsWith("#")) {
-                this.header = new HeaderLine(line);
+                this.header = new HeaderLine(line.substring(1));
             } else {
                 this.data.add(new CsvRow(line));
             }
             while ((line = bufferedReader.readLine()) != null) {
-                log.trace(line);
+                this.log.trace(line);
                 this.data.add(new CsvRow(line));
             }
         } finally {
@@ -176,6 +170,15 @@ public class CsvFile {
     }
 
     /**
+     * Length.
+     *
+     * @return the int
+     */
+    public int length() {
+        return this.data.size();
+    }
+
+    /**
      * Get a row by index.
      *
      * @param index
@@ -184,7 +187,7 @@ public class CsvFile {
      * @see java.util.List#get(int)
      */
     public CsvRow get(final int index) {
-        return this.data.get(index);
+        return this.data.get(index - 1);
     }
 
     /**
@@ -219,7 +222,8 @@ public class CsvFile {
      */
     @Override
     public String toString() {
-        return String.format("%s [header=%s, data=%s]", this.getClass().getSimpleName(), this.header, this.data);
+        return String.format("%s [header=%s, data=%s]", this.getClass().getSimpleName(), this.header.toString(),
+                this.data);
     }
 
 }

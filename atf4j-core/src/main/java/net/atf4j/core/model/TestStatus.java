@@ -41,7 +41,15 @@ public enum TestStatus {
     private String status;
 
     TestStatus(final String name) {
-        this.status = name;
+        this.setStatus(name);
     }
 
+    public String getStatus() {
+        return this.status;
+    }
+
+    public TestStatus setStatus(final String status) {
+        this.status = status;
+        return this;
+    }
 }

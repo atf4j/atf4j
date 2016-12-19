@@ -16,42 +16,33 @@
  */
 package net.atf4j.data.factory;
 
-import java.io.IOException;
-import java.util.Enumeration;
-
 import net.atf4j.core.AbstractConfig;
-import net.atf4j.csv.CsvFile;
 
 /**
  * A factory for creating AbstractData objects.
  */
 public abstract class AbstractDataFactory extends AbstractConfig {
 
-    protected CsvFile dataFile;
-
+    /**
+     * Instantiates a new abstract data factory.
+     *
+     * @throws Exception
+     *             the exception
+     */
     public AbstractDataFactory() throws Exception {
         super();
         loadData();
     }
 
-    protected AbstractDataFactory loadData() throws Exception {
-        final Enumeration<Object> keys = this.properties.keys();
-        while (keys.hasMoreElements()) {
-            final String key = (String) keys.nextElement();
-            if (key.startsWith("datafile.")) {
-                final String dataFilename = this.properties.getProperty(key);
-                loadData(dataFilename);
-            }
-        }
+    /**
+     * Load data.
+     *
+     * @return the abstract data factory
+     * @throws Exception
+     *             the exception
+     */
+    private AbstractDataFactory loadData() throws Exception {
         return this;
     }
 
-    private AbstractDataFactory loadData(final String dataFilename) throws Exception {
-        try {
-            this.dataFile = new CsvFile(dataFilename);
-        } catch (final IOException e) {
-            e.printStackTrace();
-        }
-        return this;
-    }
 }
