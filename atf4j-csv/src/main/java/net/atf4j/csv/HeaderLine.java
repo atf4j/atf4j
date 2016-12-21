@@ -17,7 +17,7 @@
 package net.atf4j.csv;
 
 /**
- * Csv Header Line.
+ * CSV Header Line.
  */
 public class HeaderLine extends CsvRow {
 

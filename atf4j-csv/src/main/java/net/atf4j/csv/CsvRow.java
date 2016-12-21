@@ -23,23 +23,37 @@ import java.util.Arrays;
  */
 public class CsvRow {
 
-    private final String[] fields;
+    /** The fields. */
+    private String[] fields;
 
     /**
-     * Instantiates a new csv row.
+     * Instantiates a new CSV row.
      */
     public CsvRow() {
         this.fields = new String[] {};
     }
 
     /**
-     * Instantiates a new csv row.
+     * Instantiates a new CSV row.
      *
      * @param line
      *            the line
      */
     public CsvRow(final String line) {
+        initialise(line);
+    }
+
+    /**
+     * Initialise.
+     *
+     * @param line
+     *            the line
+     */
+    public void initialise(final String line) {
         this.fields = line.split(",");
+        for (final String field : this.fields) {
+            field.trim();
+        }
     }
 
     /**

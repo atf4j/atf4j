@@ -29,21 +29,26 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The CsvFile Class.
+ * A CSV Data File.
  */
 public class CsvFile {
+
+    /** The log. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+
+    /** The header. */
     private HeaderLine header;
+
+    /** The data. */
     private final List<CsvRow> data = new ArrayList<CsvRow>();
 
     /**
-     * Default Constructor Instantiates a new CsvFile object.
+     * Default Constructor instantiates a new empty CsvFile object.
      *
      * @throws Exception
      *             Signals that an I/O exception has occurred.
      */
     public CsvFile() throws Exception {
-        super();
     }
 
     /**
@@ -60,7 +65,7 @@ public class CsvFile {
     }
 
     /**
-     * Read.
+     * Factory Method returns file as CsvFile instance.
      *
      * @param dataFilename
      *            the data filename
@@ -79,7 +84,8 @@ public class CsvFile {
      *             the exception
      */
     public void load() throws Exception {
-        final String dataFilename = this.getClass().getSimpleName() + ".csv";
+        final String simpleName = this.getClass().getSimpleName();
+        final String dataFilename = String.format("/%s.csv", simpleName);
         load(dataFilename);
     }
 
@@ -154,7 +160,7 @@ public class CsvFile {
      *
      * @return the header
      */
-    public HeaderLine getHeader() {
+    public HeaderLine getColumnNames() {
         return this.header;
     }
 
@@ -165,7 +171,7 @@ public class CsvFile {
      *            the column number
      * @return the header
      */
-    public String getHeader(final int columnNumber) {
+    public String getColumnName(final int columnNumber) {
         return this.header.getField(columnNumber);
     }
 
@@ -174,7 +180,7 @@ public class CsvFile {
      *
      * @return the int
      */
-    public int length() {
+    public int rowCount() {
         return this.data.size();
     }
 
@@ -186,12 +192,12 @@ public class CsvFile {
      * @return the csv row
      * @see java.util.List#get(int)
      */
-    public CsvRow get(final int index) {
+    public CsvRow getRow(final int index) {
         return this.data.get(index - 1);
     }
 
     /**
-     * return the csv file data as an array of rows.
+     * return the CSV file data as an array of rows.
      *
      * @return the object[]
      * @see java.util.List#toArray()
@@ -222,7 +228,8 @@ public class CsvFile {
      */
     @Override
     public String toString() {
-        return String.format("%s [header=%s, data=%s]", this.getClass().getSimpleName(), this.header.toString(),
+        String simpleName = this.getClass().getSimpleName();
+        return String.format("%s [header=%s, data=%s]", simpleName, this.header.toString(),
                 this.data);
     }
 

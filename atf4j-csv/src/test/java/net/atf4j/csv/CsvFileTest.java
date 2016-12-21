@@ -31,11 +31,9 @@ import org.slf4j.LoggerFactory;
  */
 public class CsvFileTest {
     private static final String EXPECTED_HEADER = "HeaderLine [fields=[ ColumnOne, ColumnTwo, ColumnThree, ColumnFour]]";
-
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
-
     private static final String MISSING_CSV = "missing.csv";
     private static final String TEST_DATA_CSV = "TestData.csv";
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Test constructor with missing file.
@@ -96,12 +94,12 @@ public class CsvFileTest {
     public void testReadPresentData() throws Exception {
         final CsvFile csvFile = CsvFile.read(TEST_DATA_CSV);
         Assert.assertNotNull(csvFile);
-        final HeaderLine header = csvFile.getHeader();
+        final HeaderLine header = csvFile.getColumnNames();
         assertEquals(EXPECTED_HEADER, header.toString());
-        this.log.debug("{}", header);
-        for (int i = 1; i < csvFile.length(); i++) {
-            final CsvRow csvRow = csvFile.get(i);
-            this.log.debug("{}", csvRow);
+        this.log.info("{}", header);
+        for (int i = 1; i < csvFile.rowCount(); i++) {
+            final CsvRow csvRow = csvFile.getRow(i);
+            this.log.info("{}", csvRow);
             for (int j = 1; j < csvRow.length(); j++) {
                 final String expected = String.format("data-%s-%s", i, j);
                 final String actual = csvRow.getField(j);
@@ -121,11 +119,11 @@ public class CsvFileTest {
         final CsvFile csvFile = new CsvFile();
         Assert.assertNotNull(csvFile);
         csvFile.load(TEST_DATA_CSV);
-        final HeaderLine header = csvFile.getHeader();
+        final HeaderLine header = csvFile.getColumnNames();
         assertEquals(EXPECTED_HEADER, header.toString());
         this.log.debug("{}", header);
-        for (int i = 1; i < csvFile.length(); i++) {
-            final CsvRow csvRow = csvFile.get(i);
+        for (int i = 1; i < csvFile.rowCount(); i++) {
+            final CsvRow csvRow = csvFile.getRow(i);
             this.log.debug("{}", csvRow);
             for (int j = 1; j < csvRow.length(); j++) {
                 final String expected = String.format("data-%s-%s", i, j);

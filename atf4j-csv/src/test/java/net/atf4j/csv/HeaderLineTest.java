@@ -26,6 +26,8 @@ import org.slf4j.LoggerFactory;
  * A UnitTest for HeaderLine objects.
  */
 public class HeaderLineTest {
+    private static final String HEADER_LINE = "ColumnOne,ColumnTwo";
+    private static final String EXPECTED_HEADER = "HeaderLine [fields=[ColumnOne, ColumnTwo]]";
 
     /** The logger. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
@@ -37,6 +39,20 @@ public class HeaderLineTest {
     public void testBlankHeaderLine() {
         final HeaderLine headerLine = new HeaderLine("");
         assertEquals("HeaderLine [fields=[]]", headerLine.toString());
+        this.log.info(headerLine.toString());
+    }
+
+    /**
+     * test HeaderLine object.
+     */
+    @Test
+    public void testHeaderConstructor() {
+        final HeaderLine headerLine = new HeaderLine(HEADER_LINE);
+        final String headerLineString = headerLine.toString();
+        assertEquals(EXPECTED_HEADER, headerLineString);
+        assertEquals("ColumnOne", headerLine.getField(1));
+        assertEquals("ColumnTwo", headerLine.getField(2));
+        this.log.info(headerLine.toString());
     }
 
     /**
@@ -44,11 +60,13 @@ public class HeaderLineTest {
      */
     @Test
     public void testHeaderLine() {
-        final HeaderLine headerLine = new HeaderLine("ColumnOne,ColumnTwo");
+        final HeaderLine headerLine = new HeaderLine();
+        headerLine.initialise(HEADER_LINE);
         final String headerLineString = headerLine.toString();
-        assertEquals("HeaderLine [fields=[ColumnOne, ColumnTwo]]", headerLineString);
+        assertEquals(EXPECTED_HEADER, headerLineString);
         assertEquals("ColumnOne", headerLine.getField(1));
         assertEquals("ColumnTwo", headerLine.getField(2));
+        this.log.trace(headerLine.toString());
     }
 
 }
