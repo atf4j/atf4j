@@ -16,6 +16,17 @@
  */
 package net.atf4j.data;
 
+/**
+ * Field Status.
+ */
 public enum FieldStatus {
-    PRISTINE, CHANGED, PERSISTED, UNWANTED;
+
+    /** The pristine. */
+    PRISTINE,
+    /** The changed. */
+    CHANGED,
+    /** The persisted. */
+    PERSISTED,
+    /** The unwanted. */
+    UNWANTED;
 }

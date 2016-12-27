@@ -18,12 +18,10 @@ package net.atf4j.csv;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,10 +31,9 @@ import org.slf4j.LoggerFactory;
  */
 public class CsvFile {
 
-    /** The log. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
-    /** The header. */
+    /** The header line, if present */
     private HeaderLine header;
 
     /** The data. */
@@ -83,7 +80,7 @@ public class CsvFile {
      * @throws Exception
      *             the exception
      */
-    public void load() throws Exception {
+    protected void load() throws Exception {
         final String simpleName = this.getClass().getSimpleName();
         final String dataFilename = String.format("/%s.csv", simpleName);
         load(dataFilename);
@@ -120,6 +117,7 @@ public class CsvFile {
         final BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         try {
             String line = bufferedReader.readLine().trim();
+            this.log.trace(line);
             if (line.startsWith("#")) {
                 this.header = new HeaderLine(line.substring(1));
             } else {
@@ -135,33 +133,16 @@ public class CsvFile {
     }
 
     /**
-     * Scan.
-     *
-     * @param csvFile
-     *            the csv file
-     * @return the string
-     * @throws FileNotFoundException
-     *             the file not found exception
-     */
-    public static String scan(final String csvFile) throws FileNotFoundException {
-        final Scanner scanner = new Scanner(new FileReader(csvFile));
-        final StringBuilder stringBuilder = new StringBuilder();
-        while (scanner.hasNext()) {
-            final String line = scanner.nextLine();
-            stringBuilder.append(line);
-            stringBuilder.append(System.lineSeparator());
-        }
-        scanner.close();
-        return stringBuilder.toString();
-    }
-
-    /**
      * Gets the header.
      *
      * @return the header
      */
-    public HeaderLine getColumnNames() {
+    public HeaderLine getHeaderLine() {
         return this.header;
+    }
+
+    public String[] getColumnNames() {
+        return this.header.getFields();
     }
 
     /**
@@ -207,30 +188,14 @@ public class CsvFile {
     }
 
     /**
-     * convert the data to an array of rows.
-     *
-     * @param <T>
-     *            the generic type
-     * @param a
-     *            the a
-     * @return the t[]
-     * @see java.util.List#toArray(java.lang.Object[])
-     */
-    public <T> T[] toArray(final T[] a) {
-        return this.data.toArray(a);
-    }
-
-    /**
      * To string.
      *
      * @return the string
      * @see java.lang.Object#toString()
      */
-    @Override
-    public String toString() {
-        String simpleName = this.getClass().getSimpleName();
-        return String.format("%s [header=%s, data=%s]", simpleName, this.header.toString(),
-                this.data);
+    public String debugString() {
+        final String simpleName = this.getClass().getSimpleName();
+        return String.format("%s [header=%s, data=%s]", simpleName, this.header.toString(), this.data.toString());
     }
 
 }

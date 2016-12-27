@@ -26,7 +26,7 @@ public class SurnameTest extends Reporting {
     private static final String SURNAME = "Surname";
 
     /**
-     * Test method for {@link net.atf4j.data.Surname()}.
+     * Test method for { net.atf4j.data.Surname()}.
      */
     @Test
     public final void testSurname() {

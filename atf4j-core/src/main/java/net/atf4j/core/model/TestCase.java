@@ -26,9 +26,8 @@ import net.atf4j.core.Atf4jException;
  * TestCase.
  */
 public class TestCase extends TestBase {
-    // private String uniqueIdentifier;
-    /** The test steps. */
-    // private String name;
+
+    private String name;
     private Collection<TestStep> testSteps;
 
     /**
@@ -36,17 +35,17 @@ public class TestCase extends TestBase {
      *
      * @param context
      *            the context
-     * @return the test result
+     * @return the abstract test result
      * @throws Atf4jException
-     *             the atf4j exception
-     * @see net.atf4j.core.model.TestBase#execute(net.atf4j.core.model.TestContext)
+     *             the atf 4 j exception
      */
     @Override
     public AbstractTestResult execute(final TestContext context) throws Atf4jException {
+        AbstractTestResult result = null;
         for (final TestStep testStep : this.testSteps) {
-            testStep.execute(context);
+            result = testStep.execute(context);
         }
-        return null;
+        return result;
     }
 
     /**
@@ -76,8 +75,7 @@ public class TestCase extends TestBase {
     /**
      * Iterator.
      *
-     * @return Iterator<TestCase>
-     * @see java.util.Collection#iterator()
+     * @return the iterator
      */
     public Iterator<TestStep> iterator() {
         return this.testSteps.iterator();
@@ -99,14 +97,16 @@ public class TestCase extends TestBase {
      * Adds the test steps.
      *
      * @param newTestSteps
-     *            as Collection<TestStep>
-     * @return success as boolean.
-     * @see java.util.Collection#addAll(java.util.Collection)
+     *            the new test steps
+     * @return true, if successful
      */
     public boolean addTestSteps(final Collection<? extends TestStep> newTestSteps) {
         return this.testSteps.addAll(newTestSteps);
     }
 
+    /* (non-Javadoc)
+     * @see net.atf4j.core.model.TestCommand#execute(java.util.Properties)
+     */
     @Override
     public Properties execute(final Properties properties) {
         return null;

@@ -23,7 +23,7 @@ import net.atf4j.webdriver.page.WebPage;
 /**
  * BackOfficeTestSuite.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public final class BackOfficeTestSuite {
 

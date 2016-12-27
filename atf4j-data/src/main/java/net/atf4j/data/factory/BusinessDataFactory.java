@@ -21,16 +21,26 @@ import net.atf4j.data.Business;
 /**
  * Business.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ *
  */
-public class BusinessFactory extends DataFactory implements FactoryMethod {
+public class BusinessDataFactory extends AbstractDataFactory {
 
-    protected BusinessFactory() throws Exception {
+    /**
+     * Instantiates a new business data factory.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    protected BusinessDataFactory() throws Exception {
         super();
     }
 
-    @Override
-    public Business create() {
+    /**
+     * Creates the.
+     *
+     * @return the business
+     */
+    public static Business create() {
         return new Business();
     }
 

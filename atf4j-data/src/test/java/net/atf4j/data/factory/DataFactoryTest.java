@@ -16,9 +16,10 @@
  */
 package net.atf4j.data.factory;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.util.Date;
+import java.util.Calendar;
 
 import org.junit.Test;
 
@@ -33,41 +34,108 @@ public class DataFactoryTest extends Reporting {
      * Test default constructor.
      *
      * @throws Exception
+     *             the exception
      */
     @Test
     public final void testDefaultConstructor() throws Exception {
+        this.log.info("{}.testDefaultConstructor", this.getClass().getSimpleName());
         final DataFactory testData = new DataFactory();
         assertNotNull(testData);
         this.log.info(testData.toString());
     }
 
+    /**
+     * test DataFactory object.
+     *
+     * @throws Exception
+     *             the exception
+     */
     @Test
     public final void testToday() throws Exception {
-        final Date today = DataFactory.today();
+        this.log.info("{}.testToday", this.getClass().getSimpleName());
+        final Calendar today = DataFactory.today();
+        assertNotNull(today);
+        verifyDateData(today);
     }
 
+    /**
+     * test DataFactory object.
+     *
+     * @throws Exception
+     *             the exception
+     */
     @Test
     public final void testPastDate() throws Exception {
-        DataFactory.pastDate();
+        this.log.info("{}.testPastDate", this.getClass().getSimpleName());
+        final Calendar pastDate = DataFactory.pastDate();
+        verifyDateData(pastDate);
     }
 
+    /**
+     * test DataFactory object.
+     *
+     * @throws Exception
+     *             the exception
+     */
     @Test
     public final void testFutureDate() throws Exception {
-        DataFactory.futureDate();
+        this.log.info("{}.testFutureDate", this.getClass().getSimpleName());
+        final Calendar futureDate = DataFactory.futureDate();
+        verifyDateData(futureDate);
     }
 
+    /**
+     * test DataFactory object.
+     *
+     * @throws Exception
+     *             the exception
+     */
     @Test
     public final void testDateOfBirth() throws Exception {
-        DataFactory.dateOfBirth();
+        this.log.info("{}.testDateOfBirth", this.getClass().getSimpleName());
+        final Calendar dateOfBirth = DataFactory.dateOfBirth();
+        verifyDateData(dateOfBirth);
     }
 
+    /**
+     * test DataFactory object.
+     *
+     * @throws Exception
+     *             the exception
+     */
     @Test
     public final void testOver18() throws Exception {
-        DataFactory.dobOver18();
+        this.log.info("{}.testOver18", this.getClass().getSimpleName());
+        final Calendar dobOver18 = DataFactory.dobOver18();
+        verifyDateData(dobOver18);
     }
 
+    /**
+     * test DataFactory object.
+     *
+     * @throws Exception
+     *             the exception
+     */
     @Test
     public final void testUnder18() throws Exception {
-        DataFactory.dobUnder18();
+        this.log.info("{}.testUnder18", this.getClass().getSimpleName());
+        final Calendar dobUnder18 = DataFactory.dobUnder18();
+        verifyDateData(dobUnder18);
     }
+
+    /**
+     * Verify DataFactory object.
+     *
+     * @param dateData
+     *            the date data
+     */
+    private void verifyDateData(final Calendar dateData) {
+        assertNotNull(dateData);
+        final String fromCalendar = DataFactory.format(dateData);
+        final String fromDate = DataFactory.format(dateData.getTime());
+        assertEquals(fromCalendar, fromDate);
+        this.log.info("fromCalendar = {}", fromCalendar);
+        this.log.info("fromDate = {}", fromDate);
+    }
+
 }

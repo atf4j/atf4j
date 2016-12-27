@@ -16,6 +16,15 @@
  */
 package net.atf4j.data;
 
+/**
+ * The Interface FactoryMethod.
+ */
 public interface FactoryMethod {
+    
+    /**
+     * Creates the.
+     *
+     * @return the object
+     */
     public Object create();
 }

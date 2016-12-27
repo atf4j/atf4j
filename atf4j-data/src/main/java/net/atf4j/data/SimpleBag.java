@@ -17,6 +17,7 @@
 package net.atf4j.data;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -24,8 +25,14 @@ import java.util.Random;
  * A Simple Bag class.
  */
 public class SimpleBag {
+
+    /** The values. */
     private String[] values;
+
+    /** The bag. */
     private final List<String> bag = new ArrayList<String>();
+
+    /** The rnd. */
     private final Random rnd = new Random();
 
     /**
@@ -136,6 +143,11 @@ public class SimpleBag {
      */
     public boolean occupied() {
         return !this.bag.isEmpty();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("SimpleBag [values=%s]", Arrays.toString(this.values));
     }
 
 }

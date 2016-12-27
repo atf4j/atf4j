@@ -25,7 +25,7 @@ import net.atf4j.webdriver.TargetUrl;
 /**
  * Html5Boilerplate class.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 @TargetUrl("http://127.0.0.1:8080/html5boilerplate")
 public class Html5Boilerplate extends AbstractPageObject {

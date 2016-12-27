@@ -19,7 +19,7 @@ package net.atf4j.data;
 /**
  * TelephoneNumber.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public class Telephone {
 
@@ -69,6 +69,9 @@ public class Telephone {
         return this;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format("%s [number=%s]", this.getClass().getSimpleName(), this.number);

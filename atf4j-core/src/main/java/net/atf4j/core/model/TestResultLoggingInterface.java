@@ -19,7 +19,7 @@ package net.atf4j.core.model;
 /**
  * The Interface TestResultLoggingInterface.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net> <Martin@atf4j.net>
+ *  
  */
 public interface TestResultLoggingInterface {
 

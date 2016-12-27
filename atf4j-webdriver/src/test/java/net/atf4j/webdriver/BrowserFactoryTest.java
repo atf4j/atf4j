@@ -33,7 +33,6 @@ public class BrowserFactoryTest extends Reporting {
      */
     @Test
     public void testWebDriver() {
-        System.setProperty("targetBrowser", "HtmlUnitDriver");
         final WebDriver webDriver = BrowserFactory.webDriver();
         assumeNotNull(webDriver);
         webDriver.get("http://127.0.0.1:8080");
@@ -45,7 +44,7 @@ public class BrowserFactoryTest extends Reporting {
      * test BrowserFactory object.
      */
     @Test
-    public void testChrome() {
+    public void testChromeDriver() {
         System.setProperty("targetBrowser", "chromeDriver");
         final WebDriver webDriver = BrowserFactory.webDriver();
         assumeNotNull(webDriver);
@@ -58,7 +57,7 @@ public class BrowserFactoryTest extends Reporting {
      * test BrowserFactory object.
      */
     @Test
-    public void testFirefox() {
+    public void testFirefoxDriver() {
         System.setProperty("targetBrowser", "firefoxDriver");
         final WebDriver webDriver = BrowserFactory.webDriver();
         assumeNotNull(webDriver);

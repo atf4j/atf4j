@@ -21,7 +21,7 @@ import java.util.Collection;
 /**
  * ProductCatalog.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ *
  */
 public class ProductCatalog {
 
@@ -57,6 +57,11 @@ public class ProductCatalog {
      */
     public void setProductList(final Collection<Product> productList) {
         this.catalog = productList;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("ProductCatalog [catalog=%s]", this.catalog);
     }
 
 }

@@ -21,7 +21,7 @@ import net.atf4j.core.AbstractConfig;
 /**
  * WebDriverConfig.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ *
  */
 public class WebDriverConfig extends AbstractConfig {
 
@@ -40,7 +40,7 @@ public class WebDriverConfig extends AbstractConfig {
      *
      * @return the target browser
      */
-    public String getTargetBrowser() {
+    public String targetBrowser() {
         return this.get("targetBrowser");
     }
 
@@ -49,8 +49,20 @@ public class WebDriverConfig extends AbstractConfig {
      *
      * @return the target url
      */
-    public String getTargetUrl() {
+    public String targetUrl() {
         return this.get("targetUrl");
+    }
+
+    public String seleniumUrl() {
+        return this.get("seleniumUrl");
+    }
+
+    public String chromeBinaryDriver() {
+        return this.get("chromeBinaryDriver");
+    }
+
+    public String firefoxBinaryDriver() {
+        return this.get("firefoxBinaryDriver");
     }
 
     /**
@@ -58,7 +70,7 @@ public class WebDriverConfig extends AbstractConfig {
      *
      * @return the page load timeout
      */
-    public long getPageLoadTimeout() {
+    public long pageLoadTimeout() {
         return this.get("pageLoadTimeOut", 1000);
     }
 
@@ -67,7 +79,7 @@ public class WebDriverConfig extends AbstractConfig {
      *
      * @return the implicitly wait
      */
-    public long getImplicitlyWait() {
+    public long implicitlyWait() {
         return this.get("implicitlyWait", 1000);
     }
 
@@ -76,7 +88,7 @@ public class WebDriverConfig extends AbstractConfig {
      *
      * @return the implicitly wait unit
      */
-    public long getImplicitlyWaitUnit() {
+    public long implicitlyWaitUnit() {
         return this.get("implicitlyWaitUnit", 1000);
     }
 

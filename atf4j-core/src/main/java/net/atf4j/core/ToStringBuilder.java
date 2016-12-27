@@ -21,7 +21,7 @@ import java.lang.reflect.Field;
 /**
  * ToStringBuilder.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  * 
  */
 public class ToStringBuilder {

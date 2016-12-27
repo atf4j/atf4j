@@ -21,25 +21,27 @@ import net.atf4j.data.Card;
 /**
  * ChargeCard.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ *
  */
-public class CardFactory extends DataFactory implements FactoryMethod {
+public class CardDataFactory extends AbstractDataFactory {
 
-    public CardFactory() throws Exception {
+    /**
+     * Instantiates a new card data factory.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    public CardDataFactory() throws Exception {
         super();
     }
 
-    @Override
-    public Card create() {
+    /**
+     * Creates the.
+     *
+     * @return the card
+     */
+    public static Card create() {
         return new Card();
     }
 
-    // Card Provider
-    // Card Number
-    // Card Account
-    // Card Name
-    // Card Type
-    // Card End Date
-    // Card Start Date
-    // Card CVV
 }

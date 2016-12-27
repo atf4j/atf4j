@@ -16,14 +16,26 @@
  */
 package net.atf4j.core.model;
 
+/**
+ * The AbstractTestResult Class.
+ */
 public abstract class AbstractTestResult {
 
+    /** The test status. */
     private TestStatus testStatus;
 
+    /**
+     * Instantiates a new abstract test result.
+     */
     public AbstractTestResult() {
         super();
     }
 
+    /**
+     * Instantiates a new abstract test result.
+     *
+     * @param testStatus the test status
+     */
     public AbstractTestResult(final TestStatus testStatus) {
         super();
         this.testStatus = testStatus;
@@ -38,12 +50,21 @@ public abstract class AbstractTestResult {
         return this.testStatus;
     }
 
+    /**
+     * From.
+     *
+     * @param testResult the test result
+     * @return the abstract test result
+     */
     public AbstractTestResult from(final AbstractTestResult testResult) {
         this.testStatus = testResult.getTestStatus();
         return this;
     }
 
     /**
+     * To string.
+     *
+     * @return the string
      * @see java.lang.Object#toString()
      */
     @Override

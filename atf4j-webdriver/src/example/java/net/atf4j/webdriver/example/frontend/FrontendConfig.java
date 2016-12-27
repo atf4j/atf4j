@@ -21,7 +21,7 @@ import net.atf4j.webdriver.WebDriverConfig;
 /**
  * FrontendConfig.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public class FrontendConfig extends WebDriverConfig {
 

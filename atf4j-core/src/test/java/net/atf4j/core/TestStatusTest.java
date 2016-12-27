@@ -24,8 +24,11 @@ import org.junit.Test;
  * A UnitTest for TestStatus objects.
  * forString
  */
-public class TestStatusTest {
+public class TestStatusTest extends Reporting {
 
+    /**
+     * test TestStatus object.
+     */
     @Test
     public void testTestStatus() {
         assertEquals("Pending", TestStatus.PENDING.toString());
@@ -35,6 +38,9 @@ public class TestStatusTest {
         assertEquals("Exception", TestStatus.EXCEPTION.toString());
     }
 
+    /**
+     * test TestStatus object.
+     */
     @Test
     public void testTestStatusFromString() {
         assertEquals(TestStatus.PENDING, TestStatus.forString("Pending"));

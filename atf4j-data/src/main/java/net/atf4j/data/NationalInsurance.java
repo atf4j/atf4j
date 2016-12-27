@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
 /**
  * NationalInsurance.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ *
  */
 public class NationalInsurance {
 
@@ -64,6 +64,8 @@ public class NationalInsurance {
     }
 
     /**
+     * Gets the code.
+     *
      * @return the code
      */
     public String getCode() {
@@ -71,13 +73,20 @@ public class NationalInsurance {
     }
 
     /**
+     * Sets the code.
+     *
      * @param code
      *            the code to set
-     * @return
+     * @return the national insurance
      */
     public NationalInsurance setCode(final String code) {
         this.code = code;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("NationalInsurance [code=%s]", this.code);
     }
 
 }

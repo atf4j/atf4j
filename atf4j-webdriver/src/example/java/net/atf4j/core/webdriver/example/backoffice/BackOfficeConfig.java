@@ -22,7 +22,7 @@ import net.atf4j.webdriver.WebDriverConfig;
 /**
  * BackOfficeConfig.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public class BackOfficeConfig extends WebDriverConfig {
 

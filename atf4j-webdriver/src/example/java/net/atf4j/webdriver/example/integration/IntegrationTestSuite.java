@@ -19,7 +19,7 @@ package net.atf4j.webdriver.example.integration;
 /**
  * IntegrationTestSuite.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public class IntegrationTestSuite {
 

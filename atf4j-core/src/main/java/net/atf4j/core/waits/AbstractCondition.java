@@ -19,7 +19,7 @@ package net.atf4j.core.waits;
 /**
  * AbstractCondition used as a base for Fluent Waits.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public abstract class AbstractCondition implements ICondition {
     /** The condition state. */

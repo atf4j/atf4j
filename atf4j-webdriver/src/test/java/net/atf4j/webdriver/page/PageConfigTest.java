@@ -25,12 +25,12 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 /**
  * PageConfigTest.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ *
  */
 public abstract class PageConfigTest {
 
     /**
-     * The Class MockPageConfig.
+     * Mock Page Configuration.
      */
     public class MockPageConfig extends AbstractPageConfig {
 
@@ -47,7 +47,7 @@ public abstract class PageConfigTest {
 
     /**
      * Test method for
-     * {@link net.atf4j.webdriver.page.AbstractPageConfig#PageConfig()}.
+     * { net.atf4j.webdriver.page.AbstractPageConfig#AbstractPageConfig()}.
      *
      * @throws ConfigurationNotLoaded
      *             the missing property file exception

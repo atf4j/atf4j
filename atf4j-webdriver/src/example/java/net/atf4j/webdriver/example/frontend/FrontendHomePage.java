@@ -21,7 +21,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * FrontendHomePage.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public class FrontendHomePage extends FrontendPage {
 

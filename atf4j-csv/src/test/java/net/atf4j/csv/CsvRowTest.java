@@ -19,28 +19,36 @@ package net.atf4j.csv;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import net.atf4j.core.Reporting;
 
 /**
  * A UnitTest for CsvRow objects.
  */
-public class CsvRowTest {
+public class CsvRowTest extends Reporting {
 
-    private static final String ONE_TWO_THREE_FOUR = "One,Two,Three,Four";
+    private static final String ONE_TWO_THREE_FOUR = "One, Two, Three, Four";
     private static final String EXPECTED = "CsvRow [fields=[One, Two, Three, Four]]";
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
+    /**
+     * test CsvRow object.
+     */
     @Test
     public void testDefaultCsvRow() {
         new CsvRow();
     }
 
+    /**
+     * test CsvRow object.
+     */
     @Test
     public void testEmptyCsvRow() {
         new CsvRow("");
     }
 
+    /**
+     * test CsvRow object.
+     */
     @Test
     public void testGetField() {
         final CsvRow csvRow = new CsvRow(ONE_TWO_THREE_FOUR);
@@ -51,6 +59,9 @@ public class CsvRowTest {
         assertEquals("Four", csvRow.getField(4));
     }
 
+    /**
+     * test CsvRow object.
+     */
     @Test
     public void testGetFields() {
         final CsvRow csvRow = new CsvRow(ONE_TWO_THREE_FOUR);
@@ -61,11 +72,21 @@ public class CsvRowTest {
         }
     }
 
+    /**
+     * test CsvRow object.
+     */
     @Test
     public void testToString() {
-        final String ACTUAL = new CsvRow(ONE_TWO_THREE_FOUR).toString();
-        assertEquals(EXPECTED, ACTUAL);
-        this.log.info("ACTUAL = {}", ACTUAL);
+        final String actual = new CsvRow(ONE_TWO_THREE_FOUR).toString();
+        assertEquals(ONE_TWO_THREE_FOUR, actual);
+        this.log.info("ACTUAL = {}", actual);
+    }
+
+    @Test
+    public void testDebugString() {
+        final String actual = new CsvRow(ONE_TWO_THREE_FOUR).debugString();
+        assertEquals(EXPECTED, actual);
+        this.log.info("ACTUAL = {}", actual);
     }
 
 }

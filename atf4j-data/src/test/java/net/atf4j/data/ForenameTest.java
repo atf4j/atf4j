@@ -24,14 +24,14 @@ import net.atf4j.core.Reporting;
 /**
  * ForenameTest.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public class ForenameTest extends Reporting {
 
     private static final String FORENAME = "Forename";
 
     /**
-     * Test method for {@link net.atf4j.data.Forename()}.
+     * Test method for { net.atf4j.data.Forename()}.
      */
     @Test
     public final void testConstructor() {

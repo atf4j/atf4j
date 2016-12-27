@@ -16,6 +16,16 @@
  */
 package net.atf4j.data;
 
+/**
+ * Card Data.
+ */
 public class Card {
-
+    // Card Provider
+    // Card Number
+    // Card Account
+    // Card Name
+    // Card Type
+    // Card End Date
+    // Card Start Date
+    // Card CVV
 }

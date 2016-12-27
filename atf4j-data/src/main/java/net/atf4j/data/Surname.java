@@ -19,7 +19,7 @@ package net.atf4j.data;
 /**
  * Surname.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  *
  */
 public class Surname extends Name {

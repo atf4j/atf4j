@@ -26,11 +26,29 @@ import net.atf4j.core.Atf4jException;
  * TestSuite.
  */
 public class TestSuite extends TestBase {
+
+    /** The id. */
     protected String id;
+
+    /** The name. */
     protected String name;
+
+    /** The description. */
     protected String description;
+
+    /** The test cases. */
     protected Collection<TestCase> testCases;
 
+    /**
+     * Instantiates a new test suite.
+     *
+     * @param id
+     *            the id
+     * @param name
+     *            the name
+     * @param description
+     *            the description
+     */
     public TestSuite(final String id, final String name, final String description) {
         super();
         this.id = id;
@@ -88,8 +106,7 @@ public class TestSuite extends TestBase {
     /**
      * Iterator.
      *
-     * @return Iterator<TestCase>
-     * @see java.util.Collection#iterator()
+     * @return the iterator
      */
     public Iterator<TestCase> iterator() {
         return this.testCases.iterator();
@@ -111,20 +128,28 @@ public class TestSuite extends TestBase {
      * Adds the all.
      *
      * @param newTestCases
-     *            as Collection<TestCase>
-     * @return success as boolean.
-     * @see java.util.Collection#addAll(java.util.Collection)
+     *            the new test cases
+     * @return true, if successful
      */
     public boolean addAll(final Collection<? extends TestCase> newTestCases) {
         return this.testCases.addAll(newTestCases);
     }
 
+    /**
+     * Start test suite.
+     */
     public void startTestSuite() {
     }
 
+    /**
+     * End test suite.
+     */
     public void endTestSuite() {
     }
 
+    /* (non-Javadoc)
+     * @see net.atf4j.core.model.TestCommand#execute(java.util.Properties)
+     */
     @Override
     public Properties execute(final Properties properties) {
         return null;

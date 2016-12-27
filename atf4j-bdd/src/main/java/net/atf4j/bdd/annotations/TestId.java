@@ -25,8 +25,8 @@ import java.lang.annotation.Target;
 /**
  * The AutomatedTestId annotation; contains the external reference for the test.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
- * @version $Revision: 1.0 $
+ *
+ * @version $Revision: 0.0.1 $
  */
 @Documented
 @Target(ElementType.METHOD)
@@ -36,7 +36,7 @@ public @interface TestId {
     /**
      * Value.
      *
-     * @return the string
+     * @return value as String
      */
     String value();
 

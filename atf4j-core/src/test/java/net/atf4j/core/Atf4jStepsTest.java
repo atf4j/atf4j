@@ -23,8 +23,14 @@ import static org.junit.Assume.assumeTrue;
 
 import org.junit.Test;
 
+/**
+ * A UnitTest for Atf4jSteps objects.
+ */
 public class Atf4jStepsTest {
 
+    /**
+     * test Atf4jSteps object.
+     */
     @Test
     public void testSimpleStep() {
         start("start test");
@@ -38,6 +44,9 @@ public class Atf4jStepsTest {
         end();
     }
 
+    /**
+     * test Atf4jSteps object.
+     */
     @Test
     public void testSteps() {
         start("start test");

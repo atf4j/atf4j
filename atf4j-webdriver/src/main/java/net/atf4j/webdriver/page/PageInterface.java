@@ -19,7 +19,7 @@ package net.atf4j.webdriver.page;
 /**
  * PageInterface.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public interface PageInterface {
 

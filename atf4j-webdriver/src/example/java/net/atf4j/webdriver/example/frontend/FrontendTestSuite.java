@@ -21,7 +21,7 @@ import org.junit.Test;
 /**
  * FrontendTestSuite.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public class FrontendTestSuite {
 	@Test

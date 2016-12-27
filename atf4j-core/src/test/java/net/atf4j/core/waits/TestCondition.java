@@ -16,6 +16,9 @@
  */
 package net.atf4j.core.waits;
 
+/**
+ * The TestCondition Class.
+ */
 public class TestCondition {
 
 }

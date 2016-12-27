@@ -25,15 +25,16 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 /**
  * PageObjectTest.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ *
  */
 public class PageObjectTest {
 
     /**
-     * The Class MockPage.
+     * Mock Page.
      */
     public class MockPage extends AbstractPageObject {
 
+        /** The Constant TARGET_URL. */
         protected static final String TARGET_URL = "http://127.0.0.1:8080";
 
         /**
@@ -72,9 +73,10 @@ public class PageObjectTest {
 
     /**
      * Test method for
-     * {@link net.net.atf4j.webdriver.page.AbstractPageObject#AbstractPageObject()}.
+     * { net.atf4j.webdriver.page.AbstractPageObject#AbstractPageObject()}.
      *
      * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
      */
     @Test
     public final void testDefaultConstructor() throws ConfigurationNotLoaded {
@@ -103,9 +105,10 @@ public class PageObjectTest {
 
     /**
      * Test method for
-     * {@link net.net.atf4j.webdriver.page.AbstractPageObject#open()}.
+     * { net.net.atf4j.webdriver.page.AbstractPageObject#open()}.
      *
      * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
      */
     @Test
     public final void testDefaultOpen() throws ConfigurationNotLoaded {
@@ -114,9 +117,10 @@ public class PageObjectTest {
 
     /**
      * Test method for
-     * {@link net.net.atf4j.webdriver.page.AbstractPageObject#open()}.
+     * { net.net.atf4j.webdriver.page.AbstractPageObject#open()}.
      *
      * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
      */
     @Test
     public final void testOpen() throws ConfigurationNotLoaded {
@@ -125,9 +129,11 @@ public class PageObjectTest {
 
     /**
      * Test method for
-     * {@link net.net.atf4j.webdriver.page.AbstractPageObject#open(java.lang.String)}.
+     * {
+     * net.net.atf4j.webdriver.page.AbstractPageObject#open(java.lang.String)}.
      *
      * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
      */
     @Test
     public final void testOpenString() throws ConfigurationNotLoaded {
@@ -136,9 +142,10 @@ public class PageObjectTest {
 
     /**
      * Test method for
-     * {@link net.net.atf4j.webdriver.page.AbstractPageObject#verify()}.
+     * { net.net.atf4j.webdriver.page.AbstractPageObject#verify()}.
      *
      * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
      */
     @Test
     public final void testVerify() throws ConfigurationNotLoaded {

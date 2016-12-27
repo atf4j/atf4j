@@ -19,7 +19,7 @@ package net.atf4j.core;
 /**
  * IConfig Interface.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public interface IConfig {
 

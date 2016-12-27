@@ -36,5 +36,11 @@ public interface TestCommand {
      */
     public AbstractTestResult execute(TestContext testContext) throws Atf4jException;
 
+    /**
+     * Execute.
+     *
+     * @param properties the properties
+     * @return the properties
+     */
     Properties execute(Properties properties);
 }

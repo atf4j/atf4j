@@ -16,25 +16,42 @@
  */
 package net.atf4j.data;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * BankSortCode data class.
- *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
- *
  */
 public class BankSortCode {
+
+    /** REGULAR EXPRESSION. */
+    private static final Pattern pattern = Pattern.compile("^(\\d){2}-(\\d){2}-(\\d){2}$");
+
+    /** The bank sort code. */
     private String bankSortCode;
 
+    /**
+     * Instantiates a new bank sort code.
+     */
     public BankSortCode() {
     }
 
-    public BankSortCode(final String string) {
+    /**
+     * Instantiates a new bank sort code.
+     *
+     * @param bankSortCode
+     *            the bank sort code
+     */
+    public BankSortCode(final String bankSortCode) {
+        setBankSortCode(bankSortCode);
     }
 
     /**
+     * Sets the bank sort code.
+     *
      * @param bankSortCode
-     *            the bankSortCode to set
-     * @return
+     *            the bank sort code
+     * @return the bank sort code
      */
     public BankSortCode setBankSortCode(final String bankSortCode) {
         this.bankSortCode = bankSortCode;
@@ -42,9 +59,28 @@ public class BankSortCode {
     }
 
     /**
-     * @return the bankSortCode
+     * Gets the bank sort code.
+     *
+     * @return the bankSortCode as String.
      */
     public String getBankSortCode() {
         return this.bankSortCode;
+    }
+
+    /**
+     * Verify.
+     *
+     * @param code
+     *            the code
+     * @return true, if successful
+     */
+    public static boolean verify(final String code) {
+        final Matcher matcher = pattern.matcher(code);
+        return matcher.find();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("BankSortCode [bankSortCode=%s]", this.bankSortCode);
     }
 }

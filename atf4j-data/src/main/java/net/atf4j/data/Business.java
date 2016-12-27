@@ -17,18 +17,32 @@
 package net.atf4j.data;
 
 /**
- * The Class Business.
+ * Business data.
  */
 public class Business {
 
-    /** The name. */
     private Name name;
+    private PostalAddress address;
 
     /**
      * Instantiates a new business.
      */
     public Business() {
         super();
+    }
+
+    /**
+     * Instantiates a new business.
+     *
+     * @param name
+     *            the name
+     * @param address
+     *            the address
+     */
+    public Business(final Name name, final PostalAddress address) {
+        super();
+        this.name = name;
+        this.address = address;
     }
 
     /**
@@ -61,6 +75,35 @@ public class Business {
      */
     public Name getName() {
         return this.name;
+    }
+
+    /**
+     * Gets the address.
+     *
+     * @return the address
+     */
+    public PostalAddress getAddress() {
+        return this.address;
+    }
+
+    /**
+     * Sets the address.
+     *
+     * @param address
+     *            the address
+     * @return the business
+     */
+    public Business setAddress(final PostalAddress address) {
+        this.address = address;
+        return this;
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return String.format("Business [name=%s, address=%s]", this.name, this.address);
     }
 
 }

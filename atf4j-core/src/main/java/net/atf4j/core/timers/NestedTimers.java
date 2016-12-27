@@ -20,7 +20,7 @@ import java.util.Enumeration;
 import java.util.Stack;
 
 /**
- * NestedTimers. @pattern[GOF] Singleton.
+ * NestedTimers. [GOF] Singleton.
  *
  */
 public final class NestedTimers {

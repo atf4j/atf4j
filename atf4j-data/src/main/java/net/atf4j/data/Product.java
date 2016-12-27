@@ -19,17 +19,35 @@ package net.atf4j.data;
 /**
  * Product.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ *
  */
 public class Product {
 
+    /** The id. */
     private String id;
+
+    /** The name. */
     private String name;
+
+    /** The details. */
     private String details;
 
+    /**
+     * Instantiates a new product.
+     */
     public Product() {
     }
 
+    /**
+     * Instantiates a new product.
+     *
+     * @param id
+     *            the id
+     * @param name
+     *            the name
+     * @param details
+     *            the details
+     */
     public Product(final String id, final String name, final String details) {
         super();
         this.id = id;
@@ -38,14 +56,45 @@ public class Product {
     }
 
     /**
-     * Product.
+     * Gets the id.
      *
-     * @param details
-     *            the details
+     * @return the id
      */
-    public Product(final String details) {
-        super();
-        setDetails(details);
+    public String getId() {
+        return this.id;
+    }
+
+    /**
+     * Sets the id.
+     *
+     * @param id
+     *            the id
+     * @return the product
+     */
+    public Product setId(final String id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Gets the name.
+     *
+     * @return the name
+     */
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Sets the name.
+     *
+     * @param name
+     *            the name
+     * @return the product
+     */
+    public Product setName(final String name) {
+        this.name = name;
+        return this;
     }
 
     /**
@@ -53,9 +102,11 @@ public class Product {
      *
      * @param details
      *            the details to set
+     * @return the product
      */
-    public void setDetails(final String details) {
+    public Product setDetails(final String details) {
         this.details = details;
+        return this;
     }
 
     /**
@@ -67,21 +118,9 @@ public class Product {
         return this.details;
     }
 
-    /**
-     * To string.
-     *
-     * @return the string
-     * @see java.lang.Object#toString()
-     */
     @Override
     public String toString() {
-        final StringBuilder builder = new StringBuilder();
-        builder.append("Product [");
-        if (this.details != null) {
-            builder.append("details=").append(this.details);
-        }
-        builder.append("]");
-        return builder.toString();
+        return String.format("Product [id=%s, name=%s, details=%s]", this.id, this.name, this.details);
     }
 
 }

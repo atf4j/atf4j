@@ -16,58 +16,183 @@
  */
 package net.atf4j.data.factory;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
  * DataFactory.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ *
  *
  */
-public class DataFactory extends AbstractDataFactory {
+public class DataFactory {
 
+    private AddressDataFactory addressData = null;
+    private final BankDataFactory bankData = null;
+    private final BusinessDataFactory businessData = null;
+    private final CardDataFactory cardData = null;
+    private final CustomerDataFactory contactData = null;
+    private final PersonDataFactory personData = null;
+
+    /** The Constant simpleDateFormat. */
+    private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
+
+    /**
+     * Instantiates a new data factory.
+     *
+     * @throws Exception
+     *             the exception
+     */
     protected DataFactory() throws Exception {
-        super();
+        this.addressData = new AddressDataFactory();
+        // this.bankData = new BankDataFactory();
+        // this.businessData = new BusinessDataFactory();
+        // this.cardData = new CardDataFactory();
+        // this.contactData = new CustomerDataFactory();
+        // this.personData = new PersonDataFactory();
     }
 
-    public static Date today() {
-        return new Date();
+    /**
+     * Today date.
+     *
+     * @return today as Calendar
+     */
+    public static Calendar today() {
+        final Calendar instance = Calendar.getInstance();
+        return instance;
     }
 
-    public static Date dateOfBirth() {
-        return null;
+    /**
+     * Date of birth.
+     *
+     * @return random date of birth as Calendar
+     */
+    public static Calendar dateOfBirth() {
+        final Calendar instance = Calendar.getInstance();
+        instance.add(Calendar.YEAR, -1);
+        instance.add(Calendar.MONTH, -1);
+        instance.add(Calendar.DATE, -1);
+        return instance;
     }
 
-    public static Date dobOver18() {
-        return null;
+    /**
+     * DOB over 18.
+     *
+     * @return the calendar
+     */
+    public static Calendar dobOver18() {
+        final Calendar instance = Calendar.getInstance();
+        instance.add(Calendar.YEAR, 18);
+        instance.add(Calendar.MONTH, 0);
+        instance.add(Calendar.DATE, 1);
+        return instance;
     }
 
-    public static Date dobUnder18() {
-        return null;
+    /**
+     * DOB under 18.
+     *
+     * @return the calendar
+     */
+    public static Calendar dobUnder18() {
+        final Calendar instance = Calendar.getInstance();
+        instance.add(Calendar.YEAR, 18);
+        instance.add(Calendar.MONTH, 0);
+        instance.add(Calendar.DATE, -1);
+        return instance;
     }
 
-    public static Date futureDate() {
-        return null;
+    /**
+     * Future date.
+     *
+     * @return the calendar
+     */
+    public static Calendar futureDate() {
+        final Calendar instance = Calendar.getInstance();
+        instance.add(Calendar.YEAR, 0);
+        instance.add(Calendar.MONTH, 0);
+        instance.add(Calendar.DATE, 1);
+        return instance;
     }
 
-    public static Date pastDate() {
-        return null;
+    /**
+     * Past date.
+     *
+     * @return the calendar
+     */
+    public static Calendar pastDate() {
+        final Calendar instance = Calendar.getInstance();
+        instance.add(Calendar.YEAR, 0);
+        instance.add(Calendar.MONTH, 0);
+        instance.add(Calendar.DATE, -1);
+        return instance;
     }
 
-    public static String thisYear() {
-        return null;
+    /**
+     * This year.
+     *
+     * @return the int
+     */
+    public static int thisYear() {
+        final Calendar instance = Calendar.getInstance();
+        return instance.get(Calendar.YEAR);
     }
 
-    public static String thisMonth() {
-        return null;
+    /**
+     * This month.
+     *
+     * @return the int
+     */
+    public static int thisMonth() {
+        final Calendar instance = Calendar.getInstance();
+        return instance.get(Calendar.MONTH);
     }
 
+    /**
+     * Family name.
+     *
+     * @return the string
+     */
     public static String familyName() {
         return null;
     }
 
+    /**
+     * Given name.
+     *
+     * @return the string
+     */
     public static String givenName() {
         return null;
+    }
+
+    /**
+     * Format.
+     *
+     * @param calendar
+     *            the calendar
+     * @return the string
+     */
+    public static String format(final Calendar calendar) {
+        return format(calendar.getTime());
+    }
+
+    /**
+     * Format.
+     *
+     * @param date
+     *            the date
+     * @return the string
+     */
+    public static String format(final Date date) {
+        return simpleDateFormat.format(date);
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "DataFactory [addressData=%s, bankData=%s, businessData=%s, cardData=%s, contactData=%s, personData=%s]",
+                this.addressData, this.bankData, this.businessData, this.cardData, this.contactData, this.personData);
     }
 
 }

@@ -18,6 +18,7 @@ package net.atf4j.webdriver;
 
 import java.util.Enumeration;
 import java.util.MissingResourceException;
+import java.util.Set;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -27,7 +28,7 @@ import net.atf4j.core.Reporting;
 /**
  * A UnitTest for LogicalGuiMap objects.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ *
  */
 
 public class AbstractGuiMapTest extends Reporting {
@@ -47,7 +48,7 @@ public class AbstractGuiMapTest extends Reporting {
     }
 
     /**
-     * Test method for {@link net.atf4j.webdriver.AbstractGuiMap#getKeys()}.
+     * Test method for { net.atf4j.webdriver.AbstractGuiMap#getKeys()}.
      */
     @Test
     public final void testGuiMapping() {
@@ -61,4 +62,32 @@ public class AbstractGuiMapTest extends Reporting {
             this.log.info("{}={}", key, instance.getString(key));
         }
     }
+
+    @Test
+    public void testToString() throws Exception {
+        final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
+        Assert.assertNotNull(abstractGuiMap);
+        this.log.info(abstractGuiMap.toString());
+        this.log.info(abstractGuiMap.getBaseBundleName());
+        this.log.info(abstractGuiMap.getLocale().toString());
+    }
+
+    @Test
+    public void testKeySet() throws Exception {
+        final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
+        Assert.assertNotNull(abstractGuiMap);
+        final Set<String> keySet = abstractGuiMap.keySet();
+        for (final String key : keySet) {
+            final String value = abstractGuiMap.getString(key);
+            Assert.assertNotNull(value);
+        }
+    }
+
+    @Test
+    public void testName() throws Exception {
+        final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
+        Assert.assertNotNull(abstractGuiMap);
+        abstractGuiMap.dumpTo(System.out);
+    }
+
 }

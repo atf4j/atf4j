@@ -22,15 +22,18 @@
 		<regex>(.+)Observer</regex>
 		<example>ImageObserver</example>
 		<text>/**
-			* An asynchronous update interface for receiving notifications
-			* about ${e.g(1)} information as the ${e.g(1)} is constructed.
+			* An asynchronous update interface for receiving
+			notifications
+			* about ${e.g(1)} information as the ${e.g(1)} is
+			constructed.
 			*/</text>
 		<template kind="3" name="Type.Observer.Method.update"
 			default="false" signature="false">
 			<regex>.*</regex>
 			<example>imageUpdate</example>
 			<text>/**
-				* This method is called when information about an ${e.p().g(1)}
+				* This method is called when information about an
+				${e.p().g(1)}
 				* which was previously requested using an asynchronous
 				* interface becomes available.
 				*/</text>
@@ -43,12 +46,17 @@
 		<text>/**
 			* The listener interface for receiving ${e.g(1).fl()} events.
 			* The class that is interested in processing a ${e.g(1).fl()}
-			* event implements this interface, and the object created
-			* with that class is registered with a component using the
-			* component's &lt;code&gt;add${e.g(1)}Listener&lt;code&gt; method.
+			* event
+			implements this interface, and the object created
+			* with that class is
+			registered with a component using the
+			* component's
+			&lt;code&gt;add${e.g(1)}Listener&lt;code&gt; method.
 			When
-			* the ${e.g(1).fl()} event occurs, that object's appropriate
-			* method is invoked.
+			* the
+			${e.g(1).fl()} event occurs, that object's appropriate
+			* method is
+			invoked.
 			*
 			* @see ${e.g(1)}Event
 			*/</text>
@@ -100,7 +108,8 @@
 		<example>numberOfQuestions</example>
 		<text>/**
 			#if(${e.isStatic()} &amp;&amp; ${e.isFinal()})
-			* The Constant ${e}.
+			* The Constant
+			${e}.
 			#else
 			* The ${e.rs()}.
 			#end
@@ -113,7 +122,8 @@
 		<text>/**
 			* Gets the single instance of ${e.getDeclaringType()}.
 			*
-			* @return single instance of ${e.getDeclaringType()}
+			*
+			@return single instance of ${e.getDeclaringType()}
 			*/</text>
 	</template>
 	<template kind="3" name="Method.Getter" default="false"
@@ -133,7 +143,8 @@
 		<text>/**
 			* Sets the ${e.g(1).rsfl()}.
 			*
-			* @param ${e.g(2)} the new ${e.g(1).rsfl()}
+			* @param ${e.g(2)} the new
+			${e.g(1).rsfl()}
 			*/</text>
 	</template>
 	<template kind="3" name="Method.boolean Getter" default="false"
@@ -143,7 +154,8 @@
 		<text>/**
 			* Checks if is ${e.g(1).rsfl()}.
 			*
-			* @return true, if is ${e.g(1).rsfl()}
+			* @return true, if is
+			${e.g(1).rsfl()}
 			*/</text>
 	</template>
 	<template kind="3" name="Method.Main-Method" default="false"
@@ -198,7 +210,8 @@
 		<example>doSomething</example>
 		<text>/**
 			## Actually this is not used, because there
-			## are templates for different return types
+			## are templates
+			for different return types
 			* ${e.rsfu()}.
 			*/</text>
 	</template>
@@ -211,10 +224,12 @@
 			* @param ${e} the element type
 			#elseif(${e.g(1)} == 'K')
 			* @param ${e} the key type
-			#elseif(${e.g(1)} == 'N')
+			#elseif(${e.g(1)}
+			== 'N')
 			* @param ${e} the number type
 			#elseif(${e.g(1)} == 'V')
-			* @param ${e} the value type
+			* @param
+			${e} the value type
 			#else
 			* @param ${e} the generic type
 			#end

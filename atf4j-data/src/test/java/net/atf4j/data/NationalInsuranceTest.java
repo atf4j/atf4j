@@ -20,10 +20,12 @@ import static org.junit.Assert.assertFalse;
 
 import org.junit.Test;
 
+import net.atf4j.core.Reporting;
+
 /**
  * A UnitTest for NationalInsurance objects.
  */
-public class NationalInsuranceTest {
+public class NationalInsuranceTest extends Reporting {
 
     private static final String BLANK_NI = "";
 

@@ -24,12 +24,21 @@ import org.junit.Test;
 
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 
+/**
+ * A UnitTest for Config objects.
+ */
 public class ConfigTest extends Reporting {
 
     /**
      * MissingPropertiesMock Class.
      */
     private class MissingProperties extends AbstractConfig {
+        
+        /**
+         * Instantiates a new missing properties.
+         *
+         * @throws ConfigurationNotLoaded the configuration not loaded
+         */
         public MissingProperties() throws ConfigurationNotLoaded {
             super();
         }
@@ -39,13 +48,19 @@ public class ConfigTest extends Reporting {
      * A Test Configuration from file.
      */
     private class ConfigFromFile extends AbstractConfig {
+        
+        /**
+         * Instantiates a new config from file.
+         *
+         * @throws ConfigurationNotLoaded the configuration not loaded
+         */
         public ConfigFromFile() throws ConfigurationNotLoaded {
             super("/ConfigFromFile.properties");
         }
     }
 
     /**
-     * Test method for {@link net.atf4j.core.AbstractConfig#Config()}.
+     * Test method for { net.atf4j.core.AbstractConfig#AbstractConfig()}.
      *
      * @throws ConfigurationNotLoaded
      *             the missing property file exception
@@ -56,7 +71,7 @@ public class ConfigTest extends Reporting {
     }
 
     /**
-     * Test method for {@link net.atf4j.core.AbstractConfig#load()}.
+     * Test method for { net.atf4j.core.AbstractConfig#load()}.
      *
      * @throws ConfigurationNotLoaded
      *             the missing property file exception
@@ -68,6 +83,11 @@ public class ConfigTest extends Reporting {
         this.log.info(mockConfig.toString());
     }
 
+    /**
+     * test Config object.
+     *
+     * @throws ConfigurationNotLoaded the configuration not loaded
+     */
     @Test
     public void testConfigFromFile() throws ConfigurationNotLoaded {
         final ConfigFromFile config = new ConfigFromFile();
@@ -80,7 +100,7 @@ public class ConfigTest extends Reporting {
 
     /**
      * Test method for
-     * {@link net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.
+     * { net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.
      *
      * @throws ConfigurationNotLoaded
      *             the missing property file exception

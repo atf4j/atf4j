@@ -17,13 +17,18 @@
 package net.atf4j.data;
 
 /**
- * A Name
- *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
- *
+ * Name.
  */
 public class Name extends Datum {
+
+    /** The name. */
     private String name;
+
+    /**
+     * Instantiates a new name.
+     */
+    public Name() {
+    }
 
     /**
      * Instantiates a new name.
@@ -40,6 +45,7 @@ public class Name extends Datum {
      *
      * @param name
      *            the new name
+     * @return the name
      */
     public Name setName(final String name) {
         this.name = name;
@@ -81,4 +87,5 @@ public class Name extends Datum {
     public String toString() {
         return String.format("%s [name=%s]", this.getClass().getSimpleName(), this.name);
     }
+
 }

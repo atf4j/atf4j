@@ -26,7 +26,7 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 /**
  * UnitTests for ConfigFromSystem.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ *
  */
 public class ConfigFromSystemTests extends Reporting {
 
@@ -34,21 +34,48 @@ public class ConfigFromSystemTests extends Reporting {
      * Mock Configuration from System settings.
      */
     private class ConfigFromSystem extends AbstractConfig {
+
+        /**
+         * Instantiates a new config from system.
+         *
+         * @throws ConfigurationNotLoaded
+         *             the configuration not loaded
+         */
         public ConfigFromSystem() throws ConfigurationNotLoaded {
             super();
         }
 
+        /**
+         * Gets the system property as boolean.
+         *
+         * @param key
+         *            the key
+         * @return the system property as boolean
+         */
         public boolean getSystemPropertyAsBoolean(final String key) {
             final boolean property = Boolean.getBoolean(key);
             return property;
         }
 
+        /**
+         * Gets the system property as string.
+         *
+         * @param key
+         *            the key
+         * @return the system property as string
+         */
         public String getSystemPropertyAsString(final String key) {
             final String property = System.getProperty(key);
             return property;
         }
     }
 
+    /**
+     * Test system string.
+     *
+     * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
+     */
     @Test
     public void testSystemString() throws ConfigurationNotLoaded {
         final String systemPropertyKey = "stringFromSystem";
@@ -62,6 +89,12 @@ public class ConfigFromSystemTests extends Reporting {
         assertEquals(systemPropertyValue, systemPropertyAsString);
     }
 
+    /**
+     * Test system boolean.
+     *
+     * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
+     */
     @Test
     public void testSystemBoolean() throws ConfigurationNotLoaded {
         final String systemPropertyKey = "booleanFromSystem";
@@ -75,4 +108,5 @@ public class ConfigFromSystemTests extends Reporting {
         final boolean booleanFromSystem = mockConfig.getSystemPropertyAsBoolean(systemPropertyKey);
         assertEquals(true, booleanFromSystem);
     }
+
 }

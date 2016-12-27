@@ -26,7 +26,7 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 /**
  * ConfigDefaultsTest Class.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public class ConfigWithDefaultTests extends Reporting {
 
@@ -34,31 +34,72 @@ public class ConfigWithDefaultTests extends Reporting {
      * A Mock Configuration with default values.
      */
     private class ConfigWithDefaults extends AbstractConfig {
+        
+        /**
+         * Instantiates a new config with defaults.
+         *
+         * @throws ConfigurationNotLoaded the configuration not loaded
+         */
         public ConfigWithDefaults() throws ConfigurationNotLoaded {
             super();
         }
 
+        /**
+         * Gets the true as boolean.
+         *
+         * @param key the key
+         * @return the true as boolean
+         */
         public boolean getTrueAsBoolean(final String key) {
             return super.get(key, true);
         }
 
+        /**
+         * Gets the false as boolean.
+         *
+         * @param key the key
+         * @return the false as boolean
+         */
         public boolean getFalseAsBoolean(final String key) {
             return super.get(key, false);
         }
 
+        /**
+         * Gets the foo as string.
+         *
+         * @param key the key
+         * @return the foo as string
+         */
         public String getFooAsString(final String key) {
             return super.get(key, "DEFAULT_STRING");
         }
 
+        /**
+         * Gets the max.
+         *
+         * @param key the key
+         * @return the max
+         */
         public Object getMax(final String key) {
             return super.get(key, Integer.MAX_VALUE);
         }
 
+        /**
+         * Gets the min.
+         *
+         * @param key the key
+         * @return the min
+         */
         public Object getMin(final String key) {
             return super.get(key, Integer.MIN_VALUE);
         }
     }
 
+    /**
+     * Test default string.
+     *
+     * @throws ConfigurationNotLoaded the configuration not loaded
+     */
     @Test
     public void testDefaultString() throws ConfigurationNotLoaded {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
@@ -66,6 +107,11 @@ public class ConfigWithDefaultTests extends Reporting {
         assertEquals("DEFAULT_STRING", mockConfig.getFooAsString("missing"));
     }
 
+    /**
+     * Test default boolean.
+     *
+     * @throws ConfigurationNotLoaded the configuration not loaded
+     */
     @Test
     public void testDefaultBoolean() throws ConfigurationNotLoaded {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
@@ -74,6 +120,11 @@ public class ConfigWithDefaultTests extends Reporting {
         assertEquals(false, mockConfig.getFalseAsBoolean("missing"));
     }
 
+    /**
+     * Test default int.
+     *
+     * @throws ConfigurationNotLoaded the configuration not loaded
+     */
     @Test
     public void testDefaultInt() throws ConfigurationNotLoaded {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();

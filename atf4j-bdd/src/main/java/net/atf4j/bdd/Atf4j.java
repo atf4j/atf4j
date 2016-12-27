@@ -29,38 +29,83 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Atf4j {
 
+    /**
+     * The Behaviour Interface.
+     */
     @Documented
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
     public @interface Behaviour {
+        
+        /**
+         * Value.
+         *
+         * @return the string
+         */
         String value();
     }
 
+    /**
+     * The Scenario Interface.
+     */
     @Documented
     @Target(ElementType.TYPE)
     @Retention(RetentionPolicy.RUNTIME)
     public @interface Scenario {
+        
+        /**
+         * Value.
+         *
+         * @return the string
+         */
         String value();
     }
 
+    /**
+     * The Given Interface.
+     */
     @Documented
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
     public @interface Given {
+        
+        /**
+         * Value.
+         *
+         * @return the string
+         */
         String value();
     }
 
+    /**
+     * The When Interface.
+     */
     @Documented
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
     public @interface When {
+        
+        /**
+         * Value.
+         *
+         * @return the string
+         */
         String value();
     }
 
+    /**
+     * The Then Interface.
+     */
     @Documented
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
     public @interface Then {
+        
+        /**
+         * Value.
+         *
+         * @return the string
+         */
         String value();
     }
 

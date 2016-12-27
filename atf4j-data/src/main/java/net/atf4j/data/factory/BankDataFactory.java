@@ -16,22 +16,32 @@
  */
 package net.atf4j.data.factory;
 
-import net.atf4j.data.BankAccount;
+import net.atf4j.data.Bank;
 
 /**
  * BankAccountFactory.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ *
  */
-public class BankAccountFactory extends DataFactory implements FactoryMethod {
+public class BankDataFactory extends AbstractDataFactory {
 
-    protected BankAccountFactory() throws Exception {
+    /**
+     * Instantiates a new bank data factory.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    protected BankDataFactory() throws Exception {
         super();
     }
 
-    @Override
-    public BankAccount create() {
-        return new BankAccount();
+    /**
+     * Creates the.
+     *
+     * @return the bank
+     */
+    public static Bank create() {
+        return new Bank();
     }
 
 }

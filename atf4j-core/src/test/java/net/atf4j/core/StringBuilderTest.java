@@ -22,19 +22,23 @@ import org.junit.Test;
 /**
  * StringBuilderTest Class.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ *
  */
 public class StringBuilderTest extends Reporting {
 
-    String string = "StringBuilderTest";
-    boolean bool = true;
-    double real = Math.PI;
-    int number = 999;
+    private final String string = "StringBuilderTest";
+    private final boolean bool = true;
+    private final double real = Math.PI;
+    private final int number = 999;
 
     /**
      * SubClassWithoutProperties Class.
      */
     public class SubClassWithoutProperties extends StringBuilderTest {
+
+        /* (non-Javadoc)
+         * @see net.atf4j.core.StringBuilderTest#toString()
+         */
         @Override
         public String toString() {
             return String.format("SubClassWithoutProperties [%s]", super.toString());
@@ -61,6 +65,9 @@ public class StringBuilderTest extends Reporting {
         /** The public string. */
         public String publicString = "publicString";
 
+        /* (non-Javadoc)
+         * @see net.atf4j.core.StringBuilderTest#toString()
+         */
         @Override
         public String toString() {
             return String.format("%s [%s, protectedString=%s, publicString=%s]", this.getClass().getSimpleName(),
@@ -123,4 +130,10 @@ public class StringBuilderTest extends Reporting {
         Assert.assertNotNull("|testSubClassWithProperties|", reflectionToString);
         Assert.assertTrue("|testSubClassWithProperties|", reflectionToString.length() > 0);
     }
+
+    @Test
+    public void testRefection() {
+        this.log.info(ToStringBuilder.reflectObjectToString(getClass()));
+    }
+
 }

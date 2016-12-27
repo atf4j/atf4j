@@ -18,28 +18,48 @@ package net.atf4j.core;
 
 import org.junit.Test;
 
+/**
+ * A UnitTest for Logging objects.
+ */
 public class LoggingTest extends Reporting {
 
+    /**
+     * test Logging object.
+     *
+     * @throws ClassNotFoundException the class not found exception
+     */
     @Test
     public void testToDescription() throws ClassNotFoundException {
         this.log.info(toDescription());
     }
 
+    /**
+     * test Logging object.
+     */
     @Test(expected = AssertionError.class)
     public void testVerifyNullVsNull() {
         verify(null, null);
     }
 
+    /**
+     * test Logging object.
+     */
     @Test(expected = AssertionError.class)
     public void testVerifyNullVsString() {
         verify(null, "");
     }
 
+    /**
+     * test Logging object.
+     */
     @Test(expected = AssertionError.class)
     public void testVerifyStringVsNull() {
         verify("", null);
     }
 
+    /**
+     * test Logging object.
+     */
     @Test
     public void testVerifyStringString() {
         verify("", "");

@@ -24,15 +24,29 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 /**
  * ConfigLoadingTests Class.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public class ConfigLoadingTests extends Reporting {
 
+    /**
+     * The SimpleConfiguration Class.
+     */
     private class SimpleConfiguration extends AbstractConfig {
+        
+        /**
+         * Instantiates a new simple configuration.
+         *
+         * @throws ConfigurationNotLoaded the configuration not loaded
+         */
         public SimpleConfiguration() throws ConfigurationNotLoaded {
             super();
         }
 
+        /**
+         * Gets the property filename.
+         *
+         * @return the property filename
+         */
         public String getPropertyFilename() {
             this.log.info(get("loaded"));
             final String propertiesFilename = super.get("propertiesFilename");
@@ -41,6 +55,11 @@ public class ConfigLoadingTests extends Reporting {
         }
     }
 
+    /**
+     * Test suggested usage.
+     *
+     * @throws ConfigurationNotLoaded the configuration not loaded
+     */
     @Test
     public void testSuggestedUsage() throws ConfigurationNotLoaded {
         final SimpleConfiguration simpleConfig = new SimpleConfiguration();

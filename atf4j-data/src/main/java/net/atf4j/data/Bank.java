@@ -16,33 +16,27 @@
  */
 package net.atf4j.data;
 
-import net.atf4j.data.factory.AddressFactory;
-
 /**
  * Bank data class.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ *
  */
 public class Bank extends Business {
-    private AddressFactory bankAddress;
+
     private BankSortCode bankSortCode;
 
     /**
-     * @return the bankAddress
+     * Bank object factory method.
+     *
+     * @return initialised instance of Bank
      */
-    public AddressFactory getBankAddress() {
-        return this.bankAddress;
+    public static Bank create() {
+        return new Bank();
     }
 
     /**
-     * @param bankAddress
-     *            the bankAddress to set
-     */
-    public void setBankAddress(final AddressFactory bankAddress) {
-        this.bankAddress = bankAddress;
-    }
-
-    /**
+     * Gets the bank sort code.
+     *
      * @return the bankSortCode
      */
     public BankSortCode getBankSortCode() {
@@ -50,6 +44,8 @@ public class Bank extends Business {
     }
 
     /**
+     * Sets the bank sort code.
+     *
      * @param bankSortCode
      *            the bankSortCode to set
      */
@@ -57,21 +53,9 @@ public class Bank extends Business {
         this.bankSortCode = bankSortCode;
     }
 
-    /**
-     * @see java.lang.Object#toString()
-     */
     @Override
     public String toString() {
-        final StringBuilder builder = new StringBuilder();
-        builder.append("Bank [");
-        if (this.bankAddress != null) {
-            builder.append("bankAddress=").append(this.bankAddress).append(", ");
-        }
-        if (this.bankSortCode != null) {
-            builder.append("bankSortCode=").append(this.bankSortCode);
-        }
-        builder.append("]");
-        return builder.toString();
+        return String.format("Bank [bankSortCode=%s]", this.bankSortCode);
     }
 
 }

@@ -22,9 +22,9 @@ import org.slf4j.LoggerFactory;
 /**
  * AbstractConfig.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ *
  */
-public abstract class AbstractConfig implements ToName {
+public abstract class AbstractConfig {
 
     /** logging. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
@@ -86,7 +86,9 @@ public abstract class AbstractConfig implements ToName {
     }
 
     /**
+     * To string.
      *
+     * @return the string
      * @see java.lang.Object#toString()
      */
     @Override
@@ -95,11 +97,11 @@ public abstract class AbstractConfig implements ToName {
     }
 
     /**
+     * To name.
      *
      * @return the string
      * @see net.atf4j.core.ToName#toName()
      */
-    @Override
     public String toName() {
         return this.getClass().getSimpleName();
     }
@@ -144,7 +146,7 @@ public abstract class AbstractConfig implements ToName {
      *            the key
      * @return the string
      */
-    public String get(final String key) {
+    protected String get(final String key) {
         final String systemProperty = System.getProperty(key);
         this.log.trace("Using system property for key {} = {}", key, systemProperty);
         if (systemProperty == null) {
@@ -165,7 +167,7 @@ public abstract class AbstractConfig implements ToName {
      *            the default value
      * @return the configuration property as a String
      */
-    public String get(final String key, final String defaultValue) {
+    protected String get(final String key, final String defaultValue) {
         return this.properties.getProperty(key, defaultValue);
     }
 
@@ -178,7 +180,7 @@ public abstract class AbstractConfig implements ToName {
      *            the default value
      * @return the configuration property as a boolean
      */
-    public boolean get(final String key, final boolean defaultValue) {
+    protected boolean get(final String key, final boolean defaultValue) {
         return Boolean.parseBoolean(this.properties.getProperty(key, Boolean.toString(defaultValue)));
     }
 
@@ -191,7 +193,7 @@ public abstract class AbstractConfig implements ToName {
      *            the default value
      * @return the configuration property as a boolean
      */
-    public int get(final String key, final int defaultValue) {
+    protected int get(final String key, final int defaultValue) {
         return Integer.parseInt(this.properties.getProperty(key, Integer.toString(defaultValue)));
     }
 

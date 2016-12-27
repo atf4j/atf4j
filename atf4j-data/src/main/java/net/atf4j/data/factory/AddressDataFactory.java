@@ -16,19 +16,35 @@
  */
 package net.atf4j.data.factory;
 
+import net.atf4j.csv.CsvFile;
 import net.atf4j.data.PostalAddress;
 
 /**
  * AddressFactory.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ *
  */
-public class AddressFactory extends DataFactory {
+public class AddressDataFactory extends AbstractDataFactory {
 
-    public AddressFactory() throws Exception {
-        super();
+    private final CsvFile postCodeData;
+    private final CsvFile postalTownsUK;
+
+    /**
+     * Instantiates a new address data factory.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    public AddressDataFactory() throws Exception {
+        this.postCodeData = new CsvFile("postCodeData.csv");
+        this.postalTownsUK = new CsvFile("postalTownsUK.csv");
     }
 
+    /**
+     * Creates the.
+     *
+     * @return the postal address
+     */
     public static PostalAddress create() {
         return new PostalAddress();
     }

@@ -35,7 +35,7 @@ public class AnnotationHelper {
     private static final String EXPECTED_TEST_DESCRIPTION = "Expected @Atf4j.TestDescription annotation not found.";
 
     /**
-     * Gets the test id from @TestId. {@link net.atf4j.automation.TestId()}
+     * Gets the test id from <code>@TestId</code>.
      *
      * @return the getTestId as String
      */
@@ -52,8 +52,7 @@ public class AnnotationHelper {
     }
 
     /**
-     * Gets the test name from @TestName.
-     * {@link net.atf4j.automation.TestName()}
+     * Gets the test name from <code>@TestName</code>.
      *
      * @return the getTestName as String
      */
@@ -70,8 +69,7 @@ public class AnnotationHelper {
     }
 
     /**
-     * Gets the test descriptions from @TestDesciption.
-     * {@link net.atf4j.automation.TestDesciption()}
+     * Gets the test descriptions from <code>@TestDesciption</code>.
      *
      * @return the getTestDescriptions as String
      */

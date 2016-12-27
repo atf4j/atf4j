@@ -24,8 +24,6 @@ import org.openqa.selenium.WebDriver;
 /**
  * CookieManager.
  *
- * @author Martin Spamer Martin.Spamer@atf4j.net
- * @version $Revision: 1.0 $
  */
 public class CookieManager {
 

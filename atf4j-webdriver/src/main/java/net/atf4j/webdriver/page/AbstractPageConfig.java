@@ -21,7 +21,6 @@ import net.atf4j.webdriver.WebDriverConfig;
 /**
  * The Abstract Page Config class.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
 public abstract class AbstractPageConfig extends WebDriverConfig {
 

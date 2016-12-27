@@ -20,9 +20,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Postcode.
- *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * UK Postcode.
+ * <code>
+ * POSTCODE     ::= Outward_Code Inward_Code
+ * Outward_Code ::= Postcode_Area Postcode_District
+ * Inward_Code  ::= Postcode_Sector Postcode_Unit
+ * </code>
  */
 public class Postcode {
 
@@ -62,11 +65,6 @@ public class Postcode {
         return matcher.find();
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#toString()
-     */
     @Override
     public String toString() {
         return String.format("Postcode [postCode=%s]", this.postCode);

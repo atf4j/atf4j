@@ -15,9 +15,6 @@
  * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
  */
 package net.atf4j.webdriver;
-/*
- *
- */
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -29,8 +26,8 @@ import java.lang.annotation.Target;
  * The TestUrl annotation. Contains the starting URL for a AbstractTestSuite /
  * AbstractWebDriverScript.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
- * @version $Revision: 1.0 $
+ *
+ * @version $Revision: 0.0.1 $
  */
 @Documented
 @Target(ElementType.METHOD)

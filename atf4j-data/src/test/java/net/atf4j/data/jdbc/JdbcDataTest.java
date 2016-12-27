@@ -18,9 +18,10 @@ package net.atf4j.data.jdbc;
 
 import org.junit.Test;
 
-import net.atf4j.data.JdbcData;
+import net.atf4j.core.Reporting;
+import net.atf4j.data.management.JdbcData;
 
-public class JdbcDataTest {
+public class JdbcDataTest extends Reporting {
 
     @Test
     public void testSetUp() {

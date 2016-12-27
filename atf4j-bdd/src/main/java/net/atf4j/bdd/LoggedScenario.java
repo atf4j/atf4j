@@ -19,8 +19,12 @@ package net.atf4j.bdd;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * The LoggedScenario Class.
+ */
 public abstract class LoggedScenario {
 
+    /** The log. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
 }

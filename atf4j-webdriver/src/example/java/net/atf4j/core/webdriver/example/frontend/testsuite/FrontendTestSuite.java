@@ -34,7 +34,7 @@ import net.atf4j.core.webdriver.example.frontend.pages.FrontendPage;
 /**
  * FrontendTestSuite.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public class FrontendTestSuite extends WebDriverTestSuite {
 

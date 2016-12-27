@@ -19,7 +19,7 @@ package net.atf4j.core;
 /**
  * TestStatus. IGNORED SKIPPED
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public enum TestStatus {
     /**

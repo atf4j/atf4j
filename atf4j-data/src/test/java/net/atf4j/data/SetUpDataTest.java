@@ -19,7 +19,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class SetUpDataTest {
+import net.atf4j.core.Reporting;
+import net.atf4j.data.management.JdbcData;
+import net.atf4j.data.management.JmsData;
+import net.atf4j.data.management.RestfulData;
+import net.atf4j.data.management.SetUpData;
+
+public class SetUpDataTest extends Reporting {
 
     protected SetUpData jdbcData = new JdbcData();
     protected SetUpData jmsData = new JmsData();

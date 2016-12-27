@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Set;
 
 /**
- * MappedTimers. @pattern[GOF] Singleton.
+ * MappedTimers. [GOF] Singleton.
  *
  */
 public final class MappedTimers {

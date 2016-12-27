@@ -50,6 +50,9 @@ public class TestStep extends TestBase {
     private void logging(final String string) {
     }
 
+    /* (non-Javadoc)
+     * @see net.atf4j.core.model.TestCommand#execute(java.util.Properties)
+     */
     @Override
     public Properties execute(final Properties properties) {
         return null;

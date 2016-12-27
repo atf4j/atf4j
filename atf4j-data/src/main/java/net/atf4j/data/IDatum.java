@@ -19,59 +19,72 @@ package net.atf4j.data;
 /**
  * IDatum.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ *
  */
 public interface IDatum {
 
     /**
+     * Sets the new.
+     *
      * @param isNew
      *            the isNew to set
-     * @return
+     * @return the datum
      */
-    public abstract Datum setNew(boolean isNew);
+    abstract Datum setFresh(boolean isNew);
 
     /**
+     * Sets the dirty.
+     *
      * @param isDirty
      *            the isDirty to set
+     * @return the datum
      */
-    public abstract Datum setDirty(boolean isDirty);
+    abstract Datum setDirty(boolean isDirty);
 
     /**
+     * Sets the deleted.
+     *
      * @param isDeleted
      *            the isDeleted to set
+     * @return the datum
      */
-    public abstract Datum setDeleted(boolean isDeleted);
+    abstract Datum setDeleted(boolean isDeleted);
 
     /**
+     * Sets the used.
+     *
      * @param isUsed
      *            the isUsed to set
+     * @return the datum
      */
-    public abstract Datum setUsed(boolean isUsed);
+    abstract Datum setUsed(boolean isUsed);
 
     /**
+     * Checks if is new.
+     *
      * @return the isNew
      */
-    public abstract boolean isNew();
+    abstract boolean isFresh();
 
     /**
+     * Checks if is dirty.
+     *
      * @return the isDirty
      */
-    public abstract boolean isDirty();
+    abstract boolean isChanged();
 
     /**
+     * Checks if is deleted.
+     *
      * @return the isDeleted
      */
-    public abstract boolean isDeleted();
+    abstract boolean isDeleted();
 
     /**
+     * Checks if is used.
+     *
      * @return the isUsed
      */
-    public abstract boolean isUsed();
-
-    /**
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public abstract String toString();
+    abstract boolean isUsed();
 
 }

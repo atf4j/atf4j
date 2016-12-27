@@ -25,8 +25,8 @@ import java.lang.annotation.Target;
 /**
  * The PageUrl annotation. Contains the starting URL for a AbstractPage.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
- * @version $Revision: 1.0 $
+ * 
+ * @version $Revision: 0.0.1 $
  */
 @Documented
 @Target(ElementType.TYPE)

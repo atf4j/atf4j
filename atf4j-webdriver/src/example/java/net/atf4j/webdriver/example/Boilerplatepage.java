@@ -22,7 +22,7 @@ import net.atf4j.webdriver.page.WebPage;
 /**
  * Boilerplatepage class.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public class Boilerplatepage extends WebPage {
 }

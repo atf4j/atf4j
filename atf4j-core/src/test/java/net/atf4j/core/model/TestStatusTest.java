@@ -20,8 +20,14 @@ import org.junit.Test;
 
 import net.atf4j.core.Reporting;
 
+/**
+ * A UnitTest for TestStatus objects.
+ */
 public class TestStatusTest extends Reporting {
 
+    /**
+     * test TestStatus object.
+     */
     @Test
     public void testTestStatus() {
         final TestStatus testStatus = TestStatus.NOT_RUN;

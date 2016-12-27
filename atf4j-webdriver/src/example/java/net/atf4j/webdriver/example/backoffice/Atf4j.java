@@ -19,7 +19,7 @@ package net.atf4j.webdriver.example.backoffice;
 /**
  * The Class Atf4j.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public class Atf4j {
 

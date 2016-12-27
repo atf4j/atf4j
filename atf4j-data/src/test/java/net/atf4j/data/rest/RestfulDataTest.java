@@ -18,9 +18,10 @@ package net.atf4j.data.rest;
 
 import org.junit.Test;
 
-import net.atf4j.data.RestfulData;
+import net.atf4j.core.Reporting;
+import net.atf4j.data.management.RestfulData;
 
-public class RestfulDataTest {
+public class RestfulDataTest extends Reporting {
 
     @Test
     public void testSetUp() {

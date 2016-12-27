@@ -25,6 +25,9 @@ public class NestedTimersTest extends Reporting {
     /** The Constant DEFAULT_INTERVAL. */
     private static final int DEFAULT_INTERVAL = 100;
 
+    /**
+     * test NestedTimers object.
+     */
     @Test
     public final void testNestedTimers() {
         final NestedTimers multiTimers = NestedTimers.getInstance();
@@ -38,7 +41,7 @@ public class NestedTimersTest extends Reporting {
 
     /**
      * Test method for
-     * {@link net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
+     * { net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
      */
 
     @Test
@@ -66,7 +69,7 @@ public class NestedTimersTest extends Reporting {
 
     /**
      * Test method for
-     * {@link net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
+     * { net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
      */
 
     @Test
@@ -91,7 +94,7 @@ public class NestedTimersTest extends Reporting {
 
     /**
      * Test method for
-     * {@link net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
+     * { net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
      */
 
     @Test

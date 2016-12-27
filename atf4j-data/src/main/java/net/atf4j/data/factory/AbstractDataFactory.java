@@ -16,12 +16,17 @@
  */
 package net.atf4j.data.factory;
 
-import net.atf4j.core.AbstractConfig;
+import net.atf4j.csv.CsvFile;
+import net.atf4j.csv.CsvRow;
+import net.atf4j.csv.HeaderLine;
 
 /**
  * A factory for creating AbstractData objects.
  */
-public abstract class AbstractDataFactory extends AbstractConfig {
+public abstract class AbstractDataFactory {
+
+    /** The data file. */
+    private CsvFile dataFile = null;
 
     /**
      * Instantiates a new abstract data factory.
@@ -31,18 +36,85 @@ public abstract class AbstractDataFactory extends AbstractConfig {
      */
     public AbstractDataFactory() throws Exception {
         super();
-        loadData();
     }
 
     /**
-     * Load data.
+     * Instantiates a new abstract data factory.
+     *
+     * @param dataFilename
+     *            the data filename
+     * @throws Exception
+     *             the exception
+     */
+    public AbstractDataFactory(final String dataFilename) throws Exception {
+        load(dataFilename);
+    }
+
+    /**
+     * Load.
      *
      * @return the abstract data factory
      * @throws Exception
      *             the exception
      */
-    private AbstractDataFactory loadData() throws Exception {
+    protected AbstractDataFactory load() throws Exception {
+        final String simpleName = this.getClass().getSimpleName();
+        final String dataFilename = String.format("/%s.csv", simpleName);
+        return load(dataFilename);
+    }
+
+    /**
+     * Load data.
+     *
+     * @param dataFilename
+     *            the data filename
+     * @return the abstract data factory
+     * @throws Exception
+     *             the exception
+     */
+    private AbstractDataFactory load(final String dataFilename) throws Exception {
+        this.dataFile = new CsvFile(dataFilename);
         return this;
+    }
+
+    /**
+     * Gets the column names.
+     *
+     * @return the column names
+     */
+    public HeaderLine getColumnNames() {
+        return this.dataFile.getHeaderLine();
+    }
+
+    /**
+     * Gets the column name.
+     *
+     * @param columnNumber
+     *            the column number
+     * @return the column name
+     */
+    public String getColumnName(final int columnNumber) {
+        return this.dataFile.getColumnName(columnNumber);
+    }
+
+    /**
+     * Row count.
+     *
+     * @return the int
+     */
+    public int rowCount() {
+        return this.dataFile.rowCount();
+    }
+
+    /**
+     * Gets the row.
+     *
+     * @param index
+     *            the index
+     * @return the row
+     */
+    public CsvRow getRow(final int index) {
+        return this.dataFile.getRow(index);
     }
 
 }

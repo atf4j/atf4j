@@ -32,26 +32,37 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 import net.atf4j.webdriver.BrowserFactory;
 import net.atf4j.webdriver.WebDriverConfig;
 
+/**
+ * The AbstractPageObject Class.
+ */
 public abstract class AbstractPageObject {
 
+    /** The Constant TARGET_URL. */
     private static final String TARGET_URL = "http://127.0.0.1:8080";
 
     /** logging. */
     protected static final Logger log = LoggerFactory.getLogger(AbstractPageObject.class);
 
-    /** configuration */
+    /** configuration. */
     protected WebDriverConfig config;
 
+    /** The web driver. */
     protected WebDriver webDriver;
+
+    /** The web driver wait. */
     protected WebDriverWait webDriverWait;
+
+    /** The web driver name. */
     protected final String webDriverName = System.getProperty("webDriver");
+
+    /** The target url. */
     protected final String targetUrl = System.getProperty("targetUrl", TARGET_URL);
 
     /**
      * Instantiates a new page object.
      *
-     * @throws Exception
-     *             the exception
+     * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
      */
     public AbstractPageObject() throws ConfigurationNotLoaded {
         super();
@@ -62,6 +73,14 @@ public abstract class AbstractPageObject {
         configureTimeOut();
     }
 
+    /**
+     * Instantiates a new abstract page object.
+     *
+     * @param targetUrl
+     *            the target url
+     * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
+     */
     public AbstractPageObject(final String targetUrl) throws ConfigurationNotLoaded {
         super();
         this.config = new WebDriverConfig();
@@ -109,7 +128,7 @@ public abstract class AbstractPageObject {
      */
     public AbstractPageObject open() {
         assumeNotNull(this.config);
-        final String targetUrl = this.config.getTargetUrl();
+        final String targetUrl = this.config.targetUrl();
         return open(targetUrl);
     }
 
@@ -145,7 +164,7 @@ public abstract class AbstractPageObject {
      *
      * @param pageUrl
      *            the page url
-     * @return
+     * @return the abstract page object
      */
     protected AbstractPageObject openPage(final String pageUrl) {
         assumeNotNull(this.webDriver);
@@ -162,15 +181,25 @@ public abstract class AbstractPageObject {
     public AbstractPageObject urlShouldBeUnchanged() {
         assumeNotNull(this.webDriver);
         final String currentUrl = this.webDriver.getCurrentUrl();
-        currentUrl.equals(this.config.getTargetUrl());
+        currentUrl.equals(this.config.targetUrl());
         return this;
     }
 
+    /**
+     * Gets the current url.
+     *
+     * @return the current url
+     */
     protected String getCurrentUrl() {
         assumeNotNull(this.webDriver);
         return this.webDriver.getCurrentUrl();
     }
 
+    /**
+     * Gets the title.
+     *
+     * @return the title
+     */
     protected String getTitle() {
         assumeNotNull(this.webDriver);
         return this.webDriver.getTitle();
@@ -191,11 +220,17 @@ public abstract class AbstractPageObject {
         return testStatus;
     }
 
+    /**
+     * Close.
+     */
     protected void close() {
         assumeNotNull(this.webDriver);
         this.webDriver.close();
     }
 
+    /**
+     * Quit.
+     */
     protected void quit() {
         assumeNotNull(this.webDriver);
         this.webDriver.quit();

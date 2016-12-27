@@ -16,14 +16,44 @@
  */
 package net.atf4j.data;
 
-public class Consumer {
-    // Title
-    protected Forename forename;
-    protected Surname surename;
+/**
+ * Consumer Data.
+ */
+public class Customer {
 
-    public Consumer() {
+    protected Forename forename;
+    protected Surname surname;
+
+    /**
+     * Instantiates a new consumer.
+     */
+    public Customer() {
         super();
         this.forename = new Forename(null);
-        this.surename = new Surname(null);
+        this.surname = new Surname(null);
     }
+
+    public Forename getForename() {
+        return this.forename;
+    }
+
+    public Customer setForename(final Forename forename) {
+        this.forename = forename;
+        return this;
+    }
+
+    public Surname getSurname() {
+        return this.surname;
+    }
+
+    public Customer setSurname(final Surname surname) {
+        this.surname = surname;
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Customer [forename=%s, surname=%s]", this.forename, this.surname);
+    }
+
 }

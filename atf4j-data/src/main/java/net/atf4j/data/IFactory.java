@@ -21,7 +21,7 @@ import java.util.Collection;
 /**
  * IFactory.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public interface IFactory {
     /**

@@ -108,6 +108,11 @@ public class MilliTimer implements ITimer {
         return ToStringBuilder.reflectObjectToString(this);
     }
 
+    /**
+     * Gets the timer name.
+     *
+     * @return the timer name
+     */
     public String getTimerName() {
         return this.timerName;
     }

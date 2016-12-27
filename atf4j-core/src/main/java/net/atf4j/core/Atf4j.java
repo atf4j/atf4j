@@ -29,11 +29,19 @@ public class Atf4j {
     /** The Constant multiTimers. */
     protected static final NestedTimers nestedTimers = NestedTimers.getInstance();
 
+    /**
+     * Start.
+     *
+     * @param string the string
+     */
     public static void start(final String string) {
         log.info(string);
         nestedTimers.startTimer("start");
     }
 
+    /**
+     * End.
+     */
     public static void end() {
         log.info(nestedTimers.stopTimer().toString());
     }

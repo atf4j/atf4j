@@ -21,16 +21,27 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-public class TelephoneTest {
+import net.atf4j.core.Reporting;
+
+/**
+ * A UnitTest for Telephone objects.
+ */
+public class TelephoneTest extends Reporting {
 
     private static final String _0123456789 = "0123456789";
 
+    /**
+     * Test method for {@link Telephone}.
+     */
     @Test
     public void testTelephone() {
         final Telephone telephone = new Telephone();
         assertNotNull(telephone);
     }
 
+    /**
+     * Test method for {@link Telephone}.
+     */
     @Test
     public void testTelephoneString() {
         final Telephone telephone = new Telephone(_0123456789);
@@ -38,6 +49,9 @@ public class TelephoneTest {
         assertEquals("Telephone [number=0123456789]", telephone.toString());
     }
 
+    /**
+     * Test method for {@link Telephone}.
+     */
     @Test
     public void testSetGetNumber() {
         final Telephone telephone = new Telephone();

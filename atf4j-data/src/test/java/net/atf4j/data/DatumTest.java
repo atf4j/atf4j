@@ -27,7 +27,7 @@ import net.atf4j.core.Reporting;
 /**
  * DatumTest.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public class DatumTest extends Reporting {
 
@@ -35,46 +35,46 @@ public class DatumTest extends Reporting {
     }
 
     /**
-     * Test method for {@link net.atf4j.data.Datum#setDeleted(boolean)}.
+     * Test method for { net.atf4j.data.Datum#setDeleted(boolean)}.
      */
     @Test
     public final void testIsDeleted() {
         final MockDatum mockDatum = new MockDatum();
         Assume.assumeFalse(mockDatum.isDeleted());
-        mockDatum.setDeleted(true);
+        mockDatum.deleted(true);
         assertTrue(mockDatum.isDeleted());
     }
 
     /**
-     * Test method for {@link net.atf4j.data.Datum#isDirty()}.
+     * Test method for { net.atf4j.data.Datum#isDirty()}.
      */
     @Test
     public final void testIsDirty() {
         final MockDatum mockDatum = new MockDatum();
-        Assume.assumeFalse(mockDatum.isDirty());
-        mockDatum.setDirty(true);
-        assertTrue(mockDatum.isDirty());
+        Assume.assumeFalse(mockDatum.isChanged());
+        mockDatum.changed(true);
+        assertTrue(mockDatum.isChanged());
     }
 
     /**
-     * Test method for {@link net.atf4j.data.Datum#isNew()}.
+     * Test method for { net.atf4j.data.Datum#isNew()}.
      */
     @Test
     public final void testIsNew() {
         final MockDatum mockDatum = new MockDatum();
-        Assume.assumeTrue(mockDatum.isNew());
-        mockDatum.setNew(false);
-        assertFalse(mockDatum.isNew());
+        Assume.assumeTrue(mockDatum.isFresh());
+        mockDatum.fresh(false);
+        assertFalse(mockDatum.isFresh());
     }
 
     /**
-     * Test method for {@link net.atf4j.data.Datum#setUsed(boolean)}.
+     * Test method for { net.atf4j.data.Datum#setUsed(boolean)}.
      */
     @Test
     public final void testIsUsed() {
         final MockDatum mockDatum = new MockDatum();
         Assume.assumeFalse(mockDatum.isUsed());
-        mockDatum.setUsed(true);
+        mockDatum.used(true);
         assertTrue(mockDatum.isUsed());
     }
 

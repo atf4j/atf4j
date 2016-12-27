@@ -38,16 +38,33 @@ public enum TestStatus {
      */
     EXCEPTION("EXCEPTION");
 
+    /** The status. */
     private String status;
 
+    /**
+     * Instantiates a new test status.
+     *
+     * @param name the name
+     */
     TestStatus(final String name) {
         this.setStatus(name);
     }
 
+    /**
+     * Gets the status.
+     *
+     * @return the status
+     */
     public String getStatus() {
         return this.status;
     }
 
+    /**
+     * Sets the status.
+     *
+     * @param status the status
+     * @return the test status
+     */
     public TestStatus setStatus(final String status) {
         this.status = status;
         return this;

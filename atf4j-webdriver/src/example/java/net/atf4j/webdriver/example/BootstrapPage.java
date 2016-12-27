@@ -22,7 +22,7 @@ import net.atf4j.webdriver.page.WebPage;
 /**
  * BootStrapPage class.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public class BootstrapPage extends WebPage {
 

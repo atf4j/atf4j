@@ -16,20 +16,32 @@
  */
 package net.atf4j.data.factory;
 
+import net.atf4j.data.Person;
+
 /**
  * PersonFactory, a data factory to create data.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
-public class PersonFactory extends DataFactory implements FactoryMethod {
+public class PersonDataFactory extends AbstractDataFactory {
 
-    public PersonFactory() throws Exception {
+    /**
+     * Instantiates a new person data factory.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    public PersonDataFactory() throws Exception {
         super();
     }
 
-    @Override
-    public Object create() {
-        return null;
+    /**
+     * Creates the.
+     *
+     * @return the postal address
+     */
+    public static Person create() {
+        return new Person();
     }
 
 }

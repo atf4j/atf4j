@@ -22,10 +22,11 @@ import org.slf4j.LoggerFactory;
 /**
  * Abstract Fluent Wait.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public abstract class AbstractWait {
 
+    /** The log. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /** The Constant DEFAULT_SLEEP_INTERVAL. */

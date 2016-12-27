@@ -16,28 +16,26 @@
  */
 package net.atf4j.data;
 
+import java.util.Date;
+
 /**
  * Person.
- *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
  */
 public class Person {
 
-    /** The forename. */
+    private String title;
     private Forename forename;
-
-    /** The middlename. */
-    private Forename middlename;
-
-    /** The surname. */
+    private Name middlename;
     private Surname surname;
-    // private String title;
-    // private String forename;
-    // private String surname;
-    // private Date dob;
-    // private Address postalAddress;
-    // private String emailAddress;
-    // private Collection<Contact> contacts;
+    private Date dob;
+    private PostalAddress postalAddress;
+    private String emailAddress;
+
+    /**
+     * Instantiates a new person.
+     */
+    public Person() {
+    }
 
     /**
      * Person.
@@ -54,10 +52,6 @@ public class Person {
         setForename(forename);
         setMiddlename(middlename);
         setSurname(surname);
-    }
-
-    public Person() {
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -96,7 +90,7 @@ public class Person {
      * @param middlename
      *            the new middlename
      */
-    public void setMiddlename(final Forename middlename) {
+    public void setMiddlename(final Name middlename) {
         this.middlename = middlename;
     }
 
@@ -134,7 +128,7 @@ public class Person {
      *
      * @return the middlename
      */
-    public Forename getMiddlename() {
+    public Name getMiddlename() {
         return this.middlename;
     }
 
@@ -167,26 +161,94 @@ public class Person {
     }
 
     /**
-     * To string.
+     * Gets the title.
      *
-     * @return the string
-     * @see java.lang.Object#toString()
+     * @return the title
      */
+    public String getTitle() {
+        return this.title;
+    }
+
+    /**
+     * Sets the title.
+     *
+     * @param title
+     *            the title
+     * @return the person
+     */
+    public Person setTitle(final String title) {
+        this.title = title;
+        return this;
+    }
+
+    /**
+     * Gets the dob.
+     *
+     * @return the dob
+     */
+    public Date getDob() {
+        return this.dob;
+    }
+
+    /**
+     * Sets the dob.
+     *
+     * @param dob
+     *            the dob
+     * @return the person
+     */
+    public Person setDob(final Date dob) {
+        this.dob = dob;
+        return this;
+    }
+
+    /**
+     * Gets the postal address.
+     *
+     * @return the postal address
+     */
+    public PostalAddress getPostalAddress() {
+        return this.postalAddress;
+    }
+
+    /**
+     * Sets the postal address.
+     *
+     * @param postalAddress
+     *            the postal address
+     * @return the person
+     */
+    public Person setPostalAddress(final PostalAddress postalAddress) {
+        this.postalAddress = postalAddress;
+        return this;
+    }
+
+    /**
+     * Gets the email address.
+     *
+     * @return the email address
+     */
+    public String getEmailAddress() {
+        return this.emailAddress;
+    }
+
+    /**
+     * Sets the email address.
+     *
+     * @param emailAddress
+     *            the new email address
+     */
+    public Person setEmailAddress(final String emailAddress) {
+        this.emailAddress = emailAddress;
+        return this;
+    }
+
     @Override
     public String toString() {
-        final StringBuilder builder = new StringBuilder();
-        builder.append("Person [");
-        if (this.forename != null) {
-            builder.append("forename=").append(this.forename).append(", ");
-        }
-        if (this.middlename != null) {
-            builder.append("middlename=").append(this.middlename).append(", ");
-        }
-        if (this.surname != null) {
-            builder.append("surname=").append(this.surname);
-        }
-        builder.append("]");
-        return builder.toString();
+        return String.format(
+                "Person [title=%s, forename=%s, middlename=%s, surname=%s, dob=%s, postalAddress=%s, emailAddress=%s]",
+                this.title, this.forename, this.middlename, this.surname, this.dob, this.postalAddress,
+                this.emailAddress);
     }
 
 }

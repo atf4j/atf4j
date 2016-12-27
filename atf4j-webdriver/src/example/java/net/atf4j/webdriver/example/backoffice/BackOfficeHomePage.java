@@ -21,7 +21,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * BackOfficeHomePage.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public class BackOfficeHomePage extends BackOfficePage {
 

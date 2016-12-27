@@ -21,7 +21,7 @@ import net.atf4j.webdriver.WebDriverConfig;
 /**
  * PageConfig.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public class PageConfig extends WebDriverConfig {
 

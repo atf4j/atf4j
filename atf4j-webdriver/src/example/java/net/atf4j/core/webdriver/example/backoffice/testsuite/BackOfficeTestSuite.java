@@ -29,7 +29,7 @@ import net.atf4j.core.webdriver.example.backoffice.page_object_model.BackOfficeP
 /**
  * BackOfficeTestSuite.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public final class BackOfficeTestSuite extends WebDriverTestSuite {
 
@@ -63,7 +63,7 @@ import net.atf4j.core.webdriver.example.backoffice.pages.BackOfficePage;
 /**
  * BackOfficeTestSuite.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public final class BackOfficeTestSuite extends WebDriverTestSuite {
 

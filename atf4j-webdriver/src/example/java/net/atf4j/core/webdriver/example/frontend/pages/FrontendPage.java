@@ -23,7 +23,7 @@ import net.atf4j.webdriver.page.WebPage;
 /**
  * FrontendPage
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  *
  */
 public class FrontendPage extends WebPage {

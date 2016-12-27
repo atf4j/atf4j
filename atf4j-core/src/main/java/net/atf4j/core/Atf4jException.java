@@ -21,25 +21,53 @@ package net.atf4j.core;
  */
 public class Atf4jException extends Exception {
 
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 4462112926382796692L;
 
+    /**
+     * Instantiates a new atf 4 j exception.
+     */
     public Atf4jException() {
         super();
     }
 
+    /**
+     * Instantiates a new atf 4 j exception.
+     *
+     * @param message the message
+     */
     public Atf4jException(final String message) {
         super(message);
     }
 
+    /**
+     * Instantiates a new atf 4 j exception.
+     *
+     * @param cause the cause
+     */
     public Atf4jException(final Throwable cause) {
         super(cause);
     }
 
+    /**
+     * Instantiates a new atf 4 j exception.
+     *
+     * @param message the message
+     * @param cause the cause
+     * @param enableSuppression the enable suppression
+     * @param writableStackTrace the writable stack trace
+     */
     public Atf4jException(final String message, final Throwable cause, final boolean enableSuppression,
             final boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 
+    /**
+     * Instantiates a new atf 4 j exception.
+     *
+     * @param message the message
+     * @param cause the cause
+     */
     public Atf4jException(final String message, final Throwable cause) {
         super(message, cause);
     }

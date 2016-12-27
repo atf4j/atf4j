@@ -19,8 +19,8 @@ package net.atf4j.core.model;
 /**
  * TestResult.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
- * @version $Revision: 1.0 $
+ * 
+ * @version $Revision: 0.0.1 $
  */
 public enum TestResult {
 
@@ -83,6 +83,11 @@ public enum TestResult {
         throw new IllegalArgumentException(valueFor);
     }
 
+    /**
+     * From.
+     *
+     * @param execute the execute
+     */
     public void from(final AbstractTestResult execute) {
         // TODO Auto-generated method stub
 

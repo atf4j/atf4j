@@ -26,7 +26,7 @@ import net.atf4j.core.webdriver.example.backoffice.testsuite.WebDriverTestSuite;
 /**
  * CombinedTestSuite.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public class CombinedTestSuite extends WebDriverTestSuite {
 

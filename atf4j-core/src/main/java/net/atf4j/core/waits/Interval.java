@@ -19,7 +19,7 @@ package net.atf4j.core.waits;
 /**
  * Encapsulate an Interval of Time in a [GOF] Memento.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  */
 public class Interval {
 

@@ -17,66 +17,59 @@
 package net.atf4j.data;
 
 /**
- * Abstract Datum for field status.
- *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * Datum for providing field status.
  */
-abstract public class Datum implements IDatum {
+abstract public class Datum {
 
-    private boolean isNew = true;
-    private boolean isDirty = false;
+    private boolean isFresh = true;
+    private boolean isChanged = false;
     private boolean isDeleted = false;
     private boolean isUsed = false;
 
     /**
-     * Sets the new.
+     * Fresh.
      *
      * @param isNew
-     *            the new new
-     * @return
-     * @see net.atf4j.data.IDatum#setNew(boolean)
+     *            the is new
+     * @return the datum
      */
-    @Override
-    public Datum setNew(final boolean isNew) {
-        this.isDirty = !(this.isNew = isNew);
+    protected Datum fresh(final boolean isNew) {
+        this.isChanged = !(this.isFresh = isNew);
         return this;
     }
 
     /**
-     * Sets the dirty.
+     * Changed.
      *
      * @param isDirty
-     *            the new dirty
-     * @see net.atf4j.data.IDatum#setDirty(boolean)
+     *            the is dirty
+     * @return the datum
      */
-    @Override
-    public Datum setDirty(final boolean isDirty) {
-        this.isNew = !(this.isDirty = isDirty);
+    protected Datum changed(final boolean isDirty) {
+        this.isFresh = !(this.isChanged = isDirty);
         return this;
     }
 
     /**
-     * Sets the deleted.
+     * Deleted.
      *
      * @param isDeleted
-     *            the new deleted
-     * @see net.atf4j.data.IDatum#setDeleted(boolean)
+     *            the is deleted
+     * @return the datum
      */
-    @Override
-    public Datum setDeleted(final boolean isDeleted) {
+    protected Datum deleted(final boolean isDeleted) {
         this.isDeleted = isDeleted;
         return this;
     }
 
     /**
-     * Sets the used.
+     * Used.
      *
      * @param isUsed
-     *            the new used
-     * @see net.atf4j.data.IDatum#setUsed(boolean)
+     *            the is used
+     * @return the datum
      */
-    @Override
-    public Datum setUsed(final boolean isUsed) {
+    protected Datum used(final boolean isUsed) {
         this.isUsed = isUsed;
         return this;
     }
@@ -85,22 +78,20 @@ abstract public class Datum implements IDatum {
      * Checks if is new.
      *
      * @return true, if is new
-     * @see net.atf4j.data.IDatum#isNew()
+     * @see net.atf4j.data.IDatum#isFresh()
      */
-    @Override
-    public boolean isNew() {
-        return this.isNew;
+    public boolean isFresh() {
+        return this.isFresh;
     }
 
     /**
      * Checks if is dirty.
      *
      * @return true, if is dirty
-     * @see net.atf4j.data.IDatum#isDirty()
+     * @see net.atf4j.data.IDatum#isChanged()
      */
-    @Override
-    public boolean isDirty() {
-        return this.isDirty;
+    public boolean isChanged() {
+        return this.isChanged;
     }
 
     /**
@@ -109,7 +100,6 @@ abstract public class Datum implements IDatum {
      * @return true, if is deleted
      * @see net.atf4j.data.IDatum#isDeleted()
      */
-    @Override
     public boolean isDeleted() {
         return this.isDeleted;
     }
@@ -120,19 +110,19 @@ abstract public class Datum implements IDatum {
      * @return true, if is used
      * @see net.atf4j.data.IDatum#isUsed()
      */
-    @Override
     public boolean isUsed() {
         return this.isUsed;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * To string.
      *
+     * @return the string
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return String.format("Datum [isNew=%s, isDirty=%s, isDeleted=%s, isUsed=%s]", this.isNew, this.isDirty,
+        return String.format("Datum [isNew=%s, isDirty=%s, isDeleted=%s, isUsed=%s]", this.isFresh, this.isChanged,
                 this.isDeleted, this.isUsed);
     }
 

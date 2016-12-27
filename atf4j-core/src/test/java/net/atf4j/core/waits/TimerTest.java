@@ -28,7 +28,7 @@ import net.atf4j.core.timers.MilliTimer;
  */
 public class TimerTest extends Reporting {
 
-    /** The Constant DEFAULT_INTERVAL */
+    /**  The Constant DEFAULT_INTERVAL. */
     private static final int DEFAULT_INTERVAL = 100;
 
     /** The delta. */
@@ -37,7 +37,6 @@ public class TimerTest extends Reporting {
     /**
      * Instrument the actual timer its self. Calculates the delta for tests.
      * Test method for
-     * {@link net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
      */
     @Test
     public final void testTimer0() {
@@ -54,7 +53,6 @@ public class TimerTest extends Reporting {
 
     /**
      * Test method for
-     * {@link net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
      */
     @Test
     public final void testTimerOneSec() {

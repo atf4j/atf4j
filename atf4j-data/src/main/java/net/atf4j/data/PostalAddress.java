@@ -51,6 +51,13 @@ public class PostalAddress {
     }
 
     /**
+     * Creates the.
+     */
+    public static void create() {
+        // TODO Auto-generated method stub
+    }
+
+    /**
      * Gets the address.
      *
      * @return the address
@@ -64,7 +71,7 @@ public class PostalAddress {
      *
      * @param address
      *            the new address
-     * @return
+     * @return the postal address
      */
     public PostalAddress setAddress(final String[] address) {
         this.addressLines = address;
@@ -85,7 +92,7 @@ public class PostalAddress {
      *
      * @param postcode
      *            the new postcode
-     * @return
+     * @return the postal address
      */
     public PostalAddress setPostcode(final Postcode postcode) {
         this.postcode = postcode;
@@ -100,11 +107,6 @@ public class PostalAddress {
     @Override
     public String toString() {
         return String.format("Address [address=%s, postcode=%s]", Arrays.toString(this.addressLines), this.postcode);
-    }
-
-    public static void create() {
-        // TODO Auto-generated method stub
-
     }
 
 }

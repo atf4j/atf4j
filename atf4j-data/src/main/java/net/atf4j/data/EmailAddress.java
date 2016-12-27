@@ -22,25 +22,50 @@ import java.util.regex.Pattern;
 /**
  * EmailAddress.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ *
  */
 public class EmailAddress {
+
+    /** The Constant pattern. */
     private static final Pattern pattern = Pattern
             .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+
+    /** The email. */
     private String email;
 
+    /**
+     * Instantiates a new email address.
+     */
     public EmailAddress() {
         super();
     }
 
+    /**
+     * Instantiates a new email address.
+     *
+     * @param email
+     *            the email
+     */
     public EmailAddress(final String email) {
         super();
         this.email = email;
     }
 
+    /**
+     * Verify.
+     *
+     * @param postcode
+     *            the postcode
+     * @return true, if successful
+     */
     public boolean verify(final String postcode) {
         final Matcher matcher = pattern.matcher(postcode);
         return matcher.find();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("EmailAddress [email=%s]", this.email);
     }
 
 }

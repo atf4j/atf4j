@@ -50,9 +50,9 @@ public class CsvRow {
      *            the line
      */
     public void initialise(final String line) {
-        this.fields = line.split(",");
-        for (final String field : this.fields) {
-            field.trim();
+        this.fields = line.trim().split(",");
+        for (int i = 0; i < this.fields.length; i++) {
+            this.fields[i] = this.fields[i].trim();
         }
     }
 
@@ -91,9 +91,13 @@ public class CsvRow {
      * @return the string
      * @see java.lang.Object#toString()
      */
+    public String debugString() {
+        return String.format("%s [fields=%s]", this.getClass().getSimpleName(), Arrays.toString(this.fields));
+    }
+
     @Override
     public String toString() {
-        return String.format("%s [fields=%s]", this.getClass().getSimpleName(), Arrays.toString(this.fields));
+        return Arrays.toString(this.fields).replaceAll("\\[|\\]", "");
     }
 
 }

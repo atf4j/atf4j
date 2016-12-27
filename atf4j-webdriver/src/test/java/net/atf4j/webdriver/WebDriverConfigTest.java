@@ -16,6 +16,7 @@
  */
 package net.atf4j.webdriver;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -26,13 +27,13 @@ import net.atf4j.core.Reporting;
 /**
  * WebDriverConfigTest Class.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ *
  */
 public class WebDriverConfigTest extends Reporting {
 
     /**
      * Test method for
-     * {@link net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.
+     * { net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.
      *
      * @throws ConfigurationNotLoaded
      *             the missing property file exception
@@ -53,9 +54,14 @@ public class WebDriverConfigTest extends Reporting {
     public final void testHappyPath() throws ConfigurationNotLoaded {
         final WebDriverConfig config = new WebDriverConfig();
         assertNotNull(config);
-        verifyEquals(1000, config.getPageLoadTimeout());
-        verifyEquals(1000, config.getImplicitlyWait());
-        verifyEquals(1000, config.getImplicitlyWaitUnit());
+        assertNotNull(config.targetBrowser());
+        assertNotNull(config.targetUrl());
+        assertNotNull(config.seleniumUrl());
+        assertNotNull(config.chromeBinaryDriver());
+        assertNotNull(config.firefoxBinaryDriver());
+        assertEquals(1000, config.pageLoadTimeout());
+        assertEquals(1000, config.implicitlyWait());
+        assertEquals(1000, config.implicitlyWaitUnit());
     }
 
 }

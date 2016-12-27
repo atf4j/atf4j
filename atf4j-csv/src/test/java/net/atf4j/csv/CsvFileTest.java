@@ -18,22 +18,23 @@ package net.atf4j.csv;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import java.io.FileNotFoundException;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import net.atf4j.core.Reporting;
 
 /**
  * Unit Test for CsvFile class.
  */
-public class CsvFileTest {
-    private static final String EXPECTED_HEADER = "HeaderLine [fields=[ ColumnOne, ColumnTwo, ColumnThree, ColumnFour]]";
+public class CsvFileTest extends Reporting {
+
+    private static final String EXPECTED_HEADER = "HeaderLine [fields=[ColumnOne, ColumnTwo, ColumnThree, ColumnFour]]";
     private static final String MISSING_CSV = "missing.csv";
     private static final String TEST_DATA_CSV = "TestData.csv";
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Test constructor with missing file.
@@ -44,7 +45,7 @@ public class CsvFileTest {
     @Test(expected = FileNotFoundException.class)
     public void testConstructorWithMissingFile() throws Exception {
         final CsvFile csvFile = new CsvFile(MISSING_CSV);
-        assertNotNull(csvFile);
+        assertNull(csvFile);
     }
 
     /**
@@ -55,8 +56,8 @@ public class CsvFileTest {
      */
     @Test(expected = FileNotFoundException.class)
     public void testReadMissingFile() throws Exception {
-        final CsvFile data = CsvFile.read(MISSING_CSV);
-        assertNotNull(data);
+        final CsvFile csvFile = CsvFile.read(MISSING_CSV);
+        assertNull(csvFile);
     }
 
     /**
@@ -68,6 +69,7 @@ public class CsvFileTest {
     @Test(expected = FileNotFoundException.class)
     public void testLoadMissingFile() throws Exception {
         final CsvFile csvFile = new CsvFile();
+        assertNotNull(csvFile);
         csvFile.load(MISSING_CSV);
     }
 
@@ -81,6 +83,7 @@ public class CsvFileTest {
     public void testConstructorWithDataPresent() throws Exception {
         final CsvFile csvFile = new CsvFile(TEST_DATA_CSV);
         Assert.assertNotNull(csvFile);
+        this.log.info(csvFile.debugString());
         this.log.info(csvFile.toString());
     }
 
@@ -93,9 +96,29 @@ public class CsvFileTest {
     @Test
     public void testReadPresentData() throws Exception {
         final CsvFile csvFile = CsvFile.read(TEST_DATA_CSV);
-        Assert.assertNotNull(csvFile);
-        final HeaderLine header = csvFile.getColumnNames();
-        assertEquals(EXPECTED_HEADER, header.toString());
+        assertNotNull(csvFile);
+        verifyContent(csvFile);
+    }
+
+    /**
+     * Test load present data.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    @Test
+    public void testLoadPresentData() throws Exception {
+        final CsvFile csvFile = new CsvFile();
+        assertNotNull(csvFile);
+        csvFile.load(TEST_DATA_CSV);
+        assertNotNull(csvFile);
+        verifyContent(csvFile);
+    }
+
+    private void verifyContent(final CsvFile csvFile) {
+        assertNotNull(csvFile);
+        final HeaderLine header = csvFile.getHeaderLine();
+        assertEquals(EXPECTED_HEADER, header.debugString());
         this.log.info("{}", header);
         for (int i = 1; i < csvFile.rowCount(); i++) {
             final CsvRow csvRow = csvFile.getRow(i);
@@ -108,28 +131,10 @@ public class CsvFileTest {
         }
     }
 
-    /**
-     * Test load present data.
-     *
-     * @throws Exception
-     *             the exception
-     */
     @Test
-    public void testLoadPresentData() throws Exception {
-        final CsvFile csvFile = new CsvFile();
-        Assert.assertNotNull(csvFile);
-        csvFile.load(TEST_DATA_CSV);
-        final HeaderLine header = csvFile.getColumnNames();
-        assertEquals(EXPECTED_HEADER, header.toString());
-        this.log.debug("{}", header);
-        for (int i = 1; i < csvFile.rowCount(); i++) {
-            final CsvRow csvRow = csvFile.getRow(i);
-            this.log.debug("{}", csvRow);
-            for (int j = 1; j < csvRow.length(); j++) {
-                final String expected = String.format("data-%s-%s", i, j);
-                final String actual = csvRow.getField(j);
-                assertEquals(expected, actual);
-            }
-        }
+    public void testScan() throws Exception {
+        final CsvFile data = CsvFile.read(TEST_DATA_CSV);
+        final Object[] array = data.toArray();
+        assertNotNull(array);
     }
 }

@@ -17,20 +17,19 @@
 package net.atf4j.csv;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import net.atf4j.core.Reporting;
 
 /**
  * A UnitTest for HeaderLine objects.
  */
-public class HeaderLineTest {
-    private static final String HEADER_LINE = "ColumnOne,ColumnTwo";
-    private static final String EXPECTED_HEADER = "HeaderLine [fields=[ColumnOne, ColumnTwo]]";
+public class HeaderLineTest extends Reporting {
 
-    /** The logger. */
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+    private static final String HEADER_LINE = "ColumnOne, ColumnTwo";
+    private static final String EXPECTED_HEADER = "HeaderLine [fields=[ColumnOne, ColumnTwo]]";
 
     /**
      * test HeaderLine object.
@@ -38,7 +37,9 @@ public class HeaderLineTest {
     @Test
     public void testBlankHeaderLine() {
         final HeaderLine headerLine = new HeaderLine("");
-        assertEquals("HeaderLine [fields=[]]", headerLine.toString());
+        assertNotNull(headerLine);
+        assertEquals("HeaderLine [fields=[]]", headerLine.debugString());
+        assertEquals(1, headerLine.length());
         this.log.info(headerLine.toString());
     }
 
@@ -48,7 +49,9 @@ public class HeaderLineTest {
     @Test
     public void testHeaderConstructor() {
         final HeaderLine headerLine = new HeaderLine(HEADER_LINE);
-        final String headerLineString = headerLine.toString();
+        assertNotNull(headerLine);
+        assertEquals(2, headerLine.length());
+        final String headerLineString = headerLine.debugString();
         assertEquals(EXPECTED_HEADER, headerLineString);
         assertEquals("ColumnOne", headerLine.getField(1));
         assertEquals("ColumnTwo", headerLine.getField(2));
@@ -61,8 +64,11 @@ public class HeaderLineTest {
     @Test
     public void testHeaderLine() {
         final HeaderLine headerLine = new HeaderLine();
+        assertNotNull(headerLine);
+        assertEquals(0, headerLine.length());
         headerLine.initialise(HEADER_LINE);
-        final String headerLineString = headerLine.toString();
+        assertEquals(2, headerLine.length());
+        final String headerLineString = headerLine.debugString();
         assertEquals(EXPECTED_HEADER, headerLineString);
         assertEquals("ColumnOne", headerLine.getField(1));
         assertEquals("ColumnTwo", headerLine.getField(2));

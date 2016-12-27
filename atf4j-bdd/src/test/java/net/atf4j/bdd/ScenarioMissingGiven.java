@@ -34,6 +34,7 @@ public class ScenarioMissingGiven extends LoggedScenario {
 
     @Atf4j.When("When")
     public void testPassWhen() {
+        this.log.info(super.toString());
     }
 
     @Atf4j.Then("Then")

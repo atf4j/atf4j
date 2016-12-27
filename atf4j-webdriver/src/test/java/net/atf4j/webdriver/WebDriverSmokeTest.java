@@ -16,22 +16,29 @@
  */
 package net.atf4j.webdriver;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-@Ignore
-public class WebDriverSmokeTest {
+import net.atf4j.core.Reporting;
+
+public class WebDriverSmokeTest extends Reporting {
 
     @Test
     public void testChromeTomcat() {
         System.setProperty("webdriver.chrome.driver", "");
-        new ChromeDriver().get("http://127.0.0.1:8080/");
+        final ChromeDriver chromeDriver = new ChromeDriver();
+        chromeDriver.get("http://127.0.0.1:8080/");
+        final String pageTitle = chromeDriver.getTitle();
+        this.log.info("pageTitle={}", pageTitle);
     }
 
     @Test
     public void testFirefoxTomcat() {
-        new FirefoxDriver().get("http://127.0.0.1:8080/");
+        final FirefoxDriver firefoxDriver = new FirefoxDriver();
+        firefoxDriver.get("http://127.0.0.1:8080/");
+        final String pageTitle = firefoxDriver.getTitle();
+        this.log.info("pageTitle={}", pageTitle);
     }
+
 }

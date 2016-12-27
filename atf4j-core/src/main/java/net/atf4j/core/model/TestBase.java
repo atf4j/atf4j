@@ -101,9 +101,8 @@ public abstract class TestBase implements TestCommand {
      * Adds the pre conditions.
      *
      * @param newPreConditions
-     *            as Collection<Condition>
-     * @return success as boolean.
-     * @see java.util.Collection#addAll(java.util.Collection)
+     *            the new pre conditions
+     * @return the test base
      */
     public TestBase addPreConditions(final Collection<? extends Condition> newPreConditions) {
         this.postConditions.addAll(newPreConditions);
@@ -127,9 +126,8 @@ public abstract class TestBase implements TestCommand {
      * Adds the post conditions.
      *
      * @param newPostConditions
-     *            as Collection<Condition>
-     * @return success as boolean.
-     * @see java.util.Collection#addAll(java.util.Collection)
+     *            the new post conditions
+     * @return the test base
      */
     public TestBase addPostConditions(final Collection<? extends Condition> newPostConditions) {
         this.postConditions.addAll(newPostConditions);
@@ -150,6 +148,7 @@ public abstract class TestBase implements TestCommand {
      *
      * @param testStatus
      *            the testStatus to set
+     * @return the test base
      */
     protected TestBase setTestStatus(final TestStatus testStatus) {
         this.testStatus = testStatus;
@@ -170,6 +169,7 @@ public abstract class TestBase implements TestCommand {
      *
      * @param uniqueIdentifier
      *            the uniqueIdentifier to set
+     * @return the test base
      */
     protected TestBase setUniqueIdentifier(final TestIdentifier uniqueIdentifier) {
         this.uniqueIdentifier = uniqueIdentifier;
@@ -190,6 +190,7 @@ public abstract class TestBase implements TestCommand {
      *
      * @param testContext
      *            the testContext to set
+     * @return the test base
      */
     protected TestBase setTestContext(final TestContext testContext) {
         this.testContext = testContext;
@@ -210,6 +211,7 @@ public abstract class TestBase implements TestCommand {
      *
      * @param tester
      *            the tester to set
+     * @return the test base
      */
     protected TestBase setTester(final String tester) {
         this.tester = tester;
@@ -230,6 +232,7 @@ public abstract class TestBase implements TestCommand {
      *
      * @param name
      *            the name to set
+     * @return the test base
      */
     protected TestBase setName(final String name) {
         this.name = name;
@@ -250,6 +253,7 @@ public abstract class TestBase implements TestCommand {
      *
      * @param taxonomy
      *            the taxonomy to set
+     * @return the test base
      */
     protected TestBase setTaxonomy(final String taxonomy) {
         this.taxonomy = taxonomy;
@@ -270,6 +274,7 @@ public abstract class TestBase implements TestCommand {
      *
      * @param description
      *            the description to set
+     * @return the test base
      */
     protected TestBase setDescription(final String description) {
         this.description = description;
@@ -290,6 +295,7 @@ public abstract class TestBase implements TestCommand {
      *
      * @param timestamp
      *            the timestamp to set
+     * @return the test base
      */
     protected TestBase setTimestamp(final String timestamp) {
         this.timestamp = timestamp;
@@ -310,6 +316,7 @@ public abstract class TestBase implements TestCommand {
      *
      * @param preConditions
      *            the preConditions to set
+     * @return the test base
      */
     protected TestBase setPreConditions(final Collection<Condition> preConditions) {
         this.preConditions = preConditions;
@@ -330,6 +337,7 @@ public abstract class TestBase implements TestCommand {
      *
      * @param postConditions
      *            the postConditions to set
+     * @return the test base
      */
     protected TestBase setPostConditions(final Collection<Condition> postConditions) {
         this.postConditions = postConditions;
@@ -350,6 +358,7 @@ public abstract class TestBase implements TestCommand {
      *
      * @param logging
      *            the new logging
+     * @return the test base
      */
     public TestBase setLogging(final TestResultLoggingInterface logging) {
         this.log = logging;

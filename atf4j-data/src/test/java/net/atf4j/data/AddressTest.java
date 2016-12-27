@@ -25,7 +25,7 @@ import net.atf4j.core.Reporting;
 /**
  * AddressTest.
  *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
+ * 
  *
  */
 public class AddressTest extends Reporting {

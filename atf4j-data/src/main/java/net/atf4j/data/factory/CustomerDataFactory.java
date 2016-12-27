@@ -16,20 +16,32 @@
  */
 package net.atf4j.data.factory;
 
-/**
- * ContactFactory.
- *
- * @author Martin Spamer <Martin.Spamer@atf4j.net>
- */
-public class ContactFactory extends DataFactory implements FactoryMethod {
+import net.atf4j.data.Customer;
 
-    public ContactFactory() throws Exception {
+/**
+ * CustomerDataFactory.
+ *
+ *
+ */
+public class CustomerDataFactory extends AbstractDataFactory {
+
+    /**
+     * Instantiates a new contact data factory.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    public CustomerDataFactory() throws Exception {
         super();
     }
 
-    @Override
-    public Object create() {
-        return null;
+    /**
+     * Creates the.
+     *
+     * @return the customer
+     */
+    public static Customer create() {
+        return new Customer();
     }
 
 }
