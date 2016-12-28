@@ -21,15 +21,10 @@ import org.slf4j.LoggerFactory;
 
 /**
  * AbstractConfig.
- *
- *
  */
 public abstract class AbstractConfig {
 
-    /** logging. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
-
-    /** The properties. */
     protected final Properties properties = new Properties();
 
     /**
@@ -38,9 +33,13 @@ public abstract class AbstractConfig {
      * @throws ConfigurationNotLoaded
      *             the missing exception
      */
-    public AbstractConfig() throws ConfigurationNotLoaded {
+    public AbstractConfig() {
         super();
-        load();
+        try {
+            load();
+        } catch (final ConfigurationNotLoaded e) {
+            this.log.error(e.toString());
+        }
     }
 
     /**
@@ -62,9 +61,9 @@ public abstract class AbstractConfig {
      * @throws ConfigurationNotLoaded
      *             the missing exception
      */
-    protected void load() throws ConfigurationNotLoaded {
+    protected AbstractConfig load() throws ConfigurationNotLoaded {
         final String propertyFilename = String.format("/%s.properties", this.getClass().getSimpleName());
-        load(propertyFilename);
+        return load(propertyFilename);
     }
 
     /**
@@ -75,7 +74,7 @@ public abstract class AbstractConfig {
      * @throws ConfigurationNotLoaded
      *             the missing exception
      */
-    private void load(final String propertyFilename) throws ConfigurationNotLoaded {
+    private AbstractConfig load(final String propertyFilename) throws ConfigurationNotLoaded {
         try {
             final InputStream resourceAsStream = this.getClass().getResourceAsStream(propertyFilename);
             this.properties.load(resourceAsStream);
@@ -83,6 +82,7 @@ public abstract class AbstractConfig {
         } catch (final Exception e) {
             throw new ConfigurationNotLoaded(propertyFilename);
         }
+        return this;
     }
 
     /**
@@ -93,7 +93,7 @@ public abstract class AbstractConfig {
      */
     @Override
     public String toString() {
-        return String.format("%s [properties=%s]", this.getClass().getSimpleName(), this.properties);
+        return String.format("%s [properties=%s]", toName(), this.properties);
     }
 
     /**

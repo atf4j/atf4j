@@ -16,9 +16,12 @@
  */
 package net.atf4j.core.model;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assume.assumeNotNull;
+import static org.junit.Assume.assumeTrue;
+
+import java.util.ArrayDeque;
 import java.util.Collection;
-import java.util.Iterator;
-import java.util.Properties;
 
 import net.atf4j.core.Atf4jException;
 
@@ -27,33 +30,11 @@ import net.atf4j.core.Atf4jException;
  */
 public class TestSuite extends TestBase {
 
-    /** The id. */
-    protected String id;
-
-    /** The name. */
-    protected String name;
-
-    /** The description. */
-    protected String description;
-
-    /** The test cases. */
     protected Collection<TestCase> testCases;
 
-    /**
-     * Instantiates a new test suite.
-     *
-     * @param id
-     *            the id
-     * @param name
-     *            the name
-     * @param description
-     *            the description
-     */
-    public TestSuite(final String id, final String name, final String description) {
+    public TestSuite() {
         super();
-        this.id = id;
-        this.name = name;
-        this.description = description;
+        this.testCases = new ArrayDeque<TestCase>();
     }
 
     /**
@@ -61,36 +42,19 @@ public class TestSuite extends TestBase {
      *
      * @param context
      *            the context
-     * @return the test result
+     * @return the abstract test result
      * @throws Atf4jException
      *             the atf4j exception
      * @see net.atf4j.core.model.TestBase#execute(net.atf4j.core.model.TestContext)
      */
     @Override
-    public AbstractTestResult execute(final TestContext context) throws Atf4jException {
-        final TestResult restResult = TestResult.FAILED;
+    public TestSuite execute(final TestContext context) throws Atf4jException {
+        assumeNotNull(context);
+        assumeNotNull(this.testCases);
         for (final TestCase testCase : this.testCases) {
-            restResult.from(testCase.execute(context));
+            assertEquals(testCase, testCase.execute(context));
         }
-        return null;
-    }
-
-    /**
-     * Register logging.
-     *
-     * @param logging
-     *            the logging
-     * @throws Atf4jException
-     *             the atf4j exception
-     * @see net.atf4j.core.model.TestBase#registerLogging(TestResultLoggingInterface)
-     */
-    @Override
-    public void registerLogging(final TestResultLoggingInterface logging) throws Atf4jException {
-        super.registerLogging(logging);
-
-        for (final TestCase testCase : this.testCases) {
-            testCase.registerLogging(logging);
-        }
+        return this;
     }
 
     /**
@@ -104,15 +68,6 @@ public class TestSuite extends TestBase {
     }
 
     /**
-     * Iterator.
-     *
-     * @return the iterator
-     */
-    public Iterator<TestCase> iterator() {
-        return this.testCases.iterator();
-    }
-
-    /**
      * Adds the test case.
      *
      * @param newTestCase
@@ -120,43 +75,26 @@ public class TestSuite extends TestBase {
      * @return success as boolean.
      * @see java.util.Collection#add(java.lang.Object)
      */
-    public boolean addTestCase(final TestCase newTestCase) {
-        return this.testCases.add(newTestCase);
-    }
-
-    /**
-     * Adds the all.
-     *
-     * @param newTestCases
-     *            the new test cases
-     * @return true, if successful
-     */
-    public boolean addAll(final Collection<? extends TestCase> newTestCases) {
-        return this.testCases.addAll(newTestCases);
+    public TestSuite addTestCase(final TestCase newTestCase) {
+        final boolean result = this.testCases.add(newTestCase);
+        assumeTrue(result);
+        return this;
     }
 
     /**
      * Start test suite.
      */
-    public void startTestSuite() {
+    public TestSuite startTestSuite() {
+        this.log.info("startTestSuite {}", this.getName());
+        return this;
     }
 
     /**
      * End test suite.
      */
-    public void endTestSuite() {
+    public TestSuite endTestSuite() {
+        this.log.info("endTestSuite {}", this.getName());
+        return this;
     }
-
-    /* (non-Javadoc)
-     * @see net.atf4j.core.model.TestCommand#execute(java.util.Properties)
-     */
-    @Override
-    public Properties execute(final Properties properties) {
-        return null;
-    }
-
-    // Register Logging.
-    // Add Test Case
-    // Run all
 
 }

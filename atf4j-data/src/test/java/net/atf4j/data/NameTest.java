@@ -20,9 +20,9 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import net.atf4j.core.Reporting;
+import net.atf4j.core.ResultsReporting;
 
-public class NameTest extends Reporting {
+public class NameTest extends ResultsReporting {
 
     @Test
     public void testName() {

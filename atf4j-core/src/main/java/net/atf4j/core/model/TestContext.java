@@ -21,10 +21,7 @@ package net.atf4j.core.model;
  */
 public class TestContext {
 
-    /** The platform. */
     private String platform;
-    
-    /** The context. */
     private String context;
 
     /**
@@ -57,7 +54,8 @@ public class TestContext {
     /**
      * Sets the platform.
      *
-     * @param platform            the platform to set
+     * @param platform
+     *            the platform to set
      * @return the test context
      */
     public TestContext setPlatform(final String platform) {

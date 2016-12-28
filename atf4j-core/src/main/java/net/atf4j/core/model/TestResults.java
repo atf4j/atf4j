@@ -18,6 +18,8 @@ package net.atf4j.core.model;
 
 import java.util.Collection;
 
+import net.atf4j.core.TestResult;
+
 /**
  * TestResults.
  */
@@ -25,5 +27,34 @@ public abstract class TestResults {
 
     /** The test results. */
     Collection<TestResult> testResults;
+
+    /**
+     * Gets the test results.
+     *
+     * @return the test results
+     */
+    public Collection<TestResult> getTestResults() {
+        return this.testResults;
+    }
+
+    /**
+     * Sets the test results.
+     *
+     * @param testResults
+     *            the test results
+     * @return the test results
+     */
+    public TestResults setTestResults(final Collection<TestResult> testResults) {
+        this.testResults = testResults;
+        return this;
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return String.format("TestResults [testResults=%s]", this.testResults);
+    }
 
 }

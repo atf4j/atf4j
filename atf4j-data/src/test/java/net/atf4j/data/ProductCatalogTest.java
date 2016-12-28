@@ -18,12 +18,12 @@ package net.atf4j.data;
 
 import org.junit.Test;
 
-import net.atf4j.core.Reporting;
+import net.atf4j.core.ResultsReporting;
 
 /**
  * A UnitTest for ProductCatalog objects.
  */
-public class ProductCatalogTest extends Reporting {
+public class ProductCatalogTest extends ResultsReporting {
 
     /**
      * test ProductCatalog object.

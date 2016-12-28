@@ -22,14 +22,14 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
-import net.atf4j.core.Reporting;
+import net.atf4j.core.ResultsReporting;
 
 /**
  * WebDriverConfigTest Class.
  *
  *
  */
-public class WebDriverConfigTest extends Reporting {
+public class WebDriverConfigTest extends ResultsReporting {
 
     /**
      * Test method for

@@ -19,49 +19,35 @@ package net.atf4j.core;
 import org.junit.Test;
 
 /**
- * A UnitTest for Logging objects.
+ * A UnitTest for Reporting Test Results.
  */
-public class LoggingTest extends Reporting {
+public class ResultsReportingTest extends ResultsReporting {
 
-    /**
-     * test Logging object.
-     *
-     * @throws ClassNotFoundException the class not found exception
-     */
+    @Test
+    public void testVerifyEqualLong() {
+        final long expected = Long.MAX_VALUE;
+        super.verify(expected, expected);
+    }
+
+    @Test(expected = AssertionError.class)
+    public void testVerifyLongLong() {
+        super.verify(Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
+    @Test
+    public void testVerifyEqual() {
+        final Object expected = new Object();
+        super.verify(expected, expected);
+    }
+
+    @Test(expected = AssertionError.class)
+    public void testVerifyNotEqual() {
+        super.verify(new Object(), new Object());
+    }
+
     @Test
     public void testToDescription() throws ClassNotFoundException {
-        this.log.info(toDescription());
+        this.log.info(super.toDescription());
     }
 
-    /**
-     * test Logging object.
-     */
-    @Test(expected = AssertionError.class)
-    public void testVerifyNullVsNull() {
-        verify(null, null);
-    }
-
-    /**
-     * test Logging object.
-     */
-    @Test(expected = AssertionError.class)
-    public void testVerifyNullVsString() {
-        verify(null, "");
-    }
-
-    /**
-     * test Logging object.
-     */
-    @Test(expected = AssertionError.class)
-    public void testVerifyStringVsNull() {
-        verify("", null);
-    }
-
-    /**
-     * test Logging object.
-     */
-    @Test
-    public void testVerifyStringString() {
-        verify("", "");
-    }
 }

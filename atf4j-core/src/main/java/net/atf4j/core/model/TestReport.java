@@ -19,8 +19,7 @@ package net.atf4j.core.model;
 /**
  * The Interface TestResultLoggingInterface.
  *
- *  
  */
-public interface TestResultLoggingInterface {
+public interface TestReport {
 
 }

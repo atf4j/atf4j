@@ -24,7 +24,7 @@ import org.junit.Test;
  *
  *
  */
-public class StringBuilderTest extends Reporting {
+public class StringBuilderTest extends ResultsReporting {
 
     private final String string = "StringBuilderTest";
     private final boolean bool = true;
@@ -73,6 +73,11 @@ public class StringBuilderTest extends Reporting {
             return String.format("%s [%s, protectedString=%s, publicString=%s]", this.getClass().getSimpleName(),
                     super.toString(), this.protectedString, this.publicString);
         }
+    }
+
+    @Test
+    public void testDefaultConstructor() {
+        new ToStringBuilder();
     }
 
     /*

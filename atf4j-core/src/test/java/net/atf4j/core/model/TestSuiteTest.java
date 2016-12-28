@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.atf4j.data;
+package net.atf4j.core.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -23,40 +23,33 @@ import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
-/**
- * A UnitTest for Telephone objects.
- */
-public class TelephoneTest extends ResultsReporting {
+public class TestSuiteTest extends ResultsReporting {
 
-    private static final String _0123456789 = "0123456789";
-
-    /**
-     * Test method for {@link Telephone}.
-     */
     @Test
-    public void testTelephone() {
-        final Telephone telephone = new Telephone();
-        assertNotNull(telephone);
+    public void testDefaultConstructor() {
+        new TestSuite();
     }
 
-    /**
-     * Test method for {@link Telephone}.
-     */
     @Test
-    public void testTelephoneString() {
-        final Telephone telephone = new Telephone(_0123456789);
-        assertNotNull(telephone);
-        assertEquals("Telephone [number=0123456789]", telephone.toString());
+    public void testTestSuite() {
+        final TestSuite testSuite = new TestSuite();
+        assertNotNull(testSuite);
     }
 
-    /**
-     * Test method for {@link Telephone}.
-     */
     @Test
-    public void testSetGetNumber() {
-        final Telephone telephone = new Telephone();
-        assertNotNull(telephone);
-        assertEquals(_0123456789, telephone.setNumber(_0123456789).getNumber());
+    public void testNumberOfTestCases() {
+        final TestSuite testSuite = new TestSuite();
+        final int numberOfTestCases = testSuite.numberOfTestCases();
+        assertEquals(0, numberOfTestCases);
+    }
+
+    @Test
+    public void testAddTestCase() {
+        final TestCase newTestCase = new TestCase();
+        final TestSuite testSuite = new TestSuite();
+        final TestSuite addTestCase = testSuite.addTestCase(newTestCase);
+        final int numberOfTestSteps = addTestCase.numberOfTestCases();
+        assertEquals(1, numberOfTestSteps);
     }
 
 }

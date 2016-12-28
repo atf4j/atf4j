@@ -20,9 +20,8 @@ import net.atf4j.core.timers.NestedTimers;
 /**
  * NestedTimersTest Class.
  */
-public class NestedTimersTest extends Reporting {
+public class NestedTimersTest extends ResultsReporting {
 
-    /** The Constant DEFAULT_INTERVAL. */
     private static final int DEFAULT_INTERVAL = 100;
 
     /**
@@ -57,14 +56,14 @@ public class NestedTimersTest extends Reporting {
         waitDefaultInterval();
         multiTimers.startTimer("Timer Instance : Test case 5");
         waitDefaultInterval();
-        System.err.println("runningTimersAsString\n" + multiTimers.runningTimersAsString());
-        System.err.println("stop : " + multiTimers.stopTimer().toString());
-        System.err.println("stop : " + multiTimers.stopTimer().toString());
-        System.err.println("stop : " + multiTimers.stopTimer().toString());
-        System.err.println("stop : " + multiTimers.stopTimer().toString());
-        System.err.println("stop : " + multiTimers.stopTimer().toString());
+        this.log.info("runningTimersAsString\n" + multiTimers.runningTimersAsString());
+        this.log.info("stop : " + multiTimers.stopTimer().toString());
+        this.log.info("stop : " + multiTimers.stopTimer().toString());
+        this.log.info("stop : " + multiTimers.stopTimer().toString());
+        this.log.info("stop : " + multiTimers.stopTimer().toString());
+        this.log.info("stop : " + multiTimers.stopTimer().toString());
         NestedTimers.stopAll();
-        System.err.println("stoppedTimersAsString()\n" + multiTimers.stoppedTimersAsString());
+        this.log.info("stoppedTimersAsString()\n" + multiTimers.stoppedTimersAsString());
     }
 
     /**
@@ -84,11 +83,11 @@ public class NestedTimersTest extends Reporting {
         waitDefaultInterval();
         NestedTimers.start("Static Named Timers Test case 5");
         waitDefaultInterval();
-        System.err.println(NestedTimers.stop().toString());
-        System.err.println(NestedTimers.stop().toString());
-        System.err.println(NestedTimers.stop().toString());
-        System.err.println(NestedTimers.stop().toString());
-        System.err.println(NestedTimers.stop().toString());
+        this.log.info(NestedTimers.stop().toString());
+        this.log.info(NestedTimers.stop().toString());
+        this.log.info(NestedTimers.stop().toString());
+        this.log.info(NestedTimers.stop().toString());
+        this.log.info(NestedTimers.stop().toString());
         NestedTimers.stopAll();
     }
 
@@ -119,7 +118,8 @@ public class NestedTimersTest extends Reporting {
         try {
             Thread.sleep(DEFAULT_INTERVAL);
         } catch (final InterruptedException interruptedException) {
-            interruptedException.printStackTrace(System.err);
+            Thread.currentThread().interrupt();
+            this.log.error(interruptedException.toString());
         }
     }
 }

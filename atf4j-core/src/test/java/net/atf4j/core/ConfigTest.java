@@ -27,17 +27,21 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 /**
  * A UnitTest for Config objects.
  */
-public class ConfigTest extends Reporting {
+public class ConfigTest extends ResultsReporting {
+
+    private class DefaultConfig extends AbstractConfig {
+    }
 
     /**
      * MissingPropertiesMock Class.
      */
     private class MissingProperties extends AbstractConfig {
-        
+
         /**
          * Instantiates a new missing properties.
          *
-         * @throws ConfigurationNotLoaded the configuration not loaded
+         * @throws ConfigurationNotLoaded
+         *             the configuration not loaded
          */
         public MissingProperties() throws ConfigurationNotLoaded {
             super();
@@ -48,15 +52,21 @@ public class ConfigTest extends Reporting {
      * A Test Configuration from file.
      */
     private class ConfigFromFile extends AbstractConfig {
-        
+
         /**
          * Instantiates a new config from file.
          *
-         * @throws ConfigurationNotLoaded the configuration not loaded
+         * @throws ConfigurationNotLoaded
+         *             the configuration not loaded
          */
         public ConfigFromFile() throws ConfigurationNotLoaded {
             super("/ConfigFromFile.properties");
         }
+    }
+
+    @Test
+    public void testDefaultConstructor() {
+        new DefaultConfig();
     }
 
     /**
@@ -65,7 +75,7 @@ public class ConfigTest extends Reporting {
      * @throws ConfigurationNotLoaded
      *             the missing property file exception
      */
-    @Test(expected = ConfigurationNotLoaded.class)
+    @Test
     public void testConfig() throws ConfigurationNotLoaded {
         new MissingProperties();
     }
@@ -76,7 +86,7 @@ public class ConfigTest extends Reporting {
      * @throws ConfigurationNotLoaded
      *             the missing property file exception
      */
-    @Test(expected = ConfigurationNotLoaded.class)
+    @Test
     public void testLoad() throws ConfigurationNotLoaded {
         final AbstractConfig mockConfig = new MissingProperties();
         assertNotNull(mockConfig);
@@ -86,7 +96,8 @@ public class ConfigTest extends Reporting {
     /**
      * test Config object.
      *
-     * @throws ConfigurationNotLoaded the configuration not loaded
+     * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
      */
     @Test
     public void testConfigFromFile() throws ConfigurationNotLoaded {

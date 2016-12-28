@@ -18,12 +18,12 @@ package net.atf4j.core.model;
 
 /**
  * Condition.
- *
  */
 public abstract class Condition {
+
     /**
      * isTrue.
-     * 
+     *
      * @return true
      */
     public boolean isTrue() {
@@ -32,7 +32,7 @@ public abstract class Condition {
 
     /**
      * isFalse.
-     * 
+     *
      * @return false.
      */
     public boolean isFalse() {

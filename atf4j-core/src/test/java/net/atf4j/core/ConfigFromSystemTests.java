@@ -28,7 +28,7 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
  *
  *
  */
-public class ConfigFromSystemTests extends Reporting {
+public class ConfigFromSystemTests extends ResultsReporting {
 
     /**
      * Mock Configuration from System settings.
@@ -68,6 +68,11 @@ public class ConfigFromSystemTests extends Reporting {
             final String property = System.getProperty(key);
             return property;
         }
+    }
+
+    @Test
+    public void testDefaultConstructor() throws ConfigurationNotLoaded {
+        new ConfigFromSystem();
     }
 
     /**

@@ -16,46 +16,13 @@
  */
 package net.atf4j.core.model;
 
-import java.util.Properties;
-
-import net.atf4j.core.Atf4jException;
-
 /**
  * TestStep.
  */
 public class TestStep extends TestBase {
 
-    /**
-     * Execute.
-     *
-     * @param context
-     *            the context
-     * @return the test result
-     * @throws Atf4jException
-     *             the atf4j exception
-     * @see net.atf4j.core.model.TestBase#execute(net.atf4j.core.model.TestContext)
-     */
-    @Override
-    public AbstractTestResult execute(final TestContext context) throws Atf4jException {
-        logging(context.toString());
-        throw new FailStep("");
-    }
-
-    /**
-     * Logging.
-     *
-     * @param string
-     *            the string
-     */
-    private void logging(final String string) {
-    }
-
-    /* (non-Javadoc)
-     * @see net.atf4j.core.model.TestCommand#execute(java.util.Properties)
-     */
-    @Override
-    public Properties execute(final Properties properties) {
-        return null;
+    public TestStep() {
+        super();
     }
 
 }

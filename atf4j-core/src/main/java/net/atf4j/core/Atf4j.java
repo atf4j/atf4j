@@ -32,7 +32,8 @@ public class Atf4j {
     /**
      * Start.
      *
-     * @param string the string
+     * @param string
+     *            the string
      */
     public static void start(final String string) {
         log.info(string);
@@ -62,4 +63,5 @@ public class Atf4j {
         }
         return null;
     }
+
 }

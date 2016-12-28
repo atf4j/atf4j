@@ -21,12 +21,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.Reporting;
+import net.atf4j.core.ResultsReporting;
 
 /**
  * A UnitTest for HeaderLine objects.
  */
-public class HeaderLineTest extends Reporting {
+public class HeaderLineTest extends ResultsReporting {
 
     private static final String HEADER_LINE = "ColumnOne, ColumnTwo";
     private static final String EXPECTED_HEADER = "HeaderLine [fields=[ColumnOne, ColumnTwo]]";

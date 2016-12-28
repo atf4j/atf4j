@@ -16,9 +16,12 @@
  */
 package net.atf4j.core.model;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assume.assumeNotNull;
+import static org.junit.Assume.assumeTrue;
+
+import java.util.ArrayDeque;
 import java.util.Collection;
-import java.util.Iterator;
-import java.util.Properties;
 
 import net.atf4j.core.Atf4jException;
 
@@ -27,8 +30,12 @@ import net.atf4j.core.Atf4jException;
  */
 public class TestCase extends TestBase {
 
-    private String name;
-    private Collection<TestStep> testSteps;
+    private final Collection<TestStep> testSteps;
+
+    public TestCase() {
+        super();
+        this.testSteps = new ArrayDeque<TestStep>();
+    }
 
     /**
      * Execute.
@@ -37,29 +44,19 @@ public class TestCase extends TestBase {
      *            the context
      * @return the abstract test result
      * @throws Atf4jException
-     *             the atf 4 j exception
-     */
-    @Override
-    public AbstractTestResult execute(final TestContext context) throws Atf4jException {
-        AbstractTestResult result = null;
-        for (final TestStep testStep : this.testSteps) {
-            result = testStep.execute(context);
-        }
-        return result;
-    }
-
-    /**
-     * Register logging.
-     *
-     * @param logging
-     *            the logging
-     * @throws Atf4jException
      *             the atf4j exception
-     * @see net.atf4j.core.model.TestBase#registerLogging(TestResultLoggingInterface)
+     * @see net.atf4j.core.model.TestBase#execute(net.atf4j.core.model.TestContext)
      */
     @Override
-    public void registerLogging(final TestResultLoggingInterface logging) throws Atf4jException {
-        super.registerLogging(logging);
+    public TestCase execute(final TestContext context) throws Atf4jException {
+        assumeNotNull(context);
+        assumeNotNull(this.testSteps);
+        for (final TestStep testStep : this.testSteps) {
+            final TestBase execute = testStep.execute(context);
+            assumeNotNull(execute);
+            assertEquals(testStep, execute);
+        }
+        return this;
     }
 
     /**
@@ -73,15 +70,6 @@ public class TestCase extends TestBase {
     }
 
     /**
-     * Iterator.
-     *
-     * @return the iterator
-     */
-    public Iterator<TestStep> iterator() {
-        return this.testSteps.iterator();
-    }
-
-    /**
      * Adds the test step.
      *
      * @param newTestStep
@@ -89,30 +77,26 @@ public class TestCase extends TestBase {
      * @return success as boolean.
      * @see java.util.Collection#add(java.lang.Object)
      */
-    public boolean addTestStep(final TestStep newTestStep) {
-        return this.testSteps.add(newTestStep);
+    public TestCase addTestStep(final TestStep newTestStep) {
+        final boolean result = this.testSteps.add(newTestStep);
+        assumeTrue(result);
+        return this;
     }
 
     /**
-     * Adds the test steps.
-     *
-     * @param newTestSteps
-     *            the new test steps
-     * @return true, if successful
+     * Start test suite.
      */
-    public boolean addTestSteps(final Collection<? extends TestStep> newTestSteps) {
-        return this.testSteps.addAll(newTestSteps);
+    public TestCase startTestSuite() {
+        this.log.info("startTestSuite {}", this.getName());
+        return this;
     }
 
-    /* (non-Javadoc)
-     * @see net.atf4j.core.model.TestCommand#execute(java.util.Properties)
+    /**
+     * End test suite.
      */
-    @Override
-    public Properties execute(final Properties properties) {
-        return null;
+    public TestCase endTestSuite() {
+        this.log.info("endTestSuite {}", this.getName());
+        return this;
     }
 
-    // Register Logging.
-    // Add Test Case
-    // Run all
 }

@@ -20,7 +20,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.Reporting;
+import net.atf4j.core.ResultsReporting;
 
 /**
  * AddressTest.
@@ -28,7 +28,7 @@ import net.atf4j.core.Reporting;
  * 
  *
  */
-public class AddressTest extends Reporting {
+public class AddressTest extends ResultsReporting {
 
     @Test
     public void testDefaultConstructor() {

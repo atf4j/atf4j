@@ -18,21 +18,26 @@ package net.atf4j.core.model;
 
 import org.junit.Test;
 
-import net.atf4j.core.Reporting;
+import net.atf4j.core.ResultsReporting;
 
-/**
- * A UnitTest for TestStatus objects.
- */
-public class TestStatusTest extends Reporting {
+public class AbstractTestResultTest extends ResultsReporting {
 
-    /**
-     * test TestStatus object.
-     */
+    public class TestResult extends AbstractTestResult {
+    }
+
     @Test
-    public void testTestStatus() {
-        final TestStatus testStatus = TestStatus.NOT_RUN;
-        this.log.info(testStatus.name());
-        this.log.info(testStatus.toString());
+    public void testDefaultConstructor() {
+        new TestResult();
+    }
+
+    @Test
+    public void testFrom() {
+        new TestResult().from(new TestResult());
+    }
+
+    @Test
+    public void testToString() {
+        new TestResult().toString();
     }
 
 }

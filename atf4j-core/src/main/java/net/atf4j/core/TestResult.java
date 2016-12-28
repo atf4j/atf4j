@@ -17,11 +17,9 @@
 package net.atf4j.core;
 
 /**
- * TestStatus. IGNORED SKIPPED
- *
- * 
+ * Status of a Test.
  */
-public enum TestStatus {
+public enum TestResult {
     /**
      * The test has not yet been run.
      */
@@ -44,16 +42,20 @@ public enum TestStatus {
     EXCEPTION("Exception");
 
     /** The value. */
-    private final String value;
+    private final String statusDescription;
 
     /**
-     * Constructor for Status.
+     * Constructor for Test Status from string.
      *
-     * @param asText
-     *            the as text
+     * @param description
+     *            as String object.
      */
-    TestStatus(final String asText) {
-        this.value = asText;
+    TestResult(final String asText) {
+        this.statusDescription = asText;
+    }
+
+    public static TestResult initialise() {
+        return TestResult.PENDING;
     }
 
     /**
@@ -63,9 +65,9 @@ public enum TestStatus {
      *            the as text
      * @return Status value
      */
-    public static TestStatus forString(final String asText) {
-        for (final TestStatus value : values()) {
-            if (value.value.equals(asText)) {
+    public static TestResult forString(final String asText) {
+        for (final TestResult value : values()) {
+            if (value.statusDescription.equals(asText)) {
                 return value;
             }
         }
@@ -79,7 +81,7 @@ public enum TestStatus {
      */
     @Override
     public String toString() {
-        return this.value;
+        return this.statusDescription;
     }
 
 }

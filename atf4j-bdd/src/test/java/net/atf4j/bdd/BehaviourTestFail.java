@@ -18,12 +18,12 @@ package net.atf4j.bdd;
 
 import static org.junit.Assert.fail;
 
-import net.atf4j.core.Reporting;
+import net.atf4j.core.ResultsReporting;
 
 /**
  * The BehaviourTest Class.
  */
-public class BehaviourTestFail extends Reporting {
+public class BehaviourTestFail extends ResultsReporting {
 
     /**
      * Test given.

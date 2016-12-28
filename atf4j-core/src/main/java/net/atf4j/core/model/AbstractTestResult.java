@@ -16,13 +16,15 @@
  */
 package net.atf4j.core.model;
 
+import net.atf4j.core.TestResult;
+
 /**
  * The AbstractTestResult Class.
  */
 public abstract class AbstractTestResult {
 
     /** The test status. */
-    private TestStatus testStatus;
+    private TestResult testStatus;
 
     /**
      * Instantiates a new abstract test result.
@@ -34,9 +36,10 @@ public abstract class AbstractTestResult {
     /**
      * Instantiates a new abstract test result.
      *
-     * @param testStatus the test status
+     * @param testStatus
+     *            the test status
      */
-    public AbstractTestResult(final TestStatus testStatus) {
+    public AbstractTestResult(final TestResult testStatus) {
         super();
         this.testStatus = testStatus;
     }
@@ -46,14 +49,15 @@ public abstract class AbstractTestResult {
      *
      * @return the testStatus
      */
-    public TestStatus getTestStatus() {
+    public TestResult getTestStatus() {
         return this.testStatus;
     }
 
     /**
      * From.
      *
-     * @param testResult the test result
+     * @param testResult
+     *            the test result
      * @return the abstract test result
      */
     public AbstractTestResult from(final AbstractTestResult testResult) {

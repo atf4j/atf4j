@@ -28,12 +28,12 @@ import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 
-import net.atf4j.core.Reporting;
+import net.atf4j.core.ResultsReporting;
 
 /**
  * Generator for Selenium WebDriver PageObject
  */
-public class PageObjectGenerator extends Reporting {
+public class PageObjectGenerator extends ResultsReporting {
     protected URL targetUrl;
     protected VelocityEngine velocityEngine;
     protected VelocityContext context;

@@ -18,15 +18,16 @@ package net.atf4j.core.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assume.assumeFalse;
-import static org.junit.Assume.assumeTrue;
 
 import org.junit.Test;
 
-public class TestContextTest {
+import net.atf4j.core.ResultsReporting;
+
+public class TestContextTest extends ResultsReporting {
 
     @Test
-    public void testIsLocalDefault() {
-        assumeTrue(TestContext.isLocal());
+    public void testDefaultConstructor() {
+        new TestContext();
     }
 
     @Test

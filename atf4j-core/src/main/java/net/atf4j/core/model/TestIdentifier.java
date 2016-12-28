@@ -23,14 +23,37 @@ import java.util.UUID;
  */
 public class TestIdentifier {
 
-    /** The uuid. */
     private UUID uuid;
+
+    public TestIdentifier() {
+        this.uuid = UUID.randomUUID();
+    }
 
     /**
      * create.
      */
-    public void create() {
-        this.uuid = UUID.randomUUID();
+    public static TestIdentifier create() {
+        return new TestIdentifier();
+    }
+
+    /**
+     * Sets the uuid.
+     *
+     * @param uuidIn
+     *            the new uuid
+     */
+    public TestIdentifier setUuid(final UUID uuidIn) {
+        this.uuid = uuidIn;
+        return this;
+    }
+
+    /**
+     * Gets the uuid.
+     *
+     * @return the uuid
+     */
+    public UUID getUuid() {
+        return this.uuid;
     }
 
     /**
@@ -44,22 +67,4 @@ public class TestIdentifier {
         return this.uuid.toString();
     }
 
-    /**
-     * Gets the uuid.
-     *
-     * @return the uuid
-     */
-    public UUID getUuid() {
-        return this.uuid;
-    }
-
-    /**
-     * Sets the uuid.
-     *
-     * @param uuidIn
-     *            the new uuid
-     */
-    public void setUuid(final UUID uuidIn) {
-        this.uuid = uuidIn;
-    }
 }

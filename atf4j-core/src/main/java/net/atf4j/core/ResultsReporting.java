@@ -22,10 +22,7 @@ import static org.junit.Assert.assertNotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * The Reporting Class.
- */
-public abstract class Reporting {
+public abstract class ResultsReporting {
 
     /** logging. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());

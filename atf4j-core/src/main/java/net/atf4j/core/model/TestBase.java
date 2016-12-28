@@ -16,58 +16,50 @@
  */
 package net.atf4j.core.model;
 
+import static org.junit.Assume.assumeTrue;
+
 import java.util.Collection;
 
 import net.atf4j.core.Atf4jException;
+import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResult;
 
 /**
- * TestBase.
+ * The TestBase Class.
  */
-public abstract class TestBase implements TestCommand {
+public abstract class TestBase extends ResultsReporting {
 
-    /** The logging. */
-    protected TestResultLoggingInterface log;
-
-    /** The test status. */
-    private TestStatus testStatus = TestStatus.NOT_RUN;
-
-    /** The unique identifier. */
+    protected TestReport testReport;
+    private TestResult testStatus = TestResult.initialise();
     private TestIdentifier uniqueIdentifier;
-
-    /** The test context. */
     private TestContext testContext;
-
-    /** The tester. */
     private String tester; // Actor
-
-    /** The name. */
     private String name;
-
-    /** The taxonomy. */
     private String taxonomy;
-
-    /** The description. */
     private String description;
-
-    /** The timestamp. */
     private String timestamp; // ISO date.
-
-    /** The pre-conditions. */
     private Collection<Condition> preConditions;
-
-    /** The post-conditions. */
     private Collection<Condition> postConditions;
+
+    /**
+     * Instantiates a new test base.
+     */
+    public TestBase() {
+        super();
+    }
 
     /**
      * Register logging.
      *
      * @param logging
      *            the logging
+     * @return the test base
      * @throws Atf4jException
      *             the atf4j exception
      */
-    public void registerLogging(final TestResultLoggingInterface logging) throws Atf4jException {
+    public TestBase registerLogging(final TestReport logging) throws Atf4jException {
         setLogging(logging);
+        return this;
     }
 
     /**
@@ -79,9 +71,8 @@ public abstract class TestBase implements TestCommand {
      * @throws Atf4jException
      *             the atf4j exception
      */
-    @Override
-    public AbstractTestResult execute(final TestContext context) throws Atf4jException {
-        throw new Atf4jException("not yet implemented");
+    public TestBase execute(final TestContext context) throws Atf4jException {
+        throw new Atf4jException("execute Must be overridden.");
     }
 
     /**
@@ -93,19 +84,8 @@ public abstract class TestBase implements TestCommand {
      * @see java.util.Collection#add(java.lang.Object)
      */
     public TestBase addPreCondition(final Condition newPreCondition) {
-        this.preConditions.add(newPreCondition);
-        return this;
-    }
-
-    /**
-     * Adds the pre conditions.
-     *
-     * @param newPreConditions
-     *            the new pre conditions
-     * @return the test base
-     */
-    public TestBase addPreConditions(final Collection<? extends Condition> newPreConditions) {
-        this.postConditions.addAll(newPreConditions);
+        final boolean result = this.preConditions.add(newPreCondition);
+        assumeTrue(result);
         return this;
     }
 
@@ -118,19 +98,8 @@ public abstract class TestBase implements TestCommand {
      * @see java.util.Collection#add(java.lang.Object)
      */
     public TestBase addPostCondition(final Condition newPostCondition) {
-        this.postConditions.add(newPostCondition);
-        return this;
-    }
-
-    /**
-     * Adds the post conditions.
-     *
-     * @param newPostConditions
-     *            the new post conditions
-     * @return the test base
-     */
-    public TestBase addPostConditions(final Collection<? extends Condition> newPostConditions) {
-        this.postConditions.addAll(newPostConditions);
+        final boolean result = this.postConditions.add(newPostCondition);
+        assumeTrue(result);
         return this;
     }
 
@@ -139,7 +108,7 @@ public abstract class TestBase implements TestCommand {
      *
      * @return the testStatus
      */
-    protected TestStatus getTestStatus() {
+    protected TestResult getTestStatus() {
         return this.testStatus;
     }
 
@@ -150,7 +119,7 @@ public abstract class TestBase implements TestCommand {
      *            the testStatus to set
      * @return the test base
      */
-    protected TestBase setTestStatus(final TestStatus testStatus) {
+    protected TestBase setTestStatus(final TestResult testStatus) {
         this.testStatus = testStatus;
         return this;
     }
@@ -349,8 +318,8 @@ public abstract class TestBase implements TestCommand {
      *
      * @return the logging
      */
-    public TestResultLoggingInterface getLogging() {
-        return this.log;
+    public TestReport getLogging() {
+        return this.testReport;
     }
 
     /**
@@ -360,9 +329,20 @@ public abstract class TestBase implements TestCommand {
      *            the new logging
      * @return the test base
      */
-    public TestBase setLogging(final TestResultLoggingInterface logging) {
-        this.log = logging;
+    public TestBase setLogging(final TestReport logging) {
+        this.testReport = logging;
         return this;
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return String.format(
+                "TestBase [testStatus=%s, uniqueIdentifier=%s, testContext=%s, tester=%s, name=%s, taxonomy=%s, description=%s, timestamp=%s, preConditions=%s, postConditions=%s]",
+                this.testStatus, this.uniqueIdentifier, this.testContext, this.tester, this.name, this.taxonomy,
+                this.description, this.timestamp, this.preConditions, this.postConditions);
     }
 
 }

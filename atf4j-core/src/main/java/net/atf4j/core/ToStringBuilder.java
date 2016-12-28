@@ -20,13 +20,9 @@ import java.lang.reflect.Field;
 
 /**
  * ToStringBuilder.
- *
- * 
- * 
  */
 public class ToStringBuilder {
 
-    /** The Constant LAYOUT_STYLE. */
     private static final String LAYOUT_STYLE = "%s [%s]";
 
     /**
@@ -61,7 +57,6 @@ public class ToStringBuilder {
     private static String reflectClassToString(final Object object, final Class<? extends Object> aClass) {
         final StringBuilder stringBuilder = new StringBuilder();
         final Class<? extends Object> superClass = aClass.getSuperclass();
-
         if (superClass != null) {
             if (!superClass.isInstance(Object.class)) {
                 stringBuilder.append(String.format(LAYOUT_STYLE, superClass.getSimpleName(),
@@ -106,5 +101,4 @@ public class ToStringBuilder {
             return "[NULL]";
         }
     }
-
 }

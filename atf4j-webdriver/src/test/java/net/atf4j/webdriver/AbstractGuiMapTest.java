@@ -23,7 +23,7 @@ import java.util.Set;
 import org.junit.Assert;
 import org.junit.Test;
 
-import net.atf4j.core.Reporting;
+import net.atf4j.core.ResultsReporting;
 
 /**
  * A UnitTest for LogicalGuiMap objects.
@@ -31,7 +31,7 @@ import net.atf4j.core.Reporting;
  *
  */
 
-public class AbstractGuiMapTest extends Reporting {
+public class AbstractGuiMapTest extends ResultsReporting {
 
     public class LogicalGuiMap extends AbstractGuiMap {
     }

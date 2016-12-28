@@ -18,9 +18,9 @@ package net.atf4j.data;
 
 import org.junit.Test;
 
-import net.atf4j.core.Reporting;
+import net.atf4j.core.ResultsReporting;
 
-public class BankTest extends Reporting {
+public class BankTest extends ResultsReporting {
 
     @Test
     public void testDefaultConstructor() {

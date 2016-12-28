@@ -21,9 +21,9 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.Reporting;
+import net.atf4j.core.ResultsReporting;
 
-public class BagTest extends Reporting {
+public class BagTest extends ResultsReporting {
 
     @Test(expected = NullPointerException.class)
     public void testNullBag() {

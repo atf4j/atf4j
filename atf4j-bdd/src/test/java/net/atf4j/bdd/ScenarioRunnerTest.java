@@ -20,9 +20,9 @@ import org.junit.Assert;
 import org.junit.Assume;
 import org.junit.Test;
 
-import net.atf4j.core.Reporting;
+import net.atf4j.core.ResultsReporting;
 
-public class ScenarioRunnerTest extends Reporting {
+public class ScenarioRunnerTest extends ResultsReporting {
 
     public class Scenario extends LoggedScenario {
         @Atf4j.Given("Given")

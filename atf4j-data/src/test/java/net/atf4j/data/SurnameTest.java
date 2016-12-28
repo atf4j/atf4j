@@ -19,9 +19,9 @@ package net.atf4j.data;
 import org.junit.Assert;
 import org.junit.Test;
 
-import net.atf4j.core.Reporting;
+import net.atf4j.core.ResultsReporting;
 
-public class SurnameTest extends Reporting {
+public class SurnameTest extends ResultsReporting {
 
     private static final String SURNAME = "Surname";
 

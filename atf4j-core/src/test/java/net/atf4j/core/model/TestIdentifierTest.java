@@ -14,31 +14,39 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.atf4j.core;
+package net.atf4j.core.model;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import java.util.UUID;
 
 import org.junit.Test;
 
-public class ReportingTest extends Reporting {
+import net.atf4j.core.ResultsReporting;
+
+public class TestIdentifierTest extends ResultsReporting {
 
     @Test
-    public void testVerify() {
-        super.verify(1, 1);
-    }
-
-    @Test(expected = AssertionError.class)
-    public void testVerifyNotEqual() {
-        super.verify(new Object(), new Object());
+    public void testDefaultConstructor() {
+        new TestIdentifier();
     }
 
     @Test
-    public void testVerifyEqual() {
-        final Object expected = new Object();
-        super.verify(expected, expected);
+    public void testCreate() {
+        final TestIdentifier testId = TestIdentifier.create();
+        assertNotNull(testId);
     }
 
     @Test
-    public void testToDescription() throws ClassNotFoundException {
-        this.log.info(super.toDescription());
+    public void testSetGetUuid() {
+        final UUID randomUUID = UUID.randomUUID();
+        assertEquals(randomUUID, new TestIdentifier().setUuid(randomUUID).getUuid());
+    }
+
+    @Test
+    public void testToString() {
+        new TestIdentifier().toString();
     }
 
 }

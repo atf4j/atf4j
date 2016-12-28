@@ -22,16 +22,16 @@ package net.atf4j.core.timers;
  */
 public class Interval {
 
-    /** The Constant SECOND. */
+    /** SECOND as 1000 Milliseconds. */
     public static final int SECOND = 1000;
 
-    /** The Constant MINUTE. */
+    /** MINUTE as 60 Seconds. */
     public static final int MINUTE = 60 * SECOND;
 
-    /** The Constant HOUR. */
+    /** HOUR as 60 Minutes. */
     public static final int HOUR = 60 * MINUTE;
 
-    /** The Constant DAY. */
+    /** DAY as 24 Hours. */
     public static final int DAY = 24 * HOUR;
 
     /** The time period. */
@@ -46,7 +46,7 @@ public class Interval {
 
     /**
      * Interval.
-     * 
+     *
      * @param useTimePeriod
      *            the use time period
      */
@@ -56,7 +56,7 @@ public class Interval {
 
     /**
      * factory method helper inMilliSeconds.
-     * 
+     *
      * @param timePeriod
      *            the use time period
      * @return new Interval object.
@@ -67,7 +67,7 @@ public class Interval {
 
     /**
      * inSeconds.
-     * 
+     *
      * @param timePeriod
      *            in Seconds.
      * @return new Interval object.
@@ -78,7 +78,7 @@ public class Interval {
 
     /**
      * inMinutes.
-     * 
+     *
      * @param timePeriod
      *            in Minutes.
      * @return new Interval object.
@@ -89,7 +89,7 @@ public class Interval {
 
     /**
      * inHours.
-     * 
+     *
      * @param timePeriod
      *            in Hours.
      * @return new Interval object.
@@ -100,7 +100,7 @@ public class Interval {
 
     /**
      * inDays.
-     * 
+     *
      * @param timePeriod
      *            in Days.
      * @return new Interval object.
@@ -111,7 +111,7 @@ public class Interval {
 
     /**
      * asMilliSeconds.
-     * 
+     *
      * @return timePeriod of Interval in Milliseconds as long.
      */
     public final long asMilliSeconds() {
@@ -120,7 +120,7 @@ public class Interval {
 
     /**
      * asSeconds.
-     * 
+     *
      * @return timePeriod of Interval in seconds as long.
      */
     public final long asSeconds() {
@@ -129,7 +129,7 @@ public class Interval {
 
     /**
      * asMinutes.
-     * 
+     *
      * @return timePeriod of Interval in seconds as long.
      */
     public final long asMinutes() {
@@ -138,7 +138,7 @@ public class Interval {
 
     /**
      * asHours.
-     * 
+     *
      * @return timePeriod of Interval in seconds as long.
      */
     public final long asHours() {
@@ -147,7 +147,7 @@ public class Interval {
 
     /**
      * asDays.
-     * 
+     *
      * @return timePeriod of Interval in seconds as long.
      */
     public final long asDays() {
@@ -156,7 +156,7 @@ public class Interval {
 
     /**
      * asLong.
-     * 
+     *
      * @return timePeriod of Interval in Milliseconds as long.
      */
     public final long asLong() {

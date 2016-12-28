@@ -17,6 +17,7 @@
 package net.atf4j.core;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
@@ -24,18 +25,24 @@ import org.junit.Test;
  * A UnitTest for TestStatus objects.
  * forString
  */
-public class TestStatusTest extends Reporting {
+public class TestResultTest extends ResultsReporting {
+
+    @Test
+    public void testDefaultConstructor() {
+        final TestResult testStatus = TestResult.initialise();
+        assertNotNull(testStatus);
+    }
 
     /**
      * test TestStatus object.
      */
     @Test
     public void testTestStatus() {
-        assertEquals("Pending", TestStatus.PENDING.toString());
-        assertEquals("Skipped", TestStatus.SKIPPED.toString());
-        assertEquals("Passed", TestStatus.PASSED.toString());
-        assertEquals("Failed", TestStatus.FAILED.toString());
-        assertEquals("Exception", TestStatus.EXCEPTION.toString());
+        assertEquals("Pending", TestResult.PENDING.toString());
+        assertEquals("Skipped", TestResult.SKIPPED.toString());
+        assertEquals("Passed", TestResult.PASSED.toString());
+        assertEquals("Failed", TestResult.FAILED.toString());
+        assertEquals("Exception", TestResult.EXCEPTION.toString());
     }
 
     /**
@@ -43,10 +50,10 @@ public class TestStatusTest extends Reporting {
      */
     @Test
     public void testTestStatusFromString() {
-        assertEquals(TestStatus.PENDING, TestStatus.forString("Pending"));
-        assertEquals(TestStatus.SKIPPED, TestStatus.forString("Skipped"));
-        assertEquals(TestStatus.PASSED, TestStatus.forString("Passed"));
-        assertEquals(TestStatus.FAILED, TestStatus.forString("Failed"));
-        assertEquals(TestStatus.EXCEPTION, TestStatus.forString("Exception"));
+        assertEquals(TestResult.PENDING, TestResult.forString("Pending"));
+        assertEquals(TestResult.SKIPPED, TestResult.forString("Skipped"));
+        assertEquals(TestResult.PASSED, TestResult.forString("Passed"));
+        assertEquals(TestResult.FAILED, TestResult.forString("Failed"));
+        assertEquals(TestResult.EXCEPTION, TestResult.forString("Exception"));
     }
 }

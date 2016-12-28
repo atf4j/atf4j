@@ -16,9 +16,41 @@
  */
 package net.atf4j.core.waits;
 
+import org.junit.Test;
+
+import net.atf4j.core.model.Condition;
+
 /**
- * The TestCondition Class.
+ * A UnitTest for Condition objects.
  */
-public class TestCondition {
+public class ConditionTest {
+
+    /**
+     * The PassingCondition Class.
+     */
+    public class PassingCondition extends Condition {
+    }
+
+    /**
+     * The FailingCondition Class.
+     */
+    public class FailingCondition extends Condition {
+    }
+
+    /**
+     * Passing condition.
+     */
+    @Test
+    public void PassingCondition() {
+        new PassingCondition();
+    }
+
+    /**
+     * Test method for {@link Condition}.
+     */
+    @Test
+    public void testFailingCondition() {
+        new FailingCondition();
+    }
 
 }

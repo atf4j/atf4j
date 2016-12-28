@@ -20,9 +20,9 @@ import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import net.atf4j.core.Reporting;
+import net.atf4j.core.ResultsReporting;
 
-public class WebDriverSmokeTest extends Reporting {
+public class WebDriverSmokeTest extends ResultsReporting {
 
     @Test
     public void testChromeTomcat() {

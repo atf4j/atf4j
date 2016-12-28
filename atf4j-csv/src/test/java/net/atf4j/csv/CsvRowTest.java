@@ -20,12 +20,12 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import net.atf4j.core.Reporting;
+import net.atf4j.core.ResultsReporting;
 
 /**
  * A UnitTest for CsvRow objects.
  */
-public class CsvRowTest extends Reporting {
+public class CsvRowTest extends ResultsReporting {
 
     private static final String ONE_TWO_THREE_FOUR = "One, Two, Three, Four";
     private static final String EXPECTED = "CsvRow [fields=[One, Two, Three, Four]]";

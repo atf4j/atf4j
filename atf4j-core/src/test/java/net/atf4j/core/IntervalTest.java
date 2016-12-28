@@ -19,17 +19,14 @@ package net.atf4j.core;
 import org.junit.Assert;
 import org.junit.Test;
 
-import net.atf4j.core.waits.Interval;
+import net.atf4j.core.timers.Interval;
 
 /**
  * IntervalTester Class.
  */
-public class IntervalTester extends Reporting {
+public class IntervalTest extends ResultsReporting {
 
-    /** The Constant DEFAULT_INTERVAL. */
     private static final long DEFAULT_INTERVAL = 1000L;
-
-    /** The Constant DELTA. */
     private static final long DELTA = 0L;
 
     /**

@@ -18,10 +18,10 @@ package net.atf4j.data.jms;
 
 import org.junit.Test;
 
-import net.atf4j.core.Reporting;
+import net.atf4j.core.ResultsReporting;
 import net.atf4j.data.management.JmsData;
 
-public class JmsDataTest extends Reporting {
+public class JmsDataTest extends ResultsReporting {
 
     @Test
     public void testSetUp() {

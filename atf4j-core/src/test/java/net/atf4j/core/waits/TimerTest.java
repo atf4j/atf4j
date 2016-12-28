@@ -19,20 +19,22 @@ package net.atf4j.core.waits;
 import org.junit.Assert;
 import org.junit.Test;
 
-import net.atf4j.core.Reporting;
+import net.atf4j.core.ResultsReporting;
 import net.atf4j.core.timers.ITimer;
 import net.atf4j.core.timers.MilliTimer;
 
 /**
  * TimerTest.
  */
-public class TimerTest extends Reporting {
+public class TimerTest extends ResultsReporting {
 
-    /**  The Constant DEFAULT_INTERVAL. */
     private static final int DEFAULT_INTERVAL = 100;
-
-    /** The delta. */
     private long delta = 1000;
+
+    @Test
+    public void testDefaultConstructor() {
+        new MilliTimer();
+    }
 
     /**
      * Instrument the actual timer its self. Calculates the delta for tests.
@@ -73,7 +75,8 @@ public class TimerTest extends Reporting {
         try {
             Thread.sleep(TimerTest.DEFAULT_INTERVAL);
         } catch (final InterruptedException interruptedException) {
-            interruptedException.printStackTrace(System.err);
+            Thread.currentThread().interrupt();
+            this.log.error(interruptedException.toString());
         }
     }
 }

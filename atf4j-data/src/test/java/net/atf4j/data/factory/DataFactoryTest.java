@@ -23,12 +23,12 @@ import java.util.Calendar;
 
 import org.junit.Test;
 
-import net.atf4j.core.Reporting;
+import net.atf4j.core.ResultsReporting;
 
 /**
  * A UnitTest for DataFactory objects.
  */
-public class DataFactoryTest extends Reporting {
+public class DataFactoryTest extends ResultsReporting {
 
     /**
      * Test default constructor.

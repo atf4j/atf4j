@@ -21,12 +21,12 @@ import static org.junit.Assume.assumeNotNull;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-import net.atf4j.core.Reporting;
+import net.atf4j.core.ResultsReporting;
 
 /**
  * A UnitTest for BrowserFactory objects.
  */
-public class BrowserFactoryTest extends Reporting {
+public class BrowserFactoryTest extends ResultsReporting {
 
     /**
      * test BrowserFactory object.

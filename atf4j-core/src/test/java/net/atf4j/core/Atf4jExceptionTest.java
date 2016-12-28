@@ -21,10 +21,10 @@ import org.junit.Test;
 /**
  * A UnitTest for Atf4jException objects.
  */
-public class Atf4jExceptionTest extends Reporting {
+public class Atf4jExceptionTest extends ResultsReporting {
 
     /**
-     * test Atf4jException object.
+     * test Atf4j Exception object.
      *
      * @throws Atf4jException
      *             the atf4j exception
@@ -32,5 +32,27 @@ public class Atf4jExceptionTest extends Reporting {
     @Test(expected = Atf4jException.class)
     public void testAtf4jException() throws Atf4jException {
         throw new Atf4jException();
+    }
+
+    /**
+     * Test method for {@link Atf4jException}.
+     *
+     * @throws Atf4jException
+     *             the Atf4j exception
+     */
+    @Test(expected = Atf4jException.class)
+    public void testAtf4jExceptionString() throws Atf4jException {
+        throw new Atf4jException("Force a Atf4jException");
+    }
+
+    /**
+     * Test method for {@link Atf4jException}.
+     *
+     * @throws Atf4jException
+     *             the Atf4j exception
+     */
+    @Test(expected = Atf4jException.class)
+    public void testAtf4jExceptionAssertion() throws Atf4jException {
+        throw new Atf4jException(new AssertionError());
     }
 }

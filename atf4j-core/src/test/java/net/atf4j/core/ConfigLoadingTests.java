@@ -24,19 +24,20 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 /**
  * ConfigLoadingTests Class.
  *
- * 
+ *
  */
-public class ConfigLoadingTests extends Reporting {
+public class ConfigLoadingTests extends ResultsReporting {
 
     /**
      * The SimpleConfiguration Class.
      */
     private class SimpleConfiguration extends AbstractConfig {
-        
+
         /**
          * Instantiates a new simple configuration.
          *
-         * @throws ConfigurationNotLoaded the configuration not loaded
+         * @throws ConfigurationNotLoaded
+         *             the configuration not loaded
          */
         public SimpleConfiguration() throws ConfigurationNotLoaded {
             super();
@@ -55,10 +56,16 @@ public class ConfigLoadingTests extends Reporting {
         }
     }
 
+    @Test
+    public void testDefaultConstructor() throws ConfigurationNotLoaded {
+        new SimpleConfiguration();
+    }
+
     /**
      * Test suggested usage.
      *
-     * @throws ConfigurationNotLoaded the configuration not loaded
+     * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
      */
     @Test
     public void testSuggestedUsage() throws ConfigurationNotLoaded {

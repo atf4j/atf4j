@@ -30,13 +30,13 @@ import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import net.atf4j.core.Reporting;
+import net.atf4j.core.ResultsReporting;
 
 /**
  * A UnitTest for PageObjectGenerator objects.
  */
 @Ignore
-public class PageObjectGeneratorTest extends Reporting {
+public class PageObjectGeneratorTest extends ResultsReporting {
 
     @Test
     public void testMissingTemplate() {
