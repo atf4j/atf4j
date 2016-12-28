@@ -23,28 +23,45 @@ import org.junit.Test;
  */
 public class ResultsReportingTest extends ResultsReporting {
 
+    /**
+     * Test method for {@link ResultsReporting}.
+     */
     @Test
     public void testVerifyEqualLong() {
         final long expected = Long.MAX_VALUE;
         super.verify(expected, expected);
     }
 
+    /**
+     * Test method for {@link ResultsReporting}.
+     */
     @Test(expected = AssertionError.class)
     public void testVerifyLongLong() {
         super.verify(Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
+    /**
+     * Test method for {@link ResultsReporting}.
+     */
     @Test
     public void testVerifyEqual() {
         final Object expected = new Object();
         super.verify(expected, expected);
     }
 
+    /**
+     * Test method for {@link ResultsReporting}.
+     */
     @Test(expected = AssertionError.class)
     public void testVerifyNotEqual() {
         super.verify(new Object(), new Object());
     }
 
+    /**
+     * Test method for {@link ResultsReporting}.
+     *
+     * @throws ClassNotFoundException the class not found exception
+     */
     @Test
     public void testToDescription() throws ClassNotFoundException {
         this.log.info(super.toDescription());

@@ -29,6 +29,9 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
  */
 public class ConfigTest extends ResultsReporting {
 
+    /**
+     * The DefaultConfig Class.
+     */
     private class DefaultConfig extends AbstractConfig {
     }
 
@@ -64,6 +67,9 @@ public class ConfigTest extends ResultsReporting {
         }
     }
 
+    /**
+     * Test method for {@link Config}.
+     */
     @Test
     public void testDefaultConstructor() {
         new DefaultConfig();

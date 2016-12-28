@@ -75,6 +75,9 @@ public class StringBuilderTest extends ResultsReporting {
         }
     }
 
+    /**
+     * Test method for {@link StringBuilder}.
+     */
     @Test
     public void testDefaultConstructor() {
         new ToStringBuilder();
@@ -136,6 +139,9 @@ public class StringBuilderTest extends ResultsReporting {
         Assert.assertTrue("|testSubClassWithProperties|", reflectionToString.length() > 0);
     }
 
+    /**
+     * Test method for {@link StringBuilder}.
+     */
     @Test
     public void testRefection() {
         this.log.info(ToStringBuilder.reflectObjectToString(getClass()));

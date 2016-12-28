@@ -20,21 +20,36 @@ import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
+/**
+ * A UnitTest for AbstractTestResult objects.
+ */
 public class AbstractTestResultTest extends ResultsReporting {
 
+    /**
+     * The TestResult Class.
+     */
     public class TestResult extends AbstractTestResult {
     }
 
+    /**
+     * Test method for {@link AbstractTestResult}.
+     */
     @Test
     public void testDefaultConstructor() {
         new TestResult();
     }
 
+    /**
+     * Test method for {@link AbstractTestResult}.
+     */
     @Test
     public void testFrom() {
         new TestResult().from(new TestResult());
     }
 
+    /**
+     * Test method for {@link AbstractTestResult}.
+     */
     @Test
     public void testToString() {
         new TestResult().toString();

@@ -25,25 +25,40 @@ import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
+/**
+ * A UnitTest for TestIdentifier objects.
+ */
 public class TestIdentifierTest extends ResultsReporting {
 
+    /**
+     * Test method for {@link TestIdentifier}.
+     */
     @Test
     public void testDefaultConstructor() {
         new TestIdentifier();
     }
 
+    /**
+     * Test method for {@link TestIdentifier}.
+     */
     @Test
     public void testCreate() {
         final TestIdentifier testId = TestIdentifier.create();
         assertNotNull(testId);
     }
 
+    /**
+     * Test method for {@link TestIdentifier}.
+     */
     @Test
     public void testSetGetUuid() {
         final UUID randomUUID = UUID.randomUUID();
         assertEquals(randomUUID, new TestIdentifier().setUuid(randomUUID).getUuid());
     }
 
+    /**
+     * Test method for {@link TestIdentifier}.
+     */
     @Test
     public void testToString() {
         new TestIdentifier().toString();

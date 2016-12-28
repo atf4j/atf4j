@@ -21,6 +21,9 @@ package net.atf4j.core.model;
  */
 public class TestStep extends TestBase {
 
+    /**
+     * Instantiates a new test step.
+     */
     public TestStep() {
         super();
     }

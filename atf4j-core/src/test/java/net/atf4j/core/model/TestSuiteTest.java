@@ -23,19 +23,31 @@ import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
+/**
+ * A UnitTest for TestSuite objects.
+ */
 public class TestSuiteTest extends ResultsReporting {
 
+    /**
+     * Test method for {@link TestSuite}.
+     */
     @Test
     public void testDefaultConstructor() {
         new TestSuite();
     }
 
+    /**
+     * Test method for {@link TestSuite}.
+     */
     @Test
     public void testTestSuite() {
         final TestSuite testSuite = new TestSuite();
         assertNotNull(testSuite);
     }
 
+    /**
+     * Test method for {@link TestSuite}.
+     */
     @Test
     public void testNumberOfTestCases() {
         final TestSuite testSuite = new TestSuite();
@@ -43,6 +55,9 @@ public class TestSuiteTest extends ResultsReporting {
         assertEquals(0, numberOfTestCases);
     }
 
+    /**
+     * Test method for {@link TestSuite}.
+     */
     @Test
     public void testAddTestCase() {
         final TestCase newTestCase = new TestCase();

@@ -31,6 +31,9 @@ public class TimerTest extends ResultsReporting {
     private static final int DEFAULT_INTERVAL = 100;
     private long delta = 1000;
 
+    /**
+     * Test method for {@link Timer}.
+     */
     @Test
     public void testDefaultConstructor() {
         new MilliTimer();
@@ -54,7 +57,7 @@ public class TimerTest extends ResultsReporting {
     }
 
     /**
-     * Test method for
+     * Test method for.
      */
     @Test
     public final void testTimerOneSec() {

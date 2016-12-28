@@ -22,6 +22,9 @@ import static org.junit.Assert.assertNotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * The ResultsReporting Class.
+ */
 public abstract class ResultsReporting {
 
     /** logging. */

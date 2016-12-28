@@ -29,9 +29,6 @@ public abstract class AbstractConfig {
 
     /**
      * Default Constructor for Configuration.
-     *
-     * @throws ConfigurationNotLoaded
-     *             the missing exception
      */
     public AbstractConfig() {
         super();
@@ -56,13 +53,14 @@ public abstract class AbstractConfig {
     }
 
     /**
-     * Load.
+     * Load configuration from property file named after class.
      *
+     * @return the abstract config
      * @throws ConfigurationNotLoaded
      *             the missing exception
      */
     protected AbstractConfig load() throws ConfigurationNotLoaded {
-        final String propertyFilename = String.format("/%s.properties", this.getClass().getSimpleName());
+        final String propertyFilename = String.format("/%s.properties", toName());
         return load(propertyFilename);
     }
 
@@ -71,6 +69,7 @@ public abstract class AbstractConfig {
      *
      * @param propertyFilename
      *            the property filename
+     * @return the abstract config
      * @throws ConfigurationNotLoaded
      *             the missing exception
      */
@@ -100,7 +99,6 @@ public abstract class AbstractConfig {
      * To name.
      *
      * @return the string
-     * @see net.atf4j.core.ToName#toName()
      */
     public String toName() {
         return this.getClass().getSimpleName();

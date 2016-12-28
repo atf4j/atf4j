@@ -23,29 +23,47 @@ import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
+/**
+ * A UnitTest for TestContext objects.
+ */
 public class TestContextTest extends ResultsReporting {
 
+    /**
+     * Test method for {@link TestContext}.
+     */
     @Test
     public void testDefaultConstructor() {
         new TestContext();
     }
 
+    /**
+     * Test method for {@link TestContext}.
+     */
     @Test
     public void testIsSeleniumDefault() {
         assumeFalse(TestContext.isLocal());
     }
 
+    /**
+     * Test method for {@link TestContext}.
+     */
     @Test
     public void testIsJenkinsDefault() {
         assumeFalse(TestContext.isLocal());
     }
 
+    /**
+     * Test method for {@link TestContext}.
+     */
     @Test
     public void testSetGetPlatform() {
         final String platform = "PLATFORM";
         assertEquals(platform, new TestContext().setPlatform(platform).getPlatform());
     }
 
+    /**
+     * Test method for {@link TestContext}.
+     */
     @Test
     public void testSetGetContext() {
         final String context = "CONTEXT";

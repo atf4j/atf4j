@@ -27,6 +27,9 @@ import org.junit.Test;
  */
 public class TestResultTest extends ResultsReporting {
 
+    /**
+     * Test method for {@link TestResult}.
+     */
     @Test
     public void testDefaultConstructor() {
         final TestResult testStatus = TestResult.initialise();

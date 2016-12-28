@@ -32,6 +32,9 @@ public class TestCase extends TestBase {
 
     private final Collection<TestStep> testSteps;
 
+    /**
+     * Instantiates a new test case.
+     */
     public TestCase() {
         super();
         this.testSteps = new ArrayDeque<TestStep>();
@@ -85,6 +88,8 @@ public class TestCase extends TestBase {
 
     /**
      * Start test suite.
+     *
+     * @return the test case
      */
     public TestCase startTestSuite() {
         this.log.info("startTestSuite {}", this.getName());
@@ -93,6 +98,8 @@ public class TestCase extends TestBase {
 
     /**
      * End test suite.
+     *
+     * @return the test case
      */
     public TestCase endTestSuite() {
         this.log.info("endTestSuite {}", this.getName());

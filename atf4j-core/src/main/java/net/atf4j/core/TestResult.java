@@ -47,13 +47,17 @@ public enum TestResult {
     /**
      * Constructor for Test Status from string.
      *
-     * @param description
-     *            as String object.
+     * @param asText the as text
      */
     TestResult(final String asText) {
         this.statusDescription = asText;
     }
 
+    /**
+     * Initialise.
+     *
+     * @return the test result
+     */
     public static TestResult initialise() {
         return TestResult.PENDING;
     }

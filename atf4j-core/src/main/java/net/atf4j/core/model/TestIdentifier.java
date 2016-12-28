@@ -25,22 +25,28 @@ public class TestIdentifier {
 
     private UUID uuid;
 
+    /**
+     * Instantiates a new test identifier.
+     */
     public TestIdentifier() {
         this.uuid = UUID.randomUUID();
     }
 
     /**
-     * create.
+     * create unique test identifier.
+     *
+     * @return the test identifier
      */
     public static TestIdentifier create() {
         return new TestIdentifier();
     }
 
     /**
-     * Sets the uuid.
+     * Set the unique test identifier.
      *
      * @param uuidIn
      *            the new uuid
+     * @return the test identifier
      */
     public TestIdentifier setUuid(final UUID uuidIn) {
         this.uuid = uuidIn;

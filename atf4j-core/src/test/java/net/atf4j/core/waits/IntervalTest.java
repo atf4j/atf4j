@@ -24,19 +24,31 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 import net.atf4j.core.timers.Interval;
 
+/**
+ * A UnitTest for Interval objects.
+ */
 public class IntervalTest extends ResultsReporting {
 
+    /**
+     * Test method for {@link Interval}.
+     */
     @Test
     public void testInterval() {
         this.log.info(new Interval().toString());
     }
 
+    /**
+     * Test method for {@link Interval}.
+     */
     @Test
     public void testIntervalLong() {
         final long useTimePeriod = 1000;
         new Interval(useTimePeriod);
     }
 
+    /**
+     * Test method for {@link Interval}.
+     */
     @Test
     public void testInMilliSeconds() {
         final long timePeriod = 1000;
@@ -44,6 +56,9 @@ public class IntervalTest extends ResultsReporting {
         assertNotNull(inMilliSeconds);
     }
 
+    /**
+     * Test method for {@link Interval}.
+     */
     @Test
     public void testInSeconds() {
         final long timePeriod = 1;
@@ -51,6 +66,9 @@ public class IntervalTest extends ResultsReporting {
         assertNotNull(inSeconds);
     }
 
+    /**
+     * Test method for {@link Interval}.
+     */
     @Test
     public void testInMinutes() {
         final long timePeriod = 1;
@@ -58,6 +76,9 @@ public class IntervalTest extends ResultsReporting {
         assertNotNull(inMinutes);
     }
 
+    /**
+     * Test method for {@link Interval}.
+     */
     @Test
     public void testInHours() {
         final long timePeriod = 1;
@@ -65,6 +86,9 @@ public class IntervalTest extends ResultsReporting {
         assertNotNull(inHours);
     }
 
+    /**
+     * Test method for {@link Interval}.
+     */
     @Test
     public void testInDays() {
         final long timePeriod = 1;
@@ -72,36 +96,57 @@ public class IntervalTest extends ResultsReporting {
         assertNotNull(inDays);
     }
 
+    /**
+     * Test method for {@link Interval}.
+     */
     @Test
     public void testAsLong() {
         assertEquals(0, new Interval().asLong());
     }
 
+    /**
+     * Test method for {@link Interval}.
+     */
     @Test
     public void testAsMilliSeconds() {
         assertEquals(0, new Interval().asMilliSeconds());
     }
 
+    /**
+     * Test method for {@link Interval}.
+     */
     @Test
     public void testAsSeconds() {
         assertEquals(0, new Interval().asSeconds());
     }
 
+    /**
+     * Test method for {@link Interval}.
+     */
     @Test
     public void testAsMinutes() {
         assertEquals(0, new Interval().asMinutes());
     }
 
+    /**
+     * Test method for {@link Interval}.
+     */
     @Test
     public void testAsHours() {
         assertEquals(0, new Interval().asHours());
     }
 
+    /**
+     * Test method for {@link Interval}.
+     */
     @Test
     public void testAsDays() {
         assertEquals(0, new Interval().asDays());
     }
 
+    /**
+     * Test method for {@link Interval}.
+     */
     @Test
     public void testIntervalToString() {
         this.log.info(new Interval().toString());

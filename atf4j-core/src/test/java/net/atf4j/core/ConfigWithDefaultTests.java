@@ -101,6 +101,11 @@ public class ConfigWithDefaultTests extends ResultsReporting {
         }
     }
 
+    /**
+     * Test default constructor.
+     *
+     * @throws ConfigurationNotLoaded the configuration not loaded
+     */
     @Test
     public void testDefaultConstructor() throws ConfigurationNotLoaded {
         new ConfigWithDefaults();
