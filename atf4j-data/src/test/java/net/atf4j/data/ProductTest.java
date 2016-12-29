@@ -16,7 +16,6 @@
  */
 package net.atf4j.data;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -24,40 +23,60 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for NationalInsurance objects.
+ * A UnitTest for Product objects.
  */
-public class NationalInsuranceTest extends ResultsReporting {
-
-    private static final String BLANK_NI = "";
+public class ProductTest extends ResultsReporting {
 
     /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for {@link Product}.
      */
     @Test
     public void testDefaultConstructor() {
-        new NationalInsurance();
+        new Product();
     }
 
     /**
-     * test NationalInsurance object.
+     * Test method for {@link Product}.
      */
     @Test
-    public void testNationalInsurance() {
-        new NationalInsurance();
+    public void testProduct() {
+        new Product();
     }
 
     /**
-     * test NationalInsurance object.
+     * Test method for {@link Product}.
      */
     @Test
-    public void testVerify() {
-        assertFalse(NationalInsurance.verify(BLANK_NI));
-        assertFalse(NationalInsurance.verify(BLANK_NI));
-        assertFalse(NationalInsurance.verify(BLANK_NI));
+    public void testProductStringStringString() {
+        new Product();
     }
 
     /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for {@link Product}.
+     */
+    @Test
+    public void testSetGetId() {
+        new Product();
+    }
+
+    /**
+     * Test method for {@link Product}.
+     */
+    @Test
+    public void testSetGetName() {
+        new Product();
+    }
+
+    /**
+     * Test method for {@link Product}.
+     */
+    @Test
+    public void testSetGetDetails() {
+        new Product();
+    }
+
+    /**
+     * Test method for {@link Product}.
      */
     @Test
     public void testDebugString() {
@@ -67,7 +86,7 @@ public class NationalInsuranceTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for {@link Product}.
      */
     @Test
     public void testToString() {

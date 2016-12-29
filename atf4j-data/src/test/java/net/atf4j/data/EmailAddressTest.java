@@ -16,7 +16,6 @@
  */
 package net.atf4j.data;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -24,40 +23,44 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for NationalInsurance objects.
+ * A UnitTest for EmailAddress objects.
  */
-public class NationalInsuranceTest extends ResultsReporting {
-
-    private static final String BLANK_NI = "";
+public class EmailAddressTest extends ResultsReporting {
 
     /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for {@link EmailAddress}.
      */
     @Test
     public void testDefaultConstructor() {
-        new NationalInsurance();
+        new EmailAddress();
     }
 
     /**
-     * test NationalInsurance object.
+     * Test method for {@link EmailAddress}.
      */
     @Test
-    public void testNationalInsurance() {
-        new NationalInsurance();
+    public void testEmailAddress() {
+        new EmailAddress();
     }
 
     /**
-     * test NationalInsurance object.
+     * Test method for {@link EmailAddress}.
+     */
+    @Test
+    public void testEmailAddressString() {
+        new EmailAddress();
+    }
+
+    /**
+     * Test method for {@link EmailAddress}.
      */
     @Test
     public void testVerify() {
-        assertFalse(NationalInsurance.verify(BLANK_NI));
-        assertFalse(NationalInsurance.verify(BLANK_NI));
-        assertFalse(NationalInsurance.verify(BLANK_NI));
+        new EmailAddress();
     }
 
     /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for {@link EmailAddress}.
      */
     @Test
     public void testDebugString() {
@@ -67,7 +70,7 @@ public class NationalInsuranceTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for {@link EmailAddress}.
      */
     @Test
     public void testToString() {

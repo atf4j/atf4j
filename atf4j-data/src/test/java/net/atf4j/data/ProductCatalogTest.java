@@ -16,6 +16,8 @@
  */
 package net.atf4j.data;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
@@ -26,10 +28,39 @@ import net.atf4j.core.ResultsReporting;
 public class ProductCatalogTest extends ResultsReporting {
 
     /**
+     * Test method for {@link ProductCatalog}.
+     */
+    @Test
+    public void testDefaultConstructor() {
+        new Customer();
+    }
+
+    /**
      * test ProductCatalog object.
      */
     @Test
     public void testProductCatalog() {
         new ProductCatalog();
     }
+
+    /**
+     * Test method for {@link ProductCatalog}.
+     */
+    @Test
+    public void testDebugString() {
+        final String string = new ProductCatalog().debugString();
+        assertNotNull(string);
+        this.log.info(string);
+    }
+
+    /**
+     * Test method for {@link ProductCatalog}.
+     */
+    @Test
+    public void testToString() {
+        final String string = new ProductCatalog().toString();
+        assertNotNull(string);
+        this.log.info(string);
+    }
+
 }

@@ -65,12 +65,21 @@ public class Postcode {
         return matcher.find();
     }
 
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
+        return String.format("Postcode [postCode=%s]", this.postCode);
+    }
+
     /* (non-Javadoc)
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return String.format("Postcode [postCode=%s]", this.postCode);
+        return debugString();
     }
 
 }

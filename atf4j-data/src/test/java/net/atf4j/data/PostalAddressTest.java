@@ -23,15 +23,12 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * AddressTest.
- *
- *
- *
+ * Unit Test for PostalAddress.
  */
-public class AddressTest extends ResultsReporting {
+public class PostalAddressTest extends ResultsReporting {
 
     /**
-     * Test method for {@link Address}.
+     * Test method for {@link PostalAddress}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -40,19 +37,32 @@ public class AddressTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link Address}.
+     * Test method for {@link PostalAddress}.
      */
     @Test
     public void testAddress() {
-        PostalAddress.create();
+        final PostalAddress address = PostalAddress.create();
+        assertNotNull(address);
     }
 
     /**
-     * Test method for {@link Address}.
+     * Test method for {@link PostalAddress}.
      */
     @Test
     public void testToString() {
-        assertNotNull(new PostalAddress().toString());
+        final String addressString = new PostalAddress().toString();
+        assertNotNull(addressString);
+        this.log.info(addressString);
+    }
+
+    /**
+     * Test method for {@link PostalAddress}.
+     */
+    @Test
+    public void testDebugString() {
+        final String addressString = new PostalAddress().debugString();
+        assertNotNull(addressString);
+        this.log.info(addressString);
     }
 
 }

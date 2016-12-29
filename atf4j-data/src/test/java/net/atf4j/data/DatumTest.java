@@ -16,6 +16,7 @@
  */
 package net.atf4j.data;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -27,7 +28,7 @@ import net.atf4j.core.ResultsReporting;
 /**
  * DatumTest.
  *
- * 
+ *
  */
 public class DatumTest extends ResultsReporting {
 
@@ -35,6 +36,18 @@ public class DatumTest extends ResultsReporting {
      * The MockDatum Class.
      */
     class MockDatum extends Datum {
+    }
+
+    /**
+     * Test method for {@link Datum}.
+     */
+    @Test
+    public void testDefaultConstructor() {
+        final MockDatum mockDatum = new MockDatum();
+        assertTrue(mockDatum.isFresh());
+        assertFalse(mockDatum.isUsed());
+        assertFalse(mockDatum.isChanged());
+        assertFalse(mockDatum.isDeleted());
     }
 
     /**
@@ -79,6 +92,14 @@ public class DatumTest extends ResultsReporting {
         Assume.assumeFalse(mockDatum.isUsed());
         mockDatum.used(true);
         assertTrue(mockDatum.isUsed());
+    }
+
+    /**
+     * Test method for {@link Datum}.
+     */
+    @Test
+    public void testToString() {
+        assertEquals("Datum [isNew=true, isDirty=false, isDeleted=false, isUsed=false]", new MockDatum().toString());
     }
 
 }

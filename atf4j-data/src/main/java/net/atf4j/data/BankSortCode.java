@@ -16,6 +16,8 @@
  */
 package net.atf4j.data;
 
+import static org.junit.Assume.assumeNotNull;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -75,6 +77,7 @@ public class BankSortCode {
      * @return true, if successful
      */
     public static boolean verify(final String code) {
+        assumeNotNull("Cannot verify null", code);
         final Matcher matcher = pattern.matcher(code);
         return matcher.find();
     }
@@ -84,6 +87,15 @@ public class BankSortCode {
      */
     @Override
     public String toString() {
+        return debugString();
+    }
+
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
         return String.format("BankSortCode [bankSortCode=%s]", this.bankSortCode);
     }
 }

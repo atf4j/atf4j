@@ -84,12 +84,21 @@ public class NationalInsurance {
         return this;
     }
 
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
+        return String.format("NationalInsurance [code=%s]", this.code);
+    }
+
     /* (non-Javadoc)
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return String.format("NationalInsurance [code=%s]", this.code);
+        return debugString();
     }
 
 }

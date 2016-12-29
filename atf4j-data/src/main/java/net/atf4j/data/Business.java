@@ -34,15 +34,11 @@ public class Business {
     /**
      * Instantiates a new business.
      *
-     * @param name
-     *            the name
-     * @param address
-     *            the address
+     * @param string
+     *            the string
      */
-    public Business(final Name name, final PostalAddress address) {
-        super();
-        this.name = name;
-        this.address = address;
+    public Business(final String string) {
+        this(new Name(string));
     }
 
     /**
@@ -54,6 +50,32 @@ public class Business {
     public Business(final Name name) {
         super();
         this.name = name;
+    }
+
+    /**
+     * Instantiates a new business.
+     *
+     * @param name
+     *            the name
+     * @param address
+     *            the address
+     */
+    public Business(final Name name, final PostalAddress address) {
+        super();
+        setName(name);
+        setAddress(address);
+    }
+
+    /**
+     * Sets the name.
+     *
+     * @param name
+     *            the name
+     * @return the business
+     */
+    public Business setName(final String name) {
+        this.name = new Name(name);
+        return this;
     }
 
     /**
@@ -103,6 +125,15 @@ public class Business {
      */
     @Override
     public String toString() {
+        return debugString();
+    }
+
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
         return String.format("Business [name=%s, address=%s]", this.name, this.address);
     }
 

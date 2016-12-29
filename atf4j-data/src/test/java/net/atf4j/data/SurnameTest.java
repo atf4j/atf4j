@@ -16,6 +16,8 @@
  */
 package net.atf4j.data;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -29,11 +31,39 @@ public class SurnameTest extends ResultsReporting {
     private static final String SURNAME = "Surname";
 
     /**
+     * Test method for {@link Surname}.
+     */
+    @Test
+    public void testDefaultConstructor() {
+        new Customer();
+    }
+
+    /**
      * Test method for { net.atf4j.data.Surname()}.
      */
     @Test
     public final void testSurname() {
         Assert.assertEquals(SURNAME, new Surname(SURNAME).getName());
+    }
+
+    /**
+     * Test method for {@link Surname}.
+     */
+    @Test
+    public void testDebugString() {
+        final String string = new Customer().debugString();
+        assertNotNull(string);
+        this.log.info(string);
+    }
+
+    /**
+     * Test method for {@link Surname}.
+     */
+    @Test
+    public void testToString() {
+        final String string = new Customer().toString();
+        assertNotNull(string);
+        this.log.info(string);
     }
 
 }

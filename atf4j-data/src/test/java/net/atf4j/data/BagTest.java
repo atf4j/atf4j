@@ -65,4 +65,24 @@ public class BagTest extends ResultsReporting {
         bag.clear().reset();
     }
 
+    /**
+     * Test method for {@link Bag}.
+     */
+    @Test
+    public void testDebugString() {
+        final String string = new SimpleBag().debugString();
+        assertNotNull(string);
+        this.log.info(string);
+    }
+
+    /**
+     * Test method for {@link Bag}.
+     */
+    @Test
+    public void testToString() {
+        final String string = new SimpleBag().toString();
+        assertNotNull(string);
+        this.log.info(string);
+    }
+
 }

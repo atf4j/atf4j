@@ -18,12 +18,10 @@ package net.atf4j.data;
 
 /**
  * TelephoneNumber.
- *
- * 
  */
 public class Telephone {
 
-    /** The number. */
+    private String type;
     private String number;
     // Type Mobile|Landline|Fax|other
     // Country Code
@@ -49,15 +47,6 @@ public class Telephone {
     }
 
     /**
-     * Gets the number.
-     *
-     * @return the number
-     */
-    public String getNumber() {
-        return this.number;
-    }
-
-    /**
      * Sets the number.
      *
      * @param number
@@ -69,12 +58,30 @@ public class Telephone {
         return this;
     }
 
+    /**
+     * Gets the number.
+     *
+     * @return the number
+     */
+    public String getNumber() {
+        return this.number;
+    }
+
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
+        return String.format("%s [number=%s]", this.getClass().getSimpleName(), this.number);
+    }
+
     /* (non-Javadoc)
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return String.format("%s [number=%s]", this.getClass().getSimpleName(), this.number);
+        return debugString();
     }
 
 }

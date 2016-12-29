@@ -23,10 +23,7 @@ import java.util.Arrays;
  */
 public class PostalAddress {
 
-    /** The address. */
     private String[] addressLines;
-
-    /** The postcode. */
     private Postcode postcode;
 
     /**
@@ -52,9 +49,11 @@ public class PostalAddress {
 
     /**
      * Creates the.
+     *
+     * @return the postal address
      */
-    public static void create() {
-        // TODO Auto-generated method stub
+    public static PostalAddress create() {
+        return new PostalAddress();
     }
 
     /**
@@ -99,14 +98,21 @@ public class PostalAddress {
         return this;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Debug string.
      *
+     * @return the string
+     */
+    public String debugString() {
+        return String.format("Address [address=%s, postcode=%s]", Arrays.toString(this.addressLines), this.postcode);
+    }
+
+    /* (non-Javadoc)
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return String.format("Address [address=%s, postcode=%s]", Arrays.toString(this.addressLines), this.postcode);
+        return debugString();
     }
 
 }

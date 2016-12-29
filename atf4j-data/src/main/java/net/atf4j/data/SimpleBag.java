@@ -150,6 +150,15 @@ public class SimpleBag {
      */
     @Override
     public String toString() {
+        return debugString();
+    }
+
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
         return String.format("SimpleBag [values=%s]", Arrays.toString(this.values));
     }
 

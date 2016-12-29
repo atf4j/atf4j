@@ -16,7 +16,6 @@
  */
 package net.atf4j.data;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -24,40 +23,47 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for NationalInsurance objects.
+ * A UnitTest for Customer objects.
  */
-public class NationalInsuranceTest extends ResultsReporting {
-
-    private static final String BLANK_NI = "";
+public class CustomerTest extends ResultsReporting {
 
     /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for {@link Customer}.
      */
     @Test
     public void testDefaultConstructor() {
-        new NationalInsurance();
+        new Customer();
     }
 
     /**
-     * test NationalInsurance object.
+     * Test method for {@link Customer}.
      */
     @Test
-    public void testNationalInsurance() {
-        new NationalInsurance();
+    public void testSetGetTitle() {
+        final String title = "";
+        new Customer().setTitle(title).getTitle();
     }
 
     /**
-     * test NationalInsurance object.
+     * Test method for {@link Customer}.
      */
     @Test
-    public void testVerify() {
-        assertFalse(NationalInsurance.verify(BLANK_NI));
-        assertFalse(NationalInsurance.verify(BLANK_NI));
-        assertFalse(NationalInsurance.verify(BLANK_NI));
+    public void testSetGetForename() {
+        final String forename = "";
+        new Customer().setForename(forename).getForename();
     }
 
     /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for {@link Customer}.
+     */
+    @Test
+    public void testSetGetSurname() {
+        final String surname = "";
+        new Customer().setSurname(surname).getSurname();
+    }
+
+    /**
+     * Test method for {@link Customer}.
      */
     @Test
     public void testDebugString() {
@@ -67,7 +73,7 @@ public class NationalInsuranceTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for {@link Customer}.
      */
     @Test
     public void testToString() {

@@ -16,62 +16,57 @@
  */
 package net.atf4j.data;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for NationalInsurance objects.
+ * A UnitTest for Card objects.
  */
-public class NationalInsuranceTest extends ResultsReporting {
-
-    private static final String BLANK_NI = "";
+public class CardTest extends ResultsReporting {
 
     /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for {@link Card}.
      */
     @Test
     public void testDefaultConstructor() {
-        new NationalInsurance();
+        new Card();
     }
 
     /**
-     * test NationalInsurance object.
+     * Test method for {@link Card}.
+     *
+     * @throws Exception
+     *             the exception
      */
     @Test
-    public void testNationalInsurance() {
-        new NationalInsurance();
+    public void testVerify() throws Exception {
+        final Card card = new Card();
+        assertNotNull(card);
+        final boolean verify = card.verify("1234");
+        assertTrue(verify);
     }
 
     /**
-     * test NationalInsurance object.
-     */
-    @Test
-    public void testVerify() {
-        assertFalse(NationalInsurance.verify(BLANK_NI));
-        assertFalse(NationalInsurance.verify(BLANK_NI));
-        assertFalse(NationalInsurance.verify(BLANK_NI));
-    }
-
-    /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for {@link Card}.
      */
     @Test
     public void testDebugString() {
-        final String string = new Customer().debugString();
+        final String string = new Card().debugString();
         assertNotNull(string);
         this.log.info(string);
     }
 
     /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for {@link Card}.
      */
     @Test
     public void testToString() {
-        final String string = new Customer().toString();
+        final Card card = new Card();
+        final String string = card.toString();
         assertNotNull(string);
         this.log.info(string);
     }

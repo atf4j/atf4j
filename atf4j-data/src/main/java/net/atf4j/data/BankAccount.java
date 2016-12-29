@@ -23,9 +23,9 @@ import java.math.BigDecimal;
  */
 public class BankAccount {
 
-    private BigDecimal accountNo;
     private Bank bank;
     private BankSortCode sortcode;
+    private BigDecimal accountNo;
 
     /**
      * Instantiates a new bank account.
@@ -55,12 +55,38 @@ public class BankAccount {
     }
 
     /**
-     * Gets the account no.
+     * Sets the bank.
      *
-     * @return the account no
+     * @param bank
+     *            the bank
+     * @return the bank account
      */
-    public BigDecimal getAccountNo() {
-        return this.accountNo;
+    public BankAccount setBank(final String bank) {
+        return setBank(new Bank().setName(bank));
+    }
+
+    /**
+     * Sets the bank.
+     *
+     * @param bank
+     *            the bank
+     * @return the bank account
+     */
+    public BankAccount setBank(final Bank bank) {
+        this.bank = bank;
+        return this;
+    }
+
+    /**
+     * Sets the sortcode.
+     *
+     * @param sortcode
+     *            the sortcode
+     * @return the bank account
+     */
+    public BankAccount setSortcode(final BankSortCode sortcode) {
+        this.sortcode = sortcode;
+        return this;
     }
 
     /**
@@ -85,18 +111,6 @@ public class BankAccount {
     }
 
     /**
-     * Sets the bank.
-     *
-     * @param bank
-     *            the bank
-     * @return the bank account
-     */
-    public BankAccount setBank(final Bank bank) {
-        this.bank = bank;
-        return this;
-    }
-
-    /**
      * Gets the sortcode.
      *
      * @return the sortcode
@@ -106,15 +120,12 @@ public class BankAccount {
     }
 
     /**
-     * Sets the sortcode.
+     * Gets the account no.
      *
-     * @param sortcode
-     *            the sortcode
-     * @return the bank account
+     * @return the account no
      */
-    public BankAccount setSortcode(final BankSortCode sortcode) {
-        this.sortcode = sortcode;
-        return this;
+    public BigDecimal getAccountNo() {
+        return this.accountNo;
     }
 
     /* (non-Javadoc)
@@ -122,6 +133,15 @@ public class BankAccount {
      */
     @Override
     public String toString() {
+        return debugString();
+    }
+
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
         return String.format("BankAccount [accountNo=%s, bank=%s, sortcode=%s]", this.accountNo, this.bank,
                 this.sortcode);
     }

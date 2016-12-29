@@ -16,6 +16,8 @@
  */
 package net.atf4j.data;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -24,11 +26,19 @@ import net.atf4j.core.ResultsReporting;
 /**
  * ForenameTest.
  *
- * 
+ *
  */
 public class ForenameTest extends ResultsReporting {
 
     private static final String FORENAME = "Forename";
+
+    /**
+     * Test method for {@link Forename}.
+     */
+    @Test
+    public void testDefaultConstructor() {
+        new Customer();
+    }
 
     /**
      * Test method for { net.atf4j.data.Forename()}.
@@ -36,6 +46,26 @@ public class ForenameTest extends ResultsReporting {
     @Test
     public final void testConstructor() {
         Assert.assertEquals(FORENAME, new Forename(FORENAME).getName());
+    }
+
+    /**
+     * Test method for {@link Forename}.
+     */
+    @Test
+    public void testDebugString() {
+        final String string = new Customer().debugString();
+        assertNotNull(string);
+        this.log.info(string);
+    }
+
+    /**
+     * Test method for {@link Forename}.
+     */
+    @Test
+    public void testToString() {
+        final String string = new Customer().toString();
+        assertNotNull(string);
+        this.log.info(string);
     }
 
 }

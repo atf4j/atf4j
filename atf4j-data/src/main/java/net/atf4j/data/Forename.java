@@ -18,11 +18,16 @@ package net.atf4j.data;
 
 /**
  * Forename.
- *
- * 
- *
  */
 public class Forename extends Name {
+
+    /**
+     * Instantiates a new forename.
+     */
+    public Forename() {
+        super();
+    }
+
     /**
      * The Constructor.
      *

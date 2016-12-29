@@ -34,6 +34,14 @@ public class TelephoneTest extends ResultsReporting {
      * Test method for {@link Telephone}.
      */
     @Test
+    public void testDefaultConstructor() {
+        new Customer();
+    }
+
+    /**
+     * Test method for {@link Telephone}.
+     */
+    @Test
     public void testTelephone() {
         final Telephone telephone = new Telephone();
         assertNotNull(telephone);
@@ -57,6 +65,26 @@ public class TelephoneTest extends ResultsReporting {
         final Telephone telephone = new Telephone();
         assertNotNull(telephone);
         assertEquals(_0123456789, telephone.setNumber(_0123456789).getNumber());
+    }
+
+    /**
+     * Test method for {@link Telephone}.
+     */
+    @Test
+    public void testDebugString() {
+        final String string = new Customer().debugString();
+        assertNotNull(string);
+        this.log.info(string);
+    }
+
+    /**
+     * Test method for {@link Telephone}.
+     */
+    @Test
+    public void testToString() {
+        final String string = new Customer().toString();
+        assertNotNull(string);
+        this.log.info(string);
     }
 
 }

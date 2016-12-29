@@ -28,6 +28,7 @@ public class Name extends Datum {
      * Instantiates a new name.
      */
     public Name() {
+        setName("");
     }
 
     /**
@@ -37,7 +38,7 @@ public class Name extends Datum {
      *            the name
      */
     public Name(final String name) {
-        this.name = name;
+        setName(name);
     }
 
     /**
@@ -78,14 +79,20 @@ public class Name extends Datum {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     *
+    /* (non-Javadoc)
+     * @see net.atf4j.data.Datum#debugString()
+     */
+    @Override
+    public String debugString() {
+        return String.format("%s [name=%s]", this.getClass().getSimpleName(), this.name);
+    }
+
+    /* (non-Javadoc)
      * @see net.atf4j.data.Datum#toString()
      */
     @Override
     public String toString() {
-        return String.format("%s [name=%s]", this.getClass().getSimpleName(), this.name);
+        return this.name;
     }
 
 }

@@ -23,13 +23,8 @@ package net.atf4j.data;
  */
 public class Product {
 
-    /** The id. */
     private String id;
-
-    /** The name. */
     private String name;
-
-    /** The details. */
     private String details;
 
     /**
@@ -118,12 +113,21 @@ public class Product {
         return this.details;
     }
 
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
+        return String.format("Product [id=%s, name=%s, details=%s]", this.id, this.name, this.details);
+    }
+
     /* (non-Javadoc)
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return String.format("Product [id=%s, name=%s, details=%s]", this.id, this.name, this.details);
+        return debugString();
     }
 
 }

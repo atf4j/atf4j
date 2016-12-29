@@ -17,6 +17,7 @@
 package net.atf4j.data;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
@@ -31,16 +32,8 @@ public class NameTest extends ResultsReporting {
      * Test method for {@link Name}.
      */
     @Test
-    public void testName() {
+    public void testDefaultConstructor() {
         new Name();
-    }
-
-    /**
-     * Test method for {@link Name}.
-     */
-    @Test
-    public void testToString() {
-        new Name().toString();
     }
 
     /**
@@ -58,6 +51,26 @@ public class NameTest extends ResultsReporting {
     @Test
     public void testCapitalise() {
         assertEquals("Name", new Name().capitalise("nAME"));
+    }
+
+    /**
+     * Test method for {@link Name}.
+     */
+    @Test
+    public void testDebugString() {
+        final String string = new Name().debugString();
+        assertNotNull(string);
+        this.log.info(string);
+    }
+
+    /**
+     * Test method for {@link Name}.
+     */
+    @Test
+    public void testToString() {
+        final String string = new Name().toString();
+        assertNotNull(string);
+        this.log.info(string);
     }
 
 }

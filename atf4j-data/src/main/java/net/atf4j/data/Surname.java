@@ -19,10 +19,18 @@ package net.atf4j.data;
 /**
  * Surname.
  *
- * 
+ *
  *
  */
 public class Surname extends Name {
+
+    /**
+     * Instantiates a new surname.
+     */
+    public Surname() {
+        super();
+    }
+
     /**
      * The Constructor.
      *

@@ -115,15 +115,21 @@ abstract public class Datum {
     }
 
     /**
-     * To string.
+     * Debug string.
      *
      * @return the string
+     */
+    public String debugString() {
+        return String.format("Datum [isNew=%s, isDirty=%s, isDeleted=%s, isUsed=%s]", this.isFresh, this.isChanged,
+                this.isDeleted, this.isUsed);
+    }
+
+    /* (non-Javadoc)
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return String.format("Datum [isNew=%s, isDirty=%s, isDeleted=%s, isUsed=%s]", this.isFresh, this.isChanged,
-                this.isDeleted, this.isUsed);
+        return debugString();
     }
 
 }

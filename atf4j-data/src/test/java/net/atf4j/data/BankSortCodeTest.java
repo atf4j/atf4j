@@ -16,7 +16,7 @@
  */
 package net.atf4j.data;
 
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -24,54 +24,77 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for NationalInsurance objects.
+ * A UnitTest for BankSortCode objects.
  */
-public class NationalInsuranceTest extends ResultsReporting {
-
-    private static final String BLANK_NI = "";
+public class BankSortCodeTest extends ResultsReporting {
 
     /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for {@link BankSortCode}.
      */
     @Test
     public void testDefaultConstructor() {
-        new NationalInsurance();
+        new BankSortCode();
     }
 
     /**
-     * test NationalInsurance object.
+     * Test method for {@link BankSortCode}.
      */
     @Test
-    public void testNationalInsurance() {
-        new NationalInsurance();
+    public void testBankSortCodeString() {
+        final String actual = "99:99:99";
+        new BankSortCode(actual);
     }
 
     /**
-     * test NationalInsurance object.
+     * Test method for {@link BankSortCode}.
+     */
+    @Test
+    public void testSetGetBankSortCode() {
+        final String actual = "99:99:99";
+        assertEquals(actual, new BankSortCode().setBankSortCode(actual).getBankSortCode());
+    }
+
+    /**
+     * Test method for {@link BankSortCode}.
      */
     @Test
     public void testVerify() {
-        assertFalse(NationalInsurance.verify(BLANK_NI));
-        assertFalse(NationalInsurance.verify(BLANK_NI));
-        assertFalse(NationalInsurance.verify(BLANK_NI));
+        BankSortCode.verify("00:00:00");
+        BankSortCode.verify("99:99:99");
     }
 
     /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for {@link BankSortCode}.
+     */
+    @Test
+    public void testVerifyNull() {
+        BankSortCode.verify(null);
+    }
+
+    /**
+     * Test method for {@link BankSortCode}.
+     */
+    @Test
+    public void testVerifyEmpty() {
+        BankSortCode.verify("");
+    }
+
+    /**
+     * Test method for {@link BankSortCode}.
      */
     @Test
     public void testDebugString() {
-        final String string = new Customer().debugString();
+        final String string = new BankSortCode().debugString();
         assertNotNull(string);
         this.log.info(string);
     }
 
     /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for {@link BankSortCode}.
      */
     @Test
     public void testToString() {
-        final String string = new Customer().toString();
+        final String string = new BankSortCode().toString();
         assertNotNull(string);
         this.log.info(string);
     }

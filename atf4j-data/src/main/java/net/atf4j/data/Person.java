@@ -59,9 +59,11 @@ public class Person {
      *
      * @param forename
      *            the new forename
+     * @return the person
      */
-    public void setForename(final String forename) {
+    public Person setForename(final String forename) {
         setForename(new Forename(forename));
+        return this;
     }
 
     /**
@@ -69,9 +71,11 @@ public class Person {
      *
      * @param forename
      *            the new forename
+     * @return the person
      */
-    public void setForename(final Forename forename) {
+    public Person setForename(final Forename forename) {
         this.forename = forename;
+        return this;
     }
 
     /**
@@ -79,9 +83,11 @@ public class Person {
      *
      * @param middlename
      *            the new middlename
+     * @return the person
      */
-    public void setMiddlename(final String middlename) {
+    public Person setMiddlename(final String middlename) {
         setMiddlename(new Forename(middlename));
+        return this;
     }
 
     /**
@@ -89,9 +95,11 @@ public class Person {
      *
      * @param middlename
      *            the new middlename
+     * @return the person
      */
-    public void setMiddlename(final Name middlename) {
+    public Person setMiddlename(final Name middlename) {
         this.middlename = middlename;
+        return this;
     }
 
     /**
@@ -99,9 +107,11 @@ public class Person {
      *
      * @param surname
      *            the new surname
+     * @return the person
      */
-    public void setSurname(final String surname) {
+    public Person setSurname(final String surname) {
         setSurname(surname);
+        return this;
     }
 
     /**
@@ -109,9 +119,11 @@ public class Person {
      *
      * @param surname
      *            the new surname
+     * @return the person
      */
-    public void setSurname(final Surname surname) {
+    public Person setSurname(final Surname surname) {
         this.surname = surname;
+        return this;
     }
 
     /**
@@ -235,7 +247,8 @@ public class Person {
     /**
      * Sets the email address.
      *
-     * @param emailAddress the new email address
+     * @param emailAddress
+     *            the new email address
      * @return the person
      */
     public Person setEmailAddress(final String emailAddress) {
@@ -243,15 +256,24 @@ public class Person {
         return this;
     }
 
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
+        return String.format(
+                "Person [title=%s, forename=%s, middlename=%s, surname=%s, dob=%s, postalAddress=%s, emailAddress=%s]",
+                this.title, this.forename, this.middlename, this.surname, this.dob, this.postalAddress,
+                this.emailAddress);
+    }
+
     /* (non-Javadoc)
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return String.format(
-                "Person [title=%s, forename=%s, middlename=%s, surname=%s, dob=%s, postalAddress=%s, emailAddress=%s]",
-                this.title, this.forename, this.middlename, this.surname, this.dob, this.postalAddress,
-                this.emailAddress);
+        return debugString();
     }
 
 }

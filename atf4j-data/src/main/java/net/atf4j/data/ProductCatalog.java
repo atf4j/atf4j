@@ -59,12 +59,21 @@ public class ProductCatalog {
         this.catalog = productList;
     }
 
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
+        return String.format("ProductCatalog [catalog=%s]", this.catalog);
+    }
+
     /* (non-Javadoc)
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return String.format("ProductCatalog [catalog=%s]", this.catalog);
+        return debugString();
     }
 
 }

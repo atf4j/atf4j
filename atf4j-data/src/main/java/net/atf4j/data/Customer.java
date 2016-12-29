@@ -21,16 +21,102 @@ package net.atf4j.data;
  */
 public class Customer {
 
+    protected String title;
     protected Forename forename;
     protected Surname surname;
 
     /**
-     * Instantiates a new consumer.
+     * Instantiates a new Customer.
      */
     public Customer() {
         super();
+        this.title = "";
         this.forename = new Forename(null);
         this.surname = new Surname(null);
+    }
+
+    /**
+     * Instantiates a new customer.
+     *
+     * @param title
+     *            the title
+     * @param forename
+     *            the forename
+     * @param surname
+     *            the surname
+     */
+    public Customer(final String title, final Forename forename, final Surname surname) {
+        super();
+        this.title = title;
+        this.forename = forename;
+        this.surname = surname;
+    }
+
+    /**
+     * Sets the title.
+     *
+     * @param title
+     *            the title
+     * @return the customer
+     */
+    public Customer setTitle(final String title) {
+        this.title = title;
+        return this;
+    }
+
+    /**
+     * Sets the forename.
+     *
+     * @param forename
+     *            the forename
+     * @return the customer
+     */
+    public Customer setForename(final String forename) {
+        return setForename(new Forename(forename));
+    }
+
+    /**
+     * Sets the forename of the Customer.
+     *
+     * @param forename
+     *            the forename
+     * @return the customer
+     */
+    public Customer setForename(final Forename forename) {
+        this.forename = forename;
+        return this;
+    }
+
+    /**
+     * Sets the surname.
+     *
+     * @param surname
+     *            the surname
+     * @return the customer
+     */
+    public Customer setSurname(final String surname) {
+        return setSurname(new Surname(surname));
+    }
+
+    /**
+     * Sets the surname of the Customer.
+     *
+     * @param surname
+     *            the surname
+     * @return the customer
+     */
+    public Customer setSurname(final Surname surname) {
+        this.surname = surname;
+        return this;
+    }
+
+    /**
+     * Gets the title.
+     *
+     * @return the title
+     */
+    public String getTitle() {
+        return this.title;
     }
 
     /**
@@ -43,17 +129,6 @@ public class Customer {
     }
 
     /**
-     * Sets the forename.
-     *
-     * @param forename the forename
-     * @return the customer
-     */
-    public Customer setForename(final Forename forename) {
-        this.forename = forename;
-        return this;
-    }
-
-    /**
      * Gets the surname.
      *
      * @return the surname
@@ -62,23 +137,21 @@ public class Customer {
         return this.surname;
     }
 
-    /**
-     * Sets the surname.
-     *
-     * @param surname the surname
-     * @return the customer
-     */
-    public Customer setSurname(final Surname surname) {
-        this.surname = surname;
-        return this;
-    }
-
     /* (non-Javadoc)
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return String.format("Customer [forename=%s, surname=%s]", this.forename, this.surname);
+        return debugString();
+    }
+
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
+        return String.format("Customer [title=%s, forename=%s, surname=%s]", this.title, this.forename, this.surname);
     }
 
 }

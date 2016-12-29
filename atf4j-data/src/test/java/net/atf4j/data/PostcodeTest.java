@@ -16,7 +16,6 @@
  */
 package net.atf4j.data;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -24,56 +23,60 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for NationalInsurance objects.
+ * A UnitTest for Postcode objects.
  */
-public class NationalInsuranceTest extends ResultsReporting {
-
-    private static final String BLANK_NI = "";
+public class PostcodeTest extends ResultsReporting {
 
     /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for {@link Postcode}.
      */
     @Test
     public void testDefaultConstructor() {
-        new NationalInsurance();
+        new Postcode();
     }
 
     /**
-     * test NationalInsurance object.
+     * Test method for {@link Postcode}.
      */
     @Test
-    public void testNationalInsurance() {
-        new NationalInsurance();
+    public void testPostcode() {
+        new Postcode();
     }
 
     /**
-     * test NationalInsurance object.
+     * Test method for {@link Postcode}.
+     */
+    @Test
+    public void testPostcodeString() {
+        new Postcode();
+    }
+
+    /**
+     * Test method for {@link Postcode}.
      */
     @Test
     public void testVerify() {
-        assertFalse(NationalInsurance.verify(BLANK_NI));
-        assertFalse(NationalInsurance.verify(BLANK_NI));
-        assertFalse(NationalInsurance.verify(BLANK_NI));
+        new Postcode();
     }
 
     /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for {@link Postcode}.
      */
     @Test
     public void testDebugString() {
-        final String string = new Customer().debugString();
-        assertNotNull(string);
-        this.log.info(string);
+        final String postcode = new Postcode().debugString();
+        assertNotNull(postcode);
+        this.log.info(postcode);
     }
 
     /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for {@link Postcode}.
      */
     @Test
     public void testToString() {
-        final String string = new Customer().toString();
-        assertNotNull(string);
-        this.log.info(string);
+        final String postcode = new Postcode().toString();
+        assertNotNull(postcode);
+        this.log.info(postcode);
     }
 
 }

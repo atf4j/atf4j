@@ -16,6 +16,8 @@
  */
 package net.atf4j.data;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
@@ -39,6 +41,26 @@ public class BankTest extends ResultsReporting {
     @Test
     public void testCreate() {
         Bank.create();
+    }
+
+    /**
+     * Test method for {@link Bank}.
+     */
+    @Test
+    public void testDebugString() {
+        final String string = new Bank().debugString();
+        assertNotNull(string);
+        this.log.info(string);
+    }
+
+    /**
+     * Test method for {@link Bank}.
+     */
+    @Test
+    public void testToString() {
+        final String string = new Bank().toString();
+        assertNotNull(string);
+        this.log.info(string);
     }
 
 }

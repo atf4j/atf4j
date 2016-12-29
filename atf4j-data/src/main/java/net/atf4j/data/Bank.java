@@ -35,6 +35,34 @@ public class Bank extends Business {
     }
 
     /**
+     * Instantiates a new bank.
+     */
+    public Bank() {
+        this.bankSortCode = new BankSortCode();
+    }
+
+    /* (non-Javadoc)
+     * @see net.atf4j.data.Business#setName(java.lang.String)
+     */
+    @Override
+    public Bank setName(final String bankName) {
+        super.setName(bankName);
+        return this;
+    }
+
+    /**
+     * Sets the bank sort code.
+     *
+     * @param bankSortCode
+     *            the bankSortCode to set
+     * @return the bank
+     */
+    public Bank setBankSortCode(final BankSortCode bankSortCode) {
+        this.bankSortCode = bankSortCode;
+        return this;
+    }
+
+    /**
      * Gets the bank sort code.
      *
      * @return the bankSortCode
@@ -43,21 +71,19 @@ public class Bank extends Business {
         return this.bankSortCode;
     }
 
-    /**
-     * Sets the bank sort code.
-     *
-     * @param bankSortCode
-     *            the bankSortCode to set
-     */
-    public void setBankSortCode(final BankSortCode bankSortCode) {
-        this.bankSortCode = bankSortCode;
-    }
-
     /* (non-Javadoc)
      * @see net.atf4j.data.Business#toString()
      */
     @Override
     public String toString() {
+        return debugString();
+    }
+
+    /* (non-Javadoc)
+     * @see net.atf4j.data.Business#debugString()
+     */
+    @Override
+    public String debugString() {
         return String.format("Bank [bankSortCode=%s]", this.bankSortCode);
     }
 

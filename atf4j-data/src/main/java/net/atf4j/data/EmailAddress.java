@@ -63,12 +63,20 @@ public class EmailAddress {
         return matcher.find();
     }
 
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
+        return String.format("EmailAddress [email=%s]", this.email);
+    }
+
     /* (non-Javadoc)
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return String.format("EmailAddress [email=%s]", this.email);
+        return debugString();
     }
-
 }
