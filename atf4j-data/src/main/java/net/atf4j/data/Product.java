@@ -118,6 +118,9 @@ public class Product {
         return this.details;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format("Product [id=%s, name=%s, details=%s]", this.id, this.name, this.details);

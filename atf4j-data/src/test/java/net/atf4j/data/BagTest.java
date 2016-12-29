@@ -23,13 +23,22 @@ import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
+/**
+ * A UnitTest for Bag objects.
+ */
 public class BagTest extends ResultsReporting {
 
+    /**
+     * Test method for {@link Bag}.
+     */
     @Test(expected = NullPointerException.class)
     public void testNullBag() {
         new SimpleBag(null);
     }
 
+    /**
+     * Test method for {@link Bag}.
+     */
     @Test
     public void testEmptyBag() {
         final SimpleBag bag = new SimpleBag(new String[0]);
@@ -39,6 +48,9 @@ public class BagTest extends ResultsReporting {
         assertEquals(0, bag.reset().count());
     }
 
+    /**
+     * Test method for {@link Bag}.
+     */
     @Test
     public void testBag() {
         final String[] pets = { "Fish", "Cat", "Dog", "Rabbit", "Bird" };
@@ -48,7 +60,7 @@ public class BagTest extends ResultsReporting {
         assertEquals(0, bag.clear().count());
         assertEquals(5, bag.reset().count());
         while (!bag.isEmpty()) {
-            log.trace(bag.pick());
+            this.log.trace(bag.pick());
         }
         bag.clear().reset();
     }

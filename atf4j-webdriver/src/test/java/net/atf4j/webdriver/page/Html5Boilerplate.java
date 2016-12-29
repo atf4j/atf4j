@@ -30,14 +30,30 @@ import net.atf4j.webdriver.TargetUrl;
 @TargetUrl("http://127.0.0.1:8080/html5boilerplate")
 public class Html5Boilerplate extends AbstractPageObject {
 
+    /**
+     * Instantiates a new html 5 boilerplate.
+     *
+     * @throws ConfigurationNotLoaded the configuration not loaded
+     */
     public Html5Boilerplate() throws ConfigurationNotLoaded {
         super();
     }
 
+    /**
+     * Instantiates a new html 5 boilerplate.
+     *
+     * @param targetUrl the target url
+     * @throws ConfigurationNotLoaded the configuration not loaded
+     */
     public Html5Boilerplate(final String targetUrl) throws ConfigurationNotLoaded {
         super(targetUrl);
     }
 
+    /**
+     * Instantiates a new html 5 boilerplate.
+     *
+     * @param webDriver the web driver
+     */
     public Html5Boilerplate(final WebDriver webDriver) {
         super(webDriver);
     }

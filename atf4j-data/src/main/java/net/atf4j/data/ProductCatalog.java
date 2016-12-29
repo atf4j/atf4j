@@ -59,6 +59,9 @@ public class ProductCatalog {
         this.catalog = productList;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format("ProductCatalog [catalog=%s]", this.catalog);

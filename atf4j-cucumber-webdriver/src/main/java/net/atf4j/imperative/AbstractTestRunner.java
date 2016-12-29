@@ -26,6 +26,9 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
 
+/**
+ * The AbstractTestRunner Class.
+ */
 @RunWith(Cucumber.class)
 @CucumberOptions(
         monochrome = true,
@@ -35,12 +38,18 @@ import cucumber.api.junit.Cucumber;
         tags = { "~@Ignore" })
 public abstract class AbstractTestRunner {
 
+    /**
+     * Before test.
+     */
     @Before
     public void beforeTest() {
         final String targetEnvironment = System.getProperty("targetEnvironment");
         assertNotNull("Expected -DtargetEnvironment to be defined", targetEnvironment);
     }
 
+    /**
+     * After.
+     */
     @After
     public void after() {
     }

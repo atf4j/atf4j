@@ -20,13 +20,22 @@ import org.junit.runner.Description;
 import org.junit.runner.Runner;
 import org.junit.runner.notification.RunNotifier;
 
+/**
+ * The AutomationRunner Class.
+ */
 public class AutomationRunner extends Runner {
 
+    /* (non-Javadoc)
+     * @see org.junit.runner.Runner#getDescription()
+     */
     @Override
     public Description getDescription() {
         return null;
     }
 
+    /* (non-Javadoc)
+     * @see org.junit.runner.Runner#run(org.junit.runner.notification.RunNotifier)
+     */
     @Override
     public void run(final RunNotifier notifier) {
     }

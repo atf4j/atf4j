@@ -33,24 +33,49 @@ public class Customer {
         this.surname = new Surname(null);
     }
 
+    /**
+     * Gets the forename.
+     *
+     * @return the forename
+     */
     public Forename getForename() {
         return this.forename;
     }
 
+    /**
+     * Sets the forename.
+     *
+     * @param forename the forename
+     * @return the customer
+     */
     public Customer setForename(final Forename forename) {
         this.forename = forename;
         return this;
     }
 
+    /**
+     * Gets the surname.
+     *
+     * @return the surname
+     */
     public Surname getSurname() {
         return this.surname;
     }
 
+    /**
+     * Sets the surname.
+     *
+     * @param surname the surname
+     * @return the customer
+     */
     public Customer setSurname(final Surname surname) {
         this.surname = surname;
         return this;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format("Customer [forename=%s, surname=%s]", this.forename, this.surname);

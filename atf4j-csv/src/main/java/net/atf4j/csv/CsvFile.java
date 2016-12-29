@@ -141,6 +141,11 @@ public class CsvFile {
         return this.header;
     }
 
+    /**
+     * Gets the column names.
+     *
+     * @return the column names
+     */
     public String[] getColumnNames() {
         return this.header.getFields();
     }

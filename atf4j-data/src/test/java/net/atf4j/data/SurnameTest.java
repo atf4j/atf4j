@@ -21,6 +21,9 @@ import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
+/**
+ * A UnitTest for Surname objects.
+ */
 public class SurnameTest extends ResultsReporting {
 
     private static final String SURNAME = "Surname";

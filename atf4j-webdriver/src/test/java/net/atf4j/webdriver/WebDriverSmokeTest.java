@@ -22,8 +22,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import net.atf4j.core.ResultsReporting;
 
+/**
+ * A UnitTest for WebDriverSmoke objects.
+ */
 public class WebDriverSmokeTest extends ResultsReporting {
 
+    /**
+     * Test method for {@link WebDriverSmoke}.
+     */
     @Test
     public void testChromeTomcat() {
         System.setProperty("webdriver.chrome.driver", "");
@@ -33,6 +39,9 @@ public class WebDriverSmokeTest extends ResultsReporting {
         this.log.info("pageTitle={}", pageTitle);
     }
 
+    /**
+     * Test method for {@link WebDriverSmoke}.
+     */
     @Test
     public void testFirefoxTomcat() {
         final FirefoxDriver firefoxDriver = new FirefoxDriver();

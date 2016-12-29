@@ -19,6 +19,9 @@ package net.atf4j.webdriver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
+/**
+ * The JavaScriptExecutor Class.
+ */
 public class JavaScriptExecutor {
 
     /**
@@ -31,9 +34,7 @@ public class JavaScriptExecutor {
      * @return the object
      */
     public static Object executeScript(final WebDriver webDriver, final String script) {
-
         return ((JavascriptExecutor) webDriver).executeScript(script);
-
     }
 
 }

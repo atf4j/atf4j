@@ -31,6 +31,9 @@ import net.atf4j.core.ResultsReporting;
  */
 public class DatumTest extends ResultsReporting {
 
+    /**
+     * The MockDatum Class.
+     */
     class MockDatum extends Datum {
     }
 

@@ -30,12 +30,17 @@ import net.atf4j.core.ResultsReporting;
  *
  *
  */
-
 public class AbstractGuiMapTest extends ResultsReporting {
 
+    /**
+     * The LogicalGuiMap Class.
+     */
     public class LogicalGuiMap extends AbstractGuiMap {
     }
 
+    /**
+     * The MissingGuiMap Class.
+     */
     public class MissingGuiMap extends AbstractGuiMap {
     }
 
@@ -63,6 +68,12 @@ public class AbstractGuiMapTest extends ResultsReporting {
         }
     }
 
+    /**
+     * Test method for {@link AbstractGuiMap}.
+     *
+     * @throws Exception
+     *             the exception
+     */
     @Test
     public void testToString() throws Exception {
         final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
@@ -72,6 +83,12 @@ public class AbstractGuiMapTest extends ResultsReporting {
         this.log.info(abstractGuiMap.getLocale().toString());
     }
 
+    /**
+     * Test method for {@link AbstractGuiMap}.
+     *
+     * @throws Exception
+     *             the exception
+     */
     @Test
     public void testKeySet() throws Exception {
         final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
@@ -83,6 +100,12 @@ public class AbstractGuiMapTest extends ResultsReporting {
         }
     }
 
+    /**
+     * Test method for {@link AbstractGuiMap}.
+     *
+     * @throws Exception
+     *             the exception
+     */
     @Test
     public void testName() throws Exception {
         final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();

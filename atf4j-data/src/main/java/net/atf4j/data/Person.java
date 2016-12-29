@@ -235,14 +235,17 @@ public class Person {
     /**
      * Sets the email address.
      *
-     * @param emailAddress
-     *            the new email address
+     * @param emailAddress the new email address
+     * @return the person
      */
     public Person setEmailAddress(final String emailAddress) {
         this.emailAddress = emailAddress;
         return this;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format(

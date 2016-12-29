@@ -63,6 +63,9 @@ public class EmailAddress {
         return matcher.find();
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format("EmailAddress [email=%s]", this.email);

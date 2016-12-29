@@ -53,14 +53,29 @@ public class WebDriverConfig extends AbstractConfig {
         return this.get("targetUrl");
     }
 
+    /**
+     * Selenium url.
+     *
+     * @return the string
+     */
     public String seleniumUrl() {
         return this.get("seleniumUrl");
     }
 
+    /**
+     * Chrome binary driver.
+     *
+     * @return the string
+     */
     public String chromeBinaryDriver() {
         return this.get("chromeBinaryDriver");
     }
 
+    /**
+     * Firefox binary driver.
+     *
+     * @return the string
+     */
     public String firefoxBinaryDriver() {
         return this.get("firefoxBinaryDriver");
     }

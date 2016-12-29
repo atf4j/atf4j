@@ -20,13 +20,22 @@ import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
+/**
+ * A UnitTest for Bank objects.
+ */
 public class BankTest extends ResultsReporting {
 
+    /**
+     * Test method for {@link Bank}.
+     */
     @Test
     public void testDefaultConstructor() {
         new Bank();
     }
 
+    /**
+     * Test method for {@link Bank}.
+     */
     @Test
     public void testCreate() {
         Bank.create();

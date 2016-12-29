@@ -39,5 +39,4 @@ public @interface TestUrl {
      * @return the string
      */
     String value();
-
 }

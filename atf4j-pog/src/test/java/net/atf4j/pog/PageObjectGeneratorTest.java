@@ -38,11 +38,17 @@ import net.atf4j.core.ResultsReporting;
 @Ignore
 public class PageObjectGeneratorTest extends ResultsReporting {
 
+    /**
+     * Test method for {@link PageObjectGenerator}.
+     */
     @Test
     public void testMissingTemplate() {
         new PageObjectGenerator("Missing.vm");
     }
 
+    /**
+     * Test method for {@link PageObjectGenerator}.
+     */
     @Test
     public void testPageObjectGenerator() {
         final PageObjectGenerator pog = new PageObjectGenerator("PageObject.vm");

@@ -53,6 +53,9 @@ public class Bank extends Business {
         this.bankSortCode = bankSortCode;
     }
 
+    /* (non-Javadoc)
+     * @see net.atf4j.data.Business#toString()
+     */
     @Override
     public String toString() {
         return String.format("Bank [bankSortCode=%s]", this.bankSortCode);

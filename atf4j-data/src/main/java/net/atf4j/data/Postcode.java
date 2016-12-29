@@ -65,6 +65,9 @@ public class Postcode {
         return matcher.find();
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format("Postcode [postCode=%s]", this.postCode);

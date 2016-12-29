@@ -145,6 +145,9 @@ public class SimpleBag {
         return !this.bag.isEmpty();
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format("SimpleBag [values=%s]", Arrays.toString(this.values));

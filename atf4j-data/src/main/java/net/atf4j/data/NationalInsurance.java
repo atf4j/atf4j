@@ -84,6 +84,9 @@ public class NationalInsurance {
         return this;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format("NationalInsurance [code=%s]", this.code);

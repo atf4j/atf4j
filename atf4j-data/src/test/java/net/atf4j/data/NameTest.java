@@ -22,24 +22,39 @@ import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
+/**
+ * A UnitTest for Name objects.
+ */
 public class NameTest extends ResultsReporting {
 
+    /**
+     * Test method for {@link Name}.
+     */
     @Test
     public void testName() {
         new Name();
     }
 
+    /**
+     * Test method for {@link Name}.
+     */
     @Test
     public void testToString() {
         new Name().toString();
     }
 
+    /**
+     * Test method for {@link Name}.
+     */
     @Test
     public void testSetGetName() {
         final String name = "Name";
         assertEquals(name, new Name().setName(name).getName());
     }
 
+    /**
+     * Test method for {@link Name}.
+     */
     @Test
     public void testCapitalise() {
         assertEquals("Name", new Name().capitalise("nAME"));

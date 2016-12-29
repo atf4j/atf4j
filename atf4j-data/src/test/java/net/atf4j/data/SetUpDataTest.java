@@ -25,22 +25,34 @@ import net.atf4j.data.management.JmsData;
 import net.atf4j.data.management.RestfulData;
 import net.atf4j.data.management.SetUpData;
 
+/**
+ * A UnitTest for SetUpData objects.
+ */
 public class SetUpDataTest extends ResultsReporting {
 
     protected SetUpData jdbcData = new JdbcData();
     protected SetUpData jmsData = new JmsData();
     protected SetUpData restfulData = new RestfulData();
 
+    /**
+     * Before.
+     */
     @Before
     public void before() {
         assertTrue(this.jdbcData.setUp());
     }
 
+    /**
+     * After.
+     */
     @After
     public void after() {
         assertTrue(this.jdbcData.tearDown());
     }
 
+    /**
+     * Test.
+     */
     @Test
     public void test() {
         assertTrue(this.jdbcData.reset());

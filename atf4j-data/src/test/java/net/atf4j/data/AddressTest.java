@@ -25,22 +25,31 @@ import net.atf4j.core.ResultsReporting;
 /**
  * AddressTest.
  *
- * 
+ *
  *
  */
 public class AddressTest extends ResultsReporting {
 
+    /**
+     * Test method for {@link Address}.
+     */
     @Test
     public void testDefaultConstructor() {
         final PostalAddress address = new PostalAddress();
         assertNotNull(address);
     }
 
+    /**
+     * Test method for {@link Address}.
+     */
     @Test
     public void testAddress() {
         PostalAddress.create();
     }
 
+    /**
+     * Test method for {@link Address}.
+     */
     @Test
     public void testToString() {
         assertNotNull(new PostalAddress().toString());

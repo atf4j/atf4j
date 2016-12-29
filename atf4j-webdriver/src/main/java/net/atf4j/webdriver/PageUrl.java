@@ -25,7 +25,7 @@ import java.lang.annotation.Target;
 /**
  * The PageUrl annotation. Contains the starting URL for a AbstractPage.
  *
- * 
+ *
  * @version $Revision: 0.0.1 $
  */
 @Documented
@@ -38,5 +38,4 @@ public @interface PageUrl {
      * @return the string
      */
     String value();
-
 }

@@ -31,7 +31,7 @@ import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * Generator for Selenium WebDriver PageObject
+ * Generator for Selenium WebDriver PageObject.
  */
 public class PageObjectGenerator extends ResultsReporting {
     protected URL targetUrl;
@@ -68,11 +68,24 @@ public class PageObjectGenerator extends ResultsReporting {
         this.context = new VelocityContext();
     }
 
+    /**
+     * With.
+     *
+     * @param key the key
+     * @param value the value
+     * @return the page object generator
+     */
     public PageObjectGenerator with(final String key, final String value) {
         this.context.put(key, value);
         return this;
     }
 
+    /**
+     * Target.
+     *
+     * @param targetUrl the target url
+     * @return the page object generator
+     */
     public PageObjectGenerator target(final String targetUrl) {
         this.log.info("targetUrl={}", targetUrl);
         try {
@@ -83,10 +96,21 @@ public class PageObjectGenerator extends ResultsReporting {
         return this;
     }
 
+    /**
+     * Target.
+     *
+     * @param url the url
+     * @return the page object generator
+     */
     private PageObjectGenerator target(final URL url) {
         return null;
     }
 
+    /**
+     * Generate.
+     *
+     * @return the page object generator
+     */
     public PageObjectGenerator generate() {
         final StringWriter writer = new StringWriter();
         this.template.merge(this.context, writer);

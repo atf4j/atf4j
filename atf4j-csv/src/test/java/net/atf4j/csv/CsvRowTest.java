@@ -82,6 +82,9 @@ public class CsvRowTest extends ResultsReporting {
         this.log.info("ACTUAL = {}", actual);
     }
 
+    /**
+     * Test method for {@link CsvRow}.
+     */
     @Test
     public void testDebugString() {
         final String actual = new CsvRow(ONE_TWO_THREE_FOUR).debugString();

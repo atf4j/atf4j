@@ -19,34 +19,70 @@ package net.atf4j.imperative;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * A UnitTest for SystemUnder objects.
+ */
 public abstract class SystemUnderTest {
 
     protected static final Logger log = LoggerFactory.getLogger(WebSiteSteps.class);
 
+    /**
+     * Use browser.
+     *
+     * @param browserName the browser name
+     */
     public void useBrowser(final String browserName) {
         log.debug("{}.useBrowser({})", this, browserName);
     }
 
+    /**
+     * Open.
+     *
+     * @param targetUrl the target url
+     */
     public void open(final String targetUrl) {
         log.debug("{}.open({})", this, targetUrl);
     }
 
+    /**
+     * Verify.
+     */
     public void verify() {
         log.debug("{}.verify({})", this);
     }
 
+    /**
+     * Ensure page title is.
+     *
+     * @param expectedPageTitle the expected page title
+     */
     public void ensurePageTitleIs(final String expectedPageTitle) {
         log.debug("{}.ensurePageTitleIs({})", this);
     }
 
+    /**
+     * Page title sould be.
+     *
+     * @param expectedPageTitle the expected page title
+     */
     public void pageTitleSouldBe(final String expectedPageTitle) {
         log.debug("{}.pageTitleSouldBe({})", this);
     }
 
+    /**
+     * Ensure cookie exists.
+     *
+     * @param cookieName the cookie name
+     */
     public void ensureCookieExists(final String cookieName) {
         log.debug("{}.ensureCookieExists({})", this);
     }
 
+    /**
+     * The cookie has value.
+     *
+     * @param cookieName the cookie name
+     */
     public void theCookieHasValue(final String cookieName) {
         log.debug("{}.theCookieHasValue({})", this);
     }

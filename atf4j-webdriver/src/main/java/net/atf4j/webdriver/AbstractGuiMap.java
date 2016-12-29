@@ -68,6 +68,11 @@ public abstract class AbstractGuiMap {
         } while (currentClass != null);
     }
 
+    /**
+     * Gets the base bundle name.
+     *
+     * @return the base bundle name
+     */
     public String getBaseBundleName() {
         return this.resourceBundle.getBaseBundleName();
     }
@@ -82,6 +87,12 @@ public abstract class AbstractGuiMap {
         return this.resourceBundle.getLocale();
     }
 
+    /**
+     * Contains key.
+     *
+     * @param key the key
+     * @return true, if successful
+     */
     public boolean containsKey(final String key) {
         return this.resourceBundle.containsKey(key);
     }
@@ -96,6 +107,11 @@ public abstract class AbstractGuiMap {
         return this.resourceBundle.keySet();
     }
 
+    /**
+     * Gets the keys.
+     *
+     * @return the keys
+     */
     public Enumeration<String> getKeys() {
         return this.resourceBundle.getKeys();
     }

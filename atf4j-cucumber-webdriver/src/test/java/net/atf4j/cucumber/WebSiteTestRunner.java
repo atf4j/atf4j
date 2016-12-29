@@ -18,6 +18,9 @@ package net.atf4j.cucumber;
 
 import net.atf4j.imperative.AbstractTestRunner;
 
+/**
+ * The WebSiteTestRunner Class.
+ */
 public class WebSiteTestRunner extends AbstractTestRunner {
 
 }

@@ -26,7 +26,7 @@ import java.lang.annotation.Target;
  * The TargetUrl annotation for PageObjects. Contains the starting URL for a
  * AbstractTestSuite / AbstractWebDriverScript.
  *
- * 
+ *
  * @version $Revision: 0.0.1 $
  */
 @Documented
@@ -39,5 +39,4 @@ public @interface TargetUrl {
      * @return the string
      */
     String value();
-
 }

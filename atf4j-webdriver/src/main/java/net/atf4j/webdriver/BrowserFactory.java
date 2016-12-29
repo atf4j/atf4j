@@ -28,10 +28,19 @@ import org.slf4j.LoggerFactory;
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 import net.atf4j.core.model.TestContext;
 
+/**
+ * A factory for creating Browser objects.
+ */
 public class BrowserFactory {
+
     private static final Logger log = LoggerFactory.getLogger(BrowserFactory.class);
     private static WebDriverConfig config;
 
+    /**
+     * Web driver.
+     *
+     * @return the web driver
+     */
     public static WebDriver webDriver() {
         log.info("webDriver()");
         try {
@@ -51,6 +60,11 @@ public class BrowserFactory {
         return null;
     }
 
+    /**
+     * Remote web driver.
+     *
+     * @return the web driver
+     */
     public static WebDriver remoteWebDriver() {
         log.info("remoteWebDriver()");
         final String targetBrowser = config.targetBrowser();
@@ -80,6 +94,11 @@ public class BrowserFactory {
         return new RemoteWebDriver(desiredCapabilities);
     }
 
+    /**
+     * Local web driver.
+     *
+     * @return the web driver
+     */
     private static WebDriver localWebDriver() {
         log.info("localWebDriver()");
         WebDriver webDriver = null;

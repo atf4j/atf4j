@@ -115,6 +115,11 @@ public class CsvFileTest extends ResultsReporting {
         verifyContent(csvFile);
     }
 
+    /**
+     * Verify CsvFile object.
+     *
+     * @param csvFile the csv file
+     */
     private void verifyContent(final CsvFile csvFile) {
         assertNotNull(csvFile);
         final HeaderLine header = csvFile.getHeaderLine();
@@ -131,6 +136,11 @@ public class CsvFileTest extends ResultsReporting {
         }
     }
 
+    /**
+     * Test method for {@link CsvFile}.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testScan() throws Exception {
         final CsvFile data = CsvFile.read(TEST_DATA_CSV);
