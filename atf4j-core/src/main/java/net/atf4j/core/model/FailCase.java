@@ -26,6 +26,23 @@ public class FailCase extends FailStep {
 
     /**
      * Instantiates a new fail case.
+     */
+    public FailCase() {
+        super();
+    }
+
+    /**
+     * Instantiates a new fail case.
+     *
+     * @param cause
+     *            the cause
+     */
+    public FailCase(final Throwable cause) {
+        super(cause);
+    }
+
+    /**
+     * Instantiates a new fail case.
      *
      * @param message
      *            the message

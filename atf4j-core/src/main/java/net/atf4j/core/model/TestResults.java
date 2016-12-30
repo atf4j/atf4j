@@ -23,10 +23,17 @@ import net.atf4j.core.TestResult;
 /**
  * TestResults.
  */
-public abstract class TestResults {
+public class TestResults {
 
     /** The test results. */
     Collection<TestResult> testResults;
+
+    /**
+     * Instantiates a new test results.
+     */
+    public TestResults() {
+        super();
+    }
 
     /**
      * Gets the test results.

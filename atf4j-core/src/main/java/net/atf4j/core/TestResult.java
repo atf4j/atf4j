@@ -17,7 +17,7 @@
 package net.atf4j.core;
 
 /**
- * Status of a Test.
+ * Result of a Test.
  */
 public enum TestResult {
     /**
@@ -47,7 +47,8 @@ public enum TestResult {
     /**
      * Constructor for Test Status from string.
      *
-     * @param asText the as text
+     * @param asText
+     *            the as text
      */
     TestResult(final String asText) {
         this.statusDescription = asText;

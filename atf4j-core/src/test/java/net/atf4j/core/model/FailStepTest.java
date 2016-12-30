@@ -14,44 +14,17 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.atf4j.core.waits;
+package net.atf4j.core.model;
+
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
-import net.atf4j.core.model.Condition;
+public class FailStepTest {
 
-/**
- * A UnitTest for Condition objects.
- */
-public class ConditionTest extends ResultsReporting {
-
-    /**
-     * The PassingCondition Class.
-     */
-    public class PassingCondition extends Condition {
-    }
-
-    /**
-     * The FailingCondition Class.
-     */
-    public class FailingCondition extends Condition {
-    }
-
-    /**
-     * Passing condition.
-     */
     @Test
-    public void PassingCondition() {
-        new PassingCondition();
-    }
-
-    /**
-     * Test method for {@link Condition}.
-     */
-    @Test
-    public void testFailingCondition() {
-        new FailingCondition();
+    public void testFailStep() {
+        assertNotNull(new FailStep());
     }
 
 }

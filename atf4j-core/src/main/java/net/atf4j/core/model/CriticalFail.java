@@ -26,6 +26,13 @@ public class CriticalFail extends FailSuite {
 
     /**
      * Instantiates a new critical fail.
+     */
+    public CriticalFail() {
+        super();
+    }
+
+    /**
+     * Instantiates a new critical fail.
      *
      * @param message
      *            the message

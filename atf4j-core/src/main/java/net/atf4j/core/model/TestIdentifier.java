@@ -54,9 +54,9 @@ public class TestIdentifier {
     }
 
     /**
-     * Gets the uuid.
+     * Gets the UUID.
      *
-     * @return the uuid
+     * @return the UUID
      */
     public UUID getUuid() {
         return this.uuid;

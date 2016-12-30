@@ -25,7 +25,7 @@ import java.util.Set;
  */
 public final class MappedTimers {
 
-    /** Singleton INSTANCE of this Class. */
+    /** Single INSTANCE of this Class. */
     private static final MappedTimers INSTANCE = new MappedTimers();
 
     /** The running timers. */
@@ -35,38 +35,24 @@ public final class MappedTimers {
     private final HashMap<String, MilliTimer> stoppedTimers = new HashMap<String, MilliTimer>();
 
     /**
-     * Instantiates a new mapped timers.
+     * Private constructor to prevent wild instantiation.
      */
     private MappedTimers() {
     }
 
     /**
      * getInstance.
-     * 
+     *
      * @return TimerStack
      */
     public static MappedTimers getInstance() {
         return MappedTimers.INSTANCE;
     }
 
-    /**
-     * getInstance.
-     * 
-     * @param timerName
-     *            as String.
-     * @return TimerStack
-     */
     public static ITimer start(final String timerName) {
         return getInstance().startTimer(timerName);
     }
 
-    /**
-     * start a new Timer.
-     * 
-     * @param timerName
-     *            as String.
-     * @return Timer.
-     */
     public ITimer startTimer(final String timerName) {
         final MilliTimer timer = new MilliTimer(timerName);
         this.runningTimers.put(timerName, timer);
@@ -74,9 +60,13 @@ public final class MappedTimers {
         return timer;
     }
 
+    public static ITimer stop(final String timerName) {
+        return getInstance().stopTimer(timerName);
+    }
+
     /**
      * stop the top Timer.
-     * 
+     *
      * @param timerName
      *            as String.
      * @return Timer.
@@ -105,15 +95,13 @@ public final class MappedTimers {
         }
     }
 
-    /**
-     * To string.
-     * 
-     * @return the string
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
+    public String debugString() {
         return String.format("%s [runningTimers=%s,stoppedTimers=%s]", this.getClass().getSimpleName(),
                 this.runningTimers, this.stoppedTimers);
+    }
+
+    @Override
+    public String toString() {
+        return debugString();
     }
 }

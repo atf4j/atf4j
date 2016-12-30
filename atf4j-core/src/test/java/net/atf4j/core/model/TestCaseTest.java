@@ -17,6 +17,7 @@
 package net.atf4j.core.model;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
@@ -31,7 +32,7 @@ public class TestCaseTest extends ResultsReporting {
     /**
      * The TestCaseReport Class.
      */
-    public class TestCaseReport implements TestReport {
+    public class MockTestReport implements TestReport {
     }
 
     /**
@@ -39,7 +40,7 @@ public class TestCaseTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        new TestCase();
+        assertNotNull(new TestCase());
     }
 
     /**
@@ -50,7 +51,7 @@ public class TestCaseTest extends ResultsReporting {
      */
     @Test
     public void testRegisterLogging() throws Atf4jException {
-        new TestCase().registerLogging(new TestCaseReport());
+        assertNotNull(new TestCase().registerLogging(new MockTestReport()));
     }
 
     /**
@@ -62,7 +63,9 @@ public class TestCaseTest extends ResultsReporting {
     @Test
     public void testExecuteTestContext() throws Atf4jException {
         final TestContext context = new TestContext();
-        new TestCase().execute(context);
+        assertNotNull(context);
+        final TestCase testCase = new TestCase();
+        assertNotNull(testCase.execute(context));
     }
 
     /**
@@ -78,11 +81,16 @@ public class TestCaseTest extends ResultsReporting {
      */
     @Test
     public void testAddTestStep() {
-        final TestStep newTestStep = new TestStep();
+        final TestStep testStep = new TestStep();
+        assertNotNull(testStep);
+
         final TestCase testCase = new TestCase();
-        final TestCase addTestStep = testCase.addTestStep(newTestStep);
-        final int numberOfTestSteps = addTestStep.numberOfTestSteps();
-        assertEquals(1, numberOfTestSteps);
+        assertNotNull(testCase);
+
+        final TestCase addTestStep = testCase.addTestStep(testStep);
+        assertNotNull(testStep);
+
+        assertEquals(1, addTestStep.numberOfTestSteps());
     }
 
 }

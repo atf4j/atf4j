@@ -16,43 +16,33 @@
  */
 package net.atf4j.core.model;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
+
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
-
 /**
- * A UnitTest for AbstractTestResult objects.
+ * A UnitTest for CriticalFail objects.
  */
-public class AbstractTestResultTest extends ResultsReporting {
+public class CriticalFailTest {
 
     /**
-     * The TestResult Class.
+     * Test method for {@link CriticalFail}.
      */
-    public class TestResult extends AbstractTestResult {
+    @Test
+    public void testCriticalFail() {
+        final CriticalFail criticalFail = new CriticalFail();
+        assertNotNull(criticalFail);
     }
 
     /**
-     * Test method for {@link AbstractTestResult}.
+     * Test method for {@link CriticalFail}.
      */
     @Test
-    public void testDefaultConstructor() {
-        new TestResult();
-    }
-
-    /**
-     * Test method for {@link AbstractTestResult}.
-     */
-    @Test
-    public void testFrom() {
-        new TestResult().from(new TestResult());
-    }
-
-    /**
-     * Test method for {@link AbstractTestResult}.
-     */
-    @Test
-    public void testToString() {
-        new TestResult().toString();
+    public void testCriticalFailNull() {
+        final CriticalFail criticalFail = new CriticalFail(null);
+        assertNotNull(criticalFail);
+        fail("Not yet implemented");
     }
 
 }

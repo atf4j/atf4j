@@ -14,11 +14,12 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.atf4j.core;
+package net.atf4j.core.timers;
 
 import org.junit.Assert;
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
 import net.atf4j.core.timers.Interval;
 
 /**

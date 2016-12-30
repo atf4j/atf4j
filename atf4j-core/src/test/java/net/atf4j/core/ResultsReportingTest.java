@@ -16,6 +16,8 @@
  */
 package net.atf4j.core;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 /**
@@ -27,24 +29,7 @@ public class ResultsReportingTest extends ResultsReporting {
      * Test method for {@link ResultsReporting}.
      */
     @Test
-    public void testVerifyEqualLong() {
-        final long expected = Long.MAX_VALUE;
-        super.verify(expected, expected);
-    }
-
-    /**
-     * Test method for {@link ResultsReporting}.
-     */
-    @Test(expected = AssertionError.class)
-    public void testVerifyLongLong() {
-        super.verify(Long.MIN_VALUE, Long.MAX_VALUE);
-    }
-
-    /**
-     * Test method for {@link ResultsReporting}.
-     */
-    @Test
-    public void testVerifyEqual() {
+    public void testVerifyEqualObjects() {
         final Object expected = new Object();
         super.verify(expected, expected);
     }
@@ -52,15 +37,47 @@ public class ResultsReportingTest extends ResultsReporting {
     /**
      * Test method for {@link ResultsReporting}.
      */
-    @Test(expected = AssertionError.class)
-    public void testVerifyNotEqual() {
-        super.verify(new Object(), new Object());
+    @Test
+    public void testVerifyNotEqualObjects() {
+        try {
+            super.verify(new Object(), new Object());
+        } catch (final AssertionError assertionError) {
+            final String actualMessage = assertionError.toString();
+            final String expected = "";
+            assertEquals(actualMessage, expected, actualMessage);
+            this.log.info(actualMessage);
+        }
+    }
+
+    /**
+     * Test method for {@link ResultsReporting}.
+     */
+    @Test
+    public void testVerifyEqualLongs() {
+        final long expected = Long.MAX_VALUE;
+        super.verify(expected, expected);
+    }
+
+    /**
+     * Test method for {@link ResultsReporting}.
+     */
+    @Test
+    public void testVerifyNotEqualsLong() {
+        try {
+            super.verify(Long.MIN_VALUE, Long.MAX_VALUE);
+        } catch (final AssertionError assertionError) {
+            final String actualMessage = assertionError.toString();
+            final String expected = "";
+            assertEquals(actualMessage, expected, actualMessage);
+            this.log.info(actualMessage);
+        }
     }
 
     /**
      * Test method for {@link ResultsReporting}.
      *
-     * @throws ClassNotFoundException the class not found exception
+     * @throws ClassNotFoundException
+     *             the class not found exception
      */
     @Test
     public void testToDescription() throws ClassNotFoundException {

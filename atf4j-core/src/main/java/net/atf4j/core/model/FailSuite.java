@@ -26,6 +26,13 @@ public class FailSuite extends FailCase {
 
     /**
      * Instantiates a new fail suite.
+     */
+    public FailSuite() {
+        super();
+    }
+
+    /**
+     * Instantiates a new fail suite.
      *
      * @param message
      *            the message

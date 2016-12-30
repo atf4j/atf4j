@@ -22,7 +22,6 @@ import net.atf4j.core.ToStringBuilder;
 
 /**
  * A simple named Timer.
- *
  */
 public class MilliTimer implements ITimer {
 
