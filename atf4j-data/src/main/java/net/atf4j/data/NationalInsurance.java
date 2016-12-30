@@ -33,6 +33,10 @@ public class NationalInsurance {
     /** The code. */
     private String code;
 
+    public static NationalInsurance create() {
+        return new NationalInsurance();
+    }
+
     /**
      * Instantiates a new national insurance number.
      */

@@ -28,6 +28,14 @@ public class ProductCatalog {
     /** The catalog. */
     private Collection<Product> catalog;
 
+    public static ProductCatalog create() {
+        return new ProductCatalog();
+    }
+
+    public ProductCatalog() {
+        super();
+    }
+
     /**
      * add a Product to catalog.
      *

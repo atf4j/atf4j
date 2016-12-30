@@ -25,14 +25,18 @@ public class Customer {
     protected Forename forename;
     protected Surname surname;
 
+    public static Customer create() {
+        return new Customer();
+    }
+
     /**
      * Instantiates a new Customer.
      */
     public Customer() {
         super();
         this.title = "";
-        this.forename = new Forename(null);
-        this.surname = new Surname(null);
+        this.forename = new Forename("");
+        this.surname = new Surname("");
     }
 
     /**
@@ -124,8 +128,8 @@ public class Customer {
      *
      * @return the forename
      */
-    public Forename getForename() {
-        return this.forename;
+    public String getForename() {
+        return this.forename.toString();
     }
 
     /**
@@ -133,8 +137,8 @@ public class Customer {
      *
      * @return the surname
      */
-    public Surname getSurname() {
-        return this.surname;
+    public String getSurname() {
+        return this.surname.toString();
     }
 
     /* (non-Javadoc)

@@ -16,6 +16,7 @@
  */
 package net.atf4j.data;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -33,7 +34,12 @@ public class CardTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        new Card();
+        assertNotNull(new Card());
+    }
+
+    @Test
+    public void testCreate() {
+        assertNotNull(Card.create());
     }
 
     /**
@@ -46,8 +52,9 @@ public class CardTest extends ResultsReporting {
     public void testVerify() throws Exception {
         final Card card = new Card();
         assertNotNull(card);
-        final boolean verify = card.verify("1234");
-        assertTrue(verify);
+        assertFalse(card.lunnCheck("1234 5678 9999 0000"));
+        assertTrue(card.lunnCheck("4111 1111 1111 1111"));
+        assertTrue(card.lunnCheck("5555 5555 5555 4444"));
     }
 
     /**

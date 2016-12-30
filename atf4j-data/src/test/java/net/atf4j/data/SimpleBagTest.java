@@ -26,14 +26,14 @@ import net.atf4j.core.ResultsReporting;
 /**
  * A UnitTest for Bag objects.
  */
-public class BagTest extends ResultsReporting {
+public class SimpleBagTest extends ResultsReporting {
 
     /**
      * Test method for {@link Bag}.
      */
-    @Test(expected = NullPointerException.class)
+    @Test
     public void testNullBag() {
-        new SimpleBag(null);
+        assertNotNull(new SimpleBag(null));
     }
 
     /**
@@ -60,7 +60,7 @@ public class BagTest extends ResultsReporting {
         assertEquals(0, bag.clear().count());
         assertEquals(5, bag.reset().count());
         while (!bag.isEmpty()) {
-            this.log.trace(bag.pick());
+            this.log.info(bag.pick());
         }
         bag.clear().reset();
     }

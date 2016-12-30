@@ -27,6 +27,10 @@ public class Product {
     private String name;
     private String details;
 
+    public static PostalAddress create() {
+        return new PostalAddress();
+    }
+
     /**
      * Instantiates a new product.
      */

@@ -26,28 +26,10 @@ public class Bank extends Business {
     private BankSortCode bankSortCode;
 
     /**
-     * Bank object factory method.
-     *
-     * @return initialised instance of Bank
-     */
-    public static Bank create() {
-        return new Bank();
-    }
-
-    /**
      * Instantiates a new bank.
      */
     public Bank() {
         this.bankSortCode = new BankSortCode();
-    }
-
-    /* (non-Javadoc)
-     * @see net.atf4j.data.Business#setName(java.lang.String)
-     */
-    @Override
-    public Bank setName(final String bankName) {
-        super.setName(bankName);
-        return this;
     }
 
     /**

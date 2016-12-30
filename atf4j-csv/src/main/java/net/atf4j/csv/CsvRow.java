@@ -24,7 +24,7 @@ import java.util.Arrays;
 public class CsvRow {
 
     /** The fields. */
-    private String[] fields;
+    private String[] fields = new String[0];
 
     /**
      * Instantiates a new CSV row.

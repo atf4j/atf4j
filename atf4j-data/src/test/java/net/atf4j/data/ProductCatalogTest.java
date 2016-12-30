@@ -32,7 +32,7 @@ public class ProductCatalogTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        new Customer();
+        assertNotNull(new ProductCatalog());
     }
 
     /**
@@ -40,7 +40,8 @@ public class ProductCatalogTest extends ResultsReporting {
      */
     @Test
     public void testProductCatalog() {
-        new ProductCatalog();
+        final ProductCatalog productCatalog = new ProductCatalog();
+        assertNotNull(productCatalog);
     }
 
     /**

@@ -31,6 +31,10 @@ public class Person {
     private PostalAddress postalAddress;
     private String emailAddress;
 
+    public static NationalInsurance create() {
+        return new NationalInsurance();
+    }
+
     /**
      * Instantiates a new person.
      */
@@ -62,8 +66,7 @@ public class Person {
      * @return the person
      */
     public Person setForename(final String forename) {
-        setForename(new Forename(forename));
-        return this;
+        return setForename(new Forename(forename));
     }
 
     /**
@@ -86,8 +89,7 @@ public class Person {
      * @return the person
      */
     public Person setMiddlename(final String middlename) {
-        setMiddlename(new Forename(middlename));
-        return this;
+        return setMiddlename(new Forename(middlename));
     }
 
     /**
@@ -110,8 +112,7 @@ public class Person {
      * @return the person
      */
     public Person setSurname(final String surname) {
-        setSurname(surname);
-        return this;
+        return setSurname(new Surname(surname));
     }
 
     /**
@@ -131,8 +132,8 @@ public class Person {
      *
      * @return the forename
      */
-    public Forename getForename() {
-        return this.forename;
+    public String getForename() {
+        return this.forename.toString();
     }
 
     /**
@@ -140,8 +141,8 @@ public class Person {
      *
      * @return the middlename
      */
-    public Name getMiddlename() {
-        return this.middlename;
+    public String getMiddlename() {
+        return this.middlename.toString();
     }
 
     /**
@@ -149,8 +150,8 @@ public class Person {
      *
      * @return the surname
      */
-    public Surname getSurname() {
-        return this.surname;
+    public String getSurname() {
+        return this.surname.toString();
     }
 
     /**

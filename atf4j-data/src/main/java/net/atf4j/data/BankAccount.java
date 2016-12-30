@@ -16,16 +16,22 @@
  */
 package net.atf4j.data;
 
-import java.math.BigDecimal;
-
 /**
  * Bank Account Data.
  */
 public class BankAccount {
 
     private Bank bank;
-    private BankSortCode sortcode;
-    private BigDecimal accountNo;
+    private String accountNo;
+
+    /**
+     * Creates the bank.
+     *
+     * @return the bank account
+     */
+    public static BankAccount create() {
+        return new BankAccount();
+    }
 
     /**
      * Instantiates a new bank account.
@@ -40,29 +46,9 @@ public class BankAccount {
      * @param accountNo
      *            the account no
      */
-    public BankAccount(final BigDecimal accountNo) {
+    public BankAccount(final String accountNo) {
         super();
         this.accountNo = accountNo;
-    }
-
-    /**
-     * Creates the bank.
-     *
-     * @return the bank account
-     */
-    public static BankAccount create() {
-        return new BankAccount();
-    }
-
-    /**
-     * Sets the bank.
-     *
-     * @param bank
-     *            the bank
-     * @return the bank account
-     */
-    public BankAccount setBank(final String bank) {
-        return setBank(new Bank().setName(bank));
     }
 
     /**
@@ -78,25 +64,13 @@ public class BankAccount {
     }
 
     /**
-     * Sets the sortcode.
-     *
-     * @param sortcode
-     *            the sortcode
-     * @return the bank account
-     */
-    public BankAccount setSortcode(final BankSortCode sortcode) {
-        this.sortcode = sortcode;
-        return this;
-    }
-
-    /**
      * Sets the account no.
      *
      * @param accountNo
      *            the account no
      * @return the bank account
      */
-    public BankAccount setAccountNo(final BigDecimal accountNo) {
+    public BankAccount setAccountNo(final String accountNo) {
         this.accountNo = accountNo;
         return this;
     }
@@ -111,20 +85,11 @@ public class BankAccount {
     }
 
     /**
-     * Gets the sortcode.
-     *
-     * @return the sortcode
-     */
-    public BankSortCode getSortcode() {
-        return this.sortcode;
-    }
-
-    /**
      * Gets the account no.
      *
      * @return the account no
      */
-    public BigDecimal getAccountNo() {
+    public String getAccountNo() {
         return this.accountNo;
     }
 
@@ -142,8 +107,7 @@ public class BankAccount {
      * @return the string
      */
     public String debugString() {
-        return String.format("BankAccount [accountNo=%s, bank=%s, sortcode=%s]", this.accountNo, this.bank,
-                this.sortcode);
+        return String.format("BankAccount [accountNo=%s, bank=%s]", this.accountNo, this.bank);
     }
 
 }

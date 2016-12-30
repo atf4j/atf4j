@@ -37,7 +37,7 @@ public class ForenameTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        new Customer();
+        assertNotNull(new Forename());
     }
 
     /**
@@ -48,12 +48,17 @@ public class ForenameTest extends ResultsReporting {
         Assert.assertEquals(FORENAME, new Forename(FORENAME).getName());
     }
 
+    @Test
+    public void testCreate() {
+        assertNotNull(Forename.create());
+    }
+
     /**
      * Test method for {@link Forename}.
      */
     @Test
     public void testDebugString() {
-        final String string = new Customer().debugString();
+        final String string = new Forename().debugString();
         assertNotNull(string);
         this.log.info(string);
     }
@@ -63,7 +68,7 @@ public class ForenameTest extends ResultsReporting {
      */
     @Test
     public void testToString() {
-        final String string = new Customer().toString();
+        final String string = new Forename().toString();
         assertNotNull(string);
         this.log.info(string);
     }

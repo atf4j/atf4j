@@ -27,20 +27,14 @@ import net.atf4j.core.ResultsReporting;
  */
 public class EmailAddressTest extends ResultsReporting {
 
-    /**
-     * Test method for {@link EmailAddress}.
-     */
-    @Test
-    public void testDefaultConstructor() {
-        new EmailAddress();
-    }
+    private static final String NAME_EXAMPLE_COM = "name@example.com";
 
     /**
      * Test method for {@link EmailAddress}.
      */
     @Test
-    public void testEmailAddress() {
-        new EmailAddress();
+    public void testDefaultConstructor() {
+        assertNotNull(new EmailAddress());
     }
 
     /**
@@ -48,7 +42,12 @@ public class EmailAddressTest extends ResultsReporting {
      */
     @Test
     public void testEmailAddressString() {
-        new EmailAddress();
+        new EmailAddress(NAME_EXAMPLE_COM);
+    }
+
+    @Test
+    public void testCreate() {
+        assertNotNull(EmailAddress.create());
     }
 
     /**
@@ -56,7 +55,7 @@ public class EmailAddressTest extends ResultsReporting {
      */
     @Test
     public void testVerify() {
-        new EmailAddress();
+        new EmailAddress(NAME_EXAMPLE_COM);
     }
 
     /**
@@ -64,7 +63,7 @@ public class EmailAddressTest extends ResultsReporting {
      */
     @Test
     public void testDebugString() {
-        final String string = new Customer().debugString();
+        final String string = new EmailAddress().debugString();
         assertNotNull(string);
         this.log.info(string);
     }
@@ -74,7 +73,7 @@ public class EmailAddressTest extends ResultsReporting {
      */
     @Test
     public void testToString() {
-        final String string = new Customer().toString();
+        final String string = new EmailAddress().toString();
         assertNotNull(string);
         this.log.info(string);
     }

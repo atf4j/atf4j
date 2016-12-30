@@ -33,7 +33,7 @@ public class BankSortCodeTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        new BankSortCode();
+        assertNotNull(new BankSortCode());
     }
 
     /**
@@ -42,7 +42,12 @@ public class BankSortCodeTest extends ResultsReporting {
     @Test
     public void testBankSortCodeString() {
         final String actual = "99:99:99";
-        new BankSortCode(actual);
+        assertNotNull(new BankSortCode(actual));
+    }
+
+    @Test
+    public void testCreate() {
+        assertNotNull(BankSortCode.create());
     }
 
     /**

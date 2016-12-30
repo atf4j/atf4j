@@ -16,6 +16,11 @@
  */
 package net.atf4j.data;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import java.util.Date;
+
 import org.junit.Test;
 
 /**
@@ -28,7 +33,7 @@ public class PersonTest {
      */
     @Test
     public void testPerson() {
-        new Person();
+        assertNotNull(new Person());
     }
 
     /**
@@ -36,7 +41,13 @@ public class PersonTest {
      */
     @Test
     public void testPersonStringStringString() {
-        new Person();
+        final Person person = new Person("Forname", "MiddleName", "Surname");
+        assertNotNull(person);
+    }
+
+    @Test
+    public void testCreate() {
+        assertNotNull(Person.create());
     }
 
     /**
@@ -44,7 +55,8 @@ public class PersonTest {
      */
     @Test
     public void testSetGetTitle() {
-        new Person();
+        final String actual = "";
+        assertEquals(actual, new Person().setTitle(actual).getTitle());
     }
 
     /**
@@ -52,7 +64,8 @@ public class PersonTest {
      */
     @Test
     public void testSetGetForenameString() {
-        new Person();
+        final String actual = "Forename";
+        assertEquals(actual, new Person().setForename(actual).getForename());
     }
 
     /**
@@ -60,7 +73,8 @@ public class PersonTest {
      */
     @Test
     public void testSetGetMiddlenameString() {
-        new Person();
+        final String actual = "Middlename";
+        assertEquals(actual, new Person().setMiddlename(actual).getMiddlename());
     }
 
     /**
@@ -68,7 +82,8 @@ public class PersonTest {
      */
     @Test
     public void testSetGetSurnameString() {
-        new Person();
+        final String actual = "Surname";
+        assertEquals(actual, new Person().setSurname(actual).getSurname());
     }
 
     /**
@@ -76,7 +91,8 @@ public class PersonTest {
      */
     @Test
     public void testSetGetDob() {
-        new Person();
+        final Date actual = new Date();
+        assertEquals(actual, new Person().setDob(actual).getDob());
     }
 
     /**
@@ -84,7 +100,8 @@ public class PersonTest {
      */
     @Test
     public void testSetGetPostalAddress() {
-        new Person();
+        final PostalAddress actual = null;
+        assertEquals(actual, new Person().setPostalAddress(actual).getPostalAddress());
     }
 
     /**
@@ -92,7 +109,8 @@ public class PersonTest {
      */
     @Test
     public void testSetGetEmailAddress() {
-        new Person();
+        final String actual = "";
+        assertEquals(actual, new Person().setEmailAddress(actual).getEmailAddress());
     }
 
     /**
@@ -100,7 +118,7 @@ public class PersonTest {
      */
     @Test
     public void testToString() {
-        new Person();
+        new Person().toString();
     }
 
     /**
@@ -108,7 +126,7 @@ public class PersonTest {
      */
     @Test
     public void testDebugString() {
-        new Person();
+        new Person().debugString();
     }
 
 }

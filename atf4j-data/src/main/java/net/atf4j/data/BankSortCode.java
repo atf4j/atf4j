@@ -32,6 +32,10 @@ public class BankSortCode {
     /** The bank sort code. */
     private String bankSortCode;
 
+    public static BankSortCode create() {
+        return new BankSortCode();
+    }
+
     /**
      * Instantiates a new bank sort code.
      */

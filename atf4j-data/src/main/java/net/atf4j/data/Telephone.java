@@ -28,6 +28,10 @@ public class Telephone {
     // Area Code
     // Number
 
+    public static Telephone create() {
+        return new Telephone();
+    }
+
     /**
      * Instantiates a new telephone number.
      */
@@ -65,6 +69,27 @@ public class Telephone {
      */
     public String getNumber() {
         return this.number;
+    }
+
+    /**
+     * Gets the type.
+     *
+     * @return the type
+     */
+    public String getType() {
+        return this.type;
+    }
+
+    /**
+     * Sets the type.
+     *
+     * @param type
+     *            the type
+     * @return the telephone
+     */
+    public Telephone setType(final String type) {
+        this.type = type;
+        return this;
     }
 
     /**

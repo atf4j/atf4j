@@ -35,7 +35,7 @@ public class NationalInsuranceTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        new NationalInsurance();
+        assertNotNull(new NationalInsurance());
     }
 
     /**
@@ -43,7 +43,12 @@ public class NationalInsuranceTest extends ResultsReporting {
      */
     @Test
     public void testNationalInsurance() {
-        new NationalInsurance();
+        assertNotNull(new NationalInsurance());
+    }
+
+    @Test
+    public void testCreate() {
+        assertNotNull(NationalInsurance.create());
     }
 
     /**
@@ -61,7 +66,7 @@ public class NationalInsuranceTest extends ResultsReporting {
      */
     @Test
     public void testDebugString() {
-        final String string = new Customer().debugString();
+        final String string = new NationalInsurance().debugString();
         assertNotNull(string);
         this.log.info(string);
     }
@@ -71,7 +76,7 @@ public class NationalInsuranceTest extends ResultsReporting {
      */
     @Test
     public void testToString() {
-        final String string = new Customer().toString();
+        final String string = new NationalInsurance().toString();
         assertNotNull(string);
         this.log.info(string);
     }

@@ -33,7 +33,17 @@ public class NameTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        new Name();
+        assertNotNull(new Name());
+    }
+
+    @Test
+    public void testName() {
+        assertNotNull(new Name(""));
+    }
+
+    @Test
+    public void testCreate() {
+        assertNotNull(Name.create());
     }
 
     /**
@@ -41,8 +51,9 @@ public class NameTest extends ResultsReporting {
      */
     @Test
     public void testSetGetName() {
-        final String name = "Name";
-        assertEquals(name, new Name().setName(name).getName());
+        final String value = "Name";
+        final Name name = new Name();
+        assertEquals(value, name.setName(value).getName());
     }
 
     /**

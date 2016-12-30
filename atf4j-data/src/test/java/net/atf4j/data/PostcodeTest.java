@@ -32,7 +32,7 @@ public class PostcodeTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        new Postcode();
+        assertNotNull(new Postcode());
     }
 
     /**
@@ -40,7 +40,7 @@ public class PostcodeTest extends ResultsReporting {
      */
     @Test
     public void testPostcode() {
-        new Postcode();
+        assertNotNull(new Postcode());
     }
 
     /**
@@ -48,7 +48,7 @@ public class PostcodeTest extends ResultsReporting {
      */
     @Test
     public void testPostcodeString() {
-        new Postcode();
+        assertNotNull(new Postcode());
     }
 
     /**
@@ -56,7 +56,8 @@ public class PostcodeTest extends ResultsReporting {
      */
     @Test
     public void testVerify() {
-        new Postcode();
+        final Postcode postcode = new Postcode();
+        assertNotNull(postcode);
     }
 
     /**

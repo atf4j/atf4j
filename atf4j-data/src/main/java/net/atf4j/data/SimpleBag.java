@@ -40,6 +40,7 @@ public class SimpleBag {
      */
     public SimpleBag() {
         super();
+        fill(new String[0]);
     }
 
     /**
@@ -49,7 +50,7 @@ public class SimpleBag {
      *            the values
      */
     public SimpleBag(final String[] values) {
-        fill(values);
+        fill(values == null ? new String[0] : values);
     }
 
     /**

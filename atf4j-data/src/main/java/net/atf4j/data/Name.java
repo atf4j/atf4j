@@ -41,6 +41,10 @@ public class Name extends Datum {
         setName(name);
     }
 
+    public static Name create() {
+        return new Name();
+    }
+
     /**
      * Sets the name.
      *
@@ -69,7 +73,7 @@ public class Name extends Datum {
      *            as String.
      * @return string input as capitalised String.
      */
-    protected String capitalise(final String input) {
+    public static String capitalise(final String input) {
         if (input.length() > 0) {
             final StringBuffer buffer = new StringBuffer(input.trim().toLowerCase());
             buffer.setCharAt(0, Character.toUpperCase(input.charAt(0)));
@@ -92,7 +96,7 @@ public class Name extends Datum {
      */
     @Override
     public String toString() {
-        return this.name;
+        return capitalise(this.name);
     }
 
 }

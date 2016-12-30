@@ -35,6 +35,10 @@ public class Postcode {
     /** The post code. */
     private String postCode;
 
+    public static PostalAddress create() {
+        return new PostalAddress();
+    }
+
     /**
      * Instantiates a new postcode.
      */
@@ -51,6 +55,27 @@ public class Postcode {
     public Postcode(final String postCode) {
         super();
         this.postCode = postCode;
+    }
+
+    /**
+     * Gets the post code.
+     *
+     * @return the post code
+     */
+    public String getPostCode() {
+        return this.postCode;
+    }
+
+    /**
+     * Sets the post code.
+     *
+     * @param postCode
+     *            the post code
+     * @return the postcode
+     */
+    public Postcode setPostCode(final String postCode) {
+        this.postCode = postCode;
+        return this;
     }
 
     /**

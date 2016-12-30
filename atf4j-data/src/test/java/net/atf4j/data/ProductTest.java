@@ -32,7 +32,7 @@ public class ProductTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        new Product();
+        assertNotNull(new Product());
     }
 
     /**
@@ -40,7 +40,7 @@ public class ProductTest extends ResultsReporting {
      */
     @Test
     public void testProduct() {
-        new Product();
+        assertNotNull(new Product());
     }
 
     /**
@@ -80,7 +80,7 @@ public class ProductTest extends ResultsReporting {
      */
     @Test
     public void testDebugString() {
-        final String string = new Customer().debugString();
+        final String string = new Product().debugString();
         assertNotNull(string);
         this.log.info(string);
     }
@@ -90,7 +90,7 @@ public class ProductTest extends ResultsReporting {
      */
     @Test
     public void testToString() {
-        final String string = new Customer().toString();
+        final String string = new Product().toString();
         assertNotNull(string);
         this.log.info(string);
     }

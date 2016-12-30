@@ -35,7 +35,7 @@ public class TelephoneTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        new Customer();
+        assertNotNull(new Telephone());
     }
 
     /**
@@ -72,7 +72,7 @@ public class TelephoneTest extends ResultsReporting {
      */
     @Test
     public void testDebugString() {
-        final String string = new Customer().debugString();
+        final String string = new Telephone().debugString();
         assertNotNull(string);
         this.log.info(string);
     }
@@ -82,7 +82,7 @@ public class TelephoneTest extends ResultsReporting {
      */
     @Test
     public void testToString() {
-        final String string = new Customer().toString();
+        final String string = new Telephone().toString();
         assertNotNull(string);
         this.log.info(string);
     }

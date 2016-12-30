@@ -33,6 +33,10 @@ public class EmailAddress {
     /** The email. */
     private String email;
 
+    public static Customer create() {
+        return new Customer();
+    }
+
     /**
      * Instantiates a new email address.
      */
@@ -49,6 +53,27 @@ public class EmailAddress {
     public EmailAddress(final String email) {
         super();
         this.email = email;
+    }
+
+    /**
+     * Gets the email.
+     *
+     * @return the email
+     */
+    public String getEmail() {
+        return this.email;
+    }
+
+    /**
+     * Sets the email.
+     *
+     * @param email
+     *            the email
+     * @return the email address
+     */
+    public EmailAddress setEmail(final String email) {
+        this.email = email;
+        return this;
     }
 
     /**

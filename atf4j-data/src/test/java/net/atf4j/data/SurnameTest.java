@@ -35,7 +35,7 @@ public class SurnameTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        new Customer();
+        assertNotNull(new Surname());
     }
 
     /**
@@ -51,7 +51,7 @@ public class SurnameTest extends ResultsReporting {
      */
     @Test
     public void testDebugString() {
-        final String string = new Customer().debugString();
+        final String string = new Surname().debugString();
         assertNotNull(string);
         this.log.info(string);
     }
@@ -61,7 +61,7 @@ public class SurnameTest extends ResultsReporting {
      */
     @Test
     public void testToString() {
-        final String string = new Customer().toString();
+        final String string = new Surname().toString();
         assertNotNull(string);
         this.log.info(string);
     }

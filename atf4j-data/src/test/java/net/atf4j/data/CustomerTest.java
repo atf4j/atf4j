@@ -16,6 +16,7 @@
  */
 package net.atf4j.data;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -32,7 +33,12 @@ public class CustomerTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        new Customer();
+        assertNotNull(new Customer());
+    }
+
+    @Test
+    public void testCreate() {
+        assertNotNull(Customer.create());
     }
 
     /**
@@ -40,8 +46,8 @@ public class CustomerTest extends ResultsReporting {
      */
     @Test
     public void testSetGetTitle() {
-        final String title = "";
-        new Customer().setTitle(title).getTitle();
+        final String title = "Title";
+        assertEquals(title, new Customer().setTitle(title).getTitle());
     }
 
     /**
@@ -49,8 +55,8 @@ public class CustomerTest extends ResultsReporting {
      */
     @Test
     public void testSetGetForename() {
-        final String forename = "";
-        new Customer().setForename(forename).getForename();
+        final String forename = "Forename";
+        assertEquals(forename, new Customer().setForename(forename).getForename());
     }
 
     /**
@@ -58,8 +64,8 @@ public class CustomerTest extends ResultsReporting {
      */
     @Test
     public void testSetGetSurname() {
-        final String surname = "";
-        new Customer().setSurname(surname).getSurname();
+        final String surname = "Surname";
+        assertEquals(surname, new Customer().setSurname(surname).getSurname());
     }
 
     /**

@@ -29,7 +29,11 @@ public class Card {
     String cardName;
     Date endDate;
     Date startDate;
+
     // Card CVV
+    public static BankSortCode create() {
+        return new BankSortCode();
+    }
 
     /**
      * Instantiates a new card.
@@ -39,14 +43,149 @@ public class Card {
     }
 
     /**
-     * Verify.
+     * Instantiates a new card.
      *
-     * @param string
-     *            the string
-     * @return true, if successful
+     * @param provider
+     *            the provider
+     * @param cardNumber
+     *            the card number
+     * @param cardName
+     *            the card name
+     * @param endDate
+     *            the end date
+     * @param startDate
+     *            the start date
      */
-    public boolean verify(final String string) {
-        return false;
+    public Card(final String provider, final String cardNumber, final String cardName, final Date endDate,
+            final Date startDate) {
+        super();
+        this.provider = provider;
+        this.cardNumber = cardNumber;
+        this.cardName = cardName;
+        this.endDate = endDate;
+        this.startDate = startDate;
+    }
+
+    /**
+     * Gets the provider.
+     *
+     * @return the provider
+     */
+    public String getProvider() {
+        return this.provider;
+    }
+
+    /**
+     * Sets the provider.
+     *
+     * @param provider
+     *            the provider
+     * @return the card
+     */
+    public Card setProvider(final String provider) {
+        this.provider = provider;
+        return this;
+    }
+
+    /**
+     * Gets the card number.
+     *
+     * @return the card number
+     */
+    public String getCardNumber() {
+        return this.cardNumber;
+    }
+
+    /**
+     * Sets the card number.
+     *
+     * @param cardNumber
+     *            the card number
+     * @return the card
+     */
+    public Card setCardNumber(final String cardNumber) {
+        this.cardNumber = cardNumber;
+        return this;
+    }
+
+    /**
+     * Gets the card name.
+     *
+     * @return the card name
+     */
+    public String getCardName() {
+        return this.cardName;
+    }
+
+    /**
+     * Sets the card name.
+     *
+     * @param cardName
+     *            the card name
+     * @return the card
+     */
+    public Card setCardName(final String cardName) {
+        this.cardName = cardName;
+        return this;
+    }
+
+    /**
+     * Gets the end date.
+     *
+     * @return the end date
+     */
+    public Date getEndDate() {
+        return this.endDate;
+    }
+
+    /**
+     * Sets the end date.
+     *
+     * @param endDate
+     *            the end date
+     * @return the card
+     */
+    public Card setEndDate(final Date endDate) {
+        this.endDate = endDate;
+        return this;
+    }
+
+    /**
+     * Gets the start date.
+     *
+     * @return the start date
+     */
+    public Date getStartDate() {
+        return this.startDate;
+    }
+
+    /**
+     * Sets the start date.
+     *
+     * @param startDate
+     *            the start date
+     * @return the card
+     */
+    public Card setStartDate(final Date startDate) {
+        this.startDate = startDate;
+        return this;
+    }
+
+    public static boolean lunnCheck(final String ccNumber) {
+        int sum = 0;
+        boolean alternate = false;
+        for (int i = ccNumber.length() - 1; i >= 0; i--) {
+            int n = Integer.parseInt(ccNumber.substring(i, i + 1));
+            if (alternate) {
+                n *= 2;
+                if (n > 9) {
+                    n = (n % 10) + 1;
+                }
+            }
+            sum += n;
+            alternate = !alternate;
+        }
+        return (sum % 10 == 0);
     }
 
     /**
@@ -56,7 +195,7 @@ public class Card {
      *            the candidate
      * @return true, if successful
      */
-    public boolean verifyAmex(final String candidate) {
+    public static boolean verifyAmex(final String candidate) {
         final Pattern pattern = Pattern.compile("^(?<amex>3[47][0-9]{13})$");
         final Matcher matcher = pattern.matcher(candidate.replaceAll("-", ""));
         return matcher.matches();
@@ -69,7 +208,7 @@ public class Card {
      *            the candidate
      * @return true, if successful
      */
-    public boolean verifyVisa(final String candidate) {
+    public static boolean verifyVisa(final String candidate) {
         final Pattern pattern = Pattern.compile("^(?<visa>4[0-9]{12}(?:[0-9]{3})?)$");
         final Matcher matcher = pattern.matcher(candidate.replaceAll("-", ""));
         return matcher.matches();
@@ -82,7 +221,7 @@ public class Card {
      *            the candidate
      * @return true, if successful
      */
-    public boolean verifyMasterCard(final String candidate) {
+    public static boolean verifyMasterCard(final String candidate) {
         final Pattern pattern = Pattern.compile("^(?<mastercard>5[1-5][0-9]{14})$");
         final Matcher matcher = pattern.matcher(candidate.replaceAll("-", ""));
         return matcher.matches();

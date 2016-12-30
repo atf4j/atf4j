@@ -32,15 +32,21 @@ public class BusinessTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        new Business();
+        assertNotNull(new Business());
     }
 
     /**
      * Test method for {@link Business}.
      */
     @Test
+    public void testBusiness() {
+        assertNotNull(new Business("NewName"));
+    }
+
+    @Test
     public void testBusinessName() {
-        new Business(new Name("NewName"));
+        final Name name = new Name("NewName");
+        assertNotNull(new Business(name));
     }
 
     /**
@@ -48,7 +54,14 @@ public class BusinessTest extends ResultsReporting {
      */
     @Test
     public void testBusinessString() {
-        new Business("NewName");
+        final String string = "NewName";
+        final Business business = new Business(string);
+        assertNotNull(business);
+    }
+
+    @Test
+    public void testCreate() {
+        assertNotNull(Business.create());
     }
 
     /**
@@ -56,7 +69,8 @@ public class BusinessTest extends ResultsReporting {
      */
     @Test
     public void testSetName() {
-        new Business();
+        final Business business = new Business();
+        assertNotNull(business);
     }
 
     /**
@@ -64,7 +78,7 @@ public class BusinessTest extends ResultsReporting {
      */
     @Test
     public void testDebugString() {
-        final String string = new Customer().debugString();
+        final String string = new Business().debugString();
         assertNotNull(string);
         this.log.info(string);
     }
@@ -74,7 +88,7 @@ public class BusinessTest extends ResultsReporting {
      */
     @Test
     public void testToString() {
-        final String string = new Customer().toString();
+        final String string = new Business().toString();
         assertNotNull(string);
         this.log.info(string);
     }

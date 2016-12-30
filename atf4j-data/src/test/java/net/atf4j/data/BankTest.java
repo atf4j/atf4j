@@ -32,7 +32,7 @@ public class BankTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        new Bank();
+        assertNotNull(new Bank());
     }
 
     /**
@@ -40,7 +40,7 @@ public class BankTest extends ResultsReporting {
      */
     @Test
     public void testCreate() {
-        Bank.create();
+        assertNotNull(Bank.create());
     }
 
     /**

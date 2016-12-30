@@ -16,6 +16,7 @@
  */
 package net.atf4j.data;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -32,7 +33,8 @@ public class BankAccountTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        new BankAccount();
+        final BankAccount bankAccount = new BankAccount();
+        assertNotNull(bankAccount);
     }
 
     /**
@@ -40,15 +42,8 @@ public class BankAccountTest extends ResultsReporting {
      */
     @Test
     public void testBankAccount() {
-        new BankAccount();
-    }
-
-    /**
-     * Test method for {@link BankAccount}.
-     */
-    @Test
-    public void testBankAccountBigDecimal() {
-        new BankAccount();
+        final BankAccount bankAccount = new BankAccount("");
+        assertNotNull(bankAccount);
     }
 
     /**
@@ -56,55 +51,32 @@ public class BankAccountTest extends ResultsReporting {
      */
     @Test
     public void testCreate() {
-        new BankAccount();
+        final BankAccount bankAccount = BankAccount.create();
+        assertNotNull(bankAccount);
     }
 
     /**
      * Test method for {@link BankAccount}.
      */
     @Test
-    public void testGetAccountNo() {
-        new BankAccount();
+    public void testSetGetAccountNo() {
+        final BankAccount bankAccount = new BankAccount();
+        assertNotNull(bankAccount);
+        final String accountNo = "00001234";
+        assertNotNull(bankAccount.setAccountNo(accountNo));
+        assertEquals(accountNo, bankAccount.getAccountNo());
     }
 
     /**
      * Test method for {@link BankAccount}.
      */
     @Test
-    public void testSetAccountNo() {
-        new BankAccount();
-    }
-
-    /**
-     * Test method for {@link BankAccount}.
-     */
-    @Test
-    public void testGetBank() {
-        new BankAccount();
-    }
-
-    /**
-     * Test method for {@link BankAccount}.
-     */
-    @Test
-    public void testSetBank() {
-        new BankAccount();
-    }
-
-    /**
-     * Test method for {@link BankAccount}.
-     */
-    @Test
-    public void testGetSortcode() {
-        new BankAccount();
-    }
-
-    /**
-     * Test method for {@link BankAccount}.
-     */
-    @Test
-    public void testSetSortcode() {
-        new BankAccount();
+    public void testSetGetBank() {
+        final Bank bank = new Bank();
+        assertNotNull(bank);
+        final BankAccount bankAccount = new BankAccount();
+        assertNotNull(bankAccount.setBank(bank));
+        assertEquals(bank, bankAccount.getBank());
     }
 
     /**

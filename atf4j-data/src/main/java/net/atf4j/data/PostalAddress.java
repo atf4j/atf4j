@@ -23,8 +23,12 @@ import java.util.Arrays;
  */
 public class PostalAddress {
 
-    private String[] addressLines;
+    private String[] addressLines = new String[0];
     private Postcode postcode;
+
+    public static PostalAddress create() {
+        return new PostalAddress();
+    }
 
     /**
      * Instantiates a new address.
@@ -45,15 +49,6 @@ public class PostalAddress {
         super();
         setAddress(address);
         setPostcode(postcode);
-    }
-
-    /**
-     * Creates the.
-     *
-     * @return the postal address
-     */
-    public static PostalAddress create() {
-        return new PostalAddress();
     }
 
     /**
