@@ -52,9 +52,9 @@ public class CardTest extends ResultsReporting {
     public void testVerify() throws Exception {
         final Card card = new Card();
         assertNotNull(card);
-        assertFalse(card.lunnCheck("1234 5678 9999 0000"));
-        assertTrue(card.lunnCheck("4111 1111 1111 1111"));
-        assertTrue(card.lunnCheck("5555 5555 5555 4444"));
+        assertFalse(Card.lunnCheck("1234 5678 9999 0000"));
+        assertTrue(Card.lunnCheck("4111 1111 1111 1111"));
+        assertTrue(Card.lunnCheck("5555 5555 5555 4444"));
     }
 
     /**

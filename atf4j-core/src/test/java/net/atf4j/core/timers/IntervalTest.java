@@ -20,7 +20,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
-import net.atf4j.core.timers.Interval;
 
 /**
  * IntervalTester Class.

@@ -118,7 +118,8 @@ public class CsvFileTest extends ResultsReporting {
     /**
      * Verify CsvFile object.
      *
-     * @param csvFile the csv file
+     * @param csvFile
+     *            the csv file
      */
     private void verifyContent(final CsvFile csvFile) {
         assertNotNull(csvFile);
@@ -139,7 +140,8 @@ public class CsvFileTest extends ResultsReporting {
     /**
      * Test method for {@link CsvFile}.
      *
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     @Test
     public void testScan() throws Exception {

@@ -20,7 +20,7 @@ package net.atf4j.bdd;
  *
  * Given.
  *
- *  
+ * 
  */
 public class Given extends PreCondition {
 

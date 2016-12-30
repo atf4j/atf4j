@@ -61,7 +61,8 @@ public class NameTest extends ResultsReporting {
      */
     @Test
     public void testCapitalise() {
-        assertEquals("Name", new Name().capitalise("nAME"));
+        new Name();
+        assertEquals("Name", Name.capitalise("nAME"));
     }
 
     /**

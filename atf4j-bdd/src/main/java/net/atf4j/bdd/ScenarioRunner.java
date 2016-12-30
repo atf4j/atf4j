@@ -43,7 +43,8 @@ public class ScenarioRunner {
     /**
      * Instantiates a new scenario runner.
      *
-     * @param targetScenario the target scenario
+     * @param targetScenario
+     *            the target scenario
      */
     public ScenarioRunner(final LoggedScenario targetScenario) {
         super();
@@ -53,7 +54,8 @@ public class ScenarioRunner {
     /**
      * Execute.
      *
-     * @param scenario the scenario
+     * @param scenario
+     *            the scenario
      * @return the scenario runner
      */
     public ScenarioRunner execute(final LoggedScenario scenario) {
@@ -84,7 +86,8 @@ public class ScenarioRunner {
     /**
      * Execute given.
      *
-     * @param scenario the scenario
+     * @param scenario
+     *            the scenario
      * @return the scenario runner
      */
     private ScenarioRunner executeGiven(final LoggedScenario scenario) {
@@ -114,7 +117,8 @@ public class ScenarioRunner {
     /**
      * Execute when.
      *
-     * @param scenario the scenario
+     * @param scenario
+     *            the scenario
      * @return the scenario runner
      */
     private ScenarioRunner executeWhen(final LoggedScenario scenario) {
@@ -144,7 +148,8 @@ public class ScenarioRunner {
     /**
      * Execute then.
      *
-     * @param scenario the scenario
+     * @param scenario
+     *            the scenario
      * @return the scenario runner
      */
     private ScenarioRunner executeThen(final LoggedScenario scenario) {

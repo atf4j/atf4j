@@ -35,7 +35,7 @@ public @interface When {
 
     /**
      * Value.
-     * 
+     *
      * @return value as String
      */
     String value();

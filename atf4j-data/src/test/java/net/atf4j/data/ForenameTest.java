@@ -50,7 +50,7 @@ public class ForenameTest extends ResultsReporting {
 
     @Test
     public void testCreate() {
-        assertNotNull(Forename.create());
+        assertNotNull(Name.create());
     }
 
     /**

@@ -73,7 +73,8 @@ public class ConfigFromSystemTests extends ResultsReporting {
     /**
      * Test default constructor.
      *
-     * @throws ConfigurationNotLoaded the configuration not loaded
+     * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
      */
     @Test
     public void testDefaultConstructor() throws ConfigurationNotLoaded {

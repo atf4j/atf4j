@@ -21,7 +21,7 @@ import net.atf4j.data.Person;
 /**
  * PersonFactory, a data factory to create data.
  *
- * 
+ *
  */
 public class PersonDataFactory extends AbstractDataFactory {
 

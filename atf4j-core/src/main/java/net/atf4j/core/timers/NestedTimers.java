@@ -42,7 +42,7 @@ public final class NestedTimers {
 
     /**
      * getInstance.
-     * 
+     *
      * @return NestedTimers
      */
     public static NestedTimers getInstance() {
@@ -51,7 +51,7 @@ public final class NestedTimers {
 
     /**
      * getInstance.
-     * 
+     *
      * @param timerName
      *            the timer name
      * @return NestedTimers
@@ -62,7 +62,7 @@ public final class NestedTimers {
 
     /**
      * start a new Timer.
-     * 
+     *
      * @param timerName
      *            as String.
      * @return Timer.
@@ -76,7 +76,7 @@ public final class NestedTimers {
 
     /**
      * stop the top timer.
-     * 
+     *
      * @return NestedTimers
      */
     public static ITimer stop() {
@@ -85,7 +85,7 @@ public final class NestedTimers {
 
     /**
      * stop the top Timer.
-     * 
+     *
      * @return Timer.
      */
     public ITimer stopTimer() {
@@ -97,7 +97,7 @@ public final class NestedTimers {
 
     /**
      * stopAll.
-     * 
+     *
      * @return NestedTimers
      */
     public static NestedTimers stopAll() {
@@ -106,7 +106,7 @@ public final class NestedTimers {
 
     /**
      * stopAll timers.
-     * 
+     *
      * @return NestedTimers
      */
     public NestedTimers stopAllTimers() {
@@ -118,7 +118,7 @@ public final class NestedTimers {
 
     /**
      * Running timers.
-     * 
+     *
      * @return the enumeration
      * @see java.util.Vector#elements()
      */
@@ -128,7 +128,7 @@ public final class NestedTimers {
 
     /**
      * Stopped timers.
-     * 
+     *
      * @return the enumeration
      * @see java.util.Vector#elements()
      */
@@ -138,7 +138,7 @@ public final class NestedTimers {
 
     /**
      * runningTimersAsString.
-     * 
+     *
      * @return the string
      */
     public String runningTimersAsString() {
@@ -152,7 +152,7 @@ public final class NestedTimers {
 
     /**
      * stoppedTimersAsString.
-     * 
+     *
      * @return the string
      */
     public String stoppedTimersAsString() {
@@ -166,7 +166,7 @@ public final class NestedTimers {
 
     /**
      * To string.
-     * 
+     *
      * @return the string
      * @see java.lang.Object#toString()
      */

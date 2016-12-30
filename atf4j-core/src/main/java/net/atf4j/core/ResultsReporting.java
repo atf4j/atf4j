@@ -60,7 +60,7 @@ public abstract class ResultsReporting {
      * @return the string
      */
     protected String verifyEquals(final long expected, final long actual) {
-        final boolean result = (actual == expected);
+        final boolean result = actual == expected;
         final String message = String.format("actual(%s) == expected(%s) - %s", expected, actual,
                 result ? "PASSED" : "FAILED");
         this.log.info(message);

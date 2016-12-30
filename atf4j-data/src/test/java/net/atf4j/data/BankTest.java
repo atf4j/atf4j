@@ -40,7 +40,7 @@ public class BankTest extends ResultsReporting {
      */
     @Test
     public void testCreate() {
-        assertNotNull(Bank.create());
+        assertNotNull(Business.create());
     }
 
     /**
