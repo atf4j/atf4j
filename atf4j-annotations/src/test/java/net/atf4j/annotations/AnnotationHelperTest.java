@@ -43,7 +43,6 @@ public class AnnotationHelperTest {
     @Atf4j.TestName(TEST_PASS_NAME)
     @Atf4j.TestDescription(GIVEN_WHEN_THEN)
     public final void testAnnotationsWithPass() {
-        this.log.trace("{}.testAnnotationsWithPass", this.getClass().getSimpleName());
         assertEquals(TEST_PASS_ID, AnnotationHelper.getTestId());
         assertEquals(TEST_PASS_NAME, AnnotationHelper.getTestName());
         assertEquals(GIVEN_WHEN_THEN, AnnotationHelper.getTestDescription());
@@ -58,7 +57,6 @@ public class AnnotationHelperTest {
     @Atf4j.TestName(TEST_FAIL_NAME)
     @Atf4j.TestDescription(GIVEN_WHEN_THEN)
     public final void testAnnotationsWithFail() {
-        this.log.trace("{}.testAnnotationsWithFail", this.getClass().getSimpleName());
         try {
             fail("Force a failure.");
         } finally {
@@ -73,7 +71,8 @@ public class AnnotationHelperTest {
      */
     @Test
     public final void testMissingTestIdAnnotation() {
-        assertEquals("Expected @Atf4j.TestId annotation not found.", AnnotationHelper.getTestId());
+        final String actualTestId = AnnotationHelper.getTestId();
+        assertEquals("Expected @Atf4j.TestId annotation not found.", actualTestId);
     }
 
     /**
@@ -81,7 +80,8 @@ public class AnnotationHelperTest {
      */
     @Test
     public final void testMissingTestNameAnnotation() {
-        assertEquals("Expected @Atf4j.TestName annotation not found.", AnnotationHelper.getTestName());
+        final String actualTestName = AnnotationHelper.getTestName();
+        assertEquals("Expected @Atf4j.TestName annotation not found.", actualTestName);
     }
 
     /**
@@ -89,7 +89,8 @@ public class AnnotationHelperTest {
      */
     @Test
     public final void testMissingTestDescriptionAnnotation() {
-        assertEquals("Expected @Atf4j.TestDescription annotation not found.", AnnotationHelper.getTestDescription());
+        String actualTestDescription = AnnotationHelper.getTestDescription();
+        assertEquals("Expected @Atf4j.TestDescription annotation not found.", actualTestDescription);
     }
 
 }

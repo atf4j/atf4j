@@ -52,4 +52,5 @@ public abstract class AnnotatedTest {
     public String testDescription() {
         return AnnotationHelper.getTestDescription();
     }
+
 }

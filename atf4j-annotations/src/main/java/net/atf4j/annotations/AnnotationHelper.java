@@ -47,7 +47,8 @@ public class AnnotationHelper {
             return EXPECTED_TEST_ID;
         } else {
             final Atf4j.TestId atf4jTestId = testMethod.getAnnotation(Atf4j.TestId.class);
-            return atf4jTestId.value() == null ? EXPECTED_TEST_ID : atf4jTestId.value();
+            final String resultString = atf4jTestId.value() == null ? EXPECTED_TEST_ID : atf4jTestId.value();
+            return resultString;
         }
     }
 
@@ -64,7 +65,8 @@ public class AnnotationHelper {
             return EXPECTED_TEST_NAME;
         } else {
             final Atf4j.TestName atf4jTestName = testMethod.getAnnotation(Atf4j.TestName.class);
-            return atf4jTestName.value() == null ? EXPECTED_TEST_NAME : atf4jTestName.value();
+            final String resultString = atf4jTestName.value() == null ? EXPECTED_TEST_NAME : atf4jTestName.value();
+            return resultString;
         }
     }
 
@@ -81,7 +83,9 @@ public class AnnotationHelper {
             return EXPECTED_TEST_DESCRIPTION;
         } else {
             final Atf4j.TestDescription atf4jTestDescription = testMethod.getAnnotation(Atf4j.TestDescription.class);
-            return atf4jTestDescription.value() == null ? EXPECTED_TEST_DESCRIPTION : atf4jTestDescription.value();
+            final String resultString = atf4jTestDescription.value() == null ? EXPECTED_TEST_DESCRIPTION
+                    : atf4jTestDescription.value();
+            return resultString;
         }
     }
 
