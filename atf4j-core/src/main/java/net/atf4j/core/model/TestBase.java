@@ -18,6 +18,7 @@ package net.atf4j.core.model;
 
 import static org.junit.Assume.assumeTrue;
 
+import java.util.ArrayDeque;
 import java.util.Collection;
 
 import net.atf4j.core.Atf4jException;
@@ -38,8 +39,8 @@ public abstract class TestBase extends ResultsReporting {
     private String taxonomy;
     private String description;
     private String timestamp; // ISO date.
-    private Collection<Condition> preConditions;
-    private Collection<Condition> postConditions;
+    private Collection<Condition> preConditions = new ArrayDeque<Condition>();
+    private Collection<Condition> postConditions = new ArrayDeque<Condition>();
 
     /**
      * Instantiates a new test base.
@@ -334,15 +335,16 @@ public abstract class TestBase extends ResultsReporting {
         return this;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
+    public String debugString() {
         return String.format(
                 "TestBase [testStatus=%s, uniqueIdentifier=%s, testContext=%s, tester=%s, name=%s, taxonomy=%s, description=%s, timestamp=%s, preConditions=%s, postConditions=%s]",
                 this.testStatus, this.uniqueIdentifier, this.testContext, this.tester, this.name, this.taxonomy,
                 this.description, this.timestamp, this.preConditions, this.postConditions);
+    }
+
+    @Override
+    public String toString() {
+        return debugString();
     }
 
 }

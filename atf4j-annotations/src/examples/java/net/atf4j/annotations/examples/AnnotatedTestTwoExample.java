@@ -16,15 +16,12 @@
  */
 package net.atf4j.annotations.examples;
 
-import static net.atf4j.annotations.AnnotationHelper.getTestDescription;
-import static net.atf4j.annotations.AnnotationHelper.getTestId;
-import static net.atf4j.annotations.AnnotationHelper.getTestName;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import net.atf4j.annotations.AnnotatedTest;
+import net.atf4j.annotations.AnnotationHelper;
 import net.atf4j.annotations.Atf4j;
 
 /**
@@ -32,9 +29,7 @@ import net.atf4j.annotations.Atf4j;
  * accessed directly with the functions getTestId(); getTestName();
  * getTestDescription();
  */
-public class AnnotatedExampleThreeTest {
-
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+public class AnnotatedTestTwoExample extends AnnotatedTest {
 
     /**
      * Annotated Test example two.
@@ -43,14 +38,14 @@ public class AnnotatedExampleThreeTest {
      *             the exception
      */
     @Test
-    @Atf4j.TestId("EXAMPLE-0003")
-    @Atf4j.TestName("testExampleThree")
-    @Atf4j.TestDescription("Example showing annotations with static import")
+    @Atf4j.TestId("EXAMPLE-0002")
+    @Atf4j.TestName("testEample")
+    @Atf4j.TestDescription("Example showing annotations with inherited context")
     public final void testExample() throws Exception {
-        this.log.trace(this.getClass().getSimpleName() + ".testAnnotationsWithPass");
-        this.log.info("Test ID : = {} ", getTestId());
-        this.log.info("Test Name : = {} ", getTestName());
-        this.log.info("Test Description : = {} ", getTestDescription());
+        log.trace("{}.testExample", this.getClass().getSimpleName());
+        log.info("Test ID : = {} ", AnnotationHelper.getTestId());
+        log.info("Test Name : = {} ", AnnotationHelper.getTestName());
+        log.info("Test Description : = {} ", AnnotationHelper.getTestDescription());
         assertTrue(true);
     }
 

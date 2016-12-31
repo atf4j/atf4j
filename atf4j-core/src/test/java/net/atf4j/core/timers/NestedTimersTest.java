@@ -17,7 +17,6 @@
 package net.atf4j.core.timers;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
@@ -34,78 +33,79 @@ public class NestedTimersTest extends ResultsReporting {
     @Test
     public void testStart() {
         final NestedTimers instance = NestedTimers.getInstance();
-        assertNotNull(instance);
-        fail("Not yet implemented");
+        assertNotNull(instance.start());
+    }
+
+    @Test
+    public void testStartName() {
+        final NestedTimers instance = NestedTimers.getInstance();
+        assertNotNull(instance.start("start"));
     }
 
     @Test
     public void testStartTimer() {
         final NestedTimers instance = NestedTimers.getInstance();
-        assertNotNull(instance);
-        fail("Not yet implemented");
+        assertNotNull(instance.startTimer());
+    }
+
+    @Test
+    public void testStartTimerName() {
+        final NestedTimers instance = NestedTimers.getInstance();
+        assertNotNull(instance.startTimer("startTimer"));
     }
 
     @Test
     public void testStop() {
         final NestedTimers instance = NestedTimers.getInstance();
-        assertNotNull(instance);
-        fail("Not yet implemented");
+        assertNotNull(instance.stop());
     }
 
     @Test
     public void testStopTimer() {
         final NestedTimers instance = NestedTimers.getInstance();
-        assertNotNull(instance);
-        fail("Not yet implemented");
+        assertNotNull(instance.stopTimer());
     }
 
     @Test
     public void testStopAll() {
         final NestedTimers instance = NestedTimers.getInstance();
-        assertNotNull(instance);
-        fail("Not yet implemented");
+        assertNotNull(instance.stopAll());
     }
 
     @Test
     public void testStopAllTimers() {
         final NestedTimers instance = NestedTimers.getInstance();
-        assertNotNull(instance);
-        fail("Not yet implemented");
+        assertNotNull(instance.stopAllTimers());
     }
 
     @Test
     public void testRunningTimers() {
         final NestedTimers instance = NestedTimers.getInstance();
-        assertNotNull(instance);
-        fail("Not yet implemented");
+        assertNotNull(instance.runningTimers());
     }
 
     @Test
     public void testStoppedTimers() {
         final NestedTimers instance = NestedTimers.getInstance();
-        assertNotNull(instance);
-        fail("Not yet implemented");
+        assertNotNull(instance.stoppedTimers());
     }
 
     @Test
     public void testRunningTimersAsString() {
         final NestedTimers instance = NestedTimers.getInstance();
-        assertNotNull(instance);
-        fail("Not yet implemented");
+        assertNotNull(instance.runningTimersAsString());
     }
 
     @Test
     public void testStoppedTimersAsString() {
         final NestedTimers instance = NestedTimers.getInstance();
-        assertNotNull(instance);
-        fail("Not yet implemented");
+        assertNotNull(instance.stoppedTimersAsString());
     }
 
     @Test
     public void testToString() {
         final NestedTimers instance = NestedTimers.getInstance();
-        assertNotNull(instance);
-        fail("Not yet implemented");
+        assertNotNull(instance.toString());
     }
 
 }

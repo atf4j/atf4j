@@ -36,6 +36,12 @@ public class TestCaseTest extends ResultsReporting {
     }
 
     /**
+     * The PassingCondition Class.
+     */
+    public class PassingCondition extends Condition {
+    }
+
+    /**
      * Test method for {@link TestCase}.
      */
     @Test
@@ -73,7 +79,8 @@ public class TestCaseTest extends ResultsReporting {
      */
     @Test
     public void testNumberOfTestSteps() {
-        assertEquals(0, new TestCase().numberOfTestSteps());
+        final TestCase testCase = new TestCase();
+        assertEquals(0, testCase.numberOfTestSteps());
     }
 
     /**
@@ -91,6 +98,18 @@ public class TestCaseTest extends ResultsReporting {
         assertNotNull(testStep);
 
         assertEquals(1, addTestStep.numberOfTestSteps());
+    }
+
+    @Test
+    public void testPreCondition() {
+        final TestCase testCase = new TestCase();
+        testCase.addPreCondition(new PassingCondition());
+    }
+
+    @Test
+    public void testPostCondition() {
+        final TestCase testCase = new TestCase();
+        testCase.addPostCondition(new PassingCondition());
     }
 
 }

@@ -42,11 +42,10 @@ public abstract class ResultsReporting {
     protected String verify(final Object expected, final Object actual) {
         assertNotNull("Expected Value cannot be null", expected);
         assertNotNull("Actual Value cannot be null", actual);
-        final boolean result = actual.equals(actual);
-        final String message = String.format("actual(%s) == expected(%s) - %s", expected, actual,
-                result ? "PASSED" : "FAILED");
-        this.log.info(message);
-        assertEquals(expected, actual);
+        final boolean result = actual.equals(expected);
+        final String resultString = result ? "PASSED" : "FAILED";
+        final String message = String.format("actual(%s) == expected(%s) - %s", actual, expected, resultString);
+        assertEquals(message, expected, actual);
         return message;
     }
 
@@ -61,10 +60,9 @@ public abstract class ResultsReporting {
      */
     protected String verifyEquals(final long expected, final long actual) {
         final boolean result = actual == expected;
-        final String message = String.format("actual(%s) == expected(%s) - %s", expected, actual,
-                result ? "PASSED" : "FAILED");
-        this.log.info(message);
-        assertEquals(expected, actual);
+        final String resultString = result ? "PASSED" : "FAILED";
+        final String message = String.format("actual(%s) == expected(%s) - %s", actual, expected, resultString);
+        assertEquals(message, expected, actual);
         return message;
     }
 
@@ -75,7 +73,7 @@ public abstract class ResultsReporting {
      * @throws ClassNotFoundException
      *             the class not found exception
      */
-    protected String toDescription() throws ClassNotFoundException {
+    protected String toDescription() {
         final StringBuffer message = new StringBuffer();
         final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         for (final StackTraceElement stackTraceElement : stackTrace) {

@@ -17,18 +17,37 @@
 package net.atf4j.core.model;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
 import net.atf4j.core.Atf4jException;
+import net.atf4j.core.ResultsReporting;
 
-public class TestBaseTest {
+/**
+ * A UnitTest for TestBase objects.
+ */
+public class TestBaseTest extends ResultsReporting {
 
+    /**
+     * The MockTestBase Class.
+     */
     public class MockTestBase extends TestBase {
+        @Override
+        public TestBase execute(final TestContext context) throws Atf4jException {
+            return this;
+        }
     }
 
+    /**
+     * The MockTestReport Class.
+     */
     public class MockTestReport implements TestReport {
+    }
+
+    /**
+     * The PassingCondition Class.
+     */
+    public class PassingCondition extends Condition {
     }
 
     /**
@@ -39,34 +58,70 @@ public class TestBaseTest {
         assertNotNull(new MockTestBase());
     }
 
+    /**
+     * Test method for {@link TestBase}.
+     *
+     * @throws Atf4jException
+     *             the atf 4 j exception
+     */
     @Test
     public void testRegisterLogging() throws Atf4jException {
         assertNotNull(new MockTestBase().registerLogging(new MockTestReport()));
     }
 
+    /**
+     * Test method for {@link TestBase}.
+     *
+     * @throws Atf4jException
+     *             the atf 4 j exception
+     */
     @Test
     public void testExecute() throws Atf4jException {
         final TestContext context = new TestContext();
         assertNotNull(context);
-        new MockTestBase().execute(context);
+        final MockTestBase mockTestBase = new MockTestBase();
+        final TestBase execute = mockTestBase.execute(context);
+        this.log.info(execute.debugString());
     }
 
+    /**
+     * Test method for {@link TestBase}.
+     */
     @Test
     public void testAddPreCondition() {
-        final Condition newPreCondition = null;
-        assertNotNull(new MockTestBase().addPreCondition(newPreCondition));
+        final Condition newPreCondition = new PassingCondition();
+        assertNotNull(newPreCondition);
+        final MockTestBase mockTestBase = new MockTestBase();
+        assertNotNull(mockTestBase);
+        assertNotNull(mockTestBase.addPreCondition(newPreCondition));
     }
 
+    /**
+     * Test method for {@link TestBase}.
+     */
     @Test
     public void testAddPostCondition() {
-        final Condition newPostCondition = null;
-        assertNotNull(new MockTestBase().addPostCondition(newPostCondition));
+        final Condition newPostCondition = new PassingCondition();
+        assertNotNull(newPostCondition);
+        final MockTestBase mockTestBase = new MockTestBase();
+        assertNotNull(mockTestBase);
+        assertNotNull(mockTestBase.addPostCondition(newPostCondition));
     }
 
+    /**
+     * Test method for {@link TestBase}.
+     */
     @Test
     public void testToString() {
-        assertNotNull(new MockTestBase());
-        fail("Not yet implemented");
+        assertNotNull(new MockTestBase().toString());
+    }
+
+    /**
+     * Test method for {@link TestBase}.
+     */
+    @Test
+    public void testDebugString() {
+        assertNotNull(new MockTestBase().debugString());
     }
 
 }

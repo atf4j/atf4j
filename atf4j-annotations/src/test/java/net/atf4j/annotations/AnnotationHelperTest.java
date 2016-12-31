@@ -13,17 +13,20 @@
  */
 package net.atf4j.annotations;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
-
-import net.atf4j.core.ResultsReporting;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * An AnnotatedTest Class.
  */
 @Atf4j.TestScript
-public class AnnotationHelperTest extends ResultsReporting {
+public class AnnotationHelperTest {
+
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     private static final String TEST_FAIL_ID = "FAIL-0001";
     private static final String TEST_PASS_ID = "PASS-0001";
@@ -41,9 +44,9 @@ public class AnnotationHelperTest extends ResultsReporting {
     @Atf4j.TestDescription(GIVEN_WHEN_THEN)
     public final void testAnnotationsWithPass() {
         this.log.trace("{}.testAnnotationsWithPass", this.getClass().getSimpleName());
-        verify(TEST_PASS_ID, AnnotationHelper.getTestId());
-        verify(TEST_PASS_NAME, AnnotationHelper.getTestName());
-        verify(GIVEN_WHEN_THEN, AnnotationHelper.getTestDescription());
+        assertEquals(TEST_PASS_ID, AnnotationHelper.getTestId());
+        assertEquals(TEST_PASS_NAME, AnnotationHelper.getTestName());
+        assertEquals(GIVEN_WHEN_THEN, AnnotationHelper.getTestDescription());
     }
 
     /**
@@ -59,9 +62,9 @@ public class AnnotationHelperTest extends ResultsReporting {
         try {
             fail("Force a failure.");
         } finally {
-            verify(TEST_FAIL_ID, AnnotationHelper.getTestId());
-            verify(TEST_FAIL_NAME, AnnotationHelper.getTestName());
-            verify(GIVEN_WHEN_THEN, AnnotationHelper.getTestDescription());
+            assertEquals(TEST_FAIL_ID, AnnotationHelper.getTestId());
+            assertEquals(TEST_FAIL_NAME, AnnotationHelper.getTestName());
+            assertEquals(GIVEN_WHEN_THEN, AnnotationHelper.getTestDescription());
         }
     }
 
@@ -70,7 +73,7 @@ public class AnnotationHelperTest extends ResultsReporting {
      */
     @Test
     public final void testMissingTestIdAnnotation() {
-        verify("Expected @Atf4j.TestId annotation not found.", AnnotationHelper.getTestId());
+        assertEquals("Expected @Atf4j.TestId annotation not found.", AnnotationHelper.getTestId());
     }
 
     /**
@@ -78,7 +81,7 @@ public class AnnotationHelperTest extends ResultsReporting {
      */
     @Test
     public final void testMissingTestNameAnnotation() {
-        verify("Expected @Atf4j.TestName annotation not found.", AnnotationHelper.getTestName());
+        assertEquals("Expected @Atf4j.TestName annotation not found.", AnnotationHelper.getTestName());
     }
 
     /**
@@ -86,7 +89,7 @@ public class AnnotationHelperTest extends ResultsReporting {
      */
     @Test
     public final void testMissingTestDescriptionAnnotation() {
-        verify("Expected @Atf4j.TestDescription annotation not found.", AnnotationHelper.getTestDescription());
+        assertEquals("Expected @Atf4j.TestDescription annotation not found.", AnnotationHelper.getTestDescription());
     }
 
 }

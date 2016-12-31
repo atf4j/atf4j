@@ -16,17 +16,13 @@
  */
 package net.atf4j.annotations.examples;
 
-import static net.atf4j.annotations.AnnotationHelper.getTestDescription;
-import static net.atf4j.annotations.AnnotationHelper.getTestId;
-import static net.atf4j.annotations.AnnotationHelper.getTestName;
-import static net.atf4j.core.Atf4j.document;
-import static net.atf4j.core.Atf4j.end;
-import static net.atf4j.core.Atf4j.start;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import net.atf4j.annotations.AnnotationHelper;
 import net.atf4j.annotations.Atf4j.TestDescription;
 import net.atf4j.annotations.Atf4j.TestId;
 import net.atf4j.annotations.Atf4j.TestName;
@@ -36,28 +32,26 @@ import net.atf4j.annotations.Atf4j.TestName;
  * accessed directly with the functions getTestId(); getTestName();
  * getTestDescription();
  */
-public class AnnotatedExampleTest {
+public class AnnotatedTestOneExample {
 
-    /** logging. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Annotated Test example.
+     *
+     * @throws Exception
+     *             the exception
      */
     @Test
     @TestId("EXAMPLE-0001")
     @TestName("testEample")
     @TestDescription("Example showing annotations with static context")
-    public void testSteps() {
-        start(getTestId());
-        {
-            start(getTestName());
-            {
-                this.log.info("Test Description : = {} ", getTestDescription());
-                document(Thread.currentThread().getStackTrace());
-            }
-            end();
-        }
-        end();
+    public final void testExample() throws Exception {
+        this.log.trace("{}.testExample", this.getClass().getSimpleName());
+        this.log.info("Test ID : = {} ", AnnotationHelper.getTestId());
+        this.log.info("Test Name : = {} ", AnnotationHelper.getTestName());
+        this.log.info("Test Description : = {} ", AnnotationHelper.getTestDescription());
+        assertTrue(true);
     }
+
 }

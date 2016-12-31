@@ -18,6 +18,7 @@ package net.atf4j.core.timers;
 
 import java.util.Enumeration;
 import java.util.Stack;
+import java.util.UUID;
 
 /**
  * NestedTimers. [GOF] Singleton.
@@ -49,6 +50,11 @@ public final class NestedTimers {
         return NestedTimers.INSTANCE;
     }
 
+    public ITimer start() {
+        final String timerName = UUID.randomUUID().toString();
+        return getInstance().startTimer(timerName);
+    }
+
     /**
      * getInstance.
      *
@@ -58,6 +64,11 @@ public final class NestedTimers {
      */
     public static ITimer start(final String timerName) {
         return getInstance().startTimer(timerName);
+    }
+
+    public ITimer startTimer() {
+        final String timerName = UUID.randomUUID().toString();
+        return startTimer(timerName);
     }
 
     /**

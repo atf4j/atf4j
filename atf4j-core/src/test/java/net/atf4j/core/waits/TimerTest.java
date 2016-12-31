@@ -16,6 +16,8 @@
  */
 package net.atf4j.core.waits;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -36,7 +38,7 @@ public class TimerTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        new MilliTimer();
+        assertNotNull(new MilliTimer());
     }
 
     /**

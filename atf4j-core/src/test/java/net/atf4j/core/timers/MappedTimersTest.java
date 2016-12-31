@@ -17,7 +17,6 @@
 package net.atf4j.core.timers;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
@@ -33,14 +32,13 @@ public class MappedTimersTest extends ResultsReporting {
 
     @Test
     public void testStart() {
-        MappedTimers.start("testStart");
-        fail("Not yet implemented");
+        final ITimer start = MappedTimers.start("testStart");
+        assertNotNull(start);
     }
 
     @Test
     public void testStop() {
-        MappedTimers.stop("testStop");
-        fail("Not yet implemented");
+        assertNotNull(MappedTimers.stop("testStop"));
     }
 
     @Test
@@ -49,7 +47,6 @@ public class MappedTimersTest extends ResultsReporting {
         assertNotNull(instance);
         final String timerName = "testStartTimer";
         instance.startTimer(timerName);
-        fail("Not yet implemented");
     }
 
     @Test
@@ -58,28 +55,24 @@ public class MappedTimersTest extends ResultsReporting {
         assertNotNull(instance);
         final String timerName = "testStopTimer";
         instance.startTimer(timerName);
-        fail("Not yet implemented");
     }
 
     @Test
     public void testStopAll() {
         final MappedTimers instance = MappedTimers.getInstance();
-        assertNotNull(instance);
-        fail("Not yet implemented");
+        assertNotNull(instance.stopAll());
     }
 
     @Test
     public void testStopAllTimers() {
         final MappedTimers instance = MappedTimers.getInstance();
-        assertNotNull(instance);
-        fail("Not yet implemented");
+        assertNotNull(instance.stopAllTimers());
     }
 
     @Test
     public void testToString() {
         final MappedTimers instance = MappedTimers.getInstance();
-        assertNotNull(instance);
-        fail("Not yet implemented");
+        assertNotNull(instance.toString());
     }
 
 }

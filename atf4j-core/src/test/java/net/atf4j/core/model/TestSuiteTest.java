@@ -29,11 +29,23 @@ import net.atf4j.core.ResultsReporting;
 public class TestSuiteTest extends ResultsReporting {
 
     /**
+     * The TestCaseReport Class.
+     */
+    public class MockTestReport implements TestReport {
+    }
+
+    /**
+     * The PassingCondition Class.
+     */
+    public class PassingCondition extends Condition {
+    }
+
+    /**
      * Test method for {@link TestSuite}.
      */
     @Test
     public void testDefaultConstructor() {
-        new TestSuite();
+        assertNotNull(new TestSuite());
     }
 
     /**
@@ -65,6 +77,18 @@ public class TestSuiteTest extends ResultsReporting {
         final TestSuite addTestCase = testSuite.addTestCase(newTestCase);
         final int numberOfTestSteps = addTestCase.numberOfTestCases();
         assertEquals(1, numberOfTestSteps);
+    }
+
+    @Test
+    public void testPreCondition() {
+        final TestSuite testSuite = new TestSuite();
+        testSuite.addPreCondition(new PassingCondition());
+    }
+
+    @Test
+    public void testPostCondition() {
+        final TestSuite testSuite = new TestSuite();
+        testSuite.addPostCondition(new PassingCondition());
     }
 
 }

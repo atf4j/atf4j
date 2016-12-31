@@ -41,7 +41,7 @@ public class TestContextTest extends ResultsReporting {
      */
     @Test
     public void testIsSeleniumDefault() {
-        assumeFalse(TestContext.isLocal());
+        assumeFalse(TestContext.isSelenium());
     }
 
     /**
@@ -49,7 +49,7 @@ public class TestContextTest extends ResultsReporting {
      */
     @Test
     public void testIsJenkinsDefault() {
-        assumeFalse(TestContext.isLocal());
+        assumeFalse(TestContext.isJenkins());
     }
 
     /**

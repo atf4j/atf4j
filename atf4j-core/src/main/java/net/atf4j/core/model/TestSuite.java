@@ -30,14 +30,13 @@ import net.atf4j.core.Atf4jException;
  */
 public class TestSuite extends TestBase {
 
-    protected Collection<TestCase> testCases;
+    protected Collection<TestCase> testCases = new ArrayDeque<TestCase>();
 
     /**
      * Instantiates a new test suite.
      */
     public TestSuite() {
         super();
-        this.testCases = new ArrayDeque<TestCase>();
     }
 
     /**

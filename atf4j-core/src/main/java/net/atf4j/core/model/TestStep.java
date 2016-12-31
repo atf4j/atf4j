@@ -16,6 +16,8 @@
  */
 package net.atf4j.core.model;
 
+import net.atf4j.core.Atf4jException;
+
 /**
  * TestStep.
  */
@@ -26,6 +28,11 @@ public class TestStep extends TestBase {
      */
     public TestStep() {
         super();
+    }
+
+    @Override
+    public TestBase execute(final TestContext context) throws Atf4jException {
+        return this;
     }
 
 }

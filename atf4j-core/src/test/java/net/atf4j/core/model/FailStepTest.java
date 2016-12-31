@@ -27,4 +27,8 @@ public class FailStepTest {
         assertNotNull(new FailStep());
     }
 
+    @Test
+    public void testFailStepNull() {
+        assertNotNull(new FailStep("FailStep"));
+    }
 }

@@ -16,6 +16,7 @@
  */
 package net.atf4j.core.model;
 
+import java.util.ArrayDeque;
 import java.util.Collection;
 
 import net.atf4j.core.TestResult;
@@ -26,7 +27,7 @@ import net.atf4j.core.TestResult;
 public class TestResults {
 
     /** The test results. */
-    Collection<TestResult> testResults;
+    Collection<TestResult> testResults = new ArrayDeque<TestResult>();
 
     /**
      * Instantiates a new test results.

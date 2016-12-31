@@ -17,7 +17,6 @@
 package net.atf4j.core.timers;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
@@ -42,9 +41,8 @@ public class MilliTimerTest extends ResultsReporting {
      */
     @Test
     public void testMilliTimerString() {
-        final MilliTimer milliTimer = new MilliTimer();
+        final MilliTimer milliTimer = new MilliTimer("");
         assertNotNull(milliTimer);
-        fail("Not yet implemented");
     }
 
     /**
@@ -53,8 +51,7 @@ public class MilliTimerTest extends ResultsReporting {
     @Test
     public void testStart() {
         final MilliTimer milliTimer = new MilliTimer();
-        assertNotNull(milliTimer);
-        fail("Not yet implemented");
+        assertNotNull(milliTimer.start());
     }
 
     /**
@@ -63,8 +60,7 @@ public class MilliTimerTest extends ResultsReporting {
     @Test
     public void testStop() {
         final MilliTimer milliTimer = new MilliTimer();
-        assertNotNull(milliTimer);
-        fail("Not yet implemented");
+        assertNotNull(milliTimer.stop());
     }
 
     /**
@@ -73,8 +69,7 @@ public class MilliTimerTest extends ResultsReporting {
     @Test
     public void testGetStartTime() {
         final MilliTimer milliTimer = new MilliTimer();
-        assertNotNull(milliTimer);
-        fail("Not yet implemented");
+        assertNotNull(milliTimer.getStartTime());
     }
 
     /**
@@ -83,8 +78,7 @@ public class MilliTimerTest extends ResultsReporting {
     @Test
     public void testGetElapsedTime() {
         final MilliTimer milliTimer = new MilliTimer();
-        assertNotNull(milliTimer);
-        fail("Not yet implemented");
+        assertNotNull(milliTimer.getElapsedTime());
     }
 
     /**
@@ -93,8 +87,7 @@ public class MilliTimerTest extends ResultsReporting {
     @Test
     public void testToString() {
         final MilliTimer milliTimer = new MilliTimer();
-        assertNotNull(milliTimer);
-        fail("Not yet implemented");
+        assertNotNull(milliTimer.toString());
     }
 
     /**
@@ -103,8 +96,7 @@ public class MilliTimerTest extends ResultsReporting {
     @Test
     public void testGetTimerName() {
         final MilliTimer milliTimer = new MilliTimer();
-        assertNotNull(milliTimer);
-        fail("Not yet implemented");
+        assertNotNull(milliTimer.getTimerName());
     }
 
 }

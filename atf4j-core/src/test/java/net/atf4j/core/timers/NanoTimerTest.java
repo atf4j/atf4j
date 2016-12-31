@@ -17,7 +17,6 @@
 package net.atf4j.core.timers;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
@@ -34,50 +33,43 @@ public class NanoTimerTest extends ResultsReporting {
     @Test
     public void testNanoTimerString() {
         final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull(nanoTimer);
-        fail("Not yet implemented");
+        assertNotNull(nanoTimer.toString());
     }
 
     @Test
     public void testStart() {
         final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull(nanoTimer);
-        fail("Not yet implemented");
+        assertNotNull(nanoTimer.start());
     }
 
     @Test
     public void testStop() {
         final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull(nanoTimer);
-        fail("Not yet implemented");
+        assertNotNull(nanoTimer.stop());
     }
 
     @Test
     public void testGetStartTime() {
         final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull(nanoTimer);
-        fail("Not yet implemented");
+        assertNotNull(nanoTimer.getStartTime());
     }
 
     @Test
     public void testGetElapsedTime() {
         final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull(nanoTimer);
-        fail("Not yet implemented");
+        assertNotNull(nanoTimer.getElapsedTime());
     }
 
     @Test
     public void testToString() {
         final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull(nanoTimer);
-        fail("Not yet implemented");
+        assertNotNull(nanoTimer.toString());
     }
 
     @Test
     public void testGetTimerName() {
         final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull(nanoTimer);
-        fail("Not yet implemented");
+        assertNotNull(nanoTimer.getTimerName());
     }
 
 }

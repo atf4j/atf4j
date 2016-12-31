@@ -17,7 +17,6 @@
 package net.atf4j.core.model;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
@@ -42,7 +41,6 @@ public class CriticalFailTest {
     public void testCriticalFailNull() {
         final CriticalFail criticalFail = new CriticalFail(null);
         assertNotNull(criticalFail);
-        fail("Not yet implemented");
     }
 
 }

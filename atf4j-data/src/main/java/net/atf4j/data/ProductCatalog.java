@@ -16,6 +16,7 @@
  */
 package net.atf4j.data;
 
+import java.util.ArrayDeque;
 import java.util.Collection;
 
 /**
@@ -26,7 +27,7 @@ import java.util.Collection;
 public class ProductCatalog {
 
     /** The catalog. */
-    private Collection<Product> catalog;
+    private Collection<Product> catalog = new ArrayDeque<Product>();
 
     public static ProductCatalog create() {
         return new ProductCatalog();

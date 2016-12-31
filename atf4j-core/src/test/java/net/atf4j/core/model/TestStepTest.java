@@ -16,13 +16,77 @@
  */
 package net.atf4j.core.model;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
+
+import net.atf4j.core.Atf4jException;
 
 public class TestStepTest {
 
+    /**
+     * The TestCaseReport Class.
+     */
+    public class MockTestReport implements TestReport {
+    }
+
+    /**
+     * The PassingCondition Class.
+     */
+    public class PassingCondition extends Condition {
+    }
+
+    @Test
+    public void testDefaultConstructor() {
+        assertNotNull(new TestStep());
+    }
+
     @Test
     public void testTestStep() {
-        new TestStep();
+        final TestStep testStep = new TestStep();
+        assertNotNull(testStep);
+    }
+
+    /**
+     * Test method for {@link TestCase}.
+     *
+     * @throws Atf4jException
+     *             the atf 4 j exception
+     */
+    @Test
+    public void testRegisterLogging() throws Atf4jException {
+        final TestCase testCase = new TestCase();
+        final MockTestReport logging = new MockTestReport();
+        assertNotNull(testCase.registerLogging(logging));
+    }
+
+    /**
+     * Test method for {@link TestCase}.
+     *
+     * @throws Atf4jException
+     *             the atf 4 j exception
+     */
+    @Test
+    public void testExecuteTestContext() throws Atf4jException {
+        final TestContext context = new TestContext();
+        assertNotNull(context);
+        final TestStep testStep = new TestStep();
+        assertNotNull(testStep);
+        assertNotNull(testStep.execute(context));
+    }
+
+    @Test
+    public void testPreCondition() {
+        final TestStep testStep = new TestStep();
+        assertNotNull(testStep);
+        testStep.addPreCondition(new PassingCondition());
+    }
+
+    @Test
+    public void testPostCondition() {
+        final TestStep testStep = new TestStep();
+        assertNotNull(testStep);
+        testStep.addPostCondition(new PassingCondition());
     }
 
 }

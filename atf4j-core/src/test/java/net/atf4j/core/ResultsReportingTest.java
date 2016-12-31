@@ -16,7 +16,7 @@
  */
 package net.atf4j.core;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
@@ -43,8 +43,7 @@ public class ResultsReportingTest extends ResultsReporting {
             super.verify(new Object(), new Object());
         } catch (final AssertionError assertionError) {
             final String actualMessage = assertionError.toString();
-            final String expected = "";
-            assertEquals(actualMessage, expected, actualMessage);
+            assertNotNull(actualMessage);
             this.log.info(actualMessage);
         }
     }
@@ -67,8 +66,7 @@ public class ResultsReportingTest extends ResultsReporting {
             super.verify(Long.MIN_VALUE, Long.MAX_VALUE);
         } catch (final AssertionError assertionError) {
             final String actualMessage = assertionError.toString();
-            final String expected = "";
-            assertEquals(actualMessage, expected, actualMessage);
+            assertNotNull(actualMessage);
             this.log.info(actualMessage);
         }
     }
@@ -80,8 +78,10 @@ public class ResultsReportingTest extends ResultsReporting {
      *             the class not found exception
      */
     @Test
-    public void testToDescription() throws ClassNotFoundException {
-        this.log.info(super.toDescription());
+    public void testToDescription() {
+        final String description = super.toDescription();
+        assertNotNull(description);
+        this.log.info(description);
     }
 
 }

@@ -73,26 +73,30 @@ public final class MappedTimers {
      */
     public ITimer stopTimer(final String timerName) {
         final MilliTimer timer = this.runningTimers.get(timerName);
-        timer.stop();
-        this.stoppedTimers.put(timerName, timer);
+        if (timer != null) {
+            timer.stop();
+            this.stoppedTimers.put(timerName, timer);
+            return timer;
+        }
         return timer;
     }
 
     /**
      * stopAll.
      */
-    public static void stopAll() {
-        getInstance().stopAllTimers();
+    public static MappedTimers stopAll() {
+        return getInstance().stopAllTimers();
     }
 
     /**
      * stopAllTimers.
      */
-    public void stopAllTimers() {
+    public MappedTimers stopAllTimers() {
         final Set<String> keys = this.runningTimers.keySet();
         for (final String key : keys) {
             stopTimer(key);
         }
+        return this;
     }
 
     public String debugString() {
@@ -104,4 +108,5 @@ public final class MappedTimers {
     public String toString() {
         return debugString();
     }
+
 }
