@@ -19,13 +19,16 @@ package net.atf4j.csv;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-
-import net.atf4j.core.ResultsReporting;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A UnitTest for CsvRow objects.
  */
-public class CsvRowTest extends ResultsReporting {
+public class CsvRowTest {
+
+    /** logging. */
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     private static final String ONE_TWO_THREE_FOUR = "One, Two, Three, Four";
     private static final String EXPECTED = "CsvRow [fields=[One, Two, Three, Four]]";

@@ -25,6 +25,10 @@ public class Bank extends Business {
 
     private BankSortCode bankSortCode;
 
+    public static Bank create() {
+        return new Bank();
+    }
+
     /**
      * Instantiates a new bank.
      */

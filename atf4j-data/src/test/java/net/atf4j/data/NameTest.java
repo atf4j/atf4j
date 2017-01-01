@@ -21,12 +21,10 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
-
 /**
  * A UnitTest for Name objects.
  */
-public class NameTest extends ResultsReporting {
+public class NameTest {
 
     /**
      * Test method for {@link Name}.
@@ -72,7 +70,7 @@ public class NameTest extends ResultsReporting {
     public void testDebugString() {
         final String string = new Name().debugString();
         assertNotNull(string);
-        this.log.info(string);
+
     }
 
     /**
@@ -82,7 +80,7 @@ public class NameTest extends ResultsReporting {
     public void testToString() {
         final String string = new Name().toString();
         assertNotNull(string);
-        this.log.info(string);
+
     }
 
 }

@@ -31,7 +31,7 @@ public class TestResultTest extends ResultsReporting {
      * Test method for {@link TestResult}.
      */
     @Test
-    public void testDefaultConstructor() {
+    public void testInitialise() {
         final TestResult testStatus = TestResult.initialise();
         assertNotNull(testStatus);
     }
@@ -59,4 +59,5 @@ public class TestResultTest extends ResultsReporting {
         assertEquals(TestResult.FAILED, TestResult.forString("Failed"));
         assertEquals(TestResult.EXCEPTION, TestResult.forString("Exception"));
     }
+
 }

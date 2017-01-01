@@ -20,12 +20,10 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
-
 /**
  * Unit Test for PostalAddress.
  */
-public class PostalAddressTest extends ResultsReporting {
+public class PostalAddressTest {
 
     /**
      * Test method for {@link PostalAddress}.
@@ -52,7 +50,6 @@ public class PostalAddressTest extends ResultsReporting {
     public void testToString() {
         final String addressString = new PostalAddress().toString();
         assertNotNull(addressString);
-        this.log.info(addressString);
     }
 
     /**
@@ -62,7 +59,6 @@ public class PostalAddressTest extends ResultsReporting {
     public void testDebugString() {
         final String addressString = new PostalAddress().debugString();
         assertNotNull(addressString);
-        this.log.info(addressString);
     }
 
 }

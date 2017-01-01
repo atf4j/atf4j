@@ -32,10 +32,20 @@ public class TestBaseTest extends ResultsReporting {
      * The MockTestBase Class.
      */
     public class MockTestBase extends TestBase {
+
+        /* (non-Javadoc)
+         * @see net.atf4j.core.model.TestBase#execute(net.atf4j.core.model.TestContext)
+         */
         @Override
         public TestBase execute(final TestContext context) throws Atf4jException {
             return this;
         }
+    }
+
+    /**
+     * The IncompleteTestBase Class.
+     */
+    public class IncompleteTestBase extends TestBase {
     }
 
     /**
@@ -71,6 +81,23 @@ public class TestBaseTest extends ResultsReporting {
 
     /**
      * Test method for {@link TestBase}.
+     */
+    @Test
+    public void testUniqueIdentifier() {
+        final MockTestBase mockTestBase = new MockTestBase();
+        assertNotNull(mockTestBase.getUniqueIdentifier());
+    }
+
+    /**
+     * Test method for {@link TestBase}.
+     */
+    @Test
+    public void testTestStatus() {
+        assertNotNull(new MockTestBase().getTestStatus());
+    }
+
+    /**
+     * Test method for {@link TestBase}.
      *
      * @throws Atf4jException
      *             the atf 4 j exception
@@ -78,10 +105,24 @@ public class TestBaseTest extends ResultsReporting {
     @Test
     public void testExecute() throws Atf4jException {
         final TestContext context = new TestContext();
-        assertNotNull(context);
         final MockTestBase mockTestBase = new MockTestBase();
-        final TestBase execute = mockTestBase.execute(context);
-        this.log.info(execute.debugString());
+        mockTestBase.assumedPreConditions();
+        mockTestBase.execute(context);
+        mockTestBase.assertPostConditions();
+        this.log.info(mockTestBase.debugString());
+    }
+
+    /**
+     * Test method for {@link TestBase}.
+     *
+     * @throws Atf4jException
+     *             the atf 4 j exception
+     */
+    @Test(expected = Atf4jException.class)
+    public void testMissingExecute() throws Atf4jException {
+        final TestContext context = new TestContext();
+        final IncompleteTestBase incompleteTestBase = new IncompleteTestBase();
+        incompleteTestBase.execute(context);
     }
 
     /**

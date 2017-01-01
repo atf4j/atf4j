@@ -40,6 +40,27 @@ public class TestCase extends TestBase {
     }
 
     /**
+     * Instantiates a new test case.
+     *
+     * @param testContext
+     *            the test context
+     */
+    public TestCase(final TestContext testContext) {
+        super(testContext);
+    }
+
+    /**
+     * Execute.
+     *
+     * @return the test case
+     * @throws Atf4jException
+     *             the atf 4 j exception
+     */
+    public TestCase execute() throws Atf4jException {
+        return execute(this.testContext);
+    }
+
+    /**
      * Execute.
      *
      * @param context
@@ -68,7 +89,7 @@ public class TestCase extends TestBase {
      * @see java.util.Collection#size()
      */
     public int numberOfTestSteps() {
-        return this.testSteps.size();
+        return (this.testSteps == null ? 0 : this.testSteps.size());
     }
 
     /**
@@ -92,6 +113,7 @@ public class TestCase extends TestBase {
      */
     public TestCase startTestSuite() {
         this.log.info("startTestSuite {}", this.getName());
+        super.assumedPreConditions();
         return this;
     }
 
@@ -101,7 +123,8 @@ public class TestCase extends TestBase {
      * @return the test case
      */
     public TestCase endTestSuite() {
-        this.log.info("endTestSuite {}", this.getName());
+        this.log.info("startTestSuite {}", this.getName());
+        super.assertPostConditions();
         return this;
     }
 

@@ -24,15 +24,15 @@ import java.util.regex.Pattern;
  * Card Data.
  */
 public class Card {
-    String provider;
-    String cardNumber;
-    String cardName;
-    Date endDate;
-    Date startDate;
+    private String provider;
+    private String cardNumber;
+    private String cardName;
+    private Date endDate;
+    private Date startDate;
+    // Card CCV
 
-    // Card CVV
-    public static BankSortCode create() {
-        return new BankSortCode();
+    public static Card create() {
+        return new Card();
     }
 
     /**
@@ -171,11 +171,19 @@ public class Card {
         return this;
     }
 
-    public static boolean lunnCheck(final String ccNumber) {
+    /**
+     * Luhn check.
+     *
+     * @param cardNumber
+     *            the card number
+     * @return true, if successful
+     */
+    public static boolean luhnCheck(final String cardNumber) {
         int sum = 0;
         boolean alternate = false;
-        for (int i = ccNumber.length() - 1; i >= 0; i--) {
-            int n = Integer.parseInt(ccNumber.substring(i, i + 1));
+        final String cleanCardNumber = cleanCardNumber(cardNumber);
+        for (int i = cleanCardNumber.length() - 1; i >= 0; i--) {
+            int n = Integer.parseInt(cleanCardNumber.substring(i, i + 1));
             if (alternate) {
                 n *= 2;
                 if (n > 9) {
@@ -197,7 +205,7 @@ public class Card {
      */
     public static boolean verifyAmex(final String candidate) {
         final Pattern pattern = Pattern.compile("^(?<amex>3[47][0-9]{13})$");
-        final Matcher matcher = pattern.matcher(candidate.replaceAll("-", ""));
+        final Matcher matcher = pattern.matcher(cleanCardNumber(candidate));
         return matcher.matches();
     }
 
@@ -209,8 +217,8 @@ public class Card {
      * @return true, if successful
      */
     public static boolean verifyVisa(final String candidate) {
-        final Pattern pattern = Pattern.compile("^(?<visa>4[0-9]{12}(?:[0-9]{3})?)$");
-        final Matcher matcher = pattern.matcher(candidate.replaceAll("-", ""));
+        final Pattern pattern = Pattern.compile("^(?<visa>4[0-9]{12}(?:[0-9]{3}))$");
+        final Matcher matcher = pattern.matcher(cleanCardNumber(candidate));
         return matcher.matches();
     }
 
@@ -223,8 +231,12 @@ public class Card {
      */
     public static boolean verifyMasterCard(final String candidate) {
         final Pattern pattern = Pattern.compile("^(?<mastercard>5[1-5][0-9]{14})$");
-        final Matcher matcher = pattern.matcher(candidate.replaceAll("-", ""));
+        final Matcher matcher = pattern.matcher(cleanCardNumber(candidate));
         return matcher.matches();
+    }
+
+    private static String cleanCardNumber(final String cardNumber) {
+        return cardNumber.replaceAll("[^0-9]+", "");
     }
 
     /**
@@ -233,8 +245,12 @@ public class Card {
      * @return the string
      */
     public String debugString() {
-        return String.format("Card [provider=%s, cardNumber=%s, cardName=%s, endDate=%s, startDate=%s]", this.provider,
-                this.cardNumber, this.cardName, this.endDate, this.startDate);
+        return String.format("Card [provider=%s, cardNumber=%s, cardName=%s, endDate=%s, startDate=%s]",
+                this.provider,
+                this.cardNumber,
+                this.cardName,
+                this.endDate,
+                this.startDate);
     }
 
     /* (non-Javadoc)

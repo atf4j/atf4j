@@ -19,7 +19,7 @@ package net.atf4j.data;
 import java.util.UUID;
 
 public class Field {
-    private final FieldStatus status;
+    private FieldStatus status;
     private String key;
     private String value;
 
@@ -44,11 +44,18 @@ public class Field {
 
     public Field setValue(final String value) {
         this.value = value;
+        this.status = FieldStatus.CHANGED;
         return this;
     }
 
     public Field setKey(final String key) {
         this.key = key;
+        this.status = FieldStatus.CHANGED;
+        return this;
+    }
+
+    public Field setStatus(final FieldStatus fieldStatus) {
+        this.status = fieldStatus;
         return this;
     }
 

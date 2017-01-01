@@ -21,6 +21,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.Atf4jException;
 import net.atf4j.core.ResultsReporting;
 
 /**
@@ -55,6 +56,24 @@ public class TestSuiteTest extends ResultsReporting {
     public void testTestSuite() {
         final TestSuite testSuite = new TestSuite();
         assertNotNull(testSuite);
+    }
+
+    @Test
+    public void testTestSuiteTestContext() {
+        final TestSuite testSuite = new TestSuite(new TestContext());
+        assertNotNull(testSuite);
+    }
+
+    @Test
+    public void testTestSuiteExecute() throws Atf4jException {
+        final TestSuite testSuite = new TestSuite();
+        assertNotNull(testSuite.execute());
+    }
+
+    @Test
+    public void testTestSuiteExecuteTestContext() throws Atf4jException {
+        final TestSuite testSuite = new TestSuite();
+        assertNotNull(testSuite.execute(new TestContext()));
     }
 
     /**

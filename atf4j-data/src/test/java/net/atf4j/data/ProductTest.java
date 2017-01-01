@@ -20,12 +20,10 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
-
 /**
  * A UnitTest for Product objects.
  */
-public class ProductTest extends ResultsReporting {
+public class ProductTest {
 
     /**
      * Test method for {@link Product}.
@@ -82,7 +80,6 @@ public class ProductTest extends ResultsReporting {
     public void testDebugString() {
         final String string = new Product().debugString();
         assertNotNull(string);
-        this.log.info(string);
     }
 
     /**
@@ -92,7 +89,6 @@ public class ProductTest extends ResultsReporting {
     public void testToString() {
         final String string = new Product().toString();
         assertNotNull(string);
-        this.log.info(string);
     }
 
 }

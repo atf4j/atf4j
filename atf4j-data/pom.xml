@@ -14,11 +14,11 @@
 	<name>ATF4J - Test Data Factory</name>
 
 	<dependencies>
-		<dependency>
-			<groupId>net.atf4j</groupId>
-			<artifactId>atf4j-core</artifactId>
-			<version>0.0.3-SNAPSHOT</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>net.atf4j</groupId> -->
+<!-- 			<artifactId>atf4j-core</artifactId> -->
+<!-- 			<version>0.0.3-SNAPSHOT</version> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>net.atf4j</groupId>
 			<artifactId>atf4j-csv</artifactId>

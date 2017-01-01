@@ -14,32 +14,18 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.atf4j.data.jms;
+package net.atf4j.data;
+
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.data.management.JmsData;
-
-public class JmsDataTest {
+public class FieldStatusTest {
 
     @Test
-    public void testSetUp() {
-        new JmsData().setUp();
-    }
-
-    @Test
-    public void testReset() {
-        new JmsData().reset();
-    }
-
-    @Test
-    public void testTearDown() {
-        new JmsData().tearDown();
-    }
-
-    @Test
-    public void testJmsData() {
-        new JmsData();
+    public void testInitialise() {
+        final FieldStatus fieldStatus = FieldStatus.initialise();
+        assertNotNull(fieldStatus);
     }
 
 }

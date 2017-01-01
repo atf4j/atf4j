@@ -21,12 +21,10 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
-
 /**
  * A UnitTest for BankAccount objects.
  */
-public class BankAccountTest extends ResultsReporting {
+public class BankAccountTest {
 
     /**
      * Test method for {@link BankAccount}.
@@ -86,7 +84,6 @@ public class BankAccountTest extends ResultsReporting {
     public void testDebugString() {
         final String string = new BankAccount().debugString();
         assertNotNull(string);
-        this.log.info(string);
     }
 
     /**
@@ -96,7 +93,6 @@ public class BankAccountTest extends ResultsReporting {
     public void testToString() {
         final String string = new BankAccount().toString();
         assertNotNull(string);
-        this.log.info(string);
     }
 
 }

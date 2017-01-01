@@ -21,12 +21,10 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
-
 /**
  * A UnitTest for Customer objects.
  */
-public class CustomerTest extends ResultsReporting {
+public class CustomerTest {
 
     /**
      * Test method for {@link Customer}.
@@ -75,7 +73,6 @@ public class CustomerTest extends ResultsReporting {
     public void testDebugString() {
         final String string = new Customer().debugString();
         assertNotNull(string);
-        this.log.info(string);
     }
 
     /**
@@ -85,7 +82,6 @@ public class CustomerTest extends ResultsReporting {
     public void testToString() {
         final String string = new Customer().toString();
         assertNotNull(string);
-        this.log.info(string);
     }
 
 }

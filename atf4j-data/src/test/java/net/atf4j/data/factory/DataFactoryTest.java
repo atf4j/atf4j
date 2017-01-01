@@ -23,12 +23,10 @@ import java.util.Calendar;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
-
 /**
  * A UnitTest for DataFactory objects.
  */
-public class DataFactoryTest extends ResultsReporting {
+public class DataFactoryTest {
 
     /**
      * Test default constructor.
@@ -38,10 +36,9 @@ public class DataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testDefaultConstructor() throws Exception {
-        this.log.info("{}.testDefaultConstructor", this.getClass().getSimpleName());
         final DataFactory testData = new DataFactory();
         assertNotNull(testData);
-        this.log.info(testData.toString());
+        assertNotNull(testData.toString());
     }
 
     /**
@@ -52,7 +49,6 @@ public class DataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testToday() throws Exception {
-        this.log.info("{}.testToday", this.getClass().getSimpleName());
         final Calendar today = DataFactory.today();
         assertNotNull(today);
         verifyDateData(today);
@@ -66,7 +62,6 @@ public class DataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testPastDate() throws Exception {
-        this.log.info("{}.testPastDate", this.getClass().getSimpleName());
         final Calendar pastDate = DataFactory.pastDate();
         verifyDateData(pastDate);
     }
@@ -79,7 +74,6 @@ public class DataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testFutureDate() throws Exception {
-        this.log.info("{}.testFutureDate", this.getClass().getSimpleName());
         final Calendar futureDate = DataFactory.futureDate();
         verifyDateData(futureDate);
     }
@@ -92,7 +86,6 @@ public class DataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testDateOfBirth() throws Exception {
-        this.log.info("{}.testDateOfBirth", this.getClass().getSimpleName());
         final Calendar dateOfBirth = DataFactory.dateOfBirth();
         verifyDateData(dateOfBirth);
     }
@@ -105,7 +98,6 @@ public class DataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testOver18() throws Exception {
-        this.log.info("{}.testOver18", this.getClass().getSimpleName());
         final Calendar dobOver18 = DataFactory.dobOver18();
         verifyDateData(dobOver18);
     }
@@ -118,7 +110,6 @@ public class DataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testUnder18() throws Exception {
-        this.log.info("{}.testUnder18", this.getClass().getSimpleName());
         final Calendar dobUnder18 = DataFactory.dobUnder18();
         verifyDateData(dobUnder18);
     }
@@ -134,8 +125,8 @@ public class DataFactoryTest extends ResultsReporting {
         final String fromCalendar = DataFactory.format(dateData);
         final String fromDate = DataFactory.format(dateData.getTime());
         assertEquals(fromCalendar, fromDate);
-        this.log.info("fromCalendar = {}", fromCalendar);
-        this.log.info("fromDate = {}", fromDate);
+        assertNotNull(fromCalendar);
+        assertNotNull(fromDate);
     }
 
 }

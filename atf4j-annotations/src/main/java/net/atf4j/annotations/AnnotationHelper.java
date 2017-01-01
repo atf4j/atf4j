@@ -92,11 +92,8 @@ public class AnnotationHelper {
     /**
      * Find test method.
      *
-     * @param stackTrace
-     *            the stack trace
+     * @param stackTrace the stack trace
      * @return the method
-     * @throws Exception
-     *             the exception
      */
     private static Method findTestMethod(final StackTraceElement[] stackTrace) {
         log.info("AbstractAtf4jAnnotatedTest.findTestMethod");

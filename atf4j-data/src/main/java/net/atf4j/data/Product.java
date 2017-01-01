@@ -27,8 +27,8 @@ public class Product {
     private String name;
     private String details;
 
-    public static PostalAddress create() {
-        return new PostalAddress();
+    public static Product create() {
+        return new Product();
     }
 
     /**

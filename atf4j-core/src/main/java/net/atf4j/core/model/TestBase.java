@@ -16,6 +16,7 @@
  */
 package net.atf4j.core.model;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assume.assumeTrue;
 
 import java.util.ArrayDeque;
@@ -30,23 +31,35 @@ import net.atf4j.core.TestResult;
  */
 public abstract class TestBase extends ResultsReporting {
 
-    protected TestReport testReport;
-    private TestResult testStatus = TestResult.initialise();
     private TestIdentifier uniqueIdentifier;
-    private TestContext testContext;
+    protected TestContext testContext;
+    private TestResult testStatus;
     private String tester; // Actor
     private String name;
     private String taxonomy;
     private String description;
     private String timestamp; // ISO date.
-    private Collection<Condition> preConditions = new ArrayDeque<Condition>();
-    private Collection<Condition> postConditions = new ArrayDeque<Condition>();
+    private Collection<Condition> preConditions;
+    private Collection<Condition> postConditions;
+    private TestReport testReport;
 
     /**
      * Instantiates a new test base.
      */
     public TestBase() {
         super();
+        this.testStatus = TestResult.initialise();
+        this.uniqueIdentifier = new TestIdentifier();
+    }
+
+    /**
+     * Instantiates a new test base.
+     *
+     * @param testContext
+     *            the test context
+     */
+    public TestBase(final TestContext testContext) {
+        this.testContext = testContext;
     }
 
     /**
@@ -85,8 +98,21 @@ public abstract class TestBase extends ResultsReporting {
      * @see java.util.Collection#add(java.lang.Object)
      */
     public TestBase addPreCondition(final Condition newPreCondition) {
-        final boolean result = this.preConditions.add(newPreCondition);
-        assumeTrue(result);
+        if (this.preConditions == null) {
+            this.preConditions = new ArrayDeque<Condition>();
+        }
+        assumeTrue(this.preConditions.add(newPreCondition));
+        return this;
+    }
+
+    public TestBase assumedPreConditions() {
+        if (this.preConditions == null) {
+            return this;
+        } else {
+            for (final Condition condition : this.postConditions) {
+                assumeTrue(condition.isTrue());
+            }
+        }
         return this;
     }
 
@@ -99,8 +125,21 @@ public abstract class TestBase extends ResultsReporting {
      * @see java.util.Collection#add(java.lang.Object)
      */
     public TestBase addPostCondition(final Condition newPostCondition) {
-        final boolean result = this.postConditions.add(newPostCondition);
-        assumeTrue(result);
+        if (this.postConditions == null) {
+            this.postConditions = new ArrayDeque<Condition>();
+        }
+        assumeTrue(this.postConditions.add(newPostCondition));
+        return this;
+    }
+
+    public TestBase assertPostConditions() {
+        if (this.postConditions == null) {
+            return this;
+        } else {
+            for (final Condition condition : this.postConditions) {
+                assertTrue(condition.isTrue());
+            }
+        }
         return this;
     }
 
@@ -282,36 +321,12 @@ public abstract class TestBase extends ResultsReporting {
     }
 
     /**
-     * Sets the pre conditions.
-     *
-     * @param preConditions
-     *            the preConditions to set
-     * @return the test base
-     */
-    protected TestBase setPreConditions(final Collection<Condition> preConditions) {
-        this.preConditions = preConditions;
-        return this;
-    }
-
-    /**
      * Gets the post conditions.
      *
      * @return the postConditions
      */
     protected Collection<Condition> getPostConditions() {
         return this.postConditions;
-    }
-
-    /**
-     * Sets the post conditions.
-     *
-     * @param postConditions
-     *            the postConditions to set
-     * @return the test base
-     */
-    protected TestBase setPostConditions(final Collection<Condition> postConditions) {
-        this.postConditions = postConditions;
-        return this;
     }
 
     /**

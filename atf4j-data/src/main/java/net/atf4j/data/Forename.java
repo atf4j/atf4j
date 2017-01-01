@@ -21,6 +21,10 @@ package net.atf4j.data;
  */
 public class Forename extends Name {
 
+    public static Forename create() {
+        return new Forename();
+    }
+
     /**
      * Instantiates a new forename.
      */
@@ -37,4 +41,5 @@ public class Forename extends Name {
     public Forename(final String forename) {
         super(forename);
     }
+
 }

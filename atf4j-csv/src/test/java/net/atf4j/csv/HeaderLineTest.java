@@ -20,13 +20,16 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
-
-import net.atf4j.core.ResultsReporting;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A UnitTest for HeaderLine objects.
  */
-public class HeaderLineTest extends ResultsReporting {
+public class HeaderLineTest {
+
+    /** logging. */
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     private static final String HEADER_LINE = "ColumnOne, ColumnTwo";
     private static final String EXPECTED_HEADER = "HeaderLine [fields=[ColumnOne, ColumnTwo]]";

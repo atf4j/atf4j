@@ -31,8 +31,8 @@ public class Person {
     private PostalAddress postalAddress;
     private String emailAddress;
 
-    public static NationalInsurance create() {
-        return new NationalInsurance();
+    public static Person create() {
+        return new Person();
     }
 
     /**

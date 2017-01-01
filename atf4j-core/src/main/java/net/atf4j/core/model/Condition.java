@@ -39,18 +39,4 @@ public abstract class Condition {
         return false;
     }
 
-    /**
-     * test.
-     *
-     * @param condition
-     *            the condition
-     * @return condition status as boolean.
-     */
-    public boolean test(final Condition condition) {
-        return condition.test(condition);
-    }
-
-    // TODO public waitUntilTrue();
-    // TODO public waitWhileTrue();
-
 }

@@ -24,8 +24,8 @@ public class Business {
     private Name name;
     private PostalAddress address;
 
-    public static BankSortCode create() {
-        return new BankSortCode();
+    public static Business create() {
+        return new Business();
     }
 
     /**

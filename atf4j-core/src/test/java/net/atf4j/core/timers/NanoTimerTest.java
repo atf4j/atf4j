@@ -25,15 +25,17 @@ import net.atf4j.core.ResultsReporting;
 public class NanoTimerTest extends ResultsReporting {
 
     @Test
-    public void testNanoTimer() {
+    public void testDefaultConstructor() {
         final NanoTimer nanoTimer = new NanoTimer();
         assertNotNull(nanoTimer);
     }
 
     @Test
     public void testNanoTimerString() {
-        final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull(nanoTimer.toString());
+        final String actual = "Named NanoTimer";
+        final NanoTimer nanoTimer = new NanoTimer(actual);
+        assertNotNull(nanoTimer);
+        assertNotNull(actual, nanoTimer.getTimerName());
     }
 
     @Test
@@ -64,12 +66,6 @@ public class NanoTimerTest extends ResultsReporting {
     public void testToString() {
         final NanoTimer nanoTimer = new NanoTimer();
         assertNotNull(nanoTimer.toString());
-    }
-
-    @Test
-    public void testGetTimerName() {
-        final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull(nanoTimer.getTimerName());
     }
 
 }

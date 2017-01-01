@@ -24,6 +24,10 @@ public class Name extends Datum {
     /** The name. */
     private String name;
 
+    public static Name create() {
+        return new Name();
+    }
+
     /**
      * Instantiates a new name.
      */
@@ -39,10 +43,6 @@ public class Name extends Datum {
      */
     public Name(final String name) {
         setName(name);
-    }
-
-    public static Name create() {
-        return new Name();
     }
 
     /**

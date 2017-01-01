@@ -26,14 +26,17 @@ import net.atf4j.core.TestResult;
  */
 public class TestResults {
 
-    /** The test results. */
     Collection<TestResult> testResults = new ArrayDeque<TestResult>();
 
     /**
-     * Instantiates a new test results.
+     * Add a TestResult to collection.
+     *
+     * @param testResult
+     *            the test result
+     * @return true, if successful
      */
-    public TestResults() {
-        super();
+    public boolean add(final TestResult testResult) {
+        return this.testResults.add(testResult);
     }
 
     /**
@@ -43,18 +46,6 @@ public class TestResults {
      */
     public Collection<TestResult> getTestResults() {
         return this.testResults;
-    }
-
-    /**
-     * Sets the test results.
-     *
-     * @param testResults
-     *            the test results
-     * @return the test results
-     */
-    public TestResults setTestResults(final Collection<TestResult> testResults) {
-        this.testResults = testResults;
-        return this;
     }
 
     /* (non-Javadoc)

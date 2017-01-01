@@ -30,13 +30,28 @@ import net.atf4j.core.Atf4jException;
  */
 public class TestSuite extends TestBase {
 
-    protected Collection<TestCase> testCases = new ArrayDeque<TestCase>();
+    protected Collection<TestCase> testCases;
 
     /**
      * Instantiates a new test suite.
      */
     public TestSuite() {
         super();
+    }
+
+    public TestSuite(final TestContext testContext) {
+        super(testContext);
+    }
+
+    /**
+     * Execute.
+     *
+     * @return the test suite
+     * @throws Atf4jException
+     *             the atf4j exception
+     */
+    public TestSuite execute() throws Atf4jException {
+        return execute(this.testContext);
     }
 
     /**
@@ -66,7 +81,7 @@ public class TestSuite extends TestBase {
      * @see java.util.Collection#size()
      */
     public int numberOfTestCases() {
-        return this.testCases.size();
+        return (this.testCases == null ? 0 : this.testCases.size());
     }
 
     /**
@@ -78,8 +93,10 @@ public class TestSuite extends TestBase {
      * @see java.util.Collection#add(java.lang.Object)
      */
     public TestSuite addTestCase(final TestCase newTestCase) {
-        final boolean result = this.testCases.add(newTestCase);
-        assumeTrue(result);
+        if (this.testCases == null) {
+            this.testCases = new ArrayDeque<TestCase>();
+        }
+        assumeTrue(this.testCases.add(newTestCase));
         return this;
     }
 
@@ -90,6 +107,7 @@ public class TestSuite extends TestBase {
      */
     public TestSuite startTestSuite() {
         this.log.info("startTestSuite {}", this.getName());
+        // TODO Start Timer
         return this;
     }
 
@@ -99,6 +117,7 @@ public class TestSuite extends TestBase {
      * @return the test suite
      */
     public TestSuite endTestSuite() {
+        // TODO Stop Timer
         this.log.info("endTestSuite {}", this.getName());
         return this;
     }

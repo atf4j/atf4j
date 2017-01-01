@@ -46,6 +46,7 @@ public class CsvFile {
      *             Signals that an I/O exception has occurred.
      */
     public CsvFile() throws Exception {
+        load();
     }
 
     /**
@@ -57,7 +58,6 @@ public class CsvFile {
      *             the exception
      */
     public CsvFile(final String dataFilename) throws Exception {
-        super();
         load(dataFilename);
     }
 

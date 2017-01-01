@@ -21,12 +21,10 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
-
 /**
  * A UnitTest for Telephone objects.
  */
-public class TelephoneTest extends ResultsReporting {
+public class TelephoneTest {
 
     private static final String _0123456789 = "0123456789";
 
@@ -74,7 +72,6 @@ public class TelephoneTest extends ResultsReporting {
     public void testDebugString() {
         final String string = new Telephone().debugString();
         assertNotNull(string);
-        this.log.info(string);
     }
 
     /**
@@ -84,7 +81,6 @@ public class TelephoneTest extends ResultsReporting {
     public void testToString() {
         final String string = new Telephone().toString();
         assertNotNull(string);
-        this.log.info(string);
     }
 
 }

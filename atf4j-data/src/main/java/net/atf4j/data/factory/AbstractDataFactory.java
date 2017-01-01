@@ -59,7 +59,7 @@ public abstract class AbstractDataFactory {
      */
     protected AbstractDataFactory load() throws Exception {
         final String simpleName = this.getClass().getSimpleName();
-        final String dataFilename = String.format("/%s.csv", simpleName);
+        final String dataFilename = String.format("%s.csv", simpleName);
         return load(dataFilename);
     }
 
@@ -83,7 +83,7 @@ public abstract class AbstractDataFactory {
      * @return the column names
      */
     public HeaderLine getColumnNames() {
-        return this.dataFile.getHeaderLine();
+        return (this.dataFile == null ? null : this.dataFile.getHeaderLine());
     }
 
     /**
@@ -94,7 +94,7 @@ public abstract class AbstractDataFactory {
      * @return the column name
      */
     public String getColumnName(final int columnNumber) {
-        return this.dataFile.getColumnName(columnNumber);
+        return (this.dataFile == null ? "" : this.dataFile.getColumnName(columnNumber));
     }
 
     /**
@@ -103,7 +103,7 @@ public abstract class AbstractDataFactory {
      * @return the int
      */
     public int rowCount() {
-        return this.dataFile.rowCount();
+        return (this.dataFile == null ? 0 : this.dataFile.rowCount());
     }
 
     /**
@@ -114,7 +114,7 @@ public abstract class AbstractDataFactory {
      * @return the row
      */
     public CsvRow getRow(final int index) {
-        return this.dataFile.getRow(index);
+        return (this.dataFile == null ? null : this.dataFile.getRow(index));
     }
 
 }

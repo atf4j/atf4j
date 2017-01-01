@@ -83,17 +83,6 @@ public class StringBuilderTest extends ResultsReporting {
         new ToStringBuilder();
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
-        return String.format("StringBuilderTest [string=%s, bool=%s, real=%s, number=%s]", this.string, this.bool,
-                this.real, this.number);
-    }
-
     /**
      * Test null class.
      */

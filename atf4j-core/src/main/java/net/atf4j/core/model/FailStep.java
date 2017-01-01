@@ -36,16 +36,6 @@ public class FailStep extends Atf4jException {
     /**
      * Instantiates a new fail step.
      *
-     * @param cause
-     *            the cause
-     */
-    public FailStep(final Throwable cause) {
-        super(cause);
-    }
-
-    /**
-     * Instantiates a new fail step.
-     *
      * @param message
      *            the message
      */

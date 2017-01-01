@@ -20,12 +20,10 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
-
 /**
  * A UnitTest for Bank objects.
  */
-public class BankTest extends ResultsReporting {
+public class BankTest {
 
     /**
      * Test method for {@link Bank}.
@@ -50,7 +48,6 @@ public class BankTest extends ResultsReporting {
     public void testDebugString() {
         final String string = new Bank().debugString();
         assertNotNull(string);
-        this.log.info(string);
     }
 
     /**
@@ -60,7 +57,6 @@ public class BankTest extends ResultsReporting {
     public void testToString() {
         final String string = new Bank().toString();
         assertNotNull(string);
-        this.log.info(string);
     }
 
 }

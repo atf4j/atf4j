@@ -21,12 +21,10 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
-
 /**
  * A UnitTest for Bag objects.
  */
-public class SimpleBagTest extends ResultsReporting {
+public class SimpleBagTest {
 
     /**
      * Test method for {@link Bag}.
@@ -60,7 +58,7 @@ public class SimpleBagTest extends ResultsReporting {
         assertEquals(0, bag.clear().count());
         assertEquals(5, bag.reset().count());
         while (!bag.isEmpty()) {
-            this.log.info(bag.pick());
+            assertNotNull(bag.pick());
         }
         bag.clear().reset();
     }
@@ -72,7 +70,6 @@ public class SimpleBagTest extends ResultsReporting {
     public void testDebugString() {
         final String string = new SimpleBag().debugString();
         assertNotNull(string);
-        this.log.info(string);
     }
 
     /**
@@ -82,7 +79,6 @@ public class SimpleBagTest extends ResultsReporting {
     public void testToString() {
         final String string = new SimpleBag().toString();
         assertNotNull(string);
-        this.log.info(string);
     }
 
 }

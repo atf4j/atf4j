@@ -14,32 +14,44 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.atf4j.data.jms;
+package net.atf4j.core.model;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import net.atf4j.data.management.JmsData;
+/**
+ * A UnitTest for Condition objects.
+ */
+public class ConditionTest {
 
-public class JmsDataTest {
-
-    @Test
-    public void testSetUp() {
-        new JmsData().setUp();
+    /**
+     * The MockTrue Class.
+     */
+    public class MockTrue extends Condition {
     }
 
-    @Test
-    public void testReset() {
-        new JmsData().reset();
+    /**
+     * The MockFalse Class.
+     */
+    public class MockFalse extends Condition {
     }
 
+    /**
+     * Test method for {@link Condition}.
+     */
     @Test
-    public void testTearDown() {
-        new JmsData().tearDown();
+    public void testTrueCondition() {
+        assertTrue(new MockTrue().isTrue());
     }
 
+    /**
+     * Test method for {@link Condition}.
+     */
     @Test
-    public void testJmsData() {
-        new JmsData();
+    public void testFalseCondition() {
+        assertFalse(new MockFalse().isFalse());
     }
 
 }

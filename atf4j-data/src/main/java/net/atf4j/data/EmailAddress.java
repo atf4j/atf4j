@@ -33,8 +33,8 @@ public class EmailAddress {
     /** The email. */
     private String email;
 
-    public static Customer create() {
-        return new Customer();
+    public static EmailAddress create() {
+        return new EmailAddress();
     }
 
     /**

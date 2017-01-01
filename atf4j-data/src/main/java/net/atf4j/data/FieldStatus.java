@@ -21,4 +21,9 @@ package net.atf4j.data;
  */
 public enum FieldStatus {
     PRISTINE, CHANGED, PERSISTED, UNWANTED;
+
+    public static FieldStatus initialise() {
+        return FieldStatus.PRISTINE;
+    }
+
 }

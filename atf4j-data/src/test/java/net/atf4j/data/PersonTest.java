@@ -23,12 +23,10 @@ import java.util.Date;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
-
 /**
  * A UnitTest for Person objects.
  */
-public class PersonTest extends ResultsReporting {
+public class PersonTest {
 
     /**
      * Test method for {@link Person}.

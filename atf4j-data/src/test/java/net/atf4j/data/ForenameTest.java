@@ -21,14 +21,12 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Assert;
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
-
 /**
  * ForenameTest.
  *
  *
  */
-public class ForenameTest extends ResultsReporting {
+public class ForenameTest {
 
     private static final String FORENAME = "Forename";
 
@@ -60,7 +58,6 @@ public class ForenameTest extends ResultsReporting {
     public void testDebugString() {
         final String string = new Forename().debugString();
         assertNotNull(string);
-        this.log.info(string);
     }
 
     /**
@@ -70,7 +67,6 @@ public class ForenameTest extends ResultsReporting {
     public void testToString() {
         final String string = new Forename().toString();
         assertNotNull(string);
-        this.log.info(string);
     }
 
 }

@@ -21,12 +21,10 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
-
 /**
  * A UnitTest for BankSortCode objects.
  */
-public class BankSortCodeTest extends ResultsReporting {
+public class BankSortCodeTest {
 
     /**
      * Test method for {@link BankSortCode}.
@@ -91,7 +89,6 @@ public class BankSortCodeTest extends ResultsReporting {
     public void testDebugString() {
         final String string = new BankSortCode().debugString();
         assertNotNull(string);
-        this.log.info(string);
     }
 
     /**
@@ -101,7 +98,6 @@ public class BankSortCodeTest extends ResultsReporting {
     public void testToString() {
         final String string = new BankSortCode().toString();
         assertNotNull(string);
-        this.log.info(string);
     }
 
 }

@@ -18,16 +18,34 @@ package net.atf4j.core.model;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.util.Collection;
+
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResult;
 
 public class TestResultsTest extends ResultsReporting {
 
     @Test
-    public void testSetGetTestResults() {
+    public void testDefaultConstructor() {
         final TestResults testResults = new TestResults();
         assertNotNull(testResults);
+    }
+
+    @Test
+    public void testAddTestResult() {
+        final TestResults testResults = new TestResults();
+        assertNotNull(testResults);
+        testResults.add(TestResult.PENDING);
+    }
+
+    @Test
+    public void testTestResults() {
+        final TestResults testResults = new TestResults();
+        assertNotNull(testResults);
+        final Collection<TestResult> resultsCollection = testResults.getTestResults();
+        assertNotNull(resultsCollection);
     }
 
     @Test

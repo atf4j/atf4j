@@ -21,12 +21,10 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
-
 /**
  * A UnitTest for NationalInsurance objects.
  */
-public class NationalInsuranceTest extends ResultsReporting {
+public class NationalInsuranceTest {
 
     private static final String BLANK_NI = "";
 
@@ -68,7 +66,6 @@ public class NationalInsuranceTest extends ResultsReporting {
     public void testDebugString() {
         final String string = new NationalInsurance().debugString();
         assertNotNull(string);
-        this.log.info(string);
     }
 
     /**
@@ -78,7 +75,6 @@ public class NationalInsuranceTest extends ResultsReporting {
     public void testToString() {
         final String string = new NationalInsurance().toString();
         assertNotNull(string);
-        this.log.info(string);
     }
 
 }

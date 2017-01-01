@@ -35,8 +35,8 @@ public class Postcode {
     /** The post code. */
     private String postCode;
 
-    public static PostalAddress create() {
-        return new PostalAddress();
+    public static Postcode create() {
+        return new Postcode();
     }
 
     /**

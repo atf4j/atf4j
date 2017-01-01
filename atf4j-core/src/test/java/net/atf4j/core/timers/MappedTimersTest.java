@@ -38,7 +38,8 @@ public class MappedTimersTest extends ResultsReporting {
 
     @Test
     public void testStop() {
-        assertNotNull(MappedTimers.stop("testStop"));
+        ITimer stop = MappedTimers.stop("testStop");
+        assertNotNull(stop);
     }
 
     @Test
