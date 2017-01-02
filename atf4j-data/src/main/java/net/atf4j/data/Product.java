@@ -55,15 +55,6 @@ public class Product {
     }
 
     /**
-     * Gets the id.
-     *
-     * @return the id
-     */
-    public String getId() {
-        return this.id;
-    }
-
-    /**
      * Sets the id.
      *
      * @param id
@@ -73,15 +64,6 @@ public class Product {
     public Product setId(final String id) {
         this.id = id;
         return this;
-    }
-
-    /**
-     * Gets the name.
-     *
-     * @return the name
-     */
-    public String getName() {
-        return this.name;
     }
 
     /**
@@ -106,6 +88,24 @@ public class Product {
     public Product setDetails(final String details) {
         this.details = details;
         return this;
+    }
+
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public String getId() {
+        return this.id;
+    }
+
+    /**
+     * Gets the name.
+     *
+     * @return the name
+     */
+    public String getName() {
+        return this.name;
     }
 
     /**

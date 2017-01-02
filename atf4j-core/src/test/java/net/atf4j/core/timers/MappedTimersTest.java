@@ -22,58 +22,45 @@ import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
+/**
+ * A UnitTest for MappedTimers objects.
+ */
 public class MappedTimersTest extends ResultsReporting {
 
+    /**
+     * Test method for {@link MappedTimers}.
+     */
     @Test
     public void testGetInstance() {
         final MappedTimers instance = MappedTimers.getInstance();
         assertNotNull(instance);
     }
 
+    /**
+     * Test method for {@link MappedTimers}.
+     */
     @Test
-    public void testStart() {
-        final ITimer start = MappedTimers.start("testStart");
-        assertNotNull(start);
+    public void testExpectedUsage() {
+        final ITimer timer = MappedTimers.start("testExpectedUsage");
+        assertNotNull(timer);
+        assertNotNull(timer.stop());
+        this.log.info(timer.toString());
     }
 
-    @Test
-    public void testStop() {
-        ITimer stop = MappedTimers.stop("testStop");
-        assertNotNull(stop);
-    }
-
-    @Test
-    public void testStartTimer() {
-        final MappedTimers instance = MappedTimers.getInstance();
-        assertNotNull(instance);
-        final String timerName = "testStartTimer";
-        instance.startTimer(timerName);
-    }
-
-    @Test
-    public void testStopTimer() {
-        final MappedTimers instance = MappedTimers.getInstance();
-        assertNotNull(instance);
-        final String timerName = "testStopTimer";
-        instance.startTimer(timerName);
-    }
-
+    /**
+     * Test method for {@link MappedTimers}.
+     */
     @Test
     public void testStopAll() {
-        final MappedTimers instance = MappedTimers.getInstance();
-        assertNotNull(instance.stopAll());
+        assertNotNull(MappedTimers.stopAll());
     }
 
-    @Test
-    public void testStopAllTimers() {
-        final MappedTimers instance = MappedTimers.getInstance();
-        assertNotNull(instance.stopAllTimers());
-    }
-
+    /**
+     * Test method for {@link MappedTimers}.
+     */
     @Test
     public void testToString() {
-        final MappedTimers instance = MappedTimers.getInstance();
-        assertNotNull(instance.toString());
+        assertNotNull(MappedTimers.debugString());
     }
 
 }

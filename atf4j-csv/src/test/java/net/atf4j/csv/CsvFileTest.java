@@ -122,21 +122,6 @@ public class CsvFileTest {
     }
 
     /**
-     * Test load present data.
-     *
-     * @throws Exception
-     *             the exception
-     */
-    @Test
-    public void testLoadPresentData() throws Exception {
-        final CsvFile csvFile = new CsvFile();
-        assertNotNull(csvFile);
-        csvFile.load(TEST_DATA_CSV);
-        assertNotNull(csvFile);
-        verifyContent(csvFile);
-    }
-
-    /**
      * Verify CsvFile object.
      *
      * @param csvFile

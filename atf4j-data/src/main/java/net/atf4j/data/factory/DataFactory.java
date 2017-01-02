@@ -28,12 +28,12 @@ import java.util.Date;
  */
 public class DataFactory {
 
-    private AddressDataFactory addressData = null;
-    private final BankDataFactory bankData = null;
-    private final BusinessDataFactory businessData = null;
-    private final CardDataFactory cardData = null;
-    private final CustomerDataFactory contactData = null;
-    private final PersonDataFactory personData = null;
+    private final AddressDataFactory addressData;
+    private final BankDataFactory bankData;
+    private final BusinessDataFactory businessData;
+    private final CardDataFactory cardData;
+    private final CustomerDataFactory contactData;
+    private final PersonDataFactory personData;
 
     /** The Constant simpleDateFormat. */
     private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
@@ -46,11 +46,11 @@ public class DataFactory {
      */
     protected DataFactory() throws Exception {
         this.addressData = new AddressDataFactory();
-        // this.bankData = new BankDataFactory();
-        // this.businessData = new BusinessDataFactory();
-        // this.cardData = new CardDataFactory();
-        // this.contactData = new CustomerDataFactory();
-        // this.personData = new PersonDataFactory();
+        this.bankData = new BankDataFactory();
+        this.businessData = new BusinessDataFactory();
+        this.cardData = new CardDataFactory();
+        this.contactData = new CustomerDataFactory();
+        this.personData = new PersonDataFactory();
     }
 
     /**
@@ -149,24 +149,6 @@ public class DataFactory {
     }
 
     /**
-     * Family name.
-     *
-     * @return the string
-     */
-    public static String familyName() {
-        return null;
-    }
-
-    /**
-     * Given name.
-     *
-     * @return the string
-     */
-    public static String givenName() {
-        return null;
-    }
-
-    /**
      * Format.
      *
      * @param calendar
@@ -195,7 +177,12 @@ public class DataFactory {
     public String toString() {
         return String.format(
                 "DataFactory [addressData=%s, bankData=%s, businessData=%s, cardData=%s, contactData=%s, personData=%s]",
-                this.addressData, this.bankData, this.businessData, this.cardData, this.contactData, this.personData);
+                this.addressData,
+                this.bankData,
+                this.businessData,
+                this.cardData,
+                this.contactData,
+                this.personData);
     }
 
 }

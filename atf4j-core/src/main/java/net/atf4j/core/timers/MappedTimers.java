@@ -19,6 +19,8 @@ package net.atf4j.core.timers;
 import java.util.HashMap;
 import java.util.Set;
 
+import net.atf4j.core.Atf4jException;
+
 /**
  * MappedTimers. [GOF] Singleton.
  *
@@ -33,6 +35,9 @@ public final class MappedTimers {
 
     /** The stopped timers. */
     private final HashMap<String, MilliTimer> stoppedTimers = new HashMap<String, MilliTimer>();
+
+    public class TimerNotFound extends Atf4jException {
+    }
 
     /**
      * Private constructor to prevent wild instantiation.
@@ -91,7 +96,7 @@ public final class MappedTimers {
     /**
      * stopAllTimers.
      */
-    public MappedTimers stopAllTimers() {
+    protected MappedTimers stopAllTimers() {
         final Set<String> keys = this.runningTimers.keySet();
         for (final String key : keys) {
             stopTimer(key);
@@ -99,14 +104,16 @@ public final class MappedTimers {
         return this;
     }
 
-    public String debugString() {
-        return String.format("%s [runningTimers=%s,stoppedTimers=%s]", this.getClass().getSimpleName(),
-                this.runningTimers, this.stoppedTimers);
+    public static String debugString() {
+        return getInstance().toString();
     }
 
     @Override
     public String toString() {
-        return debugString();
+        return String.format("%s [runningTimers=%s,stoppedTimers=%s]",
+                this.getClass().getSimpleName(),
+                this.runningTimers,
+                this.stoppedTimers);
     }
 
 }

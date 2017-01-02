@@ -26,30 +26,35 @@ public class Field {
     public Field() {
         super();
         this.status = FieldStatus.PRISTINE;
+        set(UUID.randomUUID().toString(), "");
     }
 
     public Field(final String value) {
         super();
+        set(UUID.randomUUID().toString(), value);
         this.status = FieldStatus.PRISTINE;
-        this.key = UUID.randomUUID().toString();
-        this.value = value;
     }
 
     public Field(final String key, final String value) {
         super();
+        set(key, value);
         this.status = FieldStatus.PRISTINE;
-        this.key = key;
-        this.value = value;
     }
 
-    public Field setValue(final String value) {
+    private Field set(final String key, final String value) {
+        this.key = key;
         this.value = value;
-        this.status = FieldStatus.CHANGED;
         return this;
     }
 
     public Field setKey(final String key) {
         this.key = key;
+        this.status = FieldStatus.CHANGED;
+        return this;
+    }
+
+    public Field setValue(final String value) {
+        this.value = value;
         this.status = FieldStatus.CHANGED;
         return this;
     }

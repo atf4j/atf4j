@@ -17,8 +17,6 @@
 package net.atf4j.data.factory;
 
 import net.atf4j.csv.CsvFile;
-import net.atf4j.csv.CsvRow;
-import net.atf4j.csv.HeaderLine;
 
 /**
  * A factory for creating AbstractData objects.
@@ -77,44 +75,45 @@ public abstract class AbstractDataFactory {
         return this;
     }
 
-    /**
-     * Gets the column names.
-     *
-     * @return the column names
-     */
-    public HeaderLine getColumnNames() {
-        return (this.dataFile == null ? null : this.dataFile.getHeaderLine());
-    }
-
-    /**
-     * Gets the column name.
-     *
-     * @param columnNumber
-     *            the column number
-     * @return the column name
-     */
-    public String getColumnName(final int columnNumber) {
-        return (this.dataFile == null ? "" : this.dataFile.getColumnName(columnNumber));
-    }
-
-    /**
-     * Row count.
-     *
-     * @return the int
-     */
-    public int rowCount() {
-        return (this.dataFile == null ? 0 : this.dataFile.rowCount());
-    }
-
-    /**
-     * Gets the row.
-     *
-     * @param index
-     *            the index
-     * @return the row
-     */
-    public CsvRow getRow(final int index) {
-        return (this.dataFile == null ? null : this.dataFile.getRow(index));
-    }
-
+    // /**
+    // * Column count.
+    // *
+    // * @return the int
+    // */
+    // public int columnCount() {
+    // return (this.dataFile == null ? 0 : this.dataFile.columnCount());
+    // }
+    //
+    // /**
+    // * Gets the column name.
+    // *
+    // * @param columnNumber
+    // * the column number
+    // * @return the column name
+    // */
+    // public String getColumnName(final int columnNumber) {
+    // return (this.dataFile == null ? "" :
+    // this.dataFile.getColumnName(columnNumber));
+    // }
+    //
+    // /**
+    // * Row count.
+    // *
+    // * @return the int
+    // */
+    // public int rowCount() {
+    // return (this.dataFile == null ? 0 : this.dataFile.rowCount());
+    // }
+    //
+    // /**
+    // * Gets the row.
+    // *
+    // * @param index
+    // * the index
+    // * @return the row
+    // */
+    // public CsvRow getRow(final int index) {
+    // return (this.dataFile == null ? null : this.dataFile.getRow(index));
+    // }
+    //
 }

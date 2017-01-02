@@ -21,8 +21,6 @@ import net.atf4j.data.PostalAddress;
 
 /**
  * AddressFactory.
- *
- *
  */
 public class AddressDataFactory extends AbstractDataFactory {
 

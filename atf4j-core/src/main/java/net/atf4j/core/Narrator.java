@@ -19,9 +19,9 @@ package net.atf4j.core;
 import java.lang.reflect.Field;
 
 /**
- * ToStringBuilder.
+ * Narrate a test from the call stack.
  */
-public class ToStringBuilder {
+public class Narrator {
 
     private static final String LAYOUT_STYLE = "%s [%s]";
 
@@ -37,7 +37,7 @@ public class ToStringBuilder {
             final StringBuilder stringBuilder = new StringBuilder();
             final Class<? extends Object> aClass = object.getClass();
 
-            stringBuilder.append(ToStringBuilder.reflectClassToString(object, aClass));
+            stringBuilder.append(Narrator.reflectClassToString(object, aClass));
 
             return String.format(LAYOUT_STYLE, aClass.getSimpleName(), stringBuilder.toString());
         } else {
@@ -59,10 +59,11 @@ public class ToStringBuilder {
         final Class<? extends Object> superClass = aClass.getSuperclass();
         if (superClass != null) {
             if (!superClass.isInstance(Object.class)) {
-                stringBuilder.append(String.format(LAYOUT_STYLE, superClass.getSimpleName(),
-                        ToStringBuilder.reflectClassToString(object, superClass)));
+                stringBuilder.append(String.format(LAYOUT_STYLE,
+                        superClass.getSimpleName(),
+                        Narrator.reflectClassToString(object, superClass)));
             } else {
-                stringBuilder.append(ToStringBuilder.membersToString(object, aClass));
+                stringBuilder.append(Narrator.membersToString(object, aClass));
             }
         } else {
             stringBuilder.append("superClass == null");

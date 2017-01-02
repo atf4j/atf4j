@@ -73,40 +73,15 @@ public class NestedTimersTest extends ResultsReporting {
 
     @Test
     public final void testStaticNamedTimers() {
-        NestedTimers.start("Static Named Timers Test case 1");
+        NestedTimers.start();
         waitDefaultInterval();
-        NestedTimers.start("Static Named Timers Test case 2");
+        NestedTimers.start();
         waitDefaultInterval();
-        NestedTimers.start("Static Named Timers Test case 3");
+        NestedTimers.start();
         waitDefaultInterval();
-        NestedTimers.start("Static Named Timers Test case 4");
+        NestedTimers.start();
         waitDefaultInterval();
-        NestedTimers.start("Static Named Timers Test case 5");
-        waitDefaultInterval();
-        this.log.info(NestedTimers.stop().toString());
-        this.log.info(NestedTimers.stop().toString());
-        this.log.info(NestedTimers.stop().toString());
-        this.log.info(NestedTimers.stop().toString());
-        this.log.info(NestedTimers.stop().toString());
-        NestedTimers.stopAll();
-    }
-
-    /**
-     * Test method for
-     * { net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
-     */
-
-    @Test
-    public final void testTimerStarting() {
-        NestedTimers.start("Timer Starting Test case 1");
-        waitDefaultInterval();
-        NestedTimers.start("Timer Starting Test case 2");
-        waitDefaultInterval();
-        NestedTimers.start("Timer Starting Test case 3");
-        waitDefaultInterval();
-        NestedTimers.start("Timer Starting Test case 4");
-        waitDefaultInterval();
-        NestedTimers.start("Timer Starting Test case 5");
+        NestedTimers.start();
         waitDefaultInterval();
         NestedTimers.stopAll();
     }

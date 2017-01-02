@@ -22,14 +22,23 @@ import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
+/**
+ * A UnitTest for NanoTimer objects.
+ */
 public class NanoTimerTest extends ResultsReporting {
 
+    /**
+     * Test method for {@link NanoTimer}.
+     */
     @Test
     public void testDefaultConstructor() {
         final NanoTimer nanoTimer = new NanoTimer();
         assertNotNull(nanoTimer);
     }
 
+    /**
+     * Test method for {@link NanoTimer}.
+     */
     @Test
     public void testNanoTimerString() {
         final String actual = "Named NanoTimer";
@@ -38,30 +47,45 @@ public class NanoTimerTest extends ResultsReporting {
         assertNotNull(actual, nanoTimer.getTimerName());
     }
 
+    /**
+     * Test method for {@link NanoTimer}.
+     */
     @Test
     public void testStart() {
         final NanoTimer nanoTimer = new NanoTimer();
         assertNotNull(nanoTimer.start());
     }
 
+    /**
+     * Test method for {@link NanoTimer}.
+     */
     @Test
     public void testStop() {
         final NanoTimer nanoTimer = new NanoTimer();
         assertNotNull(nanoTimer.stop());
     }
 
+    /**
+     * Test method for {@link NanoTimer}.
+     */
     @Test
     public void testGetStartTime() {
         final NanoTimer nanoTimer = new NanoTimer();
         assertNotNull(nanoTimer.getStartTime());
     }
 
+    /**
+     * Test method for {@link NanoTimer}.
+     */
     @Test
     public void testGetElapsedTime() {
         final NanoTimer nanoTimer = new NanoTimer();
         assertNotNull(nanoTimer.getElapsedTime());
     }
 
+    /**
+     * Test method for {@link NanoTimer}.
+     */
     @Test
     public void testToString() {
         final NanoTimer nanoTimer = new NanoTimer();

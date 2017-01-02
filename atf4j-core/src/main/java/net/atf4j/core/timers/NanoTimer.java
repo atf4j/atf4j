@@ -18,7 +18,7 @@ package net.atf4j.core.timers;
 
 import java.util.UUID;
 
-import net.atf4j.core.ToStringBuilder;
+import net.atf4j.core.Narrator;
 
 /**
  * A named nano second Timer. (In most cases this offers no advantage over the
@@ -105,7 +105,7 @@ public class NanoTimer implements ITimer {
      */
     @Override
     public final String toString() {
-        return ToStringBuilder.reflectObjectToString(this);
+        return Narrator.reflectObjectToString(this);
     }
 
     /**

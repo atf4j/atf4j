@@ -22,12 +22,19 @@ import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
+/**
+ * A UnitTest for SplitTimer objects.
+ */
 public class SplitTimerTest extends ResultsReporting {
 
+    /**
+     * Test method for {@link SplitTimer}.
+     */
     @Test
     public void testGetSplitTime() {
         final SplitTimer splitTimer = new SplitTimer();
         assertNotNull(splitTimer);
+        assertNotNull(splitTimer.getSplitTime());
     }
 
 }

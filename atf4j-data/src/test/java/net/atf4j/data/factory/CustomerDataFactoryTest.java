@@ -14,32 +14,25 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.atf4j.core.timers;
+package net.atf4j.data.factory;
 
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.data.Customer;
 
-/**
- * A UnitTest for NestedTimers objects.
- */
-public class NestedTimersTest extends ResultsReporting {
+public class CustomerDataFactoryTest {
 
-    /**
-     * Test method for {@link NestedTimers}.
-     */
     @Test
-    public void testGetInstance() {
-        final NestedTimers instance = NestedTimers.getInstance();
-        assertNotNull(instance);
+    public void testDefaultConstructor() throws Exception {
+        assertNotNull(new CustomerDataFactory());
     }
 
     @Test
-    public void testExpectedUsage() {
-        NestedTimers.start();
-        NestedTimers.stop();
+    public void testCreate() {
+        final Customer customer = CustomerDataFactory.create();
+        assertNotNull(customer);
     }
 
 }

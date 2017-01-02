@@ -20,6 +20,8 @@ import java.util.Enumeration;
 import java.util.Stack;
 import java.util.UUID;
 
+import net.atf4j.core.Atf4jException;
+
 /**
  * NestedTimers. [GOF] Singleton.
  *
@@ -34,6 +36,9 @@ public final class NestedTimers {
 
     /** A FIFO stack of stopped timers. */
     private final Stack<MilliTimer> stoppedTimers = new Stack<MilliTimer>();
+
+    public class TimersExhausted extends Atf4jException {
+    }
 
     /**
      * Instantiates a new nested timers collection.
@@ -50,25 +55,9 @@ public final class NestedTimers {
         return NestedTimers.INSTANCE;
     }
 
-    public ITimer start() {
+    public static ITimer start() {
         final String timerName = UUID.randomUUID().toString();
         return getInstance().startTimer(timerName);
-    }
-
-    /**
-     * getInstance.
-     *
-     * @param timerName
-     *            the timer name
-     * @return NestedTimers
-     */
-    public static ITimer start(final String timerName) {
-        return getInstance().startTimer(timerName);
-    }
-
-    public ITimer startTimer() {
-        final String timerName = UUID.randomUUID().toString();
-        return startTimer(timerName);
     }
 
     /**
@@ -183,8 +172,10 @@ public final class NestedTimers {
      */
     @Override
     public String toString() {
-        return String.format("%s [runningTimers=%s,stoppedTimers=%s]", this.getClass().getSimpleName(),
-                this.runningTimers, this.stoppedTimers);
+        return String.format("%s [runningTimers=%s,stoppedTimers=%s]",
+                this.getClass().getSimpleName(),
+                this.runningTimers,
+                this.stoppedTimers);
     }
 
 }

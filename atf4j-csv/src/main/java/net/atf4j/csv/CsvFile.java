@@ -82,7 +82,7 @@ public class CsvFile {
      */
     protected void load() throws Exception {
         final String simpleName = this.getClass().getSimpleName();
-        final String dataFilename = String.format("/%s.csv", simpleName);
+        final String dataFilename = String.format("%s.csv", simpleName);
         load(dataFilename);
     }
 
@@ -124,7 +124,6 @@ public class CsvFile {
                 this.data.add(new CsvRow(line));
             }
             while ((line = bufferedReader.readLine()) != null) {
-                this.log.trace(line);
                 this.data.add(new CsvRow(line));
             }
         } finally {

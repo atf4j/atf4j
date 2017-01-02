@@ -17,12 +17,8 @@
 package net.atf4j.data.factory;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
-
-import net.atf4j.csv.CsvRow;
-import net.atf4j.csv.HeaderLine;
 
 /**
  * A UnitTest for AbstractDataFactory objects.
@@ -32,30 +28,18 @@ public class AbstractDataFactoryTest {
     /**
      * Mock Test Data.
      */
-    public class TestData extends AbstractDataFactory {
+    public class TestDataFactory extends AbstractDataFactory {
         /**
          * Instantiates a new test data.
          *
          * @throws Exception
          *             the exception
          */
-        public TestData() throws Exception {
+        public TestDataFactory() throws Exception {
             super();
         }
-    }
 
-    /**
-     * The MissingData Class.
-     */
-    public class MissingData extends AbstractDataFactory {
-        /**
-         * Instantiates a new test data.
-         *
-         * @throws Exception
-         *             the exception
-         */
-        public MissingData() throws Exception {
-            super();
+        public TestDataFactory(final String dataFilename) throws Exception {
         }
     }
 
@@ -67,76 +51,12 @@ public class AbstractDataFactoryTest {
      */
     @Test
     public void testDefaultConstructor() throws Exception {
-        assertNotNull(new TestData());
+        assertNotNull(new TestDataFactory());
     }
 
-    /**
-     * Test method for {@link AbstractDataFactory}.
-     *
-     * @throws Exception
-     *             the exception
-     */
     @Test
-    public void testLoad() throws Exception {
-        final TestData mockDataFactory = new TestData();
-        assertNotNull(mockDataFactory);
-        assertNotNull(mockDataFactory.load());
-    }
-
-    /**
-     * Test method for {@link AbstractDataFactory}.
-     *
-     * @throws Exception
-     *             the exception
-     */
-    @Test
-    public void testGetColumnNames() throws Exception {
-        final TestData mockDataFactory = new TestData();
-        assertNotNull(mockDataFactory);
-        final HeaderLine columnNames = mockDataFactory.getColumnNames();
-        assertNull(columnNames);
-    }
-
-    /**
-     * Test method for {@link AbstractDataFactory}.
-     *
-     * @throws Exception
-     *             the exception
-     */
-    @Test
-    public void testGetColumnName() throws Exception {
-        final TestData mockDataFactory = new TestData();
-        assertNotNull(mockDataFactory);
-        final String columnName = mockDataFactory.getColumnName(0);
-        assertNotNull(columnName);
-    }
-
-    /**
-     * Test method for {@link AbstractDataFactory}.
-     *
-     * @throws Exception
-     *             the exception
-     */
-    @Test
-    public void testRowCount() throws Exception {
-        final TestData mockDataFactory = new TestData();
-        assertNotNull(mockDataFactory);
-        final int rowCount = mockDataFactory.rowCount();
-        assertNotNull(rowCount);
-    }
-
-    /**
-     * Test method for {@link AbstractDataFactory}.
-     *
-     * @throws Exception
-     *             the exception
-     */
-    @Test
-    public void testGetRow() throws Exception {
-        final TestData mockDataFactory = new TestData();
-        assertNotNull(mockDataFactory);
-        final CsvRow row = mockDataFactory.getRow(0);
-        assertNotNull(row);
+    public void testTestDataFactoryString() throws Exception {
+        assertNotNull(new TestDataFactory(""));
     }
 
 }

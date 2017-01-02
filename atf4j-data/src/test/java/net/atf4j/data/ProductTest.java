@@ -46,7 +46,7 @@ public class ProductTest {
      */
     @Test
     public void testProductStringStringString() {
-        new Product();
+        new Product("", "", "");
     }
 
     /**
@@ -54,7 +54,7 @@ public class ProductTest {
      */
     @Test
     public void testSetGetId() {
-        new Product();
+        final String id = new Product().setId("id").getId();
     }
 
     /**
@@ -62,7 +62,7 @@ public class ProductTest {
      */
     @Test
     public void testSetGetName() {
-        new Product();
+        final String name = new Product().setName("name").getName();
     }
 
     /**
@@ -70,7 +70,7 @@ public class ProductTest {
      */
     @Test
     public void testSetGetDetails() {
-        new Product();
+        final String details = new Product().setDetails("details").getDetails();
     }
 
     /**

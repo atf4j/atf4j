@@ -17,6 +17,7 @@
 package net.atf4j.data.factory;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.Calendar;
@@ -52,6 +53,28 @@ public class DataFactoryTest {
         final Calendar today = DataFactory.today();
         assertNotNull(today);
         verifyDateData(today);
+    }
+
+    /**
+     * Test method for {@link DataFactory}.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    public final void testThisMonth() throws Exception {
+        final int thisMonth = DataFactory.thisMonth();
+        assertNotEquals(0, thisMonth);
+    }
+
+    /**
+     * Test method for {@link DataFactory}.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    public final void testThisYear() throws Exception {
+        final int thisYear = DataFactory.thisYear();
+        assertNotEquals(0, thisYear);
     }
 
     /**

@@ -70,14 +70,6 @@ public class BankSortCodeTest {
      * Test method for {@link BankSortCode}.
      */
     @Test
-    public void testVerifyNull() {
-        BankSortCode.verify(null);
-    }
-
-    /**
-     * Test method for {@link BankSortCode}.
-     */
-    @Test
     public void testVerifyEmpty() {
         BankSortCode.verify("");
     }
