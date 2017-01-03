@@ -16,6 +16,7 @@
  */
 package net.atf4j.data;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -33,12 +34,26 @@ public class BankTest {
         assertNotNull(new Bank());
     }
 
+    @Test
+    public void testBank() {
+        final Bank bank = new Bank();
+        assertNotNull(bank);
+        bank.setName("BankName").getName();
+    }
+
     /**
      * Test method for {@link Bank}.
      */
     @Test
     public void testCreate() {
-        assertNotNull(Business.create());
+        assertNotNull(Bank.create());
+    }
+
+    @Test
+    public void testSetGetName() {
+        final String bankName = "BankName";
+        final Bank name = new Bank(bankName);
+        assertEquals(bankName, name.setName(bankName).getName());
     }
 
     /**

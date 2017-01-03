@@ -23,8 +23,7 @@ import net.atf4j.csv.CsvFile;
  */
 public abstract class AbstractDataFactory {
 
-    /** The data file. */
-    private CsvFile dataFile = null;
+    private CsvFile csvFile = null;
 
     /**
      * Instantiates a new abstract data factory.
@@ -71,7 +70,7 @@ public abstract class AbstractDataFactory {
      *             the exception
      */
     private AbstractDataFactory load(final String dataFilename) throws Exception {
-        this.dataFile = new CsvFile(dataFilename);
+        this.csvFile = new CsvFile(dataFilename);
         return this;
     }
 

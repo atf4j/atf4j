@@ -30,7 +30,9 @@ public class BankAccount {
      * @return the bank account
      */
     public static BankAccount create() {
-        return new BankAccount();
+        final BankAccount bankAccount = new BankAccount();
+        bankAccount.setBank(Bank.create());
+        return bankAccount;
     }
 
     /**

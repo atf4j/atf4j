@@ -22,13 +22,25 @@ import org.junit.Test;
 
 import net.atf4j.data.Bank;
 
+/**
+ * A UnitTest for BankDataFactory objects.
+ */
 public class BankDataFactoryTest {
 
+    /**
+     * Test method for {@link BankDataFactory}.
+     *
+     * @throws Exception
+     *             the exception
+     */
     @Test
     public void testDefaultConstructor() throws Exception {
         assertNotNull(new BankDataFactory());
     }
 
+    /**
+     * Test method for {@link BankDataFactory}.
+     */
     @Test
     public void testCreate() {
         final Bank bank = BankDataFactory.create();

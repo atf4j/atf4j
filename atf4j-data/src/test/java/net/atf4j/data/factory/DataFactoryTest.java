@@ -24,6 +24,13 @@ import java.util.Calendar;
 
 import org.junit.Test;
 
+import net.atf4j.data.Bank;
+import net.atf4j.data.Business;
+import net.atf4j.data.Card;
+import net.atf4j.data.Customer;
+import net.atf4j.data.Person;
+import net.atf4j.data.PostalAddress;
+
 /**
  * A UnitTest for DataFactory objects.
  */
@@ -61,6 +68,7 @@ public class DataFactoryTest {
      * @throws Exception
      *             the exception
      */
+    @Test
     public final void testThisMonth() throws Exception {
         final int thisMonth = DataFactory.thisMonth();
         assertNotEquals(0, thisMonth);
@@ -72,6 +80,7 @@ public class DataFactoryTest {
      * @throws Exception
      *             the exception
      */
+    @Test
     public final void testThisYear() throws Exception {
         final int thisYear = DataFactory.thisYear();
         assertNotEquals(0, thisYear);
@@ -150,6 +159,42 @@ public class DataFactoryTest {
         assertEquals(fromCalendar, fromDate);
         assertNotNull(fromCalendar);
         assertNotNull(fromDate);
+    }
+
+    @Test
+    public void testCreatePerson() {
+        final Person person = DataFactory.createPerson();
+        assertNotNull(person);
+    }
+
+    @Test
+    public void testCreateCustomer() {
+        final Customer customer = DataFactory.createCustomer();
+        assertNotNull(customer);
+    }
+
+    @Test
+    public void testCreateCard() {
+        final Card card = DataFactory.createCard();
+        assertNotNull(card);
+    }
+
+    @Test
+    public void testCreateBusiness() {
+        final Business business = DataFactory.createBusiness();
+        assertNotNull(business);
+    }
+
+    @Test
+    public void testCreateBank() {
+        final Bank bank = DataFactory.createBank();
+        assertNotNull(bank);
+    }
+
+    @Test
+    public void testCreateAddress() {
+        final PostalAddress address = DataFactory.createAddress();
+        assertNotNull(address);
     }
 
 }

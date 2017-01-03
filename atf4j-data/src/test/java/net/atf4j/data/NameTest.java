@@ -34,14 +34,22 @@ public class NameTest {
         assertNotNull(new Name());
     }
 
-    @Test
     public void testName() {
-        assertNotNull(new Name(""));
+        assertNotNull(new Name());
+    }
+
+    @Test
+    public void testNameString() {
+        final String expected = "Name";
+        final Name nameObject = new Name(expected);
+        assertNotNull(nameObject);
+        assertEquals(expected, nameObject.getName());
     }
 
     @Test
     public void testCreate() {
-        assertNotNull(Name.create());
+        Name name = Name.create();
+        assertNotNull(name);
     }
 
     /**

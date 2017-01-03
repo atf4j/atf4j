@@ -21,7 +21,6 @@ package net.atf4j.data;
  */
 public class Name extends Datum {
 
-    /** The name. */
     private String name;
 
     public static Name create() {

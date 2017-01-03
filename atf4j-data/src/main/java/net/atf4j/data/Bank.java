@@ -26,7 +26,10 @@ public class Bank extends Business {
     private BankSortCode bankSortCode;
 
     public static Bank create() {
-        return new Bank();
+        final Bank bank = new Bank();
+        final BankSortCode bankSortCode = BankSortCode.create();
+        bank.setBankSortCode(bankSortCode);
+        return bank;
     }
 
     /**
@@ -34,6 +37,11 @@ public class Bank extends Business {
      */
     public Bank() {
         this.bankSortCode = new BankSortCode();
+    }
+
+    public Bank(final String bankName) {
+        this.bankSortCode = new BankSortCode();
+        setName(bankName);
     }
 
     /**

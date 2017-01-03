@@ -22,13 +22,24 @@ import org.junit.Test;
 
 import net.atf4j.data.Card;
 
+/**
+ * A UnitTest for CardDataFactory objects.
+ */
 public class CardDataFactoryTest {
 
+    /**
+     * Test method for {@link CardDataFactory}.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testDefaultConstructor() throws Exception {
         assertNotNull(new CardDataFactory());
     }
 
+    /**
+     * Test method for {@link CardDataFactory}.
+     */
     @Test
     public void testCreate() {
         final Card card = CardDataFactory.create();

@@ -117,7 +117,6 @@ public class CsvFile {
         final BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         try {
             String line = bufferedReader.readLine().trim();
-            this.log.trace(line);
             if (line.startsWith("#")) {
                 this.header = new HeaderLine(line.substring(1));
             } else {
@@ -138,6 +137,15 @@ public class CsvFile {
      */
     public HeaderLine getHeaderLine() {
         return this.header;
+    }
+
+    /**
+     * Column count.
+     *
+     * @return the int
+     */
+    public int columnCount() {
+        return this.header.length();
     }
 
     /**

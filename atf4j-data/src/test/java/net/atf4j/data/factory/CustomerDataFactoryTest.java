@@ -22,13 +22,24 @@ import org.junit.Test;
 
 import net.atf4j.data.Customer;
 
+/**
+ * A UnitTest for CustomerDataFactory objects.
+ */
 public class CustomerDataFactoryTest {
 
+    /**
+     * Test method for {@link CustomerDataFactory}.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testDefaultConstructor() throws Exception {
         assertNotNull(new CustomerDataFactory());
     }
 
+    /**
+     * Test method for {@link CustomerDataFactory}.
+     */
     @Test
     public void testCreate() {
         final Customer customer = CustomerDataFactory.create();

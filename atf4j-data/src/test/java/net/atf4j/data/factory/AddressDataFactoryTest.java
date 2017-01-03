@@ -22,13 +22,25 @@ import org.junit.Test;
 
 import net.atf4j.data.PostalAddress;
 
+/**
+ * A UnitTest for AddressDataFactory objects.
+ */
 public class AddressDataFactoryTest {
 
+    /**
+     * Test method for {@link AddressDataFactory}.
+     *
+     * @throws Exception
+     *             the exception
+     */
     @Test
     public void testDefaultConstructor() throws Exception {
         assertNotNull(new AddressDataFactory());
     }
 
+    /**
+     * Test method for {@link AddressDataFactory}.
+     */
     @Test
     public void testCreate() {
         final PostalAddress address = AddressDataFactory.create();

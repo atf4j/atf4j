@@ -22,13 +22,24 @@ import org.junit.Test;
 
 import net.atf4j.data.Person;
 
+/**
+ * A UnitTest for PersonDataFactory objects.
+ */
 public class PersonDataFactoryTest {
 
+    /**
+     * Test method for {@link PersonDataFactory}.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testDefaultConstructor() throws Exception {
         assertNotNull(new PersonDataFactory());
     }
 
+    /**
+     * Test method for {@link PersonDataFactory}.
+     */
     @Test
     public void testCreate() {
         final Person person = PersonDataFactory.create();

@@ -14,36 +14,10 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.atf4j.data.factory;
+package net.atf4j.data;
 
-import static org.junit.Assert.assertNotNull;
-
-import org.junit.Test;
-
-import net.atf4j.data.Business;
-
-/**
- * A UnitTest for BusinessDataFactory objects.
- */
-public class BusinessDataFactoryTest {
-
-    /**
-     * Test method for {@link BusinessDataFactory}.
-     *
-     * @throws Exception the exception
-     */
-    @Test
-    public void testDefaultConstructor() throws Exception {
-        assertNotNull(new BusinessDataFactory());
-    }
-
-    /**
-     * Test method for {@link BusinessDataFactory}.
-     */
-    @Test
-    public void testCreate() {
-        final Business business = BusinessDataFactory.create();
-        assertNotNull(business);
-    }
-
+public enum TelephoneType {
+    Mobile,
+    Landline,
+    Fax;
 }

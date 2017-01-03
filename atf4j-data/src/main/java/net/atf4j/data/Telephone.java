@@ -21,12 +21,17 @@ package net.atf4j.data;
  */
 public class Telephone {
 
-    private String type;
     private String number;
-    // Type Mobile|Landline|Fax|other
+    private String type;
     // Country Code
     // Area Code
     // Number
+
+    public enum Type {
+        Mobile,
+        Landline,
+        Fax;
+    }
 
     public static Telephone create() {
         return new Telephone();
@@ -47,7 +52,13 @@ public class Telephone {
      */
     public Telephone(final String number) {
         super();
-        this.number = number;
+        setNumber(number);
+    }
+
+    public Telephone(final String number, final String type) {
+        super();
+        setNumber(number);
+        setType(type);
     }
 
     /**
@@ -59,6 +70,18 @@ public class Telephone {
      */
     public Telephone setNumber(final String number) {
         this.number = number;
+        return this;
+    }
+
+    /**
+     * Sets the type.
+     *
+     * @param type
+     *            the type
+     * @return the telephone
+     */
+    public Telephone setType(final String type) {
+        this.type = type;
         return this;
     }
 
@@ -81,24 +104,15 @@ public class Telephone {
     }
 
     /**
-     * Sets the type.
-     *
-     * @param type
-     *            the type
-     * @return the telephone
-     */
-    public Telephone setType(final String type) {
-        this.type = type;
-        return this;
-    }
-
-    /**
      * Debug string.
      *
      * @return the string
      */
     public String debugString() {
-        return String.format("%s [number=%s]", this.getClass().getSimpleName(), this.number);
+        return String.format("%s [number=%s,type=%s]",
+                this.getClass().getSimpleName(),
+                this.getNumber(),
+                this.getType());
     }
 
     /* (non-Javadoc)

@@ -38,9 +38,6 @@ public class AbstractDataFactoryTest {
         public TestDataFactory() throws Exception {
             super();
         }
-
-        public TestDataFactory(final String dataFilename) throws Exception {
-        }
     }
 
     /**
@@ -52,11 +49,6 @@ public class AbstractDataFactoryTest {
     @Test
     public void testDefaultConstructor() throws Exception {
         assertNotNull(new TestDataFactory());
-    }
-
-    @Test
-    public void testTestDataFactoryString() throws Exception {
-        assertNotNull(new TestDataFactory(""));
     }
 
 }
