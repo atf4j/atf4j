@@ -29,7 +29,8 @@ public abstract class SystemUnderTest {
     /**
      * Use browser.
      *
-     * @param browserName the browser name
+     * @param browserName
+     *            the browser name
      */
     public void useBrowser(final String browserName) {
         log.debug("{}.useBrowser({})", this, browserName);
@@ -38,7 +39,8 @@ public abstract class SystemUnderTest {
     /**
      * Open.
      *
-     * @param targetUrl the target url
+     * @param targetUrl
+     *            the target url
      */
     public void open(final String targetUrl) {
         log.debug("{}.open({})", this, targetUrl);
@@ -54,7 +56,8 @@ public abstract class SystemUnderTest {
     /**
      * Ensure page title is.
      *
-     * @param expectedPageTitle the expected page title
+     * @param expectedPageTitle
+     *            the expected page title
      */
     public void ensurePageTitleIs(final String expectedPageTitle) {
         log.debug("{}.ensurePageTitleIs({})", this);
@@ -63,7 +66,8 @@ public abstract class SystemUnderTest {
     /**
      * Page title sould be.
      *
-     * @param expectedPageTitle the expected page title
+     * @param expectedPageTitle
+     *            the expected page title
      */
     public void pageTitleSouldBe(final String expectedPageTitle) {
         log.debug("{}.pageTitleSouldBe({})", this);
@@ -72,7 +76,8 @@ public abstract class SystemUnderTest {
     /**
      * Ensure cookie exists.
      *
-     * @param cookieName the cookie name
+     * @param cookieName
+     *            the cookie name
      */
     public void ensureCookieExists(final String cookieName) {
         log.debug("{}.ensureCookieExists({})", this);
@@ -81,7 +86,8 @@ public abstract class SystemUnderTest {
     /**
      * The cookie has value.
      *
-     * @param cookieName the cookie name
+     * @param cookieName
+     *            the cookie name
      */
     public void theCookieHasValue(final String cookieName) {
         log.debug("{}.theCookieHasValue({})", this);

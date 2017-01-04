@@ -52,7 +52,17 @@ public class TelephoneTest {
     public void testTelephoneString() {
         final Telephone telephone = new Telephone(_0123456789);
         assertNotNull(telephone);
-        assertEquals("Telephone [number=0123456789]", telephone.toString());
+        assertEquals("Phone : 0123456789", telephone.toString());
+    }
+
+    /**
+     * Test method for {@link Telephone}.
+     */
+    @Test
+    public void testTelephoneTypeString() {
+        final Telephone telephone = new Telephone("Telephone", _0123456789);
+        assertNotNull(telephone);
+        assertEquals("Telephone : 0123456789", telephone.toString());
     }
 
     /**
@@ -69,9 +79,10 @@ public class TelephoneTest {
      * Test method for {@link Telephone}.
      */
     @Test
-    public void testDebugString() {
-        final String string = new Telephone().debugString();
-        assertNotNull(string);
+    public void testTelephoneDebugString() {
+        final String telephone = new Telephone(_0123456789).debugString();
+        assertNotNull(telephone);
+        assertEquals("Telephone [number=0123456789, type=Phone]", telephone);
     }
 
     /**

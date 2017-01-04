@@ -35,8 +35,10 @@ public class WebSiteSteps {
     /**
      * Named browser.
      *
-     * @param browserName the browser name
-     * @throws Throwable the throwable
+     * @param browserName
+     *            the browser name
+     * @throws Throwable
+     *             the throwable
      */
     @Given("^ the [Chrome|Firefox|Headless] Browser$")
     public void namedBrowser(final String browserName) throws Throwable {
@@ -46,8 +48,10 @@ public class WebSiteSteps {
     /**
      * The target url is http is opened.
      *
-     * @param targetUrl the target url
-     * @throws Throwable the throwable
+     * @param targetUrl
+     *            the target url
+     * @throws Throwable
+     *             the throwable
      */
     @When("^the target url (\\a*) is opened$")
     public void theTargetUrlIsHttpIsOpened(final String targetUrl) throws Throwable {
@@ -57,8 +61,10 @@ public class WebSiteSteps {
     /**
      * The page title is.
      *
-     * @param expectedPageTitle the expected page title
-     * @throws Throwable the throwable
+     * @param expectedPageTitle
+     *            the expected page title
+     * @throws Throwable
+     *             the throwable
      */
     @Then("^the pageTitle is \"([^\"]*)\"$")
     public void thePageTitleIs(final String expectedPageTitle) throws Throwable {
@@ -69,8 +75,10 @@ public class WebSiteSteps {
     /**
      * The cookie exists.
      *
-     * @param cookieName the cookie name
-     * @throws Throwable the throwable
+     * @param cookieName
+     *            the cookie name
+     * @throws Throwable
+     *             the throwable
      */
     @Then("^the cookie \"([^\"]*)\" exists$")
     public void theCookieExists(final String cookieName) throws Throwable {
@@ -80,9 +88,12 @@ public class WebSiteSteps {
     /**
      * The cookie has value.
      *
-     * @param cookieName the cookie name
-     * @param cookieValue the cookie value
-     * @throws Throwable the throwable
+     * @param cookieName
+     *            the cookie name
+     * @param cookieValue
+     *            the cookie value
+     * @throws Throwable
+     *             the throwable
      */
     @Then("^the cookie \"([^\"]*)\" has value \"([^\"]*)\"$")
     public void theCookieHasValue(final String cookieName, final String cookieValue) throws Throwable {

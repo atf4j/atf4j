@@ -26,30 +26,40 @@ import org.junit.Test;
  */
 public class NameTest {
 
+    public class MockName extends Name {
+        public MockName() {
+            super();
+        }
+
+        public MockName(final String name) {
+            super(name);
+        }
+    }
+
     /**
      * Test method for {@link Name}.
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(new Name());
+        assertNotNull(new MockName());
     }
 
+    /**
+     * Test method for {@link Name}.
+     */
     public void testName() {
-        assertNotNull(new Name());
+        assertNotNull(new MockName());
     }
 
+    /**
+     * Test method for {@link Name}.
+     */
     @Test
     public void testNameString() {
-        final String expected = "Name";
-        final Name nameObject = new Name(expected);
-        assertNotNull(nameObject);
-        assertEquals(expected, nameObject.getName());
-    }
-
-    @Test
-    public void testCreate() {
-        Name name = Name.create();
-        assertNotNull(name);
+        final String expected = "Mock Name";
+        final Name mockName = new MockName(expected);
+        assertNotNull(mockName);
+        assertEquals(expected, mockName.getName());
     }
 
     /**
@@ -57,9 +67,9 @@ public class NameTest {
      */
     @Test
     public void testSetGetName() {
-        final String value = "Name";
-        final Name name = new Name();
-        assertEquals(value, name.setName(value).getName());
+        final String expected = "Mock Name";
+        final Name mockName = new MockName();
+        assertEquals(expected, mockName.setName(expected).getName());
     }
 
     /**
@@ -67,28 +77,7 @@ public class NameTest {
      */
     @Test
     public void testCapitalise() {
-        new Name();
         assertEquals("Name", Name.capitalise("nAME"));
-    }
-
-    /**
-     * Test method for {@link Name}.
-     */
-    @Test
-    public void testDebugString() {
-        final String string = new Name().debugString();
-        assertNotNull(string);
-
-    }
-
-    /**
-     * Test method for {@link Name}.
-     */
-    @Test
-    public void testToString() {
-        final String string = new Name().toString();
-        assertNotNull(string);
-
     }
 
 }

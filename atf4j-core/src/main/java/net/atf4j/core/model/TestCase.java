@@ -89,7 +89,7 @@ public class TestCase extends TestBase {
      * @see java.util.Collection#size()
      */
     public int numberOfTestSteps() {
-        return (this.testSteps == null ? 0 : this.testSteps.size());
+        return this.testSteps == null ? 0 : this.testSteps.size();
     }
 
     /**

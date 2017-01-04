@@ -19,7 +19,7 @@ package net.atf4j.bdd;
 /**
  * Expectation.
  *
- * 
+ *
  */
 public class Expectation {
 

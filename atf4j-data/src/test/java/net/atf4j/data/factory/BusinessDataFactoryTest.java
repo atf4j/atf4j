@@ -30,7 +30,8 @@ public class BusinessDataFactoryTest {
     /**
      * Test method for {@link BusinessDataFactory}.
      *
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     @Test
     public void testDefaultConstructor() throws Exception {

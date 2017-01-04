@@ -19,7 +19,7 @@ package net.atf4j.webdriver.page;
 /**
  * PageInterface.
  *
- * 
+ *
  */
 public interface PageInterface {
 
@@ -35,7 +35,7 @@ public interface PageInterface {
      *
      * @return true, if successful otherwise false.
      */
-    public abstract boolean verify();
+    public abstract PageInterface verify();
 
     /**
      * Close page.

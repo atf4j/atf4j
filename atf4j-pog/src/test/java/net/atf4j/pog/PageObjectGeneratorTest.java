@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
@@ -50,7 +51,7 @@ public class PageObjectGeneratorTest extends ResultsReporting {
      * Test method for {@link PageObjectGenerator}.
      */
     @Test
-    public void testPageObjectGenerator() {
+    public void testPageObjectGenerator() throws MalformedURLException {
         final PageObjectGenerator pog = new PageObjectGenerator("PageObject.vm");
         pog.target("http://atf4j.net");
         pog.with("name", "MyPage");

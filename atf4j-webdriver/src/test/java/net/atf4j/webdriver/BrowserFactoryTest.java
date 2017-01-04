@@ -29,41 +29,51 @@ import net.atf4j.core.ResultsReporting;
 public class BrowserFactoryTest extends ResultsReporting {
 
     /**
-     * test BrowserFactory object.
+     * test BrowserFactory default browser.
      */
     @Test
     public void testWebDriver() {
         final WebDriver webDriver = BrowserFactory.webDriver();
-        assumeNotNull(webDriver);
-        webDriver.get("http://127.0.0.1:8080");
-        this.log.info(webDriver.getCurrentUrl());
-        this.log.info(webDriver.getTitle());
+        assumeNotNull("default webDriver not available", webDriver);
+        verifyPageLoaded(webDriver);
+    }
+
+    @Test
+    public void testRemoteDriver() {
+        System.setProperty("targetBrowser", "remoteDriver");
+        final WebDriver webDriver = BrowserFactory.webDriver();
+        assumeNotNull("remote webDriver not available", webDriver);
+        verifyPageLoaded(webDriver);
     }
 
     /**
-     * test BrowserFactory object.
+     * test BrowserFactory returns Chrome.
      */
     @Test
     public void testChromeDriver() {
         System.setProperty("targetBrowser", "chromeDriver");
         final WebDriver webDriver = BrowserFactory.webDriver();
-        assumeNotNull(webDriver);
-        webDriver.get("http://127.0.0.1:8080");
-        this.log.info(webDriver.getCurrentUrl());
-        this.log.info(webDriver.getTitle());
+        assumeNotNull("Chrome webDriver not available", webDriver);
+        verifyPageLoaded(webDriver);
     }
 
     /**
-     * test BrowserFactory object.
+     * test BrowserFactory returns Firefox.
      */
     @Test
     public void testFirefoxDriver() {
         System.setProperty("targetBrowser", "firefoxDriver");
         final WebDriver webDriver = BrowserFactory.webDriver();
-        assumeNotNull(webDriver);
+        assumeNotNull("Firefox webDriver not available", webDriver);
+        verifyPageLoaded(webDriver);
+    }
+
+    private void verifyPageLoaded(final WebDriver webDriver) {
         webDriver.get("http://127.0.0.1:8080");
-        this.log.info(webDriver.getCurrentUrl());
-        this.log.info(webDriver.getTitle());
+        final String currentUrl = webDriver.getCurrentUrl();
+        this.log.info(currentUrl);
+        final String pageTitle = webDriver.getTitle();
+        this.log.info(pageTitle);
     }
 
 }

@@ -28,7 +28,8 @@ public class NationalInsurance {
 
     /** REGULAR EXPRESSION. */
     private static final Pattern pattern = Pattern
-            .compile("^[A-CEGHJ-PR-TW-Z]{1}[A-CEGHJ-NPR-TW-Z]{1}[0-9]{6}[A-D]{1}$");
+                                                  .compile(
+                                                          "^[A-CEGHJ-PR-TW-Z]{1}[A-CEGHJ-NPR-TW-Z]{1}[0-9]{6}[A-D]{1}$");
 
     /** The code. */
     private String code;

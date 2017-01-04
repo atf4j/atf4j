@@ -19,7 +19,7 @@ package net.atf4j.bdd;
 /**
  * Situation.
  *
- * 
+ *
  */
 public class Situation {
 

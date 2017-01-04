@@ -71,8 +71,10 @@ public class PageObjectGenerator extends ResultsReporting {
     /**
      * With.
      *
-     * @param key the key
-     * @param value the value
+     * @param key
+     *            the key
+     * @param value
+     *            the value
      * @return the page object generator
      */
     public PageObjectGenerator with(final String key, final String value) {
@@ -83,27 +85,24 @@ public class PageObjectGenerator extends ResultsReporting {
     /**
      * Target.
      *
-     * @param targetUrl the target url
+     * @param targetUrl
+     *            the target url
      * @return the page object generator
      */
-    public PageObjectGenerator target(final String targetUrl) {
-        this.log.info("targetUrl={}", targetUrl);
-        try {
-            return target(new URL(targetUrl));
-        } catch (final MalformedURLException e) {
-            e.printStackTrace();
-        }
-        return this;
+    public PageObjectGenerator target(final String targetUrl) throws MalformedURLException {
+        return target(new URL(targetUrl));
     }
 
     /**
      * Target.
      *
-     * @param url the url
+     * @param url
+     *            the url
      * @return the page object generator
      */
-    private PageObjectGenerator target(final URL url) {
-        return null;
+    private PageObjectGenerator target(final URL targetUrl) {
+        this.targetUrl = targetUrl;
+        return this;
     }
 
     /**
@@ -112,8 +111,10 @@ public class PageObjectGenerator extends ResultsReporting {
      * @return the page object generator
      */
     public PageObjectGenerator generate() {
-        final StringWriter writer = new StringWriter();
-        this.template.merge(this.context, writer);
+        if (this.targetUrl != null) {
+            final StringWriter writer = new StringWriter();
+            this.template.merge(this.context, writer);
+        }
         return this;
     }
 }

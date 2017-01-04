@@ -51,7 +51,7 @@ public class BankTest {
 
     @Test
     public void testSetGetName() {
-        final String bankName = "BankName";
+        final String bankName = "Bank Name";
         final Bank name = new Bank(bankName);
         assertEquals(bankName, name.setName(bankName).getName());
     }

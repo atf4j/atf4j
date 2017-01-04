@@ -53,6 +53,35 @@ public class LocatorAdaptor {
     /**
      * Object locator.
      *
+     * @param identifier
+     *            the identifier
+     * @return the web element
+     */
+    public WebElement objectLocator(final String identifier) {
+        final String typeString = identifier.substring(0, identifier.indexOf('='));
+        final String ref = identifier.substring(identifier.indexOf('=') + 1, identifier.length());
+        if (typeString.toLowerCase().contains("classname")) {
+            return objectLocator(LocatorType.CLASSNAME, ref);
+        } else if (typeString.toLowerCase().contains("css")) {
+            return objectLocator(LocatorType.CSS, ref);
+        } else if (typeString.toLowerCase().contains("id")) {
+            return objectLocator(LocatorType.ID, ref);
+        } else if (typeString.toLowerCase().contains("link")) {
+            return objectLocator(LocatorType.LINK, ref);
+        } else if (typeString.toLowerCase().contains("name")) {
+            return objectLocator(LocatorType.NAME, ref);
+        } else if (typeString.toLowerCase().contains("tagname")) {
+            return objectLocator(LocatorType.TAGNAME, ref);
+        } else if (typeString.toLowerCase().contains("xpath")) {
+            return objectLocator(LocatorType.XPATH, ref);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * Object locator.
+     *
      * @param type
      *            the type
      * @param ref
@@ -80,34 +109,5 @@ public class LocatorAdaptor {
             return this.webDriver.findElement(By.tagName(ref));
         }
         return null;
-    }
-
-    /**
-     * Object locator.
-     *
-     * @param identifier
-     *            the identifier
-     * @return the web element
-     */
-    public WebElement objectLocator(final String identifier) {
-        final String typeString = identifier.substring(0, identifier.indexOf('='));
-        final String ref = identifier.substring(identifier.indexOf('=') + 1, identifier.length());
-        if (typeString.toLowerCase().contains("classname")) {
-            return objectLocator(LocatorType.CLASSNAME, ref);
-        } else if (typeString.toLowerCase().contains("css")) {
-            return objectLocator(LocatorType.CSS, ref);
-        } else if (typeString.toLowerCase().contains("id")) {
-            return objectLocator(LocatorType.ID, ref);
-        } else if (typeString.toLowerCase().contains("link")) {
-            return objectLocator(LocatorType.LINK, ref);
-        } else if (typeString.toLowerCase().contains("name")) {
-            return objectLocator(LocatorType.NAME, ref);
-        } else if (typeString.toLowerCase().contains("tagname")) {
-            return objectLocator(LocatorType.TAGNAME, ref);
-        } else if (typeString.toLowerCase().contains("xpath")) {
-            return objectLocator(LocatorType.XPATH, ref);
-        } else {
-            return null;
-        }
     }
 }

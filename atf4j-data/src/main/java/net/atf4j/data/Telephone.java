@@ -22,19 +22,49 @@ package net.atf4j.data;
 public class Telephone {
 
     private String number;
-    private String type;
+    private Type type;
     // Country Code
     // Area Code
     // Number
 
     public enum Type {
-        Mobile,
-        Landline,
-        Fax;
+        Phone("Phone"),
+        Landline("Landline"),
+        Mobile("Mobile"),
+        Fax("Fax"),
+        Telex("Telex"),
+        Unknown("Unknown");
+
+        private final String typeName;
+
+        Type(final String name) {
+            this.typeName = name;
+        }
+
+        public static Type initialise() {
+            return Type.Phone;
+        }
+
+        public static Type forString(final String asText) {
+            for (final Type value : values()) {
+                if (value.typeName.equals(asText)) {
+                    return value;
+                }
+            }
+            return null;
+        }
     }
 
     public static Telephone create() {
         return new Telephone();
+    }
+
+    public static Telephone create(final Type type) {
+        return new Telephone().setType(type);
+    }
+
+    public static boolean verify() {
+        return false;
     }
 
     /**
@@ -42,6 +72,8 @@ public class Telephone {
      */
     public Telephone() {
         super();
+        setNumber("");
+        setType(Type.Unknown);
     }
 
     /**
@@ -53,9 +85,18 @@ public class Telephone {
     public Telephone(final String number) {
         super();
         setNumber(number);
+        setType(Type.Phone);
     }
 
-    public Telephone(final String number, final String type) {
+    /**
+     * Instantiates a new telephone.
+     *
+     * @param number
+     *            the number
+     * @param type
+     *            the type
+     */
+    public Telephone(final String type, final String number) {
         super();
         setNumber(number);
         setType(type);
@@ -81,6 +122,11 @@ public class Telephone {
      * @return the telephone
      */
     public Telephone setType(final String type) {
+        this.type = Type.forString(type);
+        return this;
+    }
+
+    public Telephone setType(final Telephone.Type type) {
         this.type = type;
         return this;
     }
@@ -100,7 +146,11 @@ public class Telephone {
      * @return the type
      */
     public String getType() {
-        return this.type;
+        if (this.type != null) {
+            return this.type.toString();
+        } else {
+            return "Telephone";
+        }
     }
 
     /**
@@ -109,18 +159,17 @@ public class Telephone {
      * @return the string
      */
     public String debugString() {
-        return String.format("%s [number=%s,type=%s]",
+        return String.format("%s [number=%s, type=%s]",
                 this.getClass().getSimpleName(),
                 this.getNumber(),
                 this.getType());
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
     @Override
     public String toString() {
-        return debugString();
+        return String.format("%s : %s",
+                this.getType(),
+                this.getNumber());
     }
 
 }

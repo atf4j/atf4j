@@ -19,13 +19,12 @@ package net.atf4j.webdriver.page;
 import net.atf4j.webdriver.WebDriverConfig;
 
 /**
- * The Abstract Page Config class.
- *
+ * Abstract Page Config class.
  */
 public abstract class AbstractPageConfig extends WebDriverConfig {
 
     /**
-     * Instantiates a new abstract page config.
+     * Instantiates a new abstract page configuration.
      *
      * @throws ConfigurationNotLoaded
      *             the missing property file exception

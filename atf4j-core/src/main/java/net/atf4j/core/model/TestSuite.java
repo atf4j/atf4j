@@ -81,7 +81,7 @@ public class TestSuite extends TestBase {
      * @see java.util.Collection#size()
      */
     public int numberOfTestCases() {
-        return (this.testCases == null ? 0 : this.testCases.size());
+        return this.testCases == null ? 0 : this.testCases.size();
     }
 
     /**

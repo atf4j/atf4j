@@ -21,12 +21,12 @@ import net.atf4j.webdriver.WebDriverConfig;
 /**
  * PageConfig.
  *
- * 
+ *
  */
 public class PageConfig extends WebDriverConfig {
 
     /**
-     * Instantiates a new page config.
+     * Instantiates a new page configuration.
      *
      * @throws ConfigurationNotLoaded
      *             the missing property file exception

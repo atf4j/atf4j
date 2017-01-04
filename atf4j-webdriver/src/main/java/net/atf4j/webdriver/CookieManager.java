@@ -16,91 +16,101 @@
  */
 package net.atf4j.webdriver;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.util.Set;
 
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 
 /**
- * CookieManager.
- *
+ * Browser Cookie Manager, save and restore cookies to their original state.
  */
 public class CookieManager {
 
-    /** The web driver. */
     private WebDriver webDriver = null;
-
-    /** The cookies. */
     private Set<Cookie> cookies = null;
 
     /**
-     * CookieManager.
+     * CookieManager constructor.
      *
      * @param webDriver
-     *            the web driver
+     *            associated with Browser Session.
      */
     public CookieManager(final WebDriver webDriver) {
-        this.webDriver = webDriver;
+        setWebDriver(webDriver);
     }
 
     /**
-     * Checks if is empty.
+     * Set the webDriver.
      *
-     * @return true, if is empty
+     * @param webDriver
+     *            the web driver
+     * @return the web driver
+     */
+    private WebDriver setWebDriver(final WebDriver webDriver) {
+        assertNotNull(this.webDriver);
+        return this.webDriver = webDriver;
+    }
+
+    /**
+     * Checks if cookies have been stored in the local cache.
+     *
+     * @return true, if there are no cookies, otherwise false.
      */
     public boolean isEmpty() {
         return this.cookies.isEmpty();
     }
 
     /**
-     * Contains.
+     * Checks to see if a specific cookie is stored in the local cache.
      *
-     * @param o
-     *            the o
-     * @return true, if successful
+     * @param cookie
+     *            the cookie to be checked.
+     * @return true, if cookie is stored, otherwise false.
      */
-    public boolean contains(final Cookie o) {
-        return this.cookies.contains(o);
+    public boolean contains(final Cookie cookie) {
+        return this.cookies.contains(cookie);
     }
 
     /**
-     * Adds the.
+     * Add a the cookie to the local cache.
      *
-     * @param e
-     *            the e
-     * @return true, if successful
+     * @param cookie
+     *            the cookie to be added to store.
+     * @return true, if successful, otherwise false.
      */
-    public boolean add(final Cookie e) {
-        return this.cookies.add(e);
+    public boolean add(final Cookie cookie) {
+        return this.cookies.add(cookie);
     }
 
     /**
-     * Removes the.
+     * Removes the cookie from the local cache.
      *
-     * @param o
-     *            the o
-     * @return true, if successful
+     * @param cookie
+     *            the cookie to be removed.
+     * @return true, if successful, otherwise false.
      */
-    public boolean remove(final Cookie o) {
-        return this.cookies.remove(o);
+    public boolean remove(final Cookie cookie) {
+        return this.cookies.remove(cookie);
     }
 
     /**
-     * Save.
+     * Save the cookies associated with the site page to the local cache.
      */
     public void save() {
         this.cookies = this.webDriver.manage().getCookies();
     }
 
     /**
-     * Clear.
+     * Delete all the cookie associated with the site page.
      */
     public void clear() {
         this.webDriver.manage().deleteAllCookies();
     }
 
     /**
-     * Restore.
+     * Restore the Browser cookies to previous state from the local cache.
      */
     public void restore() {
         if (this.cookies != null) {

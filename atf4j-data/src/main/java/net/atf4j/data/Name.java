@@ -17,15 +17,11 @@
 package net.atf4j.data;
 
 /**
- * Name.
+ * Name for Entity
  */
-public class Name extends Datum {
+public abstract class Name extends Datum {
 
     private String name;
-
-    public static Name create() {
-        return new Name();
-    }
 
     /**
      * Instantiates a new name.

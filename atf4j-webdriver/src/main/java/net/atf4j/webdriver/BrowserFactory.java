@@ -37,25 +37,27 @@ public class BrowserFactory {
     private static WebDriverConfig config;
 
     /**
-     * Web driver.
+     * Factory method of webDriver instance.
      *
-     * @return the web driver
+     * @return instance of webDriver
      */
     public static WebDriver webDriver() {
-        log.info("webDriver()");
+        log.trace("webDriver()");
         try {
             if (config == null) {
                 config = new WebDriverConfig();
+                log.trace(config.toString());
             }
             if (TestContext.isLocal()) {
                 return localWebDriver();
             } else if (TestContext.isSelenium()) {
                 return remoteWebDriver();
             } else {
-                log.info("unknown Test Context");
+                log.info("Unknown Test Context : defaulting to headless HtmlUnitDriver");
+                return new HtmlUnitDriver();
             }
         } catch (final ConfigurationNotLoaded e) {
-            e.printStackTrace();
+            log.error(e.getLocalizedMessage());
         }
         return null;
     }
@@ -66,9 +68,9 @@ public class BrowserFactory {
      * @return the web driver
      */
     public static WebDriver remoteWebDriver() {
-        log.info("remoteWebDriver()");
+        log.trace("remoteWebDriver()");
         final String targetBrowser = config.targetBrowser();
-        log.info("targetBrowser = ", targetBrowser);
+        log.trace("targetBrowser = ", targetBrowser);
         final DesiredCapabilities desiredCapabilities;
 
         // final String targetSeleniumGrid =
@@ -77,7 +79,7 @@ public class BrowserFactory {
         // final RemoteWebDriver remoteWebDriver = new RemoteWebDriver(GRID_URL,
         // desiredCapabilities);
 
-        switch (targetBrowser) {
+        switch (targetBrowser.toLowerCase()) {
         case "firefox":
             desiredCapabilities = DesiredCapabilities.firefox();
             break;
@@ -100,7 +102,7 @@ public class BrowserFactory {
      * @return the web driver
      */
     private static WebDriver localWebDriver() {
-        log.info("localWebDriver()");
+        log.trace("localWebDriver()");
         WebDriver webDriver = null;
         final String targetBrowser = config.targetBrowser();
         switch (targetBrowser) {

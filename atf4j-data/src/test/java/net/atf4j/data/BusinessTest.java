@@ -38,13 +38,7 @@ public class BusinessTest {
      */
     @Test
     public void testBusiness() {
-        assertNotNull(new Business("NewName"));
-    }
-
-    @Test
-    public void testBusinessName() {
-        final Name name = new Name("NewName");
-        assertNotNull(new Business(name));
+        assertNotNull(new Business());
     }
 
     /**
@@ -52,23 +46,14 @@ public class BusinessTest {
      */
     @Test
     public void testBusinessString() {
-        final String string = "NewName";
-        final Business business = new Business(string);
+        final String businessName = "Business Name";
+        final Business business = new Business(businessName);
         assertNotNull(business);
     }
 
     @Test
     public void testCreate() {
         assertNotNull(Business.create());
-    }
-
-    /**
-     * Test method for {@link Business}.
-     */
-    @Test
-    public void testSetName() {
-        final Business business = new Business();
-        assertNotNull(business);
     }
 
     /**

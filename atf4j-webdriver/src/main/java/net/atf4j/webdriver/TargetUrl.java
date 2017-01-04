@@ -23,9 +23,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * The TargetUrl annotation for PageObjects. Contains the starting URL for a
- * AbstractTestSuite / AbstractWebDriverScript.
- *
+ * The TargetUrl annotation for URL of a Page.
  *
  * @version $Revision: 0.0.1 $
  */

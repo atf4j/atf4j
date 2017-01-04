@@ -19,7 +19,7 @@ package net.atf4j.bdd;
 /**
  * Invarient.
  *
- * 
+ *
  */
 public abstract class Invarient extends Predicate {
 

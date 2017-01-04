@@ -48,7 +48,7 @@ public class ForenameTest {
 
     @Test
     public void testCreate() {
-        assertNotNull(Name.create());
+        assertNotNull(Forename.create());
     }
 
     /**

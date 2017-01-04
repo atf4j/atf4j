@@ -90,7 +90,8 @@ public abstract class AbstractGuiMap {
     /**
      * Contains key.
      *
-     * @param key the key
+     * @param key
+     *            the key
      * @return true, if successful
      */
     public boolean containsKey(final String key) {

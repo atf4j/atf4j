@@ -70,8 +70,11 @@ public class StringBuilderTest extends ResultsReporting {
          */
         @Override
         public String toString() {
-            return String.format("%s [%s, protectedString=%s, publicString=%s]", this.getClass().getSimpleName(),
-                    super.toString(), this.protectedString, this.publicString);
+            return String.format("%s [%s, protectedString=%s, publicString=%s]",
+                    this.getClass().getSimpleName(),
+                    super.toString(),
+                    this.protectedString,
+                    this.publicString);
         }
     }
 

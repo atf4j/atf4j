@@ -19,14 +19,12 @@ package net.atf4j.webdriver;
 import net.atf4j.core.AbstractConfig;
 
 /**
- * WebDriverConfig.
- *
- *
+ * Configuration for WebDriver instance.
  */
 public class WebDriverConfig extends AbstractConfig {
 
     /**
-     * Instantiates a new web driver config.
+     * Default constructor.
      *
      * @throws ConfigurationNotLoaded
      *             the missing property file exception
@@ -36,45 +34,45 @@ public class WebDriverConfig extends AbstractConfig {
     }
 
     /**
-     * Gets the target browser.
+     * Gets the targetBrowser from the configuration.
      *
-     * @return the target browser
+     * @return the name of target browser as String object.
      */
     public String targetBrowser() {
         return this.get("targetBrowser");
     }
 
     /**
-     * Gets the target url.
+     * Gets the targetUrl from the configuration.
      *
-     * @return the target url
+     * @return the targetURL as String object.
      */
     public String targetUrl() {
         return this.get("targetUrl");
     }
 
     /**
-     * Selenium url.
+     * get the seleniumUrl from the configuration.
      *
-     * @return the string
+     * @return seleniumUrl as String object.
      */
     public String seleniumUrl() {
         return this.get("seleniumUrl");
     }
 
     /**
-     * Chrome binary driver.
+     * Path to the Chrome driver binary.
      *
-     * @return the string
+     * @return path as String object.
      */
     public String chromeBinaryDriver() {
         return this.get("chromeBinaryDriver");
     }
 
     /**
-     * Firefox binary driver.
+     * PAth to the Firefox binary driver.
      *
-     * @return the string
+     * @return path as String object.
      */
     public String firefoxBinaryDriver() {
         return this.get("firefoxBinaryDriver");

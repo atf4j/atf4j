@@ -25,13 +25,13 @@ import org.openqa.selenium.WebDriver;
 public class JavaScriptExecutor {
 
     /**
-     * Execute script.
+     * Inject JavaScript in to a page and execute.
      *
      * @param webDriver
      *            the driver
      * @param script
-     *            the script
-     * @return the object
+     *            the JavaScript source.
+     * @return the execution object.
      */
     public static Object executeScript(final WebDriver webDriver, final String script) {
         return ((JavascriptExecutor) webDriver).executeScript(script);

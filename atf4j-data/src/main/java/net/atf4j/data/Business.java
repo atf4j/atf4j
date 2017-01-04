@@ -19,9 +19,8 @@ package net.atf4j.data;
 /**
  * Business data.
  */
-public class Business {
+public class Business extends Name {
 
-    private Name name;
     private PostalAddress address;
 
     public static Business create() {
@@ -41,19 +40,8 @@ public class Business {
      * @param string
      *            the string
      */
-    public Business(final String string) {
-        this(new Name(string));
-    }
-
-    /**
-     * Instantiates a new business.
-     *
-     * @param name
-     *            the name
-     */
-    public Business(final Name name) {
-        super();
-        this.name = name;
+    public Business(final String name) {
+        super(name);
     }
 
     /**
@@ -64,43 +52,9 @@ public class Business {
      * @param address
      *            the address
      */
-    public Business(final Name name, final PostalAddress address) {
-        super();
-        setName(name);
+    public Business(final String name, final PostalAddress address) {
+        super(name);
         setAddress(address);
-    }
-
-    /**
-     * Sets the name.
-     *
-     * @param name
-     *            the name
-     * @return the business
-     */
-    public Business setName(final String name) {
-        this.name = new Name(name);
-        return this;
-    }
-
-    /**
-     * Sets the name.
-     *
-     * @param name
-     *            the name to set
-     * @return the business
-     */
-    public Business setName(final Name name) {
-        this.name = name;
-        return this;
-    }
-
-    /**
-     * Gets the name.
-     *
-     * @return the name
-     */
-    public Name getName() {
-        return this.name;
     }
 
     /**
@@ -137,8 +91,9 @@ public class Business {
      *
      * @return the string
      */
+    @Override
     public String debugString() {
-        return String.format("Business [name=%s, address=%s]", this.name, this.address);
+        return String.format("Business [name=%s, address=%s]", this.getName(), this.getAddress());
     }
 
 }
