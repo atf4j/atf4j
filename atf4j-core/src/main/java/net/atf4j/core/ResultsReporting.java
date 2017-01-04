@@ -12,7 +12,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
+ * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 package net.atf4j.core;
 
@@ -70,8 +70,6 @@ public abstract class ResultsReporting {
      * To description.
      *
      * @return the string
-     * @throws ClassNotFoundException
-     *             the class not found exception
      */
     protected String toDescription() {
         final StringBuffer message = new StringBuffer();

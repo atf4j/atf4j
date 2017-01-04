@@ -12,10 +12,11 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
+ * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 package net.atf4j.webdriver.page;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
@@ -27,6 +28,7 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
  *
  *
  */
+@Ignore
 public class PageObjectTest {
 
     /**

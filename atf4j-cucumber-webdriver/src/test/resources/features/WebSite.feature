@@ -1,3 +1,4 @@
+@Ignore
 Feature: Gherkin for Selenium WebDriver
 	As an Automated Tester
 	I want a quick and easy way to use Selenium WebDriver

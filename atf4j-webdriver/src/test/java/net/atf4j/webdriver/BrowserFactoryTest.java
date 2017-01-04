@@ -12,12 +12,13 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
+ * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 package net.atf4j.webdriver;
 
 import static org.junit.Assume.assumeNotNull;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
@@ -26,6 +27,7 @@ import net.atf4j.core.ResultsReporting;
 /**
  * A UnitTest for BrowserFactory objects.
  */
+@Ignore
 public class BrowserFactoryTest extends ResultsReporting {
 
     /**

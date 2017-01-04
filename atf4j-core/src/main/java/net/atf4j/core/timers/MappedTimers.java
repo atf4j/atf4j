@@ -12,7 +12,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
+ * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 package net.atf4j.core.timers;
 
@@ -36,6 +36,10 @@ public final class MappedTimers {
     /** The stopped timers. */
     private final HashMap<String, MilliTimer> stoppedTimers = new HashMap<String, MilliTimer>();
 
+    /**
+     * The TimerNotFound Class.
+     */
+    @SuppressWarnings("serial")
     public class TimerNotFound extends Atf4jException {
     }
 
@@ -54,10 +58,24 @@ public final class MappedTimers {
         return MappedTimers.INSTANCE;
     }
 
+    /**
+     * Start.
+     *
+     * @param timerName
+     *            the timer name
+     * @return the i timer
+     */
     public static ITimer start(final String timerName) {
         return getInstance().startTimer(timerName);
     }
 
+    /**
+     * Start timer.
+     *
+     * @param timerName
+     *            the timer name
+     * @return the i timer
+     */
     public ITimer startTimer(final String timerName) {
         final MilliTimer timer = new MilliTimer(timerName);
         this.runningTimers.put(timerName, timer);
@@ -65,6 +83,13 @@ public final class MappedTimers {
         return timer;
     }
 
+    /**
+     * Stop.
+     *
+     * @param timerName
+     *            the timer name
+     * @return the i timer
+     */
     public static ITimer stop(final String timerName) {
         return getInstance().stopTimer(timerName);
     }
@@ -88,6 +113,8 @@ public final class MappedTimers {
 
     /**
      * stopAll.
+     *
+     * @return the mapped timers
      */
     public static MappedTimers stopAll() {
         return getInstance().stopAllTimers();
@@ -95,6 +122,8 @@ public final class MappedTimers {
 
     /**
      * stopAllTimers.
+     *
+     * @return the mapped timers
      */
     protected MappedTimers stopAllTimers() {
         final Set<String> keys = this.runningTimers.keySet();
@@ -104,10 +133,18 @@ public final class MappedTimers {
         return this;
     }
 
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
     public static String debugString() {
         return getInstance().toString();
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format("%s [runningTimers=%s,stoppedTimers=%s]",

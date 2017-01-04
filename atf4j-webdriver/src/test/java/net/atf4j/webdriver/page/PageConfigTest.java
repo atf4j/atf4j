@@ -12,7 +12,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
+ * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 package net.atf4j.webdriver.page;
 
@@ -27,7 +27,7 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
  *
  *
  */
-public abstract class PageConfigTest {
+public class PageConfigTest {
 
     /**
      * Mock Page Configuration.

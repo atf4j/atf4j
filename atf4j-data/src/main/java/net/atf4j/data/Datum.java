@@ -12,7 +12,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
+ * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 package net.atf4j.data;
 
@@ -78,7 +78,6 @@ abstract public class Datum {
      * Checks if is new.
      *
      * @return true, if is new
-     * @see net.atf4j.data.IDatum#isFresh()
      */
     public boolean isFresh() {
         return this.isFresh;
@@ -88,7 +87,6 @@ abstract public class Datum {
      * Checks if is dirty.
      *
      * @return true, if is dirty
-     * @see net.atf4j.data.IDatum#isChanged()
      */
     public boolean isChanged() {
         return this.isChanged;
@@ -98,7 +96,6 @@ abstract public class Datum {
      * Checks if is deleted.
      *
      * @return true, if is deleted
-     * @see net.atf4j.data.IDatum#isDeleted()
      */
     public boolean isDeleted() {
         return this.isDeleted;
@@ -108,7 +105,6 @@ abstract public class Datum {
      * Checks if is used.
      *
      * @return true, if is used
-     * @see net.atf4j.data.IDatum#isUsed()
      */
     public boolean isUsed() {
         return this.isUsed;

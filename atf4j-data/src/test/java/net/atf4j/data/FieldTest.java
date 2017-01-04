@@ -12,10 +12,11 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
+ * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 package net.atf4j.data;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -35,9 +36,21 @@ public class FieldTest {
     }
 
     @Test
-    public void testFieldStringString() {
-        final Field field = new Field("", "");
-        assertNotNull(field);
+    public void testFieldSetGetKey() {
+        final String key = "key";
+        assertEquals(key, new Field().setKey(key).getKey());
+    }
+
+    @Test
+    public void testFieldSetGetValue() {
+        final String value = "Value";
+        assertEquals(value, new Field().setValue(value).getValue());
+    }
+
+    @Test
+    public void testFieldSetGetStatus() {
+        final FieldStatus status = FieldStatus.initialise();
+        assertEquals(status, new Field().setStatus(status).getStatus());
     }
 
 }

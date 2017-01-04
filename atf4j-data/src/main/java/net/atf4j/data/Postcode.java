@@ -12,7 +12,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
+ * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 package net.atf4j.data;
 
@@ -85,7 +85,7 @@ public class Postcode {
      *            the postcode
      * @return true, if successful
      */
-    public boolean verify(final String postcode) {
+    public static boolean verify(final String postcode) {
         final Matcher matcher = pattern.matcher(postcode);
         return matcher.find();
     }

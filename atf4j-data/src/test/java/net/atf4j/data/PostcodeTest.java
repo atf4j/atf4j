@@ -12,11 +12,12 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
+ * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 package net.atf4j.data;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -41,12 +42,16 @@ public class PostcodeTest {
         assertNotNull(new Postcode());
     }
 
+    public void testPostcodeCreate() {
+        assertNotNull(Postcode.create());
+    }
+
     /**
      * Test method for {@link Postcode}.
      */
     @Test
     public void testPostcodeString() {
-        assertNotNull(new Postcode());
+        assertNotNull(new Postcode("AA00 9XX"));
     }
 
     /**
@@ -54,8 +59,7 @@ public class PostcodeTest {
      */
     @Test
     public void testVerify() {
-        final Postcode postcode = new Postcode();
-        assertNotNull(postcode);
+        assertTrue(Postcode.verify("AA00 9XX"));
     }
 
     /**

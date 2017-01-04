@@ -12,7 +12,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with atf4j.  If not, see <http://www.gnu.org/licenses/>.
+ * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 package net.atf4j.webdriver.page;
 
@@ -36,26 +36,13 @@ import net.atf4j.webdriver.WebDriverConfig;
  * The AbstractPageObject Class.
  */
 public abstract class AbstractPageObject {
-
     /** The Constant TARGET_URL. */
     private static final String TARGET_URL = "http://127.0.0.1:8080";
-
-    /** logging. */
     protected static final Logger log = LoggerFactory.getLogger(AbstractPageObject.class);
-
-    /** configuration. */
     protected WebDriverConfig config;
-
-    /** The web driver. */
     protected WebDriver webDriver;
-
-    /** The web driver wait. */
     protected WebDriverWait webDriverWait;
-
-    /** The web driver name. */
     protected final String webDriverName = System.getProperty("webDriver");
-
-    /** The target url. */
     protected final String targetUrl = System.getProperty("targetUrl", TARGET_URL);
 
     /**
