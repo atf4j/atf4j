@@ -6,28 +6,30 @@
 	<parent>
 		<groupId>net.atf4j</groupId>
 		<artifactId>atf4j</artifactId>
-		<version>0.1.0-SNAPSHOT</version>
+		<version>0.0.3-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>atf4j-core</artifactId>
+	<artifactId>atf4j-webdriver</artifactId>
 	<packaging>jar</packaging>
-	<name>Automation Test Framework for Java Core</name>
+	<name>ATF4J - Selenium WebDriver</name>
 
 	<dependencies>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<groupId>net.atf4j</groupId>
+			<artifactId>atf4j-core</artifactId>
+			<version>0.0.3-SNAPSHOT</version>
 		</dependency>
+
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.21</version>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium.version}</version>
 		</dependency>
+
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.21</version>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>htmlunit-driver</artifactId>
+			<version>2.23.1</version>
 		</dependency>
 	</dependencies>
 </project>
