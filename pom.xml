@@ -188,15 +188,15 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>${maven-javadoc-plugin.version}</version>
 				<reportSets>
-					<reportSet><!-- by default, id = "default" -->
-						<reports><!-- select non-aggregate reports -->
+					<reportSet>
+						<reports>
 							<report>javadoc</report>
 							<report>test-javadoc</report>
 						</reports>
 					</reportSet>
-					<reportSet><!-- aggregate reportSet, to define in poms having modules -->
+					<reportSet>
 						<id>aggregate</id>
-						<inherited>false</inherited><!-- don't run aggregate in child modules -->
+						<inherited>false</inherited>
 						<reports>
 							<report>aggregate</report>
 						</reports>

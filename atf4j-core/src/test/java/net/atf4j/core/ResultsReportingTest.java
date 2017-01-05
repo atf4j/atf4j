@@ -73,9 +73,6 @@ public class ResultsReportingTest extends ResultsReporting {
 
     /**
      * Test method for {@link ResultsReporting}.
-     *
-     * @throws ClassNotFoundException
-     *             the class not found exception
      */
     @Test
     public void testToDescription() {

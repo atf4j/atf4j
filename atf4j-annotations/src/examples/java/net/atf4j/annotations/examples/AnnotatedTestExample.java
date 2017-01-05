@@ -44,7 +44,7 @@ public class AnnotatedTestExample {
      */
     @Test
     @TestId("EXAMPLE")
-    @TestName("testEample")
+    @TestName("testSteps")
     @TestDescription("Example showing annotations with static context")
     public void testSteps() {
         this.log.info("Test ID : = {} ", getTestId());

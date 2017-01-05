@@ -34,7 +34,7 @@ public class TimerTest extends ResultsReporting {
     private long delta = 1000;
 
     /**
-     * Test method for {@link Timer}.
+     * Test method for DefaultConstructor.
      */
     @Test
     public void testDefaultConstructor() {
@@ -42,8 +42,8 @@ public class TimerTest extends ResultsReporting {
     }
 
     /**
-     * Instrument the actual timer its self. Calculates the delta for tests.
-     * Test method for
+     * Instrument the actual timer its self.
+     * Calculates the delta for tests.
      */
     @Test
     public final void testTimer0() {

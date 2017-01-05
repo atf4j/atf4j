@@ -24,13 +24,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for WebDriverSmoke objects.
+ * Smoke Tests for WebDriver.
  */
 @Ignore
 public class WebDriverSmokeTest extends ResultsReporting {
 
     /**
-     * Test method for {@link WebDriverSmoke}.
+     * Smoke test ChromeDriver.
      */
     @Test
     public void testChromeTomcat() {
@@ -42,7 +42,7 @@ public class WebDriverSmokeTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link WebDriverSmoke}.
+     * Smoke test FirefoxDriver.
      */
     @Test
     public void testFirefoxTomcat() {

@@ -1,0 +1,2 @@
+class $pageName extends AbstractPageObject {
+}

@@ -68,29 +68,29 @@ public class ConfigTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link Config}.
+     * Test method for Default Configuration.
      */
     @Test
     public void testDefaultConstructor() {
-        new DefaultConfig();
+        assertNotNull(new DefaultConfig());
     }
 
     /**
-     * Test method for { net.atf4j.core.AbstractConfig#AbstractConfig()}.
+     * Test method for MissingProperties.
      *
      * @throws ConfigurationNotLoaded
-     *             the missing property file exception
+     *             the configuration not loaded
      */
     @Test
     public void testConfig() throws ConfigurationNotLoaded {
-        new MissingProperties();
+        assertNotNull(new MissingProperties());
     }
 
     /**
-     * Test method for { net.atf4j.core.AbstractConfig#load()}.
+     * Test method for void.
      *
      * @throws ConfigurationNotLoaded
-     *             the missing property file exception
+     *             the configuration not loaded
      */
     @Test
     public void testLoad() throws ConfigurationNotLoaded {
@@ -100,7 +100,7 @@ public class ConfigTest extends ResultsReporting {
     }
 
     /**
-     * test Config object.
+     * Test method for void.
      *
      * @throws ConfigurationNotLoaded
      *             the configuration not loaded
@@ -116,11 +116,10 @@ public class ConfigTest extends ResultsReporting {
     }
 
     /**
-     * Test method for
-     * { net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.
+     * Test method for void.
      *
      * @throws ConfigurationNotLoaded
-     *             the missing property file exception
+     *             the configuration not loaded
      */
     @Test
     public final void testSystemOveridesConfig() throws ConfigurationNotLoaded {

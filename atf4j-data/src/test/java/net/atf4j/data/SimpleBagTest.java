@@ -27,7 +27,7 @@ import org.junit.Test;
 public class SimpleBagTest {
 
     /**
-     * Test method for {@link Bag}.
+     * Test method for {@link SimpleBag}.
      */
     @Test
     public void testNullBag() {
@@ -35,7 +35,7 @@ public class SimpleBagTest {
     }
 
     /**
-     * Test method for {@link Bag}.
+     * Test method for {@link SimpleBag}.
      */
     @Test
     public void testEmptyBag() {
@@ -47,7 +47,7 @@ public class SimpleBagTest {
     }
 
     /**
-     * Test method for {@link Bag}.
+     * Test method for {@link SimpleBag}.
      */
     @Test
     public void testBag() {
@@ -64,7 +64,7 @@ public class SimpleBagTest {
     }
 
     /**
-     * Test method for {@link Bag}.
+     * Test method for {@link SimpleBag}.
      */
     @Test
     public void testDebugString() {
@@ -73,7 +73,7 @@ public class SimpleBagTest {
     }
 
     /**
-     * Test method for {@link Bag}.
+     * Test method for {@link SimpleBag}.
      */
     @Test
     public void testToString() {

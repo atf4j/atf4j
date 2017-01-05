@@ -16,7 +16,10 @@
  */
 package net.atf4j.pog;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.io.File;
+import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -28,12 +31,14 @@ import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 
+import net.atf4j.core.Atf4jException;
 import net.atf4j.core.ResultsReporting;
 
 /**
  * Generator for Selenium WebDriver PageObject.
  */
 public class PageObjectGenerator extends ResultsReporting {
+
     protected URL targetUrl;
     protected VelocityEngine velocityEngine;
     protected VelocityContext context;
@@ -44,19 +49,31 @@ public class PageObjectGenerator extends ResultsReporting {
      *
      * @param templateFilename
      *            the template filename
+     * @throws TemplateNotLoaded
+     *             the template not loaded
      */
-    public PageObjectGenerator(final String templateFilename) {
+    public PageObjectGenerator(final String templateFilename) throws TemplateNotLoaded {
         super();
 
+        try {
+            final InputStream resourceAsStream = this.getClass().getResourceAsStream(templateFilename);
+            assertNotNull(resourceAsStream);
+        } catch (final Exception e) {
+            throw new TemplateNotLoaded(templateFilename);
+        }
+
         final ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
-        final String filePath = contextClassLoader.getResource("/").getFile();
+        final URL resourceFolder = contextClassLoader.getResource("/");
+        final URL templatesFolder = contextClassLoader.getResource("/templates");
+        this.log.info(templatesFolder.toString());
+        final String filePath = resourceFolder.getFile();
         this.log.info("filePath={}", filePath);
         final String absolutePath = new File(filePath).getParentFile().getParentFile().getPath();
         this.log.info("absolutePath={}", absolutePath);
 
         final Properties properties = new Properties();
         properties.setProperty(RuntimeConstants.RESOURCE_LOADER, "file");
-        properties.setProperty("file.resource.loader.path", "/path/to/templates");
+        properties.setProperty("file.resource.loader.path", "/templates");
 
         this.velocityEngine = new VelocityEngine();
         this.velocityEngine.init(properties);
@@ -83,11 +100,13 @@ public class PageObjectGenerator extends ResultsReporting {
     }
 
     /**
-     * Target.
+     * Target Page
      *
      * @param targetUrl
      *            the target url
      * @return the page object generator
+     * @throws MalformedURLException
+     *             the malformed URL exception
      */
     public PageObjectGenerator target(final String targetUrl) throws MalformedURLException {
         return target(new URL(targetUrl));
@@ -117,4 +136,20 @@ public class PageObjectGenerator extends ResultsReporting {
         }
         return this;
     }
+
+    @SuppressWarnings("serial")
+    public class TemplateNotLoaded extends Atf4jException {
+        /** The property filename. */
+        private final String expectedTemplateFilename;
+
+        public TemplateNotLoaded(final String missingTemplateFilename) {
+            this.expectedTemplateFilename = missingTemplateFilename;
+        }
+
+        @Override
+        public String toString() {
+            return String.format("TemplateNotLoaded [expectedTemplateFilename=%s]", this.expectedTemplateFilename);
+        }
+    }
+
 }

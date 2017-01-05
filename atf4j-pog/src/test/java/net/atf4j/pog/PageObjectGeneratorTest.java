@@ -21,45 +21,49 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
+import net.atf4j.pog.PageObjectGenerator.TemplateNotLoaded;
 
 /**
  * A UnitTest for PageObjectGenerator objects.
  */
-@Ignore
 public class PageObjectGeneratorTest extends ResultsReporting {
 
     /**
      * Test method for {@link PageObjectGenerator}.
+     *
+     * @throws TemplateNotLoaded
+     *             the template not loaded
      */
-    @Test
-    public void testMissingTemplate() {
+    @Test(expected = TemplateNotLoaded.class)
+    public void testMissingTemplate() throws TemplateNotLoaded {
         new PageObjectGenerator("Missing.vm");
     }
 
     /**
      * Test method for {@link PageObjectGenerator}.
+     *
+     * @throws Exception
+     *             the exception
      */
     @Test
-    public void testPageObjectGenerator() throws MalformedURLException {
-        final PageObjectGenerator pog = new PageObjectGenerator("PageObject.vm");
+    public void testPageObjectGenerator() throws Exception {
+        final PageObjectGenerator pog = new PageObjectGenerator("/templates/PageObject.vm");
         pog.target("http://atf4j.net");
         pog.with("name", "MyPage");
         pog.generate();
     }
 
     /**
-     * test PageObjectGenerator object.
+     * Test method for {@link PageObjectGenerator}.
      *
      * @throws Exception
      *             the exception
@@ -73,9 +77,10 @@ public class PageObjectGeneratorTest extends ResultsReporting {
         ve.init();
 
         final String templatePath = "/templates/PageObject.vm";
-        final InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(templatePath);
+        final Class<? extends PageObjectGeneratorTest> thisClass = this.getClass();
+        final ClassLoader classLoader = thisClass.getClassLoader();
+        final InputStream inputStream = classLoader.getResourceAsStream(templatePath);
         final InputStreamReader reader = new InputStreamReader(inputStream);
-
         final VelocityContext context = new VelocityContext();
 
         // if (properties != null) {
