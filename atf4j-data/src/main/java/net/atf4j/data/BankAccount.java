@@ -109,7 +109,7 @@ public class BankAccount {
      * @return the string
      */
     public String debugString() {
-        return String.format("BankAccount [accountNo=%s, bank=%s]", this.accountNo, this.bank);
+        return String.format("%s [accountNo=%s, bank=%s]", this.getClass().getSimpleName(),this.accountNo, this.bank);
     }
 
 }

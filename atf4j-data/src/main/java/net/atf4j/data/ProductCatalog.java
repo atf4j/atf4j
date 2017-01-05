@@ -74,7 +74,7 @@ public class ProductCatalog {
      * @return the string
      */
     public String debugString() {
-        return String.format("ProductCatalog [catalog=%s]", this.catalog);
+        return String.format("%s [catalog=%s]", this.getClass().getSimpleName(),this.catalog);
     }
 
     /* (non-Javadoc)

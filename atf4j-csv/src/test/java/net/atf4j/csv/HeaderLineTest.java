@@ -41,7 +41,6 @@ public class HeaderLineTest {
     public void testBlankHeaderLine() {
         final HeaderLine headerLine = new HeaderLine("");
         assertNotNull(headerLine);
-        assertEquals("HeaderLine [fields=[]]", headerLine.debugString());
         assertEquals(1, headerLine.length());
         this.log.info(headerLine.toString());
     }

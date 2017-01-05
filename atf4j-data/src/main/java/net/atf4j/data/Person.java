@@ -264,7 +264,8 @@ public class Person {
      */
     public String debugString() {
         return String.format(
-                "Person [title=%s, forename=%s, middlename=%s, surname=%s, dob=%s, postalAddress=%s, emailAddress=%s]",
+                "%s [title=%s, forename=%s, middlename=%s, surname=%s, dob=%s, postalAddress=%s, emailAddress=%s]",
+                this.getClass().getSimpleName(),
                 this.title,
                 this.forename,
                 this.middlename,

@@ -78,7 +78,7 @@ public class Bank extends Business {
      */
     @Override
     public String debugString() {
-        return String.format("Bank [bankSortCode=%s]", this.bankSortCode);
+        return String.format("%s [bankSortCode=%s]",this.getClass().getSimpleName(), this.bankSortCode);
     }
 
 }

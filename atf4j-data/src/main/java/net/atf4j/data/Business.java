@@ -93,7 +93,7 @@ public class Business extends Name {
      */
     @Override
     public String debugString() {
-        return String.format("Business [name=%s, address=%s]", this.getName(), this.getAddress());
+        return String.format("%s [name=%s, address=%s]",this.getClass().getSimpleName(), this.getName(), this.getAddress());
     }
 
 }

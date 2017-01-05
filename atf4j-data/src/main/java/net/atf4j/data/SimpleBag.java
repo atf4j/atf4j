@@ -160,7 +160,7 @@ public class SimpleBag {
      * @return the string
      */
     public String debugString() {
-        return String.format("SimpleBag [values=%s]", Arrays.toString(this.values));
+        return String.format("%s [values=%s]", this.getClass().getSimpleName(),Arrays.toString(this.values));
     }
 
 }

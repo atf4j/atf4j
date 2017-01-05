@@ -95,7 +95,7 @@ public class EmailAddress {
      * @return the string
      */
     public String debugString() {
-        return String.format("EmailAddress [email=%s]", this.email);
+        return String.format("%s [email=%s]", this.getClass().getSimpleName(),this.email);
     }
 
     /* (non-Javadoc)

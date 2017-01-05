@@ -97,7 +97,8 @@ public class DatumTest {
      */
     @Test
     public void testToString() {
-        assertEquals("Datum [isNew=true, isDirty=false, isDeleted=false, isUsed=false]", new MockDatum().toString());
+        assertEquals("MockDatum [isNew=true, isDirty=false, isDeleted=false, isUsed=false]",
+                new MockDatum().toString());
     }
 
 }

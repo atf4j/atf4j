@@ -99,7 +99,7 @@ public class PostalAddress {
      * @return the string
      */
     public String debugString() {
-        return String.format("Address [address=%s, postcode=%s]", Arrays.toString(this.addressLines), this.postcode);
+        return String.format("%s [address=%s, postcode=%s]", this.getClass().getSimpleName(),Arrays.toString(this.addressLines), this.postcode);
     }
 
     /* (non-Javadoc)

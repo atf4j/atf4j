@@ -31,7 +31,7 @@ public class CardTest {
 
     private static final String INVALID_NUMBER = "1111-1111-1111-1111";
     private static final String AMEX_1 = "0000 1234 5678 9999";
-    private static final String AMEX_2 = "3714-4963-539-8431";
+    private static final String AMEX_INVALID = "3714-4963-539-8431";
     private static final String MASTERCARD_1 = "5500-0055-5555-5559";
     private static final String MASTERCARD_2 = "5555 5555 5555 4444";
     private static final String VISA_CARD_1 = "4444-4444-4444-4448";
@@ -97,8 +97,8 @@ public class CardTest {
      */
     @Test
     public void testVerifyAmex() {
-        // assertFalse(Card.verifyAmex(AMEX_1));
-        assertFalse(Card.verifyAmex(AMEX_2));
+        assertTrue(Card.verifyAmex(AMEX_1));
+        assertFalse(Card.verifyAmex(AMEX_INVALID));
     }
 
     /**

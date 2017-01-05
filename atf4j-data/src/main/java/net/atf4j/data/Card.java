@@ -245,7 +245,8 @@ public class Card {
      * @return the string
      */
     public String debugString() {
-        return String.format("Card [provider=%s, cardNumber=%s, cardName=%s, endDate=%s, startDate=%s]",
+        return String.format("%s [provider=%s, cardNumber=%s, cardName=%s, endDate=%s, startDate=%s]",
+                this.getClass().getSimpleName(),
                 this.provider,
                 this.cardNumber,
                 this.cardName,

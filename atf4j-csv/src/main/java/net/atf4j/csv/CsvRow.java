@@ -92,7 +92,7 @@ public class CsvRow {
      * @see java.lang.Object#toString()
      */
     public String debugString() {
-        return String.format("%s [fields=%s]", Arrays.toString(this.fields));
+        return String.format("%s [fields=%s]", this.getClass().getSimpleName(), Arrays.toString(this.fields));
     }
 
     /* (non-Javadoc)

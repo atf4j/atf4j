@@ -155,7 +155,7 @@ public class Customer {
      * @return the string
      */
     public String debugString() {
-        return String.format("Customer [title=%s, forename=%s, surname=%s]", this.title, this.forename, this.surname);
+        return String.format("%s [title=%s, forename=%s, surname=%s]", this.getClass().getSimpleName(),this.title, this.forename, this.surname);
     }
 
 }

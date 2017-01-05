@@ -97,7 +97,7 @@ public class BankSortCode {
      * @return the string
      */
     public String debugString() {
-        return String.format("BankSortCode [bankSortCode=%s]", this.bankSortCode);
+        return String.format("%s [bankSortCode=%s]",this.getClass().getSimpleName(), this.bankSortCode);
     }
 
 }

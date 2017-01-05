@@ -95,7 +95,7 @@ public class NationalInsurance {
      * @return the string
      */
     public String debugString() {
-        return String.format("NationalInsurance [code=%s]", this.code);
+        return String.format("%s [code=%s]", this.getClass().getSimpleName(),this.code);
     }
 
     /* (non-Javadoc)

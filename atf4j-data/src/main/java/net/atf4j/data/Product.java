@@ -123,7 +123,7 @@ public class Product {
      * @return the string
      */
     public String debugString() {
-        return String.format("Product [id=%s, name=%s, details=%s]", this.id, this.name, this.details);
+        return String.format("%s [id=%s, name=%s, details=%s]", this.getClass().getSimpleName(),this.id, this.name, this.details);
     }
 
     /* (non-Javadoc)

@@ -77,7 +77,7 @@ public class Field {
     }
 
     public String debugString() {
-        return String.format("Field [status=%s, key=%s, value=%s]", this.status, this.key, this.value);
+        return String.format("%s [status=%s, key=%s, value=%s]",this.getClass().getSimpleName(), this.status, this.key, this.value);
     }
 
     @Override

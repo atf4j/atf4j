@@ -96,7 +96,7 @@ public class Postcode {
      * @return the string
      */
     public String debugString() {
-        return String.format("Postcode [postCode=%s]", this.postCode);
+        return String.format("%s [postCode=%s]",this.getClass().getSimpleName(), this.postCode);
     }
 
     /* (non-Javadoc)

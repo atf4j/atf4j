@@ -83,7 +83,7 @@ public abstract class Name extends Datum {
      */
     @Override
     public String debugString() {
-        return String.format("%s [name=%s]", this.name);
+        return String.format("%s [name=%s]", this.getClass().getSimpleName(),this.name);
     }
 
     /* (non-Javadoc)
