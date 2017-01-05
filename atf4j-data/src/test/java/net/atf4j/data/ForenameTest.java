@@ -31,7 +31,7 @@ public class ForenameTest {
     private static final String FORENAME = "Forename";
 
     /**
-     * Test method for {@link Forename}.
+     * Test method for Forename}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -52,7 +52,7 @@ public class ForenameTest {
     }
 
     /**
-     * Test method for {@link Forename}.
+     * Test method for Forename}.
      */
     @Test
     public void testDebugString() {
@@ -61,7 +61,7 @@ public class ForenameTest {
     }
 
     /**
-     * Test method for {@link Forename}.
+     * Test method for Forename}.
      */
     @Test
     public void testToString() {

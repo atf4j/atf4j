@@ -28,7 +28,7 @@ import org.junit.Test;
 public class TestResultTest extends ResultsReporting {
 
     /**
-     * Test method for {@link TestResult}.
+     * Test method for TestResult}.
      */
     @Test
     public void testInitialise() {

@@ -29,7 +29,7 @@ public class TelephoneTest {
     private static final String _0123456789 = "0123456789";
 
     /**
-     * Test method for {@link Telephone}.
+     * Test method for Telephone}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -37,7 +37,7 @@ public class TelephoneTest {
     }
 
     /**
-     * Test method for {@link Telephone}.
+     * Test method for Telephone}.
      */
     @Test
     public void testTelephone() {
@@ -46,7 +46,7 @@ public class TelephoneTest {
     }
 
     /**
-     * Test method for {@link Telephone}.
+     * Test method for Telephone}.
      */
     @Test
     public void testTelephoneString() {
@@ -56,7 +56,7 @@ public class TelephoneTest {
     }
 
     /**
-     * Test method for {@link Telephone}.
+     * Test method for Telephone}.
      */
     @Test
     public void testTelephoneTypeString() {
@@ -66,7 +66,7 @@ public class TelephoneTest {
     }
 
     /**
-     * Test method for {@link Telephone}.
+     * Test method for Telephone}.
      */
     @Test
     public void testSetGetNumber() {
@@ -76,7 +76,7 @@ public class TelephoneTest {
     }
 
     /**
-     * Test method for {@link Telephone}.
+     * Test method for Telephone}.
      */
     @Test
     public void testTelephoneDebugString() {
@@ -86,7 +86,7 @@ public class TelephoneTest {
     }
 
     /**
-     * Test method for {@link Telephone}.
+     * Test method for Telephone}.
      */
     @Test
     public void testToString() {

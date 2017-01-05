@@ -28,7 +28,7 @@ import net.atf4j.core.ResultsReporting;
 public class SplitTimerTest extends ResultsReporting {
 
     /**
-     * Test method for {@link SplitTimer}.
+     * Test method for SplitTimer}.
      */
     @Test
     public void testGetSplitTime() {

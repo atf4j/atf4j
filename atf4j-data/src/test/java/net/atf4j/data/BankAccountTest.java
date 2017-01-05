@@ -27,7 +27,7 @@ import org.junit.Test;
 public class BankAccountTest {
 
     /**
-     * Test method for {@link BankAccount}.
+     * Test method for BankAccount}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -36,7 +36,7 @@ public class BankAccountTest {
     }
 
     /**
-     * Test method for {@link BankAccount}.
+     * Test method for BankAccount}.
      */
     @Test
     public void testBankAccount() {
@@ -45,7 +45,7 @@ public class BankAccountTest {
     }
 
     /**
-     * Test method for {@link BankAccount}.
+     * Test method for BankAccount}.
      */
     @Test
     public void testCreate() {
@@ -54,7 +54,7 @@ public class BankAccountTest {
     }
 
     /**
-     * Test method for {@link BankAccount}.
+     * Test method for BankAccount}.
      */
     @Test
     public void testSetGetAccountNo() {
@@ -66,7 +66,7 @@ public class BankAccountTest {
     }
 
     /**
-     * Test method for {@link BankAccount}.
+     * Test method for BankAccount}.
      */
     @Test
     public void testSetGetBank() {
@@ -78,7 +78,7 @@ public class BankAccountTest {
     }
 
     /**
-     * Test method for {@link BankAccount}.
+     * Test method for BankAccount}.
      */
     @Test
     public void testDebugString() {
@@ -87,7 +87,7 @@ public class BankAccountTest {
     }
 
     /**
-     * Test method for {@link BankAccount}.
+     * Test method for BankAccount}.
      */
     @Test
     public void testToString() {

@@ -47,7 +47,7 @@ public class ConditionTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link Condition}.
+     * Test method for Condition}.
      */
     @Test
     public void testFailingCondition() {

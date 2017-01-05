@@ -27,7 +27,7 @@ import org.junit.Test;
 public class CustomerTest {
 
     /**
-     * Test method for {@link Customer}.
+     * Test method for Customer}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -40,7 +40,7 @@ public class CustomerTest {
     }
 
     /**
-     * Test method for {@link Customer}.
+     * Test method for Customer}.
      */
     @Test
     public void testSetGetTitle() {
@@ -49,7 +49,7 @@ public class CustomerTest {
     }
 
     /**
-     * Test method for {@link Customer}.
+     * Test method for Customer}.
      */
     @Test
     public void testSetGetForename() {
@@ -58,7 +58,7 @@ public class CustomerTest {
     }
 
     /**
-     * Test method for {@link Customer}.
+     * Test method for Customer}.
      */
     @Test
     public void testSetGetSurname() {
@@ -67,7 +67,7 @@ public class CustomerTest {
     }
 
     /**
-     * Test method for {@link Customer}.
+     * Test method for Customer}.
      */
     @Test
     public void testDebugString() {
@@ -76,7 +76,7 @@ public class CustomerTest {
     }
 
     /**
-     * Test method for {@link Customer}.
+     * Test method for Customer}.
      */
     @Test
     public void testToString() {

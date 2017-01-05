@@ -28,7 +28,7 @@ import net.atf4j.core.ResultsReporting;
 public class MilliTimerTest extends ResultsReporting {
 
     /**
-     * Test method for {@link MilliTimer}.
+     * Test method for MilliTimer}.
      */
     @Test
     public void testMilliTimer() {
@@ -37,7 +37,7 @@ public class MilliTimerTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link MilliTimer}.
+     * Test method for MilliTimer}.
      */
     @Test
     public void testMilliTimerString() {
@@ -46,7 +46,7 @@ public class MilliTimerTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link MilliTimer}.
+     * Test method for MilliTimer}.
      */
     @Test
     public void testStart() {
@@ -55,7 +55,7 @@ public class MilliTimerTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link MilliTimer}.
+     * Test method for MilliTimer}.
      */
     @Test
     public void testStop() {
@@ -64,7 +64,7 @@ public class MilliTimerTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link MilliTimer}.
+     * Test method for MilliTimer}.
      */
     @Test
     public void testGetStartTime() {
@@ -73,7 +73,7 @@ public class MilliTimerTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link MilliTimer}.
+     * Test method for MilliTimer}.
      */
     @Test
     public void testGetElapsedTime() {
@@ -82,7 +82,7 @@ public class MilliTimerTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link MilliTimer}.
+     * Test method for MilliTimer}.
      */
     @Test
     public void testToString() {
@@ -91,7 +91,7 @@ public class MilliTimerTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link MilliTimer}.
+     * Test method for MilliTimer}.
      */
     @Test
     public void testGetTimerName() {

@@ -26,7 +26,7 @@ import org.junit.Test;
 public class ProductCatalogTest {
 
     /**
-     * Test method for {@link ProductCatalog}.
+     * Test method for ProductCatalog}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -43,7 +43,7 @@ public class ProductCatalogTest {
     }
 
     /**
-     * Test method for {@link ProductCatalog}.
+     * Test method for ProductCatalog}.
      */
     @Test
     public void testDebugString() {
@@ -52,7 +52,7 @@ public class ProductCatalogTest {
     }
 
     /**
-     * Test method for {@link ProductCatalog}.
+     * Test method for ProductCatalog}.
      */
     @Test
     public void testToString() {

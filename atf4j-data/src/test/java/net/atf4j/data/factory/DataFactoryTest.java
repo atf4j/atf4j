@@ -64,7 +64,7 @@ public class DataFactoryTest {
     }
 
     /**
-     * Test method for {@link DataFactory}.
+     * Test method for DataFactory}.
      *
      * @throws Exception
      *             the exception
@@ -76,7 +76,7 @@ public class DataFactoryTest {
     }
 
     /**
-     * Test method for {@link DataFactory}.
+     * Test method for DataFactory}.
      *
      * @throws Exception
      *             the exception

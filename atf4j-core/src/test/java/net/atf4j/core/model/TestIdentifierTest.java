@@ -31,7 +31,7 @@ import net.atf4j.core.ResultsReporting;
 public class TestIdentifierTest extends ResultsReporting {
 
     /**
-     * Test method for {@link TestIdentifier}.
+     * Test method for TestIdentifier}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -39,7 +39,7 @@ public class TestIdentifierTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestIdentifier}.
+     * Test method for TestIdentifier}.
      */
     @Test
     public void testCreate() {
@@ -48,7 +48,7 @@ public class TestIdentifierTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestIdentifier}.
+     * Test method for TestIdentifier}.
      */
     @Test
     public void testSetGetUuid() {
@@ -57,7 +57,7 @@ public class TestIdentifierTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestIdentifier}.
+     * Test method for TestIdentifier}.
      */
     @Test
     public void testToString() {

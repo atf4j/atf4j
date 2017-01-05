@@ -26,7 +26,7 @@ import org.junit.Test;
 public class CriticalFailTest {
 
     /**
-     * Test method for {@link CriticalFail}.
+     * Test method for CriticalFail}.
      */
     @Test
     public void testCriticalFail() {
@@ -35,7 +35,7 @@ public class CriticalFailTest {
     }
 
     /**
-     * Test method for {@link CriticalFail}.
+     * Test method for CriticalFail}.
      */
     @Test
     public void testCriticalFailNull() {

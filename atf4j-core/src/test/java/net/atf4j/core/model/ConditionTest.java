@@ -39,7 +39,7 @@ public class ConditionTest {
     }
 
     /**
-     * Test method for {@link Condition}.
+     * Test method for Condition}.
      */
     @Test
     public void testTrueCondition() {
@@ -47,7 +47,7 @@ public class ConditionTest {
     }
 
     /**
-     * Test method for {@link Condition}.
+     * Test method for Condition}.
      */
     @Test
     public void testFalseCondition() {

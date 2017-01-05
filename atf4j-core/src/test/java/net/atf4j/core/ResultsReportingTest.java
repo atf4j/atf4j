@@ -26,7 +26,7 @@ import org.junit.Test;
 public class ResultsReportingTest extends ResultsReporting {
 
     /**
-     * Test method for {@link ResultsReporting}.
+     * Test method for ResultsReporting}.
      */
     @Test
     public void testVerifyEqualObjects() {
@@ -35,7 +35,7 @@ public class ResultsReportingTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link ResultsReporting}.
+     * Test method for ResultsReporting}.
      */
     @Test
     public void testVerifyNotEqualObjects() {
@@ -49,7 +49,7 @@ public class ResultsReportingTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link ResultsReporting}.
+     * Test method for ResultsReporting}.
      */
     @Test
     public void testVerifyEqualLongs() {
@@ -58,7 +58,7 @@ public class ResultsReportingTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link ResultsReporting}.
+     * Test method for ResultsReporting}.
      */
     @Test
     public void testVerifyNotEqualsLong() {
@@ -72,7 +72,7 @@ public class ResultsReportingTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link ResultsReporting}.
+     * Test method for ResultsReporting}.
      */
     @Test
     public void testToDescription() {

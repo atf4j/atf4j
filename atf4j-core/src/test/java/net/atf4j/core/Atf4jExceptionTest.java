@@ -35,7 +35,7 @@ public class Atf4jExceptionTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link Atf4jException}.
+     * Test method for Atf4jException}.
      *
      * @throws Atf4jException
      *             the Atf4j exception
@@ -46,7 +46,7 @@ public class Atf4jExceptionTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link Atf4jException}.
+     * Test method for Atf4jException}.
      *
      * @throws Atf4jException
      *             the Atf4j exception

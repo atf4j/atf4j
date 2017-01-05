@@ -69,7 +69,7 @@ public class AbstractGuiMapTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link AbstractGuiMap}.
+     * Test method for AbstractGuiMap}.
      *
      * @throws Exception
      *             the exception
@@ -84,7 +84,7 @@ public class AbstractGuiMapTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link AbstractGuiMap}.
+     * Test method for AbstractGuiMap}.
      *
      * @throws Exception
      *             the exception
@@ -101,7 +101,7 @@ public class AbstractGuiMapTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link AbstractGuiMap}.
+     * Test method for AbstractGuiMap}.
      *
      * @throws Exception
      *             the exception

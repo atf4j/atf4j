@@ -42,7 +42,7 @@ public class TestCaseTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestCase}.
+     * Test method for TestCase}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -50,7 +50,7 @@ public class TestCaseTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestCase}.
+     * Test method for TestCase}.
      *
      * @throws Atf4jException
      *             the atf 4 j exception
@@ -61,7 +61,7 @@ public class TestCaseTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestCase}.
+     * Test method for TestCase}.
      *
      * @throws Atf4jException
      *             the atf 4 j exception
@@ -75,7 +75,7 @@ public class TestCaseTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestCase}.
+     * Test method for TestCase}.
      */
     @Test
     public void testNumberOfTestSteps() {
@@ -84,7 +84,7 @@ public class TestCaseTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestCase}.
+     * Test method for TestCase}.
      */
     @Test
     public void testAddTestStep() {

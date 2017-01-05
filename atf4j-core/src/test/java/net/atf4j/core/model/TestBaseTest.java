@@ -61,7 +61,7 @@ public class TestBaseTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestCase}.
+     * Test method for TestCase}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -69,7 +69,7 @@ public class TestBaseTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestBase}.
+     * Test method for TestBase}.
      *
      * @throws Atf4jException
      *             the atf 4 j exception
@@ -80,7 +80,7 @@ public class TestBaseTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestBase}.
+     * Test method for TestBase}.
      */
     @Test
     public void testUniqueIdentifier() {
@@ -89,7 +89,7 @@ public class TestBaseTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestBase}.
+     * Test method for TestBase}.
      */
     @Test
     public void testTestStatus() {
@@ -97,7 +97,7 @@ public class TestBaseTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestBase}.
+     * Test method for TestBase}.
      *
      * @throws Atf4jException
      *             the atf 4 j exception
@@ -113,7 +113,7 @@ public class TestBaseTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestBase}.
+     * Test method for TestBase}.
      *
      * @throws Atf4jException
      *             the atf 4 j exception
@@ -126,7 +126,7 @@ public class TestBaseTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestBase}.
+     * Test method for TestBase}.
      */
     @Test
     public void testAddPreCondition() {
@@ -138,7 +138,7 @@ public class TestBaseTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestBase}.
+     * Test method for TestBase}.
      */
     @Test
     public void testAddPostCondition() {
@@ -150,7 +150,7 @@ public class TestBaseTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestBase}.
+     * Test method for TestBase}.
      */
     @Test
     public void testToString() {
@@ -158,7 +158,7 @@ public class TestBaseTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestBase}.
+     * Test method for TestBase}.
      */
     @Test
     public void testDebugString() {

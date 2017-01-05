@@ -79,7 +79,7 @@ public class StringBuilderTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link StringBuilder}.
+     * Test method for StringBuilder}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -132,7 +132,7 @@ public class StringBuilderTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link StringBuilder}.
+     * Test method for StringBuilder}.
      */
     @Test
     public void testRefection() {

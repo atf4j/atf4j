@@ -42,7 +42,7 @@ public class TestSuiteTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestSuite}.
+     * Test method for TestSuite}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -50,7 +50,7 @@ public class TestSuiteTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestSuite}.
+     * Test method for TestSuite}.
      */
     @Test
     public void testTestSuite() {
@@ -77,7 +77,7 @@ public class TestSuiteTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestSuite}.
+     * Test method for TestSuite}.
      */
     @Test
     public void testNumberOfTestCases() {
@@ -87,7 +87,7 @@ public class TestSuiteTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link TestSuite}.
+     * Test method for TestSuite}.
      */
     @Test
     public void testAddTestCase() {

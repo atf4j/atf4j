@@ -38,7 +38,7 @@ import net.atf4j.pog.PageObjectGenerator.TemplateNotLoaded;
 public class PageObjectGeneratorTest extends ResultsReporting {
 
     /**
-     * Test method for {@link PageObjectGenerator}.
+     * Test method for PageObjectGenerator}.
      *
      * @throws TemplateNotLoaded
      *             the template not loaded
@@ -49,7 +49,7 @@ public class PageObjectGeneratorTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link PageObjectGenerator}.
+     * Test method for PageObjectGenerator}.
      *
      * @throws Exception
      *             the exception
@@ -63,7 +63,7 @@ public class PageObjectGeneratorTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link PageObjectGenerator}.
+     * Test method for PageObjectGenerator}.
      *
      * @throws Exception
      *             the exception

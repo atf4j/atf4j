@@ -86,7 +86,7 @@ public class CsvRowTest {
     }
 
     /**
-     * Test method for {@link CsvRow}.
+     * Test method for CsvRow}.
      */
     @Test
     public void testDebugString() {

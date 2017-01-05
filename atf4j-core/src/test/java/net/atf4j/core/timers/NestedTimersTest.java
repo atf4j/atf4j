@@ -28,7 +28,7 @@ import net.atf4j.core.ResultsReporting;
 public class NestedTimersTest extends ResultsReporting {
 
     /**
-     * Test method for {@link NestedTimers}.
+     * Test method for NestedTimers}.
      */
     @Test
     public void testGetInstance() {

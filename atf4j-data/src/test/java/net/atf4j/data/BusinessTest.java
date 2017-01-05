@@ -26,7 +26,7 @@ import org.junit.Test;
 public class BusinessTest {
 
     /**
-     * Test method for {@link Business}.
+     * Test method for Business}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -34,7 +34,7 @@ public class BusinessTest {
     }
 
     /**
-     * Test method for {@link Business}.
+     * Test method for Business}.
      */
     @Test
     public void testBusiness() {
@@ -42,7 +42,7 @@ public class BusinessTest {
     }
 
     /**
-     * Test method for {@link Business}.
+     * Test method for Business}.
      */
     @Test
     public void testBusinessString() {
@@ -57,7 +57,7 @@ public class BusinessTest {
     }
 
     /**
-     * Test method for {@link Business}.
+     * Test method for Business}.
      */
     @Test
     public void testDebugString() {
@@ -66,7 +66,7 @@ public class BusinessTest {
     }
 
     /**
-     * Test method for {@link Business}.
+     * Test method for Business}.
      */
     @Test
     public void testToString() {

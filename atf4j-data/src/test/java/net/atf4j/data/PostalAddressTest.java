@@ -26,7 +26,7 @@ import org.junit.Test;
 public class PostalAddressTest {
 
     /**
-     * Test method for {@link PostalAddress}.
+     * Test method for PostalAddress}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -35,7 +35,7 @@ public class PostalAddressTest {
     }
 
     /**
-     * Test method for {@link PostalAddress}.
+     * Test method for PostalAddress}.
      */
     @Test
     public void testAddress() {
@@ -44,7 +44,7 @@ public class PostalAddressTest {
     }
 
     /**
-     * Test method for {@link PostalAddress}.
+     * Test method for PostalAddress}.
      */
     @Test
     public void testToString() {
@@ -53,7 +53,7 @@ public class PostalAddressTest {
     }
 
     /**
-     * Test method for {@link PostalAddress}.
+     * Test method for PostalAddress}.
      */
     @Test
     public void testDebugString() {

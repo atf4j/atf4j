@@ -28,7 +28,7 @@ import net.atf4j.data.Customer;
 public class CustomerDataFactoryTest {
 
     /**
-     * Test method for {@link CustomerDataFactory}.
+     * Test method for CustomerDataFactory}.
      *
      * @throws Exception
      *             the exception
@@ -39,7 +39,7 @@ public class CustomerDataFactoryTest {
     }
 
     /**
-     * Test method for {@link CustomerDataFactory}.
+     * Test method for CustomerDataFactory}.
      */
     @Test
     public void testCreate() {

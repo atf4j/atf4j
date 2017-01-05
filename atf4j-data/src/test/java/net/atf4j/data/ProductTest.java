@@ -26,7 +26,7 @@ import org.junit.Test;
 public class ProductTest {
 
     /**
-     * Test method for {@link Product}.
+     * Test method for Product}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -34,7 +34,7 @@ public class ProductTest {
     }
 
     /**
-     * Test method for {@link Product}.
+     * Test method for Product}.
      */
     @Test
     public void testProduct() {
@@ -42,7 +42,7 @@ public class ProductTest {
     }
 
     /**
-     * Test method for {@link Product}.
+     * Test method for Product}.
      */
     @Test
     public void testProductStringStringString() {
@@ -50,7 +50,7 @@ public class ProductTest {
     }
 
     /**
-     * Test method for {@link Product}.
+     * Test method for Product}.
      */
     @Test
     public void testSetGetId() {
@@ -58,7 +58,7 @@ public class ProductTest {
     }
 
     /**
-     * Test method for {@link Product}.
+     * Test method for Product}.
      */
     @Test
     public void testSetGetName() {
@@ -66,7 +66,7 @@ public class ProductTest {
     }
 
     /**
-     * Test method for {@link Product}.
+     * Test method for Product}.
      */
     @Test
     public void testSetGetDetails() {
@@ -74,7 +74,7 @@ public class ProductTest {
     }
 
     /**
-     * Test method for {@link Product}.
+     * Test method for Product}.
      */
     @Test
     public void testDebugString() {
@@ -83,7 +83,7 @@ public class ProductTest {
     }
 
     /**
-     * Test method for {@link Product}.
+     * Test method for Product}.
      */
     @Test
     public void testToString() {

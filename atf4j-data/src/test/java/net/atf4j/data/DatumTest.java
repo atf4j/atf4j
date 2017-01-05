@@ -37,7 +37,7 @@ public class DatumTest {
     }
 
     /**
-     * Test method for {@link Datum}.
+     * Test method for Datum}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -93,7 +93,7 @@ public class DatumTest {
     }
 
     /**
-     * Test method for {@link Datum}.
+     * Test method for Datum}.
      */
     @Test
     public void testToString() {

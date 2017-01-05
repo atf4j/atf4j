@@ -27,7 +27,7 @@ import org.junit.Test;
 public class BankSortCodeTest {
 
     /**
-     * Test method for {@link BankSortCode}.
+     * Test method for BankSortCode}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -35,7 +35,7 @@ public class BankSortCodeTest {
     }
 
     /**
-     * Test method for {@link BankSortCode}.
+     * Test method for BankSortCode}.
      */
     @Test
     public void testBankSortCodeString() {
@@ -49,7 +49,7 @@ public class BankSortCodeTest {
     }
 
     /**
-     * Test method for {@link BankSortCode}.
+     * Test method for BankSortCode}.
      */
     @Test
     public void testSetGetBankSortCode() {
@@ -58,7 +58,7 @@ public class BankSortCodeTest {
     }
 
     /**
-     * Test method for {@link BankSortCode}.
+     * Test method for BankSortCode}.
      */
     @Test
     public void testVerify() {
@@ -67,7 +67,7 @@ public class BankSortCodeTest {
     }
 
     /**
-     * Test method for {@link BankSortCode}.
+     * Test method for BankSortCode}.
      */
     @Test
     public void testVerifyEmpty() {
@@ -75,7 +75,7 @@ public class BankSortCodeTest {
     }
 
     /**
-     * Test method for {@link BankSortCode}.
+     * Test method for BankSortCode}.
      */
     @Test
     public void testDebugString() {
@@ -84,7 +84,7 @@ public class BankSortCodeTest {
     }
 
     /**
-     * Test method for {@link BankSortCode}.
+     * Test method for BankSortCode}.
      */
     @Test
     public void testToString() {

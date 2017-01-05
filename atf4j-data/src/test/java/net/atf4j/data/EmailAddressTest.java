@@ -28,7 +28,7 @@ public class EmailAddressTest {
     private static final String NAME_EXAMPLE_COM = "name@example.com";
 
     /**
-     * Test method for {@link EmailAddress}.
+     * Test method for EmailAddress}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -36,7 +36,7 @@ public class EmailAddressTest {
     }
 
     /**
-     * Test method for {@link EmailAddress}.
+     * Test method for EmailAddress}.
      */
     @Test
     public void testEmailAddressString() {
@@ -49,7 +49,7 @@ public class EmailAddressTest {
     }
 
     /**
-     * Test method for {@link EmailAddress}.
+     * Test method for EmailAddress}.
      */
     @Test
     public void testVerify() {
@@ -57,7 +57,7 @@ public class EmailAddressTest {
     }
 
     /**
-     * Test method for {@link EmailAddress}.
+     * Test method for EmailAddress}.
      */
     @Test
     public void testDebugString() {
@@ -66,7 +66,7 @@ public class EmailAddressTest {
     }
 
     /**
-     * Test method for {@link EmailAddress}.
+     * Test method for EmailAddress}.
      */
     @Test
     public void testToString() {

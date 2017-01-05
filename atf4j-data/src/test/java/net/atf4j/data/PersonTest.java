@@ -29,7 +29,7 @@ import org.junit.Test;
 public class PersonTest {
 
     /**
-     * Test method for {@link Person}.
+     * Test method for Person}.
      */
     @Test
     public void testPerson() {
@@ -37,7 +37,7 @@ public class PersonTest {
     }
 
     /**
-     * Test method for {@link Person}.
+     * Test method for Person}.
      */
     @Test
     public void testPersonStringStringString() {
@@ -51,7 +51,7 @@ public class PersonTest {
     }
 
     /**
-     * Test method for {@link Person}.
+     * Test method for Person}.
      */
     @Test
     public void testSetGetTitle() {
@@ -60,7 +60,7 @@ public class PersonTest {
     }
 
     /**
-     * Test method for {@link Person}.
+     * Test method for Person}.
      */
     @Test
     public void testSetGetForenameString() {
@@ -69,7 +69,7 @@ public class PersonTest {
     }
 
     /**
-     * Test method for {@link Person}.
+     * Test method for Person}.
      */
     @Test
     public void testSetGetMiddlenameString() {
@@ -78,7 +78,7 @@ public class PersonTest {
     }
 
     /**
-     * Test method for {@link Person}.
+     * Test method for Person}.
      */
     @Test
     public void testSetGetSurnameString() {
@@ -87,7 +87,7 @@ public class PersonTest {
     }
 
     /**
-     * Test method for {@link Person}.
+     * Test method for Person}.
      */
     @Test
     public void testSetGetDob() {
@@ -96,7 +96,7 @@ public class PersonTest {
     }
 
     /**
-     * Test method for {@link Person}.
+     * Test method for Person}.
      */
     @Test
     public void testSetGetPostalAddress() {
@@ -105,7 +105,7 @@ public class PersonTest {
     }
 
     /**
-     * Test method for {@link Person}.
+     * Test method for Person}.
      */
     @Test
     public void testSetGetEmailAddress() {
@@ -114,7 +114,7 @@ public class PersonTest {
     }
 
     /**
-     * Test method for {@link Person}.
+     * Test method for Person}.
      */
     @Test
     public void testToString() {
@@ -122,7 +122,7 @@ public class PersonTest {
     }
 
     /**
-     * Test method for {@link Person}.
+     * Test method for Person}.
      */
     @Test
     public void testDebugString() {

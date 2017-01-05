@@ -27,7 +27,7 @@ import org.junit.Test;
 public class BankTest {
 
     /**
-     * Test method for {@link Bank}.
+     * Test method for Bank}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -42,7 +42,7 @@ public class BankTest {
     }
 
     /**
-     * Test method for {@link Bank}.
+     * Test method for Bank}.
      */
     @Test
     public void testCreate() {
@@ -57,7 +57,7 @@ public class BankTest {
     }
 
     /**
-     * Test method for {@link Bank}.
+     * Test method for Bank}.
      */
     @Test
     public void testDebugString() {
@@ -66,7 +66,7 @@ public class BankTest {
     }
 
     /**
-     * Test method for {@link Bank}.
+     * Test method for Bank}.
      */
     @Test
     public void testToString() {

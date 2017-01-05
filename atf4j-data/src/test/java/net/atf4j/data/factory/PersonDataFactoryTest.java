@@ -28,7 +28,7 @@ import net.atf4j.data.Person;
 public class PersonDataFactoryTest {
 
     /**
-     * Test method for {@link PersonDataFactory}.
+     * Test method for PersonDataFactory}.
      *
      * @throws Exception
      *             the exception
@@ -39,7 +39,7 @@ public class PersonDataFactoryTest {
     }
 
     /**
-     * Test method for {@link PersonDataFactory}.
+     * Test method for PersonDataFactory}.
      */
     @Test
     public void testCreate() {

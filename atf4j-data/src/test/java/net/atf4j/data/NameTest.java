@@ -37,7 +37,7 @@ public class NameTest {
     }
 
     /**
-     * Test method for {@link Name}.
+     * Test method for Name}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -45,14 +45,14 @@ public class NameTest {
     }
 
     /**
-     * Test method for {@link Name}.
+     * Test method for Name}.
      */
     public void testName() {
         assertNotNull(new MockName());
     }
 
     /**
-     * Test method for {@link Name}.
+     * Test method for Name}.
      */
     @Test
     public void testNameString() {
@@ -63,7 +63,7 @@ public class NameTest {
     }
 
     /**
-     * Test method for {@link Name}.
+     * Test method for Name}.
      */
     @Test
     public void testSetGetName() {
@@ -73,7 +73,7 @@ public class NameTest {
     }
 
     /**
-     * Test method for {@link Name}.
+     * Test method for Name}.
      */
     @Test
     public void testCapitalise() {

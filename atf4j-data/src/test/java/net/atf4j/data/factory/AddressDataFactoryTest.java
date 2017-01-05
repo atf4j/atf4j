@@ -28,7 +28,7 @@ import net.atf4j.data.PostalAddress;
 public class AddressDataFactoryTest {
 
     /**
-     * Test method for {@link AddressDataFactory}.
+     * Test method for AddressDataFactory}.
      *
      * @throws Exception
      *             the exception
@@ -39,7 +39,7 @@ public class AddressDataFactoryTest {
     }
 
     /**
-     * Test method for {@link AddressDataFactory}.
+     * Test method for AddressDataFactory}.
      */
     @Test
     public void testCreate() {

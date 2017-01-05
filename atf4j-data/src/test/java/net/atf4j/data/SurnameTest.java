@@ -29,7 +29,7 @@ public class SurnameTest {
     private static final String SURNAME = "Surname";
 
     /**
-     * Test method for {@link Surname}.
+     * Test method for Surname}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -45,7 +45,7 @@ public class SurnameTest {
     }
 
     /**
-     * Test method for {@link Surname}.
+     * Test method for Surname}.
      */
     @Test
     public void testDebugString() {
@@ -54,7 +54,7 @@ public class SurnameTest {
     }
 
     /**
-     * Test method for {@link Surname}.
+     * Test method for Surname}.
      */
     @Test
     public void testToString() {

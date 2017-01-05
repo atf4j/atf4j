@@ -41,7 +41,7 @@ public class AbstractDataFactoryTest {
     }
 
     /**
-     * Test method for {@link AbstractDataFactory}.
+     * Test method for AbstractDataFactory}.
      *
      * @throws Exception
      *             the exception

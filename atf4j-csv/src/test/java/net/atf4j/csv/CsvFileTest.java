@@ -83,7 +83,7 @@ public class CsvFileTest {
     }
 
     /**
-     * Test method for {@link CsvFile}.
+     * Test method for CsvFile}.
      *
      * @throws Exception
      *             the exception
@@ -144,7 +144,7 @@ public class CsvFileTest {
     }
 
     /**
-     * Test method for {@link CsvFile}.
+     * Test method for CsvFile}.
      *
      * @throws Exception
      *             the exception

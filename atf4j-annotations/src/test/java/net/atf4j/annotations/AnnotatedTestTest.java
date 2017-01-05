@@ -26,7 +26,7 @@ import org.junit.Test;
 public class AnnotatedTestTest extends AnnotatedTest {
 
     /**
-     * Test method for {@link AnnotatedTest}.
+     * Test method for AnnotatedTest}.
      *
      * @throws Exception
      *             the exception
@@ -38,7 +38,7 @@ public class AnnotatedTestTest extends AnnotatedTest {
     }
 
     /**
-     * Test method for {@link AnnotatedTest}.
+     * Test method for AnnotatedTest}.
      */
     @Test
     public void testTestName() {
@@ -47,7 +47,7 @@ public class AnnotatedTestTest extends AnnotatedTest {
     }
 
     /**
-     * Test method for {@link AnnotatedTest}.
+     * Test method for AnnotatedTest}.
      */
     @Test
     public void testTestDescription() {

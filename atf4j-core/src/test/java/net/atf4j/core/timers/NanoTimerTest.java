@@ -28,7 +28,7 @@ import net.atf4j.core.ResultsReporting;
 public class NanoTimerTest extends ResultsReporting {
 
     /**
-     * Test method for {@link NanoTimer}.
+     * Test method for NanoTimer}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -37,7 +37,7 @@ public class NanoTimerTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link NanoTimer}.
+     * Test method for NanoTimer}.
      */
     @Test
     public void testNanoTimerString() {
@@ -48,7 +48,7 @@ public class NanoTimerTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link NanoTimer}.
+     * Test method for NanoTimer}.
      */
     @Test
     public void testStart() {
@@ -57,7 +57,7 @@ public class NanoTimerTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link NanoTimer}.
+     * Test method for NanoTimer}.
      */
     @Test
     public void testStop() {
@@ -66,7 +66,7 @@ public class NanoTimerTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link NanoTimer}.
+     * Test method for NanoTimer}.
      */
     @Test
     public void testGetStartTime() {
@@ -75,7 +75,7 @@ public class NanoTimerTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link NanoTimer}.
+     * Test method for NanoTimer}.
      */
     @Test
     public void testGetElapsedTime() {
@@ -84,7 +84,7 @@ public class NanoTimerTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link NanoTimer}.
+     * Test method for NanoTimer}.
      */
     @Test
     public void testToString() {

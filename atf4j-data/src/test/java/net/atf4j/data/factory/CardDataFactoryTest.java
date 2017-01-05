@@ -28,7 +28,7 @@ import net.atf4j.data.Card;
 public class CardDataFactoryTest {
 
     /**
-     * Test method for {@link CardDataFactory}.
+     * Test method for CardDataFactory}.
      *
      * @throws Exception
      *             the exception
@@ -39,7 +39,7 @@ public class CardDataFactoryTest {
     }
 
     /**
-     * Test method for {@link CardDataFactory}.
+     * Test method for CardDataFactory}.
      */
     @Test
     public void testCreate() {

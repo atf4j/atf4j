@@ -28,7 +28,7 @@ import net.atf4j.core.ResultsReporting;
 public class MappedTimersTest extends ResultsReporting {
 
     /**
-     * Test method for {@link MappedTimers}.
+     * Test method for MappedTimers}.
      */
     @Test
     public void testGetInstance() {
@@ -37,7 +37,7 @@ public class MappedTimersTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link MappedTimers}.
+     * Test method for MappedTimers}.
      */
     @Test
     public void testExpectedUsage() {
@@ -48,7 +48,7 @@ public class MappedTimersTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link MappedTimers}.
+     * Test method for MappedTimers}.
      */
     @Test
     public void testStopAll() {
@@ -56,7 +56,7 @@ public class MappedTimersTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link MappedTimers}.
+     * Test method for MappedTimers}.
      */
     @Test
     public void testToString() {

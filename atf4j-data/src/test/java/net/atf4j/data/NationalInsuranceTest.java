@@ -29,7 +29,7 @@ public class NationalInsuranceTest {
     private static final String BLANK_NI = "";
 
     /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for NationalInsurance}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -60,7 +60,7 @@ public class NationalInsuranceTest {
     }
 
     /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for NationalInsurance}.
      */
     @Test
     public void testDebugString() {
@@ -69,7 +69,7 @@ public class NationalInsuranceTest {
     }
 
     /**
-     * Test method for {@link NationalInsurance}.
+     * Test method for NationalInsurance}.
      */
     @Test
     public void testToString() {

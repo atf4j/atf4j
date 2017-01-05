@@ -48,7 +48,7 @@ public class TestStepTest {
     }
 
     /**
-     * Test method for {@link TestCase}.
+     * Test method for TestCase}.
      *
      * @throws Atf4jException
      *             the atf 4 j exception
@@ -61,7 +61,7 @@ public class TestStepTest {
     }
 
     /**
-     * Test method for {@link TestCase}.
+     * Test method for TestCase}.
      *
      * @throws Atf4jException
      *             the atf 4 j exception

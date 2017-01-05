@@ -30,7 +30,7 @@ import net.atf4j.core.timers.Interval;
 public class IntervalTest extends ResultsReporting {
 
     /**
-     * Test method for {@link Interval}.
+     * Test method for Interval}.
      */
     @Test
     public void testInterval() {
@@ -38,7 +38,7 @@ public class IntervalTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link Interval}.
+     * Test method for Interval}.
      */
     @Test
     public void testIntervalLong() {
@@ -47,7 +47,7 @@ public class IntervalTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link Interval}.
+     * Test method for Interval}.
      */
     @Test
     public void testInMilliSeconds() {
@@ -57,7 +57,7 @@ public class IntervalTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link Interval}.
+     * Test method for Interval}.
      */
     @Test
     public void testInSeconds() {
@@ -67,7 +67,7 @@ public class IntervalTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link Interval}.
+     * Test method for Interval}.
      */
     @Test
     public void testInMinutes() {
@@ -77,7 +77,7 @@ public class IntervalTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link Interval}.
+     * Test method for Interval}.
      */
     @Test
     public void testInHours() {
@@ -87,7 +87,7 @@ public class IntervalTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link Interval}.
+     * Test method for Interval}.
      */
     @Test
     public void testInDays() {
@@ -97,7 +97,7 @@ public class IntervalTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link Interval}.
+     * Test method for Interval}.
      */
     @Test
     public void testAsLong() {
@@ -105,7 +105,7 @@ public class IntervalTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link Interval}.
+     * Test method for Interval}.
      */
     @Test
     public void testAsMilliSeconds() {
@@ -113,7 +113,7 @@ public class IntervalTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link Interval}.
+     * Test method for Interval}.
      */
     @Test
     public void testAsSeconds() {
@@ -121,7 +121,7 @@ public class IntervalTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link Interval}.
+     * Test method for Interval}.
      */
     @Test
     public void testAsMinutes() {
@@ -129,7 +129,7 @@ public class IntervalTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link Interval}.
+     * Test method for Interval}.
      */
     @Test
     public void testAsHours() {
@@ -137,7 +137,7 @@ public class IntervalTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link Interval}.
+     * Test method for Interval}.
      */
     @Test
     public void testAsDays() {
@@ -145,7 +145,7 @@ public class IntervalTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {@link Interval}.
+     * Test method for Interval}.
      */
     @Test
     public void testIntervalToString() {

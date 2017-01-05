@@ -27,7 +27,7 @@ import org.junit.Test;
 public class PostcodeTest {
 
     /**
-     * Test method for {@link Postcode}.
+     * Test method for Postcode}.
      */
     @Test
     public void testDefaultConstructor() {
@@ -35,7 +35,7 @@ public class PostcodeTest {
     }
 
     /**
-     * Test method for {@link Postcode}.
+     * Test method for Postcode}.
      */
     @Test
     public void testPostcode() {
@@ -47,7 +47,7 @@ public class PostcodeTest {
     }
 
     /**
-     * Test method for {@link Postcode}.
+     * Test method for Postcode}.
      */
     @Test
     public void testPostcodeString() {
@@ -55,7 +55,7 @@ public class PostcodeTest {
     }
 
     /**
-     * Test method for {@link Postcode}.
+     * Test method for Postcode}.
      */
     @Test
     public void testVerify() {
@@ -63,7 +63,7 @@ public class PostcodeTest {
     }
 
     /**
-     * Test method for {@link Postcode}.
+     * Test method for Postcode}.
      */
     @Test
     public void testDebugString() {
@@ -72,7 +72,7 @@ public class PostcodeTest {
     }
 
     /**
-     * Test method for {@link Postcode}.
+     * Test method for Postcode}.
      */
     @Test
     public void testToString() {
