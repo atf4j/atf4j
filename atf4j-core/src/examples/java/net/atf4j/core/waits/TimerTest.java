@@ -59,7 +59,7 @@ public class TimerTest extends ResultsReporting {
     }
 
     /**
-     * Test method for.
+     * Unit Test method for One Second Timer.
      */
     @Test
     public final void testTimerOneSec() {

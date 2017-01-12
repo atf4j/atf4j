@@ -31,7 +31,7 @@ public class ResultsReportingTest extends ResultsReporting {
     @Test
     public void testVerifyEqualObjects() {
         final Object expected = new Object();
-        super.verify(expected, expected);
+        super.verifyEquals(expected, expected);
     }
 
     /**
@@ -40,7 +40,7 @@ public class ResultsReportingTest extends ResultsReporting {
     @Test
     public void testVerifyNotEqualObjects() {
         try {
-            super.verify(new Object(), new Object());
+            super.verifyEquals(new Object(), new Object());
         } catch (final AssertionError assertionError) {
             final String actualMessage = assertionError.toString();
             assertNotNull(actualMessage);
@@ -54,7 +54,7 @@ public class ResultsReportingTest extends ResultsReporting {
     @Test
     public void testVerifyEqualLongs() {
         final long expected = Long.MAX_VALUE;
-        super.verify(expected, expected);
+        super.verifyEquals(expected, expected);
     }
 
     /**
@@ -63,7 +63,7 @@ public class ResultsReportingTest extends ResultsReporting {
     @Test
     public void testVerifyNotEqualsLong() {
         try {
-            super.verify(Long.MIN_VALUE, Long.MAX_VALUE);
+            super.verifyEquals(Long.MIN_VALUE, Long.MAX_VALUE);
         } catch (final AssertionError assertionError) {
             final String actualMessage = assertionError.toString();
             assertNotNull(actualMessage);

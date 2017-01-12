@@ -163,4 +163,8 @@ public class Interval {
         return this.timePeriod;
     }
 
+    @Override
+    public String toString() {
+        return String.format("Interval [timePeriod=%s]", this.timePeriod);
+    }
 }

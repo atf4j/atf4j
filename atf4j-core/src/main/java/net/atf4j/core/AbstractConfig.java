@@ -20,7 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * AbstractConfig.
+ * Abstract Configuration class.
  */
 public abstract class AbstractConfig {
 
@@ -35,7 +35,7 @@ public abstract class AbstractConfig {
         try {
             load();
         } catch (final ConfigurationNotLoaded e) {
-            this.log.error(e.toString());
+            this.log.error("{}", e.toString());
         }
     }
 
@@ -48,7 +48,6 @@ public abstract class AbstractConfig {
      *             the missing exception
      */
     public AbstractConfig(final String propertyFilename) throws ConfigurationNotLoaded {
-        super();
         load(propertyFilename);
     }
 
@@ -60,7 +59,7 @@ public abstract class AbstractConfig {
      *             the missing exception
      */
     protected AbstractConfig load() throws ConfigurationNotLoaded {
-        final String propertyFilename = String.format("/%s.properties", toName());
+        final String propertyFilename = String.format("/%s.properties", this.getClass().getSimpleName());
         return load(propertyFilename);
     }
 
@@ -69,11 +68,11 @@ public abstract class AbstractConfig {
      *
      * @param propertyFilename
      *            the property filename
-     * @return the abstract config
+     * @return the abstract configuration
      * @throws ConfigurationNotLoaded
      *             the missing exception
      */
-    private AbstractConfig load(final String propertyFilename) throws ConfigurationNotLoaded {
+    protected AbstractConfig load(final String propertyFilename) throws ConfigurationNotLoaded {
         try {
             final InputStream resourceAsStream = this.getClass().getResourceAsStream(propertyFilename);
             this.properties.load(resourceAsStream);
@@ -92,16 +91,7 @@ public abstract class AbstractConfig {
      */
     @Override
     public String toString() {
-        return String.format("%s [properties=%s]", toName(), this.properties);
-    }
-
-    /**
-     * To name.
-     *
-     * @return the string
-     */
-    public String toName() {
-        return this.getClass().getSimpleName();
+        return this.properties.toString();
     }
 
     /**
@@ -137,6 +127,17 @@ public abstract class AbstractConfig {
     }
 
     /**
+     * Gets the value from the properties.
+     *
+     * @param key
+     *            the key
+     * @return the string
+     */
+    protected String get(final String key) {
+        return get(key, null);
+    }
+
+    /**
      * Get a property from System Property if available, otherwise from Property
      * File if available, otherwise default.
      *
@@ -144,11 +145,11 @@ public abstract class AbstractConfig {
      *            the key
      * @return the string
      */
-    protected String get(final String key) {
+    protected String get(final String key, final String defaultValue) {
         final String systemProperty = System.getProperty(key);
         this.log.trace("Using system property for key {} = {}", key, systemProperty);
         if (systemProperty == null) {
-            final String property = this.properties.getProperty(key);
+            final String property = this.properties.getProperty(key, defaultValue);
             this.log.trace("Using property file for key {} = {}", key, property);
             return property;
         } else {
@@ -163,36 +164,36 @@ public abstract class AbstractConfig {
      *            the key
      * @param defaultValue
      *            the default value
-     * @return the configuration property as a String
-     */
-    protected String get(final String key, final String defaultValue) {
-        return this.properties.getProperty(key, defaultValue);
-    }
-
-    /**
-     * Gets a configuration property by key,.
-     *
-     * @param key
-     *            the key
-     * @param defaultValue
-     *            the default value
      * @return the configuration property as a boolean
      */
     protected boolean get(final String key, final boolean defaultValue) {
-        return Boolean.parseBoolean(this.properties.getProperty(key, Boolean.toString(defaultValue)));
+        return Boolean.parseBoolean(this.get(key, Boolean.toString(defaultValue)));
     }
 
     /**
-     * Gets a configuration property by key,.
+     * Gets an int configuration property by key.
      *
      * @param key
-     *            the key
+     *            the key as int
      * @param defaultValue
-     *            the default value
+     *            the default value as in
      * @return the configuration property as a boolean
      */
     protected int get(final String key, final int defaultValue) {
-        return Integer.parseInt(this.properties.getProperty(key, Integer.toString(defaultValue)));
+        return Integer.parseInt(this.get(key, Integer.toString(defaultValue)));
+    }
+
+    /**
+     * Gets an long configuration property by key.
+     *
+     * @param key
+     *            the key as long
+     * @param defaultValue
+     *            the default value
+     * @return the configuration property as long
+     */
+    protected long get(final String key, final long defaultValue) {
+        return Long.parseLong(this.get(key, Long.toString(defaultValue)));
     }
 
 }

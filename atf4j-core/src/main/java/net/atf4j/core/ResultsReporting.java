@@ -19,11 +19,13 @@ package net.atf4j.core;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.After;
+import org.junit.BeforeClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The ResultsReporting Class.
+ * ResultsReporting Class.
  */
 public abstract class ResultsReporting {
 
@@ -39,7 +41,7 @@ public abstract class ResultsReporting {
      *            the actual value.
      * @return the string
      */
-    protected String verify(final Object expected, final Object actual) {
+    protected String verifyEquals(final Object expected, final Object actual) {
         assertNotNull("Expected Value cannot be null", expected);
         assertNotNull("Actual Value cannot be null", actual);
         final boolean result = actual.equals(expected);
@@ -81,4 +83,23 @@ public abstract class ResultsReporting {
         }
         return message.toString();
     }
+
+    /**
+     * Before.
+     */
+    @BeforeClass
+    public static void before() {
+        final String string = new String(new char[40]).replace("\0", "=");
+        LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME).trace(string);
+    }
+
+    /**
+     * After.
+     */
+    @After
+    public void after() {
+        final String string = new String(new char[40]).replace("\0", "-");
+        this.log.trace(string);
+    }
+
 }

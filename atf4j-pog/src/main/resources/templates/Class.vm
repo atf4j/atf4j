@@ -1,0 +1,9 @@
+## Class.vm
+// from main/resources/PojoClass.vm
+package $packageName;
+
+public class $className {
+	public $className() {
+		super();
+	}
+}

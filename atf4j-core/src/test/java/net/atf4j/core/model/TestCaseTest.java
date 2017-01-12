@@ -49,6 +49,11 @@ public class TestCaseTest extends ResultsReporting {
         assertNotNull(new TestCase());
     }
 
+    @Test
+    public void testTestCaseString() {
+        assertNotNull(new TestCase("TestCase"));
+    }
+
     /**
      * Test method for TestCase}.
      *

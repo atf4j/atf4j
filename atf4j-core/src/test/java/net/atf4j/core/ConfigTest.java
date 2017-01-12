@@ -25,7 +25,7 @@ import org.junit.Test;
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 
 /**
- * A UnitTest for Config objects.
+ * A UnitTest for Configuration objects.
  */
 public class ConfigTest extends ResultsReporting {
 
@@ -100,7 +100,7 @@ public class ConfigTest extends ResultsReporting {
     }
 
     /**
-     * Test method for void.
+     * Test method for value from file.
      *
      * @throws ConfigurationNotLoaded
      *             the configuration not loaded
@@ -116,7 +116,7 @@ public class ConfigTest extends ResultsReporting {
     }
 
     /**
-     * Test method for void.
+     * Test method for System overriding.
      *
      * @throws ConfigurationNotLoaded
      *             the configuration not loaded

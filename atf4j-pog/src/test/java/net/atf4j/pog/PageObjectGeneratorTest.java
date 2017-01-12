@@ -16,92 +16,44 @@
  */
 package net.atf4j.pog;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
-import org.apache.velocity.Template;
-import org.apache.velocity.VelocityContext;
-import org.apache.velocity.app.VelocityEngine;
-import org.apache.velocity.runtime.RuntimeConstants;
-import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
-import net.atf4j.pog.PageObjectGenerator.TemplateNotLoaded;
+import net.atf4j.pog.JavaClassGenerator.TemplateNotLoaded;
 
 /**
  * A UnitTest for PageObjectGenerator objects.
  */
 public class PageObjectGeneratorTest extends ResultsReporting {
 
+    private static final String MISSING_TEMPLATE = "/templates/Missing.vm";
+
     /**
-     * Test method for PageObjectGenerator}.
+     * Test method for PageObjectGenerator.
      *
      * @throws TemplateNotLoaded
      *             the template not loaded
      */
     @Test(expected = TemplateNotLoaded.class)
-    public void testMissingTemplate() throws TemplateNotLoaded {
-        new PageObjectGenerator("Missing.vm");
+    public void testMissingTemplate() throws Exception {
+        new PageObjectGenerator(MISSING_TEMPLATE);
     }
 
     /**
-     * Test method for PageObjectGenerator}.
+     * Test method for PageObjectGenerator.
      *
      * @throws Exception
      *             the exception
      */
     @Test
     public void testPageObjectGenerator() throws Exception {
-        final PageObjectGenerator pog = new PageObjectGenerator("/templates/PageObject.vm");
+        final PageObjectGenerator pog = new PageObjectGenerator();
         pog.target("http://atf4j.net");
-        pog.with("name", "MyPage");
+        final String className = "LandingPage";
+        pog.setClassName(className);
+        pog.contextBinding("pageName", className);
+        pog.contextBinding("packageName", "net.atf4j.webdriver.page");
         pog.generate();
-    }
-
-    /**
-     * Test method for PageObjectGenerator}.
-     *
-     * @throws Exception
-     *             the exception
-     */
-    @Test
-    public void testVelocity() throws Exception {
-        final VelocityEngine ve = new VelocityEngine();
-        ve.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
-        ve.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
-
-        ve.init();
-
-        final String templatePath = "/templates/PageObject.vm";
-        final Class<? extends PageObjectGeneratorTest> thisClass = this.getClass();
-        final ClassLoader classLoader = thisClass.getClassLoader();
-        final InputStream inputStream = classLoader.getResourceAsStream(templatePath);
-        final InputStreamReader reader = new InputStreamReader(inputStream);
-        final VelocityContext context = new VelocityContext();
-
-        // if (properties != null) {
-        // stringfyNulls(properties);
-        // for (Map.Entry<String, Object> property : properties.entrySet()) {
-        // context.put(property.getKey(), property.getValue());
-        // }
-        // }
-
-        final Template template = ve.getTemplate(templatePath, "UTF-8");
-        final String outFileName = File.createTempFile("report", ".html").getAbsolutePath();
-        final BufferedWriter writer = new BufferedWriter(new FileWriter(new File(outFileName)));
-
-        if (!ve.evaluate(context, writer, templatePath, reader)) {
-            throw new Exception("Failed to convert the template into html.");
-        }
-
-        template.merge(context, writer);
-
-        writer.flush();
-        writer.close();
     }
 
 }

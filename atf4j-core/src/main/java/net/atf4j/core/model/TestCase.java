@@ -40,6 +40,16 @@ public class TestCase extends TestBase {
     }
 
     /**
+     * Instantiates a new test case with a name.
+     *
+     * @param name
+     *            the name
+     */
+    public TestCase(final String name) {
+        super(name);
+    }
+
+    /**
      * Instantiates a new test case.
      *
      * @param testContext

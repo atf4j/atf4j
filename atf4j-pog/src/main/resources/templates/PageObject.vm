@@ -1,0 +1,20 @@
+## PageObject.vm
+// from main/resources/PageObject.vm
+package $packageName;
+
+import org.openqa.selenium.WebDriver;
+
+import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
+import net.atf4j.webdriver.page.AbstractPageObject;
+
+public class $className extends AbstractPageObject {
+
+	public $className() throws ConfigurationNotLoaded {
+		super();
+	}
+
+	public $className(WebDriver webDriver) {
+		super(webDriver);
+    }
+
+}

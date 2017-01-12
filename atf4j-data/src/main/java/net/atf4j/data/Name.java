@@ -69,13 +69,14 @@ public abstract class Name extends Datum {
      * @return string input as capitalised String.
      */
     public static String capitalise(final String input) {
-        if (input.length() > 0) {
-            final StringBuffer buffer = new StringBuffer(input.trim().toLowerCase());
-            buffer.setCharAt(0, Character.toUpperCase(input.charAt(0)));
-            return buffer.toString();
-        } else {
-            return "";
+        if (input != null) {
+            if (input.length() > 0) {
+                final StringBuffer buffer = new StringBuffer(input.trim().toLowerCase());
+                buffer.setCharAt(0, Character.toUpperCase(input.charAt(0)));
+                return buffer.toString();
+            }
         }
+        return "";
     }
 
     /* (non-Javadoc)
@@ -83,7 +84,7 @@ public abstract class Name extends Datum {
      */
     @Override
     public String debugString() {
-        return String.format("%s [name=%s]", this.getClass().getSimpleName(),this.name);
+        return String.format("%s [name=%s]", this.getClass().getSimpleName(), this.name);
     }
 
     /* (non-Javadoc)

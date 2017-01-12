@@ -16,33 +16,20 @@
  */
 package net.atf4j.pog;
 
-import static org.junit.Assert.assertNotNull;
-
-import java.io.File;
-import java.io.InputStream;
-import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Properties;
-
-import org.apache.velocity.Template;
-import org.apache.velocity.VelocityContext;
-import org.apache.velocity.app.VelocityEngine;
-import org.apache.velocity.runtime.RuntimeConstants;
-import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
-
-import net.atf4j.core.Atf4jException;
-import net.atf4j.core.ResultsReporting;
+import java.util.ArrayList;
 
 /**
  * Generator for Selenium WebDriver PageObject.
  */
-public class PageObjectGenerator extends ResultsReporting {
-
+public class PageObjectGenerator extends JavaClassGenerator {
+    private static final String PAGE_OBJECT_TEMPLATE = "/templates/PageObject.vm";
     protected URL targetUrl;
-    protected VelocityEngine velocityEngine;
-    protected VelocityContext context;
-    protected Template template;
+
+    public PageObjectGenerator() throws Exception {
+        super(PAGE_OBJECT_TEMPLATE);
+    }
 
     /**
      * Instantiates a new page object generator.
@@ -52,51 +39,8 @@ public class PageObjectGenerator extends ResultsReporting {
      * @throws TemplateNotLoaded
      *             the template not loaded
      */
-    public PageObjectGenerator(final String templateFilename) throws TemplateNotLoaded {
-        super();
-
-        try {
-            final InputStream resourceAsStream = this.getClass().getResourceAsStream(templateFilename);
-            assertNotNull(resourceAsStream);
-        } catch (final Exception e) {
-            throw new TemplateNotLoaded(templateFilename);
-        }
-
-        final ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
-        final URL resourceFolder = contextClassLoader.getResource("/");
-        final URL templatesFolder = contextClassLoader.getResource("/templates");
-        this.log.info(templatesFolder.toString());
-        final String filePath = resourceFolder.getFile();
-        this.log.info("filePath={}", filePath);
-        final String absolutePath = new File(filePath).getParentFile().getParentFile().getPath();
-        this.log.info("absolutePath={}", absolutePath);
-
-        final Properties properties = new Properties();
-        properties.setProperty(RuntimeConstants.RESOURCE_LOADER, "file");
-        properties.setProperty("file.resource.loader.path", "/templates");
-
-        this.velocityEngine = new VelocityEngine();
-        this.velocityEngine.init(properties);
-
-        this.velocityEngine.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
-        this.velocityEngine.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
-
-        this.template = this.velocityEngine.getTemplate(templateFilename);
-        this.context = new VelocityContext();
-    }
-
-    /**
-     * With.
-     *
-     * @param key
-     *            the key
-     * @param value
-     *            the value
-     * @return the page object generator
-     */
-    public PageObjectGenerator with(final String key, final String value) {
-        this.context.put(key, value);
-        return this;
+    public PageObjectGenerator(final String templateFilename) throws Exception {
+        super(templateFilename);
     }
 
     /**
@@ -124,32 +68,23 @@ public class PageObjectGenerator extends ResultsReporting {
         return this;
     }
 
-    /**
-     * Generate.
-     *
-     * @return the page object generator
-     */
-    public PageObjectGenerator generate() {
-        if (this.targetUrl != null) {
-            final StringWriter writer = new StringWriter();
-            this.template.merge(this.context, writer);
-        }
-        return this;
-    }
+    public void showPageObjectData() {
+        for (int i = 0; i < this.fields.size(); i++) {
+            final PageObjectData pageObjectData = new PageObjectData();
+            System.out.println(pageObjectData.getName());
+            System.out.println(pageObjectData.toString());
 
-    @SuppressWarnings("serial")
-    public class TemplateNotLoaded extends Atf4jException {
-        /** The property filename. */
-        private final String expectedTemplateFilename;
+            final ArrayList<?> attrs = pageObjectData.getAttributes();
+            final ClassField classField = this.fields.get(i);
+            System.out.println(classField.toString());
 
-        public TemplateNotLoaded(final String missingTemplateFilename) {
-            this.expectedTemplateFilename = missingTemplateFilename;
-        }
-
-        @Override
-        public String toString() {
-            return String.format("TemplateNotLoaded [expectedTemplateFilename=%s]", this.expectedTemplateFilename);
+            for (int j = 0; j < attrs.size(); j++) {
+                final PageWebElement at = (PageWebElement) attrs.get(j);
+                System.out.print("\t" + at.getLocatorType());
+                System.out.print("\t " + at.getLocator());
+                // System.out.print("\t" + at.getAttributeType());
+                // System.out.println("\t " + at.getAttributName());
+            }
         }
     }
-
 }

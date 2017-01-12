@@ -1,0 +1,16 @@
+## UnitTest.vm
+// from main/resources/UnitTest.vm
+package $packageName;
+
+public class $className {
+	public $className() {
+		super();
+	}
+	
+	@Test
+	public void testDefaultConstructor() {
+	 assertNotNull(new $testTarget());
+	}
+
+// Generate unit test forEachMethod 
+}

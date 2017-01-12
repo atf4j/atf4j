@@ -55,6 +55,18 @@ public abstract class TestBase extends ResultsReporting {
     /**
      * Instantiates a new test base.
      *
+     * @param name
+     *            the name
+     */
+    public TestBase(final String name) {
+        this.name = name;
+        this.testStatus = TestResult.initialise();
+        this.uniqueIdentifier = new TestIdentifier();
+    }
+
+    /**
+     * Instantiates a new test base.
+     *
      * @param testContext
      *            the test context
      */
