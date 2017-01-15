@@ -16,8 +16,42 @@
  */
 package net.atf4j.pog;
 
+import net.atf4j.pog.ClassField.FieldType;
+
 public class PojoGenerator extends CodeGenerator {
+
     public PojoGenerator() throws TemplateNotLoaded {
         super("/templates/PojoClass.vm");
     }
+
+    public CodeGenerator addDateField(final String fieldName) {
+        final ClassField classField = new ClassField(FieldType.DATE, fieldName);
+        this.fields.add(classField);
+        return this;
+    }
+
+    public CodeGenerator addBooleanField(final String fieldName) {
+        final ClassField classField = new ClassField(FieldType.BOOLEAN, fieldName);
+        this.fields.add(classField);
+        return this;
+    }
+
+    public CodeGenerator addStringField(final String fieldName) {
+        final ClassField classField = new ClassField(FieldType.STRING, fieldName);
+        this.fields.add(classField);
+        return this;
+    }
+
+    public CodeGenerator addField(final FieldType fieldType, final String fieldName) {
+        final ClassField classField = new ClassField(fieldType, fieldName);
+        this.fields.add(classField);
+        return this;
+    }
+
+    public CodeGenerator addField(final String fieldType, final String fieldName) {
+        final ClassField classField = new ClassField(fieldType, fieldName);
+        this.fields.add(classField);
+        return this;
+    }
+
 }

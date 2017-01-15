@@ -33,8 +33,8 @@ public class PageObjectData {
 
     private final ArrayList<PageWebElement> pageElements = new ArrayList<PageWebElement>();
     private final ArrayList<PageWebElement> navElements = new ArrayList<PageWebElement>();
-    private final ArrayList<PageWebElement> contentElements = new ArrayList<PageWebElement>();
     private final ArrayList<PageWebElement> inputElements = new ArrayList<PageWebElement>();
+    private final ArrayList<PageWebElement> contentElements = new ArrayList<PageWebElement>();
 
     public PageObjectData() {
         super();
@@ -45,18 +45,18 @@ public class PageObjectData {
         return this;
     }
 
-    public PageObjectData addNav(final PageWebElement attribute) {
-        this.navElements.add(attribute);
+    public PageObjectData addNav(final PageWebElement navElement) {
+        this.navElements.add(navElement);
         return this;
     }
 
-    public PageObjectData addContent(final PageWebElement attribute) {
-        this.contentElements.add(attribute);
+    public PageObjectData addContent(final PageWebElement contentMethod) {
+        this.contentElements.add(contentMethod);
         return this;
     }
 
-    public PageObjectData addInput(final PageWebElement attribute) {
-        this.inputElements.add(attribute);
+    public PageObjectData addInput(final PageWebElement inputMethod) {
+        this.inputElements.add(inputMethod);
         return this;
     }
 
@@ -85,13 +85,12 @@ public class PageObjectData {
         for (final PageWebElement pageWebElement : this.navElements) {
             stringBuilder.append(pageWebElement);
         }
-        for (final PageWebElement pageWebElement : this.contentElements) {
+        for (final PageWebElement pageWebElement : this.inputElements) {
             stringBuilder.append(pageWebElement);
         }
-        for (final PageWebElement pageWebElement : this.inputElements) {
+        for (final PageWebElement pageWebElement : this.contentElements) {
             stringBuilder.append(pageWebElement);
         }
         return stringBuilder.toString();
     }
-
 }

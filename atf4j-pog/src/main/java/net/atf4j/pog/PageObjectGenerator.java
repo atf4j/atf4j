@@ -97,6 +97,9 @@ public class PageObjectGenerator extends CodeGenerator {
         assertNotNull(pageObjectData);
         this.pageObjectData = pageObjectData;
         super.contextBinding("pageElements", this.pageObjectData.get());
+        super.contextBinding("navigation", this.pageObjectData.getNav());
+        super.contextBinding("inputs", this.pageObjectData.getInput());
+        super.contextBinding("contents", this.pageObjectData.getContent());
         return this;
     }
 
@@ -159,15 +162,13 @@ public class PageObjectGenerator extends CodeGenerator {
     public PageObjectGenerator survey() {
         this.log.info("survey");
         this.log.info("this.pageUrl={}", this.pageUrl);
-        super.contextBinding("pageElements", this.pageObjectData.get());
-        super.contextBinding("content", this.pageObjectData.getContent());
-        super.contextBinding("inputs", this.pageObjectData.getInput());
-        super.contextBinding("gestures", this.pageObjectData.getNav());
         return survey(this.pageUrl);
     }
 
     public PageObjectGenerator survey(final String pageUrl) {
         this.log.info("survey(pageUrl={})", pageUrl);
+        addPageTitle("Landing Page");
+        setClassName("LandingPage");
         return this;
     }
 

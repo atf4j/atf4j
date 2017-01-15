@@ -106,9 +106,7 @@ public abstract class CodeGenerator {
     }
 
     public String classCase(final String candidateClassName) {
-        final StringBuffer buffer = new StringBuffer(candidateClassName.trim());
-        buffer.setCharAt(0, Character.toUpperCase(candidateClassName.charAt(0)));
-        return buffer.toString();
+        return firstUpper(candidateClassName);
     }
 
     public String methodCase(final String string) {
@@ -121,12 +119,6 @@ public abstract class CodeGenerator {
         final char[] charArray = string.toCharArray();
         charArray[0] = Character.toUpperCase(charArray[0]);
         return new String(charArray);
-    }
-
-    public CodeGenerator addField(final String fieldType, final String fieldName) {
-        final ClassField classField = new ClassField(fieldType, fieldName);
-        this.fields.add(classField);
-        return this;
     }
 
     public CodeGenerator addField(final ClassField classField) {
@@ -145,12 +137,6 @@ public abstract class CodeGenerator {
         return this;
     }
 
-    public CodeGenerator generate() throws Exception {
-        assumeNotNull(this.templateFilename);
-        assumeTrue(this.templateFilename.length() > 0);
-        return generate(this.templateFilename);
-    }
-
     public String prototype() throws Exception {
         final InputStreamReader templateReader = templateReader(this.templateFilename);
         final StringWriter writer = new StringWriter();
@@ -158,11 +144,17 @@ public abstract class CodeGenerator {
         return writer.toString();
     }
 
+    public CodeGenerator generate() throws Exception {
+        assumeNotNull(this.templateFilename);
+        assumeTrue(this.templateFilename.length() > 0);
+        return generate(this.templateFilename);
+    }
+
     public CodeGenerator generate(final String templateFilename) throws Exception {
         return generate(templateReader(templateFilename));
     }
 
-    public CodeGenerator generate(final InputStreamReader templateReader) throws Exception {
+    private CodeGenerator generate(final InputStreamReader templateReader) throws Exception {
         final BufferedWriter bufferedWriter = destinationWriter();
         assertNotNull(bufferedWriter);
         return generate(templateReader, bufferedWriter);
@@ -189,7 +181,7 @@ public abstract class CodeGenerator {
         return this;
     }
 
-    public InputStreamReader templateReader(final String templateFilename) throws TemplateNotLoaded {
+    private InputStreamReader templateReader(final String templateFilename) throws TemplateNotLoaded {
         this.log.info(templateFilename);
         final InputStream resourceAsStream = this.getClass().getResourceAsStream(templateFilename);
         if (resourceAsStream == null) {
@@ -206,7 +198,6 @@ public abstract class CodeGenerator {
         final File file = new File(targetFile);
         final FileWriter fileWriter = new FileWriter(file);
         final BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-
         return bufferedWriter;
     }
 

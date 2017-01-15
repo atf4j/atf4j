@@ -1,16 +1,12 @@
 ## PojoClass.vm
 // from main/resources/PojoClass.vm
 package $packageName;
-
 import java.util.Date;
-
 public class $className {
-
 #foreach($field in $fields)
 	// $field
 	private $field.Type $field.Name;
 #end
-
 #foreach($field in $fields)
 	public $className $util.methodCase($field.Name)(final $field.Type $field.Name) {
 		this.$field.Name = $field.Name;

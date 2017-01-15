@@ -32,20 +32,49 @@ public class PageObjectGeneratorTest extends ResultsReporting {
 
     @Test
     public void testExpected() throws Exception {
+        this.log.info("==============================================");
         final PageObjectData pageObjectData = new PageObjectData();
         assertNotNull(pageObjectData);
 
-        pageObjectData.add(new PageWebElement("id", Strategy.ID, "id"))
-                      .add(new PageWebElement("name", Strategy.NAME, "name"))
-                      .add(new PageWebElement("className", Strategy.CLASS_NAME, "className"))
-                      .add(new PageWebElement("linkText", Strategy.LINK_TEXT, "linkText"))
-                      .add(new PageWebElement("partialLinkText", Strategy.PARTIAL_LINK_TEXT, "partialLinkText"))
-                      .add(new PageWebElement("xpath", Strategy.XPATH, "//a[contains(text(), 'ATF4J')]"))
-                      .add(new PageWebElement("css", Strategy.CSS, "."));
+        final PageWebElement idElement = new PageWebElement(
+                "findById",
+                Strategy.ID,
+                "id");
+        final PageWebElement nameElement = new PageWebElement(
+                "findByName",
+                Strategy.NAME,
+                "name");
+        final PageWebElement classNameElement = new PageWebElement(
+                "findByClassName",
+                Strategy.CLASS_NAME,
+                "className");
+        final PageWebElement linkTextElement = new PageWebElement(
+                "findByLinkText",
+                Strategy.LINK_TEXT,
+                "linkText");
+        final PageWebElement partialLinkTextElement = new PageWebElement(
+                "findByPartialLinkText",
+                Strategy.PARTIAL_LINK_TEXT,
+                "partialLinkText");
+        final PageWebElement xpathElement = new PageWebElement(
+                "findByXpath",
+                Strategy.XPATH,
+                "//a[contains(text(), 'ATF4J')]");
+        final PageWebElement cssElement = new PageWebElement(
+                "findByCss",
+                Strategy.CSS,
+                ".");
 
-        pageObjectData.addNav(new PageWebElement("findByLinkText", Strategy.LINK_TEXT, "linkText"));
-        pageObjectData.addNav(
-                new PageWebElement("findByPartialLinkText", Strategy.PARTIAL_LINK_TEXT, "partialLinkText"));
+        pageObjectData.add(idElement)
+                      .add(nameElement)
+                      .add(classNameElement)
+                      .add(linkTextElement)
+                      .add(partialLinkTextElement)
+                      .add(xpathElement)
+                      .add(cssElement);
+
+        pageObjectData.addNav(linkTextElement);
+        pageObjectData.addNav(partialLinkTextElement);
 
         final PageObjectGenerator pog = new PageObjectGenerator();
         pog.target(HTTP_ATF4J_NET);
@@ -59,31 +88,34 @@ public class PageObjectGeneratorTest extends ResultsReporting {
 
     @Test
     public void testPageObjectTargetSurvey() throws Exception {
+        this.log.info("==============================================");
         final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
         pageObjectGenerator.target(HTTP_ATF4J_NET).survey();
     }
 
     @Test
     public void testPageObjectSurvey() throws Exception {
+        this.log.info("==============================================");
         final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
         pageObjectGenerator.survey(HTTP_ATF4J_NET);
     }
 
     @Test
     public void testPageObjectPrototype() throws Exception {
+        this.log.info("==============================================");
         final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
         pageObjectGenerator.target(HTTP_ATF4J_NET).prototype();
     }
 
     @Test
     public void testPageObjectGenerator() throws Exception {
+        this.log.info("==============================================");
         final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
         pageObjectGenerator.target(HTTP_ATF4J_NET)
                            .survey()
-                           .setClassName("LandingPage")
-                           .contextBinding("pageName", "LandingPage")
-                           .contextBinding("pageTitle", "Landing Page")
-                           .contextBinding("packageName", "net.atf4j.webdriver.page")
-                           .generate();
+                           .prototype();
+
+        pageObjectGenerator.generate();
     }
+
 }

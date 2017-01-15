@@ -29,6 +29,7 @@ public class PageObjectDataTest extends ResultsReporting {
 
     @Test
     public void testExpected() {
+        this.log.info("==============================================");
         final PageObjectData pageObjectData = new PageObjectData();
         assertNotNull(pageObjectData);
 
@@ -46,6 +47,7 @@ public class PageObjectDataTest extends ResultsReporting {
 
     @Test
     public void testDefaultConstructor() {
+        this.log.info("==============================================");
         final PageObjectData pageObjectData = new PageObjectData();
         assertNotNull(pageObjectData);
         this.log.info(pageObjectData.toString());
@@ -53,17 +55,10 @@ public class PageObjectDataTest extends ResultsReporting {
 
     @Test
     public void testPageObjectData() {
+        this.log.info("==============================================");
         final PageObjectData pageObjectData = new PageObjectData();
         assertNotNull(pageObjectData);
         this.log.info(pageObjectData.toString());
-    }
-
-    @Test
-    public void testAttribute() {
-        final PageObjectData pageObjectData = new PageObjectData();
-        final PageWebElement attribute = new PageWebElement();
-        pageObjectData.add(attribute);
-        logAttributes(pageObjectData);
     }
 
     private void logAttributes(final PageObjectData pageObjectData) {

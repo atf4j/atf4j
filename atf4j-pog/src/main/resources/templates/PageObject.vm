@@ -2,46 +2,60 @@
 // generated from main/resources/PageObject.vm
 package $packageName;
 
+import static org.junit.Assert.*;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import net.atf4j.webdriver.page.AbstractPageObject;
 
-public class $className extends AbstractPageObject {
+public class ${className} extends AbstractPageObject {
 #foreach($element in $pageElements)
-	$element
+	${element}
 #end
 
-	public $className(WebDriver webDriver) {
+	public ${className}(WebDriver webDriver) {
 		super(webDriver);
 	}
-	public $className open() {
-		super.open("$pageUrl");
-		return this;
-	}
-	public $className verify() {
-		super.verifyPageTitle("$pageTitle");
+
+	public ${className} open() {
+		super.open("${pageUrl}");
 		return this;
 	}
 
-#foreach($element in $gestures)
-	$element
-	$element.Type
-	$element.Name
-	public void navTo$element.Name() {
-		assertNotNull($element)
-		$element.click();
-		partialLinkText.click();
+	public ${className} verify() {
+		super.verifyPageTitle("${pageTitle}");
+		return this;
+	}
+
+// Nav
+#foreach($element in $navigation)
+// ${element.Name}
+	public ${className} navTo$util.firstUpper(${element.Name})() {
+		assertNotNull($element.Name);
+		${element.Name}.click();
+		return this;
 	}
 #end
 
+// Input
 #foreach($element in $inputs)
-	$element
-	$element.Type
-	$element.Name
-	public void inputTo$element(String inputText) {
-		$element.sendKeys(inputText);
+// ${element.Name}
+	public ${className} inputTo${element.Name}(String inputText) {
+		assertNotNull(${element.Name});
+		${element.Name}.sendKeys(inputText);
+		return this;
+	}
+#end
+
+// Content
+#foreach($element in $content)
+// ${element.Name}
+	public ${className} verify${element.Name}(String inputText) {
+		assertNotNull(${element.Name});
+		verify(${element.Name});
+		return this;
 	}
 #end
 }

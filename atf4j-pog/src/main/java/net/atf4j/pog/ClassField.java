@@ -26,6 +26,39 @@ import org.slf4j.LoggerFactory;
  */
 public class ClassField {
 
+    public enum FieldType {
+        BOOLEAN("boolean"),
+        DATE("Date"),
+        NUMBER("BigDecimal"),
+        STRING("String"),
+        VALUE("Object"),
+        OBJECT("Object");
+
+        private final String type;
+
+        FieldType(final String asText) {
+            this.type = asText;
+        }
+
+        public static FieldType initialise() {
+            return FieldType.OBJECT;
+        }
+
+        public static FieldType fromString(final String asText) {
+            for (final FieldType value : values()) {
+                if (value.type.equals(asText)) {
+                    return value;
+                }
+            }
+            return null;
+        }
+
+        @Override
+        public String toString() {
+            return this.type;
+        }
+    }
+
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
     private static final String FIELD_CODE = "%s %s %s;";
     private String access;
@@ -33,17 +66,21 @@ public class ClassField {
     private String name;
 
     public ClassField() {
-        super();
         setAccess("private");
         setType("Object");
-        final String uniqueness = UUID.randomUUID().toString();
-        setName(this.name = String.format("object%s", uniqueness));
+        final String uniqueness = UUID.randomUUID().toString().substring(0, 8);
+        setName(String.format("object%s", uniqueness));
     }
 
     public ClassField(final String type, final String name) {
-        super();
         setAccess("private");
         setType(type);
+        setName(name);
+    }
+
+    public ClassField(final FieldType fieldType, final String name) {
+        setAccess("private");
+        setType(fieldType);
         setName(name);
     }
 
@@ -61,6 +98,11 @@ public class ClassField {
 
     public ClassField setType(final String type) {
         this.type = type;
+        return this;
+    }
+
+    public ClassField setType(final FieldType fieldType) {
+        setType(fieldType.toString());
         return this;
     }
 
@@ -92,56 +134,12 @@ public class ClassField {
         return string;
     }
 
-    // @Override
-    // public String toString() {
-    // final String string = String.format(FIELD_CODE, this.type, this.name);
-    // return string;
-    // }
-
     @Override
     public String toString() {
         return String.format("ClassField [access=%s, type=%s, name=%s]",
                 this.access,
                 this.type,
                 this.name);
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
-        result = prime * result + ((this.type == null) ? 0 : this.type.hashCode());
-        return result;
-    }
-
-    @Override
-    public boolean equals(final Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final ClassField other = (ClassField) obj;
-        if (this.name == null) {
-            if (other.name != null) {
-                return false;
-            }
-        } else if (!this.name.equals(other.name)) {
-            return false;
-        }
-        if (this.type == null) {
-            if (other.type != null) {
-                return false;
-            }
-        } else if (!this.type.equals(other.type)) {
-            return false;
-        }
-        return true;
     }
 
 }

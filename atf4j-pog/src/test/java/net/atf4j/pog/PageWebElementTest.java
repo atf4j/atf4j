@@ -82,46 +82,8 @@ public class PageWebElementTest extends ResultsReporting {
     }
 
     @Test
-    public void testDefaultConstructor() {
-        final PageWebElement pageWebElement = new PageWebElement();
-        assertNotNull(pageWebElement);
-    }
-
-    @Test
-    public void testPageWebElement() {
-        final PageWebElement pageWebElement = new PageWebElement();
-        assertNotNull(pageWebElement);
-        final String string = pageWebElement.toString();
-        this.log.info(string);
-    }
-
-    @Test
     public void testPageWebElementStringStrategyString() {
-        final PageWebElement pageWebElement = new PageWebElement("name", Strategy.UNKNOWN, "locator");
-        assertNotNull(pageWebElement);
-        final String string = pageWebElement.toString();
-        this.log.info(string);
-    }
-
-    @Test
-    public void testPageWebElementStringStringStrategyString() {
-        final PageWebElement pageWebElement = new PageWebElement("type", "name", Strategy.UNKNOWN, "locator");
-        assertNotNull(pageWebElement);
-        final String string = pageWebElement.toString();
-        this.log.info(string);
-    }
-
-    @Test
-    public void testPageWebElementStringStringString() {
-        final PageWebElement pageWebElement = new PageWebElement("name", "Unknown", "locator");
-        assertNotNull(pageWebElement);
-        final String string = pageWebElement.toString();
-        this.log.info(string);
-    }
-
-    @Test
-    public void testPageWebElementStringStringStringString() {
-        final PageWebElement pageWebElement = new PageWebElement("type", "name", "locatorType", "locator");
+        final PageWebElement pageWebElement = new PageWebElement("byName", Strategy.UNKNOWN, "name");
         assertNotNull(pageWebElement);
         final String string = pageWebElement.toString();
         this.log.info(string);

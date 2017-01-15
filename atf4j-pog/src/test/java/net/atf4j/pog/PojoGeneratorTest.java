@@ -27,22 +27,26 @@ public class PojoGeneratorTest extends ResultsReporting {
     @Test
     public void testPrototype() throws Exception {
         this.log.info("==============================================");
-        final CodeGenerator pojoGenerator = new PojoGenerator();
+        final PojoGenerator pojoGenerator = new PojoGenerator();
         assertNotNull(pojoGenerator);
         assertNotNull(pojoGenerator.setClassName("FluentPojo"));
-        assertNotNull(pojoGenerator.addField("String", "name"));
-        assertNotNull(pojoGenerator.addField("Date", "dob"));
+        pojoGenerator.addStringField("string");
+        pojoGenerator.addDateField("date");
+        pojoGenerator.addBooleanField("bool");
+
         this.log.info(pojoGenerator.prototype());
     }
 
     @Test
     public void testExpected() throws Exception {
         this.log.info("==============================================");
-        final CodeGenerator pojoGenerator = new PojoGenerator();
+        final PojoGenerator pojoGenerator = new PojoGenerator();
         assertNotNull(pojoGenerator);
         assertNotNull(pojoGenerator.setClassName("FluentPojo"));
-        assertNotNull(pojoGenerator.addField(new ClassField("String", "name")));
-        assertNotNull(pojoGenerator.addField(new ClassField("Date", "dob")));
+        pojoGenerator.addStringField("string");
+        pojoGenerator.addDateField("date");
+        pojoGenerator.addBooleanField("bool");
+
         this.log.info(pojoGenerator.prototype());
         pojoGenerator.generate();
     }

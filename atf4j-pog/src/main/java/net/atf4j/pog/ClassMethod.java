@@ -36,14 +36,19 @@ public class ClassMethod {
     public ClassMethod() {
         super();
         setType("void");
-        final String uniqueness = UUID.randomUUID().toString();
+        final String uniqueness = UUID.randomUUID().toString().substring(0, 8);
         setName(String.format("method%s", uniqueness));
     }
 
-    public ClassMethod(final String type, final String name) {
+    public ClassMethod(final String type, final String methodName) {
         super();
-        this.returnType = type;
-        this.methodName = methodCase(name);
+        setType(type);
+        setName(methodName);
+    }
+
+    public ClassMethod setAccess(final String access) {
+        this.access = access;
+        return this;
     }
 
     public ClassMethod setName(final String name) {
@@ -58,6 +63,10 @@ public class ClassMethod {
 
     public boolean add(final ClassField e) {
         return this.parameters.add(e);
+    }
+
+    public String getAccess() {
+        return this.access;
     }
 
     public String getType() {
@@ -83,12 +92,6 @@ public class ClassMethod {
             return String.format(METHOD_CODE, this.returnType, this.methodName, this.returnType);
         }
     }
-
-    // @Override
-    // public String toString() {
-    // return String.format(METHOD_CODE, this.returnType, this.methodName,
-    // this.returnType);
-    // }
 
     @Override
     public String toString() {
