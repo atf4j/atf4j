@@ -16,16 +16,21 @@
  */
 package net.atf4j.pog;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 
 /**
  * Generator for Selenium WebDriver PageObject.
  */
-public class PageObjectGenerator extends JavaClassGenerator {
+public class PageObjectGenerator extends CodeGenerator {
+
+    private static final String DEFAULT_TARGET = "http://atf4j.net";
     private static final String PAGE_OBJECT_TEMPLATE = "/templates/PageObject.vm";
-    protected URL targetUrl;
+    private PageObjectData pageObjectData;
+    private String pageUrl = DEFAULT_TARGET;
+    private URL targetUrl = new URL(this.pageUrl);
 
     public PageObjectGenerator() throws Exception {
         super(PAGE_OBJECT_TEMPLATE);
@@ -44,7 +49,7 @@ public class PageObjectGenerator extends JavaClassGenerator {
     }
 
     /**
-     * Target Page
+     * The URL of the Target Page.
      *
      * @param targetUrl
      *            the target url
@@ -53,38 +58,123 @@ public class PageObjectGenerator extends JavaClassGenerator {
      *             the malformed URL exception
      */
     public PageObjectGenerator target(final String targetUrl) throws MalformedURLException {
-        return target(new URL(targetUrl));
+        this.targetUrl = new URL(targetUrl);
+        return target(this.targetUrl);
     }
 
     /**
-     * Target.
+     * The URL of the Target Page.
      *
-     * @param url
-     *            the url
+     * @param targetUrl
+     *            the targetUrl
      * @return the page object generator
      */
-    private PageObjectGenerator target(final URL targetUrl) {
+    public PageObjectGenerator target(final URL targetUrl) {
         this.targetUrl = targetUrl;
+        this.pageUrl = targetUrl.toString();
+        super.contextBinding("pageUrl", this.pageUrl);
         return this;
     }
 
-    public void showPageObjectData() {
-        for (int i = 0; i < this.fields.size(); i++) {
-            final PageObjectData pageObjectData = new PageObjectData();
-            System.out.println(pageObjectData.getName());
-            System.out.println(pageObjectData.toString());
-
-            final ArrayList<?> attrs = pageObjectData.getAttributes();
-            final ClassField classField = this.fields.get(i);
-            System.out.println(classField.toString());
-
-            for (int j = 0; j < attrs.size(); j++) {
-                final PageWebElement at = (PageWebElement) attrs.get(j);
-                System.out.print("\t" + at.getLocatorType());
-                System.out.print("\t " + at.getLocator());
-                // System.out.print("\t" + at.getAttributeType());
-                // System.out.println("\t " + at.getAttributName());
-            }
-        }
+    /**
+     * Adds the page title.
+     *
+     * @param pageTitle
+     *            the page title
+     */
+    public void addPageTitle(final String pageTitle) {
+        contextBinding("pageTitle", pageTitle);
     }
+
+    /**
+     * Adds the.
+     *
+     * @param pageObjectData
+     *            the page object data
+     * @return the page object generator
+     */
+    public PageObjectGenerator add(final PageObjectData pageObjectData) {
+        assertNotNull(pageObjectData);
+        this.pageObjectData = pageObjectData;
+        super.contextBinding("pageElements", this.pageObjectData.get());
+        return this;
+    }
+
+    /**
+     * Adds the.
+     *
+     * @param pageWebElement
+     *            the page web element
+     * @return the page object generator
+     */
+    public PageObjectGenerator add(final PageWebElement pageWebElement) {
+        assertNotNull(pageWebElement);
+        assertNotNull(this.pageObjectData);
+        this.pageObjectData.add(pageWebElement);
+        return this;
+    }
+
+    /**
+     * Adds the navigation.
+     *
+     * @param pageWebElement
+     *            the page web element
+     * @return the page object generator
+     */
+    public PageObjectGenerator addNavigation(final PageWebElement pageWebElement) {
+        assertNotNull(pageWebElement);
+        assertNotNull(this.pageObjectData);
+        this.pageObjectData.addNav(pageWebElement);
+        return this;
+    }
+
+    /**
+     * Adds the content.
+     *
+     * @param pageWebElement
+     *            the page web element
+     * @return the page object generator
+     */
+    public PageObjectGenerator addContent(final PageWebElement pageWebElement) {
+        assertNotNull(pageWebElement);
+        assertNotNull(this.pageObjectData);
+        this.pageObjectData.addContent(pageWebElement);
+        return this;
+    }
+
+    /**
+     * Adds the input.
+     *
+     * @param pageWebElement
+     *            the page web element
+     * @return the page object generator
+     */
+    public PageObjectGenerator addInput(final PageWebElement pageWebElement) {
+        assertNotNull(pageWebElement);
+        assertNotNull(this.pageObjectData);
+        this.pageObjectData.addInput(pageWebElement);
+        return this;
+    }
+
+    public PageObjectGenerator survey() {
+        this.log.info("survey");
+        this.log.info("this.pageUrl={}", this.pageUrl);
+        super.contextBinding("pageElements", this.pageObjectData.get());
+        super.contextBinding("content", this.pageObjectData.getContent());
+        super.contextBinding("inputs", this.pageObjectData.getInput());
+        super.contextBinding("gestures", this.pageObjectData.getNav());
+        return survey(this.pageUrl);
+    }
+
+    public PageObjectGenerator survey(final String pageUrl) {
+        this.log.info("survey(pageUrl={})", pageUrl);
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        assertNotNull(this.pageObjectData);
+        return this.pageObjectData.toString();
+    }
+
 }

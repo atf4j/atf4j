@@ -30,40 +30,65 @@ import java.util.ArrayList;
  * @FindBy(css = "")
  */
 public class PageObjectData {
-    private String pageName;
+
     private final ArrayList<PageWebElement> pageElements = new ArrayList<PageWebElement>();
+    private final ArrayList<PageWebElement> navElements = new ArrayList<PageWebElement>();
+    private final ArrayList<PageWebElement> contentElements = new ArrayList<PageWebElement>();
+    private final ArrayList<PageWebElement> inputElements = new ArrayList<PageWebElement>();
 
     public PageObjectData() {
         super();
     }
 
-    public PageObjectData(final String pageName) {
-        super();
-        setName(pageName);
-    }
-
-    public PageObjectData setName(final String name) {
-        this.pageName = name;
+    public PageObjectData add(final PageWebElement pageWebElement) {
+        this.pageElements.add(pageWebElement);
         return this;
     }
 
-    public String getName() {
-        return this.pageName;
-    }
-
-    public PageObjectData addAttribute(final PageWebElement attribute) {
-        this.pageElements.add(attribute);
+    public PageObjectData addNav(final PageWebElement attribute) {
+        this.navElements.add(attribute);
         return this;
     }
 
-    public ArrayList<PageWebElement> getAttributes() {
+    public PageObjectData addContent(final PageWebElement attribute) {
+        this.contentElements.add(attribute);
+        return this;
+    }
+
+    public PageObjectData addInput(final PageWebElement attribute) {
+        this.inputElements.add(attribute);
+        return this;
+    }
+
+    public ArrayList<PageWebElement> get() {
         return this.pageElements;
+    }
+
+    public ArrayList<PageWebElement> getContent() {
+        return this.contentElements;
+    }
+
+    public ArrayList<PageWebElement> getInput() {
+        return this.inputElements;
+    }
+
+    public ArrayList<PageWebElement> getNav() {
+        return this.navElements;
     }
 
     @Override
     public String toString() {
         final StringBuilder stringBuilder = new StringBuilder();
         for (final PageWebElement pageWebElement : this.pageElements) {
+            stringBuilder.append(pageWebElement);
+        }
+        for (final PageWebElement pageWebElement : this.navElements) {
+            stringBuilder.append(pageWebElement);
+        }
+        for (final PageWebElement pageWebElement : this.contentElements) {
+            stringBuilder.append(pageWebElement);
+        }
+        for (final PageWebElement pageWebElement : this.inputElements) {
             stringBuilder.append(pageWebElement);
         }
         return stringBuilder.toString();

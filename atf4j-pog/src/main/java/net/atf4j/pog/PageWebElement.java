@@ -31,7 +31,7 @@ public class PageWebElement extends ClassField {
         PARTIAL_LINK_TEXT("partialLinkText");
 
         /** The value. */
-        private final String statusDescription;
+        private final String strategy;
 
         /**
          * Instantiates a new strategy.
@@ -40,7 +40,7 @@ public class PageWebElement extends ClassField {
          *            the as text
          */
         Strategy(final String asText) {
-            this.statusDescription = asText;
+            this.strategy = asText;
         }
 
         /**
@@ -61,11 +61,16 @@ public class PageWebElement extends ClassField {
          */
         public static Strategy fromString(final String asText) {
             for (final Strategy value : values()) {
-                if (value.statusDescription.equals(asText)) {
+                if (value.strategy.equals(asText)) {
                     return value;
                 }
             }
             return null;
+        }
+
+        @Override
+        public String toString() {
+            return this.strategy;
         }
     }
 
@@ -82,13 +87,13 @@ public class PageWebElement extends ClassField {
         super("WebElement", name);
     }
 
-    public PageWebElement(final String name, final Strategy strategy, final String locator) {
+    public PageWebElement(final String name, final String strategy, final String locator) {
         super("WebElement", name);
-        setLocatorType(strategy);
+        setLocatorType(Strategy.fromString(strategy));
         setLocator(locator);
     }
 
-    public PageWebElement(final String name, final String strategy, final String locator) {
+    public PageWebElement(final String name, final Strategy strategy, final String locator) {
         super("WebElement", name);
         setLocatorType(strategy);
         setLocator(locator);
@@ -111,7 +116,7 @@ public class PageWebElement extends ClassField {
         return this;
     }
 
-    private PageWebElement setLocatorType(final String strategy) {
+    public PageWebElement setLocatorType(final String strategy) {
         assertNotNull(strategy);
         this.strategy = Strategy.fromString(strategy);
         return this;
@@ -132,9 +137,9 @@ public class PageWebElement extends ClassField {
 
     @Override
     public String toString() {
-        final String locatorLine = String.format("@FindBy(%s, %s)", this.strategy, this.locator);
-        final String webElementLine = String.format("%s %s;", super.getType(), super.getName());
-        return String.format("\t%s\n\t%s\n", locatorLine, webElementLine);
+        final String locatorLine = String.format("@FindBy(%s=\"%s\")", this.strategy, this.locator);
+        final String webElementLine = String.format("private %s %s;", super.getType(), super.getName());
+        return String.format("\n\t%s\n\t%s", locatorLine, webElementLine);
     }
 
 }

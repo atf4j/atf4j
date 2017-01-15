@@ -37,7 +37,7 @@ public class Telephone {
 
         private final String typeName;
 
-        Type(final String name) {
+        private Type(final String name) {
             this.typeName = name;
         }
 

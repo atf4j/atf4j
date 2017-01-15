@@ -16,8 +16,22 @@
  */
 package net.atf4j.pog;
 
-public class PojoGenerator extends CodeGenerator {
-    public PojoGenerator() throws TemplateNotLoaded {
-        super("/templates/PojoClass.vm");
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+public class JsonToPojo extends CodeGenerator {
+
+    private final JsonParser parser = new JsonParser();
+    private JsonObject json;
+    private Gson gson;
+
+    public String json(final String jsonString) {
+        this.json = this.parser.parse(jsonString).getAsJsonObject();
+        this.gson = new GsonBuilder().setPrettyPrinting().create();
+        final String prettyJson = this.gson.toJson(this.json);
+        return prettyJson;
     }
+
 }

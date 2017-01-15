@@ -50,7 +50,7 @@ public enum TestResult {
      * @param asText
      *            the as text
      */
-    TestResult(final String asText) {
+    private TestResult(final String asText) {
         this.statusDescription = asText;
     }
 

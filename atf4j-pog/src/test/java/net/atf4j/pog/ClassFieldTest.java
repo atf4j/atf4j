@@ -25,6 +25,14 @@ import net.atf4j.core.ResultsReporting;
 public class ClassFieldTest extends ResultsReporting {
 
     @Test
+    public void testExpected() {
+        final ClassField stringField = new ClassField("String", "string");
+        final ClassField dateField = new ClassField("Date", "date");
+        final ClassField numberField = new ClassField("Number", "number");
+        final ClassField booleanField = new ClassField("Boolean", "bool");
+    }
+
+    @Test
     public void testDefaultConstructor() {
         final ClassField classField = new ClassField();
         assertNotNull(classField);
@@ -54,4 +62,19 @@ public class ClassFieldTest extends ResultsReporting {
         this.log.info(string);
     }
 
+    @Test
+    public void testClassFieldNumber() {
+        final ClassField numberField = new ClassField("Number", "number");
+        assertNotNull(numberField);
+        final String string = numberField.toString();
+        this.log.info(string);
+    }
+
+    @Test
+    public void testClassFieldBoolean() {
+        final ClassField booleanField = new ClassField("Boolean", "bool");
+        assertNotNull(booleanField);
+        final String string = booleanField.toString();
+        this.log.info(string);
+    }
 }

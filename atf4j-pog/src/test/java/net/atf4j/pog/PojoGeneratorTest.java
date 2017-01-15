@@ -21,37 +21,30 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
-import net.atf4j.pog.JavaClassGenerator.TemplateNotLoaded;
 
 public class PojoGeneratorTest extends ResultsReporting {
 
     @Test
-    public void testDefaultConstructor() throws TemplateNotLoaded {
-        final PojoGenerator pojoGenerator = new PojoGenerator();
+    public void testPrototype() throws Exception {
+        this.log.info("==============================================");
+        final CodeGenerator pojoGenerator = new PojoGenerator();
         assertNotNull(pojoGenerator);
+        assertNotNull(pojoGenerator.setClassName("FluentPojo"));
+        assertNotNull(pojoGenerator.addField("String", "name"));
+        assertNotNull(pojoGenerator.addField("Date", "dob"));
+        this.log.info(pojoGenerator.prototype());
     }
 
     @Test
     public void testExpected() throws Exception {
-        final JavaClassGenerator pojoGenerator = new PojoGenerator();
+        this.log.info("==============================================");
+        final CodeGenerator pojoGenerator = new PojoGenerator();
         assertNotNull(pojoGenerator);
-        assertNotNull(pojoGenerator.setClassName("PojoClass"));
-        assertNotNull(pojoGenerator.addField("String", "name"));
-        assertNotNull(pojoGenerator.addField("Date", "dob"));
-        assertNotNull(pojoGenerator.addMethod("PojoClass", "setName"));
-        assertNotNull(pojoGenerator.addMethod("PojoClass", "setDob"));
+        assertNotNull(pojoGenerator.setClassName("FluentPojo"));
+        assertNotNull(pojoGenerator.addField(new ClassField("String", "name")));
+        assertNotNull(pojoGenerator.addField(new ClassField("Date", "dob")));
+        this.log.info(pojoGenerator.prototype());
         pojoGenerator.generate();
     }
 
-    @Test
-    public void testPrototype() throws Exception {
-        final JavaClassGenerator pojoGenerator = new PojoGenerator();
-        assertNotNull(pojoGenerator);
-        assertNotNull(pojoGenerator.setClassName("PojoClass"));
-        assertNotNull(pojoGenerator.addField("String", "name"));
-        assertNotNull(pojoGenerator.addField("Date", "dob"));
-        assertNotNull(pojoGenerator.addMethod("PojoClass", "setName"));
-        assertNotNull(pojoGenerator.addMethod("PojoClass", "setDob"));
-        pojoGenerator.prototype();
-    }
 }

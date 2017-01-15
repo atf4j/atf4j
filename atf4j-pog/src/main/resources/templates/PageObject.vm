@@ -1,20 +1,47 @@
 ## PageObject.vm
-// from main/resources/PageObject.vm
+// generated from main/resources/PageObject.vm
 package $packageName;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 import net.atf4j.webdriver.page.AbstractPageObject;
 
 public class $className extends AbstractPageObject {
-
-	public $className() throws ConfigurationNotLoaded {
-		super();
-	}
+#foreach($element in $pageElements)
+	$element
+#end
 
 	public $className(WebDriver webDriver) {
 		super(webDriver);
-    }
+	}
+	public $className open() {
+		super.open("$pageUrl");
+		return this;
+	}
+	public $className verify() {
+		super.verifyPageTitle("$pageTitle");
+		return this;
+	}
 
+#foreach($element in $gestures)
+	$element
+	$element.Type
+	$element.Name
+	public void navTo$element.Name() {
+		assertNotNull($element)
+		$element.click();
+		partialLinkText.click();
+	}
+#end
+
+#foreach($element in $inputs)
+	$element
+	$element.Type
+	$element.Name
+	public void inputTo$element(String inputText) {
+		$element.sendKeys(inputText);
+	}
+#end
 }

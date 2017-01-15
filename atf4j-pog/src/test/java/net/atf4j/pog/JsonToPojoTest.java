@@ -16,8 +16,19 @@
  */
 package net.atf4j.pog;
 
-public class PojoGenerator extends CodeGenerator {
-    public PojoGenerator() throws TemplateNotLoaded {
-        super("/templates/PojoClass.vm");
+import org.junit.Test;
+
+import net.atf4j.core.ResultsReporting;
+
+public class JsonToPojoTest extends ResultsReporting {
+
+    @Test
+    public void testPrettyPrint() {
+        final String compactJson = "{\"id\":0123456789,\"name\":\"Test\",\"itemList\":[{\"itemId\":1,\"name\":\"Bread\",\"qty\":1,\"price\":1.00},{\"itemId\":2,\"name\":\"Eggs\",\"qty\":6,\"price\":2.00},{\"itemId\":3,\"name\":\"Meat\",\"qty\":1,\"price\":10}]}";
+        final JsonToPojo jsonToPojo = new JsonToPojo();
+        final String prettyJson = jsonToPojo.json(compactJson);
+        this.log.info("compactJson={}\n", compactJson);
+        this.log.info("prettyJson={}\n", prettyJson);
     }
+
 }

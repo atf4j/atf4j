@@ -16,6 +16,7 @@
  */
 package net.atf4j.webdriver.page;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assume.assumeNotNull;
 
 import java.util.concurrent.TimeUnit;
@@ -135,18 +136,6 @@ public abstract class AbstractPageObject {
     }
 
     /**
-     * Verify that page is valid.
-     *
-     * @return false to ensure this method is implemented.
-     * @see net.atf4j.webdriver.page.PageInterface#verify()
-     */
-    public boolean verify() {
-        assumeNotNull(this.webDriver);
-        this.webDriver.getTitle();
-        return true;
-    }
-
-    /**
      * Open page.
      *
      * @param pageUrl
@@ -157,6 +146,25 @@ public abstract class AbstractPageObject {
         assumeNotNull(this.webDriver);
         this.webDriver.get(pageUrl);
         PageFactory.initElements(this.webDriver, this);
+        return this;
+    }
+
+    /**
+     * Verify that page is valid.
+     *
+     * @return false to ensure this method is implemented.
+     * @see net.atf4j.webdriver.page.PageInterface#verify()
+     */
+    public AbstractPageObject verify() {
+        assumeNotNull(this.webDriver);
+        this.webDriver.getTitle();
+        return this;
+    }
+
+    public AbstractPageObject verifyPageTitle(final String expectedPageTitle) {
+        assumeNotNull(this.webDriver);
+        final String actualPageTitle = this.webDriver.getTitle();
+        assertEquals(expectedPageTitle, actualPageTitle);
         return this;
     }
 

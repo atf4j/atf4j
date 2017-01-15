@@ -16,44 +16,74 @@
  */
 package net.atf4j.pog;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
-import net.atf4j.pog.JavaClassGenerator.TemplateNotLoaded;
+import net.atf4j.pog.PageWebElement.Strategy;
 
 /**
  * A UnitTest for PageObjectGenerator objects.
  */
 public class PageObjectGeneratorTest extends ResultsReporting {
 
-    private static final String MISSING_TEMPLATE = "/templates/Missing.vm";
+    private static final String HTTP_ATF4J_NET = "http://atf4j.net";
 
-    /**
-     * Test method for PageObjectGenerator.
-     *
-     * @throws TemplateNotLoaded
-     *             the template not loaded
-     */
-    @Test(expected = TemplateNotLoaded.class)
-    public void testMissingTemplate() throws Exception {
-        new PageObjectGenerator(MISSING_TEMPLATE);
-    }
-
-    /**
-     * Test method for PageObjectGenerator.
-     *
-     * @throws Exception
-     *             the exception
-     */
     @Test
-    public void testPageObjectGenerator() throws Exception {
+    public void testExpected() throws Exception {
+        final PageObjectData pageObjectData = new PageObjectData();
+        assertNotNull(pageObjectData);
+
+        pageObjectData.add(new PageWebElement("id", Strategy.ID, "id"))
+                      .add(new PageWebElement("name", Strategy.NAME, "name"))
+                      .add(new PageWebElement("className", Strategy.CLASS_NAME, "className"))
+                      .add(new PageWebElement("linkText", Strategy.LINK_TEXT, "linkText"))
+                      .add(new PageWebElement("partialLinkText", Strategy.PARTIAL_LINK_TEXT, "partialLinkText"))
+                      .add(new PageWebElement("xpath", Strategy.XPATH, "//a[contains(text(), 'ATF4J')]"))
+                      .add(new PageWebElement("css", Strategy.CSS, "."));
+
+        pageObjectData.addNav(new PageWebElement("findByLinkText", Strategy.LINK_TEXT, "linkText"));
+        pageObjectData.addNav(
+                new PageWebElement("findByPartialLinkText", Strategy.PARTIAL_LINK_TEXT, "partialLinkText"));
+
         final PageObjectGenerator pog = new PageObjectGenerator();
-        pog.target("http://atf4j.net");
-        final String className = "LandingPage";
-        pog.setClassName(className);
-        pog.contextBinding("pageName", className);
-        pog.contextBinding("packageName", "net.atf4j.webdriver.page");
+        pog.target(HTTP_ATF4J_NET);
+        pog.addPageTitle("Example Page");
+        pog.setClassName("ExamplePageObject");
+        pog.add(pageObjectData);
+
+        this.log.info(pog.prototype());
         pog.generate();
     }
 
+    @Test
+    public void testPageObjectTargetSurvey() throws Exception {
+        final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
+        pageObjectGenerator.target(HTTP_ATF4J_NET).survey();
+    }
+
+    @Test
+    public void testPageObjectSurvey() throws Exception {
+        final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
+        pageObjectGenerator.survey(HTTP_ATF4J_NET);
+    }
+
+    @Test
+    public void testPageObjectPrototype() throws Exception {
+        final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
+        pageObjectGenerator.target(HTTP_ATF4J_NET).prototype();
+    }
+
+    @Test
+    public void testPageObjectGenerator() throws Exception {
+        final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
+        pageObjectGenerator.target(HTTP_ATF4J_NET)
+                           .survey()
+                           .setClassName("LandingPage")
+                           .contextBinding("pageName", "LandingPage")
+                           .contextBinding("pageTitle", "Landing Page")
+                           .contextBinding("packageName", "net.atf4j.webdriver.page")
+                           .generate();
+    }
 }

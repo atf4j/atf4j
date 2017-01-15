@@ -16,7 +16,6 @@
  */
 package net.atf4j.pog;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
@@ -24,51 +23,53 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
+import net.atf4j.pog.PageWebElement.Strategy;
 
 public class PageObjectDataTest extends ResultsReporting {
+
+    @Test
+    public void testExpected() {
+        final PageObjectData pageObjectData = new PageObjectData();
+        assertNotNull(pageObjectData);
+
+        pageObjectData.add(new PageWebElement("findById", Strategy.ID, "id"))
+                      .add(new PageWebElement("findByName", Strategy.NAME, "name"))
+                      .add(new PageWebElement("findByLinkText", Strategy.LINK_TEXT, "linkText"))
+                      .add(new PageWebElement("findByPartialLinkText", Strategy.PARTIAL_LINK_TEXT, "partialLinkText"))
+                      .add(new PageWebElement("findByName", Strategy.NAME, "name"))
+                      .add(new PageWebElement("findByXpath", Strategy.XPATH, "//A"))
+                      .add(new PageWebElement("findByCss", Strategy.CSS, "."));
+
+        logAttributes(pageObjectData);
+        this.log.info(pageObjectData.toString());
+    }
 
     @Test
     public void testDefaultConstructor() {
         final PageObjectData pageObjectData = new PageObjectData();
         assertNotNull(pageObjectData);
-        final String string = pageObjectData.toString();
-        this.log.info(string);
+        this.log.info(pageObjectData.toString());
     }
 
     @Test
     public void testPageObjectData() {
         final PageObjectData pageObjectData = new PageObjectData();
         assertNotNull(pageObjectData);
-        final String string = pageObjectData.toString();
-        this.log.info(string);
-    }
-
-    @Test
-    public void testSetGetName() {
-        final PageObjectData pageObjectData = new PageObjectData();
-        final String expected = "TestSetName";
-        assertEquals(expected, pageObjectData.setName(expected).getName());
+        this.log.info(pageObjectData.toString());
     }
 
     @Test
     public void testAttribute() {
         final PageObjectData pageObjectData = new PageObjectData();
         final PageWebElement attribute = new PageWebElement();
-        pageObjectData.addAttribute(attribute);
-        final ArrayList<PageWebElement> attributes = pageObjectData.getAttributes();
+        pageObjectData.add(attribute);
+        logAttributes(pageObjectData);
+    }
+
+    private void logAttributes(final PageObjectData pageObjectData) {
+        final ArrayList<PageWebElement> attributes = pageObjectData.get();
         for (final PageWebElement pageWebElement : attributes) {
             this.log.info(pageWebElement.toString());
         }
     }
-
-    @Test
-    public void testExpected() {
-        final PageObjectData pageObjectData = new PageObjectData();
-        pageObjectData.addAttribute(new PageWebElement());
-        pageObjectData.addAttribute(new PageWebElement());
-        pageObjectData.addAttribute(new PageWebElement());
-        pageObjectData.addAttribute(new PageWebElement());
-        this.log.info(pageObjectData.toString());
-    }
-
 }
