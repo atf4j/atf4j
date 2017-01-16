@@ -32,6 +32,11 @@ public class PageObjectGenerator extends CodeGenerator {
     private String pageUrl = DEFAULT_TARGET;
     private URL targetUrl = new URL(this.pageUrl);
 
+    /**
+     * Instantiates a new page object generator.
+     *
+     * @throws Exception the exception
+     */
     public PageObjectGenerator() throws Exception {
         super(PAGE_OBJECT_TEMPLATE);
     }
@@ -39,10 +44,8 @@ public class PageObjectGenerator extends CodeGenerator {
     /**
      * Instantiates a new page object generator.
      *
-     * @param templateFilename
-     *            the template filename
-     * @throws TemplateNotLoaded
-     *             the template not loaded
+     * @param templateFilename the template filename
+     * @throws Exception the exception
      */
     public PageObjectGenerator(final String templateFilename) throws Exception {
         super(templateFilename);
@@ -159,12 +162,23 @@ public class PageObjectGenerator extends CodeGenerator {
         return this;
     }
 
+    /**
+     * Survey.
+     *
+     * @return the page object generator
+     */
     public PageObjectGenerator survey() {
         this.log.info("survey");
         this.log.info("this.pageUrl={}", this.pageUrl);
         return survey(this.pageUrl);
     }
 
+    /**
+     * Survey.
+     *
+     * @param pageUrl the page url
+     * @return the page object generator
+     */
     public PageObjectGenerator survey(final String pageUrl) {
         this.log.info("survey(pageUrl={})", pageUrl);
         addPageTitle("Landing Page");
@@ -172,6 +186,9 @@ public class PageObjectGenerator extends CodeGenerator {
         return this;
     }
 
+    /* (non-Javadoc)
+     * @see net.atf4j.pog.CodeGenerator#toString()
+     */
     @Override
     public String toString() {
         assertNotNull(this.pageObjectData);

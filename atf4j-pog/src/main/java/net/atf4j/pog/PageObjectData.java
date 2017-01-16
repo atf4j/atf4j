@@ -36,46 +36,96 @@ public class PageObjectData {
     private final ArrayList<PageWebElement> inputElements = new ArrayList<PageWebElement>();
     private final ArrayList<PageWebElement> contentElements = new ArrayList<PageWebElement>();
 
+    /**
+     * Instantiates a new page object data.
+     */
     public PageObjectData() {
         super();
     }
 
+    /**
+     * Adds the.
+     *
+     * @param pageWebElement the page web element
+     * @return the page object data
+     */
     public PageObjectData add(final PageWebElement pageWebElement) {
         this.pageElements.add(pageWebElement);
         return this;
     }
 
+    /**
+     * Adds the nav.
+     *
+     * @param navElement the nav element
+     * @return the page object data
+     */
     public PageObjectData addNav(final PageWebElement navElement) {
         this.navElements.add(navElement);
         return this;
     }
 
+    /**
+     * Adds the content.
+     *
+     * @param contentMethod the content method
+     * @return the page object data
+     */
     public PageObjectData addContent(final PageWebElement contentMethod) {
         this.contentElements.add(contentMethod);
         return this;
     }
 
+    /**
+     * Adds the input.
+     *
+     * @param inputMethod the input method
+     * @return the page object data
+     */
     public PageObjectData addInput(final PageWebElement inputMethod) {
         this.inputElements.add(inputMethod);
         return this;
     }
 
+    /**
+     * Gets the.
+     *
+     * @return the array list
+     */
     public ArrayList<PageWebElement> get() {
         return this.pageElements;
     }
 
+    /**
+     * Gets the content.
+     *
+     * @return the content
+     */
     public ArrayList<PageWebElement> getContent() {
         return this.contentElements;
     }
 
+    /**
+     * Gets the input.
+     *
+     * @return the input
+     */
     public ArrayList<PageWebElement> getInput() {
         return this.inputElements;
     }
 
+    /**
+     * Gets the nav.
+     *
+     * @return the nav
+     */
     public ArrayList<PageWebElement> getNav() {
         return this.navElements;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         final StringBuilder stringBuilder = new StringBuilder();

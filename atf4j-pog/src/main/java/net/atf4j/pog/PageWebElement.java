@@ -18,8 +18,14 @@ package net.atf4j.pog;
 
 import static org.junit.Assert.assertNotNull;
 
+/**
+ * The PageWebElement Class.
+ */
 public class PageWebElement extends ClassField {
 
+    /**
+     * The Strategy Enum.
+     */
     public enum Strategy {
         UNKNOWN("Unknown"),
         ID("id"),
@@ -68,6 +74,9 @@ public class PageWebElement extends ClassField {
             return null;
         }
 
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
         @Override
         public String toString() {
             return this.strategy;
@@ -77,44 +86,89 @@ public class PageWebElement extends ClassField {
     private Strategy strategy = null;
     private String locator = null;
 
+    /**
+     * Instantiates a new page web element.
+     *
+     * @param name the name
+     * @param strategy the strategy
+     * @param locator the locator
+     */
     public PageWebElement(final String name, final String strategy, final String locator) {
         super("WebElement", name);
         setLocatorStrategy(Strategy.fromString(strategy));
         setLocator(locator);
     }
 
+    /**
+     * Instantiates a new page web element.
+     *
+     * @param name the name
+     * @param strategy the strategy
+     * @param locator the locator
+     */
     public PageWebElement(final String name, final Strategy strategy, final String locator) {
         super("WebElement", name);
         setLocatorStrategy(strategy);
         setLocator(locator);
     }
 
+    /**
+     * Sets the locator strategy.
+     *
+     * @param strategy the strategy
+     * @return the page web element
+     */
     public PageWebElement setLocatorStrategy(final String strategy) {
         assertNotNull(strategy);
         this.strategy = Strategy.fromString(strategy);
         return this;
     }
 
+    /**
+     * Sets the locator strategy.
+     *
+     * @param strategy the strategy
+     * @return the page web element
+     */
     public PageWebElement setLocatorStrategy(final Strategy strategy) {
         assertNotNull(strategy);
         this.strategy = strategy;
         return this;
     }
 
+    /**
+     * Sets the locator.
+     *
+     * @param locator the locator
+     * @return the page web element
+     */
     public PageWebElement setLocator(final String locator) {
         assertNotNull(locator);
         this.locator = locator;
         return this;
     }
 
+    /**
+     * Gets the locator type.
+     *
+     * @return the locator type
+     */
     public Strategy getLocatorType() {
         return this.strategy;
     }
 
+    /**
+     * Gets the locator.
+     *
+     * @return the locator
+     */
     public String getLocator() {
         return this.locator;
     }
 
+    /* (non-Javadoc)
+     * @see net.atf4j.pog.ClassField#toString()
+     */
     @Override
     public String toString() {
         final String locatorLine = String.format("@FindBy(%s=\"%s\")", this.strategy, this.locator);

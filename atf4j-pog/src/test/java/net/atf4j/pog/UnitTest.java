@@ -22,8 +22,14 @@ import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
+/**
+ * A UnitTest for Unit objects.
+ */
 public class UnitTest extends ResultsReporting {
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testEntropy() {
         this.log.info("{}", UUID.randomUUID().toString());

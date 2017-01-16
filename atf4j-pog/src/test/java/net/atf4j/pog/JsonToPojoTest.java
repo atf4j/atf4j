@@ -20,8 +20,14 @@ import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
+/**
+ * A UnitTest for JsonToPojo objects.
+ */
 public class JsonToPojoTest extends ResultsReporting {
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testPrettyPrint() {
         final String compactJson = "{\"id\":0123456789,\"name\":\"Test\",\"itemList\":[{\"itemId\":1,\"name\":\"Bread\",\"qty\":1,\"price\":1.00},{\"itemId\":2,\"name\":\"Eggs\",\"qty\":6,\"price\":2.00},{\"itemId\":3,\"name\":\"Meat\",\"qty\":1,\"price\":10}]}";

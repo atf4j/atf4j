@@ -1,9 +1,10 @@
 # atf4j
-Automated Testing Framework for Java
+## Automation Test Framework for Java
 
-	<dependency>
-		<groupId>net.atf4j</groupId>
-		<artifactId>atf4j</artifactId>
-		<version>0.1.0-SNAPSHOT</version>
-	</dependency>
+## Maven Dependency
 
+		<dependency>
+			<groupId>net.atf4j</groupId>
+			<artifactId>atf4j</artifactId>
+			<version>0.3.0-SNAPSHOT</version>
+		</dependency>

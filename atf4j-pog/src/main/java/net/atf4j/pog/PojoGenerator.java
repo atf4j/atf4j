@@ -18,36 +18,76 @@ package net.atf4j.pog;
 
 import net.atf4j.pog.ClassField.FieldType;
 
+/**
+ * The PojoGenerator Class.
+ */
 public class PojoGenerator extends CodeGenerator {
 
+    /**
+     * Instantiates a new pojo generator.
+     *
+     * @throws TemplateNotLoaded the template not loaded
+     */
     public PojoGenerator() throws TemplateNotLoaded {
         super("/templates/PojoClass.vm");
     }
 
+    /**
+     * Adds the date field.
+     *
+     * @param fieldName the field name
+     * @return the code generator
+     */
     public CodeGenerator addDateField(final String fieldName) {
         final ClassField classField = new ClassField(FieldType.DATE, fieldName);
         this.fields.add(classField);
         return this;
     }
 
+    /**
+     * Adds the boolean field.
+     *
+     * @param fieldName the field name
+     * @return the code generator
+     */
     public CodeGenerator addBooleanField(final String fieldName) {
         final ClassField classField = new ClassField(FieldType.BOOLEAN, fieldName);
         this.fields.add(classField);
         return this;
     }
 
+    /**
+     * Adds the string field.
+     *
+     * @param fieldName the field name
+     * @return the code generator
+     */
     public CodeGenerator addStringField(final String fieldName) {
         final ClassField classField = new ClassField(FieldType.STRING, fieldName);
         this.fields.add(classField);
         return this;
     }
 
+    /**
+     * Adds the field.
+     *
+     * @param fieldType the field type
+     * @param fieldName the field name
+     * @return the code generator
+     */
     public CodeGenerator addField(final FieldType fieldType, final String fieldName) {
         final ClassField classField = new ClassField(fieldType, fieldName);
         this.fields.add(classField);
         return this;
     }
 
+    /**
+     * Adds the field.
+     *
+     * @param fieldType the field type
+     * @param fieldName the field name
+     * @return the code generator
+     */
     public CodeGenerator addField(final String fieldType, final String fieldName) {
         final ClassField classField = new ClassField(fieldType, fieldName);
         this.fields.add(classField);

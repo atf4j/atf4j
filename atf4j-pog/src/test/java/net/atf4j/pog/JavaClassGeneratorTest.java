@@ -22,17 +22,39 @@ import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
+/**
+ * A UnitTest for JavaClassGenerator objects.
+ */
 public class JavaClassGeneratorTest extends ResultsReporting {
+    
+    /**
+     * The JavaClassGenerator Class.
+     */
     public class JavaClassGenerator extends CodeGenerator {
+        
+        /**
+         * Instantiates a new java class generator.
+         */
         public JavaClassGenerator() {
             super();
         }
 
+        /**
+         * Instantiates a new java class generator.
+         *
+         * @param templateFilename the template filename
+         * @throws TemplateNotLoaded the template not loaded
+         */
         public JavaClassGenerator(final String templateFilename) throws TemplateNotLoaded {
             super(templateFilename);
         }
     }
 
+    /**
+     * Test method for void.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testPrototype() throws Exception {
         this.log.info("==============================================");
@@ -41,6 +63,11 @@ public class JavaClassGeneratorTest extends ResultsReporting {
         this.log.info(javaClassGenerator.prototype());
     }
 
+    /**
+     * Test method for void.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testExpected() throws Exception {
         this.log.info("==============================================");

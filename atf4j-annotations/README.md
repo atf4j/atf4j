@@ -3,14 +3,11 @@
 
 ## Maven Dependency
 
-	<dependencies>
 		<dependency>
 			<groupId>net.atf4j</groupId>
 			<artifactId>atf4j-core</artifactId>
-			<version>0.0.3-SNAPSHOT</version>
+			<version>0.3.0-SNAPSHOT</version>
 		</dependency>
-	</dependencies>
-
 
 ## Code
 

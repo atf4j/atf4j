@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<properties>
-		<atf4j.version>0.0.3-SNAPSHOT</atf4j.version>
+		<atf4j.version>0.3.0-SNAPSHOT</atf4j.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.7</java.version>
@@ -135,7 +135,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
-				</plugin>
+			</plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -149,6 +149,7 @@
 					</dependency>
 				</dependencies>
 			</plugin>
+
 		</plugins>
 
 		<pluginManagement>

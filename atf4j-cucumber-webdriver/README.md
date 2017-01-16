@@ -1,11 +1,18 @@
 # Cucumber Selenium WebDriver 
 ## Automated Test Framework for Java
 
+## Maven Dependency
+
+	<dependency>
+		<groupId>net.atf4j</groupId>
+		<artifactId>atf4j</artifactId>
+		<version>0.3.0-SNAPSHOT</version>
+	</dependency>
+
+## Usage
 This is the simplest possible build script setup for Cucumber using Java.
 There is nothing fancy like a webapp or browser testing. All this does is to show you how
 to install and run Cucumber!
-
-## Usage
 
 Open a command window and run:
 

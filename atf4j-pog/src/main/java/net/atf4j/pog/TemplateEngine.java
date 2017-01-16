@@ -24,10 +24,18 @@ import org.apache.velocity.app.VelocityEngine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * The TemplateEngine Class.
+ */
 public abstract class TemplateEngine {
     String templateFilename = "template.vm";
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
+    /**
+     * Execue.
+     *
+     * @return the template engine
+     */
     public TemplateEngine execue() {
         final VelocityEngine velocityEngine = new VelocityEngine();
         velocityEngine.init();

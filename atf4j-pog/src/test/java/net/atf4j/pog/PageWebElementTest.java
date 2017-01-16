@@ -23,8 +23,14 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 import net.atf4j.pog.PageWebElement.Strategy;
 
+/**
+ * A UnitTest for PageWebElement objects.
+ */
 public class PageWebElementTest extends ResultsReporting {
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testClassNameStrategy() {
         final PageWebElement pageWebElement = new PageWebElement("className", Strategy.CLASS_NAME, "class-name");
@@ -33,6 +39,9 @@ public class PageWebElementTest extends ResultsReporting {
         this.log.info(string);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testLinkTextStrategy() {
         final PageWebElement pageWebElement = new PageWebElement("linkText", Strategy.LINK_TEXT, "link");
@@ -41,6 +50,9 @@ public class PageWebElementTest extends ResultsReporting {
         this.log.info(string);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testPartialLinkText() {
         final PageWebElement pageWebElement = new PageWebElement("partialLinkText", Strategy.PARTIAL_LINK_TEXT, "Link");
@@ -49,6 +61,9 @@ public class PageWebElementTest extends ResultsReporting {
         this.log.info(string);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testCssStrategy() {
         final PageWebElement pageWebElement = new PageWebElement("byCss", Strategy.CSS, "#");
@@ -57,6 +72,9 @@ public class PageWebElementTest extends ResultsReporting {
         this.log.info(string);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testXpathStrategy() {
         final PageWebElement pageWebElement = new PageWebElement("byXpath", Strategy.XPATH, "//A");
@@ -65,6 +83,9 @@ public class PageWebElementTest extends ResultsReporting {
         this.log.info(string);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testIdStrategy() {
         final PageWebElement pageWebElement = new PageWebElement("byId", Strategy.ID, "id");
@@ -73,6 +94,9 @@ public class PageWebElementTest extends ResultsReporting {
         this.log.info(string);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testNameStrategy() {
         final PageWebElement pageWebElement = new PageWebElement("byName", Strategy.NAME, "name");
@@ -81,6 +105,9 @@ public class PageWebElementTest extends ResultsReporting {
         this.log.info(string);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testPageWebElementStringStrategyString() {
         final PageWebElement pageWebElement = new PageWebElement("byName", Strategy.UNKNOWN, "name");

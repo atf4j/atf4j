@@ -22,8 +22,16 @@ import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
+/**
+ * A UnitTest for PojoGenerator objects.
+ */
 public class PojoGeneratorTest extends ResultsReporting {
 
+    /**
+     * Test method for void.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testPrototype() throws Exception {
         this.log.info("==============================================");
@@ -37,6 +45,11 @@ public class PojoGeneratorTest extends ResultsReporting {
         this.log.info(pojoGenerator.prototype());
     }
 
+    /**
+     * Test method for void.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testExpected() throws Exception {
         this.log.info("==============================================");

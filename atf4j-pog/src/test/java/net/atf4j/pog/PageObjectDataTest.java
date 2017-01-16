@@ -25,8 +25,14 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 import net.atf4j.pog.PageWebElement.Strategy;
 
+/**
+ * A UnitTest for PageObjectData objects.
+ */
 public class PageObjectDataTest extends ResultsReporting {
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testExpected() {
         this.log.info("==============================================");
@@ -45,6 +51,9 @@ public class PageObjectDataTest extends ResultsReporting {
         this.log.info(pageObjectData.toString());
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testDefaultConstructor() {
         this.log.info("==============================================");
@@ -53,6 +62,9 @@ public class PageObjectDataTest extends ResultsReporting {
         this.log.info(pageObjectData.toString());
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testPageObjectData() {
         this.log.info("==============================================");
@@ -61,6 +73,11 @@ public class PageObjectDataTest extends ResultsReporting {
         this.log.info(pageObjectData.toString());
     }
 
+    /**
+     * Log attributes.
+     *
+     * @param pageObjectData the page object data
+     */
     private void logAttributes(final PageObjectData pageObjectData) {
         final ArrayList<PageWebElement> attributes = pageObjectData.get();
         for (final PageWebElement pageWebElement : attributes) {

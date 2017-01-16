@@ -38,6 +38,9 @@ import org.slf4j.LoggerFactory;
 
 import net.atf4j.core.Atf4jException;
 
+/**
+ * The CodeGenerator Class.
+ */
 public abstract class CodeGenerator {
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
@@ -56,20 +59,39 @@ public abstract class CodeGenerator {
 
     private final String targetHomeFolder = TARGET_FOLDER;
 
+    /**
+     * Instantiates a new code generator.
+     */
     public CodeGenerator() {
         initialise();
     }
 
+    /**
+     * Instantiates a new code generator.
+     *
+     * @param templateFilename the template filename
+     * @throws TemplateNotLoaded the template not loaded
+     */
     public CodeGenerator(final String templateFilename) throws TemplateNotLoaded {
         setTemplate(templateFilename);
         initialise();
     }
 
+    /**
+     * Initialise.
+     */
     private void initialise() {
         this.velocityEngine.init();
         contextBinding("util", this);
     }
 
+    /**
+     * Context binding.
+     *
+     * @param key the key
+     * @param value the value
+     * @return the code generator
+     */
     public CodeGenerator contextBinding(final String key, final Object value) {
         assumeNotNull(key);
         assumeTrue(key.length() > 0);
@@ -78,65 +100,142 @@ public abstract class CodeGenerator {
         return this;
     }
 
+    /**
+     * Sets the template.
+     *
+     * @param templateFilename the template filename
+     * @return the code generator
+     * @throws TemplateNotLoaded the template not loaded
+     */
     public CodeGenerator setTemplate(final String templateFilename) throws TemplateNotLoaded {
         this.templateFilename = templateFilename;
         return this;
     }
 
+    /**
+     * Sets the package name.
+     *
+     * @param packageName the package name
+     * @return the code generator
+     */
     public CodeGenerator setPackageName(final String packageName) {
         this.packageName = packageName;
         return this;
     }
 
+    /**
+     * Sets the class name.
+     *
+     * @param className the class name
+     * @return the code generator
+     */
     public CodeGenerator setClassName(final String className) {
         this.className = classCase(className);
         return this;
     }
 
+    /**
+     * Template filename.
+     *
+     * @return the string
+     */
     public String templateFilename() {
         return this.templateFilename;
     }
 
+    /**
+     * Package name.
+     *
+     * @return the string
+     */
     public String packageName() {
         return this.packageName;
     }
 
+    /**
+     * Class name.
+     *
+     * @return the string
+     */
     public String className() {
         return this.className;
     }
 
+    /**
+     * Class case.
+     *
+     * @param candidateClassName the candidate class name
+     * @return the string
+     */
     public String classCase(final String candidateClassName) {
         return firstUpper(candidateClassName);
     }
 
+    /**
+     * Method case.
+     *
+     * @param string the string
+     * @return the string
+     */
     public String methodCase(final String string) {
         final char[] charArray = string.toCharArray();
         charArray[0] = Character.toLowerCase(charArray[0]);
         return new String(charArray);
     }
 
+    /**
+     * First upper.
+     *
+     * @param string the string
+     * @return the string
+     */
     public String firstUpper(final String string) {
         final char[] charArray = string.toCharArray();
         charArray[0] = Character.toUpperCase(charArray[0]);
         return new String(charArray);
     }
 
+    /**
+     * Adds the field.
+     *
+     * @param classField the class field
+     * @return the code generator
+     */
     public CodeGenerator addField(final ClassField classField) {
         this.fields.add(classField);
         return this;
     }
 
+    /**
+     * Adds the method.
+     *
+     * @param returnType the return type
+     * @param methodName the method name
+     * @return the code generator
+     */
     public CodeGenerator addMethod(final String returnType, final String methodName) {
         final ClassMethod classField = new ClassMethod(returnType, methodName);
         this.methods.add(classField);
         return this;
     }
 
+    /**
+     * Adds the method.
+     *
+     * @param classMethod the class method
+     * @return the code generator
+     */
     public CodeGenerator addMethod(final ClassMethod classMethod) {
         this.methods.add(classMethod);
         return this;
     }
 
+    /**
+     * Prototype.
+     *
+     * @return the string
+     * @throws Exception the exception
+     */
     public String prototype() throws Exception {
         final InputStreamReader templateReader = templateReader(this.templateFilename);
         final StringWriter writer = new StringWriter();
@@ -144,22 +243,50 @@ public abstract class CodeGenerator {
         return writer.toString();
     }
 
+    /**
+     * Generate.
+     *
+     * @return the code generator
+     * @throws Exception the exception
+     */
     public CodeGenerator generate() throws Exception {
         assumeNotNull(this.templateFilename);
         assumeTrue(this.templateFilename.length() > 0);
         return generate(this.templateFilename);
     }
 
+    /**
+     * Generate.
+     *
+     * @param templateFilename the template filename
+     * @return the code generator
+     * @throws Exception the exception
+     */
     public CodeGenerator generate(final String templateFilename) throws Exception {
         return generate(templateReader(templateFilename));
     }
 
+    /**
+     * Generate.
+     *
+     * @param templateReader the template reader
+     * @return the code generator
+     * @throws Exception the exception
+     */
     private CodeGenerator generate(final InputStreamReader templateReader) throws Exception {
         final BufferedWriter bufferedWriter = destinationWriter();
         assertNotNull(bufferedWriter);
         return generate(templateReader, bufferedWriter);
     }
 
+    /**
+     * Generate.
+     *
+     * @param templateReader the template reader
+     * @param writer the writer
+     * @return the code generator
+     * @throws Exception the exception
+     */
     private CodeGenerator generate(final InputStreamReader templateReader, final Writer writer) throws Exception {
         final String logTag = this.getClass().getSimpleName();
 
@@ -181,6 +308,13 @@ public abstract class CodeGenerator {
         return this;
     }
 
+    /**
+     * Template reader.
+     *
+     * @param templateFilename the template filename
+     * @return the input stream reader
+     * @throws TemplateNotLoaded the template not loaded
+     */
     private InputStreamReader templateReader(final String templateFilename) throws TemplateNotLoaded {
         this.log.info(templateFilename);
         final InputStream resourceAsStream = this.getClass().getResourceAsStream(templateFilename);
@@ -191,6 +325,12 @@ public abstract class CodeGenerator {
         }
     }
 
+    /**
+     * Destination writer.
+     *
+     * @return the buffered writer
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     private BufferedWriter destinationWriter() throws IOException {
         final String packageFolder = packageFolder(this.packageName);
         final String targetPath = targetPath(this.targetHomeFolder, packageFolder);
@@ -201,6 +341,13 @@ public abstract class CodeGenerator {
         return bufferedWriter;
     }
 
+    /**
+     * Target filename.
+     *
+     * @param targetPath the target path
+     * @param className the class name
+     * @return the string
+     */
     private String targetFilename(final String targetPath, final String className) {
         final String targetFile = String.format("%s/%s.java",
                 targetPath,
@@ -209,6 +356,13 @@ public abstract class CodeGenerator {
         return targetFile;
     }
 
+    /**
+     * Target path.
+     *
+     * @param homeFolder the home folder
+     * @param packageFolder the package folder
+     * @return the string
+     */
     private String targetPath(final String homeFolder, final String packageFolder) {
         assertNotNull(homeFolder);
         assertNotNull(packageFolder);
@@ -220,12 +374,21 @@ public abstract class CodeGenerator {
         return targetPath;
     }
 
+    /**
+     * Package folder.
+     *
+     * @param packageName the package name
+     * @return the string
+     */
     private String packageFolder(final String packageName) {
         final String packageFolder = packageName.replace('.', File.separatorChar);
         this.log.info("packageFolder={}", packageFolder);
         return packageFolder;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format(
@@ -237,8 +400,17 @@ public abstract class CodeGenerator {
                 this.methods);
     }
 
+    /**
+     * The TemplateNotLoaded Class.
+     */
     @SuppressWarnings("serial")
     public class TemplateNotLoaded extends Atf4jException {
+        
+        /**
+         * Instantiates a new template not loaded.
+         *
+         * @param expectedTemplateFilename the expected template filename
+         */
         public TemplateNotLoaded(final String expectedTemplateFilename) {
             super(String.format("TemplateNotLoaded [expectedTemplateFilename=%s]", expectedTemplateFilename));
         }

@@ -23,8 +23,14 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 import net.atf4j.pog.ClassField.FieldType;
 
+/**
+ * A UnitTest for ClassField objects.
+ */
 public class ClassFieldTest extends ResultsReporting {
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testExpected() {
         this.log.info(new ClassField(FieldType.BOOLEAN, "bool").toCode());
@@ -35,12 +41,18 @@ public class ClassFieldTest extends ResultsReporting {
         this.log.info(new ClassField(FieldType.OBJECT, "object").toCode());
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testDefaultConstructor() {
         final ClassField classField = new ClassField();
         assertNotNull(classField);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testClassField() {
         final ClassField classField = new ClassField();
@@ -49,6 +61,9 @@ public class ClassFieldTest extends ResultsReporting {
         this.log.info(classField.toCode());
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testBooleanField() {
         final ClassField classField = new ClassField(FieldType.BOOLEAN, "bool");
@@ -60,6 +75,9 @@ public class ClassFieldTest extends ResultsReporting {
         this.log.info(booleanField.toString());
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testDateField() {
         final ClassField classField = new ClassField(FieldType.DATE, "date");
@@ -71,6 +89,9 @@ public class ClassFieldTest extends ResultsReporting {
         this.log.info(dateField.toString());
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testNumberField() {
         final ClassField classField = new ClassField(FieldType.NUMBER, "number");
@@ -82,6 +103,9 @@ public class ClassFieldTest extends ResultsReporting {
         this.log.info(classField.toString());
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testStringField() {
         final ClassField classField = new ClassField(FieldType.STRING, "string");
@@ -93,6 +117,9 @@ public class ClassFieldTest extends ResultsReporting {
         this.log.info(stringField.toString());
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testValueField() {
         final ClassField classField = new ClassField(FieldType.VALUE, "value");
@@ -104,6 +131,9 @@ public class ClassFieldTest extends ResultsReporting {
         this.log.info(stringField.toString());
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testObject() {
         final ClassField classField = new ClassField(FieldType.OBJECT, "object");

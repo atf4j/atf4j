@@ -21,12 +21,21 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+/**
+ * The JsonToPojo Class.
+ */
 public class JsonToPojo extends CodeGenerator {
 
     private final JsonParser parser = new JsonParser();
     private JsonObject json;
     private Gson gson;
 
+    /**
+     * Json.
+     *
+     * @param jsonString the json string
+     * @return the string
+     */
     public String json(final String jsonString) {
         this.json = this.parser.parse(jsonString).getAsJsonObject();
         this.gson = new GsonBuilder().setPrettyPrinting().create();

@@ -30,6 +30,11 @@ public class PageObjectGeneratorTest extends ResultsReporting {
 
     private static final String HTTP_ATF4J_NET = "http://atf4j.net";
 
+    /**
+     * Test method for void.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testExpected() throws Exception {
         this.log.info("==============================================");
@@ -86,6 +91,11 @@ public class PageObjectGeneratorTest extends ResultsReporting {
         pog.generate();
     }
 
+    /**
+     * Test method for void.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testPageObjectTargetSurvey() throws Exception {
         this.log.info("==============================================");
@@ -93,6 +103,11 @@ public class PageObjectGeneratorTest extends ResultsReporting {
         pageObjectGenerator.target(HTTP_ATF4J_NET).survey();
     }
 
+    /**
+     * Test method for void.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testPageObjectSurvey() throws Exception {
         this.log.info("==============================================");
@@ -100,6 +115,11 @@ public class PageObjectGeneratorTest extends ResultsReporting {
         pageObjectGenerator.survey(HTTP_ATF4J_NET);
     }
 
+    /**
+     * Test method for void.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testPageObjectPrototype() throws Exception {
         this.log.info("==============================================");
@@ -107,6 +127,11 @@ public class PageObjectGeneratorTest extends ResultsReporting {
         pageObjectGenerator.target(HTTP_ATF4J_NET).prototype();
     }
 
+    /**
+     * Test method for void.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testPageObjectGenerator() throws Exception {
         this.log.info("==============================================");

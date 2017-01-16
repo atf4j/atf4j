@@ -1,5 +1,5 @@
-# atf4j-junit
-## Automated Testing Framework for Java
+# atf4j-core
+## Automation Test Framework for Java
 
 ## Maven Dependency
 

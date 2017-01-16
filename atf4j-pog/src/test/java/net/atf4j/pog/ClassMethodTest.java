@@ -22,14 +22,23 @@ import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
+/**
+ * A UnitTest for ClassMethod objects.
+ */
 public class ClassMethodTest extends ResultsReporting {
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testDefaultConstructor() {
         final ClassMethod classMethod = new ClassMethod();
         assertNotNull(classMethod);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testClassMethod() {
         final ClassMethod classMethod = new ClassMethod();
@@ -38,6 +47,9 @@ public class ClassMethodTest extends ResultsReporting {
         this.log.info(string);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testClassMethodString() {
         final ClassMethod classMethod = new ClassMethod("String", "method");
@@ -46,6 +58,9 @@ public class ClassMethodTest extends ResultsReporting {
         this.log.info(string);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testClassMethodDate() {
         final ClassMethod classMethod = new ClassMethod("Date", "date");

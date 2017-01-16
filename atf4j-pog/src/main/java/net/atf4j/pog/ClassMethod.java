@@ -33,6 +33,9 @@ public class ClassMethod {
     private String methodName;
     private final ArrayList<ClassField> parameters = new ArrayList<ClassField>();
 
+    /**
+     * Instantiates a new class method.
+     */
     public ClassMethod() {
         super();
         setType("void");
@@ -40,49 +43,105 @@ public class ClassMethod {
         setName(String.format("method%s", uniqueness));
     }
 
+    /**
+     * Instantiates a new class method.
+     *
+     * @param type the type
+     * @param methodName the method name
+     */
     public ClassMethod(final String type, final String methodName) {
         super();
         setType(type);
         setName(methodName);
     }
 
+    /**
+     * Sets the access.
+     *
+     * @param access the access
+     * @return the class method
+     */
     public ClassMethod setAccess(final String access) {
         this.access = access;
         return this;
     }
 
+    /**
+     * Sets the name.
+     *
+     * @param name the name
+     * @return the class method
+     */
     public ClassMethod setName(final String name) {
         this.methodName = methodCase(name);
         return this;
     }
 
+    /**
+     * Sets the type.
+     *
+     * @param type the type
+     * @return the class method
+     */
     public ClassMethod setType(final String type) {
         this.returnType = type;
         return this;
     }
 
+    /**
+     * Adds the.
+     *
+     * @param e the e
+     * @return true, if successful
+     */
     public boolean add(final ClassField e) {
         return this.parameters.add(e);
     }
 
+    /**
+     * Gets the access.
+     *
+     * @return the access
+     */
     public String getAccess() {
         return this.access;
     }
 
+    /**
+     * Gets the type.
+     *
+     * @return the type
+     */
     public String getType() {
         return this.returnType;
     }
 
+    /**
+     * Gets the name.
+     *
+     * @return the name
+     */
     public String getName() {
         return this.methodName;
     }
 
+    /**
+     * Method case.
+     *
+     * @param string the string
+     * @return the string
+     */
     public String methodCase(final String string) {
         final char[] charArray = string.toCharArray();
         charArray[0] = Character.toLowerCase(charArray[0]);
         return new String(charArray);
     }
 
+    /**
+     * To code.
+     *
+     * @return the string
+     */
     public String toCode() {
         if (this.parameters.size() > 0) {
             final String string = this.parameters.toString();
@@ -93,6 +152,9 @@ public class ClassMethod {
         }
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format("ClassMethod [access=%s, returnType=%s, methodName=%s]",
@@ -101,6 +163,9 @@ public class ClassMethod {
                 this.methodName);
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#hashCode()
+     */
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -110,6 +175,9 @@ public class ClassMethod {
         return result;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
     @Override
     public boolean equals(final Object obj) {
         if (this == obj) {

@@ -14,11 +14,17 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
-package net.atf4j.imperative;
+package net.atf4j.junit;
 
-import org.openqa.selenium.WebDriver;
+import static org.junit.Assert.assertTrue;
 
-public class WebPage {
-    protected WebDriver webDriver;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
+@RunWith(value = CustomRunner.class)
+public class CustomRunnerTest {
+    @Test
+    public void testMethod() {
+        assertTrue(true);
+    }
 }
