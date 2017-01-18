@@ -26,10 +26,6 @@ public class PostalAddress {
     private String[] addressLines = new String[0];
     private Postcode postcode;
 
-    public static PostalAddress create() {
-        return new PostalAddress();
-    }
-
     /**
      * Instantiates a new address.
      */
@@ -99,7 +95,10 @@ public class PostalAddress {
      * @return the string
      */
     public String debugString() {
-        return String.format("%s [address=%s, postcode=%s]", this.getClass().getSimpleName(),Arrays.toString(this.addressLines), this.postcode);
+        return String.format("%s [address=%s, postcode=%s]",
+                this.getClass().getSimpleName(),
+                Arrays.toString(this.addressLines),
+                this.postcode);
     }
 
     /* (non-Javadoc)

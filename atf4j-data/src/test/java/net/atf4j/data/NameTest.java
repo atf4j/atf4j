@@ -21,16 +21,30 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
+
 /**
  * A UnitTest for Name objects.
  */
-public class NameTest {
+public class NameTest extends ResultsReporting {
 
+    /**
+     * The MockName Class.
+     */
     public class MockName extends Name {
+        
+        /**
+         * Instantiates a new mock name.
+         */
         public MockName() {
             super();
         }
 
+        /**
+         * Instantiates a new mock name.
+         *
+         * @param name the name
+         */
         public MockName(final String name) {
             super(name);
         }

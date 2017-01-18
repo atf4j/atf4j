@@ -15,9 +15,9 @@
 
 	<dependencies>
 		<dependency>
-		    <groupId>com.google.code.gson</groupId>
-		    <artifactId>gson</artifactId>
-		    <version>2.8.0</version>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.0</version>
 		</dependency>
 
 		<dependency>
@@ -25,7 +25,7 @@
 			<artifactId>atf4j-core</artifactId>
 			<version>0.3.0-SNAPSHOT</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>net.atf4j</groupId>
 			<artifactId>atf4j-webdriver</artifactId>

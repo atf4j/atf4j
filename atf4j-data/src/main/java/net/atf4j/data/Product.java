@@ -27,6 +27,11 @@ public class Product {
     private String name;
     private String details;
 
+    /**
+     * Create new instance of create.
+     *
+     * @return the product
+     */
     public static Product create() {
         return new Product();
     }

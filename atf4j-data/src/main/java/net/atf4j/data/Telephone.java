@@ -27,6 +27,9 @@ public class Telephone {
     // Area Code
     // Number
 
+    /**
+     * The Type Enum.
+     */
     public enum Type {
         Phone("Phone"),
         Landline("Landline"),
@@ -37,14 +40,30 @@ public class Telephone {
 
         private final String typeName;
 
+        /**
+         * Instantiates a new type.
+         *
+         * @param name the name
+         */
         private Type(final String name) {
             this.typeName = name;
         }
 
+        /**
+         * Initialise.
+         *
+         * @return the type
+         */
         public static Type initialise() {
             return Type.Phone;
         }
 
+        /**
+         * For string.
+         *
+         * @param asText the as text
+         * @return the type
+         */
         public static Type forString(final String asText) {
             for (final Type value : values()) {
                 if (value.typeName.equals(asText)) {
@@ -55,14 +74,30 @@ public class Telephone {
         }
     }
 
+    /**
+     * Create new instance of create.
+     *
+     * @return the telephone
+     */
     public static Telephone create() {
         return new Telephone();
     }
 
+    /**
+     * Create new instance of create.
+     *
+     * @param type the type
+     * @return the telephone
+     */
     public static Telephone create(final Type type) {
         return new Telephone().setType(type);
     }
 
+    /**
+     * Verify.
+     *
+     * @return true, if successful
+     */
     public static boolean verify() {
         return false;
     }
@@ -91,10 +126,8 @@ public class Telephone {
     /**
      * Instantiates a new telephone.
      *
-     * @param number
-     *            the number
-     * @param type
-     *            the type
+     * @param type the type
+     * @param number the number
      */
     public Telephone(final String type, final String number) {
         super();
@@ -126,6 +159,12 @@ public class Telephone {
         return this;
     }
 
+    /**
+     * Sets the type.
+     *
+     * @param type the type
+     * @return the telephone
+     */
     public Telephone setType(final Telephone.Type type) {
         this.type = type;
         return this;
@@ -165,6 +204,9 @@ public class Telephone {
                 this.getType());
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format("%s : %s",

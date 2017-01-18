@@ -21,32 +21,52 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-public class FieldTest {
+import net.atf4j.core.ResultsReporting;
 
+/**
+ * A UnitTest for Field objects.
+ */
+public class FieldTest extends ResultsReporting {
+
+    /**
+     * Test method for void.
+     */
     @Test
     public void testDefaultConstructor() {
         final Field field = new Field();
         assertNotNull(field);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testFieldString() {
         final Field field = new Field("");
         assertNotNull(field);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testFieldSetGetKey() {
         final String key = "key";
         assertEquals(key, new Field().setKey(key).getKey());
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testFieldSetGetValue() {
         final String value = "Value";
         assertEquals(value, new Field().setValue(value).getValue());
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testFieldSetGetStatus() {
         final FieldStatus status = FieldStatus.initialise();

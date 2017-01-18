@@ -23,7 +23,7 @@ package net.atf4j.core;
  */
 public class ExampleConfig extends AbstractConfig {
 
-    private static AbstractConfig instance = null;
+    private static ExampleConfig instance = null;
 
     /**
      * Gets the single instance of AbstractConfig.
@@ -32,7 +32,7 @@ public class ExampleConfig extends AbstractConfig {
      * @throws Exception
      *             the exception
      */
-    public static AbstractConfig getInstance() throws Exception {
+    public static ExampleConfig getInstance() throws Exception {
         if (ExampleConfig.instance == null) {
             ExampleConfig.instance = create();
         }
@@ -46,7 +46,7 @@ public class ExampleConfig extends AbstractConfig {
      * @throws Exception
      *             the exception
      */
-    public static AbstractConfig create() throws Exception {
+    public static ExampleConfig create() throws Exception {
         return new ExampleConfig();
     }
 

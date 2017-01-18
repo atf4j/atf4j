@@ -20,10 +20,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
+
 /**
  * A UnitTest for ProductCatalog objects.
  */
-public class ProductCatalogTest {
+public class ProductCatalogTest extends ResultsReporting {
 
     /**
      * Test method for ProductCatalog}.

@@ -19,24 +19,49 @@ package net.atf4j.data.factory;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 
 import net.atf4j.data.Bank;
 import net.atf4j.data.Business;
 import net.atf4j.data.Card;
+import net.atf4j.data.Consumer;
 import net.atf4j.data.Customer;
 import net.atf4j.data.Person;
 import net.atf4j.data.PostalAddress;
 
 /**
  * DataFactory.
- *
- *
- *
  */
 public class DataFactory {
 
     /** The Constant simpleDateFormat. */
     private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
+
+    private static Random random = new Random(System.currentTimeMillis());
+
+    /**
+     * Random char.
+     *
+     * @return the char
+     */
+    public static char randomChar() {
+        return (char) (random.nextInt(26) + 'a');
+    }
+
+    /**
+     * Random string.
+     *
+     * @param length
+     *            the length
+     * @return the string
+     */
+    public static String randomString(final int length) {
+        final StringBuffer stringBuffer = new StringBuffer();
+        for (int i = 0; i < length; i++) {
+            stringBuffer.append(randomChar());
+        }
+        return stringBuffer.toString();
+    }
 
     /**
      * Today date.
@@ -114,6 +139,32 @@ public class DataFactory {
     }
 
     /**
+     * Date between.
+     *
+     * @param startDate
+     *            the start date
+     * @param endDate
+     *            the end date
+     * @return the calendar
+     */
+    public static Calendar dateBetween(final Date startDate, final Date endDate) {
+        return dateBetween(toCalendar(startDate), toCalendar(endDate));
+    }
+
+    /**
+     * Date between.
+     *
+     * @param pastDate
+     *            the past date
+     * @param today
+     *            the today
+     * @return the calendar
+     */
+    public static Calendar dateBetween(final Calendar pastDate, final Calendar today) {
+        return null;
+    }
+
+    /**
      * This year.
      *
      * @return the int
@@ -155,28 +206,79 @@ public class DataFactory {
         return simpleDateFormat.format(date);
     }
 
+    /**
+     * Create a new instances of Data.
+     *
+     * @return the person
+     */
     public static Person createPerson() {
-        return Person.create();
+        return new Person();
     }
 
+    /**
+     * Create a new instances of Data.
+     *
+     * @return the customer
+     */
     public static Customer createCustomer() {
-        return Customer.create();
+        return new Customer();
     }
 
+    /**
+     * Create a new instances of Data.
+     *
+     * @return the card
+     */
     public static Card createCard() {
-        return Card.create();
+        return new Card();
     }
 
+    /**
+     * Create a new instances of Data.
+     *
+     * @return the business
+     */
     public static Business createBusiness() {
-        return Business.create();
+        return new Business();
     }
 
+    /**
+     * Create a new instances of Data.
+     *
+     * @return the bank
+     */
     public static Bank createBank() {
-        return Bank.create();
+        return new Bank();
     }
 
+    /**
+     * Create a new instances of Data.
+     *
+     * @return the postal address
+     */
     public static PostalAddress createAddress() {
-        return PostalAddress.create();
+        return new PostalAddress();
+    }
+
+    /**
+     * Create a new instances of Data.
+     *
+     * @return the consumer
+     */
+    public static Consumer createConsumer() {
+        return new Consumer();
+    }
+
+    /**
+     * To calendar.
+     *
+     * @param startDate the start date
+     * @return the calendar
+     */
+    private static Calendar toCalendar(final Date startDate) {
+        final Calendar instance = Calendar.getInstance();
+        instance.setTime(startDate);
+        return instance;
     }
 
 }

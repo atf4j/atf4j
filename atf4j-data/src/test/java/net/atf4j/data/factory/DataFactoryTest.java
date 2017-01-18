@@ -25,9 +25,11 @@ import java.util.Calendar;
 
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
 import net.atf4j.data.Bank;
 import net.atf4j.data.Business;
 import net.atf4j.data.Card;
+import net.atf4j.data.Consumer;
 import net.atf4j.data.Customer;
 import net.atf4j.data.Person;
 import net.atf4j.data.PostalAddress;
@@ -35,7 +37,7 @@ import net.atf4j.data.PostalAddress;
 /**
  * A UnitTest for DataFactory objects.
  */
-public class DataFactoryTest {
+public class DataFactoryTest extends ResultsReporting {
 
     /**
      * Test default constructor.
@@ -112,6 +114,17 @@ public class DataFactoryTest {
     }
 
     /**
+     * Test method for void.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    public final void testDateBetween() throws Exception {
+        final Calendar futureDate = DataFactory.dateBetween(DataFactory.pastDate(), DataFactory.today());
+        verifyDateData(futureDate);
+    }
+
+    /**
      * test DataFactory object.
      *
      * @throws Exception
@@ -148,6 +161,17 @@ public class DataFactoryTest {
     }
 
     /**
+     * Test.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public final void test() throws Exception {
+        this.log.info("{}", DataFactory.randomChar());
+        this.log.info("{}", DataFactory.randomString(10));
+    }
+
+    /**
      * Verify DataFactory object.
      *
      * @param dateData
@@ -155,6 +179,7 @@ public class DataFactoryTest {
      */
     private void verifyDateData(final Calendar dateData) {
         assertNotNull(dateData);
+        this.log.info("verifyDateData(%s)", dateData);
         final String fromCalendar = DataFactory.format(dateData);
         final String fromDate = DataFactory.format(dateData.getTime());
         assertEquals(fromCalendar, fromDate);
@@ -162,36 +187,63 @@ public class DataFactoryTest {
         assertNotNull(fromDate);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testCreatePerson() {
         final Person person = DataFactory.createPerson();
         assertNotNull(person);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testCreateCustomer() {
         final Customer customer = DataFactory.createCustomer();
         assertNotNull(customer);
     }
 
+    /**
+     * Test method for void.
+     */
+    @Test
+    public void testCreateConsumer() {
+        final Consumer consumer = DataFactory.createConsumer();
+        assertNotNull(consumer);
+    }
+
+    /**
+     * Test method for void.
+     */
     @Test
     public void testCreateCard() {
         final Card card = DataFactory.createCard();
         assertNotNull(card);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testCreateBusiness() {
         final Business business = DataFactory.createBusiness();
         assertNotNull(business);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testCreateBank() {
         final Bank bank = DataFactory.createBank();
         assertNotNull(bank);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testCreateAddress() {
         final PostalAddress address = DataFactory.createAddress();

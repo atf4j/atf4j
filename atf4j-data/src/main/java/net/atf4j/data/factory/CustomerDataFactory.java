@@ -19,24 +19,45 @@ package net.atf4j.data.factory;
 import net.atf4j.data.Customer;
 
 /**
- * CustomerDataFactory.
- *
- *
+ * CustomerDataFactory, a data factory to create data representing customers.
  */
 public class CustomerDataFactory extends AbstractDataFactory {
 
+    private static CustomerDataFactory instance = null;
+    private String[] data;
+
     /**
-     * Instantiates a new contact data factory.
-     *
-     * @throws Exception
-     *             the exception
+     * Instantiates a new customer data factory.
      */
-    public CustomerDataFactory() throws Exception {
-        super();
+    protected CustomerDataFactory() {
+        initialise();
     }
 
     /**
-     * Creates the.
+     * Initialise.
+     */
+    protected void initialise() {
+        try {
+            this.data = load("data.txt");
+        } catch (final Exception e) {
+            this.log.error(e.getMessage());
+        }
+    }
+
+    /**
+     * Gets the single instance of CustomerDataFactory.
+     *
+     * @return single instance of CustomerDataFactory
+     */
+    public static CustomerDataFactory getInstance() {
+        if (CustomerDataFactory.instance == null) {
+            CustomerDataFactory.instance = new CustomerDataFactory();
+        }
+        return CustomerDataFactory.instance;
+    }
+
+    /**
+     * Create new instance of create.
      *
      * @return the customer
      */

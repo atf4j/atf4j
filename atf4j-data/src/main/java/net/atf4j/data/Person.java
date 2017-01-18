@@ -16,24 +16,82 @@
  */
 package net.atf4j.data;
 
-import java.util.Date;
+import java.util.Calendar;
 
 /**
  * Person.
  */
 public class Person {
 
+    /**
+     * The Gender Enum.
+     */
+    public static enum Gender {
+        MALE("Male"),
+        FEMALE("Male"),
+        UNKNOWN("");
+
+        private final String genderString;
+
+        /**
+         * Instantiates a new gender.
+         *
+         * @param asText the as text
+         */
+        private Gender(final String asText) {
+            this.genderString = asText;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {
+            return this.genderString;
+        }
+    }
+
+    /**
+     * The Title Enum.
+     */
+    public static enum Title {
+        MR("Mr"),
+        MRS("Mrs"),
+        MS("Ms"),
+        MISS("Miss"),
+        SIR("Sir"),
+        LADY("Lady"),
+        LORD("Lord"),
+        DR("Dr");
+
+        /** The value. */
+        private final String titleString;
+
+        /**
+         * Instantiates a new title.
+         *
+         * @param asText the as text
+         */
+        private Title(final String asText) {
+            this.titleString = asText;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {
+            return this.titleString;
+        }
+    }
+
     private String title;
-    private Forename forename;
-    private Name middlename;
-    private Surname surname;
-    private Date dob;
+    private String forename;
+    private String middlename;
+    private String surname;
+    private Calendar dob;
     private PostalAddress postalAddress;
     private String emailAddress;
-
-    public static Person create() {
-        return new Person();
-    }
 
     /**
      * Instantiates a new person.
@@ -53,175 +111,64 @@ public class Person {
      */
     public Person(final String forename, final String middlename, final String surname) {
         super();
-        setForename(forename);
-        setMiddlename(middlename);
-        setSurname(surname);
+        forename(forename);
+        middlename(middlename);
+        surname(surname);
     }
 
     /**
-     * Sets the forename.
+     * Title.
      *
-     * @param forename
-     *            the new forename
+     * @param title the title
      * @return the person
      */
-    public Person setForename(final String forename) {
-        return setForename(new Forename(forename));
-    }
-
-    /**
-     * Sets the forename.
-     *
-     * @param forename
-     *            the new forename
-     * @return the person
-     */
-    public Person setForename(final Forename forename) {
-        this.forename = forename;
-        return this;
-    }
-
-    /**
-     * Sets the middlename.
-     *
-     * @param middlename
-     *            the new middlename
-     * @return the person
-     */
-    public Person setMiddlename(final String middlename) {
-        return setMiddlename(new Forename(middlename));
-    }
-
-    /**
-     * Sets the middlename.
-     *
-     * @param middlename
-     *            the new middlename
-     * @return the person
-     */
-    public Person setMiddlename(final Name middlename) {
-        this.middlename = middlename;
-        return this;
-    }
-
-    /**
-     * Sets the surname.
-     *
-     * @param surname
-     *            the new surname
-     * @return the person
-     */
-    public Person setSurname(final String surname) {
-        return setSurname(new Surname(surname));
-    }
-
-    /**
-     * Sets the surname.
-     *
-     * @param surname
-     *            the new surname
-     * @return the person
-     */
-    public Person setSurname(final Surname surname) {
-        this.surname = surname;
-        return this;
-    }
-
-    /**
-     * Gets the forename.
-     *
-     * @return the forename
-     */
-    public String getForename() {
-        return this.forename.toString();
-    }
-
-    /**
-     * Gets the middlename.
-     *
-     * @return the middlename
-     */
-    public String getMiddlename() {
-        return this.middlename.toString();
-    }
-
-    /**
-     * Gets the surname.
-     *
-     * @return the surname
-     */
-    public String getSurname() {
-        return this.surname.toString();
-    }
-
-    /**
-     * nameAsString.
-     *
-     * @return fullname as String
-     */
-    public String nameAsString() {
-        final StringBuilder fullname = new StringBuilder();
-        if (this.forename != null) {
-            fullname.append("forename=").append(this.forename).append(", ");
-        }
-        if (this.middlename != null) {
-            fullname.append("middlename=").append(this.middlename).append(", ");
-        }
-        if (this.surname != null) {
-            fullname.append("surname=").append(this.surname);
-        }
-        return fullname.toString();
-    }
-
-    /**
-     * Gets the title.
-     *
-     * @return the title
-     */
-    public String getTitle() {
-        return this.title;
-    }
-
-    /**
-     * Sets the title.
-     *
-     * @param title
-     *            the title
-     * @return the person
-     */
-    public Person setTitle(final String title) {
+    public Person title(final String title) {
         this.title = title;
         return this;
     }
 
     /**
-     * Gets the dob.
+     * Forename.
      *
-     * @return the dob
-     */
-    public Date getDob() {
-        return this.dob;
-    }
-
-    /**
-     * Sets the dob.
-     *
-     * @param dob
-     *            the dob
+     * @param forename the forename
      * @return the person
      */
-    public Person setDob(final Date dob) {
-        this.dob = dob;
+    public Person forename(final String forename) {
+        this.forename = forename;
         return this;
     }
 
     /**
-     * Gets the postal address.
+     * Middlename.
      *
-     * @return the postal address
+     * @param middlename the middlename
+     * @return the person
      */
-    public PostalAddress getPostalAddress() {
-        return this.postalAddress;
+    public Person middlename(final String middlename) {
+        this.middlename = middlename;
+        return this;
+    }
+
+    /**
+     * Surname.
+     *
+     * @param surname the surname
+     * @return the person
+     */
+    public Person surname(final String surname) {
+        this.surname = surname;
+        return this;
+    }
+
+    /**
+     * Date of birth.
+     *
+     * @param dob the dob
+     * @return the person
+     */
+    public Person dateOfBirth(final Calendar dob) {
+        this.dob = dob;
+        return this;
     }
 
     /**
@@ -231,18 +178,9 @@ public class Person {
      *            the postal address
      * @return the person
      */
-    public Person setPostalAddress(final PostalAddress postalAddress) {
+    public Person postalAddress(final PostalAddress postalAddress) {
         this.postalAddress = postalAddress;
         return this;
-    }
-
-    /**
-     * Gets the email address.
-     *
-     * @return the email address
-     */
-    public String getEmailAddress() {
-        return this.emailAddress;
     }
 
     /**
@@ -252,17 +190,79 @@ public class Person {
      *            the new email address
      * @return the person
      */
-    public Person setEmailAddress(final String emailAddress) {
+    public Person emailAddress(final String emailAddress) {
         this.emailAddress = emailAddress;
         return this;
     }
 
     /**
-     * Debug string.
+     * Gets the title.
+     *
+     * @return the title
+     */
+    public String title() {
+        return this.title;
+    }
+
+    /**
+     * Forename.
      *
      * @return the string
      */
-    public String debugString() {
+    public String forename() {
+        return this.forename;
+    }
+
+    /**
+     * Middlename.
+     *
+     * @return the string
+     */
+    public String middlename() {
+        return this.middlename;
+    }
+
+    /**
+     * Surname.
+     *
+     * @return the string
+     */
+    public String surname() {
+        return this.surname;
+    }
+
+    /**
+     * Date of birth.
+     *
+     * @return the calendar
+     */
+    public Calendar dateOfBirth() {
+        return this.dob;
+    }
+
+    /**
+     * Gets the postal address.
+     *
+     * @return the postal address
+     */
+    public PostalAddress postalAddress() {
+        return this.postalAddress;
+    }
+
+    /**
+     * Gets the email address.
+     *
+     * @return the email address
+     */
+    public String emailAddress() {
+        return this.emailAddress;
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
         return String.format(
                 "%s [title=%s, forename=%s, middlename=%s, surname=%s, dob=%s, postalAddress=%s, emailAddress=%s]",
                 this.getClass().getSimpleName(),
@@ -273,14 +273,6 @@ public class Person {
                 this.dob,
                 this.postalAddress,
                 this.emailAddress);
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
-        return debugString();
     }
 
 }

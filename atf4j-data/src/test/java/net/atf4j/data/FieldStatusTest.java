@@ -20,8 +20,16 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-public class FieldStatusTest {
+import net.atf4j.core.ResultsReporting;
 
+/**
+ * A UnitTest for FieldStatus objects.
+ */
+public class FieldStatusTest extends ResultsReporting {
+
+    /**
+     * Test method for void.
+     */
     @Test
     public void testInitialise() {
         final FieldStatus fieldStatus = FieldStatus.initialise();

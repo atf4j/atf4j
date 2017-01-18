@@ -20,10 +20,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
+
 /**
  * A UnitTest for EmailAddress objects.
  */
-public class EmailAddressTest {
+public class EmailAddressTest extends ResultsReporting {
 
     private static final String NAME_EXAMPLE_COM = "name@example.com";
 
@@ -36,13 +38,8 @@ public class EmailAddressTest {
     }
 
     /**
-     * Test method for EmailAddress}.
+     * Test method for void.
      */
-    @Test
-    public void testEmailAddressString() {
-        new EmailAddress(NAME_EXAMPLE_COM);
-    }
-
     @Test
     public void testCreate() {
         assertNotNull(EmailAddress.create());
@@ -52,8 +49,16 @@ public class EmailAddressTest {
      * Test method for EmailAddress}.
      */
     @Test
+    public void testEmailAddressString() {
+        this.log.info(new EmailAddress(NAME_EXAMPLE_COM).toString());
+    }
+
+    /**
+     * Test method for EmailAddress}.
+     */
+    @Test
     public void testVerify() {
-        new EmailAddress(NAME_EXAMPLE_COM);
+        this.log.info(new EmailAddress(NAME_EXAMPLE_COM).toString());
     }
 
     /**
@@ -61,8 +66,9 @@ public class EmailAddressTest {
      */
     @Test
     public void testDebugString() {
-        final String string = new EmailAddress().debugString();
-        assertNotNull(string);
+        final String debugString = new EmailAddress().debugString();
+        assertNotNull(debugString);
+        this.log.info(debugString);
     }
 
     /**
@@ -72,6 +78,7 @@ public class EmailAddressTest {
     public void testToString() {
         final String string = new EmailAddress().toString();
         assertNotNull(string);
+        this.log.info(string);
     }
 
 }

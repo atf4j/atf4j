@@ -20,23 +20,44 @@ import net.atf4j.data.Bank;
 
 /**
  * BankAccountFactory.
- *
- *
  */
 public class BankDataFactory extends AbstractDataFactory {
 
+    private static BankDataFactory instance = null;
+    private String[] data;
+
     /**
      * Instantiates a new bank data factory.
-     *
-     * @throws Exception
-     *             the exception
      */
-    protected BankDataFactory() throws Exception {
-        super();
+    protected BankDataFactory() {
+        initialise();
     }
 
     /**
-     * Creates the.
+     * Initialise.
+     */
+    protected void initialise() {
+        try {
+            this.data = load("data.txt");
+        } catch (final Exception e) {
+            this.log.error(e.getMessage());
+        }
+    }
+
+    /**
+     * Gets the single instance of BankDataFactory.
+     *
+     * @return single instance of BankDataFactory
+     */
+    public static BankDataFactory getInstance() {
+        if (BankDataFactory.instance == null) {
+            BankDataFactory.instance = new BankDataFactory();
+        }
+        return BankDataFactory.instance;
+    }
+
+    /**
+     * Create new instance of create.
      *
      * @return the bank
      */

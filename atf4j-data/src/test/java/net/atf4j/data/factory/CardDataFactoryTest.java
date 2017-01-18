@@ -20,26 +20,25 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
 import net.atf4j.data.Card;
 
 /**
  * A UnitTest for CardDataFactory objects.
  */
-public class CardDataFactoryTest {
+public class CardDataFactoryTest extends ResultsReporting {
 
     /**
-     * Test method for CardDataFactory}.
-     *
-     * @throws Exception
-     *             the exception
+     * Test method for void.
      */
     @Test
-    public void testDefaultConstructor() throws Exception {
-        assertNotNull(new CardDataFactory());
+    public void testGetInstance() {
+        final CardDataFactory instance = CardDataFactory.getInstance();
+        assertNotNull(instance);
     }
 
     /**
-     * Test method for CardDataFactory}.
+     * Test method for void.
      */
     @Test
     public void testCreate() {

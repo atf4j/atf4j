@@ -34,6 +34,11 @@ public class EmailAddress {
     /** The email. */
     private String email;
 
+    /**
+     * Create new instance of create.
+     *
+     * @return the email address
+     */
     public static EmailAddress create() {
         return new EmailAddress();
     }

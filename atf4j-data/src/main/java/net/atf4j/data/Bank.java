@@ -18,13 +18,18 @@ package net.atf4j.data;
 
 /**
  * Bank data class.
- *
- *
  */
 public class Bank extends Business {
 
     private BankSortCode bankSortCode;
+    private String sortCode;
+    private String iban;
 
+    /**
+     * Create new instance of create.
+     *
+     * @return the bank
+     */
     public static Bank create() {
         final Bank bank = new Bank();
         final BankSortCode bankSortCode = BankSortCode.create();
@@ -39,6 +44,11 @@ public class Bank extends Business {
         this.bankSortCode = new BankSortCode();
     }
 
+    /**
+     * Instantiates a new bank.
+     *
+     * @param bankName the bank name
+     */
     public Bank(final String bankName) {
         this.bankSortCode = new BankSortCode();
         setName(bankName);
@@ -78,7 +88,7 @@ public class Bank extends Business {
      */
     @Override
     public String debugString() {
-        return String.format("%s [bankSortCode=%s]",this.getClass().getSimpleName(), this.bankSortCode);
+        return String.format("%s [bankSortCode=%s]", this.getClass().getSimpleName(), this.bankSortCode);
     }
 
 }

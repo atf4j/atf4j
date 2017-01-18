@@ -19,35 +19,36 @@ package net.atf4j.data;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.util.Date;
+import java.util.Calendar;
 
 import org.junit.Test;
+
+import net.atf4j.core.ResultsReporting;
 
 /**
  * A UnitTest for Person objects.
  */
-public class PersonTest {
+public class PersonTest extends ResultsReporting {
 
     /**
-     * Test method for Person}.
+     * Test method for void.
      */
     @Test
     public void testPerson() {
-        assertNotNull(new Person());
-    }
-
-    /**
-     * Test method for Person}.
-     */
-    @Test
-    public void testPersonStringStringString() {
-        final Person person = new Person("Forname", "MiddleName", "Surname");
+        final Person person = new Person()
+                                          .forename("Forname")
+                                          .middlename("MiddleName")
+                                          .surname("Surname");
         assertNotNull(person);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
-    public void testCreate() {
-        assertNotNull(Person.create());
+    public void testPersonFornameMiddleSurname() {
+        final Person person = new Person("Forname", "MiddleName", "Surname");
+        assertNotNull(person);
     }
 
     /**
@@ -56,7 +57,7 @@ public class PersonTest {
     @Test
     public void testSetGetTitle() {
         final String actual = "";
-        assertEquals(actual, new Person().setTitle(actual).getTitle());
+        assertEquals(actual, new Person().title(actual).title());
     }
 
     /**
@@ -65,7 +66,7 @@ public class PersonTest {
     @Test
     public void testSetGetForenameString() {
         final String actual = "Forename";
-        assertEquals(actual, new Person().setForename(actual).getForename());
+        assertEquals(actual, new Person().forename(actual).forename());
     }
 
     /**
@@ -74,7 +75,7 @@ public class PersonTest {
     @Test
     public void testSetGetMiddlenameString() {
         final String actual = "Middlename";
-        assertEquals(actual, new Person().setMiddlename(actual).getMiddlename());
+        assertEquals(actual, new Person().middlename(actual).middlename());
     }
 
     /**
@@ -83,7 +84,7 @@ public class PersonTest {
     @Test
     public void testSetGetSurnameString() {
         final String actual = "Surname";
-        assertEquals(actual, new Person().setSurname(actual).getSurname());
+        assertEquals(actual, new Person().surname(actual).surname());
     }
 
     /**
@@ -91,8 +92,8 @@ public class PersonTest {
      */
     @Test
     public void testSetGetDob() {
-        final Date actual = new Date();
-        assertEquals(actual, new Person().setDob(actual).getDob());
+        final Calendar actual = Calendar.getInstance();
+        assertEquals(actual, new Person().dateOfBirth(actual).dateOfBirth());
     }
 
     /**
@@ -101,7 +102,7 @@ public class PersonTest {
     @Test
     public void testSetGetPostalAddress() {
         final PostalAddress actual = null;
-        assertEquals(actual, new Person().setPostalAddress(actual).getPostalAddress());
+        assertEquals(actual, new Person().postalAddress(actual).postalAddress());
     }
 
     /**
@@ -110,7 +111,7 @@ public class PersonTest {
     @Test
     public void testSetGetEmailAddress() {
         final String actual = "";
-        assertEquals(actual, new Person().setEmailAddress(actual).getEmailAddress());
+        assertEquals(actual, new Person().emailAddress(actual).emailAddress());
     }
 
     /**
@@ -119,14 +120,6 @@ public class PersonTest {
     @Test
     public void testToString() {
         new Person().toString();
-    }
-
-    /**
-     * Test method for Person}.
-     */
-    @Test
-    public void testDebugString() {
-        new Person().debugString();
     }
 
 }

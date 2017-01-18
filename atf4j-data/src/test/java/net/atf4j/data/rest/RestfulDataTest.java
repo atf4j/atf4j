@@ -20,23 +20,38 @@ import org.junit.Test;
 
 import net.atf4j.data.management.RestfulData;
 
+/**
+ * A UnitTest for RestfulData objects.
+ */
 public class RestfulDataTest {
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testSetUp() {
         new RestfulData().setUp();
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testReset() {
         new RestfulData().reset();
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testTearDown() {
         new RestfulData().tearDown();
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testRestfulData() {
         new RestfulData();

@@ -24,27 +24,79 @@ import net.atf4j.data.PostalAddress;
  */
 public class AddressDataFactory extends AbstractDataFactory {
 
-    private final CsvFile postCodeData;
-    private final CsvFile postalTownsUK;
+    public static final String RANDOM = null;
+    private static AddressDataFactory instance = null;
+
+    private CsvFile postCodeData = null;
+    private CsvFile postalTownsUK = null;
 
     /**
      * Instantiates a new address data factory.
-     *
-     * @throws Exception
-     *             the exception
      */
-    public AddressDataFactory() throws Exception {
-        this.postCodeData = new CsvFile("postCodeData.csv");
-        this.postalTownsUK = new CsvFile("postalTownsUK.csv");
+    protected AddressDataFactory() {
+        initialise();
     }
 
     /**
-     * Creates the.
+     * Initialise.
+     */
+    protected void initialise() {
+        try {
+            this.postalTownsUK = new CsvFile("postalTownsUK.csv");
+        } catch (final Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            this.postCodeData = new CsvFile("postCodeData.csv");
+        } catch (final Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Gets the single instance of AddressDataFactory.
+     *
+     * @return single instance of AddressDataFactory
+     */
+    public static AddressDataFactory getInstance() {
+        if (AddressDataFactory.instance == null) {
+            AddressDataFactory.instance = new AddressDataFactory();
+        }
+        return AddressDataFactory.instance;
+    }
+
+    /**
+     * Create new instance of create.
      *
      * @return the postal address
      */
     public static PostalAddress create() {
-        return new PostalAddress();
+        final PostalAddress postalAddress = new PostalAddress();
+        return postalAddress;
+    }
+
+    /**
+     * Random.
+     *
+     * @return the postal address
+     */
+    public static PostalAddress random() {
+        return null;
+    }
+
+    public static PostalAddress random(final Object characteristic) {
+        return null;
+    }
+
+    /**
+     * For tag.
+     *
+     * @param string
+     *            the string
+     * @return the postal address
+     */
+    public static PostalAddress forTag(final String string) {
+        return null;
     }
 
 }

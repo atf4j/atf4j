@@ -21,10 +21,12 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
+
 /**
  * A UnitTest for Postcode objects.
  */
-public class PostcodeTest {
+public class PostcodeTest extends ResultsReporting {
 
     /**
      * Test method for Postcode}.
@@ -42,6 +44,9 @@ public class PostcodeTest {
         assertNotNull(new Postcode());
     }
 
+    /**
+     * Test method for void.
+     */
     public void testPostcodeCreate() {
         assertNotNull(Postcode.create());
     }

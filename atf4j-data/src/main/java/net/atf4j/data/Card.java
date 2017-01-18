@@ -31,6 +31,11 @@ public class Card {
     private Date startDate;
     // Card CCV
 
+    /**
+     * Create new instance of create.
+     *
+     * @return the card
+     */
     public static Card create() {
         return new Card();
     }
@@ -235,6 +240,12 @@ public class Card {
         return matcher.matches();
     }
 
+    /**
+     * Clean card number.
+     *
+     * @param cardNumber the card number
+     * @return the string
+     */
     private static String cleanCardNumber(final String cardNumber) {
         return cardNumber.replaceAll("[^0-9]+", "");
     }

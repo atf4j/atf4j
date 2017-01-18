@@ -20,10 +20,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
+
 /**
  * Unit Test for PostalAddress.
  */
-public class PostalAddressTest {
+public class PostalAddressTest extends ResultsReporting {
 
     /**
      * Test method for PostalAddress}.
@@ -31,15 +33,6 @@ public class PostalAddressTest {
     @Test
     public void testDefaultConstructor() {
         final PostalAddress address = new PostalAddress();
-        assertNotNull(address);
-    }
-
-    /**
-     * Test method for PostalAddress}.
-     */
-    @Test
-    public void testAddress() {
-        final PostalAddress address = PostalAddress.create();
         assertNotNull(address);
     }
 

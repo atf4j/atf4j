@@ -24,10 +24,12 @@ import java.util.Date;
 
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
+
 /**
  * A UnitTest for Card objects.
  */
-public class CardTest {
+public class CardTest extends ResultsReporting {
 
     private static final String INVALID_NUMBER = "1111-1111-1111-1111";
     private static final String AMEX_1 = "0000 1234 5678 9999";
@@ -66,6 +68,9 @@ public class CardTest {
         assertNotNull(new Card(provider, cardNumber, cardName, endDate, startDate));
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testCardFluentInterface() {
         final String provider = "Provider";
@@ -81,6 +86,9 @@ public class CardTest {
         assertNotNull(card);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testVerifyInvalid() {
         assertFalse(Card.luhnCheck(INVALID_NUMBER));
@@ -92,6 +100,9 @@ public class CardTest {
     // assertFalse(Card.verifyAmex(AMEX_1));
     // }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testVerifyVisa() {
         assertTrue(Card.verifyVisa(VISA_CARD_1));

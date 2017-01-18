@@ -29,10 +29,18 @@ public class ProductCatalog {
     /** The catalog. */
     private Collection<Product> catalog = new ArrayDeque<Product>();
 
+    /**
+     * Create new instance of create.
+     *
+     * @return the product catalog
+     */
     public static ProductCatalog create() {
         return new ProductCatalog();
     }
 
+    /**
+     * Instantiates a new product catalog.
+     */
     public ProductCatalog() {
         super();
     }

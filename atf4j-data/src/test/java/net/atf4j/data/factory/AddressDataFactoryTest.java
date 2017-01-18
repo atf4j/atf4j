@@ -20,30 +20,38 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
 import net.atf4j.data.PostalAddress;
 
 /**
  * A UnitTest for AddressDataFactory objects.
  */
-public class AddressDataFactoryTest {
+public class AddressDataFactoryTest extends ResultsReporting {
 
     /**
-     * Test method for AddressDataFactory}.
-     *
-     * @throws Exception
-     *             the exception
-     */
-    @Test
-    public void testDefaultConstructor() throws Exception {
-        assertNotNull(new AddressDataFactory());
-    }
-
-    /**
-     * Test method for AddressDataFactory}.
+     * Test method for void.
      */
     @Test
     public void testCreate() {
         final PostalAddress address = AddressDataFactory.create();
+        assertNotNull(address);
+    }
+
+    /**
+     * Test method for void.
+     */
+    @Test
+    public void testRandom() {
+        final PostalAddress address = AddressDataFactory.random();
+        assertNotNull(address);
+    }
+
+    /**
+     * Test method for void.
+     */
+    @Test
+    public void testGetFromTag() {
+        final PostalAddress address = AddressDataFactory.forTag("WIP");
         assertNotNull(address);
     }
 

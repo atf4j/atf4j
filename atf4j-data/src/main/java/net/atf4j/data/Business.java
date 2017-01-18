@@ -23,6 +23,11 @@ public class Business extends Name {
 
     private PostalAddress address;
 
+    /**
+     * Create new instance of create.
+     *
+     * @return the business
+     */
     public static Business create() {
         return new Business();
     }

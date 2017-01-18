@@ -21,10 +21,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
+
 /**
  * A UnitTest for BankSortCode objects.
  */
-public class BankSortCodeTest {
+public class BankSortCodeTest extends ResultsReporting {
 
     /**
      * Test method for BankSortCode}.
@@ -43,6 +45,9 @@ public class BankSortCodeTest {
         assertNotNull(new BankSortCode(actual));
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testCreate() {
         assertNotNull(BankSortCode.create());

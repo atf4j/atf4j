@@ -25,18 +25,41 @@ import net.atf4j.data.Business;
  */
 public class BusinessDataFactory extends AbstractDataFactory {
 
+    private static BusinessDataFactory instance = null;
+    private String[] data;
+
     /**
      * Instantiates a new business data factory.
-     *
-     * @throws Exception
-     *             the exception
      */
-    protected BusinessDataFactory() throws Exception {
-        super();
+    protected BusinessDataFactory() {
+        initialise();
     }
 
     /**
-     * Creates the.
+     * Initialise.
+     */
+    protected void initialise() {
+        try {
+            this.data = load("data.txt");
+        } catch (final Exception e) {
+            this.log.error(e.getMessage());
+        }
+    }
+
+    /**
+     * Gets the single instance of BusinessDataFactory.
+     *
+     * @return single instance of BusinessDataFactory
+     */
+    public static BusinessDataFactory getInstance() {
+        if (BusinessDataFactory.instance == null) {
+            BusinessDataFactory.instance = new BusinessDataFactory();
+        }
+        return BusinessDataFactory.instance;
+    }
+
+    /**
+     * Create new instance of create.
      *
      * @return the business
      */

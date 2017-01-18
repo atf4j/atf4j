@@ -20,19 +20,54 @@ import net.atf4j.data.Person;
 
 /**
  * PersonFactory, a data factory to create data.
- *
- *
  */
 public class PersonDataFactory extends AbstractDataFactory {
 
+    private static PersonDataFactory instance = null;
+    private String[] maleForenames;
+    private String[] femaleForenames;
+    private String[] surnames;
+
     /**
      * Instantiates a new person data factory.
-     *
-     * @throws Exception
-     *             the exception
      */
-    public PersonDataFactory() throws Exception {
-        super();
+    protected PersonDataFactory() {
+        initialise();
+    }
+
+    /**
+     * Initialise.
+     */
+    protected void initialise() {
+        try {
+            this.maleForenames = load("male-forenames.txt");
+        } catch (final Exception e) {
+            this.log.error(e.getMessage());
+        }
+
+        try {
+            this.femaleForenames = load("female-forenames.txt");
+        } catch (final Exception e) {
+            this.log.error(e.getMessage());
+        }
+
+        try {
+            this.surnames = load("surnames.txt");
+        } catch (final Exception e) {
+            this.log.error(e.getMessage());
+        }
+    }
+
+    /**
+     * Gets the single instance of PersonDataFactory.
+     *
+     * @return single instance of PersonDataFactory
+     */
+    protected static PersonDataFactory getInstance() {
+        if (PersonDataFactory.instance == null) {
+            PersonDataFactory.instance = new PersonDataFactory();
+        }
+        return PersonDataFactory.instance;
     }
 
     /**
@@ -41,7 +76,60 @@ public class PersonDataFactory extends AbstractDataFactory {
      * @return the postal address
      */
     public static Person create() {
-        return new Person();
+        final Person person = new Person();
+        person.forename(randomForename());
+        person.surname(randomSurname());
+        person.dateOfBirth(DataFactory.dateOfBirth());
+        return person;
+    }
+
+    /**
+     * Random forename.
+     *
+     * @return the string
+     */
+    public static String randomForename() {
+        if (random.nextBoolean()) {
+            return randomMaleForename();
+        } else {
+            return randomFemaleForename();
+        }
+    }
+
+    /**
+     * Random male forename.
+     *
+     * @return the string
+     */
+    public static String randomMaleForename() {
+        return randomEntry(getInstance().maleForenames);
+    }
+
+    /**
+     * Random female forename.
+     *
+     * @return the string
+     */
+    public static String randomFemaleForename() {
+        return randomEntry(getInstance().femaleForenames);
+    }
+
+    /**
+     * Random surname.
+     *
+     * @return the string
+     */
+    public static String randomSurname() {
+        return randomEntry(getInstance().surnames);
+    }
+
+    /**
+     * Random fullname.
+     *
+     * @return the string
+     */
+    public static String randomFullname() {
+        return String.format("%s %s", randomForename(), randomSurname());
     }
 
 }

@@ -20,31 +20,49 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
 import net.atf4j.data.Person;
 
 /**
- * A UnitTest for PersonDataFactory objects.
+ * Unit Test Suite for the PersonDataFactory.
  */
-public class PersonDataFactoryTest {
+public class PersonDataFactoryTest extends ResultsReporting {
 
     /**
-     * Test method for PersonDataFactory}.
-     *
-     * @throws Exception
-     *             the exception
+     * Test.
      */
     @Test
-    public void testDefaultConstructor() throws Exception {
-        assertNotNull(new PersonDataFactory());
+    public void test() {
+        this.log.info(PersonDataFactory.randomForename());
+        this.log.info(PersonDataFactory.randomFemaleForename());
+        this.log.info(PersonDataFactory.randomMaleForename());
+
+        this.log.info(PersonDataFactory.randomSurname());
+        this.log.info(PersonDataFactory.randomSurname());
+        this.log.info(PersonDataFactory.randomSurname());
+
+        this.log.info(PersonDataFactory.randomFullname());
+
+        this.log.info(PersonDataFactory.randomFullname());
     }
 
     /**
-     * Test method for PersonDataFactory}.
+     * Test method for void.
+     */
+    @Test
+    public void testGetInstance() {
+        final AbstractDataFactory instance = PersonDataFactory.getInstance();
+        assertNotNull(instance);
+    }
+
+    /**
+     * Test method for void.
      */
     @Test
     public void testCreate() {
         final Person person = PersonDataFactory.create();
         assertNotNull(person);
+        this.log.info(person.toString());
     }
 
 }

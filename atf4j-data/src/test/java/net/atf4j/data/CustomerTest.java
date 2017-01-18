@@ -21,10 +21,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
+
 /**
  * A UnitTest for Customer objects.
  */
-public class CustomerTest {
+public class CustomerTest extends ResultsReporting {
 
     /**
      * Test method for Customer}.
@@ -34,18 +36,13 @@ public class CustomerTest {
         assertNotNull(new Customer());
     }
 
-    @Test
-    public void testCreate() {
-        assertNotNull(Customer.create());
-    }
-
     /**
      * Test method for Customer}.
      */
     @Test
     public void testSetGetTitle() {
         final String title = "Title";
-        assertEquals(title, new Customer().setTitle(title).getTitle());
+        assertEquals(title, new Customer().title(title).title());
     }
 
     /**
@@ -54,7 +51,7 @@ public class CustomerTest {
     @Test
     public void testSetGetForename() {
         final String forename = "Forename";
-        assertEquals(forename, new Customer().setForename(forename).getForename());
+        assertEquals(forename, new Customer().forename(forename).forename());
     }
 
     /**
@@ -63,16 +60,7 @@ public class CustomerTest {
     @Test
     public void testSetGetSurname() {
         final String surname = "Surname";
-        assertEquals(surname, new Customer().setSurname(surname).getSurname());
-    }
-
-    /**
-     * Test method for Customer}.
-     */
-    @Test
-    public void testDebugString() {
-        final String string = new Customer().debugString();
-        assertNotNull(string);
+        assertEquals(surname, new Customer().surname(surname).surname());
     }
 
     /**

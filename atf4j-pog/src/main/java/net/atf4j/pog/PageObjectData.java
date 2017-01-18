@@ -20,14 +20,15 @@ import java.util.ArrayList;
 
 /**
  * PageObject data class.
- *
- * @FindBy(id = "")
- * @FindBy(name = "")
- * @FindBy(linkText = "")
- * @FindBy(partialLinkText = "")
- * @FindBy(className = "")
- * @FindBy(xpath = "")
- * @FindBy(css = "")
+ * <code>
+ * &#64;FindBy(id = "")
+ * &#64;FindBy(name = "")
+ * &#64;FindBy(linkText = "")
+ * &#64;FindBy(partialLinkText = "")
+ * &#64;FindBy(className = "")
+ * &#64;FindBy(xpath = "")
+ * &#64;FindBy(css = "")
+ * </code>
  */
 public class PageObjectData {
 
@@ -46,7 +47,8 @@ public class PageObjectData {
     /**
      * Adds the.
      *
-     * @param pageWebElement the page web element
+     * @param pageWebElement
+     *            the page web element
      * @return the page object data
      */
     public PageObjectData add(final PageWebElement pageWebElement) {
@@ -57,7 +59,8 @@ public class PageObjectData {
     /**
      * Adds the nav.
      *
-     * @param navElement the nav element
+     * @param navElement
+     *            the nav element
      * @return the page object data
      */
     public PageObjectData addNav(final PageWebElement navElement) {
@@ -68,7 +71,8 @@ public class PageObjectData {
     /**
      * Adds the content.
      *
-     * @param contentMethod the content method
+     * @param contentMethod
+     *            the content method
      * @return the page object data
      */
     public PageObjectData addContent(final PageWebElement contentMethod) {
@@ -79,7 +83,8 @@ public class PageObjectData {
     /**
      * Adds the input.
      *
-     * @param inputMethod the input method
+     * @param inputMethod
+     *            the input method
      * @return the page object data
      */
     public PageObjectData addInput(final PageWebElement inputMethod) {

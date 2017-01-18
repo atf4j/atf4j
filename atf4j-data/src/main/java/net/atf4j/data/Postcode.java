@@ -35,6 +35,11 @@ public class Postcode {
     /** The post code. */
     private String postCode;
 
+    /**
+     * Create new instance of create.
+     *
+     * @return the postcode
+     */
     public static Postcode create() {
         return new Postcode();
     }

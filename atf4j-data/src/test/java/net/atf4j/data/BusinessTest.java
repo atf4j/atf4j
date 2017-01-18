@@ -20,10 +20,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
+
 /**
  * A UnitTest for Business objects.
  */
-public class BusinessTest {
+public class BusinessTest extends ResultsReporting {
 
     /**
      * Test method for Business}.
@@ -51,6 +53,9 @@ public class BusinessTest {
         assertNotNull(business);
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testCreate() {
         assertNotNull(Business.create());

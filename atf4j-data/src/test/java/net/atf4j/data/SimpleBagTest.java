@@ -21,10 +21,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
+
 /**
  * A UnitTest for Bag objects.
  */
-public class SimpleBagTest {
+public class SimpleBagTest extends ResultsReporting {
 
     /**
      * Test method for SimpleBag}.

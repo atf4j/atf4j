@@ -39,6 +39,7 @@ public class CustomRunner extends Runner {
             final Class<?> retClass = classMethod.getReturnType();
             final int length = classMethod.getParameterTypes().length;
             final int modifiers = classMethod.getModifiers();
+
             if (retClass == null
                     || length != 0
                     || Modifier.isStatic(modifiers)
@@ -47,11 +48,13 @@ public class CustomRunner extends Runner {
                     || Modifier.isAbstract(modifiers)) {
                 continue;
             }
+
             final String methodName = classMethod.getName();
             if (methodName.toUpperCase().startsWith("TEST")
                     || classMethod.getAnnotation(Test.class) != null) {
                 this.testMethods.add(classMethod);
             }
+
             if (classMethod.getAnnotation(Ignore.class) != null) {
                 this.testMethods.remove(classMethod);
             }

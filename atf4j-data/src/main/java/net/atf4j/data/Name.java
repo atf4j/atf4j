@@ -17,7 +17,7 @@
 package net.atf4j.data;
 
 /**
- * Name for Entity
+ * Name for Entity.
  */
 public abstract class Name extends Datum {
 
@@ -68,10 +68,13 @@ public abstract class Name extends Datum {
      *            as String.
      * @return string input as capitalised String.
      */
+    @Deprecated
     public static String capitalise(final String input) {
         if (input != null) {
             if (input.length() > 0) {
-                final StringBuffer buffer = new StringBuffer(input.trim().toLowerCase());
+                final String trim = input.trim();
+                final String lowerCase = trim.toLowerCase();
+                final StringBuffer buffer = new StringBuffer(lowerCase);
                 buffer.setCharAt(0, Character.toUpperCase(input.charAt(0)));
                 return buffer.toString();
             }

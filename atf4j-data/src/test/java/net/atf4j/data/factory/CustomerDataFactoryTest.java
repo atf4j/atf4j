@@ -20,26 +20,33 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
 import net.atf4j.data.Customer;
 
 /**
- * A UnitTest for CustomerDataFactory objects.
+ * Unit Test Suite for the CustomerDataFactory.
  */
-public class CustomerDataFactoryTest {
+public class CustomerDataFactoryTest extends ResultsReporting {
 
     /**
-     * Test method for CustomerDataFactory}.
-     *
-     * @throws Exception
-     *             the exception
+     * Test.
      */
     @Test
-    public void testDefaultConstructor() throws Exception {
-        assertNotNull(new CustomerDataFactory());
+    public void test() {
+        this.log.info(CustomerDataFactory.create().toString());
     }
 
     /**
-     * Test method for CustomerDataFactory}.
+     * Test method for void.
+     */
+    @Test
+    public void testGetInstance() {
+        final CustomerDataFactory instance = CustomerDataFactory.getInstance();
+        assertNotNull(instance);
+    }
+
+    /**
+     * Test method for void.
      */
     @Test
     public void testCreate() {

@@ -21,28 +21,46 @@ import org.junit.Test;
 import net.atf4j.data.Customer;
 import net.atf4j.data.management.JdbcData;
 
+/**
+ * A UnitTest for JdbcData objects.
+ */
 public class JdbcDataTest {
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testDefaultConstructor() {
         new Customer();
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testSetUp() {
         new JdbcData().setUp();
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testReset() {
         new JdbcData().reset();
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testTearDown() {
         new JdbcData().tearDown();
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testJdbcData() {
         new JdbcData();

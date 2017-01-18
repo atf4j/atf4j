@@ -25,18 +25,41 @@ import net.atf4j.data.Card;
  */
 public class CardDataFactory extends AbstractDataFactory {
 
+    private static CardDataFactory instance = null;
+    private String[] data;
+
     /**
      * Instantiates a new card data factory.
-     *
-     * @throws Exception
-     *             the exception
      */
-    public CardDataFactory() throws Exception {
-        super();
+    protected CardDataFactory() {
+        initialise();
     }
 
     /**
-     * Creates the.
+     * Initialise.
+     */
+    protected void initialise() {
+        try {
+            this.data = load("data.txt");
+        } catch (final Exception e) {
+            this.log.error(e.getMessage());
+        }
+    }
+
+    /**
+     * Gets the single instance of CardDataFactory.
+     *
+     * @return single instance of CardDataFactory
+     */
+    public static CardDataFactory getInstance() {
+        if (CardDataFactory.instance == null) {
+            CardDataFactory.instance = new CardDataFactory();
+        }
+        return CardDataFactory.instance;
+    }
+
+    /**
+     * Create new instance of create.
      *
      * @return the card
      */

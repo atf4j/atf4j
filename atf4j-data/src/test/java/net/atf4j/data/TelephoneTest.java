@@ -21,10 +21,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
+
 /**
  * A UnitTest for Telephone objects.
  */
-public class TelephoneTest {
+public class TelephoneTest extends ResultsReporting {
 
     private static final String _0123456789 = "0123456789";
 

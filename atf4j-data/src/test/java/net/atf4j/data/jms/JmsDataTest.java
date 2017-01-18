@@ -20,23 +20,38 @@ import org.junit.Test;
 
 import net.atf4j.data.management.JmsData;
 
+/**
+ * A UnitTest for JmsData objects.
+ */
 public class JmsDataTest {
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testSetUp() {
         new JmsData().setUp();
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testReset() {
         new JmsData().reset();
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testTearDown() {
         new JmsData().tearDown();
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testJmsData() {
         new JmsData();

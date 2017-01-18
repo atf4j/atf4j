@@ -30,6 +30,11 @@ public class BankSortCode {
     /** The bank sort code. */
     private String bankSortCode;
 
+    /**
+     * Create new instance of create.
+     *
+     * @return the bank sort code
+     */
     public static BankSortCode create() {
         return new BankSortCode();
     }

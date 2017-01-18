@@ -21,10 +21,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
+
 /**
  * A UnitTest for Bank objects.
  */
-public class BankTest {
+public class BankTest extends ResultsReporting {
 
     /**
      * Test method for Bank}.
@@ -34,6 +36,9 @@ public class BankTest {
         assertNotNull(new Bank());
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testBank() {
         final Bank bank = new Bank();
@@ -49,6 +54,9 @@ public class BankTest {
         assertNotNull(Bank.create());
     }
 
+    /**
+     * Test method for void.
+     */
     @Test
     public void testSetGetName() {
         final String bankName = "Bank Name";

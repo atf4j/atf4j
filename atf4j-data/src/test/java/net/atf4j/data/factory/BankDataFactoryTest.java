@@ -20,26 +20,25 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
 import net.atf4j.data.Bank;
 
 /**
  * A UnitTest for BankDataFactory objects.
  */
-public class BankDataFactoryTest {
+public class BankDataFactoryTest extends ResultsReporting {
 
     /**
-     * Test method for BankDataFactory}.
-     *
-     * @throws Exception
-     *             the exception
+     * Test method for void.
      */
     @Test
-    public void testDefaultConstructor() throws Exception {
-        assertNotNull(new BankDataFactory());
+    public void testGetInstance() {
+        final BankDataFactory instance = BankDataFactory.getInstance();
+        assertNotNull(instance);
     }
 
     /**
-     * Test method for BankDataFactory}.
+     * Test method for void.
      */
     @Test
     public void testCreate() {

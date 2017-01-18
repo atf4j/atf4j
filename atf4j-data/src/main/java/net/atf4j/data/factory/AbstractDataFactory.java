@@ -16,103 +16,79 @@
  */
 package net.atf4j.data.factory;
 
-import net.atf4j.csv.CsvFile;
+import static org.junit.Assert.assertNotNull;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A factory for creating AbstractData objects.
  */
 public abstract class AbstractDataFactory {
 
-    private CsvFile csvFile = null;
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+    protected static Random random = new Random(System.currentTimeMillis());
 
     /**
-     * Instantiates a new abstract data factory.
+     * Load.
      *
-     * @throws Exception
-     *             the exception
+     * @param dataFilename the data filename
+     * @return the string[]
+     * @throws Exception the exception
      */
-    public AbstractDataFactory() throws Exception {
-        super();
-    }
-
-    /**
-     * Instantiates a new abstract data factory.
-     *
-     * @param dataFilename
-     *            the data filename
-     * @throws Exception
-     *             the exception
-     */
-    public AbstractDataFactory(final String dataFilename) throws Exception {
-        load(dataFilename);
+    public String[] load(final String dataFilename) throws Exception {
+        assertNotNull(dataFilename);
+        final ClassLoader classLoader = this.getClass().getClassLoader();
+        final InputStream inputStream = classLoader.getResourceAsStream(dataFilename);
+        if (inputStream != null) {
+            return load(inputStream);
+        } else {
+            throw new FileNotFoundException(dataFilename);
+        }
     }
 
     /**
      * Load.
      *
-     * @return the abstract data factory
-     * @throws Exception
-     *             the exception
+     * @param inputStream the input stream
+     * @return the string[]
+     * @throws Exception the exception
      */
-    protected AbstractDataFactory load() throws Exception {
-        final String simpleName = this.getClass().getSimpleName();
-        final String dataFilename = String.format("%s.csv", simpleName);
-        return load(dataFilename);
+    public String[] load(final InputStream inputStream) throws Exception {
+        assertNotNull(inputStream);
+        final InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        final BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        final List<String> lines = new ArrayList<String>();
+        try {
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                lines.add(line);
+                this.log.trace(line);
+            }
+        } finally {
+            bufferedReader.close();
+        }
+        return lines.toArray(new String[lines.size()]);
     }
 
     /**
-     * Load data.
+     * Random entry.
      *
-     * @param dataFilename
-     *            the data filename
-     * @return the abstract data factory
-     * @throws Exception
-     *             the exception
+     * @param content the content
+     * @return the string
      */
-    private AbstractDataFactory load(final String dataFilename) throws Exception {
-        this.csvFile = new CsvFile(dataFilename);
-        return this;
+    protected static String randomEntry(final String[] content) {
+        final int bounds = content.length;
+        final int randomIndex = random.nextInt(bounds) - 1;
+        return content[randomIndex];
     }
 
-    // /**
-    // * Column count.
-    // *
-    // * @return the int
-    // */
-    // public int columnCount() {
-    // return (this.dataFile == null ? 0 : this.dataFile.columnCount());
-    // }
-    //
-    // /**
-    // * Gets the column name.
-    // *
-    // * @param columnNumber
-    // * the column number
-    // * @return the column name
-    // */
-    // public String getColumnName(final int columnNumber) {
-    // return (this.dataFile == null ? "" :
-    // this.dataFile.getColumnName(columnNumber));
-    // }
-    //
-    // /**
-    // * Row count.
-    // *
-    // * @return the int
-    // */
-    // public int rowCount() {
-    // return (this.dataFile == null ? 0 : this.dataFile.rowCount());
-    // }
-    //
-    // /**
-    // * Gets the row.
-    // *
-    // * @param index
-    // * the index
-    // * @return the row
-    // */
-    // public CsvRow getRow(final int index) {
-    // return (this.dataFile == null ? null : this.dataFile.getRow(index));
-    // }
-    //
 }
