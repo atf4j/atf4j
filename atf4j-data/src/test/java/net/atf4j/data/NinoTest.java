@@ -29,6 +29,7 @@ import net.atf4j.core.ResultsReporting;
 public class NinoTest extends ResultsReporting {
 
     private static final String BLANK_NI = "";
+    private static final String PIC = "XX-99-99-99X";
 
     /**
      * Test method for NationalInsurance}.

@@ -41,55 +41,24 @@ public class Text {
         return "";
     }
 
-    /**
-     * Fill.
-     *
-     * @param string the string
-     * @param i the i
-     * @return the string
-     */
-    public static String fill(final String string, final int i) {
-        return "";
+    public static String fill(final int length) {
+        return padToLength("", length);
     }
 
-    /**
-     * Fill.
-     *
-     * @param i the i
-     * @return the string
-     */
-    public static String fill(final int i) {
-        return "";
+    public static String fill(final int length, final char chr) {
+        return padToLength("", length, chr);
     }
 
-    /**
-     * Paragraph.
-     *
-     * @param i the i
-     * @return the string
-     */
-    public static String paragraph(final int i) {
-        return "";
+    public static String padToLength(final String stem, final int length) {
+        return padToLength(stem, length, ' ');
     }
 
-    /**
-     * Sentence.
-     *
-     * @param i the i
-     * @return the string
-     */
-    public static String sentence(final int i) {
-        return "";
-    }
-
-    /**
-     * Words.
-     *
-     * @param i the i
-     * @return the string
-     */
-    public static String words(final int i) {
-        return "";
+    public static String padToLength(final String stem, final int length, final char chr) {
+        final StringBuilder builder = new StringBuilder(stem);
+        while (builder.length() < length) {
+            builder.append(chr);
+        }
+        return builder.toString();
     }
 
 }

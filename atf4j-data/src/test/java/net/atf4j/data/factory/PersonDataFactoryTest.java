@@ -42,8 +42,9 @@ public class PersonDataFactoryTest extends ResultsReporting {
         this.log.info(PersonDataFactory.randomSurname());
 
         this.log.info(PersonDataFactory.randomFullname());
-
         this.log.info(PersonDataFactory.randomFullname());
+
+        this.log.info(PersonDataFactory.randomEmail());
     }
 
     /**

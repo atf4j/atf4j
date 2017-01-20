@@ -19,28 +19,31 @@ package net.atf4j.data;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import net.atf4j.data.factory.DataFactory;
+
 /**
  * EmailAddress.
- *
- *
  */
 public class EmailAddress {
 
-    /** The Constant pattern. */
-    private static final Pattern pattern = Pattern
-                                                  .compile(
-                                                          "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+    private static final Pattern LOCAL_PART = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*$");
+    private static final Pattern DOMAIN = Pattern.compile("^@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+    private static final Pattern PATTERN = Pattern.compile(LOCAL_PART + "@" + DOMAIN);
 
-    /** The email. */
-    private String email;
+    private String domain = "example.com";
+    private String localPart = null;
+    private String email = null;
 
-    /**
-     * Create new instance of create.
-     *
-     * @return the email address
-     */
+    public static EmailAddress at(final String domain) {
+        final EmailAddress emailAddress = new EmailAddress(domain);
+        emailAddress.setLocalPart(DataFactory.randomString(10));
+        return emailAddress;
+    }
+
     public static EmailAddress create() {
-        return new EmailAddress();
+        final EmailAddress emailAddress = new EmailAddress();
+        emailAddress.setLocalPart(DataFactory.randomString(10));
+        return emailAddress;
     }
 
     /**
@@ -58,28 +61,34 @@ public class EmailAddress {
      */
     public EmailAddress(final String email) {
         super();
-        this.email = email;
+        setEmail(email);
     }
 
-    /**
-     * Gets the email.
-     *
-     * @return the email
-     */
-    public String getEmail() {
-        return this.email;
-    }
-
-    /**
-     * Sets the email.
-     *
-     * @param email
-     *            the email
-     * @return the email address
-     */
     public EmailAddress setEmail(final String email) {
         this.email = email;
         return this;
+    }
+
+    public EmailAddress setDomain(final String domain) {
+        this.domain = domain;
+        return this;
+    }
+
+    public EmailAddress setLocalPart(final String localPart) {
+        this.localPart = localPart;
+        return this;
+    }
+
+    public String getDomain() {
+        return this.domain;
+    }
+
+    public String getLocalPart() {
+        return this.localPart;
+    }
+
+    public String getEmail() {
+        return this.email;
     }
 
     /**
@@ -89,8 +98,8 @@ public class EmailAddress {
      *            the postcode
      * @return true, if successful
      */
-    public boolean verify(final String postcode) {
-        final Matcher matcher = pattern.matcher(postcode);
+    public static boolean verify(final String email) {
+        final Matcher matcher = PATTERN.matcher(email);
         return matcher.find();
     }
 
@@ -100,7 +109,10 @@ public class EmailAddress {
      * @return the string
      */
     public String debugString() {
-        return String.format("%s [email=%s]", this.getClass().getSimpleName(),this.email);
+        return String.format("EmailAddress [email=%s, domain=%s, localPart=%s]",
+                this.email,
+                this.domain,
+                this.localPart);
     }
 
     /* (non-Javadoc)
@@ -108,6 +120,7 @@ public class EmailAddress {
      */
     @Override
     public String toString() {
-        return debugString();
+        return this.email;
     }
+
 }

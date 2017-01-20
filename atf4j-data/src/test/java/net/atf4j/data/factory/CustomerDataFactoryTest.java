@@ -33,7 +33,9 @@ public class CustomerDataFactoryTest extends ResultsReporting {
      */
     @Test
     public void test() {
-        this.log.info(CustomerDataFactory.create().toString());
+        final Customer customer = CustomerDataFactory.create();
+        assertNotNull(customer);
+        this.log.info(customer.toString());
     }
 
     /**
@@ -41,8 +43,8 @@ public class CustomerDataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testGetInstance() {
-        final CustomerDataFactory instance = CustomerDataFactory.getInstance();
-        assertNotNull(instance);
+        final CustomerDataFactory customerDataFactory = CustomerDataFactory.getInstance();
+        assertNotNull(customerDataFactory);
     }
 
     /**

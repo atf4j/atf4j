@@ -22,6 +22,6 @@ public class VerifyTest extends ResultsReporting {
 
     @Test
     public void testEquals() {
-        Verify.equals("", "");
+        Verify.verifyEquals("", "");
     }
 }

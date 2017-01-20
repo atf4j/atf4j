@@ -179,21 +179,19 @@ public class DataFactoryTest extends ResultsReporting {
      */
     private void verifyDateData(final Calendar dateData) {
         assertNotNull(dateData);
-        this.log.info("verifyDateData(%s)", dateData);
+        this.log.info("verifyDateData({})", dateData.toString());
         final String fromCalendar = DataFactory.format(dateData);
         final String fromDate = DataFactory.format(dateData.getTime());
-        assertEquals(fromCalendar, fromDate);
         assertNotNull(fromCalendar);
         assertNotNull(fromDate);
+        assertEquals(fromCalendar, fromDate);
     }
 
-    /**
-     * Test method for void.
-     */
     @Test
     public void testCreatePerson() {
         final Person person = DataFactory.createPerson();
         assertNotNull(person);
+        this.log.info(person.toString());
     }
 
     /**
@@ -203,6 +201,7 @@ public class DataFactoryTest extends ResultsReporting {
     public void testCreateCustomer() {
         final Customer customer = DataFactory.createCustomer();
         assertNotNull(customer);
+        this.log.info(customer.toString());
     }
 
     /**
@@ -212,6 +211,7 @@ public class DataFactoryTest extends ResultsReporting {
     public void testCreateConsumer() {
         final Consumer consumer = DataFactory.createConsumer();
         assertNotNull(consumer);
+        this.log.info(consumer.toString());
     }
 
     /**
@@ -221,6 +221,7 @@ public class DataFactoryTest extends ResultsReporting {
     public void testCreateCard() {
         final Card card = DataFactory.createCard();
         assertNotNull(card);
+        this.log.info(card.toString());
     }
 
     /**
@@ -230,6 +231,7 @@ public class DataFactoryTest extends ResultsReporting {
     public void testCreateBusiness() {
         final Business business = DataFactory.createBusiness();
         assertNotNull(business);
+        this.log.info(business.toString());
     }
 
     /**
@@ -239,6 +241,7 @@ public class DataFactoryTest extends ResultsReporting {
     public void testCreateBank() {
         final Bank bank = DataFactory.createBank();
         assertNotNull(bank);
+        this.log.info(bank.toString());
     }
 
     /**
@@ -248,6 +251,7 @@ public class DataFactoryTest extends ResultsReporting {
     public void testCreateAddress() {
         final PostalAddress address = DataFactory.createAddress();
         assertNotNull(address);
+        this.log.info(address.toString());
     }
 
 }

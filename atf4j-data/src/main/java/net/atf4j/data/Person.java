@@ -49,7 +49,7 @@ public class Person {
         public String toString() {
             return this.genderString;
         }
-    }
+    };
 
     /**
      * The Title Enum.
@@ -238,6 +238,19 @@ public class Person {
      */
     public Calendar dateOfBirth() {
         return this.dob;
+    }
+
+    public int age() {
+        final Calendar now = Calendar.getInstance();
+        final int currentmonth = now.get(Calendar.MONTH);
+        final int currentyear = now.get(Calendar.YEAR);
+
+        final int month = this.dob.get(Calendar.MONTH);
+        final int year = this.dob.get(Calendar.YEAR);
+
+        final int age = ((currentyear * 12 + currentmonth) - (year * 12 + month)) / 12;
+
+        return age;
     }
 
     /**

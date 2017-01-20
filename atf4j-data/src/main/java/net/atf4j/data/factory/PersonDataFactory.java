@@ -16,6 +16,7 @@
  */
 package net.atf4j.data.factory;
 
+import net.atf4j.data.EmailAddress;
 import net.atf4j.data.Person;
 
 /**
@@ -40,19 +41,19 @@ public class PersonDataFactory extends AbstractDataFactory {
      */
     protected void initialise() {
         try {
-            this.maleForenames = load("male-forenames.txt");
+            this.maleForenames = load("person-male-forenames.txt");
         } catch (final Exception e) {
             this.log.error(e.getMessage());
         }
 
         try {
-            this.femaleForenames = load("female-forenames.txt");
+            this.femaleForenames = load("person-female-forenames.txt");
         } catch (final Exception e) {
             this.log.error(e.getMessage());
         }
 
         try {
-            this.surnames = load("surnames.txt");
+            this.surnames = load("person-surnames.txt");
         } catch (final Exception e) {
             this.log.error(e.getMessage());
         }
@@ -80,6 +81,8 @@ public class PersonDataFactory extends AbstractDataFactory {
         person.forename(randomForename());
         person.surname(randomSurname());
         person.dateOfBirth(DataFactory.dateOfBirth());
+        person.emailAddress(EmailAddress.create().toString());
+        person.title();
         return person;
     }
 
@@ -130,6 +133,15 @@ public class PersonDataFactory extends AbstractDataFactory {
      */
     public static String randomFullname() {
         return String.format("%s %s", randomForename(), randomSurname());
+    }
+
+    /**
+     * Random email.
+     *
+     * @return the string
+     */
+    public static String randomEmail() {
+        return EmailAddress.create().toString();
     }
 
 }

@@ -212,52 +212,7 @@ public class DataFactory {
      * @return the person
      */
     public static Person createPerson() {
-        return new Person();
-    }
-
-    /**
-     * Create a new instances of Data.
-     *
-     * @return the customer
-     */
-    public static Customer createCustomer() {
-        return new Customer();
-    }
-
-    /**
-     * Create a new instances of Data.
-     *
-     * @return the card
-     */
-    public static Card createCard() {
-        return new Card();
-    }
-
-    /**
-     * Create a new instances of Data.
-     *
-     * @return the business
-     */
-    public static Business createBusiness() {
-        return new Business();
-    }
-
-    /**
-     * Create a new instances of Data.
-     *
-     * @return the bank
-     */
-    public static Bank createBank() {
-        return new Bank();
-    }
-
-    /**
-     * Create a new instances of Data.
-     *
-     * @return the postal address
-     */
-    public static PostalAddress createAddress() {
-        return new PostalAddress();
+        return PersonDataFactory.create();
     }
 
     /**
@@ -266,7 +221,52 @@ public class DataFactory {
      * @return the consumer
      */
     public static Consumer createConsumer() {
-        return new Consumer();
+        return ConsumerDataFactory.create();
+    }
+
+    /**
+     * Create a new instances of Data.
+     *
+     * @return the customer
+     */
+    public static Customer createCustomer() {
+        return CustomerDataFactory.create();
+    }
+
+    /**
+     * Create a new instances of Data.
+     *
+     * @return the card
+     */
+    public static Card createCard() {
+        return CardDataFactory.create();
+    }
+
+    /**
+     * Create a new instances of Data.
+     *
+     * @return the business
+     */
+    public static Business createBusiness() {
+        return BusinessDataFactory.create();
+    }
+
+    /**
+     * Create a new instances of Data.
+     *
+     * @return the bank
+     */
+    public static Bank createBank() {
+        return BankDataFactory.create();
+    }
+
+    /**
+     * Create a new instances of Data.
+     *
+     * @return the postal address
+     */
+    public static PostalAddress createAddress() {
+        return AddressDataFactory.create();
     }
 
     /**

@@ -21,26 +21,57 @@ import static org.junit.Assert.assertNotNull;
 
 public class Verify {
 
-    public static void equals(final String expected, final String actual) {
-        assertEquals(expected, actual);
+    private static final String MESSAGE = "actual(%s) == expected(%s) - %s";
+
+    private static String resultString(final boolean result) {
+        final String resultString = result ? "PASSED" : "FAILED";
+        return resultString;
     }
 
-    protected String verifyEquals(final Object expected, final Object actual) {
-        assertNotNull("Expected Value cannot be null", expected);
-        assertNotNull("Actual Value cannot be null", actual);
-        final boolean result = actual.equals(expected);
-        final String resultString = result ? "PASSED" : "FAILED";
-        final String message = String.format("actual(%s) == expected(%s) - %s", actual, expected, resultString);
+    protected String verifyEquals(final byte expected, final byte actual) {
+        final boolean result = actual == expected;
+
+        final String resultString = resultString(result);
+        final String message = String.format(MESSAGE, actual, expected, resultString);
+        assertEquals(message, expected, actual);
+        return message;
+    }
+
+    protected String verifyEquals(final char expected, final char actual) {
+        final boolean result = actual == expected;
+
+        final String resultString = resultString(result);
+        final String message = String.format(MESSAGE, actual, expected, resultString);
+        assertEquals(message, expected, actual);
+        return message;
+    }
+
+    protected String verifyEquals(final int expected, final int actual) {
+        final boolean result = actual == expected;
+
+        final String resultString = resultString(result);
+        final String message = String.format(MESSAGE, actual, expected, resultString);
         assertEquals(message, expected, actual);
         return message;
     }
 
     protected String verifyEquals(final long expected, final long actual) {
         final boolean result = actual == expected;
-        final String resultString = result ? "PASSED" : "FAILED";
-        final String message = String.format("actual(%s) == expected(%s) - %s", actual, expected, resultString);
+
+        final String resultString = resultString(result);
+        final String message = String.format(MESSAGE, actual, expected, resultString);
         assertEquals(message, expected, actual);
         return message;
     }
 
+    protected static String verifyEquals(final Object expected, final Object actual) {
+        assertNotNull("Expected Value cannot be null", expected);
+        assertNotNull("Actual Value cannot be null", actual);
+        final boolean result = actual.equals(expected);
+
+        final String resultString = resultString(result);
+        final String message = String.format(MESSAGE, actual, expected, resultString);
+        assertEquals(message, expected, actual);
+        return message;
+    }
 }

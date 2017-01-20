@@ -18,22 +18,31 @@ package net.atf4j.data;
 
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
+
 /**
  * A UnitTest for LoremIpsum objects.
  */
-public class LoremIpsumTest {
+public class LoremIpsumTest extends ResultsReporting {
 
     /**
-     * Test.
+     * Unit Test.
      */
     @Test
     public void test() {
-        LoremIpsum.words(1);
-        LoremIpsum.words(10);
-        LoremIpsum.sentence(1);
-        LoremIpsum.sentence(10);
-        LoremIpsum.paragraph(1);
-        LoremIpsum.paragraph(10);
-    }
+        this.log.info("LoremIpsum.text() = {}", LoremIpsum.text());
 
+        this.log.info("LoremIpsum.word() = {}", LoremIpsum.word());
+        this.log.info("LoremIpsum.words(1) = {}", LoremIpsum.words(1));
+        this.log.info("LoremIpsum.words(14) = {}", LoremIpsum.words(4));
+        this.log.info("LoremIpsum.words(10) = {}", LoremIpsum.words(10));
+
+        this.log.info("LoremIpsum.sentence() = {}", LoremIpsum.sentence());
+        this.log.info("LoremIpsum.sentence(1) = {}", LoremIpsum.sentences(1));
+        this.log.info("LoremIpsum.sentence(6) = {}", LoremIpsum.sentences(6));
+
+        this.log.info("LoremIpsum.paragraph() = {} ", LoremIpsum.paragraph());
+        this.log.info("LoremIpsum.paragraphs(1) = {} ", LoremIpsum.paragraphs(1));
+        this.log.info("LoremIpsum.paragraphs(4) = {} ", LoremIpsum.paragraphs(4));
+    }
 }

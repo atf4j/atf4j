@@ -27,6 +27,11 @@ public class AddressDataFactory extends AbstractDataFactory {
     public static final String RANDOM = null;
     private static AddressDataFactory instance = null;
 
+    private String[] addressLineStems;
+    private String[] addressLinePostfix;
+    private String[] streetnames;
+    private String[] data;
+
     private CsvFile postCodeData = null;
     private CsvFile postalTownsUK = null;
 
@@ -42,6 +47,24 @@ public class AddressDataFactory extends AbstractDataFactory {
      */
     protected void initialise() {
         try {
+            this.addressLineStems = load("addressLineStems.txt");
+        } catch (final Exception e) {
+            this.log.error(e.getMessage());
+        }
+
+        try {
+            this.addressLinePostfix = load("addressLinePostfix.txt");
+        } catch (final Exception e) {
+            this.log.error(e.getMessage());
+        }
+
+        try {
+            this.addressLinePostfix = load("addressLinePostfix.txt");
+        } catch (final Exception e) {
+            this.log.error(e.getMessage());
+        }
+
+        try {
             this.postalTownsUK = new CsvFile("postalTownsUK.csv");
         } catch (final Exception e) {
             e.printStackTrace();
@@ -51,6 +74,7 @@ public class AddressDataFactory extends AbstractDataFactory {
         } catch (final Exception e) {
             e.printStackTrace();
         }
+
     }
 
     /**
@@ -71,8 +95,7 @@ public class AddressDataFactory extends AbstractDataFactory {
      * @return the postal address
      */
     public static PostalAddress create() {
-        final PostalAddress postalAddress = new PostalAddress();
-        return postalAddress;
+        return new PostalAddress();
     }
 
     /**
@@ -81,7 +104,12 @@ public class AddressDataFactory extends AbstractDataFactory {
      * @return the postal address
      */
     public static PostalAddress random() {
-        return null;
+        // Collections.shuffle(this.data);
+        final String[] lines;
+        final PostalAddress postalAddress = new PostalAddress();
+        postalAddress.setAddressRow(1, "");
+        postalAddress.setAddressRow(2, "");
+        return postalAddress;
     }
 
     public static PostalAddress random(final Object characteristic) {

@@ -20,8 +20,6 @@ import net.atf4j.data.Consumer;
 
 /**
  * CustomerDataFactory.
- *
- *
  */
 public class ConsumerDataFactory extends AbstractDataFactory {
 

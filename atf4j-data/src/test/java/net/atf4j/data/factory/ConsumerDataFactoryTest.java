@@ -33,7 +33,9 @@ public class ConsumerDataFactoryTest extends ResultsReporting {
      */
     @Test
     public void test() {
-        this.log.info(ConsumerDataFactory.create().toString());
+        final Consumer consumer = ConsumerDataFactory.create();
+        assertNotNull(consumer);
+        this.log.info(consumer.toString());
     }
 
     /**

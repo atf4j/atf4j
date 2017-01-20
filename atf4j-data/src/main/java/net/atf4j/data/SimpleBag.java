@@ -26,14 +26,9 @@ import java.util.Random;
  */
 public class SimpleBag {
 
-    /** The values. */
     private String[] values;
-
-    /** The bag. */
     private final List<String> bag = new ArrayList<String>();
-
-    /** The rnd. */
-    private final Random rnd = new Random();
+    private final Random random = new Random();
 
     /**
      * Instantiates a new empty simple bag.
@@ -74,7 +69,7 @@ public class SimpleBag {
      * @return the string
      */
     public String pick() {
-        return this.bag.remove(this.rnd.nextInt(this.bag.size()));
+        return this.bag.remove(this.random.nextInt(this.bag.size()));
     }
 
     /**
@@ -160,7 +155,7 @@ public class SimpleBag {
      * @return the string
      */
     public String debugString() {
-        return String.format("%s [values=%s]", this.getClass().getSimpleName(),Arrays.toString(this.values));
+        return String.format("%s [values=%s]", this.getClass().getSimpleName(), Arrays.toString(this.values));
     }
 
 }

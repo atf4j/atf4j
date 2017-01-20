@@ -32,14 +32,6 @@ public class CustomerTest extends ResultsReporting {
      * Test method for Customer}.
      */
     @Test
-    public void testDefaultConstructor() {
-        assertNotNull(new Customer());
-    }
-
-    /**
-     * Test method for Customer}.
-     */
-    @Test
     public void testSetGetTitle() {
         final String title = "Title";
         assertEquals(title, new Customer().title(title).title());

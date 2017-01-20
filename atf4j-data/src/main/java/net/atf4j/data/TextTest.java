@@ -16,19 +16,50 @@
  */
 package net.atf4j.data;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
-/**
- * A UnitTest for Text objects.
- */
-public class TextTest {
+import net.atf4j.core.ResultsReporting;
 
-    /**
-     * Test.
-     */
+public class TextTest extends ResultsReporting {
+
     @Test
     public void test() {
-        Text.fill(10);
-        Text.fill("*", 10);
+        this.log.info(Text.fill(10));
+        this.log.info(Text.fill(10, '*'));
     }
+
+    @Test
+    public void testCapitalise() {
+        assertEquals("Set", Text.capitalise("Set"));
+        assertEquals("Set", Text.capitalise("Set"));
+        assertEquals("Set.", Text.capitalise("sET."));
+        assertEquals("Set.", Text.capitalise("sET."));
+    }
+
+    @Test
+    public void testFillInt() {
+        assertEquals("", Text.fill(0));
+        assertEquals(" ", Text.fill(1));
+        assertEquals("  ", Text.fill(2));
+    }
+
+    @Test
+    public void testFillIntChar() {
+        assertEquals("", Text.fill(0, '*'));
+        assertEquals("*", Text.fill(1, '*'));
+        assertEquals("**", Text.fill(2, '*'));
+    }
+
+    @Test
+    public void testPadToLengthStringInt() {
+        assertEquals("Stem ", Text.padToLength("Stem", 5));
+    }
+
+    @Test
+    public void testPadToLengthStringIntChar() {
+        assertEquals("Stem*", Text.padToLength("Stem", 5, '*'));
+    }
+
 }
