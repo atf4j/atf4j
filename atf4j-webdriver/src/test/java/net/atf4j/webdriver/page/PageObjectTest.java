@@ -25,8 +25,6 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 
 /**
  * PageObjectTest.
- *
- *
  */
 @Ignore
 public class PageObjectTest {
@@ -91,6 +89,7 @@ public class PageObjectTest {
      * @throws ConfigurationNotLoaded
      *             the configuration not loaded
      */
+    @Test
     public final void testWebDriverConstructor() throws ConfigurationNotLoaded {
         new MockPage(new HtmlUnitDriver());
     }
@@ -101,6 +100,7 @@ public class PageObjectTest {
      * @throws ConfigurationNotLoaded
      *             the configuration not loaded
      */
+    @Test
     public final void testTargetUrlConstruction() throws ConfigurationNotLoaded {
         new MockPage("http://localhost:8080/");
     }
