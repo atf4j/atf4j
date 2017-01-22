@@ -49,21 +49,27 @@ public class EmailAddress {
     /**
      * Instantiates a new email address.
      */
-    public EmailAddress() {
+    protected EmailAddress() {
         super();
+        setEmail(String.format("%s@%s", this.localPart, this.domain));
     }
 
     /**
      * Instantiates a new email address.
-     *
-     * @param email
-     *            the email
+     * 
+     * @param domain the domain
      */
-    public EmailAddress(final String email) {
+    public EmailAddress(final String domain) {
         super();
-        setEmail(email);
+        setDomain(domain);
     }
 
+    /**
+     * Sets the email.
+     *
+     * @param email the email
+     * @return the email address
+     */
     public EmailAddress setEmail(final String email) {
         this.email = email;
         return this;
@@ -94,8 +100,7 @@ public class EmailAddress {
     /**
      * Verify.
      *
-     * @param postcode
-     *            the postcode
+     * @param email the email
      * @return true, if successful
      */
     public static boolean verify(final String email) {

@@ -112,8 +112,8 @@ public class AddressDataFactory extends AbstractDataFactory {
         return postalAddress;
     }
 
-    public static PostalAddress random(final Object characteristic) {
-        return null;
+    public static PostalAddress random(final String string) {
+        return new PostalAddress();
     }
 
     /**
@@ -124,7 +124,7 @@ public class AddressDataFactory extends AbstractDataFactory {
      * @return the postal address
      */
     public static PostalAddress forTag(final String string) {
-        return null;
+        return new PostalAddress();
     }
 
 }

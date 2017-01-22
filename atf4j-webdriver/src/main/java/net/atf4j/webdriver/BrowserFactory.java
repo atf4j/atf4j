@@ -16,6 +16,9 @@
  */
 package net.atf4j.webdriver;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -52,8 +55,9 @@ public class BrowserFactory {
             } else if (TestContext.isSelenium()) {
                 return remoteWebDriver();
             } else {
-                log.info("Unknown Test Context : defaulting to headless HtmlUnitDriver");
-                return new HtmlUnitDriver();
+                log.error("Unknown Test Context : defaulting to headless HtmlUnitDriver");
+                final HtmlUnitDriver htmlUnitDriver = new HtmlUnitDriver(true);
+                return htmlUnitDriver;
             }
         } catch (final ConfigurationNotLoaded e) {
             log.error(e.getLocalizedMessage());
@@ -72,12 +76,6 @@ public class BrowserFactory {
         log.trace("targetBrowser = ", targetBrowser);
         final DesiredCapabilities desiredCapabilities;
 
-        // final String targetSeleniumGrid =
-        // config.getSeleniumUrl("seleniumUrl", "http://localhost:4444/wd/hub");
-        // final URL GRID_URL = new URL(targetSeleniumGrid);
-        // final RemoteWebDriver remoteWebDriver = new RemoteWebDriver(GRID_URL,
-        // desiredCapabilities);
-
         switch (targetBrowser.toLowerCase()) {
         case "firefox":
             desiredCapabilities = DesiredCapabilities.firefox();
@@ -92,7 +90,16 @@ public class BrowserFactory {
             desiredCapabilities = DesiredCapabilities.htmlUnit();
             break;
         }
-        return new RemoteWebDriver(desiredCapabilities);
+
+        final String targetSeleniumGrid = config.seleniumUrl();
+        URL GRID_URL;
+        try {
+            GRID_URL = new URL(targetSeleniumGrid);
+            return new RemoteWebDriver(GRID_URL, desiredCapabilities);
+        } catch (final MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**

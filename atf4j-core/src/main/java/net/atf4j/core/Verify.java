@@ -28,7 +28,7 @@ public class Verify {
         return resultString;
     }
 
-    protected String verifyEquals(final byte expected, final byte actual) {
+    protected static String verifyEquals(final byte expected, final byte actual) {
         final boolean result = actual == expected;
 
         final String resultString = resultString(result);
@@ -37,7 +37,7 @@ public class Verify {
         return message;
     }
 
-    protected String verifyEquals(final char expected, final char actual) {
+    protected static String verifyEquals(final char expected, final char actual) {
         final boolean result = actual == expected;
 
         final String resultString = resultString(result);
@@ -46,7 +46,7 @@ public class Verify {
         return message;
     }
 
-    protected String verifyEquals(final int expected, final int actual) {
+    protected static String verifyEquals(final int expected, final int actual) {
         final boolean result = actual == expected;
 
         final String resultString = resultString(result);
@@ -55,7 +55,7 @@ public class Verify {
         return message;
     }
 
-    protected String verifyEquals(final long expected, final long actual) {
+    protected static String verifyEquals(final long expected, final long actual) {
         final boolean result = actual == expected;
 
         final String resultString = resultString(result);

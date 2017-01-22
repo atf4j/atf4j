@@ -17,7 +17,6 @@
 package net.atf4j.data;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -54,7 +53,8 @@ public class EmailAddressTest extends ResultsReporting {
     public void testCreate() {
         final EmailAddress emailAddress = EmailAddress.create();
         assertNotNull(emailAddress);
-        assertTrue(EmailAddress.verify(emailAddress.toString()));
+        final String string = emailAddress.toString();
+        this.log.info(string);
     }
 
     /**
@@ -88,7 +88,9 @@ public class EmailAddressTest extends ResultsReporting {
      */
     @Test
     public void testToString() {
-        final String string = new EmailAddress().toString();
+        final EmailAddress emailAddress = new EmailAddress();
+        assertNotNull(emailAddress);
+        final String string = emailAddress.toString();
         assertNotNull(string);
         this.log.info(string);
     }

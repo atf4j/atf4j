@@ -27,7 +27,6 @@ import net.atf4j.core.ResultsReporting;
 /**
  * A UnitTest for BrowserFactory objects.
  */
-@Ignore
 public class BrowserFactoryTest extends ResultsReporting {
 
     /**
@@ -41,6 +40,7 @@ public class BrowserFactoryTest extends ResultsReporting {
     }
 
     @Test
+    @Ignore
     public void testRemoteDriver() {
         System.setProperty("targetBrowser", "remoteDriver");
         final WebDriver webDriver = BrowserFactory.webDriver();
@@ -52,6 +52,7 @@ public class BrowserFactoryTest extends ResultsReporting {
      * test BrowserFactory returns Chrome.
      */
     @Test
+    @Ignore
     public void testChromeDriver() {
         System.setProperty("targetBrowser", "chromeDriver");
         final WebDriver webDriver = BrowserFactory.webDriver();
@@ -63,6 +64,7 @@ public class BrowserFactoryTest extends ResultsReporting {
      * test BrowserFactory returns Firefox.
      */
     @Test
+    @Ignore
     public void testFirefoxDriver() {
         System.setProperty("targetBrowser", "firefoxDriver");
         final WebDriver webDriver = BrowserFactory.webDriver();

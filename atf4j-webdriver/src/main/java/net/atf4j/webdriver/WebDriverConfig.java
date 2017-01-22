@@ -23,6 +23,8 @@ import net.atf4j.core.AbstractConfig;
  */
 public class WebDriverConfig extends AbstractConfig {
 
+    private static final String LOCAL_GRID = "http://localhost:4444/wd/hub";
+
     /**
      * Default constructor.
      *
@@ -57,7 +59,7 @@ public class WebDriverConfig extends AbstractConfig {
      * @return seleniumUrl as String object.
      */
     public String seleniumUrl() {
-        return this.get("seleniumUrl");
+        return this.get("seleniumUrl", LOCAL_GRID);
     }
 
     /**
@@ -84,7 +86,7 @@ public class WebDriverConfig extends AbstractConfig {
      * @return the page load timeout
      */
     public long pageLoadTimeout() {
-        return this.get("pageLoadTimeOut", 1000);
+        return this.get("pageLoadTimeOut", 1);
     }
 
     /**
@@ -93,7 +95,7 @@ public class WebDriverConfig extends AbstractConfig {
      * @return the implicitly wait
      */
     public long implicitlyWait() {
-        return this.get("implicitlyWait", 1000);
+        return this.get("implicitlyWait", 1);
     }
 
     /**
@@ -102,7 +104,7 @@ public class WebDriverConfig extends AbstractConfig {
      * @return the implicitly wait unit
      */
     public long implicitlyWaitUnit() {
-        return this.get("implicitlyWaitUnit", 1000);
+        return this.get("implicitlyWaitUnit", 1);
     }
 
 }

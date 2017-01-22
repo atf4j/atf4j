@@ -12,6 +12,7 @@
 		<slf4j.version>1.7.21</slf4j.version>
 		<cucumber.version>1.2.4</cucumber.version>
 		<selenium.version>2.53.1</selenium.version>
+		<activemq.version>5.14.3</activemq.version>		
 		<maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
 		<maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
 		<maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>

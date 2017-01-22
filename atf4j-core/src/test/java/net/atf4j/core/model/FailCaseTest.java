@@ -29,6 +29,11 @@ public class FailCaseTest {
 
     @Test
     public void testFailCaseNull() {
+        assertNotNull(new FailCase(null));
+    }
+
+    @Test
+    public void testFailCaseString() {
         assertNotNull(new FailCase("FailCase"));
     }
 

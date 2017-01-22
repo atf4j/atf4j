@@ -35,7 +35,7 @@ public class TestIdentifierTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        new TestIdentifier();
+        assertNotNull(new TestIdentifier());
     }
 
     /**

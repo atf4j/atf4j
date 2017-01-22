@@ -1,43 +1,40 @@
-@Ignore
-Feature: Gherkin for Selenium WebDriver
+@atf4j
+Feature: Smoke test for Selenium WebDriver configuration
 	As an Automated Tester
 	I want a quick and easy way to use Selenium WebDriver
-	In order to smoke test website development
+	In order to smoke test Selenium WebDriver configuration
 
-Scenario: Open URL with Chrome Browser
-	Given the "Chrome" Browser
-	When the target Url is "http://127.0.0.1:8080" is opened
-	Then the pageTitle is "Tomcat"
-	And the cookie "name" exists
+Scenario: Open URL with headless browser
+	Given a web browser is available
+	When the target url is opened
+	Then the pageTitle is "Apache Tomcat"
 
-Scenario: Open URL with Chromium Browser
-	Given the 'Chromium' Browser
-	When the target Url is 'http://127.0.0.1:8080' is opened
-	Then the pageTitle is 'Tomcat'
-	And the cookie 'name' exists
-
+@Ignore
 Scenario: Open URL with Firefox Browser
-	Given the (Firefox) Browser
-	When the target URL http://127.0.0.1:8080 is opened
-	Then the pageTitle is (Tomcat)
+	Given the Firefox Browser
+	When the target url "http://127.0.0.1:8080/" is opened
+	Then the pageTitle is (Apache Tomcat)
 	And the cookie (name) exists
 
+@Ignore
+Scenario: Open URL with Chrome Browser
+	Given the Chrome Browser
+	When the target url is opened
+	Then the pageTitle is 'Apache Tomcat'
+	And the cookie 'name' exists
+
+@Ignore
+Scenario: Open URL with Chromium Browser
+	Given the Chromium Browser
+	When the target url 'http://127.0.0.1:8080' is opened
+	Then the pageTitle is 'Apache Tomcat'
+	And the cookie 'name' exists
+
+@Ignore
 Scenario: Additional Steps
 	When the link (Text) is clicked
 	When the button (Name) is clicked
 	When the text (text) is entered into the control (Name)
-	When the target Url is http://127.0.0.1:8080 is opened
-	Then the pageTitle is "Tomcat"
+	When the target Url http://127.0.0.1:8080 is opened
+	Then the pageTitle is "Apache Tomcat"
 	And the cookie "name" exists
-
-Scenario: Open URL with Chromium Browser
-	Given the 'Chromium' Browser
-	When the target Url is http://127.0.0.1:8080 is opened
-	Then the pageTitle is 'Tomcat'
-	And the cookie 'name' exists
-
-Scenario: Open URL with Firefox Browser
-	Given the (Firefox) Browser
-	When the target URL http://127.0.0.1:8080 is opened
-	Then the pageTitle is (Tomcat)
-	And the cookie (name) exists

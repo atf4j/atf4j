@@ -56,24 +56,28 @@ public class TestSuiteTest extends ResultsReporting {
     public void testTestSuite() {
         final TestSuite testSuite = new TestSuite();
         assertNotNull(testSuite);
+        this.log.info("testResult={}", testSuite.result());
     }
 
     @Test
     public void testTestSuiteTestContext() {
         final TestSuite testSuite = new TestSuite(new TestContext());
         assertNotNull(testSuite);
+        this.log.info("testResult={}", testSuite.result());
     }
 
     @Test
     public void testTestSuiteExecute() throws Atf4jException {
         final TestSuite testSuite = new TestSuite();
         assertNotNull(testSuite.execute());
+        this.log.info("testResult={}", testSuite.result());
     }
 
     @Test
     public void testTestSuiteExecuteTestContext() throws Atf4jException {
         final TestSuite testSuite = new TestSuite();
         assertNotNull(testSuite.execute(new TestContext()));
+        this.log.info("testResult={}", testSuite.result());
     }
 
     /**

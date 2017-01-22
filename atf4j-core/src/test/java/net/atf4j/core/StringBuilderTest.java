@@ -16,13 +16,14 @@
  */
 package net.atf4j.core;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 /**
  * StringBuilderTest Class.
- *
- *
  */
 public class StringBuilderTest extends ResultsReporting {
 
@@ -83,7 +84,7 @@ public class StringBuilderTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        new Narrator();
+        assertNotNull(new Narrator());
     }
 
     /**
@@ -93,7 +94,7 @@ public class StringBuilderTest extends ResultsReporting {
     public void testNullClass() {
         final String reflectionToString = Narrator.reflectObjectToString(null);
         this.log.info(reflectionToString);
-        Assert.assertTrue("|testNullClass|", reflectionToString.equals("[NULL]"));
+        assertTrue("|testNullClass|", reflectionToString.equals("[NULL]"));
     }
 
     /**
@@ -103,8 +104,8 @@ public class StringBuilderTest extends ResultsReporting {
     public void testThisClass() {
         final String reflectionToString = Narrator.reflectObjectToString(this);
         this.log.info(reflectionToString);
-        Assert.assertNotNull("|testThisClass|", reflectionToString);
-        Assert.assertTrue("|testThisClass|", reflectionToString.length() > 0);
+        assertNotNull("|testThisClass|", reflectionToString);
+        assertTrue("|testThisClass|", reflectionToString.length() > 0);
     }
 
     /**

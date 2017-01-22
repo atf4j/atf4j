@@ -21,7 +21,38 @@ import org.junit.Test;
 public class VerifyTest extends ResultsReporting {
 
     @Test
+    public void testVerifyEqualsByteByte() {
+        final byte aByte = 0;
+        Verify.verifyEquals(aByte, aByte);
+    }
+
+    @Test
+    public void testVerifyEqualsCharChar() {
+        final char aChar = 0;
+        Verify.verifyEquals(aChar, aChar);
+    }
+
+    @Test
+    public void testVerifyEqualsIntInt() {
+        Verify.verifyEquals(Integer.MIN_VALUE, Integer.MIN_VALUE);
+        Verify.verifyEquals(0, 0);
+        Verify.verifyEquals(Integer.MAX_VALUE, Integer.MAX_VALUE);
+    }
+
+    @Test
+    public void testVerifyEqualsLongLong() {
+        Verify.verifyEquals(1L, 1L);
+    }
+
+    @Test
+    public void testVerifyEqualsObjectObject() {
+        final Object object = new Object();
+        Verify.verifyEquals(object, object);
+    }
+
+    @Test
     public void testEquals() {
         Verify.verifyEquals("", "");
     }
+
 }

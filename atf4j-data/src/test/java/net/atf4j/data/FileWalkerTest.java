@@ -14,27 +14,19 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
-package net.atf4j.core.model;
+package net.atf4j.data;
 
-import static org.junit.Assert.assertNotNull;
+import java.net.URISyntaxException;
 
 import org.junit.Test;
 
-public class FailStepTest {
+import net.atf4j.core.ResultsReporting;
+
+public class FileWalkerTest extends ResultsReporting {
 
     @Test
-    public void testFailStep() {
-        assertNotNull(new FailStep());
+    public void testWalk() throws URISyntaxException {
+        final FileWalker fileWalker = new FileWalker();
+        fileWalker.walk("/messages");
     }
-
-    @Test
-    public void testFailStepNull() {
-        assertNotNull(new FailStep(null));
-    }
-
-    @Test
-    public void testFailStepString() {
-        assertNotNull(new FailStep("FailStep"));
-    }
-
 }

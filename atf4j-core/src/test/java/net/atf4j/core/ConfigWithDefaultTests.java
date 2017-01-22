@@ -25,8 +25,6 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 
 /**
  * ConfigDefaultsTest Class.
- *
- *
  */
 public class ConfigWithDefaultTests extends ResultsReporting {
 
@@ -109,7 +107,7 @@ public class ConfigWithDefaultTests extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() throws ConfigurationNotLoaded {
-        new ConfigWithDefaults();
+        assertNotNull(new ConfigWithDefaults());
     }
 
     /**

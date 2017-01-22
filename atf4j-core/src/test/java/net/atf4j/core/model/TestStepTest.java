@@ -45,6 +45,7 @@ public class TestStepTest {
     public void testTestStep() {
         final TestStep testStep = new TestStep();
         assertNotNull(testStep);
+        testStep.result();
     }
 
     /**

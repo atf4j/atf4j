@@ -27,7 +27,7 @@ import java.util.Arrays;
 public class PostalAddress {
 
     private ArrayList<String> arrayList;
-    private String[] addressLines = new String[0];
+    private String[] addressLines = new String[8];
     private Postcode postcode;
 
     /**

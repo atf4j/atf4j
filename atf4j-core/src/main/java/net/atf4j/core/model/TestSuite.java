@@ -24,6 +24,7 @@ import java.util.ArrayDeque;
 import java.util.Collection;
 
 import net.atf4j.core.Atf4jException;
+import net.atf4j.core.TestResult;
 
 /**
  * TestSuite.
@@ -107,6 +108,7 @@ public class TestSuite extends TestBase {
      */
     public TestSuite startTestSuite() {
         this.log.info("startTestSuite {}", this.getName());
+
         // TODO Start Timer
         return this;
     }
@@ -118,6 +120,7 @@ public class TestSuite extends TestBase {
      */
     public TestSuite endTestSuite() {
         // TODO Stop Timer
+
         this.log.info("endTestSuite {}", this.getName());
         return this;
     }

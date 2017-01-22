@@ -14,27 +14,28 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
-package net.atf4j.core.model;
+package net.atf4j.amq;
 
 import static org.junit.Assert.assertNotNull;
 
+import javax.jms.JMSException;
+
+import org.junit.Ignore;
 import org.junit.Test;
 
-public class FailStepTest {
+@Ignore
+public class ProducerTest {
 
     @Test
-    public void testFailStep() {
-        assertNotNull(new FailStep());
+    public void testProducer() throws JMSException {
+        assertNotNull(new Producer());
     }
 
     @Test
-    public void testFailStepNull() {
-        assertNotNull(new FailStep(null));
+    public void testExecute() throws JMSException {
+        final Producer producer = new Producer();
+        assertNotNull(producer);
+        final String[] messages = null;
+        producer.execute(messages);
     }
-
-    @Test
-    public void testFailStepString() {
-        assertNotNull(new FailStep("FailStep"));
-    }
-
 }

@@ -33,7 +33,7 @@ public abstract class TestBase extends ResultsReporting {
 
     private TestIdentifier uniqueIdentifier;
     protected TestContext testContext;
-    private TestResult testStatus;
+    private TestResult testResult;
     private String tester; // Actor
     private String name;
     private String taxonomy;
@@ -48,7 +48,7 @@ public abstract class TestBase extends ResultsReporting {
      */
     public TestBase() {
         super();
-        this.testStatus = TestResult.initialise();
+        this.testResult = TestResult.initialise();
         this.uniqueIdentifier = new TestIdentifier();
     }
 
@@ -60,7 +60,7 @@ public abstract class TestBase extends ResultsReporting {
      */
     public TestBase(final String name) {
         this.name = name;
-        this.testStatus = TestResult.initialise();
+        this.testResult = TestResult.initialise();
         this.uniqueIdentifier = new TestIdentifier();
     }
 
@@ -161,7 +161,7 @@ public abstract class TestBase extends ResultsReporting {
      * @return the testStatus
      */
     protected TestResult getTestStatus() {
-        return this.testStatus;
+        return this.testResult;
     }
 
     /**
@@ -172,7 +172,7 @@ public abstract class TestBase extends ResultsReporting {
      * @return the test base
      */
     protected TestBase setTestStatus(final TestResult testStatus) {
-        this.testStatus = testStatus;
+        this.testResult = testStatus;
         return this;
     }
 
@@ -362,11 +362,20 @@ public abstract class TestBase extends ResultsReporting {
         return this;
     }
 
+    /**
+     * Result.
+     * 
+     * @return the test result
+     */
+    public TestResult result() {
+        return this.testResult;
+    }
+
     public String debugString() {
         return String.format(
                 "%s [testStatus=%s, uniqueIdentifier=%s, testContext=%s, tester=%s, name=%s, taxonomy=%s, description=%s, timestamp=%s, preConditions=%s, postConditions=%s]",
                 this.getClass().getSimpleName(),
-                this.testStatus,
+                this.testResult,
                 this.uniqueIdentifier,
                 this.testContext,
                 this.tester,

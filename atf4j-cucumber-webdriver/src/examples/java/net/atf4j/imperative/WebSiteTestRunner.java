@@ -14,27 +14,13 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
-package net.atf4j.core.model;
+package net.atf4j.imperative;
 
-import static org.junit.Assert.assertNotNull;
+import net.atf4j.imperative.AbstractTestRunner;
 
-import org.junit.Test;
-
-public class FailStepTest {
-
-    @Test
-    public void testFailStep() {
-        assertNotNull(new FailStep());
-    }
-
-    @Test
-    public void testFailStepNull() {
-        assertNotNull(new FailStep(null));
-    }
-
-    @Test
-    public void testFailStepString() {
-        assertNotNull(new FailStep("FailStep"));
-    }
+/**
+ * The WebSiteTestRunner Class.
+ */
+public class WebSiteTestRunner extends AbstractTestRunner {
 
 }
