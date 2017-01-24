@@ -133,21 +133,9 @@ public class Field {
         return this.status;
     }
 
-    /**
-     * Debug string.
-     *
-     * @return the string
-     */
-    public String debugString() {
-        return String.format("%s [status=%s, key=%s, value=%s]",this.getClass().getSimpleName(), this.status, this.key, this.value);
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
     @Override
     public String toString() {
-        return debugString();
+        return String.format("Field [status=%s, key=%s, value=%s]", this.status, this.key, this.value);
     }
 
 }

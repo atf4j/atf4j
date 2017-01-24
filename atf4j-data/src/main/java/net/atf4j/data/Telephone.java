@@ -94,6 +94,18 @@ public class Telephone {
     }
 
     /**
+     * Instantiates a new telephone.
+     * 
+     * @param type the type
+     * @param number the number
+     */
+    public Telephone(final Type type, final String number) {
+        super();
+        this.type = type;
+        this.number = number;
+    }
+
+    /**
      * Verify.
      *
      * @return true, if successful
@@ -190,28 +202,6 @@ public class Telephone {
         } else {
             return "Telephone";
         }
-    }
-
-    /**
-     * Debug string.
-     *
-     * @return the string
-     */
-    public String debugString() {
-        return String.format("%s [number=%s, type=%s]",
-                this.getClass().getSimpleName(),
-                this.getNumber(),
-                this.getType());
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
-        return String.format("%s : %s",
-                this.getType(),
-                this.getNumber());
     }
 
 }

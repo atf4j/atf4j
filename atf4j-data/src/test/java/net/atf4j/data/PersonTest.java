@@ -24,6 +24,7 @@ import java.util.Calendar;
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
+import net.atf4j.data.Person.Gender;
 
 /**
  * A UnitTest for Person objects.
@@ -58,6 +59,24 @@ public class PersonTest extends ResultsReporting {
     public void testSetGetTitle() {
         final String actual = "";
         assertEquals(actual, new Person().title(actual).title());
+    }
+
+    /**
+     * Unit Test for test title.
+     */
+    @Test
+    public void testTitle() {
+        final Person.Title title = Person.Title.DR;
+        assertEquals("", title.toString());
+    }
+
+    /**
+     * Unit Test for test gender.
+     */
+    @Test
+    public void testGender() {
+        final Gender gender = Gender.MALE;
+        assertEquals("", gender.toString());
     }
 
     /**

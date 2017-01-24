@@ -29,12 +29,32 @@ import net.atf4j.data.Card;
 public class CardDataFactoryTest extends ResultsReporting {
 
     /**
+     * Test method for expected usage
+     */
+    @Test
+    public void testExpectedUsage() {
+        this.log.info(CardDataFactory.randomCard());
+    }
+
+    /**
+     * Test default constructor.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    @Test
+    public final void testDefaultConstructor() throws Exception {
+        assertNotNull(new CardDataFactory());
+    }
+
+    /**
      * Test method for void.
      */
     @Test
     public void testGetInstance() {
         final CardDataFactory instance = CardDataFactory.getInstance();
         assertNotNull(instance);
+        this.log.info(instance.toString());
     }
 
     /**
@@ -44,6 +64,7 @@ public class CardDataFactoryTest extends ResultsReporting {
     public void testCreate() {
         final Card card = CardDataFactory.create();
         assertNotNull(card);
+        this.log.info(card.toString());
     }
 
 }

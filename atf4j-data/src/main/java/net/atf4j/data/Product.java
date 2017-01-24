@@ -18,8 +18,6 @@ package net.atf4j.data;
 
 /**
  * Product.
- *
- *
  */
 public class Product {
 
@@ -122,21 +120,9 @@ public class Product {
         return this.details;
     }
 
-    /**
-     * Debug string.
-     *
-     * @return the string
-     */
-    public String debugString() {
-        return String.format("%s [id=%s, name=%s, details=%s]", this.getClass().getSimpleName(),this.id, this.name, this.details);
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
     @Override
     public String toString() {
-        return debugString();
+        return String.format("Product [id=%s, name=%s, details=%s]", this.id, this.name, this.details);
     }
 
 }

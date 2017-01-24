@@ -22,6 +22,7 @@ package net.atf4j.data;
 public class Bank extends Business {
 
     private BankSortCode bankSortCode;
+    private String bankName;
     private String sortCode;
     private String iban;
 
@@ -57,6 +58,17 @@ public class Bank extends Business {
     /**
      * Sets the bank sort code.
      *
+     * @param bankSortCode the bank sort code
+     * @return the bank
+     */
+    public Bank setBankSortCode(final String bankSortCode) {
+        this.bankSortCode.setBankSortCode(bankSortCode);
+        return this;
+    }
+
+    /**
+     * Sets the bank sort code.
+     *
      * @param bankSortCode
      *            the bankSortCode to set
      * @return the bank
@@ -75,20 +87,76 @@ public class Bank extends Business {
         return this.bankSortCode;
     }
 
+    /**
+     * Gets the bank name.
+     * 
+     * @return the bank name
+     */
+    public String getBankName() {
+        return this.bankName;
+    }
+
+    /**
+     * Sets the bank name.
+     * 
+     * @param bankName the bank name
+     * @return the bank
+     */
+    public Bank setBankName(final String bankName) {
+        this.bankName = bankName;
+        return this;
+    }
+
+    /**
+     * Gets the sort code.
+     * 
+     * @return the sort code
+     */
+    public String getSortCode() {
+        return this.sortCode;
+    }
+
+    /**
+     * Sets the sort code.
+     * 
+     * @param sortCode the sort code
+     * @return the bank
+     */
+    public Bank setSortCode(final String sortCode) {
+        this.sortCode = sortCode;
+        return this;
+    }
+
+    /**
+     * Gets the iban.
+     * 
+     * @return the iban
+     */
+    public String getIban() {
+        return this.iban;
+    }
+
+    /**
+     * Sets the iban.
+     * 
+     * @param iban the iban
+     * @return the bank
+     */
+    public Bank setIban(final String iban) {
+        this.iban = iban;
+        return this;
+    }
+
     /* (non-Javadoc)
      * @see net.atf4j.data.Business#toString()
      */
     @Override
     public String toString() {
-        return debugString();
-    }
-
-    /* (non-Javadoc)
-     * @see net.atf4j.data.Business#debugString()
-     */
-    @Override
-    public String debugString() {
-        return String.format("%s [bankSortCode=%s]", this.getClass().getSimpleName(), this.bankSortCode);
+        return String.format("Bank [bankSortCode=%s, bankName=%s, sortCode=%s, iban=%s]",
+                this.bankSortCode,
+                this.bankName,
+                this.sortCode,
+                this.iban);
     }
 
 }

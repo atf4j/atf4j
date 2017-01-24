@@ -29,12 +29,34 @@ import net.atf4j.data.Bank;
 public class BankDataFactoryTest extends ResultsReporting {
 
     /**
-     * Test method for void.
+     * Test method for expected usage
+     */
+    @Test
+    public void testExpectedUsage() {
+        final String randomThing = BankDataFactory.random();
+        assertNotNull(randomThing);
+        this.log.info("{}", randomThing);
+    }
+
+    /**
+     * Test default constructor.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    @Test
+    public final void testDefaultConstructor() throws Exception {
+        assertNotNull(new BankDataFactory());
+    }
+
+    /**
+     * Test method of get singleton instance of PersonDataFactory.
      */
     @Test
     public void testGetInstance() {
         final BankDataFactory instance = BankDataFactory.getInstance();
         assertNotNull(instance);
+        this.log.info(instance.toString());
     }
 
     /**
@@ -44,6 +66,7 @@ public class BankDataFactoryTest extends ResultsReporting {
     public void testCreate() {
         final Bank bank = BankDataFactory.create();
         assertNotNull(bank);
+        this.log.info(bank.toString());
     }
 
 }

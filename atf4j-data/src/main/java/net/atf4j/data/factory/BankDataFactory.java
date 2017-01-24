@@ -65,4 +65,8 @@ public class BankDataFactory extends AbstractDataFactory {
         return new Bank();
     }
 
+    public static String random() {
+        return null;
+    }
+
 }

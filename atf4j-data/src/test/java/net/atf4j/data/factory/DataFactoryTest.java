@@ -40,6 +40,14 @@ import net.atf4j.data.PostalAddress;
 public class DataFactoryTest extends ResultsReporting {
 
     /**
+     * Test method for expected usage
+     */
+    @Test
+    public void testExpectedUsage() {
+        this.log.info("{}", DataFactory.dateOfBirth());
+    }
+
+    /**
      * Test default constructor.
      *
      * @throws Exception
@@ -47,9 +55,7 @@ public class DataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testDefaultConstructor() throws Exception {
-        final DataFactory testData = new DataFactory();
-        assertNotNull(testData);
-        assertNotNull(testData.toString());
+        assertNotNull(new DataFactory());
     }
 
     /**

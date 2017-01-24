@@ -22,8 +22,16 @@ import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
+/**
+ * A UnitTest for FileWalker objects.
+ */
 public class FileWalkerTest extends ResultsReporting {
 
+    /**
+     * Unit Test for test walk.
+     * 
+     * @throws URISyntaxException the URI syntax exception
+     */
     @Test
     public void testWalk() throws URISyntaxException {
         final FileWalker fileWalker = new FileWalker();

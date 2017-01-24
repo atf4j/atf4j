@@ -29,12 +29,32 @@ import net.atf4j.data.Business;
 public class BusinessDataFactoryTest extends ResultsReporting {
 
     /**
+     * Test method for expected usage
+     */
+    @Test
+    public void testExpectedUsage() {
+        this.log.info(BusinessDataFactory.randomThing());
+    }
+
+    /**
+     * Test default constructor.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    @Test
+    public final void testDefaultConstructor() throws Exception {
+        assertNotNull(new BusinessDataFactory());
+    }
+
+    /**
      * Test method for void.
      */
     @Test
     public void testGetInstance() {
         final BusinessDataFactory instance = BusinessDataFactory.getInstance();
         assertNotNull(instance);
+        this.log.info(instance.toString());
     }
 
     /**
@@ -44,6 +64,7 @@ public class BusinessDataFactoryTest extends ResultsReporting {
     public void testCreate() {
         final Business business = BusinessDataFactory.create();
         assertNotNull(business);
+        this.log.info(business.toString());
     }
 
 }

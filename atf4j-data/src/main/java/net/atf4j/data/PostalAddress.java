@@ -18,7 +18,6 @@ package net.atf4j.data;
 
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -26,7 +25,6 @@ import java.util.Arrays;
  */
 public class PostalAddress {
 
-    private ArrayList<String> arrayList;
     private String[] addressLines = new String[8];
     private Postcode postcode;
 
@@ -40,7 +38,17 @@ public class PostalAddress {
     public PostalAddress(final String address) {
         super();
         this.addressLines = address.split(",");
-        this.arrayList = new ArrayList<String>();
+    }
+
+    /**
+     * Instantiates a new address.
+     *
+     * @param address
+     *            the address
+     */
+    public PostalAddress(final String[] address) {
+        super();
+        setAddress(address);
     }
 
     /**
@@ -58,15 +66,6 @@ public class PostalAddress {
     }
 
     /**
-     * Gets the address.
-     *
-     * @return the address
-     */
-    public String[] getAddress() {
-        return this.addressLines;
-    }
-
-    /**
      * Sets the address.
      *
      * @param address
@@ -79,12 +78,15 @@ public class PostalAddress {
     }
 
     /**
-     * Gets the postcode.
+     * Sets the address row.
      *
-     * @return the postcode
+     * @param row the row
+     * @param line the line
      */
-    public Postcode getPostcode() {
-        return this.postcode;
+    public void setAddressRow(final int row, final String line) {
+        assertTrue(row > 0);
+        assertTrue(row < this.addressLines.length);
+        this.addressLines[row] = line;
     }
 
     /**
@@ -97,6 +99,24 @@ public class PostalAddress {
     public PostalAddress setPostcode(final Postcode postcode) {
         this.postcode = postcode;
         return this;
+    }
+
+    /**
+     * Gets the address.
+     *
+     * @return the address
+     */
+    public String[] getAddress() {
+        return this.addressLines;
+    }
+
+    /**
+     * Gets the postcode.
+     *
+     * @return the postcode
+     */
+    public Postcode getPostcode() {
+        return this.postcode;
     }
 
     /**
@@ -117,18 +137,6 @@ public class PostalAddress {
     @Override
     public String toString() {
         return debugString();
-    }
-
-    /**
-     * Sets the address row.
-     *
-     * @param row the row
-     * @param line the line
-     */
-    public void setAddressRow(final int row, final String line) {
-        assertTrue(row > 0);
-        assertTrue(row < this.addressLines.length);
-        this.addressLines[row] = line;
     }
 
 }

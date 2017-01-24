@@ -45,11 +45,33 @@ public class BankAccount {
     /**
      * Instantiates a new bank account.
      *
+     * @param bank the bank
+     */
+    public BankAccount(final Bank bank) {
+        super();
+        this.bank = bank;
+    }
+
+    /**
+     * Instantiates a new bank account.
+     *
      * @param accountNo
      *            the account no
      */
     public BankAccount(final String accountNo) {
         super();
+        this.accountNo = accountNo;
+    }
+
+    /**
+     * Instantiates a new bank account.
+     *
+     * @param bank the bank
+     * @param accountNo the account no
+     */
+    public BankAccount(final Bank bank, final String accountNo) {
+        super();
+        this.bank = bank;
         this.accountNo = accountNo;
     }
 
@@ -95,21 +117,9 @@ public class BankAccount {
         return this.accountNo;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
     @Override
     public String toString() {
-        return debugString();
-    }
-
-    /**
-     * Debug string.
-     *
-     * @return the string
-     */
-    public String debugString() {
-        return String.format("%s [accountNo=%s, bank=%s]", this.getClass().getSimpleName(),this.accountNo, this.bank);
+        return String.format("BankAccount [bank=%s, accountNo=%s]", this.bank, this.accountNo);
     }
 
 }

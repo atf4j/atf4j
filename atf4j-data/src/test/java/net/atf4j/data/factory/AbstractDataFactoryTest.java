@@ -20,10 +20,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.ResultsReporting;
+
 /**
  * A UnitTest for AbstractDataFactory objects.
  */
-public class AbstractDataFactoryTest {
+public class AbstractDataFactoryTest extends ResultsReporting {
 
     /**
      * Mock Test Data.
@@ -41,13 +43,13 @@ public class AbstractDataFactoryTest {
     }
 
     /**
-     * Test method for AbstractDataFactory}.
+     * Test default constructor.
      *
      * @throws Exception
      *             the exception
      */
     @Test
-    public void testDefaultConstructor() throws Exception {
+    public final void testDefaultConstructor() throws Exception {
         assertNotNull(new TestDataFactory());
     }
 

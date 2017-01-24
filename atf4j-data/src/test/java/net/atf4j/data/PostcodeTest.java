@@ -71,15 +71,6 @@ public class PostcodeTest extends ResultsReporting {
      * Test method for Postcode}.
      */
     @Test
-    public void testDebugString() {
-        final String postcode = new Postcode().debugString();
-        assertNotNull(postcode);
-    }
-
-    /**
-     * Test method for Postcode}.
-     */
-    @Test
     public void testToString() {
         final String postcode = new Postcode().toString();
         assertNotNull(postcode);

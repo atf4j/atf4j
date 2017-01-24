@@ -41,9 +41,9 @@ public class BankTest extends ResultsReporting {
      */
     @Test
     public void testBank() {
-        final Bank bank = new Bank();
+        final Bank bank = new Bank("");
         assertNotNull(bank);
-        bank.setName("BankName").getName();
+        this.log.info("{}", bank);
     }
 
     /**
@@ -51,7 +51,9 @@ public class BankTest extends ResultsReporting {
      */
     @Test
     public void testCreate() {
-        assertNotNull(Bank.create());
+        final Bank bank = Bank.create();
+        assertNotNull(bank);
+        this.log.info("{}", bank);
     }
 
     /**
@@ -60,8 +62,9 @@ public class BankTest extends ResultsReporting {
     @Test
     public void testSetGetName() {
         final String bankName = "Bank Name";
-        final Bank name = new Bank(bankName);
-        assertEquals(bankName, name.setName(bankName).getName());
+        final Bank bank = new Bank(bankName);
+        assertEquals(bankName, bank.setName(bankName).getName());
+        this.log.info("{}", bank);
     }
 
     /**
@@ -71,6 +74,7 @@ public class BankTest extends ResultsReporting {
     public void testDebugString() {
         final String string = new Bank().debugString();
         assertNotNull(string);
+        this.log.info("{}", string);
     }
 
     /**
@@ -80,6 +84,7 @@ public class BankTest extends ResultsReporting {
     public void testToString() {
         final String string = new Bank().toString();
         assertNotNull(string);
+        this.log.info("{}", string);
     }
 
 }

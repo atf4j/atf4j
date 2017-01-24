@@ -30,7 +30,7 @@ import net.atf4j.data.Person;
 import net.atf4j.data.PostalAddress;
 
 /**
- * DataFactory.
+ * Data Factory class.
  */
 public class DataFactory {
 
@@ -275,7 +275,7 @@ public class DataFactory {
      * @param startDate the start date
      * @return the calendar
      */
-    private static Calendar toCalendar(final Date startDate) {
+    public static Calendar toCalendar(final Date startDate) {
         final Calendar instance = Calendar.getInstance();
         instance.setTime(startDate);
         return instance;

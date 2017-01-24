@@ -20,8 +20,7 @@ package net.atf4j.data;
  * Consumer Data.
  */
 public class Consumer extends Person {
-
-    private String username;
+    private Credentials credentials;
 
     /**
      * Instantiates a new consumer.
@@ -31,31 +30,106 @@ public class Consumer extends Person {
     }
 
     /**
-     * Gets the username.
+     * Instantiates a new consumer.
      *
-     * @return the username
+     * @param credentials the credentials
      */
-    public String getUsername() {
-        return this.username;
+    public Consumer(final Credentials credentials) {
+        super();
+        this.credentials = credentials;
+    }
+
+    /**
+     * Instantiates a new consumer.
+     *
+     * @param forename the forename
+     * @param middlename the middlename
+     * @param surname the surname
+     */
+    public Consumer(final String forename, final String middlename, final String surname) {
+        super(forename, middlename, surname);
+    }
+
+    /**
+     * Sets the credentials.
+     *
+     * @param credentials the credentials to set
+     * @return the consumer
+     */
+    public Consumer setCredentials(final Credentials credentials) {
+        this.credentials = credentials;
+        return this;
     }
 
     /**
      * Sets the username.
      *
      * @param username the username
-     * @return the consumer
+     * @return the credentials
      */
-    public Consumer setUsername(final String username) {
-        this.username = username;
-        return this;
+    public Credentials setUsername(final String username) {
+        return this.credentials.setUsername(username);
     }
 
-    /* (non-Javadoc)
-     * @see net.atf4j.data.Person#toString()
+    /**
+     * Sets the password.
+     *
+     * @param password the password
+     * @return the credentials
      */
+    public Credentials setPassword(final String password) {
+        return this.credentials.setPassword(password);
+    }
+
+    /**
+     * Sets the email.
+     *
+     * @param email the email
+     * @return the credentials
+     */
+    public Credentials setEmail(final String email) {
+        return this.credentials.setEmail(email);
+    }
+
+    /**
+     * Gets the username.
+     *
+     * @return the username
+     */
+    public String getUsername() {
+        return this.credentials.getUsername();
+    }
+
+    /**
+     * Gets the password.
+     *
+     * @return the password
+     */
+    public String getPassword() {
+        return this.credentials.getPassword();
+    }
+
+    /**
+     * Gets the email.
+     *
+     * @return the email
+     */
+    public String getEmail() {
+        return this.credentials.getEmail();
+    }
+
+    /**
+     * Gets the credentials.
+     *
+     * @return the credentials
+     */
+    public Credentials getCredentials() {
+        return this.credentials;
+    }
+
     @Override
     public String toString() {
-        return String.format("%s [username=%s %s]", this.getClass().getSimpleName(), this.username, super.toString());
+        return String.format("Consumer [credentials=%s]", this.credentials);
     }
 
 }

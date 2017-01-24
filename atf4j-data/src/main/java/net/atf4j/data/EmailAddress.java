@@ -34,12 +34,23 @@ public class EmailAddress {
     private String localPart = null;
     private String email = null;
 
+    /**
+     * At.
+     * 
+     * @param domain the domain
+     * @return the email address
+     */
     public static EmailAddress at(final String domain) {
         final EmailAddress emailAddress = new EmailAddress(domain);
         emailAddress.setLocalPart(DataFactory.randomString(10));
         return emailAddress;
     }
 
+    /**
+     * Create new instance of create.
+     * 
+     * @return the email address
+     */
     public static EmailAddress create() {
         final EmailAddress emailAddress = new EmailAddress();
         emailAddress.setLocalPart(DataFactory.randomString(10));
@@ -56,7 +67,7 @@ public class EmailAddress {
 
     /**
      * Instantiates a new email address.
-     * 
+     *
      * @param domain the domain
      */
     public EmailAddress(final String domain) {
@@ -75,24 +86,51 @@ public class EmailAddress {
         return this;
     }
 
+    /**
+     * Sets the domain.
+     * 
+     * @param domain the domain
+     * @return the email address
+     */
     public EmailAddress setDomain(final String domain) {
         this.domain = domain;
         return this;
     }
 
+    /**
+     * Sets the local part.
+     * 
+     * @param localPart the local part
+     * @return the email address
+     */
     public EmailAddress setLocalPart(final String localPart) {
         this.localPart = localPart;
         return this;
     }
 
+    /**
+     * Gets the domain.
+     * 
+     * @return the domain
+     */
     public String getDomain() {
         return this.domain;
     }
 
+    /**
+     * Gets the local part.
+     * 
+     * @return the local part
+     */
     public String getLocalPart() {
         return this.localPart;
     }
 
+    /**
+     * Gets the email.
+     * 
+     * @return the email
+     */
     public String getEmail() {
         return this.email;
     }
@@ -108,24 +146,15 @@ public class EmailAddress {
         return matcher.find();
     }
 
-    /**
-     * Debug string.
-     *
-     * @return the string
-     */
-    public String debugString() {
-        return String.format("EmailAddress [email=%s, domain=%s, localPart=%s]",
-                this.email,
-                this.domain,
-                this.localPart);
-    }
-
     /* (non-Javadoc)
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return this.email;
+        return String.format("EmailAddress [domain=%s, localPart=%s, email=%s]",
+                this.domain,
+                this.localPart,
+                this.email);
     }
 
 }

@@ -92,6 +92,7 @@ public class Person {
     private Calendar dob;
     private PostalAddress postalAddress;
     private String emailAddress;
+    private String Gender;
 
     /**
      * Instantiates a new person.
@@ -196,6 +197,17 @@ public class Person {
     }
 
     /**
+     * Gender.
+     * 
+     * @param gender the gender
+     * @return the person
+     */
+    public Person gender(final String gender) {
+        this.Gender = gender;
+        return this;
+    }
+
+    /**
      * Gets the title.
      *
      * @return the title
@@ -240,6 +252,11 @@ public class Person {
         return this.dob;
     }
 
+    /**
+     * Age.
+     * 
+     * @return the int
+     */
     public int age() {
         final Calendar now = Calendar.getInstance();
         final int currentmonth = now.get(Calendar.MONTH);
@@ -269,6 +286,15 @@ public class Person {
      */
     public String emailAddress() {
         return this.emailAddress;
+    }
+
+    /**
+     * Gender.
+     * 
+     * @return the string
+     */
+    public String gender() {
+        return this.Gender;
     }
 
     /* (non-Javadoc)

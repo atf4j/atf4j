@@ -48,15 +48,6 @@ public class ProductCatalogTest extends ResultsReporting {
      * Test method for ProductCatalog}.
      */
     @Test
-    public void testDebugString() {
-        final String string = new ProductCatalog().debugString();
-        assertNotNull(string);
-    }
-
-    /**
-     * Test method for ProductCatalog}.
-     */
-    @Test
     public void testToString() {
         final String string = new ProductCatalog().toString();
         assertNotNull(string);

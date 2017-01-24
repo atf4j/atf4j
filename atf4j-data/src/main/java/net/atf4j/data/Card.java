@@ -16,20 +16,24 @@
  */
 package net.atf4j.data;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import net.atf4j.data.factory.DataFactory;
 
 /**
  * Card Data.
  */
 public class Card {
+
     private String provider;
     private String cardNumber;
     private String cardName;
-    private Date endDate;
-    private Date startDate;
-    // Card CCV
+    private Calendar startDate;
+    private Calendar endDate;
+    private String ccv;
 
     /**
      * Create new instance of create.
@@ -37,7 +41,12 @@ public class Card {
      * @return the card
      */
     public static Card create() {
-        return new Card();
+        final Card card = new Card();
+        card.setCardName("Card Name");
+        card.setCardNumber("1234 5678 9000 0000");
+        card.setStartDate(DataFactory.pastDate());
+        card.setEndDate(DataFactory.futureDate());
+        return card;
     }
 
     /**
@@ -61,8 +70,11 @@ public class Card {
      * @param startDate
      *            the start date
      */
-    public Card(final String provider, final String cardNumber, final String cardName, final Date endDate,
-            final Date startDate) {
+    public Card(final String provider,
+            final String cardNumber,
+            final String cardName,
+            final Calendar endDate,
+            final Calendar startDate) {
         super();
         this.provider = provider;
         this.cardNumber = cardNumber;
@@ -72,7 +84,29 @@ public class Card {
     }
 
     /**
-     * Gets the provider.
+     * Instantiates a new card.
+     * 
+     * @param provider the provider
+     * @param cardNumber the card number
+     * @param cardName the card name
+     * @param endDate the end date
+     * @param startDate the start date
+     */
+    public Card(final String provider,
+            final String cardNumber,
+            final String cardName,
+            final Date endDate,
+            final Date startDate) {
+        super();
+        this.provider = provider;
+        this.cardNumber = cardNumber;
+        this.cardName = cardName;
+        this.startDate = DataFactory.toCalendar(startDate);
+        this.endDate = DataFactory.toCalendar(endDate);
+    }
+
+    /**
+     * Gets the Card's provider.
      *
      * @return the provider
      */
@@ -81,7 +115,7 @@ public class Card {
     }
 
     /**
-     * Sets the provider.
+     * Sets the Card's provider.
      *
      * @param provider
      *            the provider
@@ -93,7 +127,7 @@ public class Card {
     }
 
     /**
-     * Gets the card number.
+     * Gets the Card's card number.
      *
      * @return the card number
      */
@@ -102,7 +136,7 @@ public class Card {
     }
 
     /**
-     * Sets the card number.
+     * Sets the Card's card number.
      *
      * @param cardNumber
      *            the card number
@@ -114,7 +148,7 @@ public class Card {
     }
 
     /**
-     * Gets the card name.
+     * Gets the Card's card name.
      *
      * @return the card name
      */
@@ -123,7 +157,7 @@ public class Card {
     }
 
     /**
-     * Sets the card name.
+     * Sets the Card's card name.
      *
      * @param cardName
      *            the card name
@@ -135,12 +169,61 @@ public class Card {
     }
 
     /**
-     * Gets the end date.
+     * Gets the Card's start date.
+     *
+     * @return the start date
+     */
+    public Calendar getStartDate() {
+        return this.startDate;
+    }
+
+    /**
+     * Gets the Card's end date.
      *
      * @return the end date
      */
-    public Date getEndDate() {
+    public Calendar getEndDate() {
         return this.endDate;
+    }
+
+    /**
+     * Gets the Card's ccv.
+     *
+     * @return the ccv
+     */
+    public String getCcv() {
+        return this.ccv;
+    }
+
+    /**
+     * Sets the card's start date.
+     *
+     * @param startDate the start date
+     * @return the card
+     */
+    public Card setStartDate(final Date startDate) {
+        return setStartDate(DataFactory.toCalendar(startDate));
+    }
+
+    /**
+     * Sets the start date.
+     *
+     * @param startDate the start date
+     * @return the card
+     */
+    public Card setStartDate(final Calendar startDate) {
+        this.startDate = startDate;
+        return this;
+    }
+
+    /**
+     * Sets the end date.
+     *
+     * @param startDate the start date
+     * @return the card
+     */
+    public Card setEndDate(final Date startDate) {
+        return setEndDate(DataFactory.toCalendar(startDate));
     }
 
     /**
@@ -150,29 +233,19 @@ public class Card {
      *            the end date
      * @return the card
      */
-    public Card setEndDate(final Date endDate) {
+    public Card setEndDate(final Calendar endDate) {
         this.endDate = endDate;
         return this;
     }
 
     /**
-     * Gets the start date.
+     * Sets the ccv.
      *
-     * @return the start date
-     */
-    public Date getStartDate() {
-        return this.startDate;
-    }
-
-    /**
-     * Sets the start date.
-     *
-     * @param startDate
-     *            the start date
+     * @param ccv the ccv
      * @return the card
      */
-    public Card setStartDate(final Date startDate) {
-        this.startDate = startDate;
+    public Card setCcv(final String ccv) {
+        this.ccv = ccv;
         return this;
     }
 
@@ -250,27 +323,15 @@ public class Card {
         return cardNumber.replaceAll("[^0-9]+", "");
     }
 
-    /**
-     * Debug string.
-     *
-     * @return the string
-     */
-    public String debugString() {
-        return String.format("%s [provider=%s, cardNumber=%s, cardName=%s, endDate=%s, startDate=%s]",
-                this.getClass().getSimpleName(),
+    @Override
+    public String toString() {
+        return String.format("Card [provider=%s, cardNumber=%s, cardName=%s, startDate=%s, endDate=%s, ccv=%s]",
                 this.provider,
                 this.cardNumber,
                 this.cardName,
+                this.startDate,
                 this.endDate,
-                this.startDate);
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
-        return debugString();
+                this.ccv);
     }
 
 }

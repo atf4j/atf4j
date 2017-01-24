@@ -83,22 +83,40 @@ public class Business extends Name {
         return this;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
+    /**
+     * Sets the address.
+     *
+     * @param address the address
+     * @return the business
      */
-    @Override
-    public String toString() {
-        return debugString();
+    public Business setAddress(final String[] address) {
+        this.address.setAddress(address);
+        return this;
     }
 
     /**
-     * Debug string.
+     * Sets the address row.
      *
-     * @return the string
+     * @param row the row
+     * @param line the line
      */
+    public void setAddressRow(final int row, final String line) {
+        this.address.setAddressRow(row, line);
+    }
+
+    /**
+     * Sets the postcode.
+     *
+     * @param postcode the postcode
+     * @return the postal address
+     */
+    public PostalAddress setPostcode(final Postcode postcode) {
+        return this.address.setPostcode(postcode);
+    }
+
     @Override
-    public String debugString() {
-        return String.format("%s [name=%s, address=%s]",this.getClass().getSimpleName(), this.getName(), this.getAddress());
+    public String toString() {
+        return String.format("Business [address=%s]", this.address);
     }
 
 }

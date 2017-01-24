@@ -1,7 +1,9 @@
 package automation.groovy;
 
-class DataFactoryTest
-{
-    DataFactory instance = new DataFactory()
-    instance.tester()
+class DataFactoryTest {
+
+	example() {
+		final Calendar today = DataFactory.today();
+		}
+
 }

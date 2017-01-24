@@ -69,15 +69,6 @@ public class NinoTest extends ResultsReporting {
      * Test method for NationalInsurance}.
      */
     @Test
-    public void testDebugString() {
-        final String string = new Nino().debugString();
-        assertNotNull(string);
-    }
-
-    /**
-     * Test method for NationalInsurance}.
-     */
-    @Test
     public void testToString() {
         final String string = new Nino().toString();
         assertNotNull(string);

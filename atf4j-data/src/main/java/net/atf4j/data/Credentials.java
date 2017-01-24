@@ -60,15 +60,6 @@ public class Credentials {
     }
 
     /**
-     * Gets the password.
-     *
-     * @return the password
-     */
-    public String getPassword() {
-        return this.password;
-    }
-
-    /**
      * Sets the password.
      *
      * @param password the password
@@ -76,6 +67,17 @@ public class Credentials {
      */
     public Credentials setPassword(final String password) {
         this.password = password;
+        return this;
+    }
+
+    /**
+     * Sets the email.
+     *
+     * @param email the email
+     * @return the credentials
+     */
+    public Credentials setEmail(final String email) {
+        this.email = email;
         return this;
     }
 
@@ -89,13 +91,20 @@ public class Credentials {
     }
 
     /**
-     * Sets the email.
+     * Gets the password.
      *
-     * @param email the email
-     * @return the credentials
+     * @return the password
      */
-    public Credentials setEmail(final String email) {
-        this.email = email;
-        return this;
+    public String getPassword() {
+        return this.password;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Credentials [username=%s, password=%s, email=%s]",
+                this.username,
+                this.password,
+                this.email);
+    }
+
 }

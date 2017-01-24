@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/DECORATION/1.6.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/DECORATION/1.6.0 http://maven.apache.org/xsd/decoration-1.6.0.xsd">
 	<body>
+
 		<menu name="Overview">
-			<item name="Introduction" href="index.html"/>
+			<item name="Index" href="index.html"/>
+			<item name="About" href="about.html"/>
 			<item name="Usage" href="usage.html"/>
-			<item name="FAQ" href="faq.html"/>
+			<item name="Issue Tracking" href="issue-tracking.html"/>
+			<item name="Report" href="poject-report.html"/>
+			<item name="Release Notes" href="release-notes.html"/>
+			<item name="Release Notes" href="release-notes.html"/>
+			<item name="Roadmap" href="roadmap.html"/>
 			<item name="Download" href="download.html"/>
+			<item name="FAQ" href="faq.html"/>
+			<item name="ATF4J API" href="apidocs/index.html"/>
+			<item name="Test API" href="testapidocs/index.html"/>
 		</menu>
+
+		<links>
+			<item name="GitHub" href="https://github.com/atf4j/atf4j"/>
+			<item name="Issues" href="https://github.com/atf4j/atf4j/issues"/>
+			<item name="Apache" href="http://www.apache.org" />
+			<item name="JUnit" href="http://www.junit.org" />
+			<item name="slf4j" href="http://www.slf4j.org" />
+			<item name="Cucumber" href="http://www.cucumber.io" />
+			<item name="Selenium" href="http://www.seleniumhq.org" />
+		</links>
+
 	</body>
 </project>

@@ -81,16 +81,6 @@ public class TelephoneTest extends ResultsReporting {
      * Test method for Telephone}.
      */
     @Test
-    public void testTelephoneDebugString() {
-        final String telephone = new Telephone(_0123456789).debugString();
-        assertNotNull(telephone);
-        assertEquals("Telephone [number=0123456789, type=Phone]", telephone);
-    }
-
-    /**
-     * Test method for Telephone}.
-     */
-    @Test
     public void testToString() {
         final String string = new Telephone().toString();
         assertNotNull(string);

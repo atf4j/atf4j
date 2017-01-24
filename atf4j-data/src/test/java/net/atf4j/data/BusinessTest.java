@@ -68,6 +68,7 @@ public class BusinessTest extends ResultsReporting {
     public void testDebugString() {
         final String string = new Business().debugString();
         assertNotNull(string);
+        this.log.info("{}", string);
     }
 
     /**
@@ -77,6 +78,7 @@ public class BusinessTest extends ResultsReporting {
     public void testToString() {
         final String string = new Business().toString();
         assertNotNull(string);
+        this.log.info("{}", string);
     }
 
 }

@@ -40,6 +40,8 @@ public class SetUpDataTest extends ResultsReporting {
     @Before
     public void before() {
         assertTrue(this.jdbcData.setUp());
+        assertTrue(this.jmsData.setUp());
+        assertTrue(this.restfulData.setUp());
     }
 
     /**
@@ -48,6 +50,8 @@ public class SetUpDataTest extends ResultsReporting {
     @After
     public void after() {
         assertTrue(this.jdbcData.tearDown());
+        assertTrue(this.jmsData.tearDown());
+        assertTrue(this.restfulData.tearDown());
     }
 
     /**
@@ -56,6 +60,8 @@ public class SetUpDataTest extends ResultsReporting {
     @Test
     public void test() {
         assertTrue(this.jdbcData.reset());
+        assertTrue(this.jmsData.reset());
+        assertTrue(this.restfulData.reset());
     }
 
 }

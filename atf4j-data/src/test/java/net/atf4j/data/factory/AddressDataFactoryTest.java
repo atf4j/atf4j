@@ -29,12 +29,44 @@ import net.atf4j.data.PostalAddress;
 public class AddressDataFactoryTest extends ResultsReporting {
 
     /**
-     * Test method for void.
+     * Test method for expected usage
+     */
+    @Test
+    public void testExpectedUsage() {
+        final PostalAddress address = AddressDataFactory.random();
+        assertNotNull(address);
+        this.log.info("{}", address);
+    }
+
+    /**
+     * Test default constructor.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    @Test
+    public final void testDefaultConstructor() throws Exception {
+        assertNotNull(new AddressDataFactory());
+    }
+
+    /**
+     * Test method get single instance of AddressDataFactory.
+     */
+    @Test
+    public void testGetInstance() {
+        final AddressDataFactory instance = AddressDataFactory.getInstance();
+        assertNotNull(instance);
+        this.log.info(instance.toString());
+    }
+
+    /**
+     * Test method for AddressDataFactory.
      */
     @Test
     public void testCreate() {
         final PostalAddress address = AddressDataFactory.create();
         assertNotNull(address);
+        this.log.info(address.toString());
     }
 
     /**
@@ -44,6 +76,7 @@ public class AddressDataFactoryTest extends ResultsReporting {
     public void testRandom() {
         final PostalAddress address = AddressDataFactory.random();
         assertNotNull(address);
+        this.log.info(address.toString());
     }
 
     /**
@@ -53,6 +86,7 @@ public class AddressDataFactoryTest extends ResultsReporting {
     public void testGetFromTag() {
         final PostalAddress address = AddressDataFactory.forTag("WIP");
         assertNotNull(address);
+        this.log.info(address.toString());
     }
 
 }

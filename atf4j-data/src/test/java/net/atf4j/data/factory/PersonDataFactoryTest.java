@@ -29,10 +29,10 @@ import net.atf4j.data.Person;
 public class PersonDataFactoryTest extends ResultsReporting {
 
     /**
-     * Test.
+     * Test method for expected usage
      */
     @Test
-    public void test() {
+    public void testExpectedUsage() {
         this.log.info(PersonDataFactory.randomForename());
         this.log.info(PersonDataFactory.randomFemaleForename());
         this.log.info(PersonDataFactory.randomMaleForename());
@@ -48,12 +48,26 @@ public class PersonDataFactoryTest extends ResultsReporting {
     }
 
     /**
+     * Test default constructor.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    @Test
+    public final void testDefaultConstructor() throws Exception {
+        final PersonDataFactory personDataFactory = new PersonDataFactory();
+        assertNotNull(personDataFactory);
+        assertNotNull(personDataFactory.toString());
+    }
+
+    /**
      * Test method for void.
      */
     @Test
     public void testGetInstance() {
-        final AbstractDataFactory instance = PersonDataFactory.getInstance();
-        assertNotNull(instance);
+        final AbstractDataFactory personDataFactory = PersonDataFactory.getInstance();
+        assertNotNull(personDataFactory);
+        assertNotNull(personDataFactory.toString());
     }
 
     /**

@@ -21,12 +21,9 @@ import java.util.Collection;
 
 /**
  * ProductCatalog.
- *
- *
  */
 public class ProductCatalog {
 
-    /** The catalog. */
     private Collection<Product> catalog = new ArrayDeque<Product>();
 
     /**
@@ -76,21 +73,9 @@ public class ProductCatalog {
         this.catalog = productList;
     }
 
-    /**
-     * Debug string.
-     *
-     * @return the string
-     */
-    public String debugString() {
-        return String.format("%s [catalog=%s]", this.getClass().getSimpleName(),this.catalog);
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
     @Override
     public String toString() {
-        return debugString();
+        return String.format("ProductCatalog [catalog=%s]", this.catalog);
     }
 
 }

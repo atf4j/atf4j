@@ -29,13 +29,22 @@ import net.atf4j.data.Consumer;
 public class ConsumerDataFactoryTest extends ResultsReporting {
 
     /**
-     * Test.
+     * Test method for expected usage
      */
     @Test
-    public void test() {
-        final Consumer consumer = ConsumerDataFactory.create();
-        assertNotNull(consumer);
-        this.log.info(consumer.toString());
+    public void testExpectedUsage() {
+        this.log.info(ConsumerDataFactory.randomStuff());
+    }
+
+    /**
+     * Test default constructor.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    @Test
+    public final void testDefaultConstructor() throws Exception {
+        assertNotNull(new ConsumerDataFactory());
     }
 
     /**
@@ -45,6 +54,7 @@ public class ConsumerDataFactoryTest extends ResultsReporting {
     public void testGetInstance() {
         final ConsumerDataFactory consumerFactory = ConsumerDataFactory.getInstance();
         assertNotNull(consumerFactory);
+        this.log.info(consumerFactory.toString());
     }
 
     /**
@@ -52,8 +62,9 @@ public class ConsumerDataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testCreate() {
-        final Consumer customer = ConsumerDataFactory.create();
-        assertNotNull(customer);
+        final Consumer consumer = ConsumerDataFactory.create();
+        assertNotNull(consumer);
+        this.log.info(consumer.toString());
     }
 
 }

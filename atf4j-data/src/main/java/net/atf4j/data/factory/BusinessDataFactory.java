@@ -20,8 +20,6 @@ import net.atf4j.data.Business;
 
 /**
  * Business.
- *
- *
  */
 public class BusinessDataFactory extends AbstractDataFactory {
 
@@ -65,6 +63,11 @@ public class BusinessDataFactory extends AbstractDataFactory {
      */
     public static Business create() {
         return new Business();
+    }
+
+    public static String randomThing() {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }

@@ -29,13 +29,22 @@ import net.atf4j.data.Customer;
 public class CustomerDataFactoryTest extends ResultsReporting {
 
     /**
-     * Test.
+     * Test method for expected usage
      */
     @Test
-    public void test() {
-        final Customer customer = CustomerDataFactory.create();
-        assertNotNull(customer);
-        this.log.info(customer.toString());
+    public void testExpectedUsage() {
+        this.log.info(CustomerDataFactory.randomThing());
+    }
+
+    /**
+     * Test default constructor.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    @Test
+    public final void testDefaultConstructor() throws Exception {
+        assertNotNull(new CustomerDataFactory());
     }
 
     /**

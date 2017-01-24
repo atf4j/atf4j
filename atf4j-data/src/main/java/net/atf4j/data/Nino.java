@@ -20,19 +20,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * NationalInsurance.
- *
- *
+ * UK National Insurance number.
+ * Commonly known as Nino.
  */
 public class Nino {
 
     /** REGULAR EXPRESSION. */
-    private static final Pattern pattern = Pattern
-                                                  .compile(
-                                                          "^[A-CEGHJ-PR-TW-Z]{1}[A-CEGHJ-NPR-TW-Z]{1}[0-9]{6}[A-D]{1}$");
+    private static final Pattern pattern = Pattern.compile(
+            "^[A-CEGHJ-PR-TW-Z]{1}[A-CEGHJ-NPR-TW-Z]{1}[0-9]{6}[A-D]{1}$");
 
-    /** The code. */
-    private String code;
+    private String nino;
 
     /**
      * Create new instance of create.
@@ -58,7 +55,7 @@ public class Nino {
      */
     public Nino(final String code) {
         super();
-        this.code = code;
+        this.nino = code;
     }
 
     /**
@@ -79,7 +76,7 @@ public class Nino {
      * @return the code
      */
     public String getCode() {
-        return this.code;
+        return this.nino;
     }
 
     /**
@@ -90,25 +87,13 @@ public class Nino {
      * @return the national insurance
      */
     public Nino setCode(final String code) {
-        this.code = code;
+        this.nino = code;
         return this;
     }
 
-    /**
-     * Debug string.
-     *
-     * @return the string
-     */
-    public String debugString() {
-        return String.format("%s [code=%s]", this.getClass().getSimpleName(),this.code);
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
     @Override
     public String toString() {
-        return debugString();
+        return String.format("Nino [nino=%s]", this.nino);
     }
 
 }

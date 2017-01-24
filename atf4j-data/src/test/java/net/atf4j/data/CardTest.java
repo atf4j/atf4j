@@ -122,15 +122,6 @@ public class CardTest extends ResultsReporting {
      * Test method for Card.
      */
     @Test
-    public void testDebugString() {
-        final String string = new Card().debugString();
-        assertNotNull(string);
-    }
-
-    /**
-     * Test method for Card.
-     */
-    @Test
     public void testToString() {
         final Card card = new Card();
         final String string = card.toString();

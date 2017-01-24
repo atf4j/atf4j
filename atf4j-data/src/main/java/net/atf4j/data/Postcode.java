@@ -34,6 +34,8 @@ public class Postcode {
 
     /** The post code. */
     private String postCode;
+    private String outCode;
+    private String inCode;
 
     /**
      * Create new instance of create.
@@ -59,16 +61,7 @@ public class Postcode {
      */
     public Postcode(final String postCode) {
         super();
-        this.postCode = postCode;
-    }
-
-    /**
-     * Gets the post code.
-     *
-     * @return the post code
-     */
-    public String getPostCode() {
-        return this.postCode;
+        setPostCode(postCode);
     }
 
     /**
@@ -79,8 +72,62 @@ public class Postcode {
      * @return the postcode
      */
     public Postcode setPostCode(final String postCode) {
-        this.postCode = postCode;
+        if (Postcode.verify(postCode)) {
+            this.postCode = postCode;
+            final String[] split = postCode.split("\\w");
+            setOutCode(split[0]);
+            setInCode(split[1]);
+        }
         return this;
+    }
+
+    /**
+     * Sets the out code.
+     *
+     * @param outCode the out code
+     * @return the postcode
+     */
+    public Postcode setOutCode(final String outCode) {
+        this.outCode = outCode;
+        return this;
+    }
+
+    /**
+     * Sets the in code.
+     *
+     * @param inCode the in code
+     * @return the postcode
+     */
+    public Postcode setInCode(final String inCode) {
+        this.inCode = inCode;
+        return this;
+    }
+
+    /**
+     * Gets the out code.
+     *
+     * @return the out code
+     */
+    public String getOutCode() {
+        return this.outCode;
+    }
+
+    /**
+     * Gets the in code.
+     *
+     * @return the in code
+     */
+    public String getInCode() {
+        return this.inCode;
+    }
+
+    /**
+     * Gets the post code.
+     *
+     * @return the post code
+     */
+    public String getPostCode() {
+        return String.format("%s %s", getOutCode(), getInCode());
     }
 
     /**
@@ -93,23 +140,6 @@ public class Postcode {
     public static boolean verify(final String postcode) {
         final Matcher matcher = pattern.matcher(postcode);
         return matcher.find();
-    }
-
-    /**
-     * Debug string.
-     *
-     * @return the string
-     */
-    public String debugString() {
-        return String.format("%s [postCode=%s]",this.getClass().getSimpleName(), this.postCode);
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
-        return debugString();
     }
 
 }

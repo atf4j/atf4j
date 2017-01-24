@@ -28,6 +28,7 @@ public class BankSortCode {
     private static final Pattern pattern = Pattern.compile("^(\\d){2}-(\\d){2}-(\\d){2}$");
 
     /** The bank sort code. */
+    private final String bankName = "";
     private String bankSortCode;
 
     /**
@@ -43,6 +44,7 @@ public class BankSortCode {
      * Instantiates a new bank sort code.
      */
     public BankSortCode() {
+        this.bankSortCode = "00-00-00";
     }
 
     /**
@@ -88,21 +90,9 @@ public class BankSortCode {
         return matcher.find();
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
     @Override
     public String toString() {
-        return debugString();
-    }
-
-    /**
-     * Debug string.
-     *
-     * @return the string
-     */
-    public String debugString() {
-        return String.format("%s [bankSortCode=%s]",this.getClass().getSimpleName(), this.bankSortCode);
+        return String.format("BankSortCode [bankName=%s, bankSortCode=%s]", this.bankName, this.bankSortCode);
     }
 
 }

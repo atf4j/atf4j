@@ -39,6 +39,9 @@ public class LoremIpsum extends AbstractDataFactory {
         initialise();
     }
 
+    /**
+     * Initialise.
+     */
     protected void initialise() {
         try {
             this.rows = load("lorem-ipsum.txt");
@@ -72,7 +75,7 @@ public class LoremIpsum extends AbstractDataFactory {
     }
 
     /**
-     * Text.
+     * Lorem Ipsum rext.
      *
      * @return the string
      */
@@ -81,9 +84,9 @@ public class LoremIpsum extends AbstractDataFactory {
     }
 
     /**
-     * Gets the text.
+     * Get the original Lorem Ipsum text.
      *
-     * @return the text
+     * @return the text as String.
      */
     protected String getText() {
         final StringBuilder stringBuilder = new StringBuilder();
@@ -94,14 +97,35 @@ public class LoremIpsum extends AbstractDataFactory {
         return stringBuilder.toString();
     }
 
+    /**
+     * Get a single Paragraph.
+     *
+     * @return the paragraph as a string.
+     */
     public static String paragraph() {
         return getInstance().getParagraphs(1);
     }
 
+    /**
+     * Gets N paragraphs.
+     * Sentences punctuated normally.
+     * Paragraphs punctuated with \n
+     *
+     * @param count the required number of paragraphs.
+     * @return the paragraphs as a string.
+     */
     public static String paragraphs(final int count) {
         return getInstance().getParagraphs(count);
     }
 
+    /**
+     * Gets N paragraphs.
+     * Sentences punctuated normally.
+     * Paragraphs punctuated with \n
+     *
+     * @param count the required number of paragraphs.
+     * @return the paragraphs as a string.
+     */
     private String getParagraphs(final int count) {
         final StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < count; i++) {
@@ -113,14 +137,31 @@ public class LoremIpsum extends AbstractDataFactory {
         return stringBuilder.toString();
     }
 
+    /**
+     * Get a single sentence.
+     *
+     * @return the sentences as a string.
+     */
     public static String sentence() {
         return getInstance().getSentences(1);
     }
 
+    /**
+     * Get N sentences.
+     *
+     * @param count the number of sentences required.
+     * @return the sentences as a string.
+     */
     public static String sentences(final int count) {
         return getInstance().getSentences(count);
     }
 
+    /**
+     * Get N sentences.
+     *
+     * @param count the number of sentences required.
+     * @return the sentences as a string.
+     */
     private String getSentences(final int count) {
         final StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < count; i++) {
@@ -131,14 +172,31 @@ public class LoremIpsum extends AbstractDataFactory {
         return stringBuilder.toString();
     }
 
+    /**
+     * get a single random word.
+     *
+     * @return the word as a string
+     */
     public static String word() {
         return getInstance().getWords(1);
     }
 
-    public static String words(final int i) {
-        return getInstance().getWords(i);
+    /**
+     * Get N words.
+     *
+     * @param count the number of words to return.
+     * @return the words as a space seperated string.
+     */
+    public static String words(final int count) {
+        return getInstance().getWords(count);
     }
 
+    /**
+     * Get N words.
+     *
+     * @param count the number of words to return.
+     * @return the words as a space seperated string.
+     */
     private String getWords(final int count) {
         final StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < count; i++) {
@@ -150,6 +208,12 @@ public class LoremIpsum extends AbstractDataFactory {
         return stringBuilder.toString();
     }
 
+    /**
+     * Convert string to Sentence case.
+     *
+     * @param original the original sentence.
+     * @return the string as a sentence.
+     */
     public String sentenceCase(final String original) {
         final char punctuation = '.';
         return String.format("%s%c", Text.capitalise(original), punctuation);

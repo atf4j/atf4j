@@ -17,7 +17,9 @@
 package net.atf4j.data;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -50,7 +52,9 @@ public class BankSortCodeTest extends ResultsReporting {
      */
     @Test
     public void testCreate() {
-        assertNotNull(BankSortCode.create());
+        final BankSortCode sortCode = BankSortCode.create();
+        assertNotNull(sortCode);
+        this.log.info("{}", sortCode);
     }
 
     /**
@@ -66,9 +70,14 @@ public class BankSortCodeTest extends ResultsReporting {
      * Test method for BankSortCode}.
      */
     @Test
-    public void testVerify() {
-        BankSortCode.verify("00:00:00");
-        BankSortCode.verify("99:99:99");
+    public void testVerifyData() {
+        assertTrue(BankSortCode.verify("00:00:00"));
+        assertTrue(BankSortCode.verify("00 00 00"));
+        assertTrue(BankSortCode.verify("99:99:99"));
+        assertTrue(BankSortCode.verify("99 99 99"));
+        assertFalse(BankSortCode.verify("AA:AA:AA"));
+        assertFalse(BankSortCode.verify("aaaaaaaa"));
+        assertFalse(BankSortCode.verify("XXXXXXXX"));
     }
 
     /**
@@ -76,16 +85,8 @@ public class BankSortCodeTest extends ResultsReporting {
      */
     @Test
     public void testVerifyEmpty() {
-        BankSortCode.verify("");
-    }
-
-    /**
-     * Test method for BankSortCode}.
-     */
-    @Test
-    public void testDebugString() {
-        final String string = new BankSortCode().debugString();
-        assertNotNull(string);
+        assertFalse(BankSortCode.verify(null));
+        assertFalse(BankSortCode.verify(""));
     }
 
     /**
@@ -95,6 +96,7 @@ public class BankSortCodeTest extends ResultsReporting {
     public void testToString() {
         final String string = new BankSortCode().toString();
         assertNotNull(string);
+        this.log.info("{}", string);
     }
 
 }

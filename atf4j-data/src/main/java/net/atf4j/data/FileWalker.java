@@ -36,26 +36,39 @@ public class FileWalker {
         this.log.info("{}", path);
         final URL resource = this.getClass().getResource(path);
 
-        if (resource == null) {
-            assertNotNull("No messages found {}", resource);
-        } else {
+        if (resource != null) {
             final URI uri = resource.toURI();
-            final File root = Paths.get(uri).toFile();
-            final File[] list = root.listFiles();
+            if (uri != null) {
+                final File root = Paths.get(uri).toFile();
+                if (root != null) {
+                    final File[] list = root.listFiles();
 
-            if (list != null) {
-                this.log.info("length={}", list.length);
-                for (final File f : list) {
-                    if (f.isDirectory()) {
-                        this.log.info("DIR :{}", f.getAbsoluteFile());
-                        walk(f.getAbsolutePath());
+                    if (list != null) {
+                        this.log.info("length={}", list.length);
+                        for (final File f : list) {
+                            processFile(f);
+                        }
+                        this.log.info("end");
                     } else {
-                        this.log.info("FILE:{}", f.getAbsoluteFile());
+                        assertNotNull("listFiles is null");
                     }
+                } else {
+                    assertNotNull("root is null");
                 }
             } else {
-                this.log.info("end");
+                assertNotNull("url is null");
             }
+        } else {
+            assertNotNull("No messages found {}", resource);
+        }
+    }
+
+    private void processFile(final File f) throws URISyntaxException {
+        if (f.isDirectory()) {
+            this.log.info("DIR :{}", f.getAbsoluteFile());
+            walk(f.getAbsolutePath());
+        } else {
+            this.log.info("FILE:{}", f.getAbsoluteFile());
         }
     }
 }

@@ -16,6 +16,7 @@
  */
 package net.atf4j.data;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -28,7 +29,7 @@ import net.atf4j.core.ResultsReporting;
 public class ProductTest extends ResultsReporting {
 
     /**
-     * Test method for Product}.
+     * Test method for Product.
      */
     @Test
     public void testDefaultConstructor() {
@@ -36,7 +37,7 @@ public class ProductTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Product}.
+     * Test method for Product.
      */
     @Test
     public void testProduct() {
@@ -44,7 +45,7 @@ public class ProductTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Product}.
+     * Test method for Product.
      */
     @Test
     public void testProductStringStringString() {
@@ -52,36 +53,36 @@ public class ProductTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Product}.
+     * Test method for Product.
      */
     @Test
     public void testSetGetId() {
-        final String id = new Product().setId("id").getId();
+        final Product product = new Product();
+        final String expected = "id";
+        final String actual = product.setId(expected).getId();
+        assertEquals(expected, actual);
     }
 
     /**
-     * Test method for Product}.
+     * Test method for Product.
      */
     @Test
     public void testSetGetName() {
-        final String name = new Product().setName("name").getName();
+        final Product product = new Product();
+        final String expected = "name";
+        final String actual = product.setName(expected).getName();
+        assertEquals(expected, actual);
     }
 
     /**
-     * Test method for Product}.
+     * Test method for Product.
      */
     @Test
     public void testSetGetDetails() {
-        final String details = new Product().setDetails("details").getDetails();
-    }
-
-    /**
-     * Test method for Product}.
-     */
-    @Test
-    public void testDebugString() {
-        final String string = new Product().debugString();
-        assertNotNull(string);
+        final Product product = new Product();
+        final String expected = "details";
+        final String actual = product.setDetails(expected).getDetails();
+        assertEquals(expected, actual);
     }
 
     /**

@@ -29,6 +29,9 @@ public class EmailAddressTest extends ResultsReporting {
 
     private static final String NAME_EXAMPLE_COM = "name@example.com";
 
+    /**
+     * Unit Test for test expected.
+     */
     @Test
     public void testExpected() {
         final EmailAddress emailAddress = new EmailAddress();
@@ -71,16 +74,6 @@ public class EmailAddressTest extends ResultsReporting {
     @Test
     public void testVerify() {
         this.log.info(new EmailAddress(NAME_EXAMPLE_COM).toString());
-    }
-
-    /**
-     * Test method for EmailAddress}.
-     */
-    @Test
-    public void testDebugString() {
-        final String debugString = new EmailAddress().debugString();
-        assertNotNull(debugString);
-        this.log.info(debugString);
     }
 
     /**

@@ -17,25 +17,16 @@
 package net.atf4j.data;
 
 /**
- * Consumer Data.
+ * A Customer Business.
+ * For a person as a customer see Consumer.
  */
-public class Customer extends Person {
+public class Customer extends Business {
 
     /**
      * Instantiates a new customer.
      */
     public Customer() {
         super();
-    }
-
-    /* (non-Javadoc)
-     * @see net.atf4j.data.Person#toString()
-     */
-    @Override
-    public String toString() {
-        return String.format("%s [%s]",
-                this.getClass().getSimpleName(),
-                super.toString());
     }
 
 }

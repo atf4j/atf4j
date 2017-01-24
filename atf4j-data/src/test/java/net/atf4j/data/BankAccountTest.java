@@ -33,8 +33,7 @@ public class BankAccountTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        final BankAccount bankAccount = new BankAccount();
-        assertNotNull(bankAccount);
+        assertNotNull(new BankAccount());
     }
 
     /**
@@ -44,6 +43,7 @@ public class BankAccountTest extends ResultsReporting {
     public void testBankAccount() {
         final BankAccount bankAccount = new BankAccount("");
         assertNotNull(bankAccount);
+        this.log.info("{}", bankAccount);
     }
 
     /**
@@ -53,6 +53,7 @@ public class BankAccountTest extends ResultsReporting {
     public void testCreate() {
         final BankAccount bankAccount = BankAccount.create();
         assertNotNull(bankAccount);
+        this.log.info("{}", bankAccount);
     }
 
     /**
@@ -65,6 +66,7 @@ public class BankAccountTest extends ResultsReporting {
         final String accountNo = "00001234";
         assertNotNull(bankAccount.setAccountNo(accountNo));
         assertEquals(accountNo, bankAccount.getAccountNo());
+        this.log.info("{}", bankAccount);
     }
 
     /**
@@ -77,15 +79,7 @@ public class BankAccountTest extends ResultsReporting {
         final BankAccount bankAccount = new BankAccount();
         assertNotNull(bankAccount.setBank(bank));
         assertEquals(bank, bankAccount.getBank());
-    }
-
-    /**
-     * Test method for BankAccount}.
-     */
-    @Test
-    public void testDebugString() {
-        final String string = new BankAccount().debugString();
-        assertNotNull(string);
+        this.log.info("{}", bankAccount);
     }
 
     /**
@@ -95,6 +89,7 @@ public class BankAccountTest extends ResultsReporting {
     public void testToString() {
         final String string = new BankAccount().toString();
         assertNotNull(string);
+        this.log.info("{}", string);
     }
 
 }

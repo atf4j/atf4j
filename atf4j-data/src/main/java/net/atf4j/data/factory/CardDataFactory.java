@@ -20,8 +20,6 @@ import net.atf4j.data.Card;
 
 /**
  * ChargeCard.
- *
- *
  */
 public class CardDataFactory extends AbstractDataFactory {
 
@@ -65,6 +63,11 @@ public class CardDataFactory extends AbstractDataFactory {
      */
     public static Card create() {
         return new Card();
+    }
+
+    public static String randomCard() {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }
