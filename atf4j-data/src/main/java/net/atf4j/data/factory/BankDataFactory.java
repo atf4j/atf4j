@@ -23,8 +23,9 @@ import net.atf4j.data.Bank;
  */
 public class BankDataFactory extends AbstractDataFactory {
 
+    private static final String BANK_DATA = "data.txt";
     private static BankDataFactory instance = null;
-    private String[] data;
+    private String[] bankData = null;
 
     /**
      * Instantiates a new bank data factory.
@@ -38,7 +39,7 @@ public class BankDataFactory extends AbstractDataFactory {
      */
     protected void initialise() {
         try {
-            this.data = load("data.txt");
+            this.bankData = load(BANK_DATA);
         } catch (final Exception e) {
             this.log.error(e.getMessage());
         }

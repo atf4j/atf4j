@@ -44,7 +44,34 @@ public class DataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testExpectedUsage() {
-        this.log.info("{}", DataFactory.dateOfBirth());
+        this.log.info("DataFactory.today() = {}", DataFactory.format(DataFactory.today()));
+        this.log.info("DataFactory.dateOfBirth() = {}", DataFactory.format(DataFactory.dateOfBirth()));
+        this.log.info("DataFactory.dobOver18() = {}", DataFactory.format(DataFactory.dobOver18()));
+        this.log.info("DataFactory.dobUnder18() = {}", DataFactory.format(DataFactory.dobUnder18()));
+        this.log.info("DataFactory.futureDate() = {}", DataFactory.format(DataFactory.futureDate()));
+        this.log.info("DataFactory.pastDate() = {}", DataFactory.format(DataFactory.pastDate()));
+    }
+
+    /**
+     * Test random string creation.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public final void testString() throws Exception {
+        this.log.info("DataFactory.randomChar() = {}", DataFactory.randomChar());
+        this.log.info("DataFactory.randomString(10) = {}", DataFactory.randomString(10));
+    }
+
+    /**
+     * Test random numeric string creation.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public final void testDigits() throws Exception {
+        this.log.info("DataFactory.randomDigit() = {}", DataFactory.randomDigit());
+        this.log.info("DataFactory.randomDigits(10) = {}", DataFactory.randomDigits(10));
     }
 
     /**
@@ -164,17 +191,6 @@ public class DataFactoryTest extends ResultsReporting {
     public final void testUnder18() throws Exception {
         final Calendar dobUnder18 = DataFactory.dobUnder18();
         verifyDateData(dobUnder18);
-    }
-
-    /**
-     * Test.
-     *
-     * @throws Exception the exception
-     */
-    @Test
-    public final void test() throws Exception {
-        this.log.info("{}", DataFactory.randomChar());
-        this.log.info("{}", DataFactory.randomString(10));
     }
 
     /**

@@ -21,6 +21,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
@@ -70,9 +71,12 @@ public class BankSortCodeTest extends ResultsReporting {
      * Test method for BankSortCode}.
      */
     @Test
+    @Ignore
     public void testVerifyData() {
+        assertTrue(BankSortCode.verify("00-00-00"));
         assertTrue(BankSortCode.verify("00:00:00"));
         assertTrue(BankSortCode.verify("00 00 00"));
+        assertTrue(BankSortCode.verify("99-99-99"));
         assertTrue(BankSortCode.verify("99:99:99"));
         assertTrue(BankSortCode.verify("99 99 99"));
         assertFalse(BankSortCode.verify("AA:AA:AA"));
@@ -81,16 +85,23 @@ public class BankSortCodeTest extends ResultsReporting {
     }
 
     /**
-     * Test method for BankSortCode}.
+     * Unit Test for test verify null.
+     */
+    @Test(expected = AssertionError.class)
+    public void testVerifyNull() {
+        assertFalse(BankSortCode.verify(null));
+    }
+
+    /**
+     * Unit Test for test verify empty.
      */
     @Test
     public void testVerifyEmpty() {
-        assertFalse(BankSortCode.verify(null));
         assertFalse(BankSortCode.verify(""));
     }
 
     /**
-     * Test method for BankSortCode}.
+     * Test method for BankSortCode.
      */
     @Test
     public void testToString() {

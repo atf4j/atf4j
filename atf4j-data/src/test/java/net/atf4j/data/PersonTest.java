@@ -67,7 +67,7 @@ public class PersonTest extends ResultsReporting {
     @Test
     public void testTitle() {
         final Person.Title title = Person.Title.DR;
-        assertEquals("", title.toString());
+        assertEquals("Dr", title.toString());
     }
 
     /**
@@ -76,7 +76,7 @@ public class PersonTest extends ResultsReporting {
     @Test
     public void testGender() {
         final Gender gender = Gender.MALE;
-        assertEquals("", gender.toString());
+        assertEquals("Male", gender.toString());
     }
 
     /**

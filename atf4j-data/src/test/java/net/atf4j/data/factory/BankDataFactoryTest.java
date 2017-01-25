@@ -18,6 +18,7 @@ package net.atf4j.data.factory;
 
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
@@ -32,6 +33,7 @@ public class BankDataFactoryTest extends ResultsReporting {
      * Test method for expected usage
      */
     @Test
+    @Ignore
     public void testExpectedUsage() {
         final String randomThing = BankDataFactory.random();
         assertNotNull(randomThing);

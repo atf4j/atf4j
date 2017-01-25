@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
  * Abstract Configuration class.
  */
 public abstract class AbstractConfig {
-
+    private static AbstractConfig instance = null;
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
     protected final Properties properties = new Properties();
 
@@ -35,7 +35,7 @@ public abstract class AbstractConfig {
         try {
             load();
         } catch (final ConfigurationNotLoaded e) {
-            this.log.error("{}", e.toString());
+            this.log.error("Using default values; {}", e.toString());
         }
     }
 
@@ -49,6 +49,27 @@ public abstract class AbstractConfig {
      */
     public AbstractConfig(final String propertyFilename) throws ConfigurationNotLoaded {
         load(propertyFilename);
+    }
+
+    /**
+     * Gets the single instance of AbstractConfig.
+     *
+     * @return single instance of AbstractConfig
+     */
+    public static AbstractConfig getInstance() {
+        if (AbstractConfig.instance == null) {
+            AbstractConfig.instance = create();
+        }
+        return AbstractConfig.instance;
+    }
+
+    /**
+     * Create new instance of create.
+     * 
+     * @return the abstract config
+     */
+    public static AbstractConfig create() {
+        return null;
     }
 
     /**
@@ -141,8 +162,8 @@ public abstract class AbstractConfig {
      * Get a property from System Property if available, otherwise from Property
      * File if available, otherwise default.
      *
-     * @param key
-     *            the key
+     * @param key the key
+     * @param defaultValue the default value
      * @return the string
      */
     protected String get(final String key, final String defaultValue) {

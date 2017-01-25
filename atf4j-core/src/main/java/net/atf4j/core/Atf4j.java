@@ -37,7 +37,7 @@ public class Atf4j {
      */
     public static void start(final String string) {
         log.info(string);
-        nestedTimers.startTimer("start");
+        nestedTimers.startTimer(string);
     }
 
     /**

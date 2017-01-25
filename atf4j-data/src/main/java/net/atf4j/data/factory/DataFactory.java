@@ -30,12 +30,18 @@ import net.atf4j.data.Person;
 import net.atf4j.data.PostalAddress;
 
 /**
- * Data Factory class.
+ * Factory for random data.
+ * TODO: Add variants formated date string.
  */
 public class DataFactory {
 
+    public static final String ISO_DATE_TIME = "yyyy-MM-dd'T'HH:mm'Z'";
+    public static final String ISO_DATE = "yyyy-MM-dd";
+    public static final String ISO_TIME = "HH:mm'Z'";
+    public static final String UK_DATE = "dd:MM-yyyy";
+
     /** The Constant simpleDateFormat. */
-    private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
+    private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(ISO_DATE_TIME);
 
     private static Random random = new Random(System.currentTimeMillis());
 
@@ -45,7 +51,7 @@ public class DataFactory {
      * @return the char
      */
     public static char randomChar() {
-        return (char) (random.nextInt(26) + 'a');
+        return (char) ('a' + random.nextInt(26));
     }
 
     /**
@@ -64,6 +70,29 @@ public class DataFactory {
     }
 
     /**
+     * Random char.
+     *
+     * @return the char
+     */
+    public static char randomDigit() {
+        return (char) ('0' + random.nextInt(9));
+    }
+
+    /**
+     * Random digits.
+     *
+     * @param length the length
+     * @return the string
+     */
+    public static String randomDigits(final int length) {
+        final StringBuffer stringBuffer = new StringBuffer();
+        for (int i = 0; i < length; i++) {
+            stringBuffer.append(randomDigit());
+        }
+        return stringBuffer.toString();
+    }
+
+    /**
      * Today date.
      *
      * @return today as Calendar
@@ -74,16 +103,37 @@ public class DataFactory {
     }
 
     /**
+     * Today date as string.
+     *
+     * @return today as String.
+     */
+    public static String today(final String format) {
+        final Calendar today = today();
+        return simpleDateFormat.format(today);
+    }
+
+    /**
      * Date of birth.
      *
      * @return random date of birth as Calendar
      */
     public static Calendar dateOfBirth() {
-        final Calendar instance = Calendar.getInstance();
-        instance.add(Calendar.YEAR, -1);
-        instance.add(Calendar.MONTH, -1);
-        instance.add(Calendar.DATE, -1);
-        return instance;
+        final Calendar dateOfBirth = Calendar.getInstance();
+        dateOfBirth.add(Calendar.YEAR, -1);
+        dateOfBirth.add(Calendar.MONTH, -1);
+        dateOfBirth.add(Calendar.DATE, -1);
+        return dateOfBirth;
+    }
+
+    /**
+     * Dob over 18.
+     *
+     * @param format the format
+     * @return the string
+     */
+    public static String dobOver18(final String format) {
+        final Calendar dobOver18 = dobOver18();
+        return simpleDateFormat.format(dobOver18);
     }
 
     /**
@@ -92,24 +142,70 @@ public class DataFactory {
      * @return the calendar
      */
     public static Calendar dobOver18() {
-        final Calendar instance = Calendar.getInstance();
-        instance.add(Calendar.YEAR, 18);
-        instance.add(Calendar.MONTH, 0);
-        instance.add(Calendar.DATE, 1);
-        return instance;
+        final Calendar dobOver18 = Calendar.getInstance();
+        dobOver18.add(Calendar.YEAR, -18);
+        dobOver18.add(Calendar.MONTH, 0);
+        dobOver18.add(Calendar.DATE, 1);
+        return dobOver18;
     }
 
     /**
-     * DOB under 18.
+     * Dob under 18.
+     *
+     * @param format the format
+     * @return the string
+     */
+    public static String dobUnder18(final String format) {
+        final Calendar dobOver18 = dobUnder18();
+        return simpleDateFormat.format(dobOver18);
+    }
+
+    /**
+     * Dob under 18.
      *
      * @return the calendar
      */
     public static Calendar dobUnder18() {
-        final Calendar instance = Calendar.getInstance();
-        instance.add(Calendar.YEAR, 18);
-        instance.add(Calendar.MONTH, 0);
-        instance.add(Calendar.DATE, -1);
-        return instance;
+        final Calendar dobUnder18 = Calendar.getInstance();
+        dobUnder18.add(Calendar.YEAR, -18);
+        dobUnder18.add(Calendar.MONTH, 0);
+        dobUnder18.add(Calendar.DATE, -1);
+        return dobUnder18;
+    }
+
+    /**
+     * Tomorrow.
+     *
+     * @param format the format
+     * @return the string
+     */
+    public static String tomorrow(final String format) {
+        final Calendar dobOver18 = tomorrow();
+        return simpleDateFormat.format(dobOver18);
+    }
+
+    /**
+     * Tomorrow date.
+     *
+     * @return the calendar
+     */
+    public static Calendar tomorrow() {
+        final Calendar tomorrow = Calendar.getInstance();
+        tomorrow.add(Calendar.YEAR, 0);
+        tomorrow.add(Calendar.MONTH, 0);
+        tomorrow.add(Calendar.DATE, 1);
+        return tomorrow;
+    }
+
+    /**
+     * Future date.
+     *
+     * @param format the format
+     * @return the string
+     */
+    public static String futureDate(final String format) {
+        final Calendar futureDate = futureDate();
+        return simpleDateFormat.format(futureDate);
     }
 
     /**
@@ -118,11 +214,46 @@ public class DataFactory {
      * @return the calendar
      */
     public static Calendar futureDate() {
-        final Calendar instance = Calendar.getInstance();
-        instance.add(Calendar.YEAR, 0);
-        instance.add(Calendar.MONTH, 0);
-        instance.add(Calendar.DATE, 1);
-        return instance;
+        final Calendar futureDate = Calendar.getInstance();
+        futureDate.add(Calendar.YEAR, 1);
+        futureDate.add(Calendar.MONTH, 1);
+        futureDate.add(Calendar.DATE, 1);
+        return futureDate;
+    }
+
+    /**
+     * Yesterday.
+     *
+     * @param format the format
+     * @return the string
+     */
+    public static String yesterday(final String format) {
+        final Calendar yesterday = yesterday();
+        return simpleDateFormat.format(yesterday);
+    }
+
+    /**
+     * Yesterday.
+     *
+     * @return the calendar
+     */
+    public static Calendar yesterday() {
+        final Calendar yesterday = Calendar.getInstance();
+        yesterday.add(Calendar.YEAR, 0);
+        yesterday.add(Calendar.MONTH, 0);
+        yesterday.add(Calendar.DATE, -1);
+        return yesterday;
+    }
+
+    /**
+     * Past date.
+     *
+     * @param format the format
+     * @return the string
+     */
+    public static String pastDate(final String format) {
+        final Calendar pastDate = pastDate();
+        return simpleDateFormat.format(pastDate);
     }
 
     /**
@@ -132,8 +263,8 @@ public class DataFactory {
      */
     public static Calendar pastDate() {
         final Calendar instance = Calendar.getInstance();
-        instance.add(Calendar.YEAR, 0);
-        instance.add(Calendar.MONTH, 0);
+        instance.add(Calendar.YEAR, -1);
+        instance.add(Calendar.MONTH, -1);
         instance.add(Calendar.DATE, -1);
         return instance;
     }

@@ -16,6 +16,8 @@
  */
 package net.atf4j.data;
 
+import net.atf4j.data.factory.DataFactory;
+
 /**
  * Bank Account Data.
  */
@@ -25,12 +27,24 @@ public class BankAccount {
     private String accountNo;
 
     /**
-     * Creates the bank.
+     * Creates the BankAccount object.
      *
      * @return the bank account
      */
     public static BankAccount create() {
         final BankAccount bankAccount = new BankAccount();
+        bankAccount.setBank(Bank.create());
+        return bankAccount;
+    }
+
+    /**
+     * Creates the BankAccount with random data.
+     *
+     * @return the bank account
+     */
+    public static BankAccount random() {
+        final BankAccount bankAccount = new BankAccount();
+        bankAccount.setAccountNo(DataFactory.randomDigits(8));
         bankAccount.setBank(Bank.create());
         return bankAccount;
     }

@@ -37,6 +37,8 @@ public class Narrator {
             final StringBuilder stringBuilder = new StringBuilder();
             final Class<? extends Object> aClass = object.getClass();
 
+            stringBuilder.append(Narrator.membersToString(object, aClass));
+
             stringBuilder.append(Narrator.reflectClassToString(object, aClass));
 
             return String.format(LAYOUT_STYLE, aClass.getSimpleName(), stringBuilder.toString());
@@ -59,9 +61,10 @@ public class Narrator {
         final Class<? extends Object> superClass = aClass.getSuperclass();
         if (superClass != null) {
             if (!superClass.isInstance(Object.class)) {
-                stringBuilder.append(String.format(LAYOUT_STYLE,
-                        superClass.getSimpleName(),
-                        Narrator.reflectClassToString(object, superClass)));
+                final String simpleName = superClass.getSimpleName();
+                final String reflectClassToString = Narrator.reflectClassToString(object, superClass);
+                final String format = String.format(LAYOUT_STYLE, simpleName, reflectClassToString);
+                stringBuilder.append(format);
             } else {
                 stringBuilder.append(Narrator.membersToString(object, aClass));
             }
@@ -88,12 +91,16 @@ public class Narrator {
                 for (final Field field : declaredFields) {
                     try {
                         field.setAccessible(true);
-                        stringBuilder.append(String.format("%s=%s,", field.getName(), field.get(object)));
+                        final String fieldName = field.getName();
+                        final Object fieldType = field.get(object);
+                        final String memberStr = String.format("%s=%s,", fieldName, fieldType);
+                        stringBuilder.append(memberStr);
                     } catch (final Exception e) {
                         e.printStackTrace();
                     }
                 }
-                stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+                // stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+
                 return stringBuilder.toString();
             } else {
                 return "[NONE]";

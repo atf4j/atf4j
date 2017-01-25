@@ -28,10 +28,10 @@ import net.atf4j.core.ResultsReporting;
 public class TextTest extends ResultsReporting {
 
     /**
-     * Test.
+     * Test expected usage.
      */
     @Test
-    public void test() {
+    public void testExpected() {
         this.log.info(Text.fill(10));
         this.log.info(Text.fill(10, '*'));
     }

@@ -16,10 +16,18 @@
  */
 package net.atf4j.data;
 
+import static org.junit.Assert.assertNotNull;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
- * TelephoneNumber.
+ * Telephone Number.
  */
 public class Telephone {
+
+    /** RegExp for verification. */
+    private static final Pattern pattern = Pattern.compile("^(\\d){2}-(\\d){2}-(\\d){2}$");
 
     private String number;
     private Type type;
@@ -95,7 +103,7 @@ public class Telephone {
 
     /**
      * Instantiates a new telephone.
-     * 
+     *
      * @param type the type
      * @param number the number
      */
@@ -143,8 +151,8 @@ public class Telephone {
      */
     public Telephone(final String type, final String number) {
         super();
-        setNumber(number);
         setType(type);
+        setNumber(number);
     }
 
     /**
@@ -202,6 +210,23 @@ public class Telephone {
         } else {
             return "Telephone";
         }
+    }
+
+    /**
+     * Verify.
+     * 
+     * @param number the number
+     * @return true, if successful
+     */
+    public static boolean verify(final String number) {
+        assertNotNull(number);
+        final Matcher matcher = pattern.matcher(number);
+        return matcher.find();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s : %s", getType(), getNumber());
     }
 
 }

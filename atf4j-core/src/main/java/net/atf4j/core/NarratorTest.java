@@ -16,7 +16,16 @@
  */
 package net.atf4j.core;
 
-public enum Fail {
-    EXIT,
-    WARN;
+import org.junit.Test;
+
+public class NarratorTest extends ResultsReporting {
+
+    private final Object aObject = this;
+    private final String aString = "";
+    private final Boolean aBoolean = true;
+
+    @Test
+    public void testReflectObjectToString() {
+        this.log.info(Narrator.reflectObjectToString(this));
+    }
 }

@@ -29,7 +29,17 @@ import net.atf4j.core.ResultsReporting;
 public class BankAccountTest extends ResultsReporting {
 
     /**
-     * Test method for BankAccount}.
+     * Unit Test for BankAccount.
+     */
+    @Test
+    public void testExpected() {
+        final BankAccount bankAccount = BankAccount.random();
+        assertNotNull(bankAccount);
+        this.log.info("{}", bankAccount);
+    }
+
+    /**
+     * Unit Test for BankAccount default constructor.
      */
     @Test
     public void testDefaultConstructor() {
@@ -37,17 +47,39 @@ public class BankAccountTest extends ResultsReporting {
     }
 
     /**
-     * Test method for BankAccount}.
+     * Unit Test for BankAccount constructor with null string.
      */
     @Test
-    public void testBankAccount() {
+    public void testBankAccountNull() {
+        final String nullString = null;
+        final BankAccount bankAccount = new BankAccount(nullString);
+        assertNotNull(bankAccount);
+        this.log.info("{}", bankAccount);
+    }
+
+    /**
+     * Unit Test for BankAccount constructor with null object.
+     */
+    @Test
+    public void testBankAccountNullObject() {
+        final Bank nullBank = null;
+        final BankAccount bankAccount = new BankAccount(nullBank);
+        assertNotNull(bankAccount);
+        this.log.info("{}", bankAccount);
+    }
+
+    /**
+     * Unit Test for BankAccount constructor with empty string.
+     */
+    @Test
+    public void testBankAccountString() {
         final BankAccount bankAccount = new BankAccount("");
         assertNotNull(bankAccount);
         this.log.info("{}", bankAccount);
     }
 
     /**
-     * Test method for BankAccount}.
+     * Unit Test for BankAccount.
      */
     @Test
     public void testCreate() {
@@ -57,7 +89,7 @@ public class BankAccountTest extends ResultsReporting {
     }
 
     /**
-     * Test method for BankAccount}.
+     * Unit Test for BankAccount.
      */
     @Test
     public void testSetGetAccountNo() {
@@ -70,20 +102,21 @@ public class BankAccountTest extends ResultsReporting {
     }
 
     /**
-     * Test method for BankAccount}.
+     * Unit Test for BankAccount.
      */
     @Test
     public void testSetGetBank() {
-        final Bank bank = new Bank();
-        assertNotNull(bank);
-        final BankAccount bankAccount = new BankAccount();
-        assertNotNull(bankAccount.setBank(bank));
-        assertEquals(bank, bankAccount.getBank());
+        final Bank testBank = new Bank("TestBank");
+        assertNotNull(testBank);
+        final BankAccount bankAccount = new BankAccount(testBank);
+        assertEquals(testBank, bankAccount.getBank());
+        assertNotNull(bankAccount.setBank(testBank));
+        assertEquals(testBank, bankAccount.getBank());
         this.log.info("{}", bankAccount);
     }
 
     /**
-     * Test method for BankAccount}.
+     * Unit Test for BankAccount.
      */
     @Test
     public void testToString() {

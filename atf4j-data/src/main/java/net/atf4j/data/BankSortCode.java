@@ -16,6 +16,8 @@
  */
 package net.atf4j.data;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,12 +26,12 @@ import java.util.regex.Pattern;
  */
 public class BankSortCode {
 
-    /** REGULAR EXPRESSION. */
+    /** RegExp for verification. */
     private static final Pattern pattern = Pattern.compile("^(\\d){2}-(\\d){2}-(\\d){2}$");
 
     /** The bank sort code. */
     private final String bankName = "";
-    private String bankSortCode;
+    private String sortcode;
 
     /**
      * Create new instance of create.
@@ -44,7 +46,7 @@ public class BankSortCode {
      * Instantiates a new bank sort code.
      */
     public BankSortCode() {
-        this.bankSortCode = "00-00-00";
+        setBankSortCode("00-00-00");
     }
 
     /**
@@ -65,7 +67,7 @@ public class BankSortCode {
      * @return the bank sort code
      */
     public BankSortCode setBankSortCode(final String bankSortCode) {
-        this.bankSortCode = bankSortCode;
+        this.sortcode = bankSortCode;
         return this;
     }
 
@@ -75,24 +77,25 @@ public class BankSortCode {
      * @return the bankSortCode as String.
      */
     public String getBankSortCode() {
-        return this.bankSortCode;
+        return this.sortcode;
     }
 
     /**
      * Verify.
      *
-     * @param code
-     *            the code
+     * @param sortcode
+     *            the sortcode
      * @return true, if successful
      */
-    public static boolean verify(final String code) {
-        final Matcher matcher = pattern.matcher(code);
+    public static boolean verify(final String sortcode) {
+        assertNotNull(sortcode);
+        final Matcher matcher = pattern.matcher(sortcode);
         return matcher.find();
     }
 
     @Override
     public String toString() {
-        return String.format("BankSortCode [bankName=%s, bankSortCode=%s]", this.bankName, this.bankSortCode);
+        return String.format("BankSortCode [bankName=%s, sortcode=%s]", this.bankName, this.sortcode);
     }
 
 }

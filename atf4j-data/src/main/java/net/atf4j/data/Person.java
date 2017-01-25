@@ -198,7 +198,7 @@ public class Person {
 
     /**
      * Gender.
-     * 
+     *
      * @param gender the gender
      * @return the person
      */
@@ -254,7 +254,7 @@ public class Person {
 
     /**
      * Age.
-     * 
+     *
      * @return the int
      */
     public int age() {
@@ -290,7 +290,7 @@ public class Person {
 
     /**
      * Gender.
-     * 
+     *
      * @return the string
      */
     public String gender() {
@@ -303,8 +303,7 @@ public class Person {
     @Override
     public String toString() {
         return String.format(
-                "%s [title=%s, forename=%s, middlename=%s, surname=%s, dob=%s, postalAddress=%s, emailAddress=%s]",
-                this.getClass().getSimpleName(),
+                "Person [title=%s, forename=%s, middlename=%s, surname=%s, dob=%s, postalAddress=%s, emailAddress=%s]",
                 this.title,
                 this.forename,
                 this.middlename,
