@@ -67,6 +67,7 @@ public class BankSortCode {
      * @return the bank sort code
      */
     public BankSortCode setBankSortCode(final String bankSortCode) {
+        assertNotNull(bankSortCode);
         this.sortcode = bankSortCode;
         return this;
     }

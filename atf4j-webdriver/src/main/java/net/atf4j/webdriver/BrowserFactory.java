@@ -18,6 +18,8 @@ package net.atf4j.webdriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -97,7 +99,7 @@ public class BrowserFactory {
             GRID_URL = new URL(targetSeleniumGrid);
             return new RemoteWebDriver(GRID_URL, desiredCapabilities);
         } catch (final MalformedURLException e) {
-            e.printStackTrace();
+            log.error("{}", e);
         }
         return null;
     }
@@ -120,8 +122,12 @@ public class BrowserFactory {
             break;
         default:
             webDriver = new HtmlUnitDriver();
+            java.util.logging.Logger.getLogger("com.gargoylesoftware").setLevel(Level.OFF);
             break;
         }
+
+        webDriver.manage().timeouts().pageLoadTimeout(4, TimeUnit.MINUTES);
+
         return webDriver;
     }
 }

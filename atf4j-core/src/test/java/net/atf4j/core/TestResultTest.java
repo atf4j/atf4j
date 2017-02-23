@@ -18,6 +18,7 @@ package net.atf4j.core;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -59,6 +60,51 @@ public class TestResultTest extends ResultsReporting {
         assertEquals(TestResult.PASSED, TestResult.forString("Passed"));
         assertEquals(TestResult.FAILED, TestResult.forString("Failed"));
         assertEquals(TestResult.EXCEPTION, TestResult.forString("Exception"));
+    }
+
+    /**
+     * Unit Test for test test status is pending.
+     */
+    @Test
+    public void testTestStatusIsPending() {
+        final TestResult testResult = TestResult.PENDING;
+        assertTrue(testResult.is(TestResult.PENDING));
+    }
+
+    /**
+     * Unit Test for test test status is skipped.
+     */
+    @Test
+    public void testTestStatusIsSkipped() {
+        final TestResult skipped = TestResult.SKIPPED;
+        assertTrue(skipped.is(TestResult.SKIPPED));
+    }
+
+    /**
+     * Unit Test for test test status passed.
+     */
+    @Test
+    public void testTestStatusPassed() {
+        final TestResult passed = TestResult.PASSED;
+        assertTrue(passed.is(TestResult.PASSED));
+    }
+
+    /**
+     * Unit Test for test test status is failed.
+     */
+    @Test
+    public void testTestStatusIsFailed() {
+        final TestResult failed = TestResult.FAILED;
+        assertTrue(failed.is(TestResult.FAILED));
+    }
+
+    /**
+     * Unit Test for test test status is.
+     */
+    @Test
+    public void testTestStatusIs() {
+        final TestResult exception = TestResult.EXCEPTION;
+        assertTrue(exception.is(TestResult.EXCEPTION));
     }
 
 }

@@ -89,7 +89,7 @@ public class AnnotationHelperTest {
      */
     @Test
     public final void testMissingTestDescriptionAnnotation() {
-        String actualTestDescription = AnnotationHelper.getTestDescription();
+        final String actualTestDescription = AnnotationHelper.getTestDescription();
         assertEquals("Expected @Atf4j.TestDescription annotation not found.", actualTestDescription);
     }
 

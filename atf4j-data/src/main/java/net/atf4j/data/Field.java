@@ -22,6 +22,7 @@ import java.util.UUID;
  * The Field Class.
  */
 public class Field {
+
     private FieldStatus status;
     private String key;
     private String value;

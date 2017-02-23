@@ -16,7 +16,7 @@
  */
 package net.atf4j.data;
 
-import java.net.URISyntaxException;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
@@ -29,12 +29,26 @@ public class FileWalkerTest extends ResultsReporting {
 
     /**
      * Unit Test for test walk.
-     * 
+     *
      * @throws URISyntaxException the URI syntax exception
      */
     @Test
-    public void testWalk() throws URISyntaxException {
+    public void testWalk() throws Exception {
         final FileWalker fileWalker = new FileWalker();
+        assertNotNull(fileWalker);
+        fileWalker.walk("/messages");
+    }
+
+    @Test
+    public void testFileWalker() throws Exception {
+        final FileWalker fileWalker = new FileWalker("/messages");
+        assertNotNull(fileWalker);
+    }
+
+    @Test
+    public void testFileWalkerWalk() throws Exception {
+        final FileWalker fileWalker = new FileWalker();
+        assertNotNull(fileWalker);
         fileWalker.walk("/messages");
     }
 }

@@ -14,19 +14,24 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
-package net.atf4j.webdriver.page;
+package net.atf4j.core;
 
 import org.junit.Test;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
-public class BootstrapPageTest {
+/**
+ * A UnitTest for Narrator objects.
+ */
+public class NarratorTest extends ResultsReporting {
 
+    private final Object aObject = this;
+    private final String aString = "";
+    private final Boolean aBoolean = true;
+
+    /**
+     * Unit Test for test reflect object to string.
+     */
     @Test
-    public void testBootstrapPageWebDriver() {
-        final HtmlUnitDriver webDriver = new HtmlUnitDriver();
-        final BootstrapPage bootstrapPage = new BootstrapPage(webDriver);
-        bootstrapPage.open();
-        bootstrapPage.verify();
-        bootstrapPage.close();
+    public void testReflectObjectToString() {
+        this.log.info(Narrator.reflectObjectToString(this));
     }
 }

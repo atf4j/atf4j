@@ -19,15 +19,29 @@ package net.atf4j.core;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+/**
+ * The Verify Class.
+ */
 public class Verify {
 
     private static final String MESSAGE = "actual(%s) == expected(%s) - %s";
 
+    /**
+     * Result string.
+     * @param result the result
+     * @return the string
+     */
     private static String resultString(final boolean result) {
         final String resultString = result ? "PASSED" : "FAILED";
         return resultString;
     }
 
+    /**
+     * Verify equals.
+     * @param expected the expected
+     * @param actual the actual
+     * @return the string
+     */
     protected static String verifyEquals(final byte expected, final byte actual) {
         final boolean result = actual == expected;
 
@@ -37,6 +51,12 @@ public class Verify {
         return message;
     }
 
+    /**
+     * Verify equals.
+     * @param expected the expected
+     * @param actual the actual
+     * @return the string
+     */
     protected static String verifyEquals(final char expected, final char actual) {
         final boolean result = actual == expected;
 
@@ -46,6 +66,12 @@ public class Verify {
         return message;
     }
 
+    /**
+     * Verify equals.
+     * @param expected the expected
+     * @param actual the actual
+     * @return the string
+     */
     protected static String verifyEquals(final int expected, final int actual) {
         final boolean result = actual == expected;
 
@@ -55,6 +81,12 @@ public class Verify {
         return message;
     }
 
+    /**
+     * Verify equals.
+     * @param expected the expected
+     * @param actual the actual
+     * @return the string
+     */
     protected static String verifyEquals(final long expected, final long actual) {
         final boolean result = actual == expected;
 
@@ -64,6 +96,12 @@ public class Verify {
         return message;
     }
 
+    /**
+     * Verify equals.
+     * @param expected the expected
+     * @param actual the actual
+     * @return the string
+     */
     protected static String verifyEquals(final Object expected, final Object actual) {
         assertNotNull("Expected Value cannot be null", expected);
         assertNotNull("Actual Value cannot be null", actual);

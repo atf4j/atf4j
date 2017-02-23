@@ -29,10 +29,8 @@ public class ExampleConfig extends AbstractConfig {
      * Gets the single instance of AbstractConfig.
      *
      * @return single instance of AbstractConfig
-     * @throws Exception
-     *             the exception
      */
-    public static ExampleConfig getInstance() throws Exception {
+    public static ExampleConfig getInstance() {
         if (ExampleConfig.instance == null) {
             ExampleConfig.instance = create();
         }
@@ -43,10 +41,8 @@ public class ExampleConfig extends AbstractConfig {
      * Create new instance of create.
      *
      * @return the abstract configuration.
-     * @throws Exception
-     *             the exception
      */
-    public static ExampleConfig create() throws Exception {
+    public static ExampleConfig create() {
         return new ExampleConfig();
     }
 

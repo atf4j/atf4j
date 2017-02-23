@@ -19,34 +19,27 @@ package net.atf4j.webdriver.page;
 
 import org.openqa.selenium.WebDriver;
 
-import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 import net.atf4j.webdriver.TargetUrl;
 
 /**
- * BootStrapPage class.
+ * BootStrapPage Page object.
  */
 @TargetUrl("http://127.0.0.1:8080/bootstrap")
 public class BootstrapPage extends AbstractPageObject {
 
     /**
      * Instantiates a new bootstrap page.
-     *
-     * @throws ConfigurationNotLoaded
-     *             the missing property file exception
      */
-    public BootstrapPage() throws ConfigurationNotLoaded {
+    public BootstrapPage() {
         super();
     }
 
     /**
      * Instantiates a new bootstrap page.
-     *
-     * @param targetUrl
-     *            the target url
-     * @throws ConfigurationNotLoaded
-     *             the missing property file exception
+     * 
+     * @param targetUrl the target url
      */
-    public BootstrapPage(final String targetUrl) throws ConfigurationNotLoaded {
+    public BootstrapPage(final String targetUrl) {
         super(targetUrl);
     }
 

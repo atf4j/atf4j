@@ -24,8 +24,6 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 
 /**
  * PageConfigTest.
- *
- *
  */
 public class PageConfigTest {
 

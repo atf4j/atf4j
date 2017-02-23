@@ -66,7 +66,6 @@ public class CardDataFactory extends AbstractDataFactory {
     }
 
     public static String randomCard() {
-        // TODO Auto-generated method stub
         return null;
     }
 

@@ -89,4 +89,13 @@ public enum TestResult {
         return this.statusDescription;
     }
 
+    /**
+     * Checks if is.
+     * @param result the result
+     * @return true, if successful
+     */
+    public boolean is(final TestResult result) {
+        return this.equals(result);
+    }
+
 }

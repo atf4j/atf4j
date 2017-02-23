@@ -18,11 +18,14 @@ package net.atf4j.core;
 
 import java.lang.reflect.Field;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Narrate a test from the call stack.
  */
 public class Narrator {
-
+    private static final Logger log = LoggerFactory.getLogger(Narrator.class);
     private static final String LAYOUT_STYLE = "%s [%s]";
 
     /**
@@ -36,11 +39,8 @@ public class Narrator {
         if (object != null) {
             final StringBuilder stringBuilder = new StringBuilder();
             final Class<? extends Object> aClass = object.getClass();
-
             stringBuilder.append(Narrator.membersToString(object, aClass));
-
             stringBuilder.append(Narrator.reflectClassToString(object, aClass));
-
             return String.format(LAYOUT_STYLE, aClass.getSimpleName(), stringBuilder.toString());
         } else {
             return "[NULL]";
@@ -96,7 +96,7 @@ public class Narrator {
                         final String memberStr = String.format("%s=%s,", fieldName, fieldType);
                         stringBuilder.append(memberStr);
                     } catch (final Exception e) {
-                        e.printStackTrace();
+                        log.error("{}", e);
                     }
                 }
                 // stringBuilder.deleteCharAt(stringBuilder.length() - 1);

@@ -16,6 +16,8 @@
  */
 package net.atf4j.data;
 
+import static org.junit.Assert.assertNotNull;
+
 /**
  * Business data.
  */
@@ -63,15 +65,6 @@ public class Business extends Name {
     }
 
     /**
-     * Gets the address.
-     *
-     * @return the address
-     */
-    public PostalAddress getAddress() {
-        return this.address;
-    }
-
-    /**
      * Sets the address.
      *
      * @param address
@@ -79,6 +72,7 @@ public class Business extends Name {
      * @return the business
      */
     public Business setAddress(final PostalAddress address) {
+        assertNotNull(address);
         this.address = address;
         return this;
     }
@@ -90,30 +84,46 @@ public class Business extends Name {
      * @return the business
      */
     public Business setAddress(final String[] address) {
+        assertNotNull(address);
         this.address.setAddress(address);
         return this;
     }
 
     /**
      * Sets the address row.
-     *
-     * @param row the row
-     * @param line the line
+     * 
+     * @param lineNo the line no
+     * @param addressLine the address line
      */
-    public void setAddressRow(final int row, final String line) {
-        this.address.setAddressRow(row, line);
+    public void setAddressRow(final int lineNo, final String addressLine) {
+        assertNotNull(lineNo);
+        assertNotNull(addressLine);
+        this.address.setAddressRow(lineNo, addressLine);
     }
 
     /**
      * Sets the postcode.
-     *
+     * 
      * @param postcode the postcode
      * @return the postal address
      */
     public PostalAddress setPostcode(final Postcode postcode) {
+        assertNotNull(postcode);
         return this.address.setPostcode(postcode);
     }
 
+    /**
+     * Gets the address.
+     * 
+     * @return the address
+     */
+    public PostalAddress getAddress() {
+        return this.address;
+    }
+
+    /* (non-Javadoc)
+     * @see net.atf4j.data.Name#toString()
+     */
     @Override
     public String toString() {
         return String.format("Business [address=%s]", this.address);

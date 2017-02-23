@@ -26,12 +26,12 @@ import net.atf4j.core.ResultsReporting;
  * A UnitTest for JavaClassGenerator objects.
  */
 public class JavaClassGeneratorTest extends ResultsReporting {
-    
+
     /**
      * The JavaClassGenerator Class.
      */
     public class JavaClassGenerator extends CodeGenerator {
-        
+
         /**
          * Instantiates a new java class generator.
          */

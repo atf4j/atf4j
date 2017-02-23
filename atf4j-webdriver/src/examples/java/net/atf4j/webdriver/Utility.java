@@ -47,7 +47,7 @@ public class Utility {
 
     /**
      * Clear and set value.
-     * 
+     *
      * @param field the field
      * @param text the text
      */
@@ -58,7 +58,7 @@ public class Utility {
 
     /**
      * Clear and type.
-     * 
+     *
      * @param field the field
      * @param text the text
      */
@@ -71,9 +71,8 @@ public class Utility {
      * Method: clickElementWithJSE
      * Create the object of JavaScript Executor and execute click command
      * through Javascript method.
-     * 
+     *
      * @param id The id of a web element in a menu.
-     * @return void
      */
     public static void clickElementWithJSE(final String id) {
 
@@ -85,7 +84,7 @@ public class Utility {
 
     /**
      * Initialize browser.
-     * 
+     *
      * @param type the type
      */
     public static void initializeBrowser(final String type) {
@@ -101,7 +100,7 @@ public class Utility {
 
     /**
      * Visibility of element located.
-     * 
+     *
      * @param locator the locator
      * @return the expected condition
      */
@@ -120,7 +119,7 @@ public class Utility {
 
     /**
      * Wait timer.
-     * 
+     *
      * @param units the units
      * @param mills the mills
      */

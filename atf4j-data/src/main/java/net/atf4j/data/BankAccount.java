@@ -16,6 +16,8 @@
  */
 package net.atf4j.data;
 
+import static org.junit.Assert.assertNotNull;
+
 import net.atf4j.data.factory.DataFactory;
 
 /**
@@ -97,6 +99,7 @@ public class BankAccount {
      * @return the bank account
      */
     public BankAccount setBank(final Bank bank) {
+        assertNotNull(bank);
         this.bank = bank;
         return this;
     }
@@ -109,6 +112,7 @@ public class BankAccount {
      * @return the bank account
      */
     public BankAccount setAccountNo(final String accountNo) {
+        assertNotNull(accountNo);
         this.accountNo = accountNo;
         return this;
     }

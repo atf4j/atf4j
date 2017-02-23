@@ -19,34 +19,34 @@ package net.atf4j.webdriver.page;
 import org.junit.Test;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
-public class BoilerplatePageTest {
+public class BootstrapPageTest {
 
     private static final String KEY = "targetUrl";
     private static final String PAGE_URL = "http://127.0.0.1:8080/bootstrap";
 
     @Test
-    public void testBoilerplatePage() {
-        final BoilerplatePage boilerplatePage = new BoilerplatePage();
-        boilerplatePage.open();
-        boilerplatePage.verify();
-        boilerplatePage.close();
+    public void testBootstrapPage() {
+        final BootstrapPage bootstrapPage = new BootstrapPage();
+        bootstrapPage.open();
+        bootstrapPage.verify();
+        bootstrapPage.close();
     }
 
     @Test
-    public void testBoilerplatePageWebDriver() {
+    public void testBootstrapPageWebDriver() {
         final HtmlUnitDriver webDriver = new HtmlUnitDriver();
-        final BoilerplatePage boilerplatePage = new BoilerplatePage(webDriver);
-        boilerplatePage.open();
-        boilerplatePage.verify();
-        boilerplatePage.close();
+        final BootstrapPage bootstrapPage = new BootstrapPage(webDriver);
+        bootstrapPage.open();
+        bootstrapPage.verify();
+        bootstrapPage.close();
     }
 
     @Test
-    public void testBoilerplatePageUrl() {
-        final BoilerplatePage boilerplatePage = new BoilerplatePage(PAGE_URL);
-        boilerplatePage.open();
-        boilerplatePage.verify();
-        boilerplatePage.close();
+    public void testBootstrapPageUrl() {
+        final BootstrapPage bootstrapPage = new BootstrapPage(PAGE_URL);
+        bootstrapPage.open();
+        bootstrapPage.verify();
+        bootstrapPage.close();
     }
 
 }

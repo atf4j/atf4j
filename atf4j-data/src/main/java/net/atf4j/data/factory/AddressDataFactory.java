@@ -67,12 +67,12 @@ public class AddressDataFactory extends AbstractDataFactory {
         try {
             this.postalTownsUK = new CsvFile("postalTownsUK.csv");
         } catch (final Exception e) {
-            e.printStackTrace();
+            log.error("{}",e);
         }
         try {
             this.postCodeData = new CsvFile("postCodeData.csv");
         } catch (final Exception e) {
-            e.printStackTrace();
+            log.error("{}",e);
         }
 
     }

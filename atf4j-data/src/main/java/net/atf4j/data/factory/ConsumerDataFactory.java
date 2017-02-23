@@ -66,7 +66,6 @@ public class ConsumerDataFactory extends AbstractDataFactory {
     }
 
     public static String randomStuff() {
-        // TODO Auto-generated method stub
         return null;
     }
 

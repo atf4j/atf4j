@@ -32,7 +32,7 @@ public class NameTest extends ResultsReporting {
      * The MockName Class.
      */
     public class MockName extends Name {
-        
+
         /**
          * Instantiates a new mock name.
          */

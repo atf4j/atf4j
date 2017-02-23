@@ -104,7 +104,8 @@ public class DataFactory {
 
     /**
      * Today date as string.
-     *
+     * 
+     * @param format the format to use for date
      * @return today as String.
      */
     public static String today(final String format) {

@@ -214,7 +214,7 @@ public class Telephone {
 
     /**
      * Verify.
-     * 
+     *
      * @param number the number
      * @return true, if successful
      */

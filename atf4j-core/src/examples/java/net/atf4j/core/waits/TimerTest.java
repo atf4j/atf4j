@@ -17,6 +17,7 @@
 package net.atf4j.core.waits;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assume.assumeTrue;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -54,7 +55,7 @@ public class TimerTest extends ResultsReporting {
         this.log.info("testTimer0.Start Time=" + timer.getStartTime());
         this.log.info("testTimer0.Elapsed Time=" + timer.getElapsedTime());
         this.log.info("testTimer0." + timer.toString() + " Elapsed time not within delta (" + this.delta + ")");
-        org.junit.Assume.assumeTrue(timer.getElapsedTime() <= this.delta);
+        assumeTrue(timer.getElapsedTime() <= this.delta);
         this.delta = timer.getElapsedTime();
     }
 

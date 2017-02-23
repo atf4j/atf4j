@@ -16,6 +16,8 @@
  */
 package net.atf4j.data;
 
+import static org.junit.Assert.assertNotNull;
+
 /**
  * Bank data class.
  */
@@ -62,6 +64,7 @@ public class Bank extends Business {
      * @return the bank
      */
     public Bank setBankSortCode(final String bankSortCode) {
+        assertNotNull(bankSortCode);
         this.bankSortCode.setBankSortCode(bankSortCode);
         return this;
     }
@@ -74,7 +77,44 @@ public class Bank extends Business {
      * @return the bank
      */
     public Bank setBankSortCode(final BankSortCode bankSortCode) {
+        assertNotNull(bankSortCode);
         this.bankSortCode = bankSortCode;
+        return this;
+    }
+
+    /**
+     * Sets the bank name.
+     *
+     * @param bankName the bank name
+     * @return the bank
+     */
+    public Bank setBankName(final String bankName) {
+        assertNotNull(bankName);
+        this.bankName = bankName;
+        return this;
+    }
+
+    /**
+     * Sets the sort code.
+     *
+     * @param sortCode the sort code
+     * @return the bank
+     */
+    public Bank setSortCode(final String sortCode) {
+        assertNotNull(sortCode);
+        this.sortCode = sortCode;
+        return this;
+    }
+
+    /**
+     * Sets the iban.
+     *
+     * @param iban the iban
+     * @return the bank
+     */
+    public Bank setIban(final String iban) {
+        assertNotNull(iban);
+        this.iban = iban;
         return this;
     }
 
@@ -89,7 +129,7 @@ public class Bank extends Business {
 
     /**
      * Gets the bank name.
-     * 
+     *
      * @return the bank name
      */
     public String getBankName() {
@@ -97,19 +137,8 @@ public class Bank extends Business {
     }
 
     /**
-     * Sets the bank name.
-     * 
-     * @param bankName the bank name
-     * @return the bank
-     */
-    public Bank setBankName(final String bankName) {
-        this.bankName = bankName;
-        return this;
-    }
-
-    /**
      * Gets the sort code.
-     * 
+     *
      * @return the sort code
      */
     public String getSortCode() {
@@ -117,34 +146,12 @@ public class Bank extends Business {
     }
 
     /**
-     * Sets the sort code.
-     * 
-     * @param sortCode the sort code
-     * @return the bank
-     */
-    public Bank setSortCode(final String sortCode) {
-        this.sortCode = sortCode;
-        return this;
-    }
-
-    /**
      * Gets the iban.
-     * 
+     *
      * @return the iban
      */
     public String getIban() {
         return this.iban;
-    }
-
-    /**
-     * Sets the iban.
-     * 
-     * @param iban the iban
-     * @return the bank
-     */
-    public Bank setIban(final String iban) {
-        this.iban = iban;
-        return this;
     }
 
     /* (non-Javadoc)

@@ -19,34 +19,27 @@ package net.atf4j.webdriver.page;
 
 import org.openqa.selenium.WebDriver;
 
-import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 import net.atf4j.webdriver.TargetUrl;
 
 /**
- * Html5Boilerplate class.
+ * Html5Boilerplate Page object..
  */
 @TargetUrl("http://127.0.0.1:8080/boilerplate")
 public class BoilerplatePage extends AbstractPageObject {
 
     /**
      * Instantiates a new Html5Boilerplate.
-     *
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
      */
-    public BoilerplatePage() throws ConfigurationNotLoaded {
+    public BoilerplatePage() {
         super();
     }
 
     /**
      * Instantiates a new Html5Boilerplate.
-     *
-     * @param targetUrl
-     *            the target url
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
+     * 
+     * @param targetUrl the target url
      */
-    public BoilerplatePage(final String targetUrl) throws ConfigurationNotLoaded {
+    public BoilerplatePage(final String targetUrl) {
         super(targetUrl);
     }
 

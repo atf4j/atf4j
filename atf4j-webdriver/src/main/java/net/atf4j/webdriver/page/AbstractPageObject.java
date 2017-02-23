@@ -25,19 +25,20 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 import net.atf4j.webdriver.BrowserFactory;
+import net.atf4j.webdriver.TargetUrl;
 import net.atf4j.webdriver.WebDriverConfig;
 
 /**
- * The AbstractPageObject Class.
+ * AbstractPageObject Class.
  */
 public abstract class AbstractPageObject {
-    /** The Constant TARGET_URL. */
     private static final String TARGET_URL = "http://127.0.0.1:8080";
     protected static final Logger log = LoggerFactory.getLogger(AbstractPageObject.class);
     protected WebDriverConfig config;
@@ -48,17 +49,13 @@ public abstract class AbstractPageObject {
 
     /**
      * Instantiates a new page object.
-     *
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
      */
-    public AbstractPageObject() throws ConfigurationNotLoaded {
+    public AbstractPageObject() {
         super();
-        this.config = new WebDriverConfig();
+        initialise();
         this.webDriver = BrowserFactory.webDriver();
-        this.open();
-        PageFactory.initElements(this.webDriver, this);
         configureTimeOut();
+        this.open();
     }
 
     /**
@@ -66,16 +63,13 @@ public abstract class AbstractPageObject {
      *
      * @param targetUrl
      *            the target url
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
      */
-    public AbstractPageObject(final String targetUrl) throws ConfigurationNotLoaded {
+    public AbstractPageObject(final String targetUrl) {
         super();
-        this.config = new WebDriverConfig();
+        initialise();
         this.webDriver = BrowserFactory.webDriver();
-        this.open(targetUrl);
-        PageFactory.initElements(this.webDriver, this);
         configureTimeOut();
+        this.open(targetUrl);
     }
 
     /**
@@ -86,9 +80,18 @@ public abstract class AbstractPageObject {
      */
     public AbstractPageObject(final WebDriver webDriver) {
         super();
+        initialise();
         this.webDriver = webDriver;
-        PageFactory.initElements(this.webDriver, this);
         configureTimeOut();
+        this.open();
+    }
+
+    private void initialise() {
+        try {
+            this.config = new WebDriverConfig();
+        } catch (final ConfigurationNotLoaded e) {
+            log.info("Using Defaults : {}", e);
+        }
     }
 
     /**
@@ -116,8 +119,25 @@ public abstract class AbstractPageObject {
      */
     public AbstractPageObject open() {
         assumeNotNull(this.config);
-        final String targetUrl = this.config.targetUrl();
+        final String targetUrl = getTargetUrl();
         return open(targetUrl);
+    }
+
+    private String getTargetUrl() {
+        String targetUrl = System.getProperty("targetUrl");
+        if (targetUrl == null) {
+            targetUrl = this.config.targetUrl();
+            if (targetUrl == null) {
+                targetUrl = getTargetUrlAnnotation();
+                log.error("targetUrl from annotation");
+            } else {
+                log.error("targetUrl from config");
+            }
+        } else {
+            log.info("targetUrl from System");
+        }
+        log.info("targetUrl={}", targetUrl);
+        return targetUrl;
     }
 
     /**
@@ -136,20 +156,6 @@ public abstract class AbstractPageObject {
     }
 
     /**
-     * Open page.
-     *
-     * @param pageUrl
-     *            the page url
-     * @return the abstract page object
-     */
-    protected AbstractPageObject openPage(final String pageUrl) {
-        assumeNotNull(this.webDriver);
-        this.webDriver.get(pageUrl);
-        PageFactory.initElements(this.webDriver, this);
-        return this;
-    }
-
-    /**
      * Verify that page is valid.
      *
      * @return false to ensure this method is implemented.
@@ -161,6 +167,12 @@ public abstract class AbstractPageObject {
         return this;
     }
 
+    /**
+     * Verify page title.
+     *
+     * @param expectedPageTitle the expected page title
+     * @return the abstract page object
+     */
     public AbstractPageObject verifyPageTitle(final String expectedPageTitle) {
         assumeNotNull(this.webDriver);
         final String actualPageTitle = this.webDriver.getTitle();
@@ -215,6 +227,19 @@ public abstract class AbstractPageObject {
         return testStatus;
     }
 
+    public WebElement waitUntilVisible(final WebElement webElement) {
+        return this.webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
+    }
+
+    public WebElement waitUntilReady(final WebElement webElement) {
+        return this.webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
+    }
+
+    public void clickWhenReady(final WebElement webElement) {
+        this.webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
+        webElement.click();
+    }
+
     /**
      * Close.
      */
@@ -229,6 +254,14 @@ public abstract class AbstractPageObject {
     protected void quit() {
         assumeNotNull(this.webDriver);
         this.webDriver.quit();
+    }
+
+    private String getTargetUrlAnnotation() {
+        final Class<? extends AbstractPageObject> thisClass = this.getClass();
+        final TargetUrl annotation = thisClass.getAnnotation(TargetUrl.class);
+        final String targetUrlValue = annotation.value();
+        System.out.println(targetUrlValue);
+        return targetUrlValue;
     }
 
 }

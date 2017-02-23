@@ -5,16 +5,18 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 	<url>
 		<loc>http://atf4j.net/</loc>
+		<lastmod></lastmod>
 	</url>
 	<url>
 		<loc>http://atf4j.net/javadoc</loc>
+		<lastmod></lastmod>
 	</url>
 	<url>
 		<loc>http://atf4j.net/apidocs</loc>
+		<lastmod></lastmod>
 	</url>
 	<url>
 		<loc>http://atf4j.net/testapidocs</loc>
 		<lastmod></lastmod>
 	</url>
-	
 </urlset>

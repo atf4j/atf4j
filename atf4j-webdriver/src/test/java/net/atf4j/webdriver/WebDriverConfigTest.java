@@ -26,8 +26,6 @@ import net.atf4j.core.ResultsReporting;
 
 /**
  * WebDriverConfigTest Class.
- *
- *
  */
 public class WebDriverConfigTest extends ResultsReporting {
 

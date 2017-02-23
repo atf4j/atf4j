@@ -14,18 +14,21 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
-package net.atf4j.core;
+package net.atf4j.data;
 
 import org.junit.Test;
 
-public class NarratorTest extends ResultsReporting {
+public class AbstractWalkerTest {
 
-    private final Object aObject = this;
-    private final String aString = "";
-    private final Boolean aBoolean = true;
+    public class MockWalker extends AbstractWalker {
+        public MockWalker(final String basePath) throws Exception {
+            super(basePath);
+        }
+    }
 
     @Test
-    public void testReflectObjectToString() {
-        this.log.info(Narrator.reflectObjectToString(this));
+    public void test() throws Exception {
+        new MockWalker(".").walk();
     }
+
 }

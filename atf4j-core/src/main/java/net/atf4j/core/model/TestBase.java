@@ -364,7 +364,7 @@ public abstract class TestBase extends ResultsReporting {
 
     /**
      * Result.
-     * 
+     *
      * @return the test result
      */
     public TestResult result() {

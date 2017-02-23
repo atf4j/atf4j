@@ -24,7 +24,6 @@ import java.util.ArrayDeque;
 import java.util.Collection;
 
 import net.atf4j.core.Atf4jException;
-import net.atf4j.core.TestResult;
 
 /**
  * TestSuite.

@@ -20,6 +20,7 @@ package net.atf4j.data;
  * Consumer Data.
  */
 public class Consumer extends Person {
+
     private Credentials credentials;
 
     /**

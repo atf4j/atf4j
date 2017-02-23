@@ -16,59 +16,33 @@
  */
 package net.atf4j.data;
 
-import static org.junit.Assert.assertNotNull;
-
 import java.io.File;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+public class FileWalker extends AbstractWalker {
 
-public class FileWalker {
-
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
-
-    public void walk(final String path) throws URISyntaxException {
-        assertNotNull(path);
-        this.log.info("{}", path);
-        final URL resource = this.getClass().getResource(path);
-
-        if (resource != null) {
-            final URI uri = resource.toURI();
-            if (uri != null) {
-                final File root = Paths.get(uri).toFile();
-                if (root != null) {
-                    final File[] list = root.listFiles();
-
-                    if (list != null) {
-                        this.log.info("length={}", list.length);
-                        for (final File f : list) {
-                            processFile(f);
-                        }
-                        this.log.info("end");
-                    } else {
-                        assertNotNull("listFiles is null");
-                    }
-                } else {
-                    assertNotNull("root is null");
-                }
-            } else {
-                assertNotNull("url is null");
-            }
-        } else {
-            assertNotNull("No messages found {}", resource);
-        }
+    public FileWalker() {
+        super();
+        this.log.info("FileWalker()");
     }
 
-    private void processFile(final File f) throws URISyntaxException {
-        if (f.isDirectory()) {
-            this.log.info("DIR :{}", f.getAbsoluteFile());
-            walk(f.getAbsolutePath());
-        } else {
-            this.log.info("FILE:{}", f.getAbsoluteFile());
-        }
+    public FileWalker(final String path) throws Exception {
+        super();
+        this.log.info("FileWalker({})", path);
+        setBasePath(path);
+    }
+
+    private void processFile(final File f) throws Exception {
+        final File absoluteFile = f.getAbsoluteFile();
+        this.log.info("FILE:{}", absoluteFile);
+        final String string = readFile(absoluteFile.getPath());
+        this.log.info("{}", string);
+    }
+
+    String readFile(final String filename) throws Exception {
+        final byte[] encoded = Files.readAllBytes(Paths.get(filename));
+        return new String(encoded, Charset.defaultCharset());
     }
 }

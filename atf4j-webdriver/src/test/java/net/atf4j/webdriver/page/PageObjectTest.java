@@ -16,7 +16,6 @@
  */
 package net.atf4j.webdriver.page;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
@@ -26,7 +25,6 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 /**
  * PageObjectTest.
  */
-@Ignore
 public class PageObjectTest {
 
     /**

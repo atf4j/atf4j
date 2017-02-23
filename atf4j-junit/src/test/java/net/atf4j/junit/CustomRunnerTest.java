@@ -24,7 +24,12 @@ import org.junit.runner.RunWith;
 @RunWith(value = CustomRunner.class)
 public class CustomRunnerTest {
     @Test
-    public void testMethod() {
+    public void testCustomRunnerWithPass() {
         assertTrue(true);
+    }
+
+    @Test
+    public void testCustomRunnerWithFail() {
+        assertTrue(false);
     }
 }

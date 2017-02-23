@@ -27,8 +27,6 @@ import net.atf4j.core.ResultsReporting;
 
 /**
  * DatumTest.
- *
- *
  */
 public class DatumTest extends ResultsReporting {
 

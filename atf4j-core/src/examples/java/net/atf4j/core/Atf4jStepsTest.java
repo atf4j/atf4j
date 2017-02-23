@@ -19,6 +19,8 @@ package net.atf4j.core;
 import static net.atf4j.core.Atf4j.document;
 import static net.atf4j.core.Atf4j.end;
 import static net.atf4j.core.Atf4j.start;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static org.junit.Assume.assumeTrue;
 
 import org.junit.Test;
@@ -35,7 +37,7 @@ public class Atf4jStepsTest {
     public void testSimpleStep() {
         start("start test");
         {
-            start("step One");
+            start("step one");
             {
                 document(Thread.currentThread().getStackTrace());
             }
@@ -51,15 +53,28 @@ public class Atf4jStepsTest {
     public void testSteps() {
         start("start test");
         {
-            start("step One");
+            start("step one");
             {
                 assumeTrue(true);
             }
             end();
 
-            start("step Two");
+            start("step two");
             {
-                assumeTrue(true);
+                assertTrue(true);
+            }
+            end();
+        }
+        end();
+    }
+
+    @Test(expected = AssertionError.class)
+    public void testFailStep() {
+        start("start test");
+        {
+            start("step one");
+            {
+                fail("fail step");
             }
             end();
         }
