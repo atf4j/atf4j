@@ -23,6 +23,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriver.Options;
+import org.openqa.selenium.WebDriver.Timeouts;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -30,22 +32,18 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 import net.atf4j.webdriver.BrowserFactory;
 import net.atf4j.webdriver.TargetUrl;
 import net.atf4j.webdriver.WebDriverConfig;
 
 /**
- * AbstractPageObject Class.
+ * An abstract object for representing a web page .
  */
 public abstract class AbstractPageObject {
-    private static final String TARGET_URL = "http://127.0.0.1:8080";
     protected static final Logger log = LoggerFactory.getLogger(AbstractPageObject.class);
     protected WebDriverConfig config;
     protected WebDriver webDriver;
     protected WebDriverWait webDriverWait;
-    protected final String webDriverName = System.getProperty("webDriver");
-    protected final String targetUrl = System.getProperty("targetUrl", TARGET_URL);
 
     /**
      * Instantiates a new page object.
@@ -53,7 +51,7 @@ public abstract class AbstractPageObject {
     public AbstractPageObject() {
         super();
         initialise();
-        this.webDriver = BrowserFactory.webDriver();
+        webDriver = BrowserFactory.create();
         configureTimeOut();
         this.open();
     }
@@ -67,7 +65,7 @@ public abstract class AbstractPageObject {
     public AbstractPageObject(final String targetUrl) {
         super();
         initialise();
-        this.webDriver = BrowserFactory.webDriver();
+        webDriver = BrowserFactory.create();
         configureTimeOut();
         this.open(targetUrl);
     }
@@ -86,11 +84,23 @@ public abstract class AbstractPageObject {
         this.open();
     }
 
-    private void initialise() {
-        try {
-            this.config = new WebDriverConfig();
-        } catch (final ConfigurationNotLoaded e) {
-            log.info("Using Defaults : {}", e);
+    /**
+     * Click when ready.
+     *
+     * @param webElement the web element
+     */
+    public void clickWhenReady(final WebElement webElement) {
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
+        webElement.click();
+    }
+
+    /**
+     * Close.
+     */
+    protected void close() {
+        assumeNotNull(webDriver);
+        if (webDriver != null) {
+            webDriver.close();
         }
     }
 
@@ -99,17 +109,65 @@ public abstract class AbstractPageObject {
      */
     private void configureTimeOut() {
         try {
-            // long implicitWait = this.properties.getImplicitWait();
-            this.webDriver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
-
-            // long pageWait = this.properties.getPageWait();
-            this.webDriver.manage().timeouts().pageLoadTimeout(8, TimeUnit.SECONDS);
-
-            this.webDriverWait = new WebDriverWait(this.webDriver, 8000, 1000);
-
+            final Options manage = webDriver.manage();
+            final Timeouts timeouts = manage.timeouts();
+            timeouts.implicitlyWait(config.implicitWait(), TimeUnit.SECONDS);
+            timeouts.pageLoadTimeout(config.pageLoadTimeout(), TimeUnit.SECONDS);
+            webDriverWait = new WebDriverWait(webDriver,
+                    config.timeOutInSeconds(),
+                    config.pollingInterval());
         } catch (final Exception exception) {
-            log.error(exception.toString());
+            AbstractPageObject.log.error(exception.toString());
         }
+    }
+
+    /**
+     * Gets the current url.
+     *
+     * @return the current url
+     */
+    protected String getCurrentUrl() {
+        assumeNotNull(webDriver);
+        return webDriver.getCurrentUrl();
+    }
+
+    /**
+     * Gets the target url.
+     *
+     * @return the target url
+     */
+    private String getTargetUrl() {
+        String targetUrl = System.getProperty("targetUrl");
+        if (targetUrl == null) {
+            targetUrl = config.targetUrl();
+            if (targetUrl == null) {
+                targetUrl = targetUrlAnnotation();
+                AbstractPageObject.log.error("targetUrl from annotation");
+            } else {
+                AbstractPageObject.log.error("targetUrl from config");
+            }
+        } else {
+            AbstractPageObject.log.info("targetUrl from System");
+        }
+        AbstractPageObject.log.info("targetUrl={}", targetUrl);
+        return targetUrl;
+    }
+
+    /**
+     * Gets the title.
+     *
+     * @return the title
+     */
+    protected String getTitle() {
+        assumeNotNull(webDriver);
+        return webDriver.getTitle();
+    }
+
+    /**
+     * Initialise.
+     */
+    private void initialise() {
+        config = new WebDriverConfig();
     }
 
     /**
@@ -118,26 +176,9 @@ public abstract class AbstractPageObject {
      * @return this as AbstractPageObject
      */
     public AbstractPageObject open() {
-        assumeNotNull(this.config);
+        assumeNotNull(config);
         final String targetUrl = getTargetUrl();
         return open(targetUrl);
-    }
-
-    private String getTargetUrl() {
-        String targetUrl = System.getProperty("targetUrl");
-        if (targetUrl == null) {
-            targetUrl = this.config.targetUrl();
-            if (targetUrl == null) {
-                targetUrl = getTargetUrlAnnotation();
-                log.error("targetUrl from annotation");
-            } else {
-                log.error("targetUrl from config");
-            }
-        } else {
-            log.info("targetUrl from System");
-        }
-        log.info("targetUrl={}", targetUrl);
-        return targetUrl;
     }
 
     /**
@@ -149,9 +190,44 @@ public abstract class AbstractPageObject {
      * @see net.atf4j.webdriver.page.PageInterface#open()
      */
     public AbstractPageObject open(final String pageUrl) {
-        assumeNotNull(this.webDriver);
-        this.webDriver.get(pageUrl);
-        PageFactory.initElements(this.webDriver, this);
+        assumeNotNull(webDriver);
+        webDriver.get(pageUrl);
+        PageFactory.initElements(webDriver, this);
+        return this;
+    }
+
+    /**
+     * Quit.
+     */
+    protected void quit() {
+        assumeNotNull(webDriver);
+        if (webDriver != null) {
+            webDriver.quit();
+        }
+    }
+
+    /**
+     * Gets the target url annotation.
+     *
+     * @return the target url annotation
+     */
+    private String targetUrlAnnotation() {
+        final Class<? extends AbstractPageObject> thisClass = this.getClass();
+        final TargetUrl annotation = thisClass.getAnnotation(TargetUrl.class);
+        final String targetUrlValue = annotation.value();
+        System.out.println(targetUrlValue);
+        return targetUrlValue;
+    }
+
+    /**
+     * URL should be unchanged.
+     *
+     * @return the web page
+     */
+    public AbstractPageObject urlShouldBeUnchanged() {
+        assumeNotNull(webDriver);
+        final String currentUrl = webDriver.getCurrentUrl();
+        currentUrl.equals(config.targetUrl());
         return this;
     }
 
@@ -162,54 +238,9 @@ public abstract class AbstractPageObject {
      * @see net.atf4j.webdriver.page.PageInterface#verify()
      */
     public AbstractPageObject verify() {
-        assumeNotNull(this.webDriver);
-        this.webDriver.getTitle();
+        assumeNotNull(webDriver);
+        webDriver.getTitle();
         return this;
-    }
-
-    /**
-     * Verify page title.
-     *
-     * @param expectedPageTitle the expected page title
-     * @return the abstract page object
-     */
-    public AbstractPageObject verifyPageTitle(final String expectedPageTitle) {
-        assumeNotNull(this.webDriver);
-        final String actualPageTitle = this.webDriver.getTitle();
-        assertEquals(expectedPageTitle, actualPageTitle);
-        return this;
-    }
-
-    /**
-     * URL should be unchanged.
-     *
-     * @return the web page
-     */
-    public AbstractPageObject urlShouldBeUnchanged() {
-        assumeNotNull(this.webDriver);
-        final String currentUrl = this.webDriver.getCurrentUrl();
-        currentUrl.equals(this.config.targetUrl());
-        return this;
-    }
-
-    /**
-     * Gets the current url.
-     *
-     * @return the current url
-     */
-    protected String getCurrentUrl() {
-        assumeNotNull(this.webDriver);
-        return this.webDriver.getCurrentUrl();
-    }
-
-    /**
-     * Gets the title.
-     *
-     * @return the title
-     */
-    protected String getTitle() {
-        assumeNotNull(this.webDriver);
-        return this.webDriver.getTitle();
     }
 
     /**
@@ -227,41 +258,37 @@ public abstract class AbstractPageObject {
         return testStatus;
     }
 
+    /**
+     * Verify page title.
+     *
+     * @param expectedPageTitle the expected page title
+     * @return the abstract page object
+     */
+    public AbstractPageObject verifyPageTitle(final String expectedPageTitle) {
+        assumeNotNull(webDriver);
+        final String actualPageTitle = webDriver.getTitle();
+        assertEquals(expectedPageTitle, actualPageTitle);
+        return this;
+    }
+
+    /**
+     * Wait until ready.
+     *
+     * @param webElement the web element
+     * @return the web element
+     */
+    public WebElement waitUntilClickable(final WebElement webElement) {
+        return webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
+    }
+
+    /**
+     * Wait until visible.
+     *
+     * @param webElement the web element
+     * @return the web element
+     */
     public WebElement waitUntilVisible(final WebElement webElement) {
-        return this.webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
-    }
-
-    public WebElement waitUntilReady(final WebElement webElement) {
-        return this.webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
-    }
-
-    public void clickWhenReady(final WebElement webElement) {
-        this.webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
-        webElement.click();
-    }
-
-    /**
-     * Close.
-     */
-    protected void close() {
-        assumeNotNull(this.webDriver);
-        this.webDriver.close();
-    }
-
-    /**
-     * Quit.
-     */
-    protected void quit() {
-        assumeNotNull(this.webDriver);
-        this.webDriver.quit();
-    }
-
-    private String getTargetUrlAnnotation() {
-        final Class<? extends AbstractPageObject> thisClass = this.getClass();
-        final TargetUrl annotation = thisClass.getAnnotation(TargetUrl.class);
-        final String targetUrlValue = annotation.value();
-        System.out.println(targetUrlValue);
-        return targetUrlValue;
+        return webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
     }
 
 }

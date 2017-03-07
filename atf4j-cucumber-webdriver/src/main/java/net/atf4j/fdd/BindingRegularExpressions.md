@@ -1,4 +1,5 @@
-Use Regular Expression libs with caution, many RegExp designed with the purpose to verify the input, 
+Use Regular Expression libs with caution, 
+many RegExp designed with the purpose to verify the input, 
 in this case that not always appropriate,
 Scenarios will often need to apply invalid input,
 

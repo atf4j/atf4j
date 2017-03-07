@@ -27,9 +27,6 @@ import org.openqa.selenium.WebElement;
  */
 public class LocatorAdaptor {
 
-    /** The web driver. */
-    private final WebDriver webDriver;
-
     /**
      * The Enum LocatorType.
      */
@@ -37,6 +34,9 @@ public class LocatorAdaptor {
 
         CLASSNAME, CSS, ID, LINK, NAME, TAGNAME, XPATH;
     }
+
+    /** The web driver. */
+    private final WebDriver webDriver;
 
     /**
      * Instantiates a new locator adaptor.
@@ -48,6 +48,38 @@ public class LocatorAdaptor {
         super();
         assertNotNull(webDriver);
         this.webDriver = webDriver;
+    }
+
+    /**
+     * Object locator.
+     *
+     * @param type
+     *            the type
+     * @param ref
+     *            the ref
+     * @return the web element
+     */
+    public WebElement objectLocator(final LocatorType type, final String ref) {
+        assertNotNull(webDriver);
+        assertNotNull(type);
+        assertNotNull(ref);
+        switch (type) {
+        case ID:
+            return webDriver.findElement(By.id(ref));
+        case CLASSNAME:
+            return webDriver.findElement(By.className(ref));
+        case XPATH:
+            return webDriver.findElement(By.xpath(ref));
+        case CSS:
+            return webDriver.findElement(By.cssSelector(ref));
+        case LINK:
+            return webDriver.findElement(By.linkText(ref));
+        case NAME:
+            return webDriver.findElement(By.name(ref));
+        case TAGNAME:
+            return webDriver.findElement(By.tagName(ref));
+        }
+        return null;
     }
 
     /**
@@ -77,37 +109,5 @@ public class LocatorAdaptor {
         } else {
             return null;
         }
-    }
-
-    /**
-     * Object locator.
-     *
-     * @param type
-     *            the type
-     * @param ref
-     *            the ref
-     * @return the web element
-     */
-    public WebElement objectLocator(final LocatorType type, final String ref) {
-        assertNotNull(this.webDriver);
-        assertNotNull(type);
-        assertNotNull(ref);
-        switch (type) {
-        case ID:
-            return this.webDriver.findElement(By.id(ref));
-        case CLASSNAME:
-            return this.webDriver.findElement(By.className(ref));
-        case XPATH:
-            return this.webDriver.findElement(By.xpath(ref));
-        case CSS:
-            return this.webDriver.findElement(By.cssSelector(ref));
-        case LINK:
-            return this.webDriver.findElement(By.linkText(ref));
-        case NAME:
-            return this.webDriver.findElement(By.name(ref));
-        case TAGNAME:
-            return this.webDriver.findElement(By.tagName(ref));
-        }
-        return null;
     }
 }

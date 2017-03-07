@@ -14,13 +14,22 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
-package net.atf4j.imperative;
+package net.atf4j.core;
 
-import net.atf4j.fdd.AbstractTestRunner;
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Test;
 
 /**
- * WebSiteTestRunner Class.
+ * An Example Configuration loader.
+ * This will load the ExampleConfig.properties file from the resources folder.
+ * It make the Configuration available by
  */
-public class WebSiteTestRunner extends AbstractTestRunner {
+public class ConfigExampleTest {
 
+    @Test
+    public void testConfigExample() {
+        final ConfigExample configExample = new ConfigExample();
+        assertNotNull(configExample);
+    }
 }

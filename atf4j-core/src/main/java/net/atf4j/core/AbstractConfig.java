@@ -22,8 +22,8 @@ import org.slf4j.LoggerFactory;
 /**
  * Abstract Configuration class.
  */
-public abstract class AbstractConfig {
-    private static AbstractConfig instance = null;
+public abstract class AbstractConfig implements ConfigurationInterface {
+
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
     protected final Properties properties = new Properties();
 
@@ -35,7 +35,7 @@ public abstract class AbstractConfig {
         try {
             load();
         } catch (final ConfigurationNotLoaded e) {
-            this.log.error("Using default values; {}", e.toString());
+            this.log.error("Using default values; {}", e.getMessage());
         }
     }
 
@@ -52,34 +52,13 @@ public abstract class AbstractConfig {
     }
 
     /**
-     * Gets the single instance of AbstractConfig.
-     *
-     * @return single instance of AbstractConfig
-     */
-    public static AbstractConfig getInstance() {
-        if (AbstractConfig.instance == null) {
-            AbstractConfig.instance = create();
-        }
-        return AbstractConfig.instance;
-    }
-
-    /**
-     * Create new instance of create.
-     * 
-     * @return the abstract config
-     */
-    public static AbstractConfig create() {
-        return null;
-    }
-
-    /**
      * Load configuration from property file named after class.
      *
      * @return the abstract config
      * @throws ConfigurationNotLoaded
      *             the missing exception
      */
-    protected AbstractConfig load() throws ConfigurationNotLoaded {
+    protected ConfigurationInterface load() throws ConfigurationNotLoaded {
         final String propertyFilename = String.format("/%s.properties", this.getClass().getSimpleName());
         return load(propertyFilename);
     }
@@ -93,7 +72,7 @@ public abstract class AbstractConfig {
      * @throws ConfigurationNotLoaded
      *             the missing exception
      */
-    protected AbstractConfig load(final String propertyFilename) throws ConfigurationNotLoaded {
+    protected ConfigurationInterface load(final String propertyFilename) throws ConfigurationNotLoaded {
         try {
             final InputStream resourceAsStream = this.getClass().getResourceAsStream(propertyFilename);
             this.properties.load(resourceAsStream);
@@ -104,47 +83,12 @@ public abstract class AbstractConfig {
         return this;
     }
 
-    /**
-     * To string.
-     *
-     * @return the string
-     * @see java.lang.Object#toString()
+    /* (non-Javadoc)
+     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
      */
     @Override
-    public String toString() {
-        return this.properties.toString();
-    }
-
-    /**
-     * MissingPropertyFileException.
-     */
-    public class ConfigurationNotLoaded extends Atf4jException {
-
-        /** The Constant serialVersionUID. */
-        private static final long serialVersionUID = 1L;
-
-        /** The property filename. */
-        private final String expectedPropertyFilename;
-
-        /**
-         * Instantiates a new missing exception.
-         *
-         * @param propertyFilename
-         *            the property filename
-         */
-        public ConfigurationNotLoaded(final String propertyFilename) {
-            this.expectedPropertyFilename = propertyFilename;
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see java.lang.Throwable#toString()
-         */
-        @Override
-        public String toString() {
-            return String.format("MissingPropertyFileException [propertyFilename=%s]", this.expectedPropertyFilename);
-        }
+    public String valueFor(final String key) {
+        return get(key);
     }
 
     /**
@@ -156,6 +100,28 @@ public abstract class AbstractConfig {
      */
     protected String get(final String key) {
         return get(key, null);
+    }
+
+    /**
+     * Gets the value for the key.
+     *
+     * @param key the key
+     * @param defaultValue the default value
+     * @return the int
+     */
+    protected int get(final String key, final int defaultValue) {
+        return Integer.parseInt(this.get(key, Integer.toString(defaultValue)));
+    }
+
+    /**
+     * Gets the value for the key.
+     *
+     * @param key the key
+     * @param defaultValue the default value
+     * @return the long
+     */
+    protected long get(final String key, final long defaultValue) {
+        return Long.parseLong(this.get(key, Long.toString(defaultValue)));
     }
 
     /**
@@ -178,43 +144,58 @@ public abstract class AbstractConfig {
         }
     }
 
-    /**
-     * Gets a configuration property by key,.
-     *
-     * @param key
-     *            the key
-     * @param defaultValue
-     *            the default value
-     * @return the configuration property as a boolean
-     */
-    protected boolean get(final String key, final boolean defaultValue) {
-        return Boolean.parseBoolean(this.get(key, Boolean.toString(defaultValue)));
-    }
-
-    /**
-     * Gets an int configuration property by key.
-     *
-     * @param key
-     *            the key as int
-     * @param defaultValue
-     *            the default value as in
-     * @return the configuration property as a boolean
-     */
-    protected int get(final String key, final int defaultValue) {
+    @Override
+    public int valueFor(final String key, final int defaultValue) {
         return Integer.parseInt(this.get(key, Integer.toString(defaultValue)));
     }
 
-    /**
-     * Gets an long configuration property by key.
-     *
-     * @param key
-     *            the key as long
-     * @param defaultValue
-     *            the default value
-     * @return the configuration property as long
-     */
-    protected long get(final String key, final long defaultValue) {
+    @Override
+    public long valueFor(final String key, final long defaultValue) {
         return Long.parseLong(this.get(key, Long.toString(defaultValue)));
     }
 
+    @Override
+    public boolean valueFor(final String key, final boolean defaultValue) {
+        return Boolean.parseBoolean(this.get(key, Boolean.toString(defaultValue)));
+    }
+
+    @Override
+    public String valueFor(final String key, final String defaultValue) {
+        return get(key, defaultValue);
+    }
+
+    /**
+     * The Property was Not Found.
+     */
+    public class PropertyNotFound extends Atf4jException {
+
+        private static final long serialVersionUID = 1L;
+
+        public PropertyNotFound(final String propertyKey) {
+            super(String.format("Property not found for key %s", propertyKey));
+        }
+    }
+
+    /**
+     * Configuration Not Loaded.
+     */
+    public class ConfigurationNotLoaded extends Atf4jException {
+
+        private static final long serialVersionUID = 1L;
+
+        /**
+         * Instantiates a missing configuration exception.
+         *
+         * @param propertyFilename
+         *            the property filename
+         */
+        public ConfigurationNotLoaded(final String propertyFilename) {
+            super(String.format("PropertyFile %s not found", propertyFilename));
+        }
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s [properties=%s]", this.getClass().getSimpleName(), this.properties);
+    }
 }

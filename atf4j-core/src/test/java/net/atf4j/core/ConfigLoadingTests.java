@@ -20,11 +20,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
+import net.atf4j.core.AbstractConfig.PropertyNotFound;
 
 /**
  * ConfigLoadingTests Class.
- *
- *
  */
 public class ConfigLoadingTests extends ResultsReporting {
 
@@ -48,11 +47,20 @@ public class ConfigLoadingTests extends ResultsReporting {
          *
          * @return the property filename
          */
-        public String getPropertyFilename() {
-            this.log.info(get("loaded"));
-            final String propertiesFilename = super.get("propertiesFilename");
+        public String getPropertyFilename() throws PropertyNotFound {
+            this.log.info("getPropertyFilename");
+            final String propertiesFilename = get("propertiesFilename");
             this.log.info(propertiesFilename);
             return propertiesFilename;
+        }
+
+        /* (non-Javadoc)
+         * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
+         */
+        @Override
+        public String valueFor(final String key) {
+            // TODO Auto-generated method stub
+            return null;
         }
     }
 
@@ -74,7 +82,7 @@ public class ConfigLoadingTests extends ResultsReporting {
      *             the configuration not loaded
      */
     @Test
-    public void testSuggestedUsage() throws ConfigurationNotLoaded {
+    public void testSuggestedUsage() throws ConfigurationNotLoaded, PropertyNotFound {
         final SimpleConfiguration simpleConfig = new SimpleConfiguration();
         final String propertyFilename = simpleConfig.getPropertyFilename();
         Assert.assertEquals("/SimpleConfiguration.properties", propertyFilename);

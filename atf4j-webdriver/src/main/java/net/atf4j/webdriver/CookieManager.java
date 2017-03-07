@@ -42,24 +42,21 @@ public class CookieManager {
     }
 
     /**
-     * Set the webDriver.
+     * Add a the cookie to the local cache.
      *
-     * @param webDriver
-     *            the web driver
-     * @return the web driver
+     * @param cookie
+     *            the cookie to be added to store.
+     * @return true, if successful, otherwise false.
      */
-    private WebDriver setWebDriver(final WebDriver webDriver) {
-        assertNotNull(this.webDriver);
-        return this.webDriver = webDriver;
+    public boolean add(final Cookie cookie) {
+        return cookies.add(cookie);
     }
 
     /**
-     * Checks if cookies have been stored in the local cache.
-     *
-     * @return true, if there are no cookies, otherwise false.
+     * Delete all the cookie associated with the site page.
      */
-    public boolean isEmpty() {
-        return this.cookies.isEmpty();
+    public void clear() {
+        webDriver.manage().deleteAllCookies();
     }
 
     /**
@@ -70,18 +67,16 @@ public class CookieManager {
      * @return true, if cookie is stored, otherwise false.
      */
     public boolean contains(final Cookie cookie) {
-        return this.cookies.contains(cookie);
+        return cookies.contains(cookie);
     }
 
     /**
-     * Add a the cookie to the local cache.
+     * Checks if cookies have been stored in the local cache.
      *
-     * @param cookie
-     *            the cookie to be added to store.
-     * @return true, if successful, otherwise false.
+     * @return true, if there are no cookies, otherwise false.
      */
-    public boolean add(final Cookie cookie) {
-        return this.cookies.add(cookie);
+    public boolean isEmpty() {
+        return cookies.isEmpty();
     }
 
     /**
@@ -92,32 +87,37 @@ public class CookieManager {
      * @return true, if successful, otherwise false.
      */
     public boolean remove(final Cookie cookie) {
-        return this.cookies.remove(cookie);
-    }
-
-    /**
-     * Save the cookies associated with the site page to the local cache.
-     */
-    public void save() {
-        this.cookies = this.webDriver.manage().getCookies();
-    }
-
-    /**
-     * Delete all the cookie associated with the site page.
-     */
-    public void clear() {
-        this.webDriver.manage().deleteAllCookies();
+        return cookies.remove(cookie);
     }
 
     /**
      * Restore the Browser cookies to previous state from the local cache.
      */
     public void restore() {
-        if (this.cookies != null) {
-            this.cookies = this.webDriver.manage().getCookies();
-            for (final Cookie cookie : this.cookies) {
-                this.webDriver.manage().addCookie(cookie);
+        if (cookies != null) {
+            cookies = webDriver.manage().getCookies();
+            for (final Cookie cookie : cookies) {
+                webDriver.manage().addCookie(cookie);
             }
         }
+    }
+
+    /**
+     * Save the cookies associated with the site page to the local cache.
+     */
+    public void save() {
+        cookies = webDriver.manage().getCookies();
+    }
+
+    /**
+     * Set the webDriver.
+     *
+     * @param webDriver
+     *            the web driver
+     * @return the web driver
+     */
+    private WebDriver setWebDriver(final WebDriver webDriver) {
+        assertNotNull(this.webDriver);
+        return this.webDriver = webDriver;
     }
 }

@@ -36,7 +36,7 @@ public class BoilerplatePage extends AbstractPageObject {
 
     /**
      * Instantiates a new Html5Boilerplate.
-     * 
+     *
      * @param targetUrl the target url
      */
     public BoilerplatePage(final String targetUrl) {

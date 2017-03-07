@@ -14,13 +14,14 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
-package net.atf4j.imperative;
+package net.atf4j.webdriver;
 
-import net.atf4j.fdd.AbstractTestRunner;
+import org.openqa.selenium.WebDriver;
 
-/**
- * WebSiteTestRunner Class.
- */
-public class WebSiteTestRunner extends AbstractTestRunner {
+public class BrowserFactory extends AbstractBrowserFactory {
+
+    public static WebDriver create() {
+        return AbstractBrowserFactory.webDriver();
+    }
 
 }

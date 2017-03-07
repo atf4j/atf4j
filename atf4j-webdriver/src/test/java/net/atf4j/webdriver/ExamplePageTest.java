@@ -14,13 +14,31 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
-package net.atf4j.imperative;
+package net.atf4j.webdriver;
 
-import net.atf4j.fdd.AbstractTestRunner;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
 
-/**
- * WebSiteTestRunner Class.
- */
-public class WebSiteTestRunner extends AbstractTestRunner {
+public class ExamplePageTest {
+
+    public class HomePage extends PageObject {
+    }
+
+    public abstract class PageObject {
+        public WebDriver driver;
+
+        PageObject() {
+            driver = AbstractBrowserFactory.webDriver();
+        }
+
+        PageObject(final WebDriver webDriver) {
+            driver = webDriver;
+        }
+    }
+
+    @Test
+    public void test() {
+        new HomePage();
+    }
 
 }

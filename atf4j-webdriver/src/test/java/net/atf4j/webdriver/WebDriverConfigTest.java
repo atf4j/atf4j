@@ -58,8 +58,7 @@ public class WebDriverConfigTest extends ResultsReporting {
         assertNotNull(config.chromeBinaryDriver());
         assertNotNull(config.firefoxBinaryDriver());
         assertEquals(1000, config.pageLoadTimeout());
-        assertEquals(1000, config.implicitlyWait());
-        assertEquals(1000, config.implicitlyWaitUnit());
+        assertEquals(1, config.implicitWait());
     }
 
 }

@@ -19,7 +19,8 @@ package net.atf4j.imperative;
 import org.openqa.selenium.WebDriver;
 
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
-import net.atf4j.webdriver.BrowserFactory;
+import net.atf4j.fdd.AbstractBehaviourModel;
+import net.atf4j.webdriver.AbstractBrowserFactory;
 
 /**
  * A UnitTest for SystemUnder objects.
@@ -35,7 +36,7 @@ public class WebAppModel extends AbstractBehaviourModel {
      */
     public void aBrowser() {
         log.info("aBrowser()");
-        this.webDriver = BrowserFactory.webDriver();
+        this.webDriver = AbstractBrowserFactory.webDriver();
     }
 
     /**

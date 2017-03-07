@@ -30,32 +30,13 @@ import net.atf4j.core.ResultsReporting;
 public class BrowserFactoryTest extends ResultsReporting {
 
     /**
-     * test BrowserFactory default browser.
-     */
-    @Test
-    public void testWebDriver() {
-        final WebDriver webDriver = BrowserFactory.webDriver();
-        assumeNotNull("default webDriver not available", webDriver);
-        verifyPageLoaded(webDriver);
-    }
-
-    @Test
-    @Ignore
-    public void testRemoteDriver() {
-        System.setProperty("targetBrowser", "remoteDriver");
-        final WebDriver webDriver = BrowserFactory.webDriver();
-        assumeNotNull("remote webDriver not available", webDriver);
-        verifyPageLoaded(webDriver);
-    }
-
-    /**
      * test BrowserFactory returns Chrome.
      */
     @Test
     @Ignore
     public void testChromeDriver() {
         System.setProperty("targetBrowser", "chromeDriver");
-        final WebDriver webDriver = BrowserFactory.webDriver();
+        final WebDriver webDriver = AbstractBrowserFactory.webDriver();
         assumeNotNull("Chrome webDriver not available", webDriver);
         verifyPageLoaded(webDriver);
     }
@@ -67,17 +48,37 @@ public class BrowserFactoryTest extends ResultsReporting {
     @Ignore
     public void testFirefoxDriver() {
         System.setProperty("targetBrowser", "firefoxDriver");
-        final WebDriver webDriver = BrowserFactory.webDriver();
+        final WebDriver webDriver = AbstractBrowserFactory.webDriver();
         assumeNotNull("Firefox webDriver not available", webDriver);
+        verifyPageLoaded(webDriver);
+    }
+
+    @Test
+    @Ignore
+    public void testRemoteDriver() {
+        System.setProperty("targetBrowser", "remoteDriver");
+        final WebDriver webDriver = AbstractBrowserFactory.webDriver();
+        assumeNotNull("remote webDriver not available", webDriver);
+        verifyPageLoaded(webDriver);
+    }
+
+    /**
+     * test BrowserFactory default browser.
+     */
+    @Test
+    public void testWebDriver() {
+        BrowserFactory.create();
+        final WebDriver webDriver = AbstractBrowserFactory.webDriver();
+        assumeNotNull("default webDriver not available", webDriver);
         verifyPageLoaded(webDriver);
     }
 
     private void verifyPageLoaded(final WebDriver webDriver) {
         webDriver.get("http://127.0.0.1:8080");
         final String currentUrl = webDriver.getCurrentUrl();
-        this.log.info(currentUrl);
+        log.info(currentUrl);
         final String pageTitle = webDriver.getTitle();
-        this.log.info(pageTitle);
+        log.info(pageTitle);
     }
 
 }

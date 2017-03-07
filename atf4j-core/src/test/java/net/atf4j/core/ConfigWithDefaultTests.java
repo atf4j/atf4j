@@ -51,7 +51,7 @@ public class ConfigWithDefaultTests extends ResultsReporting {
          * @return the true as boolean
          */
         public boolean getTrueAsBoolean(final String key) {
-            return super.get(key, true);
+            return super.valueFor(key, true);
         }
 
         /**
@@ -62,7 +62,7 @@ public class ConfigWithDefaultTests extends ResultsReporting {
          * @return the false as boolean
          */
         public boolean getFalseAsBoolean(final String key) {
-            return super.get(key, false);
+            return super.valueFor(key, false);
         }
 
         /**
@@ -96,6 +96,15 @@ public class ConfigWithDefaultTests extends ResultsReporting {
          */
         public Object getMin(final String key) {
             return super.get(key, Integer.MIN_VALUE);
+        }
+
+        /* (non-Javadoc)
+         * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
+         */
+        @Override
+        public String valueFor(final String key) {
+            // TODO Auto-generated method stub
+            return null;
         }
     }
 

@@ -28,7 +28,7 @@ import org.junit.Test;
 /**
  * A UnitTest for Atf4jSteps objects.
  */
-public class Atf4jStepsTest {
+public class Atf4jStepsExample {
 
     /**
      * test Atf4jSteps object.

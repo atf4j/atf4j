@@ -66,6 +66,15 @@ public class ConfigFromSystemTests extends ResultsReporting {
             final String property = System.getProperty(key);
             return property;
         }
+
+        /* (non-Javadoc)
+         * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
+         */
+        @Override
+        public String valueFor(final String key) {
+            // TODO Auto-generated method stub
+            return null;
+        }
     }
 
     /**

@@ -14,13 +14,23 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
-package net.atf4j.imperative;
+package net.atf4j.fdd;
 
-import net.atf4j.fdd.AbstractTestRunner;
+import static org.junit.Assert.assertNotNull;
 
-/**
- * WebSiteTestRunner Class.
- */
-public class WebSiteTestRunner extends AbstractTestRunner {
+import org.junit.Test;
+
+import net.atf4j.core.ResultsReporting;
+
+public class BehaviourModelTest extends ResultsReporting {
+
+    public class BehaviourModel extends AbstractBehaviourModel {
+    }
+
+    @Test
+    public void testDefaultConstructor() {
+        final BehaviourModel instance = new BehaviourModel();
+        assertNotNull(instance);
+    }
 
 }

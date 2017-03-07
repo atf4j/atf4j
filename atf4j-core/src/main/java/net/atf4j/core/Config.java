@@ -16,34 +16,32 @@
  */
 package net.atf4j.core;
 
-/**
- * An Example Configuration loader.
- * This will load the ExampleConfig.properties file from the resources folder.
- * It make the Configuration available by
- */
-public class ExampleConfig extends AbstractConfig {
+public class Config extends AbstractConfig {
 
-    private static ExampleConfig instance = null;
+    private static Config instance = null;
 
-    /**
-     * Gets the single instance of AbstractConfig.
-     *
-     * @return single instance of AbstractConfig
-     */
-    public static ExampleConfig getInstance() {
-        if (ExampleConfig.instance == null) {
-            ExampleConfig.instance = create();
-        }
-        return ExampleConfig.instance;
+    // Private default constructor prevents wild instantiation.
+    private Config() {
+        super();
     }
 
-    /**
-     * Create new instance of create.
-     *
-     * @return the abstract configuration.
+    public Config(final String propertyFilename) throws ConfigurationNotLoaded {
+        super(propertyFilename);
+    }
+
+    public static Config getInstance() {
+        if (instance == null) {
+            instance = new Config();
+        }
+        return instance;
+    }
+
+    /* (non-Javadoc)
+     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
      */
-    public static ExampleConfig create() {
-        return new ExampleConfig();
+    @Override
+    public String valueFor(final String key) {
+        return get(key, null);
     }
 
 }

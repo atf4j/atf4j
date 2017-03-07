@@ -19,11 +19,12 @@ package net.atf4j.webdriver;
 import net.atf4j.core.AbstractConfig;
 
 /**
- * Configuration for WebDriver instance.
+ * Configuration for WebDriver.
  */
 public class WebDriverConfig extends AbstractConfig {
 
     private static final String LOCAL_GRID = "http://localhost:4444/wd/hub";
+    private static final String LOCAL_TARGET = "http://localhost:8080/";
 
     /**
      * Default constructor.
@@ -31,35 +32,8 @@ public class WebDriverConfig extends AbstractConfig {
      * @throws ConfigurationNotLoaded
      *             the missing property file exception
      */
-    public WebDriverConfig() throws ConfigurationNotLoaded {
+    public WebDriverConfig() {
         super();
-    }
-
-    /**
-     * Gets the targetBrowser from the configuration.
-     *
-     * @return the name of target browser as String object.
-     */
-    public String targetBrowser() {
-        return this.get("targetBrowser");
-    }
-
-    /**
-     * Gets the targetUrl from the configuration.
-     *
-     * @return the targetURL as String object.
-     */
-    public String targetUrl() {
-        return this.get("targetUrl");
-    }
-
-    /**
-     * get the seleniumUrl from the configuration.
-     *
-     * @return seleniumUrl as String object.
-     */
-    public String seleniumUrl() {
-        return this.get("seleniumUrl", LOCAL_GRID);
     }
 
     /**
@@ -72,12 +46,30 @@ public class WebDriverConfig extends AbstractConfig {
     }
 
     /**
-     * PAth to the Firefox binary driver.
+     * Path to the Firefox binary driver.
      *
      * @return path as String object.
      */
     public String firefoxBinaryDriver() {
         return this.get("firefoxBinaryDriver");
+    }
+
+    /**
+     * Gets the implicit wait.
+     *
+     * @return the implicit wait
+     */
+    public long implicitWait() {
+        return this.get("implicitWait", 1);
+    }
+
+    /**
+     * Maximise browser.
+     *
+     * @return the long
+     */
+    public long maximiseBrowser() {
+        return this.get("maximiseBrowser", 1);
     }
 
     /**
@@ -90,21 +82,75 @@ public class WebDriverConfig extends AbstractConfig {
     }
 
     /**
-     * Gets the implicitly wait.
+     * Playback interval.
      *
-     * @return the implicitly wait
+     * @return the long
      */
-    public long implicitlyWait() {
-        return this.get("implicitlyWait", 1);
+    public long playbackInterval() {
+        return this.get("playbackInterval", 1);
     }
 
     /**
-     * Gets the implicitly wait unit.
+     * Polling interval.
      *
-     * @return the implicitly wait unit
+     * @return the long
      */
-    public long implicitlyWaitUnit() {
-        return this.get("implicitlyWaitUnit", 1);
+    public long pollingInterval() {
+        return this.get("pollingInterval", 1);
+    }
+
+    /**
+     * Script timeout.
+     *
+     * @return the long
+     */
+    public long scriptTimeout() {
+        return this.get("scriptTimeout", 1000);
+    }
+
+    /**
+     * get the seleniumUrl from the configuration.
+     *
+     * @return seleniumUrl as String object.
+     */
+    public String seleniumUrl() {
+        return this.get("seleniumUrl", WebDriverConfig.LOCAL_GRID);
+    }
+
+    /**
+     * Gets the targetBrowser from the configuration.
+     *
+     * @return the name of target browser as String object.
+     */
+    public String targetBrowser() {
+        final String targetBrowser = this.get("targetBrowser", "Firefox");
+        return targetBrowser;
+    }
+
+    /**
+     * Gets the targetUrl from the configuration.
+     *
+     * @return the targetURL as String object.
+     */
+    public String targetUrl() {
+        return this.get("targetUrl", WebDriverConfig.LOCAL_TARGET);
+    }
+
+    /**
+     * Time out in seconds.
+     *
+     * @return the long
+     */
+    public long timeOutInSeconds() {
+        return this.get("timeOutInSeconds", 1);
+    }
+
+    /* (non-Javadoc)
+     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
+     */
+    @Override
+    public String valueFor(final String key) {
+        return super.valueFor(key);
     }
 
 }

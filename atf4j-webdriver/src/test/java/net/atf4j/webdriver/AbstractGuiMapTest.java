@@ -27,8 +27,6 @@ import net.atf4j.core.ResultsReporting;
 
 /**
  * A UnitTest for LogicalGuiMap objects.
- *
- *
  */
 public class AbstractGuiMapTest extends ResultsReporting {
 
@@ -45,14 +43,6 @@ public class AbstractGuiMapTest extends ResultsReporting {
     }
 
     /**
-     * test AbstractGuiMap object.
-     */
-    @Test(expected = MissingResourceException.class)
-    public final void testMissingGuiMapping() {
-        new MissingGuiMap();
-    }
-
-    /**
      * Test method for { net.atf4j.webdriver.AbstractGuiMap#getKeys()}.
      */
     @Test
@@ -64,23 +54,8 @@ public class AbstractGuiMapTest extends ResultsReporting {
             Assert.assertNotNull(key);
             Assert.assertTrue(instance.containsKey(key));
             Assert.assertNotNull(instance.getString(key));
-            this.log.info("{}={}", key, instance.getString(key));
+            log.info("{}={}", key, instance.getString(key));
         }
-    }
-
-    /**
-     * Test method for AbstractGuiMap}.
-     *
-     * @throws Exception
-     *             the exception
-     */
-    @Test
-    public void testToString() throws Exception {
-        final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
-        Assert.assertNotNull(abstractGuiMap);
-        this.log.info(abstractGuiMap.toString());
-        this.log.info(abstractGuiMap.getBaseBundleName());
-        this.log.info(abstractGuiMap.getLocale().toString());
     }
 
     /**
@@ -101,6 +76,14 @@ public class AbstractGuiMapTest extends ResultsReporting {
     }
 
     /**
+     * test AbstractGuiMap object.
+     */
+    @Test(expected = MissingResourceException.class)
+    public final void testMissingGuiMapping() {
+        new MissingGuiMap();
+    }
+
+    /**
      * Test method for AbstractGuiMap}.
      *
      * @throws Exception
@@ -111,6 +94,21 @@ public class AbstractGuiMapTest extends ResultsReporting {
         final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
         Assert.assertNotNull(abstractGuiMap);
         abstractGuiMap.dumpTo(System.out);
+    }
+
+    /**
+     * Test method for AbstractGuiMap}.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    @Test
+    public void testToString() throws Exception {
+        final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
+        Assert.assertNotNull(abstractGuiMap);
+        log.info(abstractGuiMap.toString());
+        log.info(abstractGuiMap.getBaseBundleName());
+        log.info(abstractGuiMap.getLocale().toString());
     }
 
 }

@@ -35,15 +35,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
  */
 public class Utility {
 
-    public static WebDriver driver;
-
-    /**
-     * Instantiates a new utility.
-     */
-    private Utility() {
-        // Prevent wild instantiation.
-        throw new AssertionError("Static Methods");
-    }
+    public static WebDriver webDriver;
 
     /**
      * Clear and set value.
@@ -75,9 +67,8 @@ public class Utility {
      * @param id The id of a web element in a menu.
      */
     public static void clickElementWithJSE(final String id) {
-
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        final WebElement element = driver.findElement(By.id(id));
+        JavascriptExecutor js = (JavascriptExecutor) Utility.webDriver;
+        final WebElement element = Utility.webDriver.findElement(By.id(id));
         js.executeScript("arguments[0].click();", element);
         js = null;
     }
@@ -89,13 +80,13 @@ public class Utility {
      */
     public static void initializeBrowser(final String type) {
         if (type.equalsIgnoreCase("firefox")) {
-            driver = new FirefoxDriver();
+            Utility.webDriver = new FirefoxDriver();
         } else if (type.equalsIgnoreCase("ie")) {
-            driver = new InternetExplorerDriver();
+            Utility.webDriver = new InternetExplorerDriver();
         }
-        driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
-        driver.manage().window().setPosition(new Point(200, 10));
-        driver.manage().window().setSize(new Dimension(1200, 800));
+        Utility.webDriver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
+        Utility.webDriver.manage().window().setPosition(new Point(200, 10));
+        Utility.webDriver.manage().window().setSize(new Dimension(1200, 800));
     }
 
     /**
@@ -125,7 +116,7 @@ public class Utility {
      */
     public static void waitTimer(final int units, final int mills) {
         final DecimalFormat df = new DecimalFormat("###.##");
-        final double totalSeconds = ((double) units * mills) / 1000;
+        final double totalSeconds = (double) units * mills / 1000;
         System.out.print(
                 "Explicit pause for " + df.format(totalSeconds) + " seconds divided by " + units + " units of time: ");
         try {
@@ -140,5 +131,13 @@ public class Utility {
         } catch (final InterruptedException ex) {
             ex.printStackTrace();
         }
+    }
+
+    /**
+     * Instantiates a new utility.
+     */
+    private Utility() {
+        // Prevent wild instantiation.
+        throw new AssertionError("Static Methods");
     }
 }

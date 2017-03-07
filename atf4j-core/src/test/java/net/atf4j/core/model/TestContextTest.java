@@ -41,7 +41,7 @@ public class TestContextTest extends ResultsReporting {
      */
     @Test
     public void testIsSeleniumDefault() {
-        assumeFalse(TestContext.isSelenium());
+        assumeFalse(TestContext.isGrid());
     }
 
     /**

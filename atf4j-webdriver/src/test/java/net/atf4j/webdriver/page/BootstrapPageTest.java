@@ -33,17 +33,17 @@ public class BootstrapPageTest {
     }
 
     @Test
-    public void testBootstrapPageWebDriver() {
-        final HtmlUnitDriver webDriver = new HtmlUnitDriver();
-        final BootstrapPage bootstrapPage = new BootstrapPage(webDriver);
+    public void testBootstrapPageUrl() {
+        final BootstrapPage bootstrapPage = new BootstrapPage(BootstrapPageTest.PAGE_URL);
         bootstrapPage.open();
         bootstrapPage.verify();
         bootstrapPage.close();
     }
 
     @Test
-    public void testBootstrapPageUrl() {
-        final BootstrapPage bootstrapPage = new BootstrapPage(PAGE_URL);
+    public void testBootstrapPageWebDriver() {
+        final HtmlUnitDriver webDriver = new HtmlUnitDriver();
+        final BootstrapPage bootstrapPage = new BootstrapPage(webDriver);
         bootstrapPage.open();
         bootstrapPage.verify();
         bootstrapPage.close();

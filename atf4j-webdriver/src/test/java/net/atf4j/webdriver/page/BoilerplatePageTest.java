@@ -33,17 +33,17 @@ public class BoilerplatePageTest {
     }
 
     @Test
-    public void testBoilerplatePageWebDriver() {
-        final HtmlUnitDriver webDriver = new HtmlUnitDriver();
-        final BoilerplatePage boilerplatePage = new BoilerplatePage(webDriver);
+    public void testBoilerplatePageUrl() {
+        final BoilerplatePage boilerplatePage = new BoilerplatePage(BoilerplatePageTest.PAGE_URL);
         boilerplatePage.open();
         boilerplatePage.verify();
         boilerplatePage.close();
     }
 
     @Test
-    public void testBoilerplatePageUrl() {
-        final BoilerplatePage boilerplatePage = new BoilerplatePage(PAGE_URL);
+    public void testBoilerplatePageWebDriver() {
+        final HtmlUnitDriver webDriver = new HtmlUnitDriver();
+        final BoilerplatePage boilerplatePage = new BoilerplatePage(webDriver);
         boilerplatePage.open();
         boilerplatePage.verify();
         boilerplatePage.close();

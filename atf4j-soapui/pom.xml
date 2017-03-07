@@ -29,28 +29,28 @@
 	</pluginRepositories>
 
 	<build>
-        <plugins>
-            <plugin>
-                <groupId>com.smartbear.soapui</groupId>
-                <artifactId>soapui-pro-maven-plugin</artifactId>
-                <version>4.6.1</version>
-                <executions>
-                    <execution>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                        <configuration>
-                            <projectFile>soapui-project.xml</projectFile>
-                            <projectProperties>
-                                <value>key=value</value>
-                            </projectProperties>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+		<plugins>
+			<plugin>
+				<groupId>com.smartbear.soapui</groupId>
+				<artifactId>soapui-pro-maven-plugin</artifactId>
+				<version>4.6.1</version>
+				<executions>
+					<execution>
+						<phase>test</phase>
+						<goals>
+							<goal>test</goal>
+						</goals>
+						<configuration>
+							<projectFile>soapui-project.xml</projectFile>
+							<projectProperties>
+								<value>key=value</value>
+							</projectProperties>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
 

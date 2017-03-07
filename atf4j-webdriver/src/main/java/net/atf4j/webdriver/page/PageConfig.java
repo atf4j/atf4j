@@ -20,8 +20,6 @@ import net.atf4j.webdriver.WebDriverConfig;
 
 /**
  * PageConfig.
- *
- *
  */
 public class PageConfig extends WebDriverConfig {
 

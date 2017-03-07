@@ -18,10 +18,15 @@ package net.atf4j.webdriver.page;
 
 /**
  * PageInterface.
- *
- *
  */
 public interface PageInterface {
+
+    /**
+     * Close page.
+     *
+     * @return this for a fluent interface
+     */
+    public abstract PageInterface close();
 
     /**
      * Open page.
@@ -36,12 +41,5 @@ public interface PageInterface {
      * @return true, if successful otherwise false.
      */
     public abstract PageInterface verify();
-
-    /**
-     * Close page.
-     *
-     * @return this for a fluent interface
-     */
-    public abstract PageInterface close();
 
 }

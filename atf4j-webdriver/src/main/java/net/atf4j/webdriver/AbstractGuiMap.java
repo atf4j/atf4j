@@ -26,8 +26,6 @@ import java.util.Set;
  * A base abstraction to encapsulate GUI Mapping logical elements.
  * Uses Resource Bundles with basename_languageCode_countryCode
  * example: PageObjectGuiMap uses PageObjectGuiMap_en_GB.properties
- *
- *
  */
 public abstract class AbstractGuiMap {
 
@@ -39,17 +37,7 @@ public abstract class AbstractGuiMap {
      */
     public AbstractGuiMap() {
         final String name = this.getClass().getSimpleName();
-        this.resourceBundle = ResourceBundle.getBundle(name);
-    }
-
-    /**
-     * Instantiates a new logical gui map.
-     *
-     * @param useBundleName
-     *            the use bundle name
-     */
-    public AbstractGuiMap(final String useBundleName) {
-        this.resourceBundle = ResourceBundle.getBundle(useBundleName);
+        resourceBundle = ResourceBundle.getBundle(name);
     }
 
     /**
@@ -59,7 +47,7 @@ public abstract class AbstractGuiMap {
      *            the a class
      */
     public AbstractGuiMap(final Class<?> aClass) {
-        this.resourceBundle = ResourceBundle.getBundle(aClass.getName());
+        resourceBundle = ResourceBundle.getBundle(aClass.getName());
         Class<?> currentClass = aClass;
         do {
             ResourceBundle.getBundle(currentClass.getName());
@@ -69,22 +57,13 @@ public abstract class AbstractGuiMap {
     }
 
     /**
-     * Gets the base bundle name.
+     * Instantiates a new logical gui map.
      *
-     * @return the base bundle name
+     * @param useBundleName
+     *            the use bundle name
      */
-    public String getBaseBundleName() {
-        return this.resourceBundle.getBaseBundleName();
-    }
-
-    /**
-     * Gets the locale.
-     *
-     * @return the locale
-     * @see java.util.ResourceBundle#getLocale()
-     */
-    public Locale getLocale() {
-        return this.resourceBundle.getLocale();
+    public AbstractGuiMap(final String useBundleName) {
+        resourceBundle = ResourceBundle.getBundle(useBundleName);
     }
 
     /**
@@ -95,37 +74,7 @@ public abstract class AbstractGuiMap {
      * @return true, if successful
      */
     public boolean containsKey(final String key) {
-        return this.resourceBundle.containsKey(key);
-    }
-
-    /**
-     * Key set.
-     *
-     * @return the sets the
-     * @see java.util.ResourceBundle#keySet()
-     */
-    public Set<String> keySet() {
-        return this.resourceBundle.keySet();
-    }
-
-    /**
-     * Gets the keys.
-     *
-     * @return the keys
-     */
-    public Enumeration<String> getKeys() {
-        return this.resourceBundle.getKeys();
-    }
-
-    /**
-     * Gets the string.
-     *
-     * @param key
-     *            the key
-     * @return the string
-     */
-    public final String getString(final String key) {
-        return this.resourceBundle.getString(key);
+        return resourceBundle.containsKey(key);
     }
 
     /**
@@ -136,12 +85,61 @@ public abstract class AbstractGuiMap {
      */
     public void dumpTo(final PrintStream out) {
         out.println(this.getClass().getSimpleName());
-        final Enumeration<String> keys = this.resourceBundle.getKeys();
+        final Enumeration<String> keys = resourceBundle.getKeys();
         while (keys.hasMoreElements()) {
             final String key = keys.nextElement();
-            out.println(key + "=" + this.resourceBundle.getString(key)); //$NON-NLS-1$
+            out.println(key + "=" + resourceBundle.getString(key)); //$NON-NLS-1$
         }
         out.flush();
+    }
+
+    /**
+     * Gets the base bundle name.
+     *
+     * @return the base bundle name
+     */
+    public String getBaseBundleName() {
+        return resourceBundle.getBaseBundleName();
+    }
+
+    /**
+     * Gets the keys.
+     *
+     * @return the keys
+     */
+    public Enumeration<String> getKeys() {
+        return resourceBundle.getKeys();
+    }
+
+    /**
+     * Gets the locale.
+     *
+     * @return the locale
+     * @see java.util.ResourceBundle#getLocale()
+     */
+    public Locale getLocale() {
+        return resourceBundle.getLocale();
+    }
+
+    /**
+     * Gets the string.
+     *
+     * @param key
+     *            the key
+     * @return the string
+     */
+    public final String getString(final String key) {
+        return resourceBundle.getString(key);
+    }
+
+    /**
+     * Key set.
+     *
+     * @return the sets the
+     * @see java.util.ResourceBundle#keySet()
+     */
+    public Set<String> keySet() {
+        return resourceBundle.keySet();
     }
 
     /*
@@ -151,7 +149,7 @@ public abstract class AbstractGuiMap {
      */
     @Override
     public final String toString() {
-        return this.resourceBundle.toString();
+        return resourceBundle.toString();
     }
 
 }

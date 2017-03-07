@@ -23,6 +23,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
+import net.atf4j.core.AbstractConfig.PropertyNotFound;
 
 /**
  * A UnitTest for Configuration objects.
@@ -33,6 +34,15 @@ public class ConfigTest extends ResultsReporting {
      * The DefaultConfig Class.
      */
     private class DefaultConfig extends AbstractConfig {
+
+        /* (non-Javadoc)
+         * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
+         */
+        @Override
+        public String valueFor(final String key) {
+            // TODO Auto-generated method stub
+            return null;
+        }
     }
 
     /**
@@ -48,6 +58,14 @@ public class ConfigTest extends ResultsReporting {
          */
         public MissingProperties() throws ConfigurationNotLoaded {
             super();
+        }
+
+        /* (non-Javadoc)
+         * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
+         */
+        @Override
+        public String valueFor(final String key) {
+            return null;
         }
     }
 
@@ -65,7 +83,18 @@ public class ConfigTest extends ResultsReporting {
         public ConfigFromFile() throws ConfigurationNotLoaded {
             super("/ConfigFromFile.properties");
         }
+
+        /* (non-Javadoc)
+         * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
+         */
+        @Override
+        public String valueFor(final String key) {
+            // TODO Auto-generated method stub
+            return null;
+        }
     }
+
+    private static Config config = Config.getInstance();
 
     /**
      * Test method for Default Configuration.
@@ -94,7 +123,7 @@ public class ConfigTest extends ResultsReporting {
      */
     @Test
     public void testLoad() throws ConfigurationNotLoaded {
-        final AbstractConfig mockConfig = new MissingProperties();
+        final ConfigurationInterface mockConfig = new MissingProperties();
         assertNotNull(mockConfig);
         this.log.info(mockConfig.toString());
     }
@@ -106,11 +135,11 @@ public class ConfigTest extends ResultsReporting {
      *             the configuration not loaded
      */
     @Test
-    public void testConfigFromFile() throws ConfigurationNotLoaded {
+    public void testConfigFromFile() throws ConfigurationNotLoaded, PropertyNotFound {
         final ConfigFromFile config = new ConfigFromFile();
         assertNotNull(config);
         assertEquals("true", config.get("loaded"));
-        assertEquals(true, config.get("loaded", false));
+        assertEquals(true, config.valueFor("loaded", false));
         assertEquals("ConfigFromSystem.properties", config.get("name"));
         assertEquals(null, config.get("missing"));
     }
@@ -122,7 +151,7 @@ public class ConfigTest extends ResultsReporting {
      *             the configuration not loaded
      */
     @Test
-    public final void testSystemOveridesConfig() throws ConfigurationNotLoaded {
+    public final void testSystemOveridesConfig() throws ConfigurationNotLoaded, PropertyNotFound {
         final ConfigFromFile config = new ConfigFromFile();
         assertNotNull(config);
         final String key = "property";
@@ -131,4 +160,8 @@ public class ConfigTest extends ResultsReporting {
         Assert.assertEquals(value, config.get(key));
     }
 
+    @Test
+    public final void testStaticConfig() throws ConfigurationNotLoaded {
+        assertNotNull(ConfigTest.config);
+    }
 }

@@ -14,13 +14,31 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
-package net.atf4j.imperative;
+package net.atf4j.core;
 
-import net.atf4j.fdd.AbstractTestRunner;
+public class ConfigExample extends AbstractConfig {
 
-/**
- * WebSiteTestRunner Class.
- */
-public class WebSiteTestRunner extends AbstractTestRunner {
+    private static ConfigExample instance = null;
+
+    /**
+     * Gets the single instance of AbstractConfig.
+     *
+     * @return single instance of AbstractConfig
+     */
+    public static ConfigExample getInstance() {
+        if (ConfigExample.instance == null) {
+            ConfigExample.instance = create();
+        }
+        return ConfigExample.instance;
+    }
+
+    /**
+     * Create new instance of create.
+     *
+     * @return the abstract configuration.
+     */
+    public static ConfigExample create() {
+        return new ConfigExample();
+    }
 
 }

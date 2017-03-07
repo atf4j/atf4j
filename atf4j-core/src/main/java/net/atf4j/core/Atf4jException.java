@@ -21,7 +21,6 @@ package net.atf4j.core;
  */
 public class Atf4jException extends Exception {
 
-    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 4462112926382796692L;
 
     /**

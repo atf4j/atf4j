@@ -48,16 +48,6 @@ public class PageObjectTest {
         /**
          * Instantiates a new mock page.
          *
-         * @param webDriver
-         *            the web driver
-         */
-        public MockPage(final WebDriver webDriver) {
-            super(webDriver);
-        }
-
-        /**
-         * Instantiates a new mock page.
-         *
          * @param targetUrl
          *            the target url
          * @throws ConfigurationNotLoaded
@@ -65,6 +55,16 @@ public class PageObjectTest {
          */
         public MockPage(final String targetUrl) throws ConfigurationNotLoaded {
             super(targetUrl);
+        }
+
+        /**
+         * Instantiates a new mock page.
+         *
+         * @param webDriver
+         *            the web driver
+         */
+        public MockPage(final WebDriver webDriver) {
+            super(webDriver);
         }
 
     }
@@ -79,28 +79,6 @@ public class PageObjectTest {
     @Test
     public final void testDefaultConstructor() throws ConfigurationNotLoaded {
         new MockPage();
-    }
-
-    /**
-     * test PageObject object.
-     *
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
-     */
-    @Test
-    public final void testWebDriverConstructor() throws ConfigurationNotLoaded {
-        new MockPage(new HtmlUnitDriver());
-    }
-
-    /**
-     * test PageObject object.
-     *
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
-     */
-    @Test
-    public final void testTargetUrlConstruction() throws ConfigurationNotLoaded {
-        new MockPage("http://localhost:8080/");
     }
 
     /**
@@ -141,6 +119,17 @@ public class PageObjectTest {
     }
 
     /**
+     * test PageObject object.
+     *
+     * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
+     */
+    @Test
+    public final void testTargetUrlConstruction() throws ConfigurationNotLoaded {
+        new MockPage("http://localhost:8080/");
+    }
+
+    /**
      * Test method for
      * { net.net.atf4j.webdriver.page.AbstractPageObject#verify()}.
      *
@@ -150,6 +139,17 @@ public class PageObjectTest {
     @Test
     public final void testVerify() throws ConfigurationNotLoaded {
         new MockPage().open().verify();
+    }
+
+    /**
+     * test PageObject object.
+     *
+     * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
+     */
+    @Test
+    public final void testWebDriverConstructor() throws ConfigurationNotLoaded {
+        new MockPage(new HtmlUnitDriver());
     }
 
 }

@@ -38,7 +38,7 @@ public class TestContext {
      *
      * @return true, if is selenium
      */
-    public static boolean isSelenium() {
+    public static boolean isGrid() {
         return Boolean.getBoolean("isSelenium");
     }
 

@@ -14,20 +14,24 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
-package net.atf4j.imperative;
+package net.atf4j.fdd;
 
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
 
 /**
- * The AbstractTestRunner Class.
+ * Abstract Cucumber Test Runner.
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(
@@ -38,20 +42,38 @@ import cucumber.api.junit.Cucumber;
         tags = { "~@Ignore" })
 public abstract class AbstractTestRunner {
 
-    /**
-     * Before test.
-     */
-    @Before
-    public void beforeTest() {
+    private static final Logger log = LoggerFactory.getLogger(AbstractTestRunner.class);
+
+    @BeforeClass
+    public static void beforeClass() {
+        log.debug("beforeClass");
         final String targetEnvironment = System.getProperty("targetEnvironment");
         assertNotNull("Expected -DtargetEnvironment to be defined", targetEnvironment);
     }
 
-    /**
-     * After.
-     */
+    @cucumber.api.java.Before
+    public static void beforeFeature() {
+        log.trace("beforeFeature");
+    }
+
+    @Before
+    public void beforeTest() {
+        log.trace("beforeFeature");
+    }
+
     @After
-    public void after() {
+    public void afterTest() {
+        log.trace("afterTest");
+    }
+
+    @cucumber.api.java.After
+    public void afterFeature() {
+        log.trace("afterFeature");
+    }
+
+    @AfterClass
+    public void afterClass() {
+        log.trace("afterClass");
     }
 
 }
