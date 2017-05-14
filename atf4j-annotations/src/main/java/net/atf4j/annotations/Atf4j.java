@@ -28,6 +28,7 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Atf4j {
+
     /**
      * Automated Test Script Annotation Interface.
      */

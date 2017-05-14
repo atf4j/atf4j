@@ -32,8 +32,10 @@
 		id="org.eclipse.jdt.ui.templates.arraymerge" name="arraymerge">${array_type}[]
 		${result:newName(array1)} = new ${array_type}[${array1:array}.length +
 		${array}.length];
-		System.arraycopy(${array1}, 0, ${result}, 0, ${array1}.length);
-		System.arraycopy(${array}, 0, ${result}, ${array1}.length, ${array}.length);</template>
+		System.arraycopy(${array1}, 0, ${result}, 0,
+		${array1}.length);
+		System.arraycopy(${array}, 0, ${result},
+		${array1}.length, ${array}.length);</template>
 	<template autoinsert="true" context="java-statements" deleted="false"
 		description="JUnit 4 assertFalse" enabled="true" name="asFalse">
 		${:importStatic(org.junit.Assert.assertFalse)}
@@ -234,11 +236,13 @@
 		Files.newBufferedReader(Paths.get(${fileName:var(String)}),
 		Charset.forName("UTF-8"))) {
 		String line = null;
-		while ((line = in.readLine()) != null) {
+		while ((line =
+		in.readLine()) != null) {
 		${cursor}
 		}
 		} catch (IOException e) {
-		// ${todo}: handle exception
+		//
+		${todo}: handle exception
 		}</template>
 	<template autoinsert="false" context="java" deleted="false"
 		description="runnable" enabled="true" id="org.eclipse.jdt.ui.templates.runnable"
@@ -255,7 +259,8 @@
 	<template autoinsert="false" context="java-statements"
 		deleted="false" description="switch case statement" enabled="true"
 		id="org.eclipse.jdt.ui.templates.switch" name="switch">switch (${key}) {
-		case ${value}:
+		case
+		${value}:
 		${cursor}
 		break;
 
@@ -281,7 +286,8 @@
 		description="test method (JUnit 4)" enabled="true"
 		id="org.eclipse.jdt.ui.templates.test_junit4" name="test">${staticImport:importStatic('org.junit.Assert.*')}
 		@${testType:newType(org.junit.Test)}
-		public void test${Name}() throws Exception {
+		public void test${Name}() throws
+		Exception {
 		${Name} ${name} = new ${Name}();
 		assertNotNull(${name});
 		}
@@ -290,7 +296,8 @@
 		description="test method (JUnit 4)" enabled="true" name="testDefault">@${testType:newType(org.junit.Test)}
 		@Test
 		public void testDefaultConstructor() {
-		new ${enclosing_type}()${cursor};
+		new
+		${enclosing_type}()${cursor};
 		}</template>
 	<template autoinsert="false" context="java-members" deleted="false"
 		description="test method (TestNG)" enabled="true" name="testng">@${testType:newType(org.testng.annotations.Test)}
@@ -308,7 +315,8 @@
 		deleted="false" description="try catch block" enabled="true"
 		id="org.eclipse.jdt.ui.templates.try" name="try_catch">try {
 		${line_selection}${cursor}
-		} catch (${Exception} ${exception_variable_name}) {
+		} catch (${Exception}
+		${exception_variable_name}) {
 		// ${todo}: handle exception
 		}</template>
 	<template autoinsert="false" context="java-statements"
@@ -322,9 +330,11 @@
 		description="verify" enabled="true" name="verify">@${testType:newType(org.junit.Test)}
 		public void ${testname}() throws Exception {
 		${staticImport:importStatic('org.junit.Assert.*')}${cursor}
-		final Object instance = new Object();
+		final
+		Object instance = new Object();
 		final String expected = "" ;
-		final String actual = "" ;
+		final
+		String actual = "" ;
 		Assert.assertEquals(expected, actual);
 		}</template>
 	<template autoinsert="false" context="java-statements"
@@ -339,7 +349,8 @@
 		deleted="false" description="iterate with iterator" enabled="true"
 		id="org.eclipse.jdt.ui.templates.while_iterator" name="while">while
 		(${it:var(java.util.Iterator)}.hasNext()) {
-		${type:argType(it)} ${elem:newName(type)} = (${type}) ${it}.next();
+		${type:argType(it)}
+		${elem:newName(type)} = (${type}) ${it}.next();
 		${cursor}
 		}</template>
 	<template autoinsert="false" context="java-statements"

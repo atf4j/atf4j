@@ -21,19 +21,35 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/**
+ * The FileWalker Class.
+ */
 public class FileWalker extends AbstractWalker {
 
+    /**
+     * Instantiates a new file walker.
+     */
     public FileWalker() {
         super();
         this.log.info("FileWalker()");
     }
 
+    /**
+     * Instantiates a new file walker.
+     * @param path the path
+     * @throws Exception the exception
+     */
     public FileWalker(final String path) throws Exception {
         super();
         this.log.info("FileWalker({})", path);
         setBasePath(path);
     }
 
+    /**
+     * Process file.
+     * @param f the f
+     * @throws Exception the exception
+     */
     private void processFile(final File f) throws Exception {
         final File absoluteFile = f.getAbsoluteFile();
         this.log.info("FILE:{}", absoluteFile);
@@ -41,6 +57,12 @@ public class FileWalker extends AbstractWalker {
         this.log.info("{}", string);
     }
 
+    /**
+     * Read file.
+     * @param filename the filename
+     * @return the string
+     * @throws Exception the exception
+     */
     String readFile(final String filename) throws Exception {
         final byte[] encoded = Files.readAllBytes(Paths.get(filename));
         return new String(encoded, Charset.defaultCharset());

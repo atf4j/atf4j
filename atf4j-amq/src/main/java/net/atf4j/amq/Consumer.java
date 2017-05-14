@@ -16,26 +16,33 @@
  */
 package net.atf4j.amq;
 
-import static org.junit.Assert.assertNotNull;
-
 import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.MessageConsumer;
+import javax.jms.TextMessage;
 
-import org.junit.Ignore;
-import org.junit.Test;
+public class Consumer extends Common {
 
-@Ignore
-public class ReaderTest {
+    private MessageConsumer messageConsumer;
 
-    @Test
-    public void testReader() throws JMSException {
-        assertNotNull(new Reader());
+    public Consumer() throws JMSException {
+        super();
     }
 
-    @Test
-    public void testExecute() throws JMSException {
-        final Reader reader = new Reader();
-        assertNotNull(reader);
-        final String[] messages = reader.execute();
+    public String[] execute() throws JMSException {
+
+        this.messageConsumer = this.session.createConsumer(this.topic);
+
+        final Message message = this.messageConsumer.receive(1000);
+
+        if (message != null) {
+            final TextMessage textMessage = (TextMessage) message;
+            final String text = textMessage.getText();
+            log.info("read {}", text);
+        }
+
+        this.connection.close();
+        return new String[0];
     }
 
 }

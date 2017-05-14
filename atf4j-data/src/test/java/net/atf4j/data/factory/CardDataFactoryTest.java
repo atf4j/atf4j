@@ -29,7 +29,7 @@ import net.atf4j.data.Card;
 public class CardDataFactoryTest extends ResultsReporting {
 
     /**
-     * Test method for expected usage
+     * Test method for expected usage.
      */
     @Test
     public void testExpectedUsage() {

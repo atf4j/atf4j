@@ -16,34 +16,51 @@
  */
 package net.atf4j.webdriver.page;
 
+import static org.junit.Assume.assumeNotNull;
+
 import org.junit.Test;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
+/**
+ * A UnitTest for BootstrapPage objects.
+ */
 public class BootstrapPageTest {
 
-    private static final String KEY = "targetUrl";
-    private static final String PAGE_URL = "http://127.0.0.1:8080/bootstrap";
-
+    private static final String PAGE_URL = "http://atf4j.net/bootstrap/";
+    // private static final String PAGE_URL = "http://127.0.0.1:8080/bootstrap";
+        
+    /**
+     * Unit Test for test bootstrap page.
+     */
     @Test
     public void testBootstrapPage() {
         final BootstrapPage bootstrapPage = new BootstrapPage();
+        assumeNotNull(bootstrapPage);
         bootstrapPage.open();
         bootstrapPage.verify();
         bootstrapPage.close();
     }
 
+    /**
+     * Unit Test for test bootstrap page url.
+     */
     @Test
     public void testBootstrapPageUrl() {
         final BootstrapPage bootstrapPage = new BootstrapPage(BootstrapPageTest.PAGE_URL);
+        assumeNotNull(bootstrapPage);
         bootstrapPage.open();
         bootstrapPage.verify();
         bootstrapPage.close();
     }
 
+    /**
+     * Unit Test for test bootstrap page web driver.
+     */
     @Test
     public void testBootstrapPageWebDriver() {
         final HtmlUnitDriver webDriver = new HtmlUnitDriver();
         final BootstrapPage bootstrapPage = new BootstrapPage(webDriver);
+        assumeNotNull(bootstrapPage);
         bootstrapPage.open();
         bootstrapPage.verify();
         bootstrapPage.close();

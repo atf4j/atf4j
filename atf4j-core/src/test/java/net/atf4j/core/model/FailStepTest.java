@@ -20,18 +20,30 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+/**
+ * A UnitTest for FailStep objects.
+ */
 public class FailStepTest {
 
+    /**
+     * Unit Test for test fail step.
+     */
     @Test
     public void testFailStep() {
         assertNotNull(new FailStep());
     }
 
+    /**
+     * Unit Test for test fail step null.
+     */
     @Test
     public void testFailStepNull() {
         assertNotNull(new FailStep(null));
     }
 
+    /**
+     * Unit Test for test fail step string.
+     */
     @Test
     public void testFailStepString() {
         assertNotNull(new FailStep("FailStep"));

@@ -40,7 +40,7 @@ import net.atf4j.data.PostalAddress;
 public class DataFactoryTest extends ResultsReporting {
 
     /**
-     * Test method for expected usage
+     * Test method for expected usage.
      */
     @Test
     public void testExpectedUsage() {
@@ -209,6 +209,9 @@ public class DataFactoryTest extends ResultsReporting {
         assertEquals(fromCalendar, fromDate);
     }
 
+    /**
+     * Unit Test for test create person.
+     */
     @Test
     public void testCreatePerson() {
         final Person person = DataFactory.createPerson();

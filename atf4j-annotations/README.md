@@ -1,6 +1,8 @@
 # atf4j-annotations
 ## Automation Test Framework for Java
 
+Provides Annotations for unit tests for enhanced reporting. 
+
 ## Maven Dependency
 
 		<dependency>

@@ -30,7 +30,7 @@ import net.atf4j.data.Bank;
 public class BankDataFactoryTest extends ResultsReporting {
 
     /**
-     * Test method for expected usage
+     * Test method for expected usage.
      */
     @Test
     @Ignore

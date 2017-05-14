@@ -112,6 +112,11 @@ public class AddressDataFactory extends AbstractDataFactory {
         return postalAddress;
     }
 
+    /**
+     * Random.
+     * @param string the string
+     * @return the postal address
+     */
     public static PostalAddress random(final String string) {
         return new PostalAddress();
     }

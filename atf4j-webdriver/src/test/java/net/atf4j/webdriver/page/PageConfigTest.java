@@ -30,7 +30,7 @@ public class PageConfigTest {
     /**
      * Mock Page Configuration.
      */
-    public class MockPageConfig extends AbstractPageConfig {
+    public class MockPageConfig extends PageConfig {
 
         /**
          * Instantiates a new mock page config.
@@ -52,7 +52,7 @@ public class PageConfigTest {
      */
     @Test
     public final void testPageConfig() throws ConfigurationNotLoaded {
-        final AbstractPageConfig pageConfig = new MockPageConfig();
+        final PageConfig pageConfig = new MockPageConfig();
         assertNotNull(pageConfig);
     }
 }

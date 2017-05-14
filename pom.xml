@@ -89,6 +89,8 @@
 		<module>atf4j-data</module>
 		<module>atf4j-pog</module>
 		<module>atf4j-webdriver</module>
+		<module>atf4j-amq</module>
+		<module>atf4j-soapui</module>
 	</modules>
 
 	<dependencies>
@@ -138,6 +140,9 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>${maven-javadoc-plugin.version}</version>
+				<configuration>
+					<outputDirectory>${project.build.directory}/apidocs</outputDirectory>
+				</configuration>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>

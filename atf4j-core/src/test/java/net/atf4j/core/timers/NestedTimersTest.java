@@ -36,6 +36,9 @@ public class NestedTimersTest extends ResultsReporting {
         assertNotNull(instance);
     }
 
+    /**
+     * Unit Test for test expected usage.
+     */
     @Test
     public void testExpectedUsage() {
         NestedTimers.start();

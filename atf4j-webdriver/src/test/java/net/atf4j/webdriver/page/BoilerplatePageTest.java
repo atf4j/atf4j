@@ -16,34 +16,64 @@
  */
 package net.atf4j.webdriver.page;
 
+import static org.junit.Assume.assumeNotNull;
+
 import org.junit.Test;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
+/**
+ * A UnitTest for BoilerplatePage objects.
+ */
 public class BoilerplatePageTest {
 
-    private static final String KEY = "targetUrl";
-    private static final String PAGE_URL = "http://127.0.0.1:8080/bootstrap";
+    private static final String PAGE_URL = "http://atf4j.net/boilerplate/";
+    // private static final String PAGE_URL = "http://127.0.0.1:8080/bootstrap";
 
+    /**
+     * Unit Test for test boilerplate page.
+     */
     @Test
     public void testBoilerplatePage() {
         final BoilerplatePage boilerplatePage = new BoilerplatePage();
+        assumeNotNull(boilerplatePage);
         boilerplatePage.open();
         boilerplatePage.verify();
         boilerplatePage.close();
     }
 
+    /**
+     * Unit Test for test boilerplate page url.
+     */
+    @Test
+    public void testBoilerplateLoad() {
+        final BoilerplatePage boilerplatePage = new BoilerplatePage();
+        assumeNotNull(boilerplatePage);
+        boilerplatePage.open();
+        boilerplatePage.verify();
+        boilerplatePage.close();
+    }
+
+    /**
+     * Unit Test for test boilerplate page url.
+     */
     @Test
     public void testBoilerplatePageUrl() {
         final BoilerplatePage boilerplatePage = new BoilerplatePage(BoilerplatePageTest.PAGE_URL);
+        assumeNotNull(boilerplatePage);
         boilerplatePage.open();
         boilerplatePage.verify();
         boilerplatePage.close();
     }
 
+    /**
+     * Unit Test for test boilerplate page web driver.
+     */
     @Test
     public void testBoilerplatePageWebDriver() {
         final HtmlUnitDriver webDriver = new HtmlUnitDriver();
+        assumeNotNull(webDriver);
         final BoilerplatePage boilerplatePage = new BoilerplatePage(webDriver);
+        assumeNotNull(boilerplatePage);
         boilerplatePage.open();
         boilerplatePage.verify();
         boilerplatePage.close();

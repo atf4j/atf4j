@@ -16,19 +16,34 @@
  */
 package net.atf4j.core;
 
+/**
+ * The Config Class.
+ */
 public class Config extends AbstractConfig {
 
     private static Config instance = null;
 
+    /**
+     * Instantiates a new config.
+     */
     // Private default constructor prevents wild instantiation.
     private Config() {
         super();
     }
 
+    /**
+     * Instantiates a new config.
+     * @param propertyFilename the property filename
+     * @throws ConfigurationNotLoaded the configuration not loaded
+     */
     public Config(final String propertyFilename) throws ConfigurationNotLoaded {
         super(propertyFilename);
     }
 
+    /**
+     * Gets the single instance of Config.
+     * @return single instance of Config
+     */
     public static Config getInstance() {
         if (instance == null) {
             instance = new Config();

@@ -27,6 +27,10 @@ public enum FieldStatus {
 
     private String value;
 
+    /**
+     * Instantiates a new field status.
+     * @param value the value
+     */
     private FieldStatus(final String value) {
         this.value = value;
     }
@@ -40,6 +44,9 @@ public enum FieldStatus {
         return FieldStatus.PRISTINE;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Enum#toString()
+     */
     @Override
     public String toString() {
         return String.format("FieldStatus [value=%s]", this.value);

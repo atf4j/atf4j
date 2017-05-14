@@ -18,8 +18,15 @@ package net.atf4j.webdriver;
 
 import org.openqa.selenium.WebDriver;
 
+/**
+ * A factory for creating Browser objects.
+ */
 public class BrowserFactory extends AbstractBrowserFactory {
 
+    /**
+     * Create new instance of create.
+     * @return the web driver
+     */
     public static WebDriver create() {
         return AbstractBrowserFactory.webDriver();
     }

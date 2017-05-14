@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/DECORATION/1.6.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project name="atf4j the Automated Testing Framework for Java"
+	xmlns="http://maven.apache.org/DECORATION/1.6.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.6.0 http://maven.apache.org/xsd/decoration-1.6.0.xsd">
+	<publishDate position="right" />
+	<version position="right" />
+	<bannerLeft>
+		<name>Maven</name>
+		<src>http://maven.apache.org/images/apache-maven-project.png</src>
+		<href>http://maven.apache.org/</href>
+	</bannerLeft>
+
+	<bannerRight>
+		<src>http://maven.apache.org/images/maven-small.gif</src>
+	</bannerRight>
+
 	<body>
+		<links>
+			<item name="GitHub" href="https://github.com/atf4j/atf4j" />
+			<item name="Issues" href="https://github.com/atf4j/atf4j/issues" />
+			<item name="JUnit" href="http://www.junit.org" />
+			<item name="slf4j" href="http://www.slf4j.org" />
+			<item name="Cucumber" href="http://www.cucumber.io" />
+			<item name="Selenium" href="http://www.seleniumhq.org" />
+			<item name="Apache" href="http://www.apache.org" />
+		</links>
 		<menu name="Overview">
 			<item name="Index" href="index.html" />
 			<item name="About" href="about.html" />
 			<item name="Usage" href="usage.html" />
 			<item name="Issue Tracking" href="issue-tracking.html" />
 			<item name="Report" href="poject-report.html" />
-			<item name="Release Notes" href="release-notes.html" />
 			<item name="Release Notes" href="release-notes.html" />
 			<item name="Roadmap" href="roadmap.html" />
 			<item name="Download" href="download.html" />
@@ -18,15 +38,17 @@
 			<item name="Test API" href="testapidocs/index.html" />
 		</menu>
 
-		<links>
-			<item name="GitHub" href="https://github.com/atf4j/atf4j" />
-			<item name="Issues" href="https://github.com/atf4j/atf4j/issues" />
-			<item name="Apache" href="http://www.apache.org" />
-			<item name="JUnit" href="http://www.junit.org" />
-			<item name="slf4j" href="http://www.slf4j.org" />
-			<item name="Cucumber" href="http://www.cucumber.io" />
-			<item name="Selenium" href="http://www.seleniumhq.org" />
-		</links>
-
 	</body>
+	<skin>
+		<groupId>org.apache.maven.skins</groupId>
+		<artifactId>maven-fluido-skin</artifactId>
+		<version>1.6</version>
+	</skin>
+	<custom>
+		<fluidoSkin>
+			<googleSearch>
+				<sitesearch />
+			</googleSearch>
+		</fluidoSkin>
+	</custom>
 </project>

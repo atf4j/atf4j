@@ -41,18 +41,42 @@ public class Text {
         return "";
     }
 
+    /**
+     * Fill.
+     * @param length the length
+     * @return the string
+     */
     public static String fill(final int length) {
         return padToLength("", length);
     }
 
+    /**
+     * Fill.
+     * @param length the length
+     * @param chr the chr
+     * @return the string
+     */
     public static String fill(final int length, final char chr) {
         return padToLength("", length, chr);
     }
 
+    /**
+     * Pad to length.
+     * @param stem the stem
+     * @param length the length
+     * @return the string
+     */
     public static String padToLength(final String stem, final int length) {
         return padToLength(stem, length, ' ');
     }
 
+    /**
+     * Pad to length.
+     * @param stem the stem
+     * @param length the length
+     * @param chr the chr
+     * @return the string
+     */
     public static String padToLength(final String stem, final int length, final char chr) {
         final StringBuilder builder = new StringBuilder(stem);
         while (builder.length() < length) {

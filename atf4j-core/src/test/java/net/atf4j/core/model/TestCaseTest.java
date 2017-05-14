@@ -49,6 +49,9 @@ public class TestCaseTest extends ResultsReporting {
         assertNotNull(new TestCase());
     }
 
+    /**
+     * Unit Test for test test case string.
+     */
     @Test
     public void testTestCaseString() {
         assertNotNull(new TestCase("TestCase"));
@@ -105,12 +108,18 @@ public class TestCaseTest extends ResultsReporting {
         assertEquals(1, addTestStep.numberOfTestSteps());
     }
 
+    /**
+     * Unit Test for test pre condition.
+     */
     @Test
     public void testPreCondition() {
         final TestCase testCase = new TestCase();
         testCase.addPreCondition(new PassingCondition());
     }
 
+    /**
+     * Unit Test for test post condition.
+     */
     @Test
     public void testPostCondition() {
         final TestCase testCase = new TestCase();

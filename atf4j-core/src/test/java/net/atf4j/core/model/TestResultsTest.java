@@ -25,14 +25,23 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 import net.atf4j.core.TestResult;
 
+/**
+ * A UnitTest for TestResults objects.
+ */
 public class TestResultsTest extends ResultsReporting {
 
+    /**
+     * Unit Test for test default constructor.
+     */
     @Test
     public void testDefaultConstructor() {
         final TestResults testResults = new TestResults();
         assertNotNull(testResults);
     }
 
+    /**
+     * Unit Test for test add test result.
+     */
     @Test
     public void testAddTestResult() {
         final TestResults testResults = new TestResults();
@@ -40,6 +49,9 @@ public class TestResultsTest extends ResultsReporting {
         testResults.add(TestResult.PENDING);
     }
 
+    /**
+     * Unit Test for test test results.
+     */
     @Test
     public void testTestResults() {
         final TestResults testResults = new TestResults();
@@ -48,6 +60,9 @@ public class TestResultsTest extends ResultsReporting {
         assertNotNull(resultsCollection);
     }
 
+    /**
+     * Unit Test for test to string.
+     */
     @Test
     public void testToString() {
         assertNotNull(new TestResults().toString());

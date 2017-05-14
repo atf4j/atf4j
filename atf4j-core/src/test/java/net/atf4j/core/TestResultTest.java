@@ -21,12 +21,16 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A UnitTest for TestStatus objects.
  * forString
  */
 public class TestResultTest extends ResultsReporting {
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(TestResultTest.class);
 
     /**
      * Test method for TestResult}.

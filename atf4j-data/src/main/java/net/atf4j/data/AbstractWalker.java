@@ -26,29 +26,56 @@ import java.nio.file.Paths;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * The AbstractWalker Class.
+ */
 public abstract class AbstractWalker {
 
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
     private String basePath;
 
+    /**
+     * Instantiates a new abstract walker.
+     */
     public AbstractWalker() {
         this.log.info("AbstractWalker()");
     }
 
+    /**
+     * Instantiates a new abstract walker.
+     * @param path the path
+     * @throws Exception the exception
+     */
     public AbstractWalker(final String path) throws Exception {
         this.log.info("AbstractWalker({})", path);
         setBasePath(path);
     }
 
+    /**
+     * Sets the base path.
+     * @param basePath the base path
+     * @return the abstract walker
+     */
     public AbstractWalker setBasePath(final String basePath) {
         this.basePath = basePath;
         return this;
     }
 
+    /**
+     * Walk.
+     * @return the abstract walker
+     * @throws Exception the exception
+     */
     protected AbstractWalker walk() throws Exception {
         return walk(this.basePath);
     }
 
+    /**
+     * Walk.
+     * @param path the path
+     * @return the abstract walker
+     * @throws Exception the exception
+     */
     protected AbstractWalker walk(final String path) throws Exception {
         assertNotNull(path);
         this.log.trace("walk({})", path);
@@ -84,6 +111,11 @@ public abstract class AbstractWalker {
         return this;
     }
 
+    /**
+     * Process file.
+     * @param file the file
+     * @throws Exception the exception
+     */
     private void processFile(final File file) throws Exception {
         this.log.info("processFile({})", file.getName());
     }

@@ -30,15 +30,16 @@ public class Producer extends Common {
 
     public void execute(final String[] messages) throws JMSException {
 
-        final MessageProducer producer = this.session.createProducer(this.topic);
+        messageProducer = this.session.createProducer(this.topic);
 
         final TextMessage textMessage = this.session.createTextMessage();
 
         for (final String messageString : messages) {
             textMessage.setText(messageString);
-            producer.send(textMessage);
+            messageProducer.send(textMessage);
             log.info("Sent {}", messageString);
         }
         this.connection.close();
     }
+
 }

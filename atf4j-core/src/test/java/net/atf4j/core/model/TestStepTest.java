@@ -22,6 +22,9 @@ import org.junit.Test;
 
 import net.atf4j.core.Atf4jException;
 
+/**
+ * A UnitTest for TestStep objects.
+ */
 public class TestStepTest {
 
     /**
@@ -36,11 +39,17 @@ public class TestStepTest {
     public class PassingCondition extends Condition {
     }
 
+    /**
+     * Unit Test for test default constructor.
+     */
     @Test
     public void testDefaultConstructor() {
         assertNotNull(new TestStep());
     }
 
+    /**
+     * Unit Test for test test step.
+     */
     @Test
     public void testTestStep() {
         final TestStep testStep = new TestStep();
@@ -76,6 +85,9 @@ public class TestStepTest {
         assertNotNull(testStep.execute(context));
     }
 
+    /**
+     * Unit Test for test pre condition.
+     */
     @Test
     public void testPreCondition() {
         final TestStep testStep = new TestStep();
@@ -83,6 +95,9 @@ public class TestStepTest {
         testStep.addPreCondition(new PassingCondition());
     }
 
+    /**
+     * Unit Test for test post condition.
+     */
     @Test
     public void testPostCondition() {
         final TestStep testStep = new TestStep();

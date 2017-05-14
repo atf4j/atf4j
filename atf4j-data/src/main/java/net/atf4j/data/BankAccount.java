@@ -135,6 +135,9 @@ public class BankAccount {
         return this.accountNo;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format("BankAccount [bank=%s, accountNo=%s]", this.bank, this.accountNo);

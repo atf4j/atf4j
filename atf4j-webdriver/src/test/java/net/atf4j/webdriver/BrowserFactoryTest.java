@@ -53,6 +53,9 @@ public class BrowserFactoryTest extends ResultsReporting {
         verifyPageLoaded(webDriver);
     }
 
+    /**
+     * Unit Test for test remote driver.
+     */
     @Test
     @Ignore
     public void testRemoteDriver() {
@@ -73,6 +76,10 @@ public class BrowserFactoryTest extends ResultsReporting {
         verifyPageLoaded(webDriver);
     }
 
+    /**
+     * Verify that verify page loaded.
+     * @param webDriver the web driver
+     */
     private void verifyPageLoaded(final WebDriver webDriver) {
         webDriver.get("http://127.0.0.1:8080");
         final String currentUrl = webDriver.getCurrentUrl();

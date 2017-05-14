@@ -16,6 +16,9 @@
  */
 package net.atf4j.webdriver.page;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assume.assumeNotNull;
+
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
@@ -23,14 +26,14 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 
 /**
- * PageObjectTest.
+ * Unit Test for abstract PageObject.
  */
 public class PageObjectTest {
 
     /**
-     * Mock Page.
+     * Mock Page to extend AbstractPageObject.
      */
-    public class MockPage extends AbstractPageObject {
+    public final class MockPage extends AbstractPageObject {
 
         /** The Constant TARGET_URL. */
         protected static final String TARGET_URL = "http://127.0.0.1:8080";
@@ -48,6 +51,16 @@ public class PageObjectTest {
         /**
          * Instantiates a new mock page.
          *
+         * @param webDriver
+         *            the web driver
+         */
+        public MockPage(final WebDriver webDriver) {
+            super(webDriver);
+        }
+
+        /**
+         * Instantiates a new mock page.
+         *
          * @param targetUrl
          *            the target url
          * @throws ConfigurationNotLoaded
@@ -55,16 +68,6 @@ public class PageObjectTest {
          */
         public MockPage(final String targetUrl) throws ConfigurationNotLoaded {
             super(targetUrl);
-        }
-
-        /**
-         * Instantiates a new mock page.
-         *
-         * @param webDriver
-         *            the web driver
-         */
-        public MockPage(final WebDriver webDriver) {
-            super(webDriver);
         }
 
     }
@@ -78,7 +81,7 @@ public class PageObjectTest {
      */
     @Test
     public final void testDefaultConstructor() throws ConfigurationNotLoaded {
-        new MockPage();
+        assertNotNull(new MockPage());
     }
 
     /**
@@ -90,7 +93,9 @@ public class PageObjectTest {
      */
     @Test
     public final void testDefaultOpen() throws ConfigurationNotLoaded {
-        new MockPage().open();
+        final MockPage mockPage = new MockPage();
+        assumeNotNull(mockPage);
+        assertNotNull(mockPage.open());
     }
 
     /**
@@ -102,7 +107,9 @@ public class PageObjectTest {
      */
     @Test
     public final void testOpen() throws ConfigurationNotLoaded {
-        new MockPage(MockPage.TARGET_URL).open();
+        final MockPage mockPage = new MockPage(MockPage.TARGET_URL);
+        assumeNotNull(mockPage);
+        assertNotNull(mockPage.open());
     }
 
     /**
@@ -115,18 +122,9 @@ public class PageObjectTest {
      */
     @Test
     public final void testOpenString() throws ConfigurationNotLoaded {
-        new MockPage().open(MockPage.TARGET_URL);
-    }
-
-    /**
-     * test PageObject object.
-     *
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
-     */
-    @Test
-    public final void testTargetUrlConstruction() throws ConfigurationNotLoaded {
-        new MockPage("http://localhost:8080/");
+        final MockPage mockPage = new MockPage();
+        assumeNotNull(mockPage);
+        assertNotNull(mockPage.open());
     }
 
     /**
@@ -138,7 +136,10 @@ public class PageObjectTest {
      */
     @Test
     public final void testVerify() throws ConfigurationNotLoaded {
-        new MockPage().open().verify();
+        final MockPage mockPage = new MockPage();
+        assumeNotNull(mockPage);
+        assertNotNull(mockPage.open());
+        assertNotNull(mockPage.verify());
     }
 
     /**
@@ -149,7 +150,10 @@ public class PageObjectTest {
      */
     @Test
     public final void testWebDriverConstructor() throws ConfigurationNotLoaded {
-        new MockPage(new HtmlUnitDriver());
+        final MockPage mockPage = new MockPage(new HtmlUnitDriver());
+        assumeNotNull(mockPage);
+        assertNotNull(mockPage.open());
+        assertNotNull(mockPage.verify());
     }
 
 }

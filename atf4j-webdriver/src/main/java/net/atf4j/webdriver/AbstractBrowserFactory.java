@@ -19,14 +19,12 @@ package net.atf4j.webdriver;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriver.Options;
 import org.openqa.selenium.WebDriver.Timeouts;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
@@ -39,6 +37,7 @@ import net.atf4j.core.model.TestContext;
  * A factory class for creating Browser objects.
  */
 public abstract class AbstractBrowserFactory implements BrowserFactoryInterface {
+
     private static final Logger log = LoggerFactory.getLogger(AbstractBrowserFactory.class);
     private static WebDriverConfig config;
 
@@ -56,9 +55,9 @@ public abstract class AbstractBrowserFactory implements BrowserFactoryInterface 
     }
 
     /**
-     * Local web driver.
+     * Local webDriver instance.
      *
-     * @return the web driver
+     * @return the webDriver instance.
      */
     protected static WebDriver localWebDriver() {
         AbstractBrowserFactory.log.trace("localWebDriver()");
@@ -67,23 +66,20 @@ public abstract class AbstractBrowserFactory implements BrowserFactoryInterface 
     }
 
     /**
-     * Local web driver.
+     * Local webDriver instance.
      *
      * @param targetBrowser the target browser
-     * @return the web driver
+     * @return the webDriver
      */
     protected static WebDriver localWebDriver(final String targetBrowser) {
         WebDriver webDriver = null;
+
         switch (targetBrowser) {
         case "Chrome":
             webDriver = new ChromeDriver();
             break;
         case "Firefox":
             webDriver = new FirefoxDriver();
-            break;
-        default:
-            webDriver = new HtmlUnitDriver();
-            java.util.logging.Logger.getLogger("com.gargoylesoftware").setLevel(Level.OFF);
             break;
         }
 
@@ -93,9 +89,10 @@ public abstract class AbstractBrowserFactory implements BrowserFactoryInterface 
     }
 
     /**
-     * Remote web driver.
+     * Default remote webDriver instance.
      *
      * @return the web driver
+     * @throws PropertyNotFound the property not found
      */
     protected static WebDriver remoteWebDriver() throws PropertyNotFound {
         final String targetBrowser = AbstractBrowserFactory.config.targetBrowser();
@@ -103,8 +100,8 @@ public abstract class AbstractBrowserFactory implements BrowserFactoryInterface 
     }
 
     /**
-     * Remote web driver.
-     *
+     * Named remote webDriver instance.
+     * 
      * @param targetBrowser the target browser
      * @return the web driver
      */
@@ -148,7 +145,7 @@ public abstract class AbstractBrowserFactory implements BrowserFactoryInterface 
      */
     public static WebDriver webDriver() {
         if (AbstractBrowserFactory.config == null) {
-            AbstractBrowserFactory.config = new WebDriverConfig();
+            AbstractBrowserFactory.config = new BrowserFactorConfig();
         }
         return webDriver(AbstractBrowserFactory.config.targetBrowser());
     }
@@ -161,15 +158,14 @@ public abstract class AbstractBrowserFactory implements BrowserFactoryInterface 
      */
     protected static WebDriver webDriver(final String browser) {
         if (AbstractBrowserFactory.config == null) {
-            AbstractBrowserFactory.config = new WebDriverConfig();
+            AbstractBrowserFactory.config = new BrowserFactorConfig();
         }
         if (TestContext.isLocal()) {
             return localWebDriver(browser);
         } else if (TestContext.isGrid()) {
             return remoteWebDriver(browser);
-        } else {
-            // TODO throw CheckedException
-            return null;
         }
+        return null;
     }
+
 }

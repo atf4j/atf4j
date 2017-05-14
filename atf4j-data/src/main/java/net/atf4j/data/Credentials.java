@@ -99,6 +99,9 @@ public class Credentials {
         return this.password;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format("Credentials [username=%s, password=%s, email=%s]",

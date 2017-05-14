@@ -20,18 +20,30 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+/**
+ * A UnitTest for FailCase objects.
+ */
 public class FailCaseTest {
 
+    /**
+     * Unit Test for test fail case.
+     */
     @Test
     public void testFailCase() {
         assertNotNull(new FailCase());
     }
 
+    /**
+     * Unit Test for test fail case null.
+     */
     @Test
     public void testFailCaseNull() {
         assertNotNull(new FailCase(null));
     }
 
+    /**
+     * Unit Test for test fail case string.
+     */
     @Test
     public void testFailCaseString() {
         assertNotNull(new FailCase("FailCase"));

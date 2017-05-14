@@ -35,6 +35,10 @@ public class PostalAddress {
         super();
     }
 
+    /**
+     * Instantiates a new postal address.
+     * @param address the address
+     */
     public PostalAddress(final String address) {
         super();
         this.addressLines = address.split(",");

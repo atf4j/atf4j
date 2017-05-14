@@ -224,6 +224,9 @@ public class Telephone {
         return matcher.find();
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format("%s : %s", getType(), getNumber());

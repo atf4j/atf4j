@@ -29,8 +29,7 @@ public class FileWalkerTest extends ResultsReporting {
 
     /**
      * Unit Test for test walk.
-     *
-     * @throws URISyntaxException the URI syntax exception
+     * @throws Exception the exception
      */
     @Test
     public void testWalk() throws Exception {
@@ -39,12 +38,20 @@ public class FileWalkerTest extends ResultsReporting {
         fileWalker.walk("/messages");
     }
 
+    /**
+     * Unit Test for test file walker.
+     * @throws Exception the exception
+     */
     @Test
     public void testFileWalker() throws Exception {
         final FileWalker fileWalker = new FileWalker("/messages");
         assertNotNull(fileWalker);
     }
 
+    /**
+     * Unit Test for test file walker walk.
+     * @throws Exception the exception
+     */
     @Test
     public void testFileWalkerWalk() throws Exception {
         final FileWalker fileWalker = new FileWalker();

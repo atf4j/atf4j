@@ -24,7 +24,7 @@ import net.atf4j.webdriver.TargetUrl;
 /**
  * BootStrapPage Page object.
  */
-@TargetUrl("http://127.0.0.1:8080/bootstrap")
+@TargetUrl("http://atf4j.net/bootstrap/")
 public class BootstrapPage extends AbstractPageObject {
 
     /**

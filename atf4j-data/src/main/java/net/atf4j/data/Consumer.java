@@ -128,6 +128,9 @@ public class Consumer extends Person {
         return this.credentials;
     }
 
+    /* (non-Javadoc)
+     * @see net.atf4j.data.Person#toString()
+     */
     @Override
     public String toString() {
         return String.format("Consumer [credentials=%s]", this.credentials);

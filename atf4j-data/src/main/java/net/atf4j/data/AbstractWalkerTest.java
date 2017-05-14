@@ -18,14 +18,30 @@ package net.atf4j.data;
 
 import org.junit.Test;
 
+/**
+ * A UnitTest for AbstractWalker objects.
+ */
 public class AbstractWalkerTest {
 
+    /**
+     * The MockWalker Class.
+     */
     public class MockWalker extends AbstractWalker {
+        
+        /**
+         * Instantiates a new mock walker.
+         * @param basePath the base path
+         * @throws Exception the exception
+         */
         public MockWalker(final String basePath) throws Exception {
             super(basePath);
         }
     }
 
+    /**
+     * Test.
+     * @throws Exception the exception
+     */
     @Test
     public void test() throws Exception {
         new MockWalker(".").walk();

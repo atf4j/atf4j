@@ -59,6 +59,9 @@ public class TestSuiteTest extends ResultsReporting {
         this.log.info("testResult={}", testSuite.result());
     }
 
+    /**
+     * Unit Test for test test suite test context.
+     */
     @Test
     public void testTestSuiteTestContext() {
         final TestSuite testSuite = new TestSuite(new TestContext());
@@ -66,6 +69,10 @@ public class TestSuiteTest extends ResultsReporting {
         this.log.info("testResult={}", testSuite.result());
     }
 
+    /**
+     * Unit Test for test test suite execute.
+     * @throws Atf4jException the atf 4 j exception
+     */
     @Test
     public void testTestSuiteExecute() throws Atf4jException {
         final TestSuite testSuite = new TestSuite();
@@ -73,6 +80,10 @@ public class TestSuiteTest extends ResultsReporting {
         this.log.info("testResult={}", testSuite.result());
     }
 
+    /**
+     * Unit Test for test test suite execute test context.
+     * @throws Atf4jException the atf 4 j exception
+     */
     @Test
     public void testTestSuiteExecuteTestContext() throws Atf4jException {
         final TestSuite testSuite = new TestSuite();
@@ -102,12 +113,18 @@ public class TestSuiteTest extends ResultsReporting {
         assertEquals(1, numberOfTestSteps);
     }
 
+    /**
+     * Unit Test for test pre condition.
+     */
     @Test
     public void testPreCondition() {
         final TestSuite testSuite = new TestSuite();
         testSuite.addPreCondition(new PassingCondition());
     }
 
+    /**
+     * Unit Test for test post condition.
+     */
     @Test
     public void testPostCondition() {
         final TestSuite testSuite = new TestSuite();

@@ -65,6 +65,10 @@ public class CustomerDataFactory extends AbstractDataFactory {
         return new Customer();
     }
 
+    /**
+     * Random thing.
+     * @return the string
+     */
     public static String randomThing() {
         return null;
     }

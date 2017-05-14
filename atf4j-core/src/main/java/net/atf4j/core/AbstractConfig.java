@@ -32,11 +32,7 @@ public abstract class AbstractConfig implements ConfigurationInterface {
      */
     public AbstractConfig() {
         super();
-        try {
             load();
-        } catch (final ConfigurationNotLoaded e) {
-            this.log.error("Using default values; {}", e.getMessage());
-        }
     }
 
     /**
@@ -54,13 +50,17 @@ public abstract class AbstractConfig implements ConfigurationInterface {
     /**
      * Load configuration from property file named after class.
      *
-     * @return the abstract config
-     * @throws ConfigurationNotLoaded
-     *             the missing exception
+     * @return the abstract configuration
      */
-    protected ConfigurationInterface load() throws ConfigurationNotLoaded {
+    protected ConfigurationInterface load() {
         final String propertyFilename = String.format("/%s.properties", this.getClass().getSimpleName());
-        return load(propertyFilename);
+
+        try {
+            load(propertyFilename);
+        } catch (final ConfigurationNotLoaded e) {
+            this.log.error("Using default values; {}", e.getMessage());
+        }
+        return this;
     }
 
     /**
@@ -144,43 +144,65 @@ public abstract class AbstractConfig implements ConfigurationInterface {
         }
     }
 
+    /* (non-Javadoc)
+     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String, int)
+     */
     @Override
     public int valueFor(final String key, final int defaultValue) {
         return Integer.parseInt(this.get(key, Integer.toString(defaultValue)));
     }
 
+    /* (non-Javadoc)
+     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String, long)
+     */
     @Override
     public long valueFor(final String key, final long defaultValue) {
         return Long.parseLong(this.get(key, Long.toString(defaultValue)));
     }
 
+    /* (non-Javadoc)
+     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String, boolean)
+     */
     @Override
     public boolean valueFor(final String key, final boolean defaultValue) {
         return Boolean.parseBoolean(this.get(key, Boolean.toString(defaultValue)));
     }
 
+    /* (non-Javadoc)
+     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String, java.lang.String)
+     */
     @Override
     public String valueFor(final String key, final String defaultValue) {
         return get(key, defaultValue);
     }
 
     /**
-     * The Property was Not Found.
+     * The property file was not found.
      */
     public class PropertyNotFound extends Atf4jException {
-
         private static final long serialVersionUID = 1L;
 
+        /**
+         * Instantiates a new property not found.
+         * @param propertyKey the property key
+         */
         public PropertyNotFound(final String propertyKey) {
             super(String.format("Property not found for key %s", propertyKey));
         }
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return String.format("%s [properties=%s]", this.getClass().getSimpleName(), this.properties);
     }
 
     /**
      * Configuration Not Loaded.
      */
     public class ConfigurationNotLoaded extends Atf4jException {
-
         private static final long serialVersionUID = 1L;
 
         /**
@@ -192,10 +214,5 @@ public abstract class AbstractConfig implements ConfigurationInterface {
         public ConfigurationNotLoaded(final String propertyFilename) {
             super(String.format("PropertyFile %s not found", propertyFilename));
         }
-    }
-
-    @Override
-    public String toString() {
-        return String.format("%s [properties=%s]", this.getClass().getSimpleName(), this.properties);
     }
 }

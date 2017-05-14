@@ -18,8 +18,14 @@ package net.atf4j.core.model;
 
 import static org.junit.Assert.assertNotNull;
 
+/**
+ * A UnitTest for FailSuite objects.
+ */
 public class FailSuiteTest {
 
+    /**
+     * Unit Test for test fail case.
+     */
     public void testFailCase() {
         assertNotNull(new FailCase());
     }

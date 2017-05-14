@@ -19,23 +19,42 @@ package net.atf4j.webdriver;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
+/**
+ * A UnitTest for ExamplePage objects.
+ */
 public class ExamplePageTest {
 
+    /**
+     * PageObject representing Home.
+     */
     public class HomePage extends PageObject {
     }
 
+    /**
+     * The PageObject Class.
+     */
     public abstract class PageObject {
         public WebDriver driver;
 
+        /**
+         * Instantiates a new page object.
+         */
         PageObject() {
             driver = AbstractBrowserFactory.webDriver();
         }
 
+        /**
+         * Instantiates a new page object.
+         * @param webDriver the web driver
+         */
         PageObject(final WebDriver webDriver) {
             driver = webDriver;
         }
     }
 
+    /**
+     * Test.
+     */
     @Test
     public void test() {
         new HomePage();

@@ -13,6 +13,8 @@
  */
 package net.atf4j.core;
 
+import java.util.UUID;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,12 +25,16 @@ import net.atf4j.core.timers.NestedTimers;
  */
 public class Atf4j {
 
-    /** logging. */
     protected static final Logger log = LoggerFactory.getLogger(Atf4j.class);
-
-    /** The Constant multiTimers. */
     protected static final NestedTimers nestedTimers = NestedTimers.getInstance();
 
+    /**
+     * Start.
+     */
+    public static void start() {
+        start(UUID.randomUUID().toString());
+    }
+    
     /**
      * Start.
      *
@@ -47,6 +53,14 @@ public class Atf4j {
         log.info(nestedTimers.stopTimer().toString());
     }
 
+    /**
+     * Document.
+     */
+    public static void document() {
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        document(stackTrace);
+    }
+    
     /**
      * Document.
      *

@@ -11,7 +11,7 @@
 
 	<artifactId>atf4j-soapui</artifactId>
 	<packaging>jar</packaging>
-	<name>ATF4J - Selenium WebDriver</name>
+	<name>ATF4J - Selenium SOAPUI</name>
 
 	<dependencies>
 		<dependency>

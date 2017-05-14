@@ -38,7 +38,7 @@ public class WebDriverSmokeTest extends ResultsReporting {
         final ChromeDriver chromeDriver = new ChromeDriver();
         chromeDriver.get("http://127.0.0.1:8080/");
         final String pageTitle = chromeDriver.getTitle();
-        log.info("pageTitle={}", pageTitle);
+        this.log.info("pageTitle={}", pageTitle);
     }
 
     /**
@@ -49,7 +49,7 @@ public class WebDriverSmokeTest extends ResultsReporting {
         final FirefoxDriver firefoxDriver = new FirefoxDriver();
         firefoxDriver.get("http://127.0.0.1:8080/");
         final String pageTitle = firefoxDriver.getTitle();
-        log.info("pageTitle={}", pageTitle);
+        this.log.info("pageTitle={}", pageTitle);
     }
 
 }

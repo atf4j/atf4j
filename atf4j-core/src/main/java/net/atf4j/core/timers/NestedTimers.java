@@ -24,7 +24,6 @@ import net.atf4j.core.Atf4jException;
 
 /**
  * NestedTimers. [GOF] Singleton.
- *
  */
 public final class NestedTimers {
 
@@ -36,9 +35,6 @@ public final class NestedTimers {
 
     /** A FIFO stack of stopped timers. */
     private final Stack<MilliTimer> stoppedTimers = new Stack<MilliTimer>();
-
-    public class TimersExhausted extends Atf4jException {
-    }
 
     /**
      * Instantiates a new nested timers collection.
@@ -178,4 +174,8 @@ public final class NestedTimers {
                 this.stoppedTimers);
     }
 
+    public class TimersExhausted extends Atf4jException {
+        private static final long serialVersionUID = 1L;
+    }
+    
 }

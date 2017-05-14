@@ -28,12 +28,19 @@ public class WebDriverConfig extends AbstractConfig {
 
     /**
      * Default constructor.
-     *
-     * @throws ConfigurationNotLoaded
-     *             the missing property file exception
      */
     public WebDriverConfig() {
         super();
+    }
+
+    /**
+     * Gets the targetBrowser from the configuration.
+     *
+     * @return the name of target browser as String object.
+     */
+    public String targetBrowser() {
+        final String targetBrowser = this.get("targetBrowser", "Firefox");
+        return targetBrowser;
     }
 
     /**
@@ -55,21 +62,21 @@ public class WebDriverConfig extends AbstractConfig {
     }
 
     /**
-     * Gets the implicit wait.
+     * get the seleniumUrl from the configuration.
      *
-     * @return the implicit wait
+     * @return seleniumUrl as String object.
      */
-    public long implicitWait() {
-        return this.get("implicitWait", 1);
+    public String seleniumUrl() {
+        return this.get("seleniumUrl", WebDriverConfig.LOCAL_GRID);
     }
 
     /**
-     * Maximise browser.
+     * Gets the targetUrl from the configuration.
      *
-     * @return the long
+     * @return the targetURL as String object.
      */
-    public long maximiseBrowser() {
-        return this.get("maximiseBrowser", 1);
+    public String targetUrl() {
+        return this.get("targetUrl", WebDriverConfig.LOCAL_TARGET);
     }
 
     /**
@@ -82,12 +89,21 @@ public class WebDriverConfig extends AbstractConfig {
     }
 
     /**
-     * Playback interval.
+     * Gets the implicit wait.
      *
+     * @return the implicit wait
+     */
+    public long implicitWait() {
+        return this.get("implicitWait", 1);
+    }
+
+    /**
+     * Explicit wait.
+     * 
      * @return the long
      */
-    public long playbackInterval() {
-        return this.get("playbackInterval", 1);
+    public long explicitWait() {
+        return this.get("explicitWait", 1);
     }
 
     /**
@@ -100,40 +116,30 @@ public class WebDriverConfig extends AbstractConfig {
     }
 
     /**
+     * Maximise browser.
+     *
+     * @return the long
+     */
+    public long maximiseBrowser() {
+        return this.get("maximiseBrowser", 1);
+    }
+
+    /**
+     * Playback interval.
+     *
+     * @return the long
+     */
+    public long playbackInterval() {
+        return this.get("playbackInterval", 1);
+    }
+
+    /**
      * Script timeout.
      *
      * @return the long
      */
     public long scriptTimeout() {
         return this.get("scriptTimeout", 1000);
-    }
-
-    /**
-     * get the seleniumUrl from the configuration.
-     *
-     * @return seleniumUrl as String object.
-     */
-    public String seleniumUrl() {
-        return this.get("seleniumUrl", WebDriverConfig.LOCAL_GRID);
-    }
-
-    /**
-     * Gets the targetBrowser from the configuration.
-     *
-     * @return the name of target browser as String object.
-     */
-    public String targetBrowser() {
-        final String targetBrowser = this.get("targetBrowser", "Firefox");
-        return targetBrowser;
-    }
-
-    /**
-     * Gets the targetUrl from the configuration.
-     *
-     * @return the targetURL as String object.
-     */
-    public String targetUrl() {
-        return this.get("targetUrl", WebDriverConfig.LOCAL_TARGET);
     }
 
     /**
