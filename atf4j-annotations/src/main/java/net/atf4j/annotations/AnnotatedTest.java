@@ -24,6 +24,10 @@ public abstract class AnnotatedTest {
 
     protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
+    public String testTag() throws Exception {
+        return AnnotationHelper.getTestTag();
+    }
+
     /**
      * Retrieve the Test Id from the annotation.
      *

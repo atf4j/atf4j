@@ -53,4 +53,9 @@ public class AbstractDataFactoryTest extends ResultsReporting {
         assertNotNull(new TestDataFactory());
     }
 
+    @Test
+    public final void testStaticDataForTag() throws Exception {
+        TestDataFactory.dataForTag("");
+    }
+
 }

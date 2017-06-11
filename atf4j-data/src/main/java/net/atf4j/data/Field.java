@@ -19,13 +19,13 @@ package net.atf4j.data;
 import java.util.UUID;
 
 /**
- * The Field Class.
+ * Field Class.
  */
-public class Field {
+public class Field<T> {
 
-    private FieldStatus status;
+    private FieldStatus status = FieldStatus.PRISTINE;
     private String key;
-    private String value;
+    private T value;
 
     /**
      * Instantiates a new field.
@@ -33,15 +33,16 @@ public class Field {
     public Field() {
         super();
         this.status = FieldStatus.PRISTINE;
-        set(UUID.randomUUID().toString(), "");
+        set(UUID.randomUUID().toString(), null);
     }
 
     /**
      * Instantiates a new field.
      *
-     * @param value the value
+     * @param value
+     *            the value
      */
-    public Field(final String value) {
+    public Field(final T value) {
         super();
         set(UUID.randomUUID().toString(), value);
         this.status = FieldStatus.PRISTINE;
@@ -50,23 +51,27 @@ public class Field {
     /**
      * Instantiates a new field.
      *
-     * @param key the key
-     * @param value the value
+     * @param key
+     *            the key
+     * @param value
+     *            the value
      */
-    public Field(final String key, final String value) {
+    public Field(final String key, final T value) {
         super();
         set(key, value);
         this.status = FieldStatus.PRISTINE;
     }
 
     /**
-     * Sets the.
+     * Sets the field key and value.
      *
-     * @param key the key
-     * @param value the value
+     * @param key
+     *            the key
+     * @param value
+     *            the value
      * @return the field
      */
-    private Field set(final String key, final String value) {
+    private Field set(final String key, final T value) {
         this.key = key;
         this.value = value;
         return this;
@@ -75,7 +80,8 @@ public class Field {
     /**
      * Sets the key.
      *
-     * @param key the key
+     * @param key
+     *            the key
      * @return the field
      */
     public Field setKey(final String key) {
@@ -87,10 +93,11 @@ public class Field {
     /**
      * Sets the value.
      *
-     * @param value the value
+     * @param value
+     *            the value
      * @return the field
      */
-    public Field setValue(final String value) {
+    public Field setValue(final T value) {
         this.value = value;
         this.status = FieldStatus.CHANGED;
         return this;
@@ -99,7 +106,8 @@ public class Field {
     /**
      * Sets the status.
      *
-     * @param fieldStatus the field status
+     * @param fieldStatus
+     *            the field status
      * @return the field
      */
     public Field setStatus(final FieldStatus fieldStatus) {
@@ -112,7 +120,7 @@ public class Field {
      *
      * @return the value
      */
-    public String getValue() {
+    public T getValue() {
         return this.value;
     }
 
@@ -126,7 +134,7 @@ public class Field {
     }
 
     /**
-     * Gets the status.
+     * Gets the field status.
      *
      * @return the status
      */
@@ -134,7 +142,9 @@ public class Field {
         return this.status;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
     @Override

@@ -44,11 +44,26 @@ public @interface Atf4j {
     @Documented
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
+    public @interface TestTag {
+        /**
+         * Value of test tag.
+         *
+         * @return test tag as String.
+         */
+        String value();
+    }
+
+    /**
+     * Test Id Annotation Interface.
+     */
+    @Documented
+    @Target(ElementType.METHOD)
+    @Retention(RetentionPolicy.RUNTIME)
     public @interface TestId {
         /**
          * Value of test id.
          *
-         * @return the string
+         * @return test id as String.
          */
         String value();
     }
@@ -63,7 +78,7 @@ public @interface Atf4j {
         /**
          * Value of test name.
          *
-         * @return the string
+         * @return the test name as String.
          */
         String value();
     }
@@ -78,7 +93,7 @@ public @interface Atf4j {
         /**
          * Value of test description.
          *
-         * @return the string
+         * @return the test description as String
          */
         String value();
     }

@@ -40,9 +40,11 @@ public abstract class AbstractDataFactory {
     /**
      * Load.
      *
-     * @param dataFilename the data filename
+     * @param dataFilename
+     *            the data filename
      * @return the string[]
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     public String[] load(final String dataFilename) throws Exception {
         assertNotNull(dataFilename);
@@ -58,9 +60,11 @@ public abstract class AbstractDataFactory {
     /**
      * Load.
      *
-     * @param inputStream the input stream
+     * @param inputStream
+     *            the input stream
      * @return the string[]
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     public String[] load(final InputStream inputStream) throws Exception {
         assertNotNull(inputStream);
@@ -82,13 +86,17 @@ public abstract class AbstractDataFactory {
     /**
      * Random entry.
      *
-     * @param content the content
+     * @param content
+     *            the content
      * @return the string
      */
     protected static String randomEntry(final String[] content) {
         final int bounds = content.length;
         final int randomIndex = random.nextInt(bounds) - 1;
         return content[randomIndex];
+    }
+
+    public static void dataForTag(String string) {
     }
 
 }
