@@ -22,9 +22,12 @@ import org.slf4j.LoggerFactory;
 import net.atf4j.core.AbstractConfig;
 
 public class AutomationConfig extends AbstractConfig {
+
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
      */
     @Override

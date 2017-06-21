@@ -1,17 +1,18 @@
 # atf4j-annotations
+
 ## Automation Test Framework for Java
 
-Provides Annotations for unit tests for enhanced reporting. 
+Provides Annotations for enhanced reporting for automated unit tests for enhanced reporting.
 
 ## Maven Dependency
 
-		<dependency>
-			<groupId>net.atf4j</groupId>
-			<artifactId>atf4j-core</artifactId>
-			<version>0.3.0-SNAPSHOT</version>
-		</dependency>
+	<dependency>
+		<groupId>net.atf4j</groupId>
+		<artifactId>atf4j-core</artifactId>
+		<version>0.4.0-SNAPSHOT</version>
+	</dependency>
 
-## Code
+## Example Code
 
 A simple example using the logger to log a test audit trail.
 

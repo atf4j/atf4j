@@ -12,6 +12,7 @@ Scenario: Open URL with headless browser
 @Ignore
 Scenario: Open URL with Firefox Browser
 	Given the Firefox Browser
+	Given the web browser is Firefox
 	When the target url "http://127.0.0.1:8080/" is opened
 	Then the pageTitle is (Apache Tomcat)
 	And the cookie (name) exists
@@ -19,6 +20,7 @@ Scenario: Open URL with Firefox Browser
 @Ignore
 Scenario: Open URL with Chrome Browser
 	Given the Chrome Browser
+	Given the web browser is Chrome
 	When the target url is opened
 	Then the pageTitle is 'Apache Tomcat'
 	And the cookie 'name' exists
@@ -26,6 +28,7 @@ Scenario: Open URL with Chrome Browser
 @Ignore
 Scenario: Open URL with Chromium Browser
 	Given the Chromium Browser
+	Given the web browser is Chromium
 	When the target url 'http://127.0.0.1:8080' is opened
 	Then the pageTitle is 'Apache Tomcat'
 	And the cookie 'name' exists

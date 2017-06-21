@@ -31,15 +31,11 @@ import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
 
 /**
- * Abstract Cucumber Test Runner.
+ * Abstract Test Runner for Cucumber.
  */
 @RunWith(Cucumber.class)
-@CucumberOptions(
-        monochrome = true,
-        strict = true,
-        snippets = SnippetType.CAMELCASE,
-        features = "classpath:features",
-        tags = { "~@Ignore" })
+@CucumberOptions(monochrome = true, strict = true, snippets = SnippetType.CAMELCASE, features = "classpath:features", tags = {
+        "~@Ignore" })
 public abstract class AbstractTestRunner {
 
     private static final Logger log = LoggerFactory.getLogger(AbstractTestRunner.class);

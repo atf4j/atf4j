@@ -1,5 +1,8 @@
 # Automated Test Framework for Java
-## Selenium WebDriver 
+
+## Automation Test Framework for Data Driven Testing
+
+Automation Test Framework for Data Driven Testing
 
 ## Maven Dependency
 
@@ -8,7 +11,6 @@
 		<artifactId>atf4j</artifactId>
 		<version>0.3.0-SNAPSHOT</version>
 	</dependency>
-
 
 ## Usage
 
@@ -19,4 +21,3 @@ In command line shell run:
 ## Overriding options
 
     mvn -Doptions="value" test
-

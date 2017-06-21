@@ -326,6 +326,34 @@ public abstract class AbstractPageObject {
     }
 
     /**
+     * Waits until the expectations are full filled or timeout runs out
+     * 
+     * @param condition
+     *            The conditions the element should meet
+     * @param timeout
+     *            The timeout to wait
+     * @return True if element meets the condition
+     */
+    private boolean waitForExpectedCondition(ExpectedCondition<?> condition, int timeout) {
+        return true;
+    }
+
+    /**
+     * Helper for a custom ExpectedCondition<Boolean> that returns true when the
+     * search is complete.
+     */
+    private ExpectedCondition<Boolean> searchFinished() {
+        return new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver webDriver) {
+                String xpathExpression = "";
+                List<WebElement> elements = webDriver.findElements(By.xpath(xpathExpression));
+                return (elements.size() >= 10);
+            }
+        };
+    }
+
+    /**
      * Close page.
      */
     protected void close() {
@@ -345,18 +373,4 @@ public abstract class AbstractPageObject {
         }
     }
 
-    /**
-     * Helper for a custom ExpectedCondition<Boolean> that returns true when the
-     * search is complete.
-     */
-    private ExpectedCondition<Boolean> searchFinished() {
-        return new ExpectedCondition<Boolean>() {
-            @Override
-            public Boolean apply(WebDriver webDriver) {
-                String xpathExpression = "";
-                List<WebElement> elements = webDriver.findElements(By.xpath(xpathExpression));
-                return (elements.size() >= 10);
-            }
-        };
-    }
 }
