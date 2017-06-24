@@ -18,17 +18,19 @@ package net.atf4j.webdriver.page;
 
 import static org.junit.Assume.assumeNotNull;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 /**
  * A UnitTest for BootstrapPage objects.
  */
+@Ignore
 public class BootstrapPageTest {
 
     private static final String PAGE_URL = "http://atf4j.net/bootstrap/";
     // private static final String PAGE_URL = "http://127.0.0.1:8080/bootstrap";
-        
+
     /**
      * Unit Test for test bootstrap page.
      */

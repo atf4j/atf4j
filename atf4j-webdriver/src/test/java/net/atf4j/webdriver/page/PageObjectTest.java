@@ -19,6 +19,7 @@ package net.atf4j.webdriver.page;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assume.assumeNotNull;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
@@ -28,6 +29,7 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 /**
  * Unit Test for abstract PageObject.
  */
+@Ignore
 public class PageObjectTest {
 
     /**
@@ -69,12 +71,11 @@ public class PageObjectTest {
         public MockPage(final String targetUrl) throws ConfigurationNotLoaded {
             super(targetUrl);
         }
-
     }
 
     /**
-     * Test method for
-     * { net.atf4j.webdriver.page.AbstractPageObject#AbstractPageObject()}.
+     * Test method for {
+     * net.atf4j.webdriver.page.AbstractPageObject#AbstractPageObject()}.
      *
      * @throws ConfigurationNotLoaded
      *             the configuration not loaded
@@ -85,8 +86,8 @@ public class PageObjectTest {
     }
 
     /**
-     * Test method for
-     * { net.net.atf4j.webdriver.page.AbstractPageObject#open()}.
+     * Test method for {
+     * net.net.atf4j.webdriver.page.AbstractPageObject#open()}.
      *
      * @throws ConfigurationNotLoaded
      *             the configuration not loaded
@@ -99,8 +100,8 @@ public class PageObjectTest {
     }
 
     /**
-     * Test method for
-     * { net.net.atf4j.webdriver.page.AbstractPageObject#open()}.
+     * Test method for {
+     * net.net.atf4j.webdriver.page.AbstractPageObject#open()}.
      *
      * @throws ConfigurationNotLoaded
      *             the configuration not loaded
@@ -113,8 +114,7 @@ public class PageObjectTest {
     }
 
     /**
-     * Test method for
-     * {
+     * Test method for {
      * net.net.atf4j.webdriver.page.AbstractPageObject#open(java.lang.String)}.
      *
      * @throws ConfigurationNotLoaded
@@ -128,8 +128,8 @@ public class PageObjectTest {
     }
 
     /**
-     * Test method for
-     * { net.net.atf4j.webdriver.page.AbstractPageObject#verify()}.
+     * Test method for {
+     * net.net.atf4j.webdriver.page.AbstractPageObject#verify()}.
      *
      * @throws ConfigurationNotLoaded
      *             the configuration not loaded
