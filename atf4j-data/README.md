@@ -9,7 +9,7 @@ Automation Test Framework for Data Driven Testing
 	<dependency>
 		<groupId>net.atf4j</groupId>
 		<artifactId>atf4j</artifactId>
-		<version>0.3.0-SNAPSHOT</version>
+		<version>0.4.0-SNAPSHOT</version>
 	</dependency>
 
 ## Usage
