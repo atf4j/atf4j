@@ -86,7 +86,7 @@ public class BankSortCode {
      *
      * @param sortcode
      *            the sortcode
-     * @return true, if successful
+     \* @return true, if successful, otherwise false.
      */
     public static boolean verify(final String sortcode) {
         assertNotNull(sortcode);

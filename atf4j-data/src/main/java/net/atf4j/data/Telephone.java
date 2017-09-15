@@ -116,7 +116,7 @@ public class Telephone {
     /**
      * Verify.
      *
-     * @return true, if successful
+     \* @return true, if successful, otherwise false.
      */
     public static boolean verify() {
         return false;
@@ -216,7 +216,7 @@ public class Telephone {
      * Verify.
      *
      * @param number the number
-     * @return true, if successful
+     \* @return true, if successful, otherwise false.
      */
     public static boolean verify(final String number) {
         assertNotNull(number);

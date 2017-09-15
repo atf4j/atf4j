@@ -47,7 +47,7 @@ public class ProductCatalog {
      *
      * @param e
      *            the e
-     * @return true, if successful
+     \* @return true, if successful, otherwise false.
      * @see java.util.Collection#add(java.lang.Object)
      */
     public boolean add(final Product e) {

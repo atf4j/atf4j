@@ -92,7 +92,7 @@ public class ClassMethod {
      * Adds the.
      *
      * @param e the e
-     * @return true, if successful
+     \* @return true, if successful, otherwise false.
      */
     public boolean add(final ClassField e) {
         return this.parameters.add(e);

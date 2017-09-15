@@ -31,21 +31,21 @@ public abstract class SetUpData {
     /**
      * Sets the up.
      *
-     * @return true, if successful
+     \* @return true, if successful, otherwise false.
      */
     public abstract boolean setUp();
 
     /**
      * Reset.
      *
-     * @return true, if successful
+     \* @return true, if successful, otherwise false.
      */
     public abstract boolean reset();
 
     /**
      * Tear down.
      *
-     * @return true, if successful
+     \* @return true, if successful, otherwise false.
      */
     public abstract boolean tearDown();
 

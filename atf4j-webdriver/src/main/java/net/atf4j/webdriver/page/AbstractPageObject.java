@@ -218,7 +218,7 @@ public abstract class AbstractPageObject {
      *
      * @param webElement
      *            the web element
-     * @return true, if successful
+     \* @return true, if successful, otherwise false.
      */
     protected boolean verifyElement(final WebElement webElement) {
         assertNotNull(webElement);

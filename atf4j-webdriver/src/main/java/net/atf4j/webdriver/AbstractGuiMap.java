@@ -71,7 +71,7 @@ public abstract class AbstractGuiMap {
      *
      * @param key
      *            the key
-     * @return true, if successful
+     \* @return true, if successful, otherwise false.
      */
     public boolean containsKey(final String key) {
         return resourceBundle.containsKey(key);

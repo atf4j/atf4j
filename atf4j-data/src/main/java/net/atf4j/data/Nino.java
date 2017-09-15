@@ -63,7 +63,7 @@ public class Nino {
      *
      * @param code
      *            the code
-     * @return true, if successful
+     \* @return true, if successful, otherwise false.
      */
     public static boolean verify(final String code) {
         final Matcher matcher = pattern.matcher(code);

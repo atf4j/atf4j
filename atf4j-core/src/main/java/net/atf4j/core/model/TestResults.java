@@ -33,7 +33,7 @@ public class TestResults {
      *
      * @param testResult
      *            the test result
-     * @return true, if successful
+     \* @return true, if successful, otherwise false.
      */
     public boolean add(final TestResult testResult) {
         return this.testResults.add(testResult);

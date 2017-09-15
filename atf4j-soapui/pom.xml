@@ -13,14 +13,6 @@
 	<packaging>jar</packaging>
 	<name>ATF4J - Selenium SOAPUI</name>
 
-	<dependencies>
-		<dependency>
-			<groupId>net.atf4j</groupId>
-			<artifactId>atf4j-core</artifactId>
-			<version>0.4.0-SNAPSHOT</version>
-		</dependency>
-	</dependencies>
-
 	<pluginRepositories>
 		<pluginRepository>
 			<id>SmartBearPluginRepository</id>
@@ -32,8 +24,8 @@
 		<plugins>
 			<plugin>
 				<groupId>com.smartbear.soapui</groupId>
-				<artifactId>soapui-pro-maven-plugin</artifactId>
-				<version>4.6.1</version>
+				<artifactId>soapui-maven-plugin</artifactId>
+				<version>4.6.4</version>
 				<executions>
 					<execution>
 						<phase>test</phase>
@@ -45,10 +37,38 @@
 							<projectProperties>
 								<value>key=value</value>
 							</projectProperties>
+
+							<reports>${basedir}/target/surefire-reports</reports>
+							<outputFolder>${basedir}/targetreports</outputFolder>
+
+							<!--Specifies the SoapUI settings file to use. -->
+							<!--settingsFile></settingsFile -->
+
+							<!--globalProperties> <value>Sample Project Property=My sample value</value> 
+								</globalProperties -->
+
+							<!--projectProperties> <value>Some Property=My Sample Value</value> 
+								</projectProperties -->
+
+							<testFailIgnore>true</testFailIgnore>
+
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+			</plugin>
 		</plugins>
 	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.19.1</version>
+			</plugin>
+		</plugins>
+	</reporting>
 </project>

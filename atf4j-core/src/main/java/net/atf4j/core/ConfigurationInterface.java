@@ -55,7 +55,7 @@ public interface ConfigurationInterface {
      *
      * @param key the key of the value as String.
      * @param defaultValue the default value as boolean.
-     * @return true, if successful otherwise false.
+     \* @return true, if successful, otherwise false. otherwise false.
      */
     boolean valueFor(final String key, final boolean defaultValue);
 
