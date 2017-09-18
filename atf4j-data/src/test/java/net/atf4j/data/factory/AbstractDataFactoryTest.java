@@ -22,7 +22,6 @@ import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
-// TODO: Auto-generated Javadoc
 /**
  * A UnitTest for AbstractDataFactory objects.
  */
@@ -51,7 +50,7 @@ public class AbstractDataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testDefaultConstructor() throws Exception {
-        TestDataFactory testDataFactory = new TestDataFactory();
+        final TestDataFactory testDataFactory = new TestDataFactory();
         assertNotNull(testDataFactory);
     }
 
@@ -63,7 +62,7 @@ public class AbstractDataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testStaticDataForTag() throws Exception {
-        TestDataFactory.dataForTag("#Data");
+        AbstractDataFactory.dataForTag("#Data");
     }
 
 }

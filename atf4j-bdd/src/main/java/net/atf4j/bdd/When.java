@@ -16,10 +16,16 @@
  */
 package net.atf4j.bdd;
 
+import java.util.UUID;
+
 /**
  * When Class.
  */
-public class When extends HoareStep {
+public final class When extends HoareStep {
+
+    public When() {
+        super(UUID.randomUUID().toString());
+    }
 
     /**
      * When a event occurs.

@@ -320,10 +320,7 @@ public abstract class CodeGenerator {
         contextBinding("fields", this.fields);
         contextBinding("methods", this.methods);
 
-        final boolean evaluate = this.velocityEngine.evaluate(this.context,
-                writer,
-                logTag,
-                templateReader);
+        final boolean evaluate = this.velocityEngine.evaluate(this.context, writer, logTag, templateReader);
 
         writer.flush();
         writer.close();
@@ -379,9 +376,7 @@ public abstract class CodeGenerator {
      * @return the string
      */
     private String targetFilename(final String targetPath, final String className) {
-        final String targetFile = String.format("%s/%s.java",
-                targetPath,
-                className);
+        final String targetFile = String.format("%s/%s.java", targetPath, className);
         this.log.info("generatedFile={}", targetFile);
         return targetFile;
     }
@@ -398,9 +393,7 @@ public abstract class CodeGenerator {
     private String targetPath(final String homeFolder, final String packageFolder) {
         assertNotNull(homeFolder);
         assertNotNull(packageFolder);
-        final String targetPath = String.format("%s/%s",
-                homeFolder,
-                packageFolder);
+        final String targetPath = String.format("%s/%s", homeFolder, packageFolder);
         this.log.info("targetPath={}", targetPath);
         new File(targetPath).mkdirs();
         return targetPath;
@@ -419,18 +412,16 @@ public abstract class CodeGenerator {
         return packageFolder;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
         return String.format(
                 "JavaClassGenerator [templateFilename=%s, packageName=%s, className=%s, fields=%s, methods=%s]",
-                this.templateFilename,
-                this.packageName,
-                this.className,
-                this.fields,
-                this.methods);
+                this.templateFilename, this.packageName, this.className, this.fields, this.methods);
     }
 
     /**

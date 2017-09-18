@@ -20,16 +20,15 @@ package net.atf4j.data;
  * Field Status.
  */
 public enum FieldStatus {
-    PRISTINE("Pristine"),
-    CHANGED("Changed"),
-    PERSISTED("Persisted"),
-    UNWANTED("Unwanted");
+    PRISTINE("Pristine"), CHANGED("Changed"), PERSISTED("Persisted"), UNWANTED("Unwanted");
 
     private String value;
 
     /**
      * Instantiates a new field status.
-     * @param value the value
+     * 
+     * @param value
+     *            the value
      */
     private FieldStatus(final String value) {
         this.value = value;
@@ -44,7 +43,9 @@ public enum FieldStatus {
         return FieldStatus.PRISTINE;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Enum#toString()
      */
     @Override

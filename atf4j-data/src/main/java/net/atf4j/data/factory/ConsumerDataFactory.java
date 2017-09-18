@@ -67,6 +67,7 @@ public class ConsumerDataFactory extends AbstractDataFactory {
 
     /**
      * Random stuff.
+     * 
      * @return the string
      */
     public static String randomStuff() {

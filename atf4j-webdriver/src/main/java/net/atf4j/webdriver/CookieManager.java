@@ -49,14 +49,14 @@ public class CookieManager {
      * @return true, if successful, otherwise false.
      */
     public boolean add(final Cookie cookie) {
-        return cookies.add(cookie);
+        return this.cookies.add(cookie);
     }
 
     /**
      * Delete all the cookie associated with the site page.
      */
     public void clear() {
-        webDriver.manage().deleteAllCookies();
+        this.webDriver.manage().deleteAllCookies();
     }
 
     /**
@@ -67,7 +67,7 @@ public class CookieManager {
      * @return true, if cookie is stored, otherwise false.
      */
     public boolean contains(final Cookie cookie) {
-        return cookies.contains(cookie);
+        return this.cookies.contains(cookie);
     }
 
     /**
@@ -76,7 +76,7 @@ public class CookieManager {
      * @return true, if there are no cookies, otherwise false.
      */
     public boolean isEmpty() {
-        return cookies.isEmpty();
+        return this.cookies.isEmpty();
     }
 
     /**
@@ -87,17 +87,17 @@ public class CookieManager {
      * @return true, if successful, otherwise false.
      */
     public boolean remove(final Cookie cookie) {
-        return cookies.remove(cookie);
+        return this.cookies.remove(cookie);
     }
 
     /**
      * Restore the Browser cookies to previous state from the local cache.
      */
     public void restore() {
-        if (cookies != null) {
-            cookies = webDriver.manage().getCookies();
-            for (final Cookie cookie : cookies) {
-                webDriver.manage().addCookie(cookie);
+        if (this.cookies != null) {
+            this.cookies = this.webDriver.manage().getCookies();
+            for (final Cookie cookie : this.cookies) {
+                this.webDriver.manage().addCookie(cookie);
             }
         }
     }
@@ -106,7 +106,7 @@ public class CookieManager {
      * Save the cookies associated with the site page to the local cache.
      */
     public void save() {
-        cookies = webDriver.manage().getCookies();
+        this.cookies = this.webDriver.manage().getCookies();
     }
 
     /**

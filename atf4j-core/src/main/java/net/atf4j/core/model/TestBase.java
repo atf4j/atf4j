@@ -374,17 +374,8 @@ public abstract class TestBase extends ResultsReporting {
     public String debugString() {
         return String.format(
                 "%s [testStatus=%s, uniqueIdentifier=%s, testContext=%s, tester=%s, name=%s, taxonomy=%s, description=%s, timestamp=%s, preConditions=%s, postConditions=%s]",
-                this.getClass().getSimpleName(),
-                this.testResult,
-                this.uniqueIdentifier,
-                this.testContext,
-                this.tester,
-                this.name,
-                this.taxonomy,
-                this.description,
-                this.timestamp,
-                this.preConditions,
-                this.postConditions);
+                this.getClass().getSimpleName(), this.testResult, this.uniqueIdentifier, this.testContext, this.tester,
+                this.name, this.taxonomy, this.description, this.timestamp, this.preConditions, this.postConditions);
     }
 
     @Override

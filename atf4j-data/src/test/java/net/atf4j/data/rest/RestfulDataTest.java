@@ -32,7 +32,7 @@ public class RestfulDataTest {
      */
     @Test
     public void testRestfulData() {
-        RestfulData restfulData = new RestfulData();
+        final RestfulData restfulData = new RestfulData();
         assertNotNull(restfulData);
     }
 
@@ -41,9 +41,9 @@ public class RestfulDataTest {
      */
     @Test
     public void testSetUp() {
-        RestfulData restfulData = new RestfulData();
+        final RestfulData restfulData = new RestfulData();
         assertNotNull(restfulData);
-        boolean data = restfulData.setUp();
+        final boolean data = restfulData.setUp();
         assertNotNull(data);
     }
 
@@ -52,9 +52,9 @@ public class RestfulDataTest {
      */
     @Test
     public void testReset() {
-        RestfulData restfulData = new RestfulData();
+        final RestfulData restfulData = new RestfulData();
         assertNotNull(restfulData);
-        boolean data = restfulData.reset();
+        final boolean data = restfulData.reset();
         assertNotNull(data);
     }
 
@@ -63,9 +63,9 @@ public class RestfulDataTest {
      */
     @Test
     public void testTearDown() {
-        RestfulData restfulData = new RestfulData();
+        final RestfulData restfulData = new RestfulData();
         assertNotNull(restfulData);
-        boolean data = restfulData.tearDown();
+        final boolean data = restfulData.tearDown();
         assertNotNull(data);
     }
 

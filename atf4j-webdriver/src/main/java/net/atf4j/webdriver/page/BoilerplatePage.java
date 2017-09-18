@@ -47,7 +47,8 @@ public class BoilerplatePage extends AbstractPageObject {
     /**
      * Instantiates a new Html5 Boilerplate page object.
      *
-     * @param targetUrl the target url
+     * @param targetUrl
+     *            the target url
      */
     public BoilerplatePage(final String targetUrl) {
         super(targetUrl);

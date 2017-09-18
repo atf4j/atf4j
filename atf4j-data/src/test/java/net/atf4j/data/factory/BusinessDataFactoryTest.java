@@ -33,7 +33,7 @@ public class BusinessDataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testExpectedUsage() {
-        String randomThing = BusinessDataFactory.randomThing();
+        final String randomThing = BusinessDataFactory.randomThing();
         assertNotNull(randomThing);
         this.log.info("{}", randomThing);
     }
@@ -46,7 +46,7 @@ public class BusinessDataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testDefaultConstructor() throws Exception {
-        BusinessDataFactory bdf = new BusinessDataFactory();
+        final BusinessDataFactory bdf = new BusinessDataFactory();
         assertNotNull(bdf);
         this.log.info("{}", bdf.toString());
     }

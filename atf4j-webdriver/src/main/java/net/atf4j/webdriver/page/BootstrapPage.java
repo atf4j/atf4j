@@ -37,7 +37,8 @@ public class BootstrapPage extends AbstractPageObject {
     /**
      * Instantiates a new bootstrap page.
      *
-     * @param targetUrl the target url
+     * @param targetUrl
+     *            the target url
      */
     public BootstrapPage(final String targetUrl) {
         super(targetUrl);

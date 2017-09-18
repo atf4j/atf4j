@@ -36,10 +36,7 @@ public class PersonTest extends ResultsReporting {
      */
     @Test
     public void testPerson() {
-        final Person person = new Person()
-                                          .forename("Forname")
-                                          .middlename("MiddleName")
-                                          .surname("Surname");
+        final Person person = new Person().forename("Forname").middlename("MiddleName").surname("Surname");
         assertNotNull(person);
     }
 

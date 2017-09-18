@@ -36,8 +36,9 @@ public class EmailAddress {
 
     /**
      * At.
-     * 
-     * @param domain the domain
+     *
+     * @param domain
+     *            the domain
      * @return the email address
      */
     public static EmailAddress at(final String domain) {
@@ -48,7 +49,7 @@ public class EmailAddress {
 
     /**
      * Create new instance of create.
-     * 
+     *
      * @return the email address
      */
     public static EmailAddress create() {
@@ -68,7 +69,8 @@ public class EmailAddress {
     /**
      * Instantiates a new email address.
      *
-     * @param domain the domain
+     * @param domain
+     *            the domain
      */
     public EmailAddress(final String domain) {
         super();
@@ -78,7 +80,8 @@ public class EmailAddress {
     /**
      * Sets the email.
      *
-     * @param email the email
+     * @param email
+     *            the email
      * @return the email address
      */
     public EmailAddress setEmail(final String email) {
@@ -88,8 +91,9 @@ public class EmailAddress {
 
     /**
      * Sets the domain.
-     * 
-     * @param domain the domain
+     *
+     * @param domain
+     *            the domain
      * @return the email address
      */
     public EmailAddress setDomain(final String domain) {
@@ -99,8 +103,9 @@ public class EmailAddress {
 
     /**
      * Sets the local part.
-     * 
-     * @param localPart the local part
+     *
+     * @param localPart
+     *            the local part
      * @return the email address
      */
     public EmailAddress setLocalPart(final String localPart) {
@@ -110,7 +115,7 @@ public class EmailAddress {
 
     /**
      * Gets the domain.
-     * 
+     *
      * @return the domain
      */
     public String getDomain() {
@@ -119,7 +124,7 @@ public class EmailAddress {
 
     /**
      * Gets the local part.
-     * 
+     *
      * @return the local part
      */
     public String getLocalPart() {
@@ -128,7 +133,7 @@ public class EmailAddress {
 
     /**
      * Gets the email.
-     * 
+     *
      * @return the email
      */
     public String getEmail() {
@@ -138,22 +143,22 @@ public class EmailAddress {
     /**
      * Verify.
      *
-     * @param email the email
-     \* @return true, if successful, otherwise false.
+     * @param email
+     *            the email \* @return true, if successful, otherwise false.
      */
     public static boolean verify(final String email) {
         final Matcher matcher = PATTERN.matcher(email);
         return matcher.find();
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return String.format("EmailAddress [domain=%s, localPart=%s, email=%s]",
-                this.domain,
-                this.localPart,
+        return String.format("EmailAddress [domain=%s, localPart=%s, email=%s]", this.domain, this.localPart,
                 this.email);
     }
 

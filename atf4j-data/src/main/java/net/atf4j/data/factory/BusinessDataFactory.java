@@ -67,6 +67,7 @@ public class BusinessDataFactory extends AbstractDataFactory {
 
     /**
      * Random thing.
+     * 
      * @return the string
      */
     public static String randomThing() {

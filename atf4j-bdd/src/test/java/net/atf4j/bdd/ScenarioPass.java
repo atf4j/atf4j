@@ -18,10 +18,19 @@ package net.atf4j.bdd;
 
 import org.junit.Test;
 
-public class Scenario extends LoggedScenario {
+import net.atf4j.core.ResultsReporting;
+
+/**
+ * Class Scenario.
+ */
+public class ScenarioPass extends ResultsReporting {
+
+    /**
+     * Test scenario runner.
+     */
     @Test
     public void testScenarioRunner() {
-        new ScenarioRunner(this).execute();
+        new ScenarioRunner().execute();
     }
 
 }

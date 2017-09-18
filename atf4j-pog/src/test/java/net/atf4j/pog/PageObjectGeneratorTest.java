@@ -33,7 +33,8 @@ public class PageObjectGeneratorTest extends ResultsReporting {
     /**
      * Test method for void.
      *
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     @Test
     public void testExpected() throws Exception {
@@ -41,42 +42,18 @@ public class PageObjectGeneratorTest extends ResultsReporting {
         final PageObjectData pageObjectData = new PageObjectData();
         assertNotNull(pageObjectData);
 
-        final PageWebElement idElement = new PageWebElement(
-                "findById",
-                Strategy.ID,
-                "id");
-        final PageWebElement nameElement = new PageWebElement(
-                "findByName",
-                Strategy.NAME,
-                "name");
-        final PageWebElement classNameElement = new PageWebElement(
-                "findByClassName",
-                Strategy.CLASS_NAME,
-                "className");
-        final PageWebElement linkTextElement = new PageWebElement(
-                "findByLinkText",
-                Strategy.LINK_TEXT,
-                "linkText");
-        final PageWebElement partialLinkTextElement = new PageWebElement(
-                "findByPartialLinkText",
-                Strategy.PARTIAL_LINK_TEXT,
-                "partialLinkText");
-        final PageWebElement xpathElement = new PageWebElement(
-                "findByXpath",
-                Strategy.XPATH,
+        final PageWebElement idElement = new PageWebElement("findById", Strategy.ID, "id");
+        final PageWebElement nameElement = new PageWebElement("findByName", Strategy.NAME, "name");
+        final PageWebElement classNameElement = new PageWebElement("findByClassName", Strategy.CLASS_NAME, "className");
+        final PageWebElement linkTextElement = new PageWebElement("findByLinkText", Strategy.LINK_TEXT, "linkText");
+        final PageWebElement partialLinkTextElement = new PageWebElement("findByPartialLinkText",
+                Strategy.PARTIAL_LINK_TEXT, "partialLinkText");
+        final PageWebElement xpathElement = new PageWebElement("findByXpath", Strategy.XPATH,
                 "//a[contains(text(), 'ATF4J')]");
-        final PageWebElement cssElement = new PageWebElement(
-                "findByCss",
-                Strategy.CSS,
-                ".");
+        final PageWebElement cssElement = new PageWebElement("findByCss", Strategy.CSS, ".");
 
-        pageObjectData.add(idElement)
-                      .add(nameElement)
-                      .add(classNameElement)
-                      .add(linkTextElement)
-                      .add(partialLinkTextElement)
-                      .add(xpathElement)
-                      .add(cssElement);
+        pageObjectData.add(idElement).add(nameElement).add(classNameElement).add(linkTextElement)
+                .add(partialLinkTextElement).add(xpathElement).add(cssElement);
 
         pageObjectData.addNav(linkTextElement);
         pageObjectData.addNav(partialLinkTextElement);
@@ -94,7 +71,8 @@ public class PageObjectGeneratorTest extends ResultsReporting {
     /**
      * Test method for void.
      *
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     @Test
     public void testPageObjectTargetSurvey() throws Exception {
@@ -106,7 +84,8 @@ public class PageObjectGeneratorTest extends ResultsReporting {
     /**
      * Test method for void.
      *
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     @Test
     public void testPageObjectSurvey() throws Exception {
@@ -118,7 +97,8 @@ public class PageObjectGeneratorTest extends ResultsReporting {
     /**
      * Test method for void.
      *
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     @Test
     public void testPageObjectPrototype() throws Exception {
@@ -130,15 +110,14 @@ public class PageObjectGeneratorTest extends ResultsReporting {
     /**
      * Test method for void.
      *
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     @Test
     public void testPageObjectGenerator() throws Exception {
         this.log.info("==============================================");
         final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
-        pageObjectGenerator.target(HTTP_ATF4J_NET)
-                           .survey()
-                           .prototype();
+        pageObjectGenerator.target(HTTP_ATF4J_NET).survey().prototype();
 
         pageObjectGenerator.generate();
     }

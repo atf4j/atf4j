@@ -23,15 +23,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The ScenarioRunner Class.
+ * ScenarioRunner Class.
  */
 public class ScenarioRunner {
 
-    /** The log. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
-
-    /** The target scenario. */
-    private LoggedScenario targetScenario;
+    private AbstractScenario targetScenario;
 
     /**
      * Instantiates a new scenario runner.
@@ -46,7 +43,7 @@ public class ScenarioRunner {
      * @param targetScenario
      *            the target scenario
      */
-    public ScenarioRunner(final LoggedScenario targetScenario) {
+    public ScenarioRunner(final AbstractScenario targetScenario) {
         super();
         this.targetScenario = targetScenario;
     }
@@ -58,7 +55,7 @@ public class ScenarioRunner {
      *            the scenario
      * @return the scenario runner
      */
-    public ScenarioRunner execute(final LoggedScenario scenario) {
+    public ScenarioRunner execute(final AbstractScenario scenario) {
         this.targetScenario = scenario;
         return this;
     }
@@ -90,7 +87,7 @@ public class ScenarioRunner {
      *            the scenario
      * @return the scenario runner
      */
-    private ScenarioRunner executeGiven(final LoggedScenario scenario) {
+    private ScenarioRunner executeGiven(final AbstractScenario scenario) {
         final Class<?> candidateClass = this.targetScenario.getClass();
         if (candidateClass.isAnnotationPresent(Atf4j.Scenario.class)) {
             this.log.info(candidateClass.toGenericString());
@@ -121,7 +118,7 @@ public class ScenarioRunner {
      *            the scenario
      * @return the scenario runner
      */
-    private ScenarioRunner executeWhen(final LoggedScenario scenario) {
+    private ScenarioRunner executeWhen(final AbstractScenario scenario) {
         final Class<?> candidateClass = this.targetScenario.getClass();
         if (candidateClass.isAnnotationPresent(Atf4j.Scenario.class)) {
             this.log.info(candidateClass.toGenericString());
@@ -152,7 +149,7 @@ public class ScenarioRunner {
      *            the scenario
      * @return the scenario runner
      */
-    private ScenarioRunner executeThen(final LoggedScenario scenario) {
+    private ScenarioRunner executeThen(final AbstractScenario scenario) {
         final Class<?> candidateClass = this.targetScenario.getClass();
         if (candidateClass.isAnnotationPresent(Atf4j.Scenario.class)) {
             this.log.info(candidateClass.toGenericString());

@@ -67,12 +67,12 @@ public class AddressDataFactory extends AbstractDataFactory {
         try {
             this.postalTownsUK = new CsvFile("postalTownsUK.csv");
         } catch (final Exception e) {
-            log.error("{}",e);
+            this.log.error("{}", e);
         }
         try {
             this.postCodeData = new CsvFile("postCodeData.csv");
         } catch (final Exception e) {
-            log.error("{}",e);
+            this.log.error("{}", e);
         }
 
     }
@@ -114,7 +114,9 @@ public class AddressDataFactory extends AbstractDataFactory {
 
     /**
      * Random.
-     * @param string the string
+     * 
+     * @param string
+     *            the string
      * @return the postal address
      */
     public static PostalAddress random(final String string) {

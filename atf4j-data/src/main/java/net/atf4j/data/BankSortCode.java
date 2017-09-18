@@ -85,8 +85,7 @@ public class BankSortCode {
      * Verify.
      *
      * @param sortcode
-     *            the sortcode
-     \* @return true, if successful, otherwise false.
+     *            the sortcode \* @return true, if successful, otherwise false.
      */
     public static boolean verify(final String sortcode) {
         assertNotNull(sortcode);
@@ -94,7 +93,9 @@ public class BankSortCode {
         return matcher.find();
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
     @Override

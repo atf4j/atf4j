@@ -32,7 +32,7 @@ public class LoremIpsumTest extends ResultsReporting {
      */
     @Test
     public void testLoremIpsum() {
-        String text = LoremIpsum.text();
+        final String text = LoremIpsum.text();
         assertNotNull(text);
         this.log.info("LoremIpsum.text() = {}", LoremIpsum.text());
 

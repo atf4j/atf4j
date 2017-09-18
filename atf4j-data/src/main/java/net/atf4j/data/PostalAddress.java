@@ -37,7 +37,9 @@ public class PostalAddress {
 
     /**
      * Instantiates a new postal address.
-     * @param address the address
+     * 
+     * @param address
+     *            the address
      */
     public PostalAddress(final String address) {
         super();
@@ -84,8 +86,10 @@ public class PostalAddress {
     /**
      * Sets the address row.
      *
-     * @param row the row
-     * @param line the line
+     * @param row
+     *            the row
+     * @param line
+     *            the line
      */
     public void setAddressRow(final int row, final String line) {
         assertTrue(row > 0);
@@ -129,13 +133,13 @@ public class PostalAddress {
      * @return the string
      */
     public String debugString() {
-        return String.format("%s [address=%s, postcode=%s]",
-                this.getClass().getSimpleName(),
-                Arrays.toString(this.addressLines),
-                this.postcode);
+        return String.format("%s [address=%s, postcode=%s]", this.getClass().getSimpleName(),
+                Arrays.toString(this.addressLines), this.postcode);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
     @Override

@@ -38,7 +38,7 @@ public interface PageInterface {
     /**
      * Verify that.
      *
-     \* @return true, if successful, otherwise false. otherwise false.
+     * \* @return true, if successful, otherwise false. otherwise false.
      */
     public abstract PageInterface verify();
 

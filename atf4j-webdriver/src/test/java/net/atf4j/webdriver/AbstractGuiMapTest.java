@@ -54,7 +54,7 @@ public class AbstractGuiMapTest extends ResultsReporting {
             Assert.assertNotNull(key);
             Assert.assertTrue(instance.containsKey(key));
             Assert.assertNotNull(instance.getString(key));
-            log.info("{}={}", key, instance.getString(key));
+            this.log.info("{}={}", key, instance.getString(key));
         }
     }
 
@@ -106,9 +106,9 @@ public class AbstractGuiMapTest extends ResultsReporting {
     public void testToString() throws Exception {
         final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
         Assert.assertNotNull(abstractGuiMap);
-        log.info(abstractGuiMap.toString());
-        log.info(abstractGuiMap.getBaseBundleName());
-        log.info(abstractGuiMap.getLocale().toString());
+        this.log.info(abstractGuiMap.toString());
+        this.log.info(abstractGuiMap.getBaseBundleName());
+        this.log.info(abstractGuiMap.getLocale().toString());
     }
 
 }

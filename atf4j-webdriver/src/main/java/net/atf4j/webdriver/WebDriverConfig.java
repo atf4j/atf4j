@@ -99,7 +99,7 @@ public class WebDriverConfig extends AbstractConfig {
 
     /**
      * Explicit wait.
-     * 
+     *
      * @return the long
      */
     public long explicitWait() {
@@ -151,7 +151,9 @@ public class WebDriverConfig extends AbstractConfig {
         return this.get("timeOutInSeconds", 1);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
      */
     @Override

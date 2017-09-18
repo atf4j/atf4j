@@ -33,7 +33,7 @@ public class PersonDataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testExpectedUsage() {
-        Person person = PersonDataFactory.create();
+        final Person person = PersonDataFactory.create();
         assertNotNull(person);
 
         this.log.info("{}", PersonDataFactory.randomForename());

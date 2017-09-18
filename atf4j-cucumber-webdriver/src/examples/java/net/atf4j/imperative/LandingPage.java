@@ -29,7 +29,8 @@ public class LandingPage extends AbstractPageObject {
     /**
      * Instantiates a new landing page.
      *
-     * @throws ConfigurationNotLoaded the configuration not loaded
+     * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
      */
     public LandingPage() throws ConfigurationNotLoaded {
         super();
@@ -38,8 +39,10 @@ public class LandingPage extends AbstractPageObject {
     /**
      * Instantiates a new landing page.
      *
-     * @param targetUrl the target url
-     * @throws ConfigurationNotLoaded the configuration not loaded
+     * @param targetUrl
+     *            the target url
+     * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
      */
     public LandingPage(final String targetUrl) throws ConfigurationNotLoaded {
         super(targetUrl);
@@ -48,7 +51,8 @@ public class LandingPage extends AbstractPageObject {
     /**
      * Instantiates a new landing page.
      *
-     * @param webDriver the web driver
+     * @param webDriver
+     *            the web driver
      */
     public LandingPage(final WebDriver webDriver) {
         super(webDriver);

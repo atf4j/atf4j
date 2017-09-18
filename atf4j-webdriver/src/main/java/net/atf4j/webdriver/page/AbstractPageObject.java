@@ -217,8 +217,8 @@ public abstract class AbstractPageObject {
      * Verify.
      *
      * @param webElement
-     *            the web element
-     \* @return true, if successful, otherwise false.
+     *            the web element \* @return true, if successful, otherwise
+     *            false.
      */
     protected boolean verifyElement(final WebElement webElement) {
         assertNotNull(webElement);
@@ -316,25 +316,26 @@ public abstract class AbstractPageObject {
     public void waitUntilCount(final List<WebElement> webElements, final int count) {
         this.webDriverWait.until(new ExpectedCondition<Boolean>() {
             @Override
-            public Boolean apply(WebDriver driver) {
-                if (webElements.size() >= count)
+            public Boolean apply(final WebDriver driver) {
+                if (webElements.size() >= count) {
                     return true;
-                else
+                } else {
                     return false;
+                }
             }
         });
     }
 
     /**
      * Waits until the expectations are full filled or timeout runs out
-     * 
+     *
      * @param condition
      *            The conditions the element should meet
      * @param timeout
      *            The timeout to wait
      * @return True if element meets the condition
      */
-    private boolean waitForExpectedCondition(ExpectedCondition<?> condition, int timeout) {
+    private boolean waitForExpectedCondition(final ExpectedCondition<?> condition, final int timeout) {
         return true;
     }
 
@@ -345,10 +346,10 @@ public abstract class AbstractPageObject {
     private ExpectedCondition<Boolean> searchFinished() {
         return new ExpectedCondition<Boolean>() {
             @Override
-            public Boolean apply(WebDriver webDriver) {
-                String xpathExpression = "";
-                List<WebElement> elements = webDriver.findElements(By.xpath(xpathExpression));
-                return (elements.size() >= 10);
+            public Boolean apply(final WebDriver webDriver) {
+                final String xpathExpression = "";
+                final List<WebElement> elements = webDriver.findElements(By.xpath(xpathExpression));
+                return elements.size() >= 10;
             }
         };
     }

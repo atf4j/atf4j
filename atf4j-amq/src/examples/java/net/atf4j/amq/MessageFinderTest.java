@@ -8,7 +8,7 @@ public class MessageFinderTest {
 
     @Test
     public void testMessageFinder() {
-        MessageFinder folderWalker = new MessageFinder();
+        final MessageFinder folderWalker = new MessageFinder();
         assertNotNull(folderWalker);
         folderWalker.walk();
     }

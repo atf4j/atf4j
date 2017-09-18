@@ -78,14 +78,16 @@ public class BrowserFactoryTest extends ResultsReporting {
 
     /**
      * Verify that verify page loaded.
-     * @param webDriver the web driver
+     * 
+     * @param webDriver
+     *            the web driver
      */
     private void verifyPageLoaded(final WebDriver webDriver) {
         webDriver.get("http://127.0.0.1:8080");
         final String currentUrl = webDriver.getCurrentUrl();
-        log.info(currentUrl);
+        this.log.info(currentUrl);
         final String pageTitle = webDriver.getTitle();
-        log.info(pageTitle);
+        this.log.info(pageTitle);
     }
 
 }

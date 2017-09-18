@@ -33,7 +33,8 @@ public class Consumer extends Person {
     /**
      * Instantiates a new consumer.
      *
-     * @param credentials the credentials
+     * @param credentials
+     *            the credentials
      */
     public Consumer(final Credentials credentials) {
         super();
@@ -43,9 +44,12 @@ public class Consumer extends Person {
     /**
      * Instantiates a new consumer.
      *
-     * @param forename the forename
-     * @param middlename the middlename
-     * @param surname the surname
+     * @param forename
+     *            the forename
+     * @param middlename
+     *            the middlename
+     * @param surname
+     *            the surname
      */
     public Consumer(final String forename, final String middlename, final String surname) {
         super(forename, middlename, surname);
@@ -54,7 +58,8 @@ public class Consumer extends Person {
     /**
      * Sets the credentials.
      *
-     * @param credentials the credentials to set
+     * @param credentials
+     *            the credentials to set
      * @return the consumer
      */
     public Consumer setCredentials(final Credentials credentials) {
@@ -65,7 +70,8 @@ public class Consumer extends Person {
     /**
      * Sets the username.
      *
-     * @param username the username
+     * @param username
+     *            the username
      * @return the credentials
      */
     public Credentials setUsername(final String username) {
@@ -75,7 +81,8 @@ public class Consumer extends Person {
     /**
      * Sets the password.
      *
-     * @param password the password
+     * @param password
+     *            the password
      * @return the credentials
      */
     public Credentials setPassword(final String password) {
@@ -85,7 +92,8 @@ public class Consumer extends Person {
     /**
      * Sets the email.
      *
-     * @param email the email
+     * @param email
+     *            the email
      * @return the credentials
      */
     public Credentials setEmail(final String email) {
@@ -128,7 +136,9 @@ public class Consumer extends Person {
         return this.credentials;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see net.atf4j.data.Person#toString()
      */
     @Override

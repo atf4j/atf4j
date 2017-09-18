@@ -14,39 +14,23 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
-package net.atf4j.data.management;
+package net.atf4j.bdd;
+
+import org.junit.Test;
+
+import net.atf4j.core.ResultsReporting;
 
 /**
- * The Class SetUpData.
+ * Class Scenario.
  */
-public abstract class SetUpData {
+public class ScenarioFail extends ResultsReporting {
 
     /**
-     * Instantiates a new sets the up data.
+     * Test scenario runner.
      */
-    public SetUpData() {
-        super();
+    @Test
+    public void testScenarioRunner() {
+        new ScenarioRunner().execute();
     }
-
-    /**
-     * Sets the up.
-     *
-     * \* @return true, if successful, otherwise false.
-     */
-    public abstract boolean setUp();
-
-    /**
-     * Reset.
-     *
-     * \* @return true, if successful, otherwise false.
-     */
-    public abstract boolean reset();
-
-    /**
-     * Tear down.
-     *
-     * \* @return true, if successful, otherwise false.
-     */
-    public abstract boolean tearDown();
 
 }

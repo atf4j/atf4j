@@ -35,7 +35,7 @@ public class WebAppModel extends AbstractBehaviourModel {
      * A browser.
      */
     public void aBrowser() {
-        log.info("aBrowser()");
+        this.log.info("aBrowser()");
         this.webDriver = AbstractBrowserFactory.webDriver();
     }
 
@@ -46,16 +46,17 @@ public class WebAppModel extends AbstractBehaviourModel {
      *            the browser name
      */
     public void useBrowser(final String browserName) {
-        log.debug("useBrowser({})", browserName);
+        this.log.debug("useBrowser({})", browserName);
     }
 
     /**
      * Open default landing page.
-     * 
-     * @throws ConfigurationNotLoaded the configuration not loaded
+     *
+     * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
      */
     public void open() throws ConfigurationNotLoaded {
-        log.debug("open()");
+        this.log.debug("open()");
         this.page = new LandingPage();
     }
 
@@ -66,7 +67,7 @@ public class WebAppModel extends AbstractBehaviourModel {
      *            the target url
      */
     public void open(final String targetUrl) {
-        log.debug("open({})", targetUrl);
+        this.log.debug("open({})", targetUrl);
         this.page.open(targetUrl);
     }
 
@@ -74,7 +75,7 @@ public class WebAppModel extends AbstractBehaviourModel {
      * Verify.
      */
     public void verify() {
-        log.debug("verify()");
+        this.log.debug("verify()");
         this.page.verify();
     }
 
@@ -85,26 +86,28 @@ public class WebAppModel extends AbstractBehaviourModel {
      *            the expected page title
      */
     public void pageTitleShouldBe(final String expectedPageTitle) {
-        log.debug("pageTitleShouldBe({})", expectedPageTitle);
+        this.log.debug("pageTitleShouldBe({})", expectedPageTitle);
         this.page.verifyPageTitle(expectedPageTitle);
     }
 
     /**
      * Ensure cookie exists.
-     * 
-     * @param expectedCookieName the expected cookie name
+     *
+     * @param expectedCookieName
+     *            the expected cookie name
      */
     public void ensureCookieExists(final String expectedCookieName) {
-        log.debug("ensureCookieExists({})", expectedCookieName);
+        this.log.debug("ensureCookieExists({})", expectedCookieName);
     }
 
     /**
      * The cookie has value.
-     * 
-     * @param expectedCookieName the expected cookie name
+     *
+     * @param expectedCookieName
+     *            the expected cookie name
      */
     public void theCookieHasValue(final String expectedCookieName) {
-        log.debug("{}.theCookieHasValue({})", this, expectedCookieName);
+        this.log.debug("{}.theCookieHasValue({})", this, expectedCookieName);
     }
 
 }

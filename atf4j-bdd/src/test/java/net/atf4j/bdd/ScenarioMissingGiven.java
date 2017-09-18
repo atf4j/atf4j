@@ -19,24 +19,37 @@ package net.atf4j.bdd;
 import org.junit.Test;
 
 import net.atf4j.bdd.Atf4j.Scenario;
+import net.atf4j.core.ResultsReporting;
 
+/**
+ * ScenarioMissingGiven Class.
+ */
 @Scenario("Scenario")
-public class ScenarioMissingGiven extends LoggedScenario {
+public class ScenarioMissingGiven extends ResultsReporting {
 
+    /**
+     * Test scenario runner.
+     */
     @Test
     public void testScenarioRunner() {
-        new ScenarioRunner(this).execute();
+        new ScenarioRunner().execute();
     }
 
     // @Atf4j.Given("Given")
     // public void testPassGiven() {
     // }
 
+    /**
+     * Test pass when.
+     */
     @Atf4j.When("When")
     public void testPassWhen() {
         this.log.info(super.toString());
     }
 
+    /**
+     * Test pass then.
+     */
     @Atf4j.Then("Then")
     public void testPassThen() {
     }

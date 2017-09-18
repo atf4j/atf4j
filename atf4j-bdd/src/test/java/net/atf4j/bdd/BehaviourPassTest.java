@@ -16,21 +16,35 @@
  */
 package net.atf4j.bdd;
 
+import net.atf4j.core.ResultsReporting;
+
 /**
- * Invarient.
- *
- *
+ * BehaviourTest Class.
  */
-public abstract class Invarient extends Predicate {
+public class BehaviourPassTest extends ResultsReporting {
 
     /**
-     * Instantiates a new invarient.
-     *
-     * @param string
-     *            the string
+     * Test given.
      */
-    public Invarient(final String string) {
-        super(string);
+    @Atf4j.Given("testGiven")
+    public void testGiven() {
+        new Given();
+    }
+
+    /**
+     * Test when.
+     */
+    @Atf4j.When("testWhen")
+    public void testWhen() {
+        new When();
+    }
+
+    /**
+     * Test then.
+     */
+    @Atf4j.Then("testThen")
+    public void testThen() {
+        new Then();
     }
 
 }

@@ -33,12 +33,14 @@ import net.atf4j.core.AbstractConfig.PropertyNotFound;
 public class ConfigTest extends ResultsReporting {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ConfigTest.class);
-    
+
     /**
      * The DefaultConfig Class.
      */
     private class DefaultConfig extends AbstractConfig {
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         *
          * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
          */
         @Override
@@ -62,7 +64,9 @@ public class ConfigTest extends ResultsReporting {
             super();
         }
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         *
          * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
          */
         @Override
@@ -86,7 +90,9 @@ public class ConfigTest extends ResultsReporting {
             super("/ConfigFromFile.properties");
         }
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         *
          * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
          */
         @Override
@@ -134,8 +140,11 @@ public class ConfigTest extends ResultsReporting {
 
     /**
      * Test method for value from file.
-     * @throws ConfigurationNotLoaded the configuration not loaded
-     * @throws PropertyNotFound the property not found
+     *
+     * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
+     * @throws PropertyNotFound
+     *             the property not found
      */
     @Test
     public void testConfigFromFile() throws ConfigurationNotLoaded, PropertyNotFound {
@@ -149,8 +158,11 @@ public class ConfigTest extends ResultsReporting {
 
     /**
      * Test method for System overriding.
-     * @throws ConfigurationNotLoaded the configuration not loaded
-     * @throws PropertyNotFound the property not found
+     *
+     * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
+     * @throws PropertyNotFound
+     *             the property not found
      */
     @Test
     public final void testSystemOveridesConfig() throws ConfigurationNotLoaded, PropertyNotFound {
@@ -164,7 +176,9 @@ public class ConfigTest extends ResultsReporting {
 
     /**
      * Unit Test for test static config.
-     * @throws ConfigurationNotLoaded the configuration not loaded
+     *
+     * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
      */
     @Test
     public final void testStaticConfig() throws ConfigurationNotLoaded {

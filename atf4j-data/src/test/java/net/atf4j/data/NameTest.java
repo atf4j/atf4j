@@ -43,7 +43,8 @@ public class NameTest extends ResultsReporting {
         /**
          * Instantiates a new mock name.
          *
-         * @param name the name
+         * @param name
+         *            the name
          */
         public MockName(final String name) {
             super(name);

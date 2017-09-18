@@ -32,7 +32,7 @@ public abstract class AbstractConfig implements ConfigurationInterface {
      */
     public AbstractConfig() {
         super();
-            load();
+        load();
     }
 
     /**
@@ -83,7 +83,9 @@ public abstract class AbstractConfig implements ConfigurationInterface {
         return this;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     *
      * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
      */
     @Override
@@ -105,8 +107,10 @@ public abstract class AbstractConfig implements ConfigurationInterface {
     /**
      * Gets the value for the key.
      *
-     * @param key the key
-     * @param defaultValue the default value
+     * @param key
+     *            the key
+     * @param defaultValue
+     *            the default value
      * @return the int
      */
     protected int get(final String key, final int defaultValue) {
@@ -116,8 +120,10 @@ public abstract class AbstractConfig implements ConfigurationInterface {
     /**
      * Gets the value for the key.
      *
-     * @param key the key
-     * @param defaultValue the default value
+     * @param key
+     *            the key
+     * @param defaultValue
+     *            the default value
      * @return the long
      */
     protected long get(final String key, final long defaultValue) {
@@ -128,8 +134,10 @@ public abstract class AbstractConfig implements ConfigurationInterface {
      * Get a property from System Property if available, otherwise from Property
      * File if available, otherwise default.
      *
-     * @param key the key
-     * @param defaultValue the default value
+     * @param key
+     *            the key
+     * @param defaultValue
+     *            the default value
      * @return the string
      */
     protected String get(final String key, final String defaultValue) {
@@ -144,32 +152,44 @@ public abstract class AbstractConfig implements ConfigurationInterface {
         }
     }
 
-    /* (non-Javadoc)
-     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String, int)
+    /*
+     * (non-Javadoc)
+     *
+     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String,
+     * int)
      */
     @Override
     public int valueFor(final String key, final int defaultValue) {
         return Integer.parseInt(this.get(key, Integer.toString(defaultValue)));
     }
 
-    /* (non-Javadoc)
-     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String, long)
+    /*
+     * (non-Javadoc)
+     *
+     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String,
+     * long)
      */
     @Override
     public long valueFor(final String key, final long defaultValue) {
         return Long.parseLong(this.get(key, Long.toString(defaultValue)));
     }
 
-    /* (non-Javadoc)
-     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String, boolean)
+    /*
+     * (non-Javadoc)
+     *
+     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String,
+     * boolean)
      */
     @Override
     public boolean valueFor(final String key, final boolean defaultValue) {
         return Boolean.parseBoolean(this.get(key, Boolean.toString(defaultValue)));
     }
 
-    /* (non-Javadoc)
-     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String, java.lang.String)
+    /*
+     * (non-Javadoc)
+     *
+     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String,
+     * java.lang.String)
      */
     @Override
     public String valueFor(final String key, final String defaultValue) {
@@ -184,14 +204,18 @@ public abstract class AbstractConfig implements ConfigurationInterface {
 
         /**
          * Instantiates a new property not found.
-         * @param propertyKey the property key
+         *
+         * @param propertyKey
+         *            the property key
          */
         public PropertyNotFound(final String propertyKey) {
             super(String.format("Property not found for key %s", propertyKey));
         }
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     *
      * @see java.lang.Object#toString()
      */
     @Override

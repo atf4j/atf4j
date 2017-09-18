@@ -17,8 +17,7 @@
 package net.atf4j.data;
 
 /**
- * A Customer Business.
- * For a person as a customer see Consumer.
+ * A Customer Business. For a person as a customer see Consumer.
  */
 public class Customer extends Business {
 

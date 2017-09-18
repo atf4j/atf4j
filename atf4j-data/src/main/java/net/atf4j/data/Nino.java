@@ -20,14 +20,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * UK National Insurance number.
- * Commonly known as Nino.
+ * UK National Insurance number. Commonly known as Nino.
  */
 public class Nino {
 
     /** REGULAR EXPRESSION. */
-    private static final Pattern pattern = Pattern.compile(
-            "^[A-CEGHJ-PR-TW-Z]{1}[A-CEGHJ-NPR-TW-Z]{1}[0-9]{6}[A-D]{1}$");
+    private static final Pattern pattern = Pattern
+            .compile("^[A-CEGHJ-PR-TW-Z]{1}[A-CEGHJ-NPR-TW-Z]{1}[0-9]{6}[A-D]{1}$");
 
     private String nino;
 
@@ -62,8 +61,7 @@ public class Nino {
      * Verify.
      *
      * @param code
-     *            the code
-     \* @return true, if successful, otherwise false.
+     *            the code \* @return true, if successful, otherwise false.
      */
     public static boolean verify(final String code) {
         final Matcher matcher = pattern.matcher(code);
@@ -91,7 +89,9 @@ public class Nino {
         return this;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
     @Override

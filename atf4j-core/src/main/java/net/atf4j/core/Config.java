@@ -33,8 +33,11 @@ public class Config extends AbstractConfig {
 
     /**
      * Instantiates a new config.
-     * @param propertyFilename the property filename
-     * @throws ConfigurationNotLoaded the configuration not loaded
+     *
+     * @param propertyFilename
+     *            the property filename
+     * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
      */
     public Config(final String propertyFilename) throws ConfigurationNotLoaded {
         super(propertyFilename);
@@ -42,6 +45,7 @@ public class Config extends AbstractConfig {
 
     /**
      * Gets the single instance of Config.
+     *
      * @return single instance of Config
      */
     public static Config getInstance() {
@@ -51,7 +55,9 @@ public class Config extends AbstractConfig {
         return instance;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     *
      * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
      */
     @Override

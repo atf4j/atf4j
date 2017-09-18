@@ -10,9 +10,9 @@ public class MessageFinder extends AbstractFolderWalker {
 
     public class XmlFilter implements FilenameFilter {
         @Override
-        public boolean accept(File dir, String filename) {
-            log.debug("dir = {}", dir.toString());
-            log.debug("filename = {}", filename.toString());
+        public boolean accept(final File dir, final String filename) {
+            MessageFinder.this.log.debug("dir = {}", dir.toString());
+            MessageFinder.this.log.debug("filename = {}", filename.toString());
             return filename.endsWith(XML_FILE);
         }
     }

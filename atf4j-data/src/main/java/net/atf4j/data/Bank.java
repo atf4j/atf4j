@@ -50,7 +50,8 @@ public class Bank extends Business {
     /**
      * Instantiates a new bank.
      *
-     * @param bankName the bank name
+     * @param bankName
+     *            the bank name
      */
     public Bank(final String bankName) {
         this.bankSortCode = new BankSortCode();
@@ -60,7 +61,8 @@ public class Bank extends Business {
     /**
      * Sets the bank sort code.
      *
-     * @param bankSortCode the bank sort code
+     * @param bankSortCode
+     *            the bank sort code
      * @return the bank
      */
     public Bank setBankSortCode(final String bankSortCode) {
@@ -85,7 +87,8 @@ public class Bank extends Business {
     /**
      * Sets the bank name.
      *
-     * @param bankName the bank name
+     * @param bankName
+     *            the bank name
      * @return the bank
      */
     public Bank setBankName(final String bankName) {
@@ -97,7 +100,8 @@ public class Bank extends Business {
     /**
      * Sets the sort code.
      *
-     * @param sortCode the sort code
+     * @param sortCode
+     *            the sort code
      * @return the bank
      */
     public Bank setSortCode(final String sortCode) {
@@ -109,7 +113,8 @@ public class Bank extends Business {
     /**
      * Sets the iban.
      *
-     * @param iban the iban
+     * @param iban
+     *            the iban
      * @return the bank
      */
     public Bank setIban(final String iban) {
@@ -154,16 +159,15 @@ public class Bank extends Business {
         return this.iban;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see net.atf4j.data.Business#toString()
      */
     @Override
     public String toString() {
-        return String.format("Bank [bankSortCode=%s, bankName=%s, sortCode=%s, iban=%s]",
-                this.bankSortCode,
-                this.bankName,
-                this.sortCode,
-                this.iban);
+        return String.format("Bank [bankSortCode=%s, bankName=%s, sortCode=%s, iban=%s]", this.bankSortCode,
+                this.bankName, this.sortCode, this.iban);
     }
 
 }

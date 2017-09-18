@@ -27,11 +27,14 @@ public class AbstractWalkerTest {
      * The MockWalker Class.
      */
     public class MockWalker extends AbstractWalker {
-        
+
         /**
          * Instantiates a new mock walker.
-         * @param basePath the base path
-         * @throws Exception the exception
+         * 
+         * @param basePath
+         *            the base path
+         * @throws Exception
+         *             the exception
          */
         public MockWalker(final String basePath) throws Exception {
             super(basePath);
@@ -40,7 +43,9 @@ public class AbstractWalkerTest {
 
     /**
      * Test.
-     * @throws Exception the exception
+     * 
+     * @throws Exception
+     *             the exception
      */
     @Test
     public void test() throws Exception {

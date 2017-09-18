@@ -30,8 +30,7 @@ import net.atf4j.core.ResultsReporting;
 public class WebDriverConfigTest extends ResultsReporting {
 
     /**
-     * Test method for
-     * { net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.
+     * Test method for { net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.
      *
      * @throws ConfigurationNotLoaded
      *             the missing property file exception

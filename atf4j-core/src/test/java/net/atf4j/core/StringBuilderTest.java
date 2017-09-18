@@ -37,7 +37,9 @@ public class StringBuilderTest extends ResultsReporting {
      */
     public class SubClassWithoutProperties extends StringBuilderTest {
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         *
          * @see net.atf4j.core.StringBuilderTest#toString()
          */
         @Override
@@ -66,16 +68,15 @@ public class StringBuilderTest extends ResultsReporting {
         /** The public string. */
         public String publicString = "publicString";
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         *
          * @see net.atf4j.core.StringBuilderTest#toString()
          */
         @Override
         public String toString() {
-            return String.format("%s [%s, protectedString=%s, publicString=%s]",
-                    this.getClass().getSimpleName(),
-                    super.toString(),
-                    this.protectedString,
-                    this.publicString);
+            return String.format("%s [%s, protectedString=%s, publicString=%s]", this.getClass().getSimpleName(),
+                    super.toString(), this.protectedString, this.publicString);
         }
     }
 

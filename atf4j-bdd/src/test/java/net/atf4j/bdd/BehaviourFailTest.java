@@ -16,15 +16,36 @@
  */
 package net.atf4j.bdd;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.atf4j.core.ResultsReporting;
 
 /**
- * The LoggedScenario Class.
+ * Behaviour Test Class.
  */
-public abstract class LoggedScenario {
+public class BehaviourFailTest extends ResultsReporting {
 
-    /** The log. */
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+    /**
+     * Test given.
+     */
+    @Atf4j.Given("testGiven")
+    public void testGiven() {
+        final Given given = new Given();
+        given.execute();
+    }
+
+    /**
+     * Test when.
+     */
+    @Atf4j.When("testWhen")
+    public void testWhen() {
+        new When();
+    }
+
+    /**
+     * Test then.
+     */
+    @Atf4j.Then("testThen")
+    public void testThen() {
+        new Then();
+    }
 
 }

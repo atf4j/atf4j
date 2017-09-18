@@ -28,7 +28,9 @@ public class Verify {
 
     /**
      * Result string.
-     * @param result the result
+     *
+     * @param result
+     *            the result
      * @return the string
      */
     private static String resultString(final boolean result) {
@@ -38,8 +40,11 @@ public class Verify {
 
     /**
      * Verify equals.
-     * @param expected the expected
-     * @param actual the actual
+     *
+     * @param expected
+     *            the expected
+     * @param actual
+     *            the actual
      * @return the string
      */
     protected static String verifyEquals(final byte expected, final byte actual) {
@@ -53,8 +58,11 @@ public class Verify {
 
     /**
      * Verify equals.
-     * @param expected the expected
-     * @param actual the actual
+     *
+     * @param expected
+     *            the expected
+     * @param actual
+     *            the actual
      * @return the string
      */
     protected static String verifyEquals(final char expected, final char actual) {
@@ -68,8 +76,11 @@ public class Verify {
 
     /**
      * Verify equals.
-     * @param expected the expected
-     * @param actual the actual
+     *
+     * @param expected
+     *            the expected
+     * @param actual
+     *            the actual
      * @return the string
      */
     protected static String verifyEquals(final int expected, final int actual) {
@@ -83,8 +94,11 @@ public class Verify {
 
     /**
      * Verify equals.
-     * @param expected the expected
-     * @param actual the actual
+     *
+     * @param expected
+     *            the expected
+     * @param actual
+     *            the actual
      * @return the string
      */
     protected static String verifyEquals(final long expected, final long actual) {
@@ -98,8 +112,11 @@ public class Verify {
 
     /**
      * Verify equals.
-     * @param expected the expected
-     * @param actual the actual
+     *
+     * @param expected
+     *            the expected
+     * @param actual
+     *            the actual
      * @return the string
      */
     protected static String verifyEquals(final Object expected, final Object actual) {

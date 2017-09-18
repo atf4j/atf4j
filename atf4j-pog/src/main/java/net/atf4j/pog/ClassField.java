@@ -30,19 +30,15 @@ public class ClassField {
      * The FieldType Enum.
      */
     public enum FieldType {
-        BOOLEAN("boolean"),
-        DATE("Date"),
-        NUMBER("BigDecimal"),
-        STRING("String"),
-        VALUE("Object"),
-        OBJECT("Object");
+        BOOLEAN("boolean"), DATE("Date"), NUMBER("BigDecimal"), STRING("String"), VALUE("Object"), OBJECT("Object");
 
         private final String type;
 
         /**
          * Instantiates a new field type.
          *
-         * @param asText the as text
+         * @param asText
+         *            the as text
          */
         FieldType(final String asText) {
             this.type = asText;
@@ -60,7 +56,8 @@ public class ClassField {
         /**
          * From string.
          *
-         * @param asText the as text
+         * @param asText
+         *            the as text
          * @return the field type
          */
         public static FieldType fromString(final String asText) {
@@ -72,7 +69,9 @@ public class ClassField {
             return null;
         }
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         * 
          * @see java.lang.Enum#toString()
          */
         @Override
@@ -100,8 +99,10 @@ public class ClassField {
     /**
      * Instantiates a new class field.
      *
-     * @param type the type
-     * @param name the name
+     * @param type
+     *            the type
+     * @param name
+     *            the name
      */
     public ClassField(final String type, final String name) {
         setAccess("private");
@@ -112,8 +113,10 @@ public class ClassField {
     /**
      * Instantiates a new class field.
      *
-     * @param fieldType the field type
-     * @param name the name
+     * @param fieldType
+     *            the field type
+     * @param name
+     *            the name
      */
     public ClassField(final FieldType fieldType, final String name) {
         setAccess("private");
@@ -124,9 +127,12 @@ public class ClassField {
     /**
      * Instantiates a new class field.
      *
-     * @param access the access
-     * @param type the type
-     * @param name the name
+     * @param access
+     *            the access
+     * @param type
+     *            the type
+     * @param name
+     *            the name
      */
     public ClassField(final String access, final String type, final String name) {
         super();
@@ -138,7 +144,8 @@ public class ClassField {
     /**
      * Sets the access.
      *
-     * @param access the access
+     * @param access
+     *            the access
      * @return the class field
      */
     public ClassField setAccess(final String access) {
@@ -149,7 +156,8 @@ public class ClassField {
     /**
      * Sets the type.
      *
-     * @param type the type
+     * @param type
+     *            the type
      * @return the class field
      */
     public ClassField setType(final String type) {
@@ -160,7 +168,8 @@ public class ClassField {
     /**
      * Sets the type.
      *
-     * @param fieldType the field type
+     * @param fieldType
+     *            the field type
      * @return the class field
      */
     public ClassField setType(final FieldType fieldType) {
@@ -171,7 +180,8 @@ public class ClassField {
     /**
      * Sets the name.
      *
-     * @param name the name
+     * @param name
+     *            the name
      * @return the class field
      */
     public ClassField setName(final String name) {
@@ -209,7 +219,8 @@ public class ClassField {
     /**
      * Field case.
      *
-     * @param string the string
+     * @param string
+     *            the string
      * @return the string
      */
     public String fieldCase(final String string) {
@@ -228,15 +239,14 @@ public class ClassField {
         return string;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return String.format("ClassField [access=%s, type=%s, name=%s]",
-                this.access,
-                this.type,
-                this.name);
+        return String.format("ClassField [access=%s, type=%s, name=%s]", this.access, this.type, this.name);
     }
 
 }

@@ -20,8 +20,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * UK Postcode.
- * <code>
+ * UK Postcode. <code>
  * POSTCODE     ::= Outward_Code Inward_Code
  * Outward_Code ::= Postcode_Area Postcode_District
  * Inward_Code  ::= Postcode_Sector Postcode_Unit
@@ -84,7 +83,8 @@ public class Postcode {
     /**
      * Sets the out code.
      *
-     * @param outCode the out code
+     * @param outCode
+     *            the out code
      * @return the postcode
      */
     public Postcode setOutCode(final String outCode) {
@@ -95,7 +95,8 @@ public class Postcode {
     /**
      * Sets the in code.
      *
-     * @param inCode the in code
+     * @param inCode
+     *            the in code
      * @return the postcode
      */
     public Postcode setInCode(final String inCode) {
@@ -134,8 +135,7 @@ public class Postcode {
      * Verify.
      *
      * @param postcode
-     *            the postcode
-     \* @return true, if successful, otherwise false.
+     *            the postcode \* @return true, if successful, otherwise false.
      */
     public static boolean verify(final String postcode) {
         final Matcher matcher = pattern.matcher(postcode);

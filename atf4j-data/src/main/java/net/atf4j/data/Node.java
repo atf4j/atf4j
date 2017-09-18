@@ -5,11 +5,11 @@ public abstract class Node<L, R> {
     private R right;
 
     protected L left() {
-        return left;
+        return this.left;
     }
 
     protected R right() {
-        return right;
+        return this.right;
     }
 
 }

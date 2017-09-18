@@ -26,7 +26,6 @@ import java.lang.annotation.Target;
  * The TestUrl annotation. Contains the starting URL for a AbstractTestSuite /
  * AbstractWebDriverScript.
  *
- *
  * @version $Revision: 0.0.1 $
  */
 @Documented

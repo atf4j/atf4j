@@ -42,8 +42,10 @@ public class JavaClassGeneratorTest extends ResultsReporting {
         /**
          * Instantiates a new java class generator.
          *
-         * @param templateFilename the template filename
-         * @throws TemplateNotLoaded the template not loaded
+         * @param templateFilename
+         *            the template filename
+         * @throws TemplateNotLoaded
+         *             the template not loaded
          */
         public JavaClassGenerator(final String templateFilename) throws TemplateNotLoaded {
             super(templateFilename);
@@ -53,7 +55,8 @@ public class JavaClassGeneratorTest extends ResultsReporting {
     /**
      * Test method for void.
      *
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     @Test
     public void testPrototype() throws Exception {
@@ -66,7 +69,8 @@ public class JavaClassGeneratorTest extends ResultsReporting {
     /**
      * Test method for void.
      *
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     @Test
     public void testExpected() throws Exception {

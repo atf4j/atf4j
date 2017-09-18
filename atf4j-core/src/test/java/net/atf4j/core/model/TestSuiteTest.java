@@ -71,7 +71,9 @@ public class TestSuiteTest extends ResultsReporting {
 
     /**
      * Unit Test for test test suite execute.
-     * @throws Atf4jException the atf 4 j exception
+     *
+     * @throws Atf4jException
+     *             the atf 4 j exception
      */
     @Test
     public void testTestSuiteExecute() throws Atf4jException {
@@ -82,7 +84,9 @@ public class TestSuiteTest extends ResultsReporting {
 
     /**
      * Unit Test for test test suite execute test context.
-     * @throws Atf4jException the atf 4 j exception
+     *
+     * @throws Atf4jException
+     *             the atf 4 j exception
      */
     @Test
     public void testTestSuiteExecuteTestContext() throws Atf4jException {

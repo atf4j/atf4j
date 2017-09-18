@@ -16,10 +16,16 @@
  */
 package net.atf4j.bdd;
 
+import java.util.UUID;
+
 /**
  * Given.
  */
-public class Given extends PreCondition {
+public final class Given extends PreCondition {
+
+    public Given() {
+        super(UUID.randomUUID().toString());
+    }
 
     /**
      * Instantiates a new given.
@@ -29,6 +35,9 @@ public class Given extends PreCondition {
      */
     public Given(final String string) {
         super(string);
+    }
+
+    public void execute() {
     }
 
 }

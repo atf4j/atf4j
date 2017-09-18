@@ -33,8 +33,11 @@ public class TestBaseTest extends ResultsReporting {
      */
     public class MockTestBase extends TestBase {
 
-        /* (non-Javadoc)
-         * @see net.atf4j.core.model.TestBase#execute(net.atf4j.core.model.TestContext)
+        /*
+         * (non-Javadoc)
+         *
+         * @see net.atf4j.core.model.TestBase#execute(net.atf4j.core.model.
+         * TestContext)
          */
         @Override
         public TestBase execute(final TestContext context) throws Atf4jException {

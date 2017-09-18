@@ -46,8 +46,7 @@ public class ProductCatalog {
      * add a Product to catalog.
      *
      * @param e
-     *            the e
-     \* @return true, if successful, otherwise false.
+     *            the e \* @return true, if successful, otherwise false.
      * @see java.util.Collection#add(java.lang.Object)
      */
     public boolean add(final Product e) {
@@ -73,7 +72,9 @@ public class ProductCatalog {
         this.catalog = productList;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
     @Override

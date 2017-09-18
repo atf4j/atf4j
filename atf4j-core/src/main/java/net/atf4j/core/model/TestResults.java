@@ -32,8 +32,8 @@ public class TestResults {
      * Add a TestResult to collection.
      *
      * @param testResult
-     *            the test result
-     \* @return true, if successful, otherwise false.
+     *            the test result \* @return true, if successful, otherwise
+     *            false.
      */
     public boolean add(final TestResult testResult) {
         return this.testResults.add(testResult);
@@ -48,7 +48,9 @@ public class TestResults {
         return this.testResults;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     *
      * @see java.lang.Object#toString()
      */
     @Override

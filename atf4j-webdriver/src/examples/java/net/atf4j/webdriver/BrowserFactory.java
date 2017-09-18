@@ -25,6 +25,7 @@ public class BrowserFactory extends AbstractBrowserFactory {
 
     /**
      * Create new instance of create.
+     * 
      * @return the web driver
      */
     public static WebDriver create() {

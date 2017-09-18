@@ -33,7 +33,8 @@ public class JsonToPojo extends CodeGenerator {
     /**
      * Json.
      *
-     * @param jsonString the json string
+     * @param jsonString
+     *            the json string
      * @return the string
      */
     public String json(final String jsonString) {

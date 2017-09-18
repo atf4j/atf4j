@@ -15,15 +15,15 @@ public class FolderWalkerTest {
     public class FolderWalker extends AbstractFolderWalker {
 
         public class ExtensionFilter implements FilenameFilter {
-            private String extension;
+            private final String extension;
 
-            public ExtensionFilter(String extension) {
+            public ExtensionFilter(final String extension) {
                 this.extension = extension;
             }
 
             @Override
-            public boolean accept(File dir, String filename) {
-                return filename.endsWith(extension);
+            public boolean accept(final File dir, final String filename) {
+                return filename.endsWith(this.extension);
             }
         }
 
@@ -31,7 +31,7 @@ public class FolderWalkerTest {
             super();
         }
 
-        public FolderWalker(String path) {
+        public FolderWalker(final String path) {
             super(path);
         }
     }
@@ -39,7 +39,7 @@ public class FolderWalkerTest {
     @Test
     public void testFolderWalker() {
         LOG.info("testFolderWalker");
-        AbstractFolderWalker folderWalker = new FolderWalker();
+        final AbstractFolderWalker folderWalker = new FolderWalker();
         assertNotNull(folderWalker);
         folderWalker.walk();
     }
@@ -47,7 +47,7 @@ public class FolderWalkerTest {
     @Test
     public void testFolderWalkerNull() {
         LOG.info("testFolderWalker");
-        AbstractFolderWalker folderWalker = new FolderWalker(null);
+        final AbstractFolderWalker folderWalker = new FolderWalker(null);
         assertNotNull(folderWalker);
         folderWalker.walk();
     }
@@ -55,7 +55,7 @@ public class FolderWalkerTest {
     @Test
     public void testFolderWalkerEmpty() {
         LOG.info("testFolderWalker");
-        AbstractFolderWalker folderWalker = new FolderWalker("");
+        final AbstractFolderWalker folderWalker = new FolderWalker("");
         assertNotNull(folderWalker);
         folderWalker.walk();
     }
@@ -63,7 +63,7 @@ public class FolderWalkerTest {
     @Test
     public void testFolderWalkerDot() {
         LOG.info("testFolderWalker");
-        AbstractFolderWalker folderWalker = new FolderWalker(".");
+        final AbstractFolderWalker folderWalker = new FolderWalker(".");
         assertNotNull(folderWalker);
         folderWalker.walk();
     }
@@ -71,7 +71,7 @@ public class FolderWalkerTest {
     @Test
     public void testFolderWalkerString() {
         LOG.info("testFolderWalker");
-        AbstractFolderWalker folderWalker = new FolderWalker("messages");
+        final AbstractFolderWalker folderWalker = new FolderWalker("messages");
         assertNotNull(folderWalker);
         folderWalker.walk();
     }

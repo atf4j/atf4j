@@ -43,8 +43,11 @@ public abstract class AbstractWalker {
 
     /**
      * Instantiates a new abstract walker.
-     * @param path the path
-     * @throws Exception the exception
+     * 
+     * @param path
+     *            the path
+     * @throws Exception
+     *             the exception
      */
     public AbstractWalker(final String path) throws Exception {
         this.log.info("AbstractWalker({})", path);
@@ -53,7 +56,9 @@ public abstract class AbstractWalker {
 
     /**
      * Sets the base path.
-     * @param basePath the base path
+     * 
+     * @param basePath
+     *            the base path
      * @return the abstract walker
      */
     public AbstractWalker setBasePath(final String basePath) {
@@ -63,8 +68,10 @@ public abstract class AbstractWalker {
 
     /**
      * Walk.
+     * 
      * @return the abstract walker
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     protected AbstractWalker walk() throws Exception {
         return walk(this.basePath);
@@ -72,9 +79,12 @@ public abstract class AbstractWalker {
 
     /**
      * Walk.
-     * @param path the path
+     * 
+     * @param path
+     *            the path
      * @return the abstract walker
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     protected AbstractWalker walk(final String path) throws Exception {
         assertNotNull(path);
@@ -113,8 +123,11 @@ public abstract class AbstractWalker {
 
     /**
      * Process file.
-     * @param file the file
-     * @throws Exception the exception
+     * 
+     * @param file
+     *            the file
+     * @throws Exception
+     *             the exception
      */
     private void processFile(final File file) throws Exception {
         this.log.info("processFile({})", file.getName());

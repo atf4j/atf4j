@@ -98,7 +98,9 @@ public class ConfigWithDefaultTests extends ResultsReporting {
             return super.get(key, Integer.MIN_VALUE);
         }
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         *
          * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
          */
         @Override

@@ -35,7 +35,8 @@ public class PageObjectGenerator extends CodeGenerator {
     /**
      * Instantiates a new page object generator.
      *
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     public PageObjectGenerator() throws Exception {
         super(PAGE_OBJECT_TEMPLATE);
@@ -44,8 +45,10 @@ public class PageObjectGenerator extends CodeGenerator {
     /**
      * Instantiates a new page object generator.
      *
-     * @param templateFilename the template filename
-     * @throws Exception the exception
+     * @param templateFilename
+     *            the template filename
+     * @throws Exception
+     *             the exception
      */
     public PageObjectGenerator(final String templateFilename) throws Exception {
         super(templateFilename);
@@ -176,7 +179,8 @@ public class PageObjectGenerator extends CodeGenerator {
     /**
      * Survey.
      *
-     * @param pageUrl the page url
+     * @param pageUrl
+     *            the page url
      * @return the page object generator
      */
     public PageObjectGenerator survey(final String pageUrl) {
@@ -186,7 +190,9 @@ public class PageObjectGenerator extends CodeGenerator {
         return this;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see net.atf4j.pog.CodeGenerator#toString()
      */
     @Override

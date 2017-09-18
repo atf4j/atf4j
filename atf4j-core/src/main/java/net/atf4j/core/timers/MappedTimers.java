@@ -142,15 +142,15 @@ public final class MappedTimers {
         return getInstance().toString();
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     *
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return String.format("%s [runningTimers=%s,stoppedTimers=%s]",
-                this.getClass().getSimpleName(),
-                this.runningTimers,
-                this.stoppedTimers);
+        return String.format("%s [runningTimers=%s,stoppedTimers=%s]", this.getClass().getSimpleName(),
+                this.runningTimers, this.stoppedTimers);
     }
 
 }

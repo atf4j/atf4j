@@ -18,17 +18,12 @@ package net.atf4j.bdd;
 
 import java.util.Properties;
 
-// TODO: Auto-generated Javadoc
 /**
  * HoareStep Class.
- *
  */
 public abstract class HoareStep {
 
-    /** The string. */
     protected String string;
-
-    /** The properties. */
     protected Properties properties;
 
     /**

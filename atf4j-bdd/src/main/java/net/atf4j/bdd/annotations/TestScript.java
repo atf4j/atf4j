@@ -25,7 +25,6 @@ import java.lang.annotation.Target;
 /**
  * AutomatedTestScript.
  *
- *
  * @version $Revision: 0.0.1 $
  */
 @Documented

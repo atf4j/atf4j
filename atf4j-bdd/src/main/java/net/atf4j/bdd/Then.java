@@ -16,10 +16,16 @@
  */
 package net.atf4j.bdd;
 
+import java.util.UUID;
+
 /**
  * Hoare post condition as Then.
  */
-public class Then extends PostCondition {
+public final class Then extends PostCondition {
+
+    public Then() {
+        super(UUID.randomUUID().toString());
+    }
 
     /**
      * Then.

@@ -26,7 +26,8 @@ public class PojoGenerator extends CodeGenerator {
     /**
      * Instantiates a new pojo generator.
      *
-     * @throws TemplateNotLoaded the template not loaded
+     * @throws TemplateNotLoaded
+     *             the template not loaded
      */
     public PojoGenerator() throws TemplateNotLoaded {
         super("/templates/PojoClass.vm");
@@ -35,7 +36,8 @@ public class PojoGenerator extends CodeGenerator {
     /**
      * Adds the date field.
      *
-     * @param fieldName the field name
+     * @param fieldName
+     *            the field name
      * @return the code generator
      */
     public CodeGenerator addDateField(final String fieldName) {
@@ -47,7 +49,8 @@ public class PojoGenerator extends CodeGenerator {
     /**
      * Adds the boolean field.
      *
-     * @param fieldName the field name
+     * @param fieldName
+     *            the field name
      * @return the code generator
      */
     public CodeGenerator addBooleanField(final String fieldName) {
@@ -59,7 +62,8 @@ public class PojoGenerator extends CodeGenerator {
     /**
      * Adds the string field.
      *
-     * @param fieldName the field name
+     * @param fieldName
+     *            the field name
      * @return the code generator
      */
     public CodeGenerator addStringField(final String fieldName) {
@@ -71,8 +75,10 @@ public class PojoGenerator extends CodeGenerator {
     /**
      * Adds the field.
      *
-     * @param fieldType the field type
-     * @param fieldName the field name
+     * @param fieldType
+     *            the field type
+     * @param fieldName
+     *            the field name
      * @return the code generator
      */
     public CodeGenerator addField(final FieldType fieldType, final String fieldName) {
@@ -84,8 +90,10 @@ public class PojoGenerator extends CodeGenerator {
     /**
      * Adds the field.
      *
-     * @param fieldType the field type
-     * @param fieldName the field name
+     * @param fieldType
+     *            the field type
+     * @param fieldName
+     *            the field name
      * @return the code generator
      */
     public CodeGenerator addField(final String fieldType, final String fieldName) {

@@ -29,11 +29,9 @@ import net.atf4j.annotations.Atf4j.TestId;
 import net.atf4j.annotations.Atf4j.TestName;
 
 /**
- * Annotated Test Example using static imports.
- * Allows annotations to be accessed directly with the functions
- * {@code} getTestId();
- * {@code} getTestName();
- * {@code} getTestDescription();
+ * Annotated Test Example using static imports. Allows annotations to be
+ * accessed directly with the functions {@code} getTestId();
+ * {@code} getTestName(); {@code} getTestDescription();
  */
 public class AnnotatedTestExample {
 

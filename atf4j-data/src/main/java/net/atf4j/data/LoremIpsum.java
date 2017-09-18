@@ -107,11 +107,11 @@ public class LoremIpsum extends AbstractDataFactory {
     }
 
     /**
-     * Gets N paragraphs.
-     * Sentences punctuated normally.
-     * Paragraphs punctuated with \n
+     * Gets N paragraphs. Sentences punctuated normally. Paragraphs punctuated
+     * with \n
      *
-     * @param count the required number of paragraphs.
+     * @param count
+     *            the required number of paragraphs.
      * @return the paragraphs as a string.
      */
     public static String paragraphs(final int count) {
@@ -119,11 +119,11 @@ public class LoremIpsum extends AbstractDataFactory {
     }
 
     /**
-     * Gets N paragraphs.
-     * Sentences punctuated normally.
-     * Paragraphs punctuated with \n
+     * Gets N paragraphs. Sentences punctuated normally. Paragraphs punctuated
+     * with \n
      *
-     * @param count the required number of paragraphs.
+     * @param count
+     *            the required number of paragraphs.
      * @return the paragraphs as a string.
      */
     private String getParagraphs(final int count) {
@@ -149,7 +149,8 @@ public class LoremIpsum extends AbstractDataFactory {
     /**
      * Get N sentences.
      *
-     * @param count the number of sentences required.
+     * @param count
+     *            the number of sentences required.
      * @return the sentences as a string.
      */
     public static String sentences(final int count) {
@@ -159,7 +160,8 @@ public class LoremIpsum extends AbstractDataFactory {
     /**
      * Get N sentences.
      *
-     * @param count the number of sentences required.
+     * @param count
+     *            the number of sentences required.
      * @return the sentences as a string.
      */
     private String getSentences(final int count) {
@@ -184,7 +186,8 @@ public class LoremIpsum extends AbstractDataFactory {
     /**
      * Get N words.
      *
-     * @param count the number of words to return.
+     * @param count
+     *            the number of words to return.
      * @return the words as a space seperated string.
      */
     public static String words(final int count) {
@@ -194,7 +197,8 @@ public class LoremIpsum extends AbstractDataFactory {
     /**
      * Get N words.
      *
-     * @param count the number of words to return.
+     * @param count
+     *            the number of words to return.
      * @return the words as a space seperated string.
      */
     private String getWords(final int count) {
@@ -211,7 +215,8 @@ public class LoremIpsum extends AbstractDataFactory {
     /**
      * Convert string to Sentence case.
      *
-     * @param original the original sentence.
+     * @param original
+     *            the original sentence.
      * @return the string as a sentence.
      */
     public String sentenceCase(final String original) {

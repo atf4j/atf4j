@@ -39,8 +39,8 @@ public class NestedTimersTest extends ResultsReporting {
     }
 
     /**
-     * Test method for
-     * { net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
+     * Test method for {
+     * net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
      */
 
     @Test
@@ -67,8 +67,8 @@ public class NestedTimersTest extends ResultsReporting {
     }
 
     /**
-     * Test method for
-     * { net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
+     * Test method for {
+     * net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
      */
 
     @Test

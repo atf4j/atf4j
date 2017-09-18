@@ -30,8 +30,7 @@ import net.atf4j.data.Person;
 import net.atf4j.data.PostalAddress;
 
 /**
- * Factory for random data.
- * TODO: Add variants formated date string.
+ * Factory for random data. TODO: Add variants formated date string.
  */
 public class DataFactory {
 
@@ -81,7 +80,8 @@ public class DataFactory {
     /**
      * Random digits.
      *
-     * @param length the length
+     * @param length
+     *            the length
      * @return the string
      */
     public static String randomDigits(final int length) {
@@ -104,8 +104,9 @@ public class DataFactory {
 
     /**
      * Today date as string.
-     * 
-     * @param format the format to use for date
+     *
+     * @param format
+     *            the format to use for date
      * @return today as String.
      */
     public static String today(final String format) {
@@ -129,7 +130,8 @@ public class DataFactory {
     /**
      * Dob over 18.
      *
-     * @param format the format
+     * @param format
+     *            the format
      * @return the string
      */
     public static String dobOver18(final String format) {
@@ -153,7 +155,8 @@ public class DataFactory {
     /**
      * Dob under 18.
      *
-     * @param format the format
+     * @param format
+     *            the format
      * @return the string
      */
     public static String dobUnder18(final String format) {
@@ -177,7 +180,8 @@ public class DataFactory {
     /**
      * Tomorrow.
      *
-     * @param format the format
+     * @param format
+     *            the format
      * @return the string
      */
     public static String tomorrow(final String format) {
@@ -201,7 +205,8 @@ public class DataFactory {
     /**
      * Future date.
      *
-     * @param format the format
+     * @param format
+     *            the format
      * @return the string
      */
     public static String futureDate(final String format) {
@@ -225,7 +230,8 @@ public class DataFactory {
     /**
      * Yesterday.
      *
-     * @param format the format
+     * @param format
+     *            the format
      * @return the string
      */
     public static String yesterday(final String format) {
@@ -249,7 +255,8 @@ public class DataFactory {
     /**
      * Past date.
      *
-     * @param format the format
+     * @param format
+     *            the format
      * @return the string
      */
     public static String pastDate(final String format) {
@@ -404,7 +411,8 @@ public class DataFactory {
     /**
      * To calendar.
      *
-     * @param startDate the start date
+     * @param startDate
+     *            the start date
      * @return the calendar
      */
     public static Calendar toCalendar(final Date startDate) {

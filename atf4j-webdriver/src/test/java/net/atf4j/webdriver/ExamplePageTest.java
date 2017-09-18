@@ -40,15 +40,17 @@ public class ExamplePageTest {
          * Instantiates a new page object.
          */
         PageObject() {
-            driver = AbstractBrowserFactory.webDriver();
+            this.driver = AbstractBrowserFactory.webDriver();
         }
 
         /**
          * Instantiates a new page object.
-         * @param webDriver the web driver
+         * 
+         * @param webDriver
+         *            the web driver
          */
         PageObject(final WebDriver webDriver) {
-            driver = webDriver;
+            this.driver = webDriver;
         }
     }
 

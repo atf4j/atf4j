@@ -25,7 +25,6 @@ import java.lang.annotation.Target;
 /**
  * When Predicate annotation. contains the short name for the test.
  *
- *
  * @version $Revision: 0.0.1 $
  */
 @Documented

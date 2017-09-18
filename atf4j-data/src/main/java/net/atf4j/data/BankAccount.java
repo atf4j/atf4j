@@ -61,7 +61,8 @@ public class BankAccount {
     /**
      * Instantiates a new bank account.
      *
-     * @param bank the bank
+     * @param bank
+     *            the bank
      */
     public BankAccount(final Bank bank) {
         super();
@@ -82,8 +83,10 @@ public class BankAccount {
     /**
      * Instantiates a new bank account.
      *
-     * @param bank the bank
-     * @param accountNo the account no
+     * @param bank
+     *            the bank
+     * @param accountNo
+     *            the account no
      */
     public BankAccount(final Bank bank, final String accountNo) {
         super();
@@ -135,7 +138,9 @@ public class BankAccount {
         return this.accountNo;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
     @Override

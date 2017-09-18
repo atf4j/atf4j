@@ -23,8 +23,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * The TestUrl annotation.
- * Contains the starting URL for PageObject.
+ * The TestUrl annotation. Contains the starting URL for PageObject.
  *
  * @version $Revision: 0.0.1 $
  */

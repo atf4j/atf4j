@@ -27,14 +27,8 @@ public class PageWebElement extends ClassField {
      * The Strategy Enum.
      */
     public enum Strategy {
-        UNKNOWN("Unknown"),
-        ID("id"),
-        NAME("name"),
-        CLASS_NAME("className"),
-        XPATH("xpath"),
-        CSS("css"),
-        LINK_TEXT("linkText"),
-        PARTIAL_LINK_TEXT("partialLinkText");
+        UNKNOWN("Unknown"), ID("id"), NAME("name"), CLASS_NAME("className"), XPATH("xpath"), CSS("css"), LINK_TEXT(
+                "linkText"), PARTIAL_LINK_TEXT("partialLinkText");
 
         /** The value. */
         private final String strategy;
@@ -74,7 +68,9 @@ public class PageWebElement extends ClassField {
             return null;
         }
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         * 
          * @see java.lang.Enum#toString()
          */
         @Override
@@ -89,9 +85,12 @@ public class PageWebElement extends ClassField {
     /**
      * Instantiates a new page web element.
      *
-     * @param name the name
-     * @param strategy the strategy
-     * @param locator the locator
+     * @param name
+     *            the name
+     * @param strategy
+     *            the strategy
+     * @param locator
+     *            the locator
      */
     public PageWebElement(final String name, final String strategy, final String locator) {
         super("WebElement", name);
@@ -102,9 +101,12 @@ public class PageWebElement extends ClassField {
     /**
      * Instantiates a new page web element.
      *
-     * @param name the name
-     * @param strategy the strategy
-     * @param locator the locator
+     * @param name
+     *            the name
+     * @param strategy
+     *            the strategy
+     * @param locator
+     *            the locator
      */
     public PageWebElement(final String name, final Strategy strategy, final String locator) {
         super("WebElement", name);
@@ -115,7 +117,8 @@ public class PageWebElement extends ClassField {
     /**
      * Sets the locator strategy.
      *
-     * @param strategy the strategy
+     * @param strategy
+     *            the strategy
      * @return the page web element
      */
     public PageWebElement setLocatorStrategy(final String strategy) {
@@ -127,7 +130,8 @@ public class PageWebElement extends ClassField {
     /**
      * Sets the locator strategy.
      *
-     * @param strategy the strategy
+     * @param strategy
+     *            the strategy
      * @return the page web element
      */
     public PageWebElement setLocatorStrategy(final Strategy strategy) {
@@ -139,7 +143,8 @@ public class PageWebElement extends ClassField {
     /**
      * Sets the locator.
      *
-     * @param locator the locator
+     * @param locator
+     *            the locator
      * @return the page web element
      */
     public PageWebElement setLocator(final String locator) {
@@ -166,7 +171,9 @@ public class PageWebElement extends ClassField {
         return this.locator;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see net.atf4j.pog.ClassField#toString()
      */
     @Override

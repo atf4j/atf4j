@@ -46,8 +46,10 @@ public class ClassMethod {
     /**
      * Instantiates a new class method.
      *
-     * @param type the type
-     * @param methodName the method name
+     * @param type
+     *            the type
+     * @param methodName
+     *            the method name
      */
     public ClassMethod(final String type, final String methodName) {
         super();
@@ -58,7 +60,8 @@ public class ClassMethod {
     /**
      * Sets the access.
      *
-     * @param access the access
+     * @param access
+     *            the access
      * @return the class method
      */
     public ClassMethod setAccess(final String access) {
@@ -69,7 +72,8 @@ public class ClassMethod {
     /**
      * Sets the name.
      *
-     * @param name the name
+     * @param name
+     *            the name
      * @return the class method
      */
     public ClassMethod setName(final String name) {
@@ -80,7 +84,8 @@ public class ClassMethod {
     /**
      * Sets the type.
      *
-     * @param type the type
+     * @param type
+     *            the type
      * @return the class method
      */
     public ClassMethod setType(final String type) {
@@ -91,8 +96,8 @@ public class ClassMethod {
     /**
      * Adds the.
      *
-     * @param e the e
-     \* @return true, if successful, otherwise false.
+     * @param e
+     *            the e \* @return true, if successful, otherwise false.
      */
     public boolean add(final ClassField e) {
         return this.parameters.add(e);
@@ -128,7 +133,8 @@ public class ClassMethod {
     /**
      * Method case.
      *
-     * @param string the string
+     * @param string
+     *            the string
      * @return the string
      */
     public String methodCase(final String string) {
@@ -152,30 +158,34 @@ public class ClassMethod {
         }
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return String.format("ClassMethod [access=%s, returnType=%s, methodName=%s]",
-                this.access,
-                this.returnType,
+        return String.format("ClassMethod [access=%s, returnType=%s, methodName=%s]", this.access, this.returnType,
                 this.methodName);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#hashCode()
      */
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((this.methodName == null) ? 0 : this.methodName.hashCode());
-        result = prime * result + ((this.returnType == null) ? 0 : this.returnType.hashCode());
+        result = prime * result + (this.methodName == null ? 0 : this.methodName.hashCode());
+        result = prime * result + (this.returnType == null ? 0 : this.returnType.hashCode());
         return result;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#equals(java.lang.Object)
      */
     @Override

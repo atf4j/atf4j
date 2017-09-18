@@ -16,37 +16,19 @@
  */
 package net.atf4j.bdd;
 
-import static org.junit.Assert.fail;
-
-import net.atf4j.core.ResultsReporting;
-
 /**
- * The BehaviourTest Class.
+ * Invariant.
  */
-public class BehaviourTestPass extends ResultsReporting {
+public abstract class Invariant extends Predicate {
 
     /**
-     * Test given.
+     * Instantiates a new Invariant.
+     *
+     * @param string
+     *            the string
      */
-    @Atf4j.Given("testGiven")
-    public void testGiven() {
-        fail("Not yet implemented");
-    }
-
-    /**
-     * Test when.
-     */
-    @Atf4j.When("testWhen")
-    public void testWhen() {
-        fail("Not yet implemented");
-    }
-
-    /**
-     * Test then.
-     */
-    @Atf4j.Then("testThen")
-    public void testThen() {
-        fail("Not yet implemented");
+    public Invariant(final String string) {
+        super(string);
     }
 
 }

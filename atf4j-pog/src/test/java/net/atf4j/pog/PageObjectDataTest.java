@@ -40,12 +40,12 @@ public class PageObjectDataTest extends ResultsReporting {
         assertNotNull(pageObjectData);
 
         pageObjectData.add(new PageWebElement("findById", Strategy.ID, "id"))
-                      .add(new PageWebElement("findByName", Strategy.NAME, "name"))
-                      .add(new PageWebElement("findByLinkText", Strategy.LINK_TEXT, "linkText"))
-                      .add(new PageWebElement("findByPartialLinkText", Strategy.PARTIAL_LINK_TEXT, "partialLinkText"))
-                      .add(new PageWebElement("findByName", Strategy.NAME, "name"))
-                      .add(new PageWebElement("findByXpath", Strategy.XPATH, "//A"))
-                      .add(new PageWebElement("findByCss", Strategy.CSS, "."));
+                .add(new PageWebElement("findByName", Strategy.NAME, "name"))
+                .add(new PageWebElement("findByLinkText", Strategy.LINK_TEXT, "linkText"))
+                .add(new PageWebElement("findByPartialLinkText", Strategy.PARTIAL_LINK_TEXT, "partialLinkText"))
+                .add(new PageWebElement("findByName", Strategy.NAME, "name"))
+                .add(new PageWebElement("findByXpath", Strategy.XPATH, "//A"))
+                .add(new PageWebElement("findByCss", Strategy.CSS, "."));
 
         logAttributes(pageObjectData);
         this.log.info(pageObjectData.toString());
@@ -76,7 +76,8 @@ public class PageObjectDataTest extends ResultsReporting {
     /**
      * Log attributes.
      *
-     * @param pageObjectData the page object data
+     * @param pageObjectData
+     *            the page object data
      */
     private void logAttributes(final PageObjectData pageObjectData) {
         final ArrayList<PageWebElement> attributes = pageObjectData.get();

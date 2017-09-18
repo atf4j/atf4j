@@ -78,11 +78,8 @@ public class CardTest extends ResultsReporting {
         final String cardName = "Card Name";
         final Date endDate = new Date();
         final Date startDate = new Date();
-        final Card card = new Card().setProvider(provider)
-                                    .setCardNumber(cardNumber)
-                                    .setCardName(cardName)
-                                    .setStartDate(startDate)
-                                    .setEndDate(endDate);
+        final Card card = new Card().setProvider(provider).setCardNumber(cardNumber).setCardName(cardName)
+                .setStartDate(startDate).setEndDate(endDate);
         assertNotNull(card);
     }
 

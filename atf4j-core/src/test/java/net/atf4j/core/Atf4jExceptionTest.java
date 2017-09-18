@@ -16,7 +16,8 @@
  */
 package net.atf4j.core;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -29,7 +30,7 @@ public class Atf4jExceptionTest extends ResultsReporting {
 
     private static final String EXCEPTION_MESSAGE = "Force a Atf4jException";
     private static final Logger LOGGER = LoggerFactory.getLogger(Atf4jExceptionTest.class);
-	
+
     /**
      * test Atf4jException object.
      *
@@ -38,7 +39,7 @@ public class Atf4jExceptionTest extends ResultsReporting {
      */
     @Test(expected = Atf4jException.class)
     public void testAtf4jException() throws Atf4jException {
-			throw new Atf4jException();
+        throw new Atf4jException();
     }
 
     /**
@@ -51,10 +52,10 @@ public class Atf4jExceptionTest extends ResultsReporting {
     public void testAtf4jExceptionString() throws Atf4jException {
         try {
             throw new Atf4jException(EXCEPTION_MESSAGE);
-        } catch (Atf4jException e) {
+        } catch (final Atf4jException e) {
             LOGGER.debug(e.toString());
-            assertEquals(EXCEPTION_MESSAGE,e.getMessage());
-            assertEquals(EXCEPTION_MESSAGE,e.getLocalizedMessage());
+            assertEquals(EXCEPTION_MESSAGE, e.getMessage());
+            assertEquals(EXCEPTION_MESSAGE, e.getLocalizedMessage());
             throw e;
         }
     }
@@ -69,7 +70,7 @@ public class Atf4jExceptionTest extends ResultsReporting {
     public void testAtf4jExceptionAssertion() throws Atf4jException {
         try {
             throw new Atf4jException(new AssertionError(EXCEPTION_MESSAGE));
-        } catch (Atf4jException e) {
+        } catch (final Atf4jException e) {
             LOGGER.debug(e.toString());
             assertTrue(e.getMessage().contains(EXCEPTION_MESSAGE));
             assertTrue(e.getMessage().contains("java.lang.AssertionError"));

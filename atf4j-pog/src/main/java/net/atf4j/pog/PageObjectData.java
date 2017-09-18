@@ -19,8 +19,7 @@ package net.atf4j.pog;
 import java.util.ArrayList;
 
 /**
- * PageObject data class.
- * <code>
+ * PageObject data class. <code>
  * &#64;FindBy(id = "")
  * &#64;FindBy(name = "")
  * &#64;FindBy(linkText = "")
@@ -128,7 +127,9 @@ public class PageObjectData {
         return this.navElements;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
     @Override

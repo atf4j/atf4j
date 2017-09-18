@@ -44,8 +44,10 @@ public class ConfigLoadingTests extends ResultsReporting {
 
         /**
          * Gets the property filename.
+         *
          * @return the property filename
-         * @throws PropertyNotFound the property not found
+         * @throws PropertyNotFound
+         *             the property not found
          */
         public String getPropertyFilename() throws PropertyNotFound {
             this.log.info("getPropertyFilename");
@@ -54,7 +56,9 @@ public class ConfigLoadingTests extends ResultsReporting {
             return propertiesFilename;
         }
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         *
          * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
          */
         @Override
@@ -77,8 +81,11 @@ public class ConfigLoadingTests extends ResultsReporting {
 
     /**
      * Test suggested usage.
-     * @throws ConfigurationNotLoaded the configuration not loaded
-     * @throws PropertyNotFound the property not found
+     *
+     * @throws ConfigurationNotLoaded
+     *             the configuration not loaded
+     * @throws PropertyNotFound
+     *             the property not found
      */
     @Test
     public void testSuggestedUsage() throws ConfigurationNotLoaded, PropertyNotFound {

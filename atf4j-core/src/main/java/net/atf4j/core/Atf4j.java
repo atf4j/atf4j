@@ -34,7 +34,7 @@ public class Atf4j {
     public static void start() {
         start(UUID.randomUUID().toString());
     }
-    
+
     /**
      * Start.
      *
@@ -57,10 +57,10 @@ public class Atf4j {
      * Document.
      */
     public static void document() {
-        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         document(stackTrace);
     }
-    
+
     /**
      * Document.
      *

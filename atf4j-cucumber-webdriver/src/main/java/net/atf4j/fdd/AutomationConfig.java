@@ -27,7 +27,7 @@ public class AutomationConfig extends AbstractConfig {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
      */
     @Override

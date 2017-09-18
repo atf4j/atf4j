@@ -168,14 +168,12 @@ public final class NestedTimers {
      */
     @Override
     public String toString() {
-        return String.format("%s [runningTimers=%s,stoppedTimers=%s]",
-                this.getClass().getSimpleName(),
-                this.runningTimers,
-                this.stoppedTimers);
+        return String.format("%s [runningTimers=%s,stoppedTimers=%s]", this.getClass().getSimpleName(),
+                this.runningTimers, this.stoppedTimers);
     }
 
     public class TimersExhausted extends Atf4jException {
         private static final long serialVersionUID = 1L;
     }
-    
+
 }

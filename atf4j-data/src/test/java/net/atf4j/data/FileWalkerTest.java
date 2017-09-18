@@ -29,7 +29,9 @@ public class FileWalkerTest extends ResultsReporting {
 
     /**
      * Unit Test for test walk.
-     * @throws Exception the exception
+     * 
+     * @throws Exception
+     *             the exception
      */
     @Test
     public void testWalk() throws Exception {
@@ -40,7 +42,9 @@ public class FileWalkerTest extends ResultsReporting {
 
     /**
      * Unit Test for test file walker.
-     * @throws Exception the exception
+     * 
+     * @throws Exception
+     *             the exception
      */
     @Test
     public void testFileWalker() throws Exception {
@@ -50,7 +54,9 @@ public class FileWalkerTest extends ResultsReporting {
 
     /**
      * Unit Test for test file walker walk.
-     * @throws Exception the exception
+     * 
+     * @throws Exception
+     *             the exception
      */
     @Test
     public void testFileWalkerWalk() throws Exception {

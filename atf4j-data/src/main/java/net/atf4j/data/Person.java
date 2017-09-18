@@ -27,22 +27,23 @@ public class Person {
      * The Gender Enum.
      */
     public static enum Gender {
-        MALE("Male"),
-        FEMALE("Male"),
-        UNKNOWN("");
+        MALE("Male"), FEMALE("Male"), UNKNOWN("");
 
         private final String genderString;
 
         /**
          * Instantiates a new gender.
          *
-         * @param asText the as text
+         * @param asText
+         *            the as text
          */
         private Gender(final String asText) {
             this.genderString = asText;
         }
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         * 
          * @see java.lang.Enum#toString()
          */
         @Override
@@ -55,14 +56,7 @@ public class Person {
      * The Title Enum.
      */
     public static enum Title {
-        MR("Mr"),
-        MRS("Mrs"),
-        MS("Ms"),
-        MISS("Miss"),
-        SIR("Sir"),
-        LADY("Lady"),
-        LORD("Lord"),
-        DR("Dr");
+        MR("Mr"), MRS("Mrs"), MS("Ms"), MISS("Miss"), SIR("Sir"), LADY("Lady"), LORD("Lord"), DR("Dr");
 
         /** The value. */
         private final String titleString;
@@ -70,13 +64,16 @@ public class Person {
         /**
          * Instantiates a new title.
          *
-         * @param asText the as text
+         * @param asText
+         *            the as text
          */
         private Title(final String asText) {
             this.titleString = asText;
         }
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         * 
          * @see java.lang.Enum#toString()
          */
         @Override
@@ -120,7 +117,8 @@ public class Person {
     /**
      * Title.
      *
-     * @param title the title
+     * @param title
+     *            the title
      * @return the person
      */
     public Person title(final String title) {
@@ -131,7 +129,8 @@ public class Person {
     /**
      * Forename.
      *
-     * @param forename the forename
+     * @param forename
+     *            the forename
      * @return the person
      */
     public Person forename(final String forename) {
@@ -142,7 +141,8 @@ public class Person {
     /**
      * Middlename.
      *
-     * @param middlename the middlename
+     * @param middlename
+     *            the middlename
      * @return the person
      */
     public Person middlename(final String middlename) {
@@ -153,7 +153,8 @@ public class Person {
     /**
      * Surname.
      *
-     * @param surname the surname
+     * @param surname
+     *            the surname
      * @return the person
      */
     public Person surname(final String surname) {
@@ -164,7 +165,8 @@ public class Person {
     /**
      * Date of birth.
      *
-     * @param dob the dob
+     * @param dob
+     *            the dob
      * @return the person
      */
     public Person dateOfBirth(final Calendar dob) {
@@ -199,7 +201,8 @@ public class Person {
     /**
      * Gender.
      *
-     * @param gender the gender
+     * @param gender
+     *            the gender
      * @return the person
      */
     public Person gender(final String gender) {
@@ -265,7 +268,7 @@ public class Person {
         final int month = this.dob.get(Calendar.MONTH);
         final int year = this.dob.get(Calendar.YEAR);
 
-        final int age = ((currentyear * 12 + currentmonth) - (year * 12 + month)) / 12;
+        final int age = (currentyear * 12 + currentmonth - (year * 12 + month)) / 12;
 
         return age;
     }
@@ -297,19 +300,16 @@ public class Person {
         return this.Gender;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
         return String.format(
                 "Person [title=%s, forename=%s, middlename=%s, surname=%s, dob=%s, postalAddress=%s, emailAddress=%s]",
-                this.title,
-                this.forename,
-                this.middlename,
-                this.surname,
-                this.dob,
-                this.postalAddress,
+                this.title, this.forename, this.middlename, this.surname, this.dob, this.postalAddress,
                 this.emailAddress);
     }
 

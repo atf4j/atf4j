@@ -33,7 +33,7 @@ public class CardDataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testExpectedUsage() {
-        String randomCard = CardDataFactory.randomCard();
+        final String randomCard = CardDataFactory.randomCard();
         assertNotNull(randomCard);
         this.log.info("{}", randomCard);
     }
@@ -46,7 +46,7 @@ public class CardDataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testDefaultConstructor() throws Exception {
-        CardDataFactory cardDataFactory = new CardDataFactory();
+        final CardDataFactory cardDataFactory = new CardDataFactory();
         assertNotNull(cardDataFactory);
         this.log.info("{}", cardDataFactory);
     }

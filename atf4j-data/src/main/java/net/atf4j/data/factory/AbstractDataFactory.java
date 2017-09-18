@@ -96,7 +96,7 @@ public abstract class AbstractDataFactory {
         return content[randomIndex];
     }
 
-    public static void dataForTag(String string) {
+    public static void dataForTag(final String string) {
     }
 
 }

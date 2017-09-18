@@ -82,7 +82,9 @@ public abstract class Name extends Datum {
         return "";
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see net.atf4j.data.Datum#debugString()
      */
     @Override
@@ -90,7 +92,9 @@ public abstract class Name extends Datum {
         return String.format("%s [name=%s]", this.getClass().getSimpleName(), this.name);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see net.atf4j.data.Datum#toString()
      */
     @Override

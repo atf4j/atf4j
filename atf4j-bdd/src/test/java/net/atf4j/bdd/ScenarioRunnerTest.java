@@ -22,100 +22,170 @@ import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
+/**
+ * The Class ScenarioRunnerTest.
+ */
 public class ScenarioRunnerTest extends ResultsReporting {
 
-    public class Scenario extends LoggedScenario {
+    /**
+     * The Class Scenario.
+     */
+    public class Scenario extends AbstractScenario {
+
+        /**
+         * Test pass given.
+         */
         @Atf4j.Given("Given")
         public void testPassGiven() {
             Assume.assumeTrue(true);
         }
 
+        /**
+         * Test pass when.
+         */
         @Atf4j.When("When")
         public void testPassWhen() {
             Assert.assertTrue(true);
         }
 
+        /**
+         * Test pass then.
+         */
         @Atf4j.Then("Then")
         public void testPassThen() {
             Assert.assertTrue(true);
         }
     }
 
-    public class FailGivenScenario extends LoggedScenario {
+    /**
+     * The Class FailGivenScenario.
+     */
+    public class FailGivenScenario extends AbstractScenario {
+
+        /**
+         * Test pass given.
+         */
         @Atf4j.Given("Given")
         public void testPassGiven() {
             Assume.assumeTrue(false);
         }
 
+        /**
+         * Test pass when.
+         */
         @Atf4j.When("When")
         public void testPassWhen() {
             Assert.assertTrue(true);
         }
 
+        /**
+         * Test pass then.
+         */
         @Atf4j.Then("Then")
         public void testPassThen() {
             Assert.assertTrue(true);
         }
     }
 
-    public class FailWhenScenario extends LoggedScenario {
+    /**
+     * The Class FailWhenScenario.
+     */
+    public class FailWhenScenario extends AbstractScenario {
+
+        /**
+         * Test pass given.
+         */
         @Atf4j.Given("Given")
         public void testPassGiven() {
             Assume.assumeTrue(true);
         }
 
+        /**
+         * Test pass when.
+         */
         @Atf4j.When("When")
         public void testPassWhen() {
             Assert.assertTrue(false);
         }
 
+        /**
+         * Test pass then.
+         */
         @Atf4j.Then("Then")
         public void testPassThen() {
             Assert.assertTrue(true);
         }
     }
 
-    public class FailThenScenario extends LoggedScenario {
+    /**
+     * The Class FailThenScenario.
+     */
+    public class FailThenScenario extends AbstractScenario {
+
+        /**
+         * Test pass given.
+         */
         @Atf4j.Given("Given")
         public void testPassGiven() {
             Assume.assumeTrue(true);
         }
 
+        /**
+         * Test pass when.
+         */
         @Atf4j.When("When")
         public void testPassWhen() {
             Assert.assertTrue(true);
         }
 
+        /**
+         * Test pass then.
+         */
         @Atf4j.Then("Then")
         public void testPassThen() {
             Assert.assertTrue(false);
         }
     }
 
+    /**
+     * Test scenario execution.
+     */
     @Test
     public void testScenarioExecution() {
         final ScenarioRunner scenarioRunner = new ScenarioRunner();
         scenarioRunner.execute(new Scenario());
     }
 
+    /**
+     * Test fail given scenario.
+     */
     @Test
     public void testFailGivenScenario() {
         final ScenarioRunner scenarioRunner = new ScenarioRunner();
         scenarioRunner.execute(new FailGivenScenario());
     }
 
+    /**
+     * Test fail when scenario.
+     */
     @Test
     public void testFailWhenScenario() {
         final ScenarioRunner scenarioRunner = new ScenarioRunner();
         scenarioRunner.execute(new FailWhenScenario());
     }
 
+    /**
+     * Test fail then scenario.
+     */
     @Test
     public void testFailThenScenario() {
         final ScenarioRunner scenarioRunner = new ScenarioRunner();
         scenarioRunner.execute(new FailThenScenario());
     }
 
+    /**
+     * Test scenario runner.
+     */
     @Test
     public void testScenarioRunner() {
         final ScenarioRunner scenarioRunner = new ScenarioRunner(new Scenario());

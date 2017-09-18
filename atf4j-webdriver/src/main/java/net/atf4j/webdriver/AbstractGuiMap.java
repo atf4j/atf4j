@@ -23,9 +23,9 @@ import java.util.ResourceBundle;
 import java.util.Set;
 
 /**
- * A base abstraction to encapsulate GUI Mapping logical elements.
- * Uses Resource Bundles with basename_languageCode_countryCode
- * example: PageObjectGuiMap uses PageObjectGuiMap_en_GB.properties
+ * A base abstraction to encapsulate GUI Mapping logical elements. Uses Resource
+ * Bundles with basename_languageCode_countryCode example: PageObjectGuiMap uses
+ * PageObjectGuiMap_en_GB.properties
  */
 public abstract class AbstractGuiMap {
 
@@ -37,7 +37,7 @@ public abstract class AbstractGuiMap {
      */
     public AbstractGuiMap() {
         final String name = this.getClass().getSimpleName();
-        resourceBundle = ResourceBundle.getBundle(name);
+        this.resourceBundle = ResourceBundle.getBundle(name);
     }
 
     /**
@@ -47,7 +47,7 @@ public abstract class AbstractGuiMap {
      *            the a class
      */
     public AbstractGuiMap(final Class<?> aClass) {
-        resourceBundle = ResourceBundle.getBundle(aClass.getName());
+        this.resourceBundle = ResourceBundle.getBundle(aClass.getName());
         Class<?> currentClass = aClass;
         do {
             ResourceBundle.getBundle(currentClass.getName());
@@ -63,18 +63,17 @@ public abstract class AbstractGuiMap {
      *            the use bundle name
      */
     public AbstractGuiMap(final String useBundleName) {
-        resourceBundle = ResourceBundle.getBundle(useBundleName);
+        this.resourceBundle = ResourceBundle.getBundle(useBundleName);
     }
 
     /**
      * Contains key.
      *
      * @param key
-     *            the key
-     \* @return true, if successful, otherwise false.
+     *            the key \* @return true, if successful, otherwise false.
      */
     public boolean containsKey(final String key) {
-        return resourceBundle.containsKey(key);
+        return this.resourceBundle.containsKey(key);
     }
 
     /**
@@ -85,10 +84,10 @@ public abstract class AbstractGuiMap {
      */
     public void dumpTo(final PrintStream out) {
         out.println(this.getClass().getSimpleName());
-        final Enumeration<String> keys = resourceBundle.getKeys();
+        final Enumeration<String> keys = this.resourceBundle.getKeys();
         while (keys.hasMoreElements()) {
             final String key = keys.nextElement();
-            out.println(key + "=" + resourceBundle.getString(key)); //$NON-NLS-1$
+            out.println(key + "=" + this.resourceBundle.getString(key)); //$NON-NLS-1$
         }
         out.flush();
     }
@@ -99,7 +98,7 @@ public abstract class AbstractGuiMap {
      * @return the base bundle name
      */
     public String getBaseBundleName() {
-        return resourceBundle.getBaseBundleName();
+        return this.resourceBundle.getBaseBundleName();
     }
 
     /**
@@ -108,7 +107,7 @@ public abstract class AbstractGuiMap {
      * @return the keys
      */
     public Enumeration<String> getKeys() {
-        return resourceBundle.getKeys();
+        return this.resourceBundle.getKeys();
     }
 
     /**
@@ -118,7 +117,7 @@ public abstract class AbstractGuiMap {
      * @see java.util.ResourceBundle#getLocale()
      */
     public Locale getLocale() {
-        return resourceBundle.getLocale();
+        return this.resourceBundle.getLocale();
     }
 
     /**
@@ -129,7 +128,7 @@ public abstract class AbstractGuiMap {
      * @return the string
      */
     public final String getString(final String key) {
-        return resourceBundle.getString(key);
+        return this.resourceBundle.getString(key);
     }
 
     /**
@@ -139,7 +138,7 @@ public abstract class AbstractGuiMap {
      * @see java.util.ResourceBundle#keySet()
      */
     public Set<String> keySet() {
-        return resourceBundle.keySet();
+        return this.resourceBundle.keySet();
     }
 
     /*
@@ -149,7 +148,7 @@ public abstract class AbstractGuiMap {
      */
     @Override
     public final String toString() {
-        return resourceBundle.toString();
+        return this.resourceBundle.toString();
     }
 
 }

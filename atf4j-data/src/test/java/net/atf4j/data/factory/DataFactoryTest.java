@@ -45,17 +45,17 @@ public class DataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testExpectedUsage() {
-        Calendar today = DataFactory.today();
+        final Calendar today = DataFactory.today();
         this.log.info("DataFactory.today() = {}", DataFactory.format(today));
-        Calendar dateOfBirth = DataFactory.dateOfBirth();
+        final Calendar dateOfBirth = DataFactory.dateOfBirth();
         this.log.info("DataFactory.dateOfBirth() = {}", DataFactory.format(dateOfBirth));
-        Calendar dobOver18 = DataFactory.dobOver18();
+        final Calendar dobOver18 = DataFactory.dobOver18();
         this.log.info("DataFactory.dobOver18() = {}", DataFactory.format(dobOver18));
-        Calendar dobUnder18 = DataFactory.dobUnder18();
+        final Calendar dobUnder18 = DataFactory.dobUnder18();
         this.log.info("DataFactory.dobUnder18() = {}", DataFactory.format(dobUnder18));
-        Calendar futureDate = DataFactory.futureDate();
+        final Calendar futureDate = DataFactory.futureDate();
         this.log.info("DataFactory.futureDate() = {}", DataFactory.format(futureDate));
-        Calendar pastDate = DataFactory.pastDate();
+        final Calendar pastDate = DataFactory.pastDate();
         this.log.info("DataFactory.pastDate() = {}", DataFactory.format(pastDate));
     }
 
@@ -67,9 +67,9 @@ public class DataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testString() throws Exception {
-        char randomChar = DataFactory.randomChar();
+        final char randomChar = DataFactory.randomChar();
         this.log.info("DataFactory.randomChar() = {}", randomChar);
-        String randomString = DataFactory.randomString(10);
+        final String randomString = DataFactory.randomString(10);
         this.log.info("DataFactory.randomString(10) = {}", randomString);
     }
 
@@ -81,9 +81,9 @@ public class DataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testDigits() throws Exception {
-        char randomDigit = DataFactory.randomDigit();
+        final char randomDigit = DataFactory.randomDigit();
         this.log.info("DataFactory.randomDigit() = {}", randomDigit);
-        String randomDigits = DataFactory.randomDigits(10);
+        final String randomDigits = DataFactory.randomDigits(10);
         this.log.info("DataFactory.randomDigits(10) = {}", randomDigits);
     }
 
@@ -95,7 +95,7 @@ public class DataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testDefaultConstructor() throws Exception {
-        DataFactory object = new DataFactory();
+        final DataFactory object = new DataFactory();
         assertNotNull(object);
     }
 
@@ -217,7 +217,7 @@ public class DataFactoryTest extends ResultsReporting {
         assertNotNull(dateData);
         this.log.info("verifyDateData({})", dateData.toString());
         final String fromCalendar = DataFactory.format(dateData);
-        Date time = dateData.getTime();
+        final Date time = dateData.getTime();
         final String fromDate = DataFactory.format(time);
         assertNotNull(fromCalendar);
         assertNotNull(fromDate);

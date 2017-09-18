@@ -24,8 +24,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 /**
- * Web Site Steps, these are bindings from Gherkin to Java.
- * <tt>
+ * Web Site Steps, these are bindings from Gherkin to Java. <tt>
  *  Plurals     names?  matches name or names
  *              an?     matches a or an
  *  Quoted      '[^']*' matches "something" in single quotes
@@ -69,9 +68,7 @@ public class WebSiteSteps {
     }
 
     /**
-     * The target url is opened.
-     * \bhttp://\S+
-     * \"([^\"]*)\"
+     * The target url is opened. \bhttp://\S+ \"([^\"]*)\"
      *
      * @param targetUrl
      *            the target url

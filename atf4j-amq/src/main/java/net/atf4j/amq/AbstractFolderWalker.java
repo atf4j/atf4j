@@ -15,12 +15,12 @@ public abstract class AbstractFolderWalker {
     protected final Logger log = LoggerFactory.getLogger(AbstractFolderWalker.class);
     private String path;
     private FilenameFilter filter = new Unfiltered();
-    private List<File> foundFiles = new ArrayList<File>();
+    private final List<File> foundFiles = new ArrayList<File>();
 
     public class Unfiltered implements FilenameFilter {
         @Override
-        public boolean accept(File dir, String filename) {
-            log.trace("accept({},{})", dir, filename);
+        public boolean accept(final File dir, final String filename) {
+            AbstractFolderWalker.this.log.trace("accept({},{})", dir, filename);
             return true;
         }
     }
@@ -35,16 +35,16 @@ public abstract class AbstractFolderWalker {
         setPath(path);
     }
 
-    public AbstractFolderWalker(FilenameFilter extensionFilter) {
+    public AbstractFolderWalker(final FilenameFilter extensionFilter) {
         super();
         setExtensionFilter(extensionFilter);
     }
 
-    public void setPath(String path) {
+    public void setPath(final String path) {
         this.path = path;
     }
 
-    public void setExtensionFilter(FilenameFilter extensionFilter) {
+    public void setExtensionFilter(final FilenameFilter extensionFilter) {
         this.filter = extensionFilter;
     }
 
@@ -54,57 +54,57 @@ public abstract class AbstractFolderWalker {
 
     public List<File> walk(final String path) {
         if (path != null) {
-            File dir = new File(path);
-            File[] files = dir.listFiles(filter);
+            final File dir = new File(path);
+            final File[] files = dir.listFiles(this.filter);
             if (files != null) {
-                for (File file : files) {
+                for (final File file : files) {
                     if (file.isDirectory()) {
-                        String subDir = file.getAbsolutePath();
+                        final String subDir = file.getAbsolutePath();
                         walk(subDir);
                     } else {
-                        foundFiles.add(file);
+                        this.foundFiles.add(file);
                     }
                 }
             }
         }
-        return foundFiles;
+        return this.foundFiles;
     }
 
     public List<File> scan(final String path) {
-        File root = new File(path);
-        for (File file : root.listFiles()) {
+        final File root = new File(path);
+        for (final File file : root.listFiles()) {
             if (file.isDirectory()) {
-                String subDir = file.getAbsolutePath();
-                log.debug("{}", subDir);
+                final String subDir = file.getAbsolutePath();
+                this.log.debug("{}", subDir);
                 scan(subDir);
             } else {
-                log.debug("{}", file);
-                foundFiles.add(file);
+                this.log.debug("{}", file);
+                this.foundFiles.add(file);
             }
         }
-        return foundFiles;
+        return this.foundFiles;
     }
 
     protected File fileFromResourceURL(final String path) {
-        ClassLoader classLoader = this.getClass().getClassLoader();
-        URL url = classLoader.getResource(path);
+        final ClassLoader classLoader = this.getClass().getClassLoader();
+        final URL url = classLoader.getResource(path);
         File file = null;
         URI uri;
         try {
             uri = url.toURI();
             file = new File(uri);
-        } catch (URISyntaxException e) {
-            log.error(e.toString());
+        } catch (final URISyntaxException e) {
+            this.log.error(e.toString());
         }
         return file;
     }
 
     public String getPath() {
-        return path;
+        return this.path;
     }
 
     public List<File> getFoundFiles() {
-        return foundFiles;
+        return this.foundFiles;
     }
 
 }

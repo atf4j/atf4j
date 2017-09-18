@@ -82,7 +82,7 @@ public class Card {
 
     /**
      * Instantiates a new card.
-     * 
+     *
      * @param provider
      *            the provider
      * @param cardNumber
@@ -329,7 +329,7 @@ public class Card {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override

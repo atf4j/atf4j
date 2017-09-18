@@ -67,7 +67,9 @@ public class ConfigFromSystemTests extends ResultsReporting {
             return property;
         }
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         *
          * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
          */
         @Override

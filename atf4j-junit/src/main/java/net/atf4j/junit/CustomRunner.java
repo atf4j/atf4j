@@ -40,18 +40,13 @@ public class CustomRunner extends Runner {
             final int length = classMethod.getParameterTypes().length;
             final int modifiers = classMethod.getModifiers();
 
-            if (retClass == null
-                    || length != 0
-                    || Modifier.isStatic(modifiers)
-                    || !Modifier.isPublic(modifiers)
-                    || Modifier.isInterface(modifiers)
-                    || Modifier.isAbstract(modifiers)) {
+            if (retClass == null || length != 0 || Modifier.isStatic(modifiers) || !Modifier.isPublic(modifiers)
+                    || Modifier.isInterface(modifiers) || Modifier.isAbstract(modifiers)) {
                 continue;
             }
 
             final String methodName = classMethod.getName();
-            if (methodName.toUpperCase().startsWith("TEST")
-                    || classMethod.getAnnotation(Test.class) != null) {
+            if (methodName.toUpperCase().startsWith("TEST") || classMethod.getAnnotation(Test.class) != null) {
                 this.testMethods.add(classMethod);
             }
 

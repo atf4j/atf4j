@@ -33,7 +33,7 @@ public class ConsumerDataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testExpectedUsage() {
-        String randomStuff = ConsumerDataFactory.randomStuff();
+        final String randomStuff = ConsumerDataFactory.randomStuff();
         assertNotNull(randomStuff);
         this.log.info("{}", randomStuff);
     }
@@ -46,7 +46,7 @@ public class ConsumerDataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testDefaultConstructor() throws Exception {
-        ConsumerDataFactory consumerDataFactory = new ConsumerDataFactory();
+        final ConsumerDataFactory consumerDataFactory = new ConsumerDataFactory();
         assertNotNull(consumerDataFactory);
         this.log.info("{}", consumerDataFactory);
     }

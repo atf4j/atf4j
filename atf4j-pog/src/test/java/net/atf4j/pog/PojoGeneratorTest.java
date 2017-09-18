@@ -30,7 +30,8 @@ public class PojoGeneratorTest extends ResultsReporting {
     /**
      * Test method for void.
      *
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     @Test
     public void testPrototype() throws Exception {
@@ -48,7 +49,8 @@ public class PojoGeneratorTest extends ResultsReporting {
     /**
      * Test method for void.
      *
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     @Test
     public void testExpected() throws Exception {

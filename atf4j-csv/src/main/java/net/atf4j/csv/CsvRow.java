@@ -95,7 +95,9 @@ public class CsvRow {
         return String.format("%s [fields=%s]", this.getClass().getSimpleName(), Arrays.toString(this.fields));
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
     @Override

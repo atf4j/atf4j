@@ -75,7 +75,9 @@ public abstract class Behaviour {
         return this;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see net.atf4j.core.Command#execute(java.util.Properties)
      */
     public Properties execute(final Properties properties) {

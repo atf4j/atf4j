@@ -28,7 +28,9 @@ public class JmsData extends SetUpData {
         super();
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see net.atf4j.data.SetUpData#setUp()
      */
     @Override
@@ -36,7 +38,9 @@ public class JmsData extends SetUpData {
         return true;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see net.atf4j.data.SetUpData#reset()
      */
     @Override
@@ -44,7 +48,9 @@ public class JmsData extends SetUpData {
         return true;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see net.atf4j.data.SetUpData#tearDown()
      */
     @Override
