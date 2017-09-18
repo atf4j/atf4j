@@ -20,12 +20,6 @@ package net.atf4j.bdd;
  * PostCondition.
  */
 public abstract class PostCondition extends Predicate {
-    /**
-     * Instantiates a new post condition.
-     */
-    public PostCondition() {
-        super();
-    }
 
     /**
      * Instantiates a new post condition.

@@ -18,17 +18,8 @@ package net.atf4j.bdd;
 
 /**
  * Predicate.
- *
- *
  */
 public abstract class Predicate extends HoareStep {
-
-    /**
-     * Instantiates a new predicate.
-     */
-    public Predicate() {
-        super();
-    }
 
     /**
      * Instantiates a new predicate.

@@ -56,7 +56,7 @@ public class AddressDataFactoryTest extends ResultsReporting {
     public void testGetInstance() {
         final AddressDataFactory instance = AddressDataFactory.getInstance();
         assertNotNull(instance);
-        this.log.info(instance.toString());
+        this.log.info("{}", instance.toString());
     }
 
     /**
@@ -66,7 +66,7 @@ public class AddressDataFactoryTest extends ResultsReporting {
     public void testCreate() {
         final PostalAddress address = AddressDataFactory.create();
         assertNotNull(address);
-        this.log.info(address.toString());
+        this.log.info("{}", address.toString());
     }
 
     /**
@@ -76,7 +76,7 @@ public class AddressDataFactoryTest extends ResultsReporting {
     public void testRandom() {
         final PostalAddress address = AddressDataFactory.random();
         assertNotNull(address);
-        this.log.info(address.toString());
+        this.log.info("{}", address.toString());
     }
 
     /**
@@ -86,7 +86,7 @@ public class AddressDataFactoryTest extends ResultsReporting {
     public void testGetFromTag() {
         final PostalAddress address = AddressDataFactory.forTag("WIP");
         assertNotNull(address);
-        this.log.info(address.toString());
+        this.log.info("{}", address.toString());
     }
 
 }

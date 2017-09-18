@@ -22,13 +22,6 @@ package net.atf4j.bdd;
 public class When extends HoareStep {
 
     /**
-     * Instantiates a new when.
-     */
-    public When() {
-        super();
-    }
-
-    /**
      * When a event occurs.
      *
      * @param string

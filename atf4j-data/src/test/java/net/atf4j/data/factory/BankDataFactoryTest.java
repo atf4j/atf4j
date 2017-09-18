@@ -58,7 +58,7 @@ public class BankDataFactoryTest extends ResultsReporting {
     public void testGetInstance() {
         final BankDataFactory instance = BankDataFactory.getInstance();
         assertNotNull(instance);
-        this.log.info(instance.toString());
+        this.log.info("{}", instance.toString());
     }
 
     /**
@@ -68,7 +68,7 @@ public class BankDataFactoryTest extends ResultsReporting {
     public void testCreate() {
         final Bank bank = BankDataFactory.create();
         assertNotNull(bank);
-        this.log.info(bank.toString());
+        this.log.info("{}", bank.toString());
     }
 
 }

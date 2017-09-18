@@ -17,16 +17,9 @@
 package net.atf4j.bdd;
 
 /**
- * PreCondition.
+ * Predicate PreCondition.
  */
 public abstract class PreCondition extends Predicate {
-
-    /**
-     * Instantiates a new pre condition.
-     */
-    public PreCondition() {
-        super();
-    }
 
     /**
      * Instantiates a new pre condition.

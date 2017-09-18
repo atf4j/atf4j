@@ -18,19 +18,18 @@ package net.atf4j.bdd;
 
 import java.util.Properties;
 
+// TODO: Auto-generated Javadoc
 /**
  * HoareStep Class.
  *
  */
 public abstract class HoareStep {
 
+    /** The string. */
     protected String string;
 
-    /**
-     * Instantiates a new Hoare step.
-     */
-    public HoareStep() {
-    }
+    /** The properties. */
+    protected Properties properties;
 
     /**
      * Instantiates a new Hoare step.
@@ -39,9 +38,18 @@ public abstract class HoareStep {
      *            the string2
      */
     public HoareStep(final String string) {
+        this.string = string;
     }
 
+    /**
+     * Execute.
+     *
+     * @param properties
+     *            the properties
+     * @return the properties
+     */
     public Properties execute(final Properties properties) {
+        this.properties = properties;
         return properties;
     }
 

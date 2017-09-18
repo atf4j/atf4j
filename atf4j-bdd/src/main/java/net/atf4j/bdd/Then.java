@@ -20,12 +20,6 @@ package net.atf4j.bdd;
  * Hoare post condition as Then.
  */
 public class Then extends PostCondition {
-    /**
-     * Instantiates a new Hoare post condition as Then.
-     */
-    public Then() {
-        super();
-    }
 
     /**
      * Then.

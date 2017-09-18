@@ -22,6 +22,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import org.junit.Test;
 
@@ -44,34 +45,46 @@ public class DataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testExpectedUsage() {
-        this.log.info("DataFactory.today() = {}", DataFactory.format(DataFactory.today()));
-        this.log.info("DataFactory.dateOfBirth() = {}", DataFactory.format(DataFactory.dateOfBirth()));
-        this.log.info("DataFactory.dobOver18() = {}", DataFactory.format(DataFactory.dobOver18()));
-        this.log.info("DataFactory.dobUnder18() = {}", DataFactory.format(DataFactory.dobUnder18()));
-        this.log.info("DataFactory.futureDate() = {}", DataFactory.format(DataFactory.futureDate()));
-        this.log.info("DataFactory.pastDate() = {}", DataFactory.format(DataFactory.pastDate()));
+        Calendar today = DataFactory.today();
+        this.log.info("DataFactory.today() = {}", DataFactory.format(today));
+        Calendar dateOfBirth = DataFactory.dateOfBirth();
+        this.log.info("DataFactory.dateOfBirth() = {}", DataFactory.format(dateOfBirth));
+        Calendar dobOver18 = DataFactory.dobOver18();
+        this.log.info("DataFactory.dobOver18() = {}", DataFactory.format(dobOver18));
+        Calendar dobUnder18 = DataFactory.dobUnder18();
+        this.log.info("DataFactory.dobUnder18() = {}", DataFactory.format(dobUnder18));
+        Calendar futureDate = DataFactory.futureDate();
+        this.log.info("DataFactory.futureDate() = {}", DataFactory.format(futureDate));
+        Calendar pastDate = DataFactory.pastDate();
+        this.log.info("DataFactory.pastDate() = {}", DataFactory.format(pastDate));
     }
 
     /**
      * Test random string creation.
      *
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     @Test
     public final void testString() throws Exception {
-        this.log.info("DataFactory.randomChar() = {}", DataFactory.randomChar());
-        this.log.info("DataFactory.randomString(10) = {}", DataFactory.randomString(10));
+        char randomChar = DataFactory.randomChar();
+        this.log.info("DataFactory.randomChar() = {}", randomChar);
+        String randomString = DataFactory.randomString(10);
+        this.log.info("DataFactory.randomString(10) = {}", randomString);
     }
 
     /**
      * Test random numeric string creation.
      *
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     @Test
     public final void testDigits() throws Exception {
-        this.log.info("DataFactory.randomDigit() = {}", DataFactory.randomDigit());
-        this.log.info("DataFactory.randomDigits(10) = {}", DataFactory.randomDigits(10));
+        char randomDigit = DataFactory.randomDigit();
+        this.log.info("DataFactory.randomDigit() = {}", randomDigit);
+        String randomDigits = DataFactory.randomDigits(10);
+        this.log.info("DataFactory.randomDigits(10) = {}", randomDigits);
     }
 
     /**
@@ -82,7 +95,8 @@ public class DataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testDefaultConstructor() throws Exception {
-        assertNotNull(new DataFactory());
+        DataFactory object = new DataFactory();
+        assertNotNull(object);
     }
 
     /**
@@ -203,7 +217,8 @@ public class DataFactoryTest extends ResultsReporting {
         assertNotNull(dateData);
         this.log.info("verifyDateData({})", dateData.toString());
         final String fromCalendar = DataFactory.format(dateData);
-        final String fromDate = DataFactory.format(dateData.getTime());
+        Date time = dateData.getTime();
+        final String fromDate = DataFactory.format(time);
         assertNotNull(fromCalendar);
         assertNotNull(fromDate);
         assertEquals(fromCalendar, fromDate);
@@ -216,7 +231,7 @@ public class DataFactoryTest extends ResultsReporting {
     public void testCreatePerson() {
         final Person person = DataFactory.createPerson();
         assertNotNull(person);
-        this.log.info(person.toString());
+        this.log.info("{}", person.toString());
     }
 
     /**
@@ -226,7 +241,7 @@ public class DataFactoryTest extends ResultsReporting {
     public void testCreateCustomer() {
         final Customer customer = DataFactory.createCustomer();
         assertNotNull(customer);
-        this.log.info(customer.toString());
+        this.log.info("{}", customer.toString());
     }
 
     /**
@@ -236,7 +251,7 @@ public class DataFactoryTest extends ResultsReporting {
     public void testCreateConsumer() {
         final Consumer consumer = DataFactory.createConsumer();
         assertNotNull(consumer);
-        this.log.info(consumer.toString());
+        this.log.info("{}", consumer.toString());
     }
 
     /**
@@ -246,7 +261,7 @@ public class DataFactoryTest extends ResultsReporting {
     public void testCreateCard() {
         final Card card = DataFactory.createCard();
         assertNotNull(card);
-        this.log.info(card.toString());
+        this.log.info("{}", card.toString());
     }
 
     /**
@@ -256,7 +271,7 @@ public class DataFactoryTest extends ResultsReporting {
     public void testCreateBusiness() {
         final Business business = DataFactory.createBusiness();
         assertNotNull(business);
-        this.log.info(business.toString());
+        this.log.info("{}", business.toString());
     }
 
     /**
@@ -266,7 +281,7 @@ public class DataFactoryTest extends ResultsReporting {
     public void testCreateBank() {
         final Bank bank = DataFactory.createBank();
         assertNotNull(bank);
-        this.log.info(bank.toString());
+        this.log.info("{}", bank.toString());
     }
 
     /**
@@ -276,7 +291,7 @@ public class DataFactoryTest extends ResultsReporting {
     public void testCreateAddress() {
         final PostalAddress address = DataFactory.createAddress();
         assertNotNull(address);
-        this.log.info(address.toString());
+        this.log.info("{}", address.toString());
     }
 
 }

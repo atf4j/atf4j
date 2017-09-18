@@ -35,7 +35,7 @@ public class BusinessDataFactoryTest extends ResultsReporting {
     public void testExpectedUsage() {
         String randomThing = BusinessDataFactory.randomThing();
         assertNotNull(randomThing);
-        this.log.info(randomThing);
+        this.log.info("{}", randomThing);
     }
 
     /**
@@ -46,7 +46,9 @@ public class BusinessDataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testDefaultConstructor() throws Exception {
-        assertNotNull(new BusinessDataFactory());
+        BusinessDataFactory bdf = new BusinessDataFactory();
+        assertNotNull(bdf);
+        this.log.info("{}", bdf.toString());
     }
 
     /**
@@ -54,9 +56,9 @@ public class BusinessDataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testGetInstance() {
-        final BusinessDataFactory businessDataFactory = BusinessDataFactory.getInstance();
-        assertNotNull(businessDataFactory);
-        this.log.info(businessDataFactory.toString());
+        final BusinessDataFactory bdf = BusinessDataFactory.getInstance();
+        assertNotNull(bdf);
+        this.log.info("{}", bdf.toString());
     }
 
     /**
@@ -64,9 +66,9 @@ public class BusinessDataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testCreate() {
-        final Business businessDataFactory = BusinessDataFactory.create();
-        assertNotNull(businessDataFactory);
-        this.log.info(businessDataFactory.toString());
+        final Business bdf = BusinessDataFactory.create();
+        assertNotNull(bdf);
+        this.log.info("{}", bdf.toString());
     }
 
 }

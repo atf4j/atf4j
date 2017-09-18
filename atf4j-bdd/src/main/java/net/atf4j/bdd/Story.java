@@ -17,9 +17,7 @@
 package net.atf4j.bdd;
 
 /**
- * The Test Story Narrative.
- *
- *
+ * Test Story Narrative.
  */
 public class Story {
 

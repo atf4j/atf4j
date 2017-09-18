@@ -17,19 +17,9 @@
 package net.atf4j.bdd;
 
 /**
- *
  * Given.
- *
- *
  */
 public class Given extends PreCondition {
-
-    /**
-     * Instantiates a new Hoare pre-condition as given.
-     */
-    public Given() {
-        super();
-    }
 
     /**
      * Instantiates a new given.

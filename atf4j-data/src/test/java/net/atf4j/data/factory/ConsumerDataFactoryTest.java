@@ -33,7 +33,9 @@ public class ConsumerDataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testExpectedUsage() {
-        this.log.info(ConsumerDataFactory.randomStuff());
+        String randomStuff = ConsumerDataFactory.randomStuff();
+        assertNotNull(randomStuff);
+        this.log.info("{}", randomStuff);
     }
 
     /**
@@ -44,7 +46,9 @@ public class ConsumerDataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testDefaultConstructor() throws Exception {
-        assertNotNull(new ConsumerDataFactory());
+        ConsumerDataFactory consumerDataFactory = new ConsumerDataFactory();
+        assertNotNull(consumerDataFactory);
+        this.log.info("{}", consumerDataFactory);
     }
 
     /**
@@ -52,9 +56,9 @@ public class ConsumerDataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testGetInstance() {
-        final ConsumerDataFactory consumerFactory = ConsumerDataFactory.getInstance();
-        assertNotNull(consumerFactory);
-        this.log.info(consumerFactory.toString());
+        final ConsumerDataFactory consumerDataFactory = ConsumerDataFactory.getInstance();
+        assertNotNull(consumerDataFactory);
+        this.log.info("{}", consumerDataFactory.toString());
     }
 
     /**
@@ -64,7 +68,7 @@ public class ConsumerDataFactoryTest extends ResultsReporting {
     public void testCreate() {
         final Consumer consumer = ConsumerDataFactory.create();
         assertNotNull(consumer);
-        this.log.info(consumer.toString());
+        this.log.info("{}", consumer.toString());
     }
 
 }

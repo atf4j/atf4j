@@ -36,18 +36,18 @@ public class PersonDataFactoryTest extends ResultsReporting {
         Person person = PersonDataFactory.create();
         assertNotNull(person);
 
-        this.log.info(PersonDataFactory.randomForename());
-        this.log.info(PersonDataFactory.randomFemaleForename());
-        this.log.info(PersonDataFactory.randomMaleForename());
+        this.log.info("{}", PersonDataFactory.randomForename());
+        this.log.info("{}", PersonDataFactory.randomFemaleForename());
+        this.log.info("{}", PersonDataFactory.randomMaleForename());
 
-        this.log.info(PersonDataFactory.randomSurname());
-        this.log.info(PersonDataFactory.randomSurname());
-        this.log.info(PersonDataFactory.randomSurname());
+        this.log.info("{}", PersonDataFactory.randomSurname());
+        this.log.info("{}", PersonDataFactory.randomSurname());
+        this.log.info("{}", PersonDataFactory.randomSurname());
 
-        this.log.info(PersonDataFactory.randomFullname());
-        this.log.info(PersonDataFactory.randomFullname());
+        this.log.info("{}", PersonDataFactory.randomFullname());
+        this.log.info("{}", PersonDataFactory.randomFullname());
 
-        this.log.info(PersonDataFactory.randomEmail());
+        this.log.info("{}", PersonDataFactory.randomEmail());
     }
 
     /**
@@ -60,7 +60,7 @@ public class PersonDataFactoryTest extends ResultsReporting {
     public final void testDefaultConstructor() throws Exception {
         final PersonDataFactory personDataFactory = new PersonDataFactory();
         assertNotNull(personDataFactory);
-        assertNotNull(personDataFactory.toString());
+        assertNotNull("{}", personDataFactory.toString());
     }
 
     /**
