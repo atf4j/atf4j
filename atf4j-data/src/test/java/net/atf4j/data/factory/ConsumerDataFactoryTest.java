@@ -29,39 +29,6 @@ import net.atf4j.data.Consumer;
 public class ConsumerDataFactoryTest extends ResultsReporting {
 
     /**
-     * Test method for expected usage.
-     */
-    @Test
-    public void testExpectedUsage() {
-        final String randomStuff = ConsumerDataFactory.randomStuff();
-        assertNotNull(randomStuff);
-        this.log.info("{}", randomStuff);
-    }
-
-    /**
-     * Test default constructor.
-     *
-     * @throws Exception
-     *             the exception
-     */
-    @Test
-    public final void testDefaultConstructor() throws Exception {
-        final ConsumerDataFactory consumerDataFactory = new ConsumerDataFactory();
-        assertNotNull(consumerDataFactory);
-        this.log.info("{}", consumerDataFactory);
-    }
-
-    /**
-     * Test method for void.
-     */
-    @Test
-    public void testGetInstance() {
-        final ConsumerDataFactory consumerDataFactory = ConsumerDataFactory.getInstance();
-        assertNotNull(consumerDataFactory);
-        this.log.info("{}", consumerDataFactory.toString());
-    }
-
-    /**
      * Test method for void.
      */
     @Test

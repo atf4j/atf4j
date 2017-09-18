@@ -29,39 +29,6 @@ import net.atf4j.data.Card;
 public class CardDataFactoryTest extends ResultsReporting {
 
     /**
-     * Test method for expected usage.
-     */
-    @Test
-    public void testExpectedUsage() {
-        final String randomCard = CardDataFactory.randomCard();
-        assertNotNull(randomCard);
-        this.log.info("{}", randomCard);
-    }
-
-    /**
-     * Test default constructor.
-     *
-     * @throws Exception
-     *             the exception
-     */
-    @Test
-    public final void testDefaultConstructor() throws Exception {
-        final CardDataFactory cardDataFactory = new CardDataFactory();
-        assertNotNull(cardDataFactory);
-        this.log.info("{}", cardDataFactory);
-    }
-
-    /**
-     * Test method for void.
-     */
-    @Test
-    public void testGetInstance() {
-        final CardDataFactory cardDataFactory = CardDataFactory.getInstance();
-        assertNotNull(cardDataFactory);
-        this.log.info("{}", cardDataFactory.toString());
-    }
-
-    /**
      * Test method for void.
      */
     @Test

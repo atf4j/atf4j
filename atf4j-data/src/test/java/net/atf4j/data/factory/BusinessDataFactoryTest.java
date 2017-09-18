@@ -32,43 +32,10 @@ public class BusinessDataFactoryTest extends ResultsReporting {
      * Test method for expected usage.
      */
     @Test
-    public void testExpectedUsage() {
-        final String randomThing = BusinessDataFactory.randomThing();
-        assertNotNull(randomThing);
-        this.log.info("{}", randomThing);
-    }
-
-    /**
-     * Test default constructor.
-     *
-     * @throws Exception
-     *             the exception
-     */
-    @Test
-    public final void testDefaultConstructor() throws Exception {
-        final BusinessDataFactory bdf = new BusinessDataFactory();
-        assertNotNull(bdf);
-        this.log.info("{}", bdf.toString());
-    }
-
-    /**
-     * Test method for void.
-     */
-    @Test
-    public void testGetInstance() {
-        final BusinessDataFactory bdf = BusinessDataFactory.getInstance();
-        assertNotNull(bdf);
-        this.log.info("{}", bdf.toString());
-    }
-
-    /**
-     * Test method for void.
-     */
-    @Test
     public void testCreate() {
-        final Business bdf = BusinessDataFactory.create();
-        assertNotNull(bdf);
-        this.log.info("{}", bdf.toString());
+        Business business = BusinessDataFactory.create();
+        assertNotNull(business);
+        this.log.info("business={}", business);
     }
 
 }

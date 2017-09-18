@@ -24,7 +24,7 @@ import org.junit.Test;
 public class AbstractWalkerTest {
 
     /**
-     * The MockWalker Class.
+     * MockWalker Class.
      */
     public class MockWalker extends AbstractWalker {
 
@@ -48,7 +48,7 @@ public class AbstractWalkerTest {
      *             the exception
      */
     @Test
-    public void test() throws Exception {
+    public void testAbstractWalker() throws Exception {
         new MockWalker(".").walk();
     }
 
