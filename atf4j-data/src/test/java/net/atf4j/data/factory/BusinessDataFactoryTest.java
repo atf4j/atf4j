@@ -33,7 +33,9 @@ public class BusinessDataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testExpectedUsage() {
-        this.log.info(BusinessDataFactory.randomThing());
+        String randomThing = BusinessDataFactory.randomThing();
+        assertNotNull(randomThing);
+        this.log.info(randomThing);
     }
 
     /**
@@ -52,9 +54,9 @@ public class BusinessDataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testGetInstance() {
-        final BusinessDataFactory instance = BusinessDataFactory.getInstance();
-        assertNotNull(instance);
-        this.log.info(instance.toString());
+        final BusinessDataFactory businessDataFactory = BusinessDataFactory.getInstance();
+        assertNotNull(businessDataFactory);
+        this.log.info(businessDataFactory.toString());
     }
 
     /**
@@ -62,9 +64,9 @@ public class BusinessDataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testCreate() {
-        final Business business = BusinessDataFactory.create();
-        assertNotNull(business);
-        this.log.info(business.toString());
+        final Business businessDataFactory = BusinessDataFactory.create();
+        assertNotNull(businessDataFactory);
+        this.log.info(businessDataFactory.toString());
     }
 
 }

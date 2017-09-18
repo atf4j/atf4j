@@ -33,7 +33,9 @@ public class CardDataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testExpectedUsage() {
-        this.log.info(CardDataFactory.randomCard());
+        String randomCard = CardDataFactory.randomCard();
+        assertNotNull(randomCard);
+        this.log.info("{}", randomCard);
     }
 
     /**
@@ -44,7 +46,9 @@ public class CardDataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testDefaultConstructor() throws Exception {
-        assertNotNull(new CardDataFactory());
+        CardDataFactory cardDataFactory = new CardDataFactory();
+        assertNotNull(cardDataFactory);
+        this.log.info("{}", cardDataFactory);
     }
 
     /**
@@ -52,9 +56,9 @@ public class CardDataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testGetInstance() {
-        final CardDataFactory instance = CardDataFactory.getInstance();
-        assertNotNull(instance);
-        this.log.info(instance.toString());
+        final CardDataFactory cardDataFactory = CardDataFactory.getInstance();
+        assertNotNull(cardDataFactory);
+        this.log.info("{}", cardDataFactory.toString());
     }
 
     /**
@@ -64,7 +68,7 @@ public class CardDataFactoryTest extends ResultsReporting {
     public void testCreate() {
         final Card card = CardDataFactory.create();
         assertNotNull(card);
-        this.log.info(card.toString());
+        this.log.info("{}", card.toString());
     }
 
 }

@@ -19,7 +19,7 @@ package net.atf4j.core;
 import static net.atf4j.core.Atf4j.document;
 import static net.atf4j.core.Atf4j.end;
 import static net.atf4j.core.Atf4j.start;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 import static org.junit.Assume.assumeTrue;
 
@@ -35,7 +35,7 @@ public class Atf4jStepsExample {
      */
     @Test
     public void testSimpleStep() {
-        start("start test");
+        start("start simple test step");
         {
             start("step one");
             {
@@ -50,8 +50,8 @@ public class Atf4jStepsExample {
      * test Atf4jSteps object.
      */
     @Test
-    public void testSteps() {
-        start("start test");
+    public void testStepPass() {
+        start("start pass test step");
         {
             start("step one");
             {
@@ -61,7 +61,7 @@ public class Atf4jStepsExample {
 
             start("step two");
             {
-                assertTrue(true);
+                assertNotNull(this);
             }
             end();
         }
@@ -69,8 +69,8 @@ public class Atf4jStepsExample {
     }
 
     @Test(expected = AssertionError.class)
-    public void testFailStep() {
-        start("start test");
+    public void testStepFail() {
+        start("start fail test step");
         {
             start("step one");
             {

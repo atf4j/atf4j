@@ -114,7 +114,7 @@ public class TestCaseTest extends ResultsReporting {
     @Test
     public void testPreCondition() {
         final TestCase testCase = new TestCase();
-        testCase.addPreCondition(new PassingCondition());
+        assertNotNull(testCase.addPreCondition(new PassingCondition()));
     }
 
     /**
@@ -123,7 +123,7 @@ public class TestCaseTest extends ResultsReporting {
     @Test
     public void testPostCondition() {
         final TestCase testCase = new TestCase();
-        testCase.addPostCondition(new PassingCondition());
+        assertNotNull(testCase.addPostCondition(new PassingCondition()));
     }
 
 }

@@ -16,6 +16,8 @@
  */
 package net.atf4j.core.waits;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
@@ -27,13 +29,13 @@ import net.atf4j.core.model.Condition;
 public class ConditionTest extends ResultsReporting {
 
     /**
-     * The PassingCondition Class.
+     * PassingCondition Class.
      */
     public class PassingCondition extends Condition {
     }
 
     /**
-     * The FailingCondition Class.
+     * FailingCondition Class.
      */
     public class FailingCondition extends Condition {
     }
@@ -43,7 +45,7 @@ public class ConditionTest extends ResultsReporting {
      */
     @Test
     public void PassingCondition() {
-        new PassingCondition();
+        assertNotNull(new PassingCondition());
     }
 
     /**
@@ -51,7 +53,7 @@ public class ConditionTest extends ResultsReporting {
      */
     @Test
     public void testFailingCondition() {
-        new FailingCondition();
+        assertNotNull(new FailingCondition());
     }
 
 }

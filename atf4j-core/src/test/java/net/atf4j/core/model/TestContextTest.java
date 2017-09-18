@@ -17,6 +17,7 @@
 package net.atf4j.core.model;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assume.assumeFalse;
 
 import org.junit.Test;
@@ -33,7 +34,7 @@ public class TestContextTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        new TestContext();
+        assertNotNull(new TestContext());
     }
 
     /**

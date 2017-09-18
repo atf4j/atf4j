@@ -30,13 +30,13 @@ import net.atf4j.core.ResultsReporting;
 public class TestSuiteTest extends ResultsReporting {
 
     /**
-     * The TestCaseReport Class.
+     * Test Case Report Class.
      */
     public class MockTestReport implements TestReport {
     }
 
     /**
-     * The PassingCondition Class.
+     * Passing Test Condition Class.
      */
     public class PassingCondition extends Condition {
     }

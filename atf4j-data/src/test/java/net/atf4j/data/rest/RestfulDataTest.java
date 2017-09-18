@@ -16,6 +16,8 @@
  */
 package net.atf4j.data.rest;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
 
 import net.atf4j.data.management.RestfulData;
@@ -29,8 +31,20 @@ public class RestfulDataTest {
      * Test method for void.
      */
     @Test
+    public void testRestfulData() {
+        RestfulData restfulData = new RestfulData();
+        assertNotNull(restfulData);
+    }
+
+    /**
+     * Test method for void.
+     */
+    @Test
     public void testSetUp() {
-        new RestfulData().setUp();
+        RestfulData restfulData = new RestfulData();
+        assertNotNull(restfulData);
+        boolean data = restfulData.setUp();
+        assertNotNull(data);
     }
 
     /**
@@ -38,7 +52,10 @@ public class RestfulDataTest {
      */
     @Test
     public void testReset() {
-        new RestfulData().reset();
+        RestfulData restfulData = new RestfulData();
+        assertNotNull(restfulData);
+        boolean data = restfulData.reset();
+        assertNotNull(data);
     }
 
     /**
@@ -46,15 +63,10 @@ public class RestfulDataTest {
      */
     @Test
     public void testTearDown() {
-        new RestfulData().tearDown();
-    }
-
-    /**
-     * Test method for void.
-     */
-    @Test
-    public void testRestfulData() {
-        new RestfulData();
+        RestfulData restfulData = new RestfulData();
+        assertNotNull(restfulData);
+        boolean data = restfulData.tearDown();
+        assertNotNull(data);
     }
 
 }

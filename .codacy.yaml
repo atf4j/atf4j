@@ -1,0 +1,7 @@
+engines:
+  csslint:
+    enabled: true
+
+exclude_paths:
+- "test/**/*"
+- "source/site/**/*"

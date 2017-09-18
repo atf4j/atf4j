@@ -32,11 +32,7 @@ import org.slf4j.LoggerFactory;
 public class CsvFile {
 
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
-
-    /** The header line, if present */
     private HeaderLine header;
-
-    /** The data. */
     private final List<CsvRow> data = new ArrayList<CsvRow>();
 
     /**
@@ -108,7 +104,7 @@ public class CsvFile {
      * Load.
      *
      * @param in
-     *            the in
+     *            the InputStream
      * @throws Exception
      *             the exception
      */

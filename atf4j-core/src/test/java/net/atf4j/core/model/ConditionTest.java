@@ -27,13 +27,13 @@ import org.junit.Test;
 public class ConditionTest {
 
     /**
-     * The MockTrue Class.
+     * MockTrue Class.
      */
     public class MockTrue extends Condition {
     }
 
     /**
-     * The MockFalse Class.
+     * MockFalse Class.
      */
     public class MockFalse extends Condition {
     }

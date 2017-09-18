@@ -16,6 +16,8 @@
  */
 package net.atf4j.data;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
@@ -29,7 +31,9 @@ public class LoremIpsumTest extends ResultsReporting {
      * Unit Test.
      */
     @Test
-    public void test() {
+    public void testLoremIpsum() {
+        String text = LoremIpsum.text();
+        assertNotNull(text);
         this.log.info("LoremIpsum.text() = {}", LoremIpsum.text());
 
         this.log.info("LoremIpsum.word() = {}", LoremIpsum.word());

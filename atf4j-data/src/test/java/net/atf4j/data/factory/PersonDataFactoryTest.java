@@ -33,6 +33,9 @@ public class PersonDataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testExpectedUsage() {
+        Person person = PersonDataFactory.create();
+        assertNotNull(person);
+
         this.log.info(PersonDataFactory.randomForename());
         this.log.info(PersonDataFactory.randomFemaleForename());
         this.log.info(PersonDataFactory.randomMaleForename());
@@ -77,7 +80,7 @@ public class PersonDataFactoryTest extends ResultsReporting {
     public void testCreate() {
         final Person person = PersonDataFactory.create();
         assertNotNull(person);
-        this.log.info(person.toString());
+        this.log.info("{}", person.toString());
     }
 
 }
