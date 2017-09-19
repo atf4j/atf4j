@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.Properties;
 
 import org.junit.Assert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Behaviour, this is essential a Hoare triple.
@@ -29,6 +31,8 @@ import org.junit.Assert;
  * PostCondition are confirmed; And moe PostConditions are confirmed.
  */
 public abstract class Behaviour {
+
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /** The given situation. */
     private final List<Given> givenList = new ArrayList<Given>();

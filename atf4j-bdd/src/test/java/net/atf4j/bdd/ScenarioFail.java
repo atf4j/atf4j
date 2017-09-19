@@ -16,6 +16,8 @@
  */
 package net.atf4j.bdd;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
@@ -30,7 +32,9 @@ public class ScenarioFail extends ResultsReporting {
      */
     @Test
     public void testScenarioRunner() {
-        new ScenarioRunner().execute();
+        ScenarioRunner scenarioRunner = new ScenarioRunner();
+        assertNotNull(scenarioRunner);
+        scenarioRunner.execute();
     }
 
 }

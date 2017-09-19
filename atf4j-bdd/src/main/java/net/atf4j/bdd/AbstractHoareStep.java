@@ -18,11 +18,15 @@ package net.atf4j.bdd;
 
 import java.util.Properties;
 
-/**
- * HoareStep Class.
- */
-public abstract class HoareStep {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+/**
+ * Abstract Hoare Step Class.
+ */
+public abstract class AbstractHoareStep implements HoareStepInterface {
+
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
     protected String string;
     protected Properties properties;
 
@@ -30,19 +34,27 @@ public abstract class HoareStep {
      * Instantiates a new Hoare step.
      *
      * @param string
-     *            the string2
+     *            the string
      */
-    public HoareStep(final String string) {
+    public AbstractHoareStep(final String string) {
         this.string = string;
     }
 
     /**
      * Execute.
      *
-     * @param properties
-     *            the properties
      * @return the properties
      */
+    public Properties execute() {
+        return this.properties;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see net.atf4j.bdd.HoareStepInterface#execute(java.util.Properties)
+     */
+    @Override
     public Properties execute(final Properties properties) {
         this.properties = properties;
         return properties;

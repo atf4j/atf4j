@@ -32,7 +32,8 @@ public class ScenarioMissingGiven extends ResultsReporting {
      */
     @Test
     public void testScenarioRunner() {
-        new ScenarioRunner().execute();
+        ScenarioRunner scenarioRunner = new ScenarioRunner();
+        scenarioRunner.execute();
     }
 
     // @Atf4j.Given("Given")

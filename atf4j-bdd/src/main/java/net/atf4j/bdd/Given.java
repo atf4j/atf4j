@@ -19,10 +19,13 @@ package net.atf4j.bdd;
 import java.util.UUID;
 
 /**
- * Given.
+ * BDD Given. Hoare post condition as Then.
  */
 public final class Given extends PreCondition {
 
+    /**
+     * Instantiates a new given.
+     */
     public Given() {
         super(UUID.randomUUID().toString());
     }
@@ -35,9 +38,6 @@ public final class Given extends PreCondition {
      */
     public Given(final String string) {
         super(string);
-    }
-
-    public void execute() {
     }
 
 }

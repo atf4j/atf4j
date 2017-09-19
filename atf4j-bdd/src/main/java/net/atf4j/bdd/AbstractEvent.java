@@ -16,6 +16,9 @@
  */
 package net.atf4j.bdd;
 
-public abstract class AbstractEvent {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+public abstract class AbstractEvent {
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 }

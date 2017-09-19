@@ -19,10 +19,13 @@ package net.atf4j.bdd;
 import java.util.UUID;
 
 /**
- * When Class.
+ * BDD When Class. Hoare command as When.
  */
-public final class When extends HoareStep {
+public final class When extends AbstractHoareStep {
 
+    /**
+     * Instantiates a new when.
+     */
     public When() {
         super(UUID.randomUUID().toString());
     }

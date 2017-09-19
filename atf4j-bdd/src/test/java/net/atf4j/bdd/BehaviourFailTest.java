@@ -17,6 +17,11 @@
 
 package net.atf4j.bdd;
 
+import static org.junit.Assert.assertNotNull;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import net.atf4j.core.ResultsReporting;
 
 /**
@@ -24,21 +29,26 @@ import net.atf4j.core.ResultsReporting;
  */
 public class BehaviourFailTest extends ResultsReporting {
 
+    private static final Logger LOG = LoggerFactory.getLogger(BehaviourFailTest.class);
+
     /**
-     * Test given.
+     * Test Given.
      */
     @Atf4j.Given("testGiven")
     public void testGiven() {
         final Given given = new Given();
+        assertNotNull(given);
         given.execute();
     }
 
     /**
-     * Test when.
+     * Test When.
      */
     @Atf4j.When("testWhen")
     public void testWhen() {
-        new When();
+        When when = new When();
+        assertNotNull(when);
+        when.execute();
     }
 
     /**
@@ -46,7 +56,9 @@ public class BehaviourFailTest extends ResultsReporting {
      */
     @Atf4j.Then("testThen")
     public void testThen() {
-        new Then();
+        Then then = new Then();
+        assertNotNull(then);
+        then.execute();
     }
 
 }

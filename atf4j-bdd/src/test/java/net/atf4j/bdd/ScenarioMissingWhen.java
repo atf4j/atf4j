@@ -22,7 +22,7 @@ import net.atf4j.bdd.Atf4j.Scenario;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * The Class ScenarioMissingWhen.
+ * Scenario Missing When class.
  */
 @Scenario("Scenario")
 public class ScenarioMissingWhen extends ResultsReporting {
@@ -32,7 +32,8 @@ public class ScenarioMissingWhen extends ResultsReporting {
      */
     @Test
     public void testScenarioRunner() {
-        new ScenarioRunner().execute();
+        ScenarioRunner scenarioRunner = new ScenarioRunner();
+        scenarioRunner.execute();
     }
 
     /**

@@ -30,7 +30,8 @@ public class ScenarioPass extends ResultsReporting {
      */
     @Test
     public void testScenarioRunner() {
-        new ScenarioRunner().execute();
+        ScenarioRunner scenarioRunner = new ScenarioRunner();
+        scenarioRunner.execute();
     }
 
 }

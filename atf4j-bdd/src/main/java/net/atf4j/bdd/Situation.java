@@ -16,15 +16,21 @@
  */
 package net.atf4j.bdd;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Situation.
  */
-public class Situation {
+public final class Situation {
+
+    private static final Logger LOG = LoggerFactory.getLogger(Situation.class);
 
     /**
      * Situation.
      */
     public Situation() {
+        LOG.info("{}.Situation()", this.getClass().getSimpleName());
     }
 
     /**
@@ -34,6 +40,7 @@ public class Situation {
      *            the given
      */
     public Situation(final Given given) {
+        LOG.info("{}.Situation({})", this.getClass().getSimpleName(), given);
     }
 
 }

@@ -28,7 +28,7 @@ import net.atf4j.core.ResultsReporting;
 public class ScenarioRunnerTest extends ResultsReporting {
 
     /**
-     * The Class Scenario.
+     * Scenario class.
      */
     public class Scenario extends AbstractScenario {
 
@@ -58,7 +58,7 @@ public class ScenarioRunnerTest extends ResultsReporting {
     }
 
     /**
-     * The Class FailGivenScenario.
+     * Fail Given Scenario class.
      */
     public class FailGivenScenario extends AbstractScenario {
 
@@ -88,7 +88,7 @@ public class ScenarioRunnerTest extends ResultsReporting {
     }
 
     /**
-     * The Class FailWhenScenario.
+     * FailWhenScenario Class.
      */
     public class FailWhenScenario extends AbstractScenario {
 
@@ -118,7 +118,7 @@ public class ScenarioRunnerTest extends ResultsReporting {
     }
 
     /**
-     * The Class FailThenScenario.
+     * Fail Then Scenario Class.
      */
     public class FailThenScenario extends AbstractScenario {
 
@@ -153,7 +153,8 @@ public class ScenarioRunnerTest extends ResultsReporting {
     @Test
     public void testScenarioExecution() {
         final ScenarioRunner scenarioRunner = new ScenarioRunner();
-        scenarioRunner.execute(new Scenario());
+        Scenario scenario = new Scenario();
+        scenarioRunner.execute(scenario);
     }
 
     /**
@@ -162,7 +163,8 @@ public class ScenarioRunnerTest extends ResultsReporting {
     @Test
     public void testFailGivenScenario() {
         final ScenarioRunner scenarioRunner = new ScenarioRunner();
-        scenarioRunner.execute(new FailGivenScenario());
+        FailGivenScenario scenario = new FailGivenScenario();
+        scenarioRunner.execute(scenario);
     }
 
     /**
@@ -171,7 +173,8 @@ public class ScenarioRunnerTest extends ResultsReporting {
     @Test
     public void testFailWhenScenario() {
         final ScenarioRunner scenarioRunner = new ScenarioRunner();
-        scenarioRunner.execute(new FailWhenScenario());
+        FailWhenScenario scenario = new FailWhenScenario();
+        scenarioRunner.execute(scenario);
     }
 
     /**
@@ -180,7 +183,8 @@ public class ScenarioRunnerTest extends ResultsReporting {
     @Test
     public void testFailThenScenario() {
         final ScenarioRunner scenarioRunner = new ScenarioRunner();
-        scenarioRunner.execute(new FailThenScenario());
+        FailThenScenario scenario = new FailThenScenario();
+        scenarioRunner.execute(scenario);
     }
 
     /**
@@ -188,7 +192,8 @@ public class ScenarioRunnerTest extends ResultsReporting {
      */
     @Test
     public void testScenarioRunner() {
-        final ScenarioRunner scenarioRunner = new ScenarioRunner(new Scenario());
+        Scenario targetScenario = new Scenario();
+        final ScenarioRunner scenarioRunner = new ScenarioRunner(targetScenario);
         scenarioRunner.execute();
     }
 
