@@ -27,7 +27,7 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for BankSortCode objects.
+ * A Unit test class for BankSortCode objects.
  */
 public class BankSortCodeTest extends ResultsReporting {
 

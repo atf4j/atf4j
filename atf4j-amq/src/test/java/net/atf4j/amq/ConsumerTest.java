@@ -14,27 +14,39 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.amq;
 
 import static org.junit.Assert.assertNotNull;
 
 import javax.jms.JMSException;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
-@Ignore
 public class ConsumerTest {
 
+    /**
+     * Test reader.
+     *
+     * @throws JMSException
+     *             the JMS exception
+     */
     @Test
     public void testReader() throws JMSException {
         assertNotNull(new Consumer());
     }
 
+    /**
+     * Test execute.
+     *
+     * @throws JMSException
+     *             the JMS exception
+     */
     @Test
     public void testExecute() throws JMSException {
         final Consumer reader = new Consumer();
         assertNotNull(reader);
-        reader.execute();
+        String[] execute = reader.execute();
+        assertNotNull(execute);
     }
 }

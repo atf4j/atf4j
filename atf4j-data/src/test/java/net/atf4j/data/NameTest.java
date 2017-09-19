@@ -24,7 +24,7 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for Name objects.
+ * A Unit test class for Name objects.
  */
 public class NameTest extends ResultsReporting {
 

@@ -23,7 +23,7 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for Business objects.
+ * A Unit test class for Business objects.
  */
 public class BusinessTest extends ResultsReporting {
 

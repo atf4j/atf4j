@@ -24,7 +24,7 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for Product objects.
+ * A Unit test class for Product objects.
  */
 public class ProductTest extends ResultsReporting {
 

@@ -17,7 +17,7 @@
 package net.atf4j.data.management;
 
 /**
- * The Class SetUpData.
+ * SetUpData Class.
  */
 public abstract class SetUpData {
 

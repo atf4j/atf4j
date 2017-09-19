@@ -14,20 +14,38 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.amq;
 
 import javax.jms.JMSException;
 import javax.jms.MessageProducer;
 import javax.jms.TextMessage;
 
-public class Producer extends Common {
+/**
+ * Producer Class.
+ */
+public class Producer extends AbstractCommon {
 
     private MessageProducer messageProducer;
 
+    /**
+     * Instantiates a new producer.
+     *
+     * @throws JMSException
+     *             the JMS exception
+     */
     public Producer() throws JMSException {
         super();
     }
 
+    /**
+     * Execute.
+     *
+     * @param messages
+     *            the messages
+     * @throws JMSException
+     *             the JMS exception
+     */
     public void execute(final String[] messages) throws JMSException {
 
         this.messageProducer = this.session.createProducer(this.topic);
@@ -41,5 +59,4 @@ public class Producer extends Common {
         }
         this.connection.close();
     }
-
 }

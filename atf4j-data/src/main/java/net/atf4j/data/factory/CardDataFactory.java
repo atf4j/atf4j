@@ -19,7 +19,7 @@ package net.atf4j.data.factory;
 import net.atf4j.data.Card;
 
 /**
- * ChargeCard.
+ * ChargeCardFactory.
  */
 public class CardDataFactory extends AbstractDataFactory {
 

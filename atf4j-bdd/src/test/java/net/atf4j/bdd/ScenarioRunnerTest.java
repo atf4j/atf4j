@@ -23,7 +23,7 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * The Class ScenarioRunnerTest.
+ * Scenario Runner Test class.
  */
 public class ScenarioRunnerTest extends ResultsReporting {
 

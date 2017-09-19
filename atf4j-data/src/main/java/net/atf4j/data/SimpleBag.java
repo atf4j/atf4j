@@ -134,8 +134,10 @@ public class SimpleBag {
 
     /**
      * Occupied.
-     *
+     * 
      * \* @return true, if successful, otherwise false.
+     *
+     * @return true, if successful, otherwise false.
      */
     public boolean occupied() {
         return !this.bag.isEmpty();

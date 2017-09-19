@@ -20,6 +20,8 @@ import java.util.UUID;
 
 /**
  * Field Class.
+ *
+ * @param <T> the generic type
  */
 public class Field<T> {
 

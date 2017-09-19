@@ -26,10 +26,8 @@ import java.util.regex.Pattern;
  */
 public class BankSortCode {
 
-    /** RegExp for verification. */
     private static final Pattern pattern = Pattern.compile("^(\\d){2}-(\\d){2}-(\\d){2}$");
 
-    /** The bank sort code. */
     private final String bankName = "";
     private String sortcode;
 
@@ -82,10 +80,11 @@ public class BankSortCode {
     }
 
     /**
-     * Verify.
+     * Verify the sort code format.
      *
      * @param sortcode
-     *            the sortcode \* @return true, if successful, otherwise false.
+     *            the sortcode
+     * @return true, if successful, otherwise false.
      */
     public static boolean verify(final String sortcode) {
         assertNotNull(sortcode);

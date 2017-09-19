@@ -17,22 +17,22 @@
 package net.atf4j.core;
 
 /**
- * The Config Class.
+ * Configuration Class.
  */
 public class Config extends AbstractConfig {
 
     private static Config instance = null;
 
     /**
-     * Instantiates a new config.
+     * Instantiates a new configuration. Private default constructor prevents
+     * wild instantiation.
      */
-    // Private default constructor prevents wild instantiation.
     private Config() {
         super();
     }
 
     /**
-     * Instantiates a new config.
+     * Instantiates a new configuration.
      *
      * @param propertyFilename
      *            the property filename
@@ -44,9 +44,9 @@ public class Config extends AbstractConfig {
     }
 
     /**
-     * Gets the single instance of Config.
+     * Gets the single instance of configuration.
      *
-     * @return single instance of Config
+     * @return single instance of Configuation.
      */
     public static Config getInstance() {
         if (instance == null) {

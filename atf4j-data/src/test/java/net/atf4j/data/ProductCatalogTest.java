@@ -23,7 +23,7 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for ProductCatalog objects.
+ * A Unit test class for ProductCatalog objects.
  */
 public class ProductCatalogTest extends ResultsReporting {
 

@@ -134,8 +134,8 @@ public class Postcode {
     /**
      * Verify.
      *
-     * @param postcode
-     *            the postcode \* @return true, if successful, otherwise false.
+     * @param postcode            the postcode \* @return true, if successful, otherwise false.
+     * @return true, if successful, otherwise false.
      */
     public static boolean verify(final String postcode) {
         final Matcher matcher = pattern.matcher(postcode);

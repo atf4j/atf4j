@@ -23,7 +23,7 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for Text objects.
+ * A Unit test class for Text objects.
  */
 public class TextTest extends ResultsReporting {
 

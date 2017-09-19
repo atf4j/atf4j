@@ -24,7 +24,7 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for Bag objects.
+ * A Unit test class for Bag objects.
  */
 public class SimpleBagTest extends ResultsReporting {
 

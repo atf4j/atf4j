@@ -27,7 +27,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The AbstractWalker Class.
+ * AbstractWalker Class.
  */
 public abstract class AbstractWalker {
 

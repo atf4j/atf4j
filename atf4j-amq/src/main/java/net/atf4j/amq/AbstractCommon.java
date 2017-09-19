@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.amq;
 
 import javax.jms.Connection;
@@ -27,8 +28,12 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public abstract class Common {
-    protected static final Logger log = LoggerFactory.getLogger(Common.class);
+/**
+ * Abstract Common class.
+ */
+public abstract class AbstractCommon {
+
+    protected static final Logger log = LoggerFactory.getLogger(AbstractCommon.class);
     protected static String url = ActiveMQConnection.DEFAULT_BROKER_URL;
     protected ConnectionFactory connectionFactory;
     protected javax.jms.Connection connection;
@@ -36,13 +41,26 @@ public abstract class Common {
     protected String topicName = "testQueue";
     protected Topic topic;
 
-    public Common() throws JMSException {
+    /**
+     * Instantiates a new common.
+     *
+     * @throws JMSException
+     *             the JMS exception
+     */
+    public AbstractCommon() throws JMSException {
         super();
         this.connection = initialise();
         this.session = newSession(this.connection);
         this.topic = this.session.createTopic(this.topicName);
     }
 
+    /**
+     * Initialise.
+     *
+     * @return the connection
+     * @throws JMSException
+     *             the JMS exception
+     */
     protected Connection initialise() throws JMSException {
         this.connectionFactory = new ActiveMQConnectionFactory(url);
         this.connection = this.connectionFactory.createConnection();
@@ -50,6 +68,15 @@ public abstract class Common {
         return this.connection;
     }
 
+    /**
+     * New session.
+     *
+     * @param connection
+     *            the connection
+     * @return the session
+     * @throws JMSException
+     *             the JMS exception
+     */
     protected Session newSession(final Connection connection) throws JMSException {
         return connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
     }

@@ -60,8 +60,8 @@ public class Nino {
     /**
      * Verify.
      *
-     * @param code
-     *            the code \* @return true, if successful, otherwise false.
+     * @param code            the code \* @return true, if successful, otherwise false.
+     * @return true, if successful, otherwise false.
      */
     public static boolean verify(final String code) {
         final Matcher matcher = pattern.matcher(code);

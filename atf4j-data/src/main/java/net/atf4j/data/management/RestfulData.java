@@ -17,7 +17,7 @@
 package net.atf4j.data.management;
 
 /**
- * The Class RestfulData.
+ * RestfulData Class.
  */
 public class RestfulData extends SetUpData {
 

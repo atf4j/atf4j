@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.annotations;
 
 import java.lang.reflect.Method;
@@ -33,6 +34,11 @@ public class AnnotationHelper {
     private static final String EXPECTED_TEST_NAME = "Expected @Atf4j.TestName annotation not found.";
     private static final String EXPECTED_TEST_DESCRIPTION = "Expected @Atf4j.TestDescription annotation not found.";
 
+    /**
+     * Gets the test tag.
+     *
+     * @return the test tag
+     */
     public static String getTestTag() {
         log.trace("AnnotationHelper.getTestId");
         final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();

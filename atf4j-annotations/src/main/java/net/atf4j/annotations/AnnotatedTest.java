@@ -11,6 +11,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j. If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.annotations;
 
 import org.slf4j.Logger;
@@ -21,9 +22,15 @@ import org.slf4j.LoggerFactory;
  */
 @Atf4j.TestScript
 public abstract class AnnotatedTest {
-
     protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
+    /**
+     * Test tag.
+     *
+     * @return the string
+     * @throws Exception
+     *             the exception
+     */
     public String testTag() throws Exception {
         return AnnotationHelper.getTestTag();
     }

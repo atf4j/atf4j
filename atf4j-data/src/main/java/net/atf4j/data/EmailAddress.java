@@ -143,8 +143,8 @@ public class EmailAddress {
     /**
      * Verify.
      *
-     * @param email
-     *            the email \* @return true, if successful, otherwise false.
+     * @param email            the email \* @return true, if successful, otherwise false.
+     * @return true, if successful, otherwise false.
      */
     public static boolean verify(final String email) {
         final Matcher matcher = PATTERN.matcher(email);

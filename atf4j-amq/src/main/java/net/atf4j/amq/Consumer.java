@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.amq;
 
 import javax.jms.JMSException;
@@ -21,14 +22,30 @@ import javax.jms.Message;
 import javax.jms.MessageConsumer;
 import javax.jms.TextMessage;
 
-public class Consumer extends Common {
+/**
+ * Consumer Class.
+ */
+public class Consumer extends AbstractCommon {
 
     private MessageConsumer messageConsumer;
 
+    /**
+     * Instantiates a new consumer.
+     *
+     * @throws JMSException
+     *             the JMS exception
+     */
     public Consumer() throws JMSException {
         super();
     }
 
+    /**
+     * Execute.
+     *
+     * @return the string[]
+     * @throws JMSException
+     *             the JMS exception
+     */
     public String[] execute() throws JMSException {
 
         this.messageConsumer = this.session.createConsumer(this.topic);

@@ -24,7 +24,7 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for Field objects.
+ * A Unit test class for Field objects.
  */
 public class FieldTest extends ResultsReporting {
 

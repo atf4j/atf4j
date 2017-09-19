@@ -23,7 +23,7 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for EmailAddress objects.
+ * A Unit test class for EmailAddress objects.
  */
 public class EmailAddressTest extends ResultsReporting {
 

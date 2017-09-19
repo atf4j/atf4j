@@ -17,7 +17,7 @@
 package net.atf4j.data.management;
 
 /**
- * The Class JdbcData.
+ * JdbcData Class.
  */
 public class JdbcData extends SetUpData {
 

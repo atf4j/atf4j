@@ -26,7 +26,7 @@ import net.atf4j.data.management.RestfulData;
 import net.atf4j.data.management.SetUpData;
 
 /**
- * A UnitTest for SetUpData objects.
+ * A Unit test class for SetUpData objects.
  */
 public class SetUpDataTest extends ResultsReporting {
 

@@ -22,7 +22,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /**
- * The FileWalker Class.
+ * FileWalker Class.
  */
 public class FileWalker extends AbstractWalker {
 

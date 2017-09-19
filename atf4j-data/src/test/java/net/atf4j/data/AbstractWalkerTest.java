@@ -19,7 +19,7 @@ package net.atf4j.data;
 import org.junit.Test;
 
 /**
- * A UnitTest for AbstractWalker objects.
+ * A Unit test class for AbstractWalker objects.
  */
 public class AbstractWalkerTest {
 

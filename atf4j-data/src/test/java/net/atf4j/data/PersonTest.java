@@ -27,7 +27,7 @@ import net.atf4j.core.ResultsReporting;
 import net.atf4j.data.Person.Gender;
 
 /**
- * A UnitTest for Person objects.
+ * A Unit test class for Person objects.
  */
 public class PersonTest extends ResultsReporting {
 

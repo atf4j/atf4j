@@ -23,7 +23,7 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * Unit Test for PostalAddress.
+ * A Unit test class for PostalAddress.
  */
 public class PostalAddressTest extends ResultsReporting {
 

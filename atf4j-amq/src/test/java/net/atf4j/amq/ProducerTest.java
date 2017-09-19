@@ -20,17 +20,27 @@ import static org.junit.Assert.assertNotNull;
 
 import javax.jms.JMSException;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
-@Ignore
 public class ProducerTest {
 
+    /**
+     * Test producer.
+     *
+     * @throws JMSException
+     *             the JMS exception
+     */
     @Test
     public void testProducer() throws JMSException {
         assertNotNull(new Producer());
     }
 
+    /**
+     * Test execute.
+     *
+     * @throws JMSException
+     *             the JMS exception
+     */
     @Test
     public void testExecute() throws JMSException {
         final Producer producer = new Producer();

@@ -23,7 +23,7 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for FieldStatus objects.
+ * A Unit test class for FieldStatus objects.
  */
 public class FieldStatusTest extends ResultsReporting {
 

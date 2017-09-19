@@ -19,7 +19,7 @@ package net.atf4j.core;
 import net.atf4j.core.AbstractConfig.PropertyNotFound;
 
 /**
- * The ConfigurationInterface Interface.
+ * ConfigurationInterface Interface.
  */
 public interface ConfigurationInterface {
 

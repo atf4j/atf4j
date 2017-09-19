@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.annotations.examples;
 
 import static net.atf4j.annotations.AnnotationHelper.getTestDescription;
@@ -49,4 +50,5 @@ public class AnnotatedTestExample {
         this.log.info("Test Name : = {} ", getTestName());
         this.log.info("Test Description : = {} ", getTestDescription());
     }
+
 }

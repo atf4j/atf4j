@@ -27,7 +27,7 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for Card objects.
+ * A Unit test class for Card objects.
  */
 public class CardTest extends ResultsReporting {
 

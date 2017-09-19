@@ -17,7 +17,7 @@
 package net.atf4j.data.management;
 
 /**
- * The Class JmsData.
+ * JmsData Class.
  */
 public class JmsData extends SetUpData {
 

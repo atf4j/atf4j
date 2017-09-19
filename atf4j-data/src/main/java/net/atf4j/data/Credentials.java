@@ -17,7 +17,7 @@
 package net.atf4j.data;
 
 /**
- * The Credentials Class.
+ * Credentials Class.
  */
 public class Credentials {
 

@@ -23,7 +23,7 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for FileWalker objects.
+ * A Unit test class for FileWalker objects.
  */
 public class FileWalkerTest extends ResultsReporting {
 

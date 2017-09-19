@@ -17,7 +17,7 @@
 package net.atf4j.data;
 
 /**
- * The Text Class.
+ * Text Class.
  */
 public class Text {
 

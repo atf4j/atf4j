@@ -24,7 +24,7 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for Postcode objects.
+ * A Unit test class for Postcode objects.
  */
 public class PostcodeTest extends ResultsReporting {
 

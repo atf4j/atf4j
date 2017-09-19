@@ -280,8 +280,8 @@ public class Card {
     /**
      * Verify amex number.
      *
-     * @param the
-     *            candidate card number.
+     * @param candidate
+     *            the candidate
      * @return true, if successful, otherwise false.
      */
     public static boolean verifyAmex(final String candidate) {
@@ -293,8 +293,8 @@ public class Card {
     /**
      * Verify visa card number.
      *
-     * @param the
-     *            candidate card number.
+     * @param candidate
+     *            the candidate
      * @return true, if successful, otherwise false.
      */
     public static boolean verifyVisa(final String candidate) {
@@ -306,8 +306,8 @@ public class Card {
     /**
      * Verify master card number.
      *
-     * @param the
-     *            candidate card number.
+     * @param candidate
+     *            the candidate
      * @return true, if successful, otherwise false.
      */
     public static boolean verifyMasterCard(final String candidate) {

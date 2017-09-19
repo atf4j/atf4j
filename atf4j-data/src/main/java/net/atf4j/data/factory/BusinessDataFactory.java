@@ -19,7 +19,7 @@ package net.atf4j.data.factory;
 import net.atf4j.data.Business;
 
 /**
- * Business.
+ * Business Data Factory.
  */
 public class BusinessDataFactory extends AbstractDataFactory {
 

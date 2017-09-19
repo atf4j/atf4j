@@ -26,7 +26,7 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * DatumTest.
+ * A Unit test class for Datum.
  */
 public class DatumTest extends ResultsReporting {
 

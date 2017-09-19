@@ -24,7 +24,7 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for Bank objects.
+ * A Unit test class for Bank objects.
  */
 public class BankTest extends ResultsReporting {
 

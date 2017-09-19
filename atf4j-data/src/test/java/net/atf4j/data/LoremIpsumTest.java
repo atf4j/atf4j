@@ -23,7 +23,7 @@ import org.junit.Test;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * A UnitTest for LoremIpsum objects.
+ * A Unit test class for LoremIpsum objects.
  */
 public class LoremIpsumTest extends ResultsReporting {
 
