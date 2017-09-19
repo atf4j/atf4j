@@ -22,8 +22,12 @@ import static org.junit.Assert.assertNotNull;
 import javax.jms.JMSException;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ConsumerTest {
+
+    private static final Logger LOG = LoggerFactory.getLogger(ConsumerTest.class);
 
     /**
      * Test reader.
@@ -33,7 +37,9 @@ public class ConsumerTest {
      */
     @Test
     public void testReader() throws JMSException {
-        assertNotNull(new Consumer());
+        LOG.info("testReader");
+        Consumer object = new Consumer();
+        assertNotNull(object);
     }
 
     /**
@@ -44,6 +50,7 @@ public class ConsumerTest {
      */
     @Test
     public void testExecute() throws JMSException {
+        LOG.info("testExecute");
         final Consumer reader = new Consumer();
         assertNotNull(reader);
         String[] execute = reader.execute();

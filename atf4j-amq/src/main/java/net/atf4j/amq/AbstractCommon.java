@@ -36,7 +36,7 @@ public abstract class AbstractCommon {
     protected static final Logger log = LoggerFactory.getLogger(AbstractCommon.class);
     protected static String url = ActiveMQConnection.DEFAULT_BROKER_URL;
     protected ConnectionFactory connectionFactory;
-    protected javax.jms.Connection connection;
+    protected Connection connection;
     protected Session session;
     protected String topicName = "testQueue";
     protected Topic topic;

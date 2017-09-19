@@ -27,14 +27,11 @@ import org.slf4j.LoggerFactory;
 
 public class FolderWalkerTest {
 
-    /** The Constant LOG. */
     private static final Logger LOG = LoggerFactory.getLogger(FolderWalkerTest.class);
 
     public class FolderWalker extends AbstractFolderWalker {
 
         public class ExtensionFilter implements FilenameFilter {
-
-            /** The extension. */
             private final String extension;
 
             /**
@@ -93,7 +90,7 @@ public class FolderWalkerTest {
      */
     @Test
     public void testFolderWalkerNull() {
-        LOG.info("testFolderWalker");
+        LOG.info("testFolderWalkerNull");
         final AbstractFolderWalker folderWalker = new FolderWalker(null);
         assertNotNull(folderWalker);
         folderWalker.walk();
@@ -104,7 +101,7 @@ public class FolderWalkerTest {
      */
     @Test
     public void testFolderWalkerEmpty() {
-        LOG.info("testFolderWalker");
+        LOG.info("testFolderWalkerEmpty");
         final AbstractFolderWalker folderWalker = new FolderWalker("");
         assertNotNull(folderWalker);
         folderWalker.walk();
@@ -115,7 +112,7 @@ public class FolderWalkerTest {
      */
     @Test
     public void testFolderWalkerDot() {
-        LOG.info("testFolderWalker");
+        LOG.info("testFolderWalkerDot");
         final AbstractFolderWalker folderWalker = new FolderWalker(".");
         assertNotNull(folderWalker);
         folderWalker.walk();
@@ -126,10 +123,9 @@ public class FolderWalkerTest {
      */
     @Test
     public void testFolderWalkerString() {
-        LOG.info("testFolderWalker");
+        LOG.info("testFolderWalkerString");
         final AbstractFolderWalker folderWalker = new FolderWalker("messages");
         assertNotNull(folderWalker);
         folderWalker.walk();
     }
-
 }

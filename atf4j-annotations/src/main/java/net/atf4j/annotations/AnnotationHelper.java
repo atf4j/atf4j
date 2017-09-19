@@ -57,7 +57,7 @@ public class AnnotationHelper {
      *
      * @return the getTestId as String
      */
-    static public String getTestId() {
+    public static String getTestId() {
         log.trace("AnnotationHelper.getTestId");
         final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         final Method testMethod = findTestMethod(stackTrace);
@@ -75,7 +75,7 @@ public class AnnotationHelper {
      *
      * @return the getTestName as String
      */
-    static public String getTestName() {
+    public static String getTestName() {
         log.info("AnnotationHelper.getTestName");
         final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         final Method testMethod = findTestMethod(stackTrace);
@@ -93,7 +93,7 @@ public class AnnotationHelper {
      *
      * @return the getTestDescriptions as String
      */
-    static public String getTestDescription() {
+    public static String getTestDescription() {
         log.info("AnnotationHelper.getTestDescription");
         final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         final Method testMethod = findTestMethod(stackTrace);

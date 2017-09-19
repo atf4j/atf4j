@@ -21,8 +21,12 @@ import static org.junit.Assert.assertNotNull;
 import javax.jms.JMSException;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ProducerTest {
+
+    private static final Logger LOG = LoggerFactory.getLogger(ProducerTest.class);
 
     /**
      * Test producer.
@@ -32,7 +36,9 @@ public class ProducerTest {
      */
     @Test
     public void testProducer() throws JMSException {
-        assertNotNull(new Producer());
+        LOG.info("testProducer");
+        Producer object = new Producer();
+        assertNotNull(object);
     }
 
     /**
@@ -43,6 +49,7 @@ public class ProducerTest {
      */
     @Test
     public void testExecute() throws JMSException {
+        LOG.info("testExecute");
         final Producer producer = new Producer();
         assertNotNull(producer);
         final String[] messages = null;
