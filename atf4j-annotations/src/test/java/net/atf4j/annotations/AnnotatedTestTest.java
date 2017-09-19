@@ -24,36 +24,39 @@ import org.junit.Test;
 /**
  * A UnitTest for AnnotatedTest objects.
  */
-public class AnnotatedTestTest extends AnnotatedTest {
+public class AnnotatedTestTest extends AbstractAnnotatedTest {
 
     /**
-     * Test method for AnnotatedTest}.
-     *
-     * @throws Exception
-     *             the exception
+     * Test method for AnnotatedTest.
      */
     @Test
     public void testTestId() throws Exception {
+        log.info("{}.testTestId", this.getClass().getSimpleName());
         final String testId = super.testId();
         assertNotNull(testId);
+        log.info("testId = {}", testId);
     }
 
     /**
-     * Test method for AnnotatedTest}.
+     * Test method for AnnotatedTest.
      */
     @Test
     public void testTestName() {
+        log.info("{}.testTestName", this.getClass().getSimpleName());
         final String testName = super.testName();
         assertNotNull(testName);
+        log.info("testName = {}", testName);
     }
 
     /**
-     * Test method for AnnotatedTest}.
+     * Test method for AnnotatedTest.
      */
     @Test
     public void testTestDescription() {
+        log.info("{}.testTestDescription", this.getClass().getSimpleName());
         final String testDescription = super.testDescription();
         assertNotNull(testDescription);
+        log.info("testDescription = {}", testDescription);
     }
 
 }

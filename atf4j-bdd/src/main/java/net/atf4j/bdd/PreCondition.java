@@ -22,7 +22,7 @@ package net.atf4j.bdd;
 public abstract class PreCondition extends Predicate {
 
     /**
-     * Instantiates a new pre condition.
+     * Instantiates a new pre-condition.
      *
      * @param string
      *            the string

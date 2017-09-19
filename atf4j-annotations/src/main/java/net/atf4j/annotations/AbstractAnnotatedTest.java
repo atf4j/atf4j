@@ -21,7 +21,8 @@ import org.slf4j.LoggerFactory;
  * Abstract Annotated Test class.
  */
 @Atf4j.TestScript
-public abstract class AnnotatedTest {
+public abstract class AbstractAnnotatedTest {
+
     protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
     /**

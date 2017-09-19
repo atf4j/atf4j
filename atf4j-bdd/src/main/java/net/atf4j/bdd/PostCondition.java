@@ -22,7 +22,7 @@ package net.atf4j.bdd;
 public abstract class PostCondition extends Predicate {
 
     /**
-     * Instantiates a new post condition.
+     * Instantiates a new post-condition.
      *
      * @param string
      *            the string

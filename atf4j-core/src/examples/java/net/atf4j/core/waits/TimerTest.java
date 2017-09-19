@@ -23,11 +23,11 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
-import net.atf4j.core.timers.TimerInterface;
 import net.atf4j.core.timers.MilliTimer;
+import net.atf4j.core.timers.TimerInterface;
 
 /**
- * TimerTest.
+ * Timer Test.
  */
 public class TimerTest extends ResultsReporting {
 
@@ -39,7 +39,8 @@ public class TimerTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(new MilliTimer());
+        MilliTimer timer = new MilliTimer();
+        assertNotNull(timer);
     }
 
     /**

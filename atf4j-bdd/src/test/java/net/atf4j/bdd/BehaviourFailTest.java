@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * Behaviour Test Class.
+ * Behaviour Fail Test Class.
  */
 public class BehaviourFailTest extends ResultsReporting {
 

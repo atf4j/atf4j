@@ -26,12 +26,12 @@ import net.atf4j.bdd.Atf4j.Scenario;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * The Class ScenarioMissingThen.
+ * Scenario Missing When class.
  */
 @Scenario("Scenario")
-public class ScenarioMissingThen extends ResultsReporting {
+public class MissingWhenScenarioTest extends ResultsReporting {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ScenarioMissingThen.class);
+    private static final Logger LOG = LoggerFactory.getLogger(MissingWhenScenarioTest.class);
 
     /**
      * Test scenario runner.
@@ -52,17 +52,17 @@ public class ScenarioMissingThen extends ResultsReporting {
         this.log.info("{}", super.toString());
     }
 
+    // Deliberately missing.
+    // @Atf4j.When("When")
+    // public void testPassWhen() {
+    // }
+
     /**
-     * Test pass when.
+     * Test pass then.
      */
-    @Atf4j.When("When")
-    public void testPassWhen() {
+    @Atf4j.Then("Then")
+    public void testPassThen() {
         this.log.info("{}", super.toString());
     }
-
-    // Deliberately missing.
-    // @Atf4j.Then("Then")
-    // public void testPassThen() {
-    // }
 
 }

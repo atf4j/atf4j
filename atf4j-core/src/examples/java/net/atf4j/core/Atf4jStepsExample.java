@@ -68,6 +68,9 @@ public class Atf4jStepsExample {
         end();
     }
 
+    /**
+     * Test step fail.
+     */
     @Test(expected = AssertionError.class)
     public void testStepFail() {
         start("start fail test step");

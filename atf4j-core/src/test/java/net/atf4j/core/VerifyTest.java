@@ -19,9 +19,25 @@ package net.atf4j.core;
 import org.junit.Test;
 
 /**
- * A UnitTest for Verify objects.
+ * A Unit Test for Verify.
  */
 public class VerifyTest extends ResultsReporting {
+
+    /**
+     * Unit Test for test equals.
+     */
+    @Test
+    public void testEqualsNullNull() {
+        Verify.verifyEquals(null, null);
+    }
+
+    /**
+     * Unit Test for test equals.
+     */
+    @Test
+    public void testEqualsStringString() {
+        Verify.verifyEquals("", "");
+    }
 
     /**
      * Unit Test for test verify equals byte byte.
@@ -33,7 +49,7 @@ public class VerifyTest extends ResultsReporting {
     }
 
     /**
-     * Unit Test for test verify equals char char.
+     * Unit Test for test verify char equals char.
      */
     @Test
     public void testVerifyEqualsCharChar() {
@@ -42,7 +58,7 @@ public class VerifyTest extends ResultsReporting {
     }
 
     /**
-     * Unit Test for test verify equals int int.
+     * Unit Test for test verify int equals int.
      */
     @Test
     public void testVerifyEqualsIntInt() {
@@ -52,7 +68,7 @@ public class VerifyTest extends ResultsReporting {
     }
 
     /**
-     * Unit Test for test verify equals long long.
+     * Unit Test for test verify long equals long.
      */
     @Test
     public void testVerifyEqualsLongLong() {
@@ -60,20 +76,12 @@ public class VerifyTest extends ResultsReporting {
     }
 
     /**
-     * Unit Test for test verify equals object object.
+     * Unit Test for test verify object equals object.
      */
     @Test
     public void testVerifyEqualsObjectObject() {
         final Object object = new Object();
         Verify.verifyEquals(object, object);
-    }
-
-    /**
-     * Unit Test for test equals.
-     */
-    @Test
-    public void testEquals() {
-        Verify.verifyEquals("", "");
     }
 
 }

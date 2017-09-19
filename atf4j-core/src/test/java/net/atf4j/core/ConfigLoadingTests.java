@@ -16,7 +16,8 @@
  */
 package net.atf4j.core;
 
-import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
@@ -91,7 +92,7 @@ public class ConfigLoadingTests extends ResultsReporting {
     public void testSuggestedUsage() throws ConfigurationNotLoaded, PropertyNotFound {
         final SimpleConfiguration simpleConfig = new SimpleConfiguration();
         final String propertyFilename = simpleConfig.getPropertyFilename();
-        Assert.assertEquals("/SimpleConfiguration.properties", propertyFilename);
+        assertEquals("/SimpleConfiguration.properties", propertyFilename);
     }
 
 }

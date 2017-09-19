@@ -30,7 +30,7 @@ public final class Situation {
      * Situation.
      */
     public Situation() {
-        LOG.info("{}.Situation()", this.getClass().getSimpleName());
+        LOG.info("{}", this.getClass().getSimpleName());
     }
 
     /**

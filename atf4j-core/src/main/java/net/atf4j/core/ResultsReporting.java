@@ -29,7 +29,6 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class ResultsReporting {
 
-    /** logging. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**

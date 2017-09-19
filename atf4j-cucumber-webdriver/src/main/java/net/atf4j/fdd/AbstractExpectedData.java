@@ -19,6 +19,9 @@ package net.atf4j.fdd;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Abstract Expected Data Class.
+ */
 public abstract class AbstractExpectedData {
 
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());

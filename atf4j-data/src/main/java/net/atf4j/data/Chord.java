@@ -24,4 +24,44 @@ import java.util.List;
 public class Chord {
     private CharSequence stem;
     private List<Chord> children;
+
+    /**
+     * Sets the stem.
+     *
+     * @param stem
+     *            the new stem
+     */
+    public void setStem(CharSequence stem) {
+        this.stem = stem;
+    }
+
+    /**
+     * Gets the stem.
+     *
+     * @return the stem
+     */
+    public CharSequence getStem() {
+        return stem;
+    }
+
+    /**
+     * Adds the.
+     *
+     * @param e
+     *            the e
+     * @return true, if successful, otherwise false.
+     */
+    public boolean add(Chord e) {
+        return children.add(e);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return "Chord [stem=" + stem + ", children=" + children + "]";
+    }
 }

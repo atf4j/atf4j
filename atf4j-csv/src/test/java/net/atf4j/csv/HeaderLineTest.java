@@ -28,7 +28,6 @@ import org.slf4j.LoggerFactory;
  */
 public class HeaderLineTest {
 
-    /** logging. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     private static final String HEADER_LINE = "ColumnOne, ColumnTwo";

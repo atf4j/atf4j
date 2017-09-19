@@ -26,11 +26,11 @@ import org.slf4j.LoggerFactory;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * Fail Scenario test class.
+ * Scenario Fail test class.
  */
-public class ScenarioFail extends ResultsReporting {
+public class ScenarioFailTest extends ResultsReporting {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ScenarioFail.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ScenarioFailTest.class);
 
     /**
      * Test scenario runner.

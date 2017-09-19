@@ -22,7 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Abstract Hoare Step Class.
+ * Abstract class for a Hoare step. c.f. Hoare Logic
  */
 public abstract class AbstractHoareStep implements HoareStepInterface {
 
@@ -37,6 +37,7 @@ public abstract class AbstractHoareStep implements HoareStepInterface {
      *            the string
      */
     public AbstractHoareStep(final String string) {
+        log.info("AbstractHoareStep({}", string);
         this.string = string;
     }
 
@@ -46,6 +47,7 @@ public abstract class AbstractHoareStep implements HoareStepInterface {
      * @return the properties
      */
     public Properties execute() {
+        log.info("AbstractHoareStep({}", string);
         return this.properties;
     }
 
@@ -56,6 +58,7 @@ public abstract class AbstractHoareStep implements HoareStepInterface {
      */
     @Override
     public Properties execute(final Properties properties) {
+        log.info("AbstractHoareStep({}", string);
         this.properties = properties;
         return properties;
     }

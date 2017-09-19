@@ -42,11 +42,6 @@ public abstract class AbstractFolderWalker {
      * Unfiltered filename class.
      */
     public class Unfiltered implements FilenameFilter {
-        /*
-         * (non-Javadoc)
-         *
-         * @see java.io.FilenameFilter#accept(java.io.File, java.lang.String)
-         */
         @Override
         public boolean accept(final File dir, final String filename) {
             AbstractFolderWalker.this.log.trace("accept({},{})", dir, filename);

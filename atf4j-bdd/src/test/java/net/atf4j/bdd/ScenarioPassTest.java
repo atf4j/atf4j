@@ -27,9 +27,9 @@ import net.atf4j.core.ResultsReporting;
 /**
  * Pass Scenario test class.
  */
-public class ScenarioPass extends ResultsReporting {
+public class ScenarioPassTest extends ResultsReporting {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ScenarioPass.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ScenarioPassTest.class);
 
     /**
      * Test scenario runner.

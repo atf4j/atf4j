@@ -16,6 +16,9 @@
  */
 package net.atf4j.core;
 
+/**
+ * Example Configuration class.
+ */
 public class ConfigExample extends AbstractConfig {
 
     private static ConfigExample instance = null;

@@ -51,6 +51,7 @@ public abstract class Behaviour {
      * @return the behaviour
      */
     protected Behaviour given(final Given given) {
+        log.info("{}.given", this.getClass().getSimpleName());
         this.givenList.add(given);
         return this;
     }
@@ -63,6 +64,7 @@ public abstract class Behaviour {
      * @return the behaviour
      */
     protected Behaviour when(final When when) {
+        log.info("{}.given", this.getClass().getSimpleName());
         this.whenList.add(when);
         return this;
     }
@@ -75,22 +77,28 @@ public abstract class Behaviour {
      * @return the behaviour
      */
     protected Behaviour then(final Then then) {
+        log.info("{}.given", this.getClass().getSimpleName());
         this.thenList.add(then);
         return this;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Execute.
      *
-     * @see net.atf4j.core.Command#execute(java.util.Properties)
+     * @param properties
+     *            the properties
+     * @return the properties
      */
     public Properties execute(final Properties properties) {
+        log.info("{}.execute", this.getClass().getSimpleName());
         for (final Given given : this.givenList) {
             Assert.assertNotNull(given.execute(properties));
         }
+
         for (final When when : this.whenList) {
             Assert.assertNotNull(when.execute(properties));
         }
+
         for (final Then then : this.thenList) {
             Assert.assertNotNull(then.execute(properties));
         }

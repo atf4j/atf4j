@@ -18,7 +18,6 @@ package net.atf4j.bdd;
 
 import java.lang.reflect.Method;
 
-import org.junit.Assume;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -49,7 +48,16 @@ public class ScenarioRunner {
     }
 
     /**
-     * Execute.
+     * Execute the scenario.
+     *
+     * @return the scenario runner
+     */
+    public ScenarioRunner execute() {
+        return executeGiven().executeWhen().executeThen();
+    }
+
+    /**
+     * Execute the scenario.
      *
      * @param scenario
      *            the scenario
@@ -57,17 +65,6 @@ public class ScenarioRunner {
      */
     public ScenarioRunner execute(final AbstractScenario scenario) {
         this.targetScenario = scenario;
-        return this;
-    }
-
-    /**
-     * Execute.
-     *
-     * @return the scenario runner
-     */
-    public ScenarioRunner execute() {
-        Assume.assumeNotNull(this.targetScenario);
-        executeGiven().executeWhen().executeThen();
         return this;
     }
 
@@ -88,7 +85,7 @@ public class ScenarioRunner {
      * @return the scenario runner
      */
     private ScenarioRunner executeGiven(final AbstractScenario scenario) {
-        final Class<?> candidateClass = this.targetScenario.getClass();
+        final Class<?> candidateClass = scenario.getClass();
         if (candidateClass.isAnnotationPresent(Atf4j.Scenario.class)) {
             this.log.info(candidateClass.toGenericString());
             final Method[] declaredMethods = candidateClass.getDeclaredMethods();
@@ -98,7 +95,6 @@ public class ScenarioRunner {
                 }
             }
         }
-
         return this;
     }
 
@@ -119,7 +115,7 @@ public class ScenarioRunner {
      * @return the scenario runner
      */
     private ScenarioRunner executeWhen(final AbstractScenario scenario) {
-        final Class<?> candidateClass = this.targetScenario.getClass();
+        final Class<?> candidateClass = scenario.getClass();
         if (candidateClass.isAnnotationPresent(Atf4j.Scenario.class)) {
             this.log.info(candidateClass.toGenericString());
             final Method[] declaredMethods = candidateClass.getDeclaredMethods();
@@ -129,7 +125,6 @@ public class ScenarioRunner {
                 }
             }
         }
-
         return this;
     }
 
@@ -150,7 +145,7 @@ public class ScenarioRunner {
      * @return the scenario runner
      */
     private ScenarioRunner executeThen(final AbstractScenario scenario) {
-        final Class<?> candidateClass = this.targetScenario.getClass();
+        final Class<?> candidateClass = scenario.getClass();
         if (candidateClass.isAnnotationPresent(Atf4j.Scenario.class)) {
             this.log.info(candidateClass.toGenericString());
             final Method[] declaredMethods = candidateClass.getDeclaredMethods();

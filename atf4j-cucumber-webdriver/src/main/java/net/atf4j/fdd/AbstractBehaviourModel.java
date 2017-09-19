@@ -19,6 +19,9 @@ package net.atf4j.fdd;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Abstract Behaviour Model Class.
+ */
 public abstract class AbstractBehaviourModel {
 
     protected AbstractExpectedData expectedData;

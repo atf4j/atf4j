@@ -21,21 +21,17 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 import net.atf4j.core.AbstractConfig.PropertyNotFound;
 
 /**
- * A UnitTest for Configuration objects.
+ * Unit tests for configuration class.
  */
 public class ConfigTest extends ResultsReporting {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ConfigTest.class);
-
     /**
-     * The DefaultConfig Class.
+     * Default configuration class.
      */
     private class DefaultConfig extends AbstractConfig {
         /*
@@ -50,7 +46,7 @@ public class ConfigTest extends ResultsReporting {
     }
 
     /**
-     * MissingPropertiesMock Class.
+     * Missing Properties class.
      */
     private class MissingProperties extends AbstractConfig {
 
@@ -76,7 +72,7 @@ public class ConfigTest extends ResultsReporting {
     }
 
     /**
-     * A Test Configuration from file.
+     * A Mock Test Configuration from file.
      */
     private class ConfigFromFile extends AbstractConfig {
 
@@ -171,7 +167,7 @@ public class ConfigTest extends ResultsReporting {
         final String key = "property";
         final String value = "FromSystem";
         System.setProperty(key, value);
-        Assert.assertEquals(value, config.get(key));
+        assertEquals(value, config.get(key));
     }
 
     /**

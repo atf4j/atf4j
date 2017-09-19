@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import net.atf4j.annotations.AnnotatedTest;
+import net.atf4j.annotations.AbstractAnnotatedTest;
 import net.atf4j.annotations.AnnotationHelper;
 import net.atf4j.annotations.Atf4j;
 
@@ -33,7 +33,7 @@ import net.atf4j.annotations.Atf4j;
  *  getTestDescription();
  * </code>
  */
-public class AnnotatedTestTwoExample extends AnnotatedTest {
+public class AnnotatedTestTwoExample extends AbstractAnnotatedTest {
 
     /**
      * Annotated Test example two.

@@ -26,12 +26,12 @@ import net.atf4j.bdd.Atf4j.Scenario;
 import net.atf4j.core.ResultsReporting;
 
 /**
- * ScenarioMissingGiven Class.
+ * Scenario with a missing Given.
  */
 @Scenario("Scenario")
-public class ScenarioMissingGiven extends ResultsReporting {
+public class MissingGivenScenarioTest extends ResultsReporting {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ScenarioMissingGiven.class);
+    private static final Logger LOG = LoggerFactory.getLogger(MissingGivenScenarioTest.class);
 
     /**
      * Test scenario runner.

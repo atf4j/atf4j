@@ -21,12 +21,14 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 /**
- * An Example Configuration loader.
- * This will load the ExampleConfig.properties file from the resources folder.
- * It make the Configuration available by
+ * An Example Configuration loader. This will load the ExampleConfig.properties
+ * file from the resources folder. It make the Configuration available by
  */
 public class ConfigExampleTest {
 
+    /**
+     * Test Configuration example.
+     */
     @Test
     public void testConfigExample() {
         final ConfigExample configExample = new ConfigExample();

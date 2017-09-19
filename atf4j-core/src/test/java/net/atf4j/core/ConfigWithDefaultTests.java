@@ -24,7 +24,7 @@ import org.junit.Test;
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 
 /**
- * ConfigDefaultsTest Class.
+ * Unit test class configuration with Defaults.
  */
 public class ConfigWithDefaultTests extends ResultsReporting {
 

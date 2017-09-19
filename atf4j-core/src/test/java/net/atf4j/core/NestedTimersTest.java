@@ -18,14 +18,14 @@ import org.junit.Test;
 import net.atf4j.core.timers.NestedTimers;
 
 /**
- * NestedTimersTest Class.
+ * Nested Timers Test Class.
  */
 public class NestedTimersTest extends ResultsReporting {
 
     private static final int DEFAULT_INTERVAL = 100;
 
     /**
-     * test NestedTimers object.
+     * test NestedTimers.
      */
     @Test
     public final void testNestedTimers() {
@@ -33,16 +33,16 @@ public class NestedTimersTest extends ResultsReporting {
         for (int i = 0; i < 10; i++) {
             this.log.info(multiTimers.startTimer(String.format("Test case Timer %s", i)).toString());
         }
+
         for (int i = 0; i < 10; i++) {
             this.log.info(multiTimers.stopTimer().toString());
         }
     }
 
     /**
-     * Test method for {
-     * net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
+     * Test method for
+     * {net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
      */
-
     @Test
     public final void testTimerInstance() {
         final NestedTimers multiTimers = NestedTimers.getInstance();
@@ -67,10 +67,9 @@ public class NestedTimersTest extends ResultsReporting {
     }
 
     /**
-     * Test method for {
-     * net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
+     * Test method for
+     * {net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
      */
-
     @Test
     public final void testStaticNamedTimers() {
         NestedTimers.start();
@@ -93,7 +92,8 @@ public class NestedTimersTest extends ResultsReporting {
         try {
             Thread.sleep(DEFAULT_INTERVAL);
         } catch (final InterruptedException interruptedException) {
-            Thread.currentThread().interrupt();
+            Thread currentThread = Thread.currentThread();
+            currentThread.interrupt();
             this.log.error(interruptedException.toString());
         }
     }

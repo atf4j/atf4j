@@ -17,7 +17,7 @@
 package net.atf4j.bdd;
 
 /**
- * Invariant.
+ * Abstract class for an Invariant.
  */
 public abstract class Invariant extends Predicate {
 

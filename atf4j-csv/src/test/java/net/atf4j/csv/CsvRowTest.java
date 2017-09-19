@@ -27,7 +27,6 @@ import org.slf4j.LoggerFactory;
  */
 public class CsvRowTest {
 
-    /** logging. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     private static final String ONE_TWO_THREE_FOUR = "One, Two, Three, Four";

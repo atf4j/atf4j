@@ -20,7 +20,7 @@ import net.atf4j.csv.CsvFile;
 import net.atf4j.data.PostalAddress;
 
 /**
- * AddressFactory.
+ * Address Data Factory.
  */
 public class AddressDataFactory extends AbstractDataFactory {
 

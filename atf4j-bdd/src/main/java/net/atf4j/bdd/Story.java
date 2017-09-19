@@ -17,7 +17,7 @@
 package net.atf4j.bdd;
 
 /**
- * Test Story Narrative.
+ * BDD Story Narrative.
  */
 public class Story extends AbstractStory {
 
