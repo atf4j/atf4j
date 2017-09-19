@@ -30,8 +30,11 @@ import net.atf4j.annotations.Atf4j.TestName;
 
 /**
  * Annotated Test Example One. using static imports. Allows annotations to be
- * accessed directly with the functions getTestId(); getTestName();
- * getTestDescription();
+ * accessed directly with the functions :- <code>
+ *  getTestId();
+ *  getTestName();
+ *  getTestDescription();
+ *  </code>
  */
 public class AnnotatedTestOneExample {
 

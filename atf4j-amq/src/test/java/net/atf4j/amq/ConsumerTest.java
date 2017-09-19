@@ -25,6 +25,9 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * The ConsumerTest Class.
+ */
 public class ConsumerTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(ConsumerTest.class);

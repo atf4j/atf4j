@@ -24,6 +24,9 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * The ProducerTest Class.
+ */
 public class ProducerTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(ProducerTest.class);

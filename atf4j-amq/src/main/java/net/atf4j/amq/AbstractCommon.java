@@ -80,5 +80,4 @@ public abstract class AbstractCommon {
     protected Session newSession(final Connection connection) throws JMSException {
         return connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
     }
-
 }
