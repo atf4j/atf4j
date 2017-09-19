@@ -14,11 +14,14 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.bdd;
 
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.atf4j.core.ResultsReporting;
 
@@ -27,11 +30,14 @@ import net.atf4j.core.ResultsReporting;
  */
 public class ScenarioFail extends ResultsReporting {
 
+    private static final Logger LOG = LoggerFactory.getLogger(ScenarioFail.class);
+
     /**
      * Test scenario runner.
      */
     @Test
     public void testScenarioRunner() {
+        LOG.info("{}.testScenarioRunner", this.getClass().getSimpleName());
         ScenarioRunner scenarioRunner = new ScenarioRunner();
         assertNotNull(scenarioRunner);
         scenarioRunner.execute();

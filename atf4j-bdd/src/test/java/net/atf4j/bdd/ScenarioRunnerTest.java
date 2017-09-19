@@ -16,9 +16,13 @@
  */
 package net.atf4j.bdd;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Assert;
 import org.junit.Assume;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.atf4j.core.ResultsReporting;
 
@@ -26,6 +30,8 @@ import net.atf4j.core.ResultsReporting;
  * Scenario Runner Test class.
  */
 public class ScenarioRunnerTest extends ResultsReporting {
+
+    private static final Logger LOG = LoggerFactory.getLogger(ScenarioRunnerTest.class);
 
     /**
      * Scenario class.
@@ -37,6 +43,7 @@ public class ScenarioRunnerTest extends ResultsReporting {
          */
         @Atf4j.Given("Given")
         public void testPassGiven() {
+            LOG.info("{}.testPassWhen", this.getClass().getSimpleName());
             Assume.assumeTrue(true);
         }
 
@@ -45,6 +52,7 @@ public class ScenarioRunnerTest extends ResultsReporting {
          */
         @Atf4j.When("When")
         public void testPassWhen() {
+            LOG.info("{}.testPassWhen", this.getClass().getSimpleName());
             Assert.assertTrue(true);
         }
 
@@ -53,6 +61,7 @@ public class ScenarioRunnerTest extends ResultsReporting {
          */
         @Atf4j.Then("Then")
         public void testPassThen() {
+            LOG.info("{}.testPassThen", this.getClass().getSimpleName());
             Assert.assertTrue(true);
         }
     }
@@ -67,6 +76,7 @@ public class ScenarioRunnerTest extends ResultsReporting {
          */
         @Atf4j.Given("Given")
         public void testPassGiven() {
+            LOG.info("{}.testPassGiven", this.getClass().getSimpleName());
             Assume.assumeTrue(false);
         }
 
@@ -75,6 +85,7 @@ public class ScenarioRunnerTest extends ResultsReporting {
          */
         @Atf4j.When("When")
         public void testPassWhen() {
+            LOG.info("{}.testPassWhen", this.getClass().getSimpleName());
             Assert.assertTrue(true);
         }
 
@@ -83,6 +94,7 @@ public class ScenarioRunnerTest extends ResultsReporting {
          */
         @Atf4j.Then("Then")
         public void testPassThen() {
+            LOG.info("{}.testPassThen", this.getClass().getSimpleName());
             Assert.assertTrue(true);
         }
     }
@@ -97,6 +109,7 @@ public class ScenarioRunnerTest extends ResultsReporting {
          */
         @Atf4j.Given("Given")
         public void testPassGiven() {
+            LOG.info("{}.testPassGiven", this.getClass().getSimpleName());
             Assume.assumeTrue(true);
         }
 
@@ -105,6 +118,7 @@ public class ScenarioRunnerTest extends ResultsReporting {
          */
         @Atf4j.When("When")
         public void testPassWhen() {
+            LOG.info("{}.testPassWhen", this.getClass().getSimpleName());
             Assert.assertTrue(false);
         }
 
@@ -113,6 +127,7 @@ public class ScenarioRunnerTest extends ResultsReporting {
          */
         @Atf4j.Then("Then")
         public void testPassThen() {
+            LOG.info("{}.testPassThen", this.getClass().getSimpleName());
             Assert.assertTrue(true);
         }
     }
@@ -127,6 +142,7 @@ public class ScenarioRunnerTest extends ResultsReporting {
          */
         @Atf4j.Given("Given")
         public void testPassGiven() {
+            LOG.info("{}.testPassGiven", this.getClass().getSimpleName());
             Assume.assumeTrue(true);
         }
 
@@ -135,6 +151,7 @@ public class ScenarioRunnerTest extends ResultsReporting {
          */
         @Atf4j.When("When")
         public void testPassWhen() {
+            LOG.info("{}.testPassWhen", this.getClass().getSimpleName());
             Assert.assertTrue(true);
         }
 
@@ -143,6 +160,7 @@ public class ScenarioRunnerTest extends ResultsReporting {
          */
         @Atf4j.Then("Then")
         public void testPassThen() {
+            LOG.info("{}.testPassThen", this.getClass().getSimpleName());
             Assert.assertTrue(false);
         }
     }
@@ -152,8 +170,10 @@ public class ScenarioRunnerTest extends ResultsReporting {
      */
     @Test
     public void testScenarioExecution() {
+        LOG.info("{}.testScenarioExecution", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner();
         Scenario scenario = new Scenario();
+        assertNotNull(scenarioRunner);
         scenarioRunner.execute(scenario);
     }
 
@@ -162,8 +182,10 @@ public class ScenarioRunnerTest extends ResultsReporting {
      */
     @Test
     public void testFailGivenScenario() {
+        LOG.info("{}.testFailGivenScenario", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner();
         FailGivenScenario scenario = new FailGivenScenario();
+        assertNotNull(scenarioRunner);
         scenarioRunner.execute(scenario);
     }
 
@@ -172,8 +194,10 @@ public class ScenarioRunnerTest extends ResultsReporting {
      */
     @Test
     public void testFailWhenScenario() {
+        LOG.info("{}.testFailWhenScenario", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner();
         FailWhenScenario scenario = new FailWhenScenario();
+        assertNotNull(scenarioRunner);
         scenarioRunner.execute(scenario);
     }
 
@@ -182,8 +206,10 @@ public class ScenarioRunnerTest extends ResultsReporting {
      */
     @Test
     public void testFailThenScenario() {
+        LOG.info("{}.testFailThenScenario", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner();
         FailThenScenario scenario = new FailThenScenario();
+        assertNotNull(scenarioRunner);
         scenarioRunner.execute(scenario);
     }
 
@@ -192,8 +218,10 @@ public class ScenarioRunnerTest extends ResultsReporting {
      */
     @Test
     public void testScenarioRunner() {
+        LOG.info("{}.testScenarioRunner", this.getClass().getSimpleName());
         Scenario targetScenario = new Scenario();
         final ScenarioRunner scenarioRunner = new ScenarioRunner(targetScenario);
+        assertNotNull(scenarioRunner);
         scenarioRunner.execute();
     }
 

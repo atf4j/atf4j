@@ -16,7 +16,11 @@
  */
 package net.atf4j.bdd;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.atf4j.core.ResultsReporting;
 
@@ -25,12 +29,16 @@ import net.atf4j.core.ResultsReporting;
  */
 public class ScenarioPass extends ResultsReporting {
 
+    private static final Logger LOG = LoggerFactory.getLogger(ScenarioPass.class);
+
     /**
      * Test scenario runner.
      */
     @Test
     public void testScenarioRunner() {
+        LOG.info("{}.testScenarioRunner", this.getClass().getSimpleName());
         ScenarioRunner scenarioRunner = new ScenarioRunner();
+        assertNotNull(scenarioRunner);
         scenarioRunner.execute();
     }
 

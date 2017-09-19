@@ -24,7 +24,7 @@ import net.atf4j.core.Narrator;
  * A named nano second Timer. (In most cases this offers no advantage over the
  * millisecond timer).
  */
-public class NanoTimer implements ITimer {
+public class NanoTimer implements TimerInterface {
 
     /** The start time. */
     private long startTime = -1L;

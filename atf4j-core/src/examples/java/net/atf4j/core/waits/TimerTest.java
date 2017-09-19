@@ -23,7 +23,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
-import net.atf4j.core.timers.ITimer;
+import net.atf4j.core.timers.TimerInterface;
 import net.atf4j.core.timers.MilliTimer;
 
 /**
@@ -43,12 +43,11 @@ public class TimerTest extends ResultsReporting {
     }
 
     /**
-     * Instrument the actual timer its self.
-     * Calculates the delta for tests.
+     * Instrument the actual timer its self. Calculates the delta for tests.
      */
     @Test
     public final void testTimer0() {
-        final ITimer timer = new MilliTimer(this.getClass().getSimpleName());
+        final TimerInterface timer = new MilliTimer(this.getClass().getSimpleName());
         timer.start();
         // NOP elapsed time should be close to zero
         timer.stop();
@@ -64,7 +63,7 @@ public class TimerTest extends ResultsReporting {
      */
     @Test
     public final void testTimerOneSec() {
-        final ITimer timer = new MilliTimer(this.getClass().getSimpleName());
+        final TimerInterface timer = new MilliTimer(this.getClass().getSimpleName());
         timer.start();
         waitDefaultInterval();
         timer.stop();
@@ -81,7 +80,9 @@ public class TimerTest extends ResultsReporting {
         try {
             Thread.sleep(TimerTest.DEFAULT_INTERVAL);
         } catch (final InterruptedException interruptedException) {
-            Thread.currentThread().interrupt();
+            // restore interrupt status.
+            Thread currentThread = Thread.currentThread();
+            currentThread.interrupt();
             this.log.error(interruptedException.toString());
         }
     }

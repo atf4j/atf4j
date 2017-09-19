@@ -17,23 +17,23 @@
 package net.atf4j.core.timers;
 
 /**
- * The Interface ITimer.
+ * Timer Interface.
  */
-public interface ITimer {
+public interface TimerInterface {
 
     /**
      * start timer.
      *
      * @return the timer
      */
-    public abstract ITimer start();
+    public abstract TimerInterface start();
 
     /**
      * stop timer.
      *
      * @return the timer
      */
-    public abstract ITimer stop();
+    public abstract TimerInterface stop();
 
     /**
      * Gets the elapsed time.

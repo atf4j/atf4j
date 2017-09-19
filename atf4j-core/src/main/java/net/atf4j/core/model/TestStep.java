@@ -21,7 +21,7 @@ import net.atf4j.core.Atf4jException;
 /**
  * TestStep.
  */
-public class TestStep extends TestBase {
+public class TestStep extends AbstractTestBase {
 
     /**
      * Instantiates a new test step.
@@ -31,7 +31,7 @@ public class TestStep extends TestBase {
     }
 
     @Override
-    public TestBase execute(final TestContext context) throws Atf4jException {
+    public AbstractTestBase execute(final TestContext context) throws Atf4jException {
         return this;
     }
 

@@ -41,7 +41,7 @@ public class MappedTimersTest extends ResultsReporting {
      */
     @Test
     public void testExpectedUsage() {
-        final ITimer timer = MappedTimers.start("testExpectedUsage");
+        final TimerInterface timer = MappedTimers.start("testExpectedUsage");
         assertNotNull(timer);
         assertNotNull(timer.stop());
         this.log.info(timer.toString());

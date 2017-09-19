@@ -43,7 +43,8 @@ public class IntervalTest extends ResultsReporting {
     @Test
     public void testIntervalLong() {
         final long useTimePeriod = 1000;
-        new Interval(useTimePeriod);
+        Interval interval = new Interval(useTimePeriod);
+        assertNotNull(interval);
     }
 
     /**
@@ -101,7 +102,10 @@ public class IntervalTest extends ResultsReporting {
      */
     @Test
     public void testAsLong() {
-        assertEquals(0, new Interval().asLong());
+        Interval interval = new Interval();
+        assertNotNull(interval);
+        long asLong = interval.asLong();
+        assertEquals(0, asLong);
     }
 
     /**
@@ -109,7 +113,10 @@ public class IntervalTest extends ResultsReporting {
      */
     @Test
     public void testAsMilliSeconds() {
-        assertEquals(0, new Interval().asMilliSeconds());
+        Interval interval = new Interval();
+        assertNotNull(interval);
+        long asMilliSeconds = interval.asMilliSeconds();
+        assertEquals(0, asMilliSeconds);
     }
 
     /**
@@ -117,7 +124,10 @@ public class IntervalTest extends ResultsReporting {
      */
     @Test
     public void testAsSeconds() {
-        assertEquals(0, new Interval().asSeconds());
+        Interval interval = new Interval();
+        assertNotNull(interval);
+        long asSeconds = interval.asSeconds();
+        assertEquals(0, asSeconds);
     }
 
     /**
@@ -125,7 +135,10 @@ public class IntervalTest extends ResultsReporting {
      */
     @Test
     public void testAsMinutes() {
-        assertEquals(0, new Interval().asMinutes());
+        Interval interval = new Interval();
+        assertNotNull(interval);
+        long asMinutes = interval.asMinutes();
+        assertEquals(0, asMinutes);
     }
 
     /**
@@ -133,7 +146,10 @@ public class IntervalTest extends ResultsReporting {
      */
     @Test
     public void testAsHours() {
-        assertEquals(0, new Interval().asHours());
+        Interval interval = new Interval();
+        assertNotNull(interval);
+        long asHours = interval.asHours();
+        assertEquals(0, asHours);
     }
 
     /**
@@ -141,7 +157,10 @@ public class IntervalTest extends ResultsReporting {
      */
     @Test
     public void testAsDays() {
-        assertEquals(0, new Interval().asDays());
+        Interval interval = new Interval();
+        assertNotNull(interval);
+        long asDays = interval.asDays();
+        assertEquals(0, asDays);
     }
 
     /**
@@ -149,7 +168,10 @@ public class IntervalTest extends ResultsReporting {
      */
     @Test
     public void testIntervalToString() {
-        this.log.info(new Interval().toString());
+        Interval interval = new Interval();
+        assertNotNull(interval);
+        String string = interval.toString();
+        this.log.info(string);
     }
 
 }

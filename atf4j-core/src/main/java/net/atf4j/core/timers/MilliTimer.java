@@ -23,7 +23,7 @@ import net.atf4j.core.Narrator;
 /**
  * A simple named Timer.
  */
-public class MilliTimer implements ITimer {
+public class MilliTimer implements TimerInterface {
 
     /** The start time. */
     private long startTime = -1L;

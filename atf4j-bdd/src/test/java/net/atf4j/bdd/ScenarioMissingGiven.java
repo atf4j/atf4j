@@ -16,7 +16,11 @@
  */
 package net.atf4j.bdd;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.atf4j.bdd.Atf4j.Scenario;
 import net.atf4j.core.ResultsReporting;
@@ -27,15 +31,20 @@ import net.atf4j.core.ResultsReporting;
 @Scenario("Scenario")
 public class ScenarioMissingGiven extends ResultsReporting {
 
+    private static final Logger LOG = LoggerFactory.getLogger(ScenarioMissingGiven.class);
+
     /**
      * Test scenario runner.
      */
     @Test
     public void testScenarioRunner() {
+        LOG.info("{}.testScenarioRunner", this.getClass().getSimpleName());
         ScenarioRunner scenarioRunner = new ScenarioRunner();
+        assertNotNull(scenarioRunner);
         scenarioRunner.execute();
     }
 
+    // Deliberately missing.
     // @Atf4j.Given("Given")
     // public void testPassGiven() {
     // }
@@ -45,7 +54,7 @@ public class ScenarioMissingGiven extends ResultsReporting {
      */
     @Atf4j.When("When")
     public void testPassWhen() {
-        this.log.info(super.toString());
+        this.log.info("{}", super.toString());
     }
 
     /**
@@ -53,6 +62,7 @@ public class ScenarioMissingGiven extends ResultsReporting {
      */
     @Atf4j.Then("Then")
     public void testPassThen() {
+        this.log.info("{}", super.toString());
     }
 
 }

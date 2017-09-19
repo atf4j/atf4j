@@ -27,9 +27,9 @@ import net.atf4j.core.ResultsReporting;
 import net.atf4j.core.TestResult;
 
 /**
- * The TestBase Class.
+ * Abstract Test Base Class.
  */
-public abstract class TestBase extends ResultsReporting {
+public abstract class AbstractTestBase extends ResultsReporting {
 
     private TestIdentifier uniqueIdentifier;
     protected TestContext testContext;
@@ -46,7 +46,7 @@ public abstract class TestBase extends ResultsReporting {
     /**
      * Instantiates a new test base.
      */
-    public TestBase() {
+    public AbstractTestBase() {
         super();
         this.testResult = TestResult.initialise();
         this.uniqueIdentifier = new TestIdentifier();
@@ -58,7 +58,7 @@ public abstract class TestBase extends ResultsReporting {
      * @param name
      *            the name
      */
-    public TestBase(final String name) {
+    public AbstractTestBase(final String name) {
         this.name = name;
         this.testResult = TestResult.initialise();
         this.uniqueIdentifier = new TestIdentifier();
@@ -70,7 +70,7 @@ public abstract class TestBase extends ResultsReporting {
      * @param testContext
      *            the test context
      */
-    public TestBase(final TestContext testContext) {
+    public AbstractTestBase(final TestContext testContext) {
         this.testContext = testContext;
     }
 
@@ -83,7 +83,7 @@ public abstract class TestBase extends ResultsReporting {
      * @throws Atf4jException
      *             the atf4j exception
      */
-    public TestBase registerLogging(final TestReport logging) throws Atf4jException {
+    public AbstractTestBase registerLogging(final TestReport logging) throws Atf4jException {
         setLogging(logging);
         return this;
     }
@@ -97,7 +97,7 @@ public abstract class TestBase extends ResultsReporting {
      * @throws Atf4jException
      *             the atf4j exception
      */
-    public TestBase execute(final TestContext context) throws Atf4jException {
+    public AbstractTestBase execute(final TestContext context) throws Atf4jException {
         throw new Atf4jException("execute Must be overridden.");
     }
 
@@ -109,7 +109,7 @@ public abstract class TestBase extends ResultsReporting {
      * @return success as boolean.
      * @see java.util.Collection#add(java.lang.Object)
      */
-    public TestBase addPreCondition(final Condition newPreCondition) {
+    public AbstractTestBase addPreCondition(final Condition newPreCondition) {
         if (this.preConditions == null) {
             this.preConditions = new ArrayDeque<Condition>();
         }
@@ -117,7 +117,12 @@ public abstract class TestBase extends ResultsReporting {
         return this;
     }
 
-    public TestBase assumedPreConditions() {
+    /**
+     * Assumed pre conditions.
+     *
+     * @return the abstract test base
+     */
+    public AbstractTestBase assumedPreConditions() {
         if (this.preConditions == null) {
             return this;
         } else {
@@ -136,7 +141,7 @@ public abstract class TestBase extends ResultsReporting {
      * @return success as boolean.
      * @see java.util.Collection#add(java.lang.Object)
      */
-    public TestBase addPostCondition(final Condition newPostCondition) {
+    public AbstractTestBase addPostCondition(final Condition newPostCondition) {
         if (this.postConditions == null) {
             this.postConditions = new ArrayDeque<Condition>();
         }
@@ -144,7 +149,12 @@ public abstract class TestBase extends ResultsReporting {
         return this;
     }
 
-    public TestBase assertPostConditions() {
+    /**
+     * Assert post conditions.
+     *
+     * @return the abstract test base
+     */
+    public AbstractTestBase assertPostConditions() {
         if (this.postConditions == null) {
             return this;
         } else {
@@ -171,7 +181,7 @@ public abstract class TestBase extends ResultsReporting {
      *            the testStatus to set
      * @return the test base
      */
-    protected TestBase setTestStatus(final TestResult testStatus) {
+    protected AbstractTestBase setTestStatus(final TestResult testStatus) {
         this.testResult = testStatus;
         return this;
     }
@@ -192,7 +202,7 @@ public abstract class TestBase extends ResultsReporting {
      *            the uniqueIdentifier to set
      * @return the test base
      */
-    protected TestBase setUniqueIdentifier(final TestIdentifier uniqueIdentifier) {
+    protected AbstractTestBase setUniqueIdentifier(final TestIdentifier uniqueIdentifier) {
         this.uniqueIdentifier = uniqueIdentifier;
         return this;
     }
@@ -213,7 +223,7 @@ public abstract class TestBase extends ResultsReporting {
      *            the testContext to set
      * @return the test base
      */
-    protected TestBase setTestContext(final TestContext testContext) {
+    protected AbstractTestBase setTestContext(final TestContext testContext) {
         this.testContext = testContext;
         return this;
     }
@@ -234,7 +244,7 @@ public abstract class TestBase extends ResultsReporting {
      *            the tester to set
      * @return the test base
      */
-    protected TestBase setTester(final String tester) {
+    protected AbstractTestBase setTester(final String tester) {
         this.tester = tester;
         return this;
     }
@@ -255,7 +265,7 @@ public abstract class TestBase extends ResultsReporting {
      *            the name to set
      * @return the test base
      */
-    protected TestBase setName(final String name) {
+    protected AbstractTestBase setName(final String name) {
         this.name = name;
         return this;
     }
@@ -276,7 +286,7 @@ public abstract class TestBase extends ResultsReporting {
      *            the taxonomy to set
      * @return the test base
      */
-    protected TestBase setTaxonomy(final String taxonomy) {
+    protected AbstractTestBase setTaxonomy(final String taxonomy) {
         this.taxonomy = taxonomy;
         return this;
     }
@@ -297,7 +307,7 @@ public abstract class TestBase extends ResultsReporting {
      *            the description to set
      * @return the test base
      */
-    protected TestBase setDescription(final String description) {
+    protected AbstractTestBase setDescription(final String description) {
         this.description = description;
         return this;
     }
@@ -318,7 +328,7 @@ public abstract class TestBase extends ResultsReporting {
      *            the timestamp to set
      * @return the test base
      */
-    protected TestBase setTimestamp(final String timestamp) {
+    protected AbstractTestBase setTimestamp(final String timestamp) {
         this.timestamp = timestamp;
         return this;
     }
@@ -357,7 +367,7 @@ public abstract class TestBase extends ResultsReporting {
      *            the new logging
      * @return the test base
      */
-    public TestBase setLogging(final TestReport logging) {
+    public AbstractTestBase setLogging(final TestReport logging) {
         this.testReport = logging;
         return this;
     }
@@ -371,6 +381,11 @@ public abstract class TestBase extends ResultsReporting {
         return this.testResult;
     }
 
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
     public String debugString() {
         return String.format(
                 "%s [testStatus=%s, uniqueIdentifier=%s, testContext=%s, tester=%s, name=%s, taxonomy=%s, description=%s, timestamp=%s, preConditions=%s, postConditions=%s]",
@@ -378,6 +393,11 @@ public abstract class TestBase extends ResultsReporting {
                 this.name, this.taxonomy, this.description, this.timestamp, this.preConditions, this.postConditions);
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return debugString();

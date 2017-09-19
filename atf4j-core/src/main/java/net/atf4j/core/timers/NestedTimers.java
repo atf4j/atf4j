@@ -51,7 +51,7 @@ public final class NestedTimers {
         return NestedTimers.INSTANCE;
     }
 
-    public static ITimer start() {
+    public static TimerInterface start() {
         final String timerName = UUID.randomUUID().toString();
         return getInstance().startTimer(timerName);
     }
@@ -63,7 +63,7 @@ public final class NestedTimers {
      *            as String.
      * @return Timer.
      */
-    public ITimer startTimer(final String timerName) {
+    public TimerInterface startTimer(final String timerName) {
         final MilliTimer timer = new MilliTimer(timerName);
         timer.start();
         this.runningTimers.push(timer);
@@ -75,7 +75,7 @@ public final class NestedTimers {
      *
      * @return NestedTimers
      */
-    public static ITimer stop() {
+    public static TimerInterface stop() {
         return getInstance().stopTimer();
     }
 
@@ -84,7 +84,7 @@ public final class NestedTimers {
      *
      * @return Timer.
      */
-    public ITimer stopTimer() {
+    public TimerInterface stopTimer() {
         final MilliTimer timer = this.runningTimers.pop();
         timer.stop();
         this.stoppedTimers.push(timer);

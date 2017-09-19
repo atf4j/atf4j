@@ -18,7 +18,6 @@ package net.atf4j.core.timers;
 
 /**
  * Encapsulate an Interval of Time in a [GOF] Memento.
- *
  */
 public class Interval {
 

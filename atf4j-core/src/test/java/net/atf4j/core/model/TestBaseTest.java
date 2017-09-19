@@ -31,7 +31,7 @@ public class TestBaseTest extends ResultsReporting {
     /**
      * The MockTestBase Class.
      */
-    public class MockTestBase extends TestBase {
+    public class MockTestBase extends AbstractTestBase {
 
         /*
          * (non-Javadoc)
@@ -40,7 +40,7 @@ public class TestBaseTest extends ResultsReporting {
          * TestContext)
          */
         @Override
-        public TestBase execute(final TestContext context) throws Atf4jException {
+        public AbstractTestBase execute(final TestContext context) throws Atf4jException {
             return this;
         }
     }
@@ -48,7 +48,7 @@ public class TestBaseTest extends ResultsReporting {
     /**
      * The IncompleteTestBase Class.
      */
-    public class IncompleteTestBase extends TestBase {
+    public class IncompleteTestBase extends AbstractTestBase {
     }
 
     /**

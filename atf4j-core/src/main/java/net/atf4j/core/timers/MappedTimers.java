@@ -65,7 +65,7 @@ public final class MappedTimers {
      *            the timer name
      * @return the i timer
      */
-    public static ITimer start(final String timerName) {
+    public static TimerInterface start(final String timerName) {
         return getInstance().startTimer(timerName);
     }
 
@@ -76,7 +76,7 @@ public final class MappedTimers {
      *            the timer name
      * @return the i timer
      */
-    public ITimer startTimer(final String timerName) {
+    public TimerInterface startTimer(final String timerName) {
         final MilliTimer timer = new MilliTimer(timerName);
         this.runningTimers.put(timerName, timer);
         timer.start();
@@ -90,7 +90,7 @@ public final class MappedTimers {
      *            the timer name
      * @return the i timer
      */
-    public static ITimer stop(final String timerName) {
+    public static TimerInterface stop(final String timerName) {
         return getInstance().stopTimer(timerName);
     }
 
@@ -101,7 +101,7 @@ public final class MappedTimers {
      *            as String.
      * @return Timer.
      */
-    public ITimer stopTimer(final String timerName) {
+    public TimerInterface stopTimer(final String timerName) {
         final MilliTimer timer = this.runningTimers.get(timerName);
         if (timer != null) {
             timer.stop();

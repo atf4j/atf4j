@@ -28,7 +28,7 @@ import net.atf4j.core.Atf4jException;
 /**
  * TestSuite.
  */
-public class TestSuite extends TestBase {
+public class TestSuite extends AbstractTestBase {
 
     protected Collection<TestCase> testCases;
 
@@ -62,7 +62,7 @@ public class TestSuite extends TestBase {
      * @return the abstract test result
      * @throws Atf4jException
      *             the atf4j exception
-     * @see net.atf4j.core.model.TestBase#execute(net.atf4j.core.model.TestContext)
+     * @see net.atf4j.core.model.AbstractTestBase#execute(net.atf4j.core.model.TestContext)
      */
     @Override
     public TestSuite execute(final TestContext context) throws Atf4jException {

@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.bdd;
 
 import static org.junit.Assert.assertNotNull;
@@ -35,6 +36,7 @@ public class BehaviourPassTest extends ResultsReporting {
      */
     @Atf4j.Given("testGiven")
     public void testGiven() {
+        LOG.info("{}.testGiven", this.getClass().getSimpleName());
         Given given = new Given();
         assertNotNull(given);
         given.execute();
@@ -45,6 +47,7 @@ public class BehaviourPassTest extends ResultsReporting {
      */
     @Atf4j.When("testWhen")
     public void testWhen() {
+        LOG.info("{}.testGiven", this.getClass().getSimpleName());
         When when = new When();
         assertNotNull(when);
         when.execute();
@@ -55,6 +58,7 @@ public class BehaviourPassTest extends ResultsReporting {
      */
     @Atf4j.Then("testThen")
     public void testThen() {
+        LOG.info("{}.testGiven", this.getClass().getSimpleName());
         Then then = new Then();
         assertNotNull(then);
         then.execute();

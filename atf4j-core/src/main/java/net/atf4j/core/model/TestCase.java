@@ -28,7 +28,7 @@ import net.atf4j.core.Atf4jException;
 /**
  * TestCase.
  */
-public class TestCase extends TestBase {
+public class TestCase extends AbstractTestBase {
 
     private final Collection<TestStep> testSteps = new ArrayDeque<TestStep>();
 
@@ -78,14 +78,14 @@ public class TestCase extends TestBase {
      * @return the abstract test result
      * @throws Atf4jException
      *             the atf4j exception
-     * @see net.atf4j.core.model.TestBase#execute(net.atf4j.core.model.TestContext)
+     * @see net.atf4j.core.model.AbstractTestBase#execute(net.atf4j.core.model.TestContext)
      */
     @Override
     public TestCase execute(final TestContext context) throws Atf4jException {
         assumeNotNull(context);
         assumeNotNull(this.testSteps);
         for (final TestStep testStep : this.testSteps) {
-            final TestBase execute = testStep.execute(context);
+            final AbstractTestBase execute = testStep.execute(context);
             assumeNotNull(execute);
             assertEquals(testStep, execute);
         }
