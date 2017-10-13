@@ -59,11 +59,10 @@ public interface ConfigurationInterface {
     /**
      * Get the value of a long from configuration property by key.
      *
-     * @param key
-     *            the key of the value as String.
-     * @param defaultValue
-     *            the default value as boolean. \* @return true, if successful,
+     * @param key            the key of the value as String.
+     * @param defaultValue            the default value as boolean. \* @return true, if successful,
      *            otherwise false. otherwise false.
+     * @return true, if successful, otherwise false.
      */
     boolean valueFor(final String key, final boolean defaultValue);
 

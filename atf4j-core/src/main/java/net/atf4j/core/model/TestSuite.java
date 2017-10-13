@@ -39,6 +39,11 @@ public class TestSuite extends AbstractTestBase {
         super();
     }
 
+    /**
+     * Instantiates a new test suite.
+     *
+     * @param testContext the test context
+     */
     public TestSuite(final TestContext testContext) {
         super(testContext);
     }

@@ -51,6 +51,11 @@ public final class NestedTimers {
         return NestedTimers.INSTANCE;
     }
 
+    /**
+     * Start.
+     *
+     * @return the timer interface
+     */
     public static TimerInterface start() {
         final String timerName = UUID.randomUUID().toString();
         return getInstance().startTimer(timerName);
@@ -172,6 +177,9 @@ public final class NestedTimers {
                 this.runningTimers, this.stoppedTimers);
     }
 
+    /**
+     * The TimersExhausted Class.
+     */
     public class TimersExhausted extends Atf4jException {
         private static final long serialVersionUID = 1L;
     }

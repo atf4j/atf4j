@@ -30,6 +30,9 @@ public class TestStep extends AbstractTestBase {
         super();
     }
 
+    /* (non-Javadoc)
+     * @see net.atf4j.core.model.AbstractTestBase#execute(net.atf4j.core.model.TestContext)
+     */
     @Override
     public AbstractTestBase execute(final TestContext context) throws Atf4jException {
         return this;

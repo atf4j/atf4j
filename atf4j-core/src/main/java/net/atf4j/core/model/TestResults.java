@@ -31,9 +31,9 @@ public class TestResults {
     /**
      * Add a TestResult to collection.
      *
-     * @param testResult
-     *            the test result \* @return true, if successful, otherwise
+     * @param testResult            the test result \* @return true, if successful, otherwise
      *            false.
+     * @return true, if successful, otherwise false.
      */
     public boolean add(final TestResult testResult) {
         return this.testResults.add(testResult);

@@ -162,6 +162,9 @@ public class Interval {
         return this.timePeriod;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format("Interval [timePeriod=%s]", this.timePeriod);

@@ -40,6 +40,9 @@ public abstract class AbstractTestRunner {
 
     private static final Logger log = LoggerFactory.getLogger(AbstractTestRunner.class);
 
+    /**
+     * Before class.
+     */
     @BeforeClass
     public static void beforeClass() {
         log.debug("beforeClass");
@@ -47,26 +50,41 @@ public abstract class AbstractTestRunner {
         assertNotNull("Expected -DtargetEnvironment to be defined", targetEnvironment);
     }
 
+    /**
+     * Before feature.
+     */
     @cucumber.api.java.Before
     public static void beforeFeature() {
         log.trace("beforeFeature");
     }
 
+    /**
+     * Before test.
+     */
     @Before
     public void beforeTest() {
         log.trace("beforeFeature");
     }
 
+    /**
+     * After test.
+     */
     @After
     public void afterTest() {
         log.trace("afterTest");
     }
 
+    /**
+     * After feature.
+     */
     @cucumber.api.java.After
     public void afterFeature() {
         log.trace("afterFeature");
     }
 
+    /**
+     * After class.
+     */
     @AfterClass
     public void afterClass() {
         log.trace("afterClass");

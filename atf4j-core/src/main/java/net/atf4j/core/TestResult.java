@@ -92,8 +92,8 @@ public enum TestResult {
     /**
      * Checks if is.
      *
-     * @param result
-     *            the result \* @return true, if successful, otherwise false.
+     * @param result            the result \* @return true, if successful, otherwise false.
+     * @return true, if successful, otherwise false.
      */
     public boolean is(final TestResult result) {
         return this.equals(result);
