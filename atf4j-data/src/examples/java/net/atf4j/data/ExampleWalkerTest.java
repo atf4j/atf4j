@@ -13,7 +13,7 @@ public class ExampleWalkerTest {
     @Test
     public void testAbstractWalker() throws Exception {
         ExampleWalker exampleWalker = new ExampleWalker();
-        assertNotNull(exampleWalker);
+        assertNotNull("unexpected null",exampleWalker);
         exampleWalker.walk();
     }
 

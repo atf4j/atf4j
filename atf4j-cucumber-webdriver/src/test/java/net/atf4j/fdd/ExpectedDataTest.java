@@ -30,7 +30,7 @@ public class ExpectedDataTest extends ResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final ExpectedData instance = new ExpectedData();
-        assertNotNull(instance);
+        assertNotNull("unexpected null",instance);
     }
 
 }

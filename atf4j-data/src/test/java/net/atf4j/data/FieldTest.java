@@ -35,7 +35,7 @@ public final class FieldTest extends ResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final Field field = new Field();
-        assertNotNull(field);
+        assertNotNull("unexpected null",field);
     }
 
     /**
@@ -44,7 +44,7 @@ public final class FieldTest extends ResultsReporting {
     @Test
     public void testFieldString() {
         final Field field = new Field("");
-        assertNotNull(field);
+        assertNotNull("unexpected null",field);
     }
 
     /**

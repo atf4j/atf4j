@@ -51,9 +51,9 @@ public class AbstractGuiMapTest extends ResultsReporting {
         final Enumeration<String> bundleKeys = instance.getKeys();
         while (bundleKeys.hasMoreElements()) {
             final String key = bundleKeys.nextElement();
-            Assert.assertNotNull(key);
+            Assert.assertNotNull("unexpected null",key);
             Assert.assertTrue(instance.containsKey(key));
-            Assert.assertNotNull(instance.getString(key));
+            Assert.assertNotNull("unexpected null",instance.getString(key));
             this.log.info("{}={}", key, instance.getString(key));
         }
     }
@@ -67,11 +67,11 @@ public class AbstractGuiMapTest extends ResultsReporting {
     @Test
     public void testKeySet() throws Exception {
         final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
-        Assert.assertNotNull(abstractGuiMap);
+        Assert.assertNotNull("unexpected null",abstractGuiMap);
         final Set<String> keySet = abstractGuiMap.keySet();
         for (final String key : keySet) {
             final String value = abstractGuiMap.getString(key);
-            Assert.assertNotNull(value);
+            Assert.assertNotNull("unexpected null",value);
         }
     }
 
@@ -92,7 +92,7 @@ public class AbstractGuiMapTest extends ResultsReporting {
     @Test
     public void testName() throws Exception {
         final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
-        Assert.assertNotNull(abstractGuiMap);
+        Assert.assertNotNull("unexpected null",abstractGuiMap);
         abstractGuiMap.dumpTo(System.out);
     }
 
@@ -105,7 +105,7 @@ public class AbstractGuiMapTest extends ResultsReporting {
     @Test
     public void testToString() throws Exception {
         final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
-        Assert.assertNotNull(abstractGuiMap);
+        Assert.assertNotNull("unexpected null",abstractGuiMap);
         this.log.info(abstractGuiMap.toString());
         this.log.info(abstractGuiMap.getBaseBundleName());
         this.log.info(abstractGuiMap.getLocale().toString());

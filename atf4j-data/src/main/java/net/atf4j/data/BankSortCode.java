@@ -65,7 +65,7 @@ public class BankSortCode {
      * @return the bank sort code
      */
     public BankSortCode setBankSortCode(final String bankSortCode) {
-        assertNotNull(bankSortCode);
+        assertNotNull("unexpected null",bankSortCode);
         this.sortcode = bankSortCode;
         return this;
     }
@@ -87,7 +87,7 @@ public class BankSortCode {
      * @return true, if successful, otherwise false.
      */
     public static boolean verify(final String sortcode) {
-        assertNotNull(sortcode);
+        assertNotNull("unexpected null",sortcode);
         final Matcher matcher = pattern.matcher(sortcode);
         return matcher.find();
     }

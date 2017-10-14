@@ -30,7 +30,7 @@ public class FailStepTest {
      */
     @Test
     public void testFailStep() {
-        assertNotNull(new FailStep());
+        assertNotNull("unexpected null",new FailStep());
     }
 
     /**
@@ -38,7 +38,7 @@ public class FailStepTest {
      */
     @Test
     public void testFailStepNull() {
-        assertNotNull(new FailStep(null));
+        assertNotNull("unexpected null",new FailStep(null));
     }
 
     /**
@@ -46,7 +46,7 @@ public class FailStepTest {
      */
     @Test
     public void testFailStepString() {
-        assertNotNull(new FailStep("FailStep"));
+        assertNotNull("unexpected null",new FailStep("FailStep"));
     }
 
 }

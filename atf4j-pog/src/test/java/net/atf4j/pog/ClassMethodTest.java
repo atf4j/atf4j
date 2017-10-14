@@ -33,7 +33,7 @@ public class ClassMethodTest extends ResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final ClassMethod classMethod = new ClassMethod();
-        assertNotNull(classMethod);
+        assertNotNull("unexpected null",classMethod);
     }
 
     /**
@@ -42,7 +42,7 @@ public class ClassMethodTest extends ResultsReporting {
     @Test
     public void testClassMethod() {
         final ClassMethod classMethod = new ClassMethod();
-        assertNotNull(classMethod);
+        assertNotNull("unexpected null",classMethod);
         final String string = classMethod.toString();
         this.log.info(string);
     }
@@ -53,7 +53,7 @@ public class ClassMethodTest extends ResultsReporting {
     @Test
     public void testClassMethodString() {
         final ClassMethod classMethod = new ClassMethod("String", "method");
-        assertNotNull(classMethod);
+        assertNotNull("unexpected null",classMethod);
         final String string = classMethod.toString();
         this.log.info(string);
     }
@@ -64,7 +64,7 @@ public class ClassMethodTest extends ResultsReporting {
     @Test
     public void testClassMethodDate() {
         final ClassMethod classMethod = new ClassMethod("Date", "date");
-        assertNotNull(classMethod);
+        assertNotNull("unexpected null",classMethod);
         final String string = classMethod.toString();
         this.log.info(string);
     }

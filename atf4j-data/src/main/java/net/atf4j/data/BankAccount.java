@@ -102,7 +102,7 @@ public class BankAccount {
      * @return the bank account
      */
     public BankAccount setBank(final Bank bank) {
-        assertNotNull(bank);
+        assertNotNull("unexpected null",bank);
         this.bank = bank;
         return this;
     }
@@ -115,7 +115,7 @@ public class BankAccount {
      * @return the bank account
      */
     public BankAccount setAccountNo(final String accountNo) {
-        assertNotNull(accountNo);
+        assertNotNull("unexpected null",accountNo);
         this.accountNo = accountNo;
         return this;
     }

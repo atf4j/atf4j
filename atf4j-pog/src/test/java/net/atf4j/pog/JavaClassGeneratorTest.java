@@ -62,7 +62,7 @@ public class JavaClassGeneratorTest extends ResultsReporting {
     public void testPrototype() throws Exception {
         this.log.info("==============================================");
         final JavaClassGenerator javaClassGenerator = new JavaClassGenerator();
-        assertNotNull(javaClassGenerator);
+        assertNotNull("unexpected null",javaClassGenerator);
         this.log.info(javaClassGenerator.prototype());
     }
 
@@ -76,7 +76,7 @@ public class JavaClassGeneratorTest extends ResultsReporting {
     public void testExpected() throws Exception {
         this.log.info("==============================================");
         final JavaClassGenerator javaClassGenerator = new JavaClassGenerator();
-        assertNotNull(javaClassGenerator);
+        assertNotNull("unexpected null",javaClassGenerator);
         javaClassGenerator.setClassName("NewClass");
         javaClassGenerator.addField(new ClassField("String", "aString"));
         javaClassGenerator.addMethod(new ClassMethod("String", "toString"));

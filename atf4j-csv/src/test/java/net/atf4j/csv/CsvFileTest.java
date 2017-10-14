@@ -86,7 +86,7 @@ public class CsvFileTest {
     @Test(expected = FileNotFoundException.class)
     public void testLoadMissingFile() throws Exception {
         final CsvFile csvFile = new CsvFile();
-        assertNotNull(csvFile);
+        assertNotNull("unexpected null",csvFile);
         csvFile.load(MISSING_CSV);
     }
 
@@ -111,7 +111,7 @@ public class CsvFileTest {
     @Test
     public void testConstructorWithDataPresent() throws Exception {
         final CsvFile csvFile = new CsvFile(TEST_DATA_CSV);
-        Assert.assertNotNull(csvFile);
+        Assert.assertNotNull("unexpected null",csvFile);
         this.log.info(csvFile.debugString());
         this.log.info(csvFile.toString());
     }
@@ -125,7 +125,7 @@ public class CsvFileTest {
     @Test
     public void testReadPresentData() throws Exception {
         final CsvFile csvFile = CsvFile.read(TEST_DATA_CSV);
-        assertNotNull(csvFile);
+        assertNotNull("unexpected null",csvFile);
         verifyContent(csvFile);
     }
 
@@ -136,7 +136,7 @@ public class CsvFileTest {
      *            the csv file
      */
     private void verifyContent(final CsvFile csvFile) {
-        assertNotNull(csvFile);
+        assertNotNull("unexpected null",csvFile);
         final HeaderLine header = csvFile.getHeaderLine();
         assertEquals(EXPECTED_HEADER, header.debugString());
         this.log.info("{}", header);
@@ -161,6 +161,6 @@ public class CsvFileTest {
     public void testScan() throws Exception {
         final CsvFile data = CsvFile.read(TEST_DATA_CSV);
         final Object[] array = data.toArray();
-        assertNotNull(array);
+        assertNotNull("unexpected null",array);
     }
 }

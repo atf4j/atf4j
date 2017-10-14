@@ -35,7 +35,7 @@ public class TestIdentifierTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(new TestIdentifier());
+        assertNotNull("unexpected null",new TestIdentifier());
     }
 
     /**
@@ -44,7 +44,7 @@ public class TestIdentifierTest extends ResultsReporting {
     @Test
     public void testCreate() {
         final TestIdentifier testId = TestIdentifier.create();
-        assertNotNull(testId);
+        assertNotNull("unexpected null",testId);
     }
 
     /**

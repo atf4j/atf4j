@@ -46,7 +46,7 @@ public class TestSuiteTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(new TestSuite());
+        assertNotNull("unexpected null",new TestSuite());
     }
 
     /**
@@ -55,7 +55,7 @@ public class TestSuiteTest extends ResultsReporting {
     @Test
     public void testTestSuite() {
         final TestSuite testSuite = new TestSuite();
-        assertNotNull(testSuite);
+        assertNotNull("unexpected null",testSuite);
         this.log.info("testResult={}", testSuite.result());
     }
 
@@ -65,7 +65,7 @@ public class TestSuiteTest extends ResultsReporting {
     @Test
     public void testTestSuiteTestContext() {
         final TestSuite testSuite = new TestSuite(new TestContext());
-        assertNotNull(testSuite);
+        assertNotNull("unexpected null",testSuite);
         this.log.info("testResult={}", testSuite.result());
     }
 
@@ -78,7 +78,7 @@ public class TestSuiteTest extends ResultsReporting {
     @Test
     public void testTestSuiteExecute() throws Atf4jException {
         final TestSuite testSuite = new TestSuite();
-        assertNotNull(testSuite.execute());
+        assertNotNull("unexpected null",testSuite.execute());
         this.log.info("testResult={}", testSuite.result());
     }
 
@@ -91,7 +91,7 @@ public class TestSuiteTest extends ResultsReporting {
     @Test
     public void testTestSuiteExecuteTestContext() throws Atf4jException {
         final TestSuite testSuite = new TestSuite();
-        assertNotNull(testSuite.execute(new TestContext()));
+        assertNotNull("unexpected null",testSuite.execute(new TestContext()));
         this.log.info("testResult={}", testSuite.result());
     }
 

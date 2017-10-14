@@ -36,7 +36,7 @@ public class TestResultsTest extends ResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final TestResults testResults = new TestResults();
-        assertNotNull(testResults);
+        assertNotNull("unexpected null",testResults);
     }
 
     /**
@@ -45,7 +45,7 @@ public class TestResultsTest extends ResultsReporting {
     @Test
     public void testAddTestResult() {
         final TestResults testResults = new TestResults();
-        assertNotNull(testResults);
+        assertNotNull("unexpected null",testResults);
         testResults.add(TestResult.PENDING);
     }
 
@@ -55,9 +55,9 @@ public class TestResultsTest extends ResultsReporting {
     @Test
     public void testTestResults() {
         final TestResults testResults = new TestResults();
-        assertNotNull(testResults);
+        assertNotNull("unexpected null",testResults);
         final Collection<TestResult> resultsCollection = testResults.getTestResults();
-        assertNotNull(resultsCollection);
+        assertNotNull("unexpected null",resultsCollection);
     }
 
     /**
@@ -65,7 +65,7 @@ public class TestResultsTest extends ResultsReporting {
      */
     @Test
     public void testToString() {
-        assertNotNull(new TestResults().toString());
+        assertNotNull("unexpected null",new TestResults().toString());
     }
 
 }

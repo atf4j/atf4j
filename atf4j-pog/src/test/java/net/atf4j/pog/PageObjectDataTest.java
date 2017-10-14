@@ -14,11 +14,12 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.pog;
 
 import static org.junit.Assert.assertNotNull;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -37,15 +38,16 @@ public class PageObjectDataTest extends ResultsReporting {
     public void testExpected() {
         this.log.info("==============================================");
         final PageObjectData pageObjectData = new PageObjectData();
-        assertNotNull(pageObjectData);
+        assertNotNull("unexpected null", pageObjectData);
 
-        pageObjectData.add(new PageWebElement("findById", Strategy.ID, "id"))
-                .add(new PageWebElement("findByName", Strategy.NAME, "name"))
-                .add(new PageWebElement("findByLinkText", Strategy.LINK_TEXT, "linkText"))
-                .add(new PageWebElement("findByPartialLinkText", Strategy.PARTIAL_LINK_TEXT, "partialLinkText"))
-                .add(new PageWebElement("findByName", Strategy.NAME, "name"))
-                .add(new PageWebElement("findByXpath", Strategy.XPATH, "//A"))
-                .add(new PageWebElement("findByCss", Strategy.CSS, "."));
+        pageObjectData
+            .add(new PageWebElement("findById", Strategy.ID, "id"))
+            .add(new PageWebElement("findByName", Strategy.NAME, "name"))
+            .add(new PageWebElement("findByLinkText", Strategy.LINK_TEXT, "linkText"))
+            .add(new PageWebElement("findByPartialLinkText", Strategy.PARTIAL_LINK_TEXT, "partialLinkText"))
+            .add(new PageWebElement("findByName", Strategy.NAME, "name"))
+            .add(new PageWebElement("findByXpath", Strategy.XPATH, "//A"))
+            .add(new PageWebElement("findByCss", Strategy.CSS, "."));
 
         logAttributes(pageObjectData);
         this.log.info(pageObjectData.toString());
@@ -58,7 +60,7 @@ public class PageObjectDataTest extends ResultsReporting {
     public void testDefaultConstructor() {
         this.log.info("==============================================");
         final PageObjectData pageObjectData = new PageObjectData();
-        assertNotNull(pageObjectData);
+        assertNotNull("unexpected null", pageObjectData);
         this.log.info(pageObjectData.toString());
     }
 
@@ -69,7 +71,7 @@ public class PageObjectDataTest extends ResultsReporting {
     public void testPageObjectData() {
         this.log.info("==============================================");
         final PageObjectData pageObjectData = new PageObjectData();
-        assertNotNull(pageObjectData);
+        assertNotNull("unexpected null", pageObjectData);
         this.log.info(pageObjectData.toString());
     }
 
@@ -80,7 +82,7 @@ public class PageObjectDataTest extends ResultsReporting {
      *            the page object data
      */
     private void logAttributes(final PageObjectData pageObjectData) {
-        final ArrayList<PageWebElement> attributes = pageObjectData.get();
+        final List<PageWebElement> attributes = pageObjectData.get();
         for (final PageWebElement pageWebElement : attributes) {
             this.log.info(pageWebElement.toString());
         }

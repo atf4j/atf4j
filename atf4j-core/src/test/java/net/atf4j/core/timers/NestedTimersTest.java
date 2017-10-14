@@ -33,7 +33,7 @@ public class NestedTimersTest extends ResultsReporting {
     @Test
     public void testGetInstance() {
         final NestedTimers instance = NestedTimers.getInstance();
-        assertNotNull(instance);
+        assertNotNull("unexpected null",instance);
     }
 
     /**

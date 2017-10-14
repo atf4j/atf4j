@@ -37,7 +37,7 @@ public final class BankDataFactoryTest extends ResultsReporting {
     @Ignore
     public void testExpectedUsage() {
         final String randomThing = BankDataFactory.random();
-        assertNotNull(randomThing);
+        assertNotNull("unexpected null",randomThing);
         this.log.info("{}", randomThing);
     }
 
@@ -49,7 +49,7 @@ public final class BankDataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testDefaultConstructor() throws Exception {
-        assertNotNull(new BankDataFactory());
+        assertNotNull("unexpected null",new BankDataFactory());
     }
 
     /**
@@ -58,7 +58,7 @@ public final class BankDataFactoryTest extends ResultsReporting {
     @Test
     public void testGetInstance() {
         final BankDataFactory instance = BankDataFactory.getInstance();
-        assertNotNull(instance);
+        assertNotNull("unexpected null",instance);
         this.log.info("{}", instance.toString());
     }
 
@@ -68,7 +68,7 @@ public final class BankDataFactoryTest extends ResultsReporting {
     @Test
     public void testCreate() {
         final Bank bank = BankDataFactory.create();
-        assertNotNull(bank);
+        assertNotNull("unexpected null",bank);
         this.log.info("{}", bank.toString());
     }
 

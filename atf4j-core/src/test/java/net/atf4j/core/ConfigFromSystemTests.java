@@ -104,7 +104,7 @@ public class ConfigFromSystemTests extends ResultsReporting {
 
         // When
         final ConfigFromSystem mockConfig = new ConfigFromSystem();
-        assertNotNull(mockConfig);
+        assertNotNull("unexpected null",mockConfig);
         final String systemPropertyAsString = mockConfig.getSystemPropertyAsString(systemPropertyKey);
         assertEquals(systemPropertyValue, systemPropertyAsString);
     }
@@ -124,7 +124,7 @@ public class ConfigFromSystemTests extends ResultsReporting {
 
         // When
         final ConfigFromSystem mockConfig = new ConfigFromSystem();
-        assertNotNull(mockConfig);
+        assertNotNull("unexpected null",mockConfig);
         final boolean booleanFromSystem = mockConfig.getSystemPropertyAsBoolean(systemPropertyKey);
         assertEquals(true, booleanFromSystem);
     }

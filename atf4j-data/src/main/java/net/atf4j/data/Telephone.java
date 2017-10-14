@@ -224,7 +224,7 @@ public class Telephone {
      * @return true, if successful, otherwise false.
      */
     public static boolean verify(final String number) {
-        assertNotNull(number);
+        assertNotNull("unexpected null",number);
         final Matcher matcher = pattern.matcher(number);
         return matcher.find();
     }

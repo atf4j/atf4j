@@ -122,7 +122,7 @@ public class PageWebElement extends ClassField {
      * @return the page web element
      */
     public PageWebElement setLocatorStrategy(final String strategy) {
-        assertNotNull(strategy);
+        assertNotNull("unexpected null",strategy);
         this.strategy = Strategy.fromString(strategy);
         return this;
     }
@@ -135,7 +135,7 @@ public class PageWebElement extends ClassField {
      * @return the page web element
      */
     public PageWebElement setLocatorStrategy(final Strategy strategy) {
-        assertNotNull(strategy);
+        assertNotNull("unexpected null",strategy);
         this.strategy = strategy;
         return this;
     }
@@ -148,7 +148,7 @@ public class PageWebElement extends ClassField {
      * @return the page web element
      */
     public PageWebElement setLocator(final String locator) {
-        assertNotNull(locator);
+        assertNotNull("unexpected null",locator);
         this.locator = locator;
         return this;
     }

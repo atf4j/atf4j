@@ -30,7 +30,7 @@ public class FailCaseTest {
      */
     @Test
     public void testFailCase() {
-        assertNotNull(new FailCase());
+        assertNotNull("unexpected null",new FailCase());
     }
 
     /**
@@ -38,7 +38,7 @@ public class FailCaseTest {
      */
     @Test
     public void testFailCaseNull() {
-        assertNotNull(new FailCase(null));
+        assertNotNull("unexpected null",new FailCase(null));
     }
 
     /**
@@ -46,7 +46,7 @@ public class FailCaseTest {
      */
     @Test
     public void testFailCaseString() {
-        assertNotNull(new FailCase("FailCase"));
+        assertNotNull("unexpected null",new FailCase("FailCase"));
     }
 
 }

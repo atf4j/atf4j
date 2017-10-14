@@ -30,7 +30,7 @@ public class StrategyTest extends ResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final Strategy instance = new Strategy();
-        assertNotNull(instance);
+        assertNotNull("unexpected null",instance);
     }
 
 }

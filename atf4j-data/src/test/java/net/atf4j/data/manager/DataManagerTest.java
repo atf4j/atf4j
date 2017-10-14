@@ -9,7 +9,7 @@ public final class DataManagerTest {
 
     @Test
     public final void testDefaultConstructor() throws Exception {
-        assertNotNull(new DataManager());
+        assertNotNull("unexpected null",new DataManager());
     }
 
     @Test

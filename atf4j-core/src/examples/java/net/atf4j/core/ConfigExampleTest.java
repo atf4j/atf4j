@@ -32,6 +32,6 @@ public class ConfigExampleTest {
     @Test
     public void testConfigExample() {
         final ConfigExample configExample = new ConfigExample();
-        assertNotNull(configExample);
+        assertNotNull("unexpected null",configExample);
     }
 }

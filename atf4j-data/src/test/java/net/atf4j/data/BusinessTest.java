@@ -33,7 +33,7 @@ public final class BusinessTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(new Business());
+        assertNotNull("unexpected null",new Business());
     }
 
     /**
@@ -41,7 +41,7 @@ public final class BusinessTest extends ResultsReporting {
      */
     @Test
     public void testBusiness() {
-        assertNotNull(new Business());
+        assertNotNull("unexpected null",new Business());
     }
 
     /**
@@ -51,7 +51,7 @@ public final class BusinessTest extends ResultsReporting {
     public void testBusinessString() {
         final String businessName = "Business Name";
         final Business business = new Business(businessName);
-        assertNotNull(business);
+        assertNotNull("unexpected null",business);
     }
 
     /**
@@ -59,7 +59,7 @@ public final class BusinessTest extends ResultsReporting {
      */
     @Test
     public void testCreate() {
-        assertNotNull(Business.create());
+        assertNotNull("unexpected null",Business.create());
     }
 
     /**
@@ -68,7 +68,7 @@ public final class BusinessTest extends ResultsReporting {
     @Test
     public void testDebugString() {
         final String string = new Business().debugString();
-        assertNotNull(string);
+        assertNotNull("unexpected null",string);
         this.log.info("{}", string);
     }
 
@@ -78,7 +78,7 @@ public final class BusinessTest extends ResultsReporting {
     @Test
     public void testToString() {
         final String string = new Business().toString();
-        assertNotNull(string);
+        assertNotNull("unexpected null",string);
         this.log.info("{}", string);
     }
 

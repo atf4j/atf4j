@@ -34,7 +34,7 @@ public final class BankTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(new Bank());
+        assertNotNull("unexpected null",new Bank());
     }
 
     /**
@@ -43,7 +43,7 @@ public final class BankTest extends ResultsReporting {
     @Test
     public void testBank() {
         final Bank bank = new Bank("");
-        assertNotNull(bank);
+        assertNotNull("unexpected null",bank);
         this.log.info("{}", bank);
     }
 
@@ -53,7 +53,7 @@ public final class BankTest extends ResultsReporting {
     @Test
     public void testCreate() {
         final Bank bank = Bank.create();
-        assertNotNull(bank);
+        assertNotNull("unexpected null",bank);
         this.log.info("{}", bank);
     }
 
@@ -74,7 +74,7 @@ public final class BankTest extends ResultsReporting {
     @Test
     public void testDebugString() {
         final String string = new Bank().debugString();
-        assertNotNull(string);
+        assertNotNull("unexpected null",string);
         this.log.info("{}", string);
     }
 
@@ -84,7 +84,7 @@ public final class BankTest extends ResultsReporting {
     @Test
     public void testToString() {
         final String string = new Bank().toString();
-        assertNotNull(string);
+        assertNotNull("unexpected null",string);
         this.log.info("{}", string);
     }
 

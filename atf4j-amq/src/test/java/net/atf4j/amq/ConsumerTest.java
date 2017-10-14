@@ -42,7 +42,7 @@ public class ConsumerTest {
     public void testReader() throws JMSException {
         LOG.info("testReader");
         final Consumer object = new Consumer();
-        assertNotNull(object);
+        assertNotNull("unexpected null",object);
     }
 
     /**
@@ -55,8 +55,8 @@ public class ConsumerTest {
     public void testExecute() throws JMSException {
         LOG.info("testExecute");
         final Consumer reader = new Consumer();
-        assertNotNull(reader);
+        assertNotNull("unexpected null",reader);
         final String[] execute = reader.execute();
-        assertNotNull(execute);
+        assertNotNull("unexpected null",execute);
     }
 }

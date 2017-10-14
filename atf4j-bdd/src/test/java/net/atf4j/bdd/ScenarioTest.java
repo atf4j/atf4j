@@ -43,7 +43,7 @@ public class ScenarioTest extends ResultsReporting {
     public void testScenarioRunner() {
         LOG.info("{}.testScenarioRunner", this.getClass().getSimpleName());
         ScenarioRunner scenarioRunner = new ScenarioRunner();
-        assertNotNull(scenarioRunner);
+        assertNotNull("unexpected null",scenarioRunner);
         scenarioRunner.execute();
     }
 

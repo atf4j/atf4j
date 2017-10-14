@@ -47,7 +47,7 @@ public final class CustomerDataFactoryTest extends ResultsReporting {
     @Test
     public final void testDefaultConstructor() throws Exception {
         final CustomerDataFactory customerDataFactory = new CustomerDataFactory();
-        assertNotNull(customerDataFactory);
+        assertNotNull("unexpected null",customerDataFactory);
         this.log.info("{}", customerDataFactory);
     }
 
@@ -57,7 +57,7 @@ public final class CustomerDataFactoryTest extends ResultsReporting {
     @Test
     public void testGetInstance() {
         final CustomerDataFactory customerDataFactory = CustomerDataFactory.getInstance();
-        assertNotNull(customerDataFactory);
+        assertNotNull("unexpected null",customerDataFactory);
         this.log.info("{}", customerDataFactory);
     }
 
@@ -67,7 +67,7 @@ public final class CustomerDataFactoryTest extends ResultsReporting {
     @Test
     public void testCreate() {
         final Customer customer = CustomerDataFactory.create();
-        assertNotNull(customer);
+        assertNotNull("unexpected null",customer);
         this.log.info("{}", customer);
     }
 

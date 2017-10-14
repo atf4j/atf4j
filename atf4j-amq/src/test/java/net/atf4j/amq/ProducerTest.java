@@ -42,7 +42,7 @@ public class ProducerTest {
     public void testProducer() throws JMSException {
         LOG.info("testProducer");
         final Producer object = new Producer();
-        assertNotNull(object);
+        assertNotNull("unexpected null",object);
     }
 
     /**
@@ -55,7 +55,7 @@ public class ProducerTest {
     public void testExecute() throws JMSException {
         LOG.info("testExecute");
         final Producer producer = new Producer();
-        assertNotNull(producer);
+        assertNotNull("unexpected null",producer);
         final String[] messages = null;
         producer.execute(messages);
     }

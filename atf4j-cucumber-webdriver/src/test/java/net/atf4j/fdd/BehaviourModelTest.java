@@ -30,7 +30,7 @@ public class BehaviourModelTest extends ResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final BehaviourModel instance = new BehaviourModel();
-        assertNotNull(instance);
+        assertNotNull("unexpected null",instance);
     }
 
 }

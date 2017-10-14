@@ -47,7 +47,7 @@ public abstract class AbstractDataFactory {
      *             the exception
      */
     public String[] load(final String dataFilename) throws Exception {
-        assertNotNull(dataFilename);
+        assertNotNull("unexpected null",dataFilename);
         final ClassLoader classLoader = this.getClass().getClassLoader();
         final InputStream inputStream = classLoader.getResourceAsStream(dataFilename);
         if (inputStream != null) {
@@ -67,7 +67,7 @@ public abstract class AbstractDataFactory {
      *             the exception
      */
     public String[] load(final InputStream inputStream) throws Exception {
-        assertNotNull(inputStream);
+        assertNotNull("unexpected null",inputStream);
         final InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         final BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         final List<String> lines = new ArrayList<String>();

@@ -32,7 +32,7 @@ public class MessageFinderTest {
     @Test
     public void testMessageFinder() {
         final MessageFinder folderWalker = new MessageFinder();
-        assertNotNull(folderWalker);
+        assertNotNull("unexpected null",folderWalker);
         folderWalker.walk();
     }
 }

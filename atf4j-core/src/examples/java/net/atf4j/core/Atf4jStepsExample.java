@@ -61,7 +61,7 @@ public class Atf4jStepsExample {
 
             start("step two");
             {
-                assertNotNull(this);
+                assertNotNull("unexpected null",this);
             }
             end();
         }

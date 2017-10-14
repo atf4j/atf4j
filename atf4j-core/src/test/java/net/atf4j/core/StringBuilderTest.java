@@ -14,12 +14,13 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -85,7 +86,7 @@ public class StringBuilderTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(new Narrator());
+        assertNotNull("unexpected null", new Narrator());
     }
 
     /**
@@ -105,7 +106,7 @@ public class StringBuilderTest extends ResultsReporting {
     public void testThisClass() {
         final String reflectionToString = Narrator.reflectObjectToString(this);
         this.log.info(reflectionToString);
-        assertNotNull("|testThisClass|", reflectionToString);
+        assertNotNull("unexpected null", reflectionToString);
         assertTrue("|testThisClass|", reflectionToString.length() > 0);
     }
 
@@ -117,8 +118,9 @@ public class StringBuilderTest extends ResultsReporting {
         final SubClassWithoutProperties superClassWithoutProperties = new SubClassWithoutProperties();
         final String reflectionToString = Narrator.reflectObjectToString(superClassWithoutProperties);
         this.log.info(reflectionToString);
-        Assert.assertNotNull("|testSubClassWithoutProperties|", reflectionToString);
-        Assert.assertTrue("|testSubClassWithoutProperties|", reflectionToString.length() > 0);
+        assertNotNull("unexpected null", reflectionToString);
+        assertEquals("|testSubClassWithoutProperties|", reflectionToString);
+        assertTrue("|testSubClassWithoutProperties|", reflectionToString.length() > 0);
     }
 
     /**
@@ -129,8 +131,9 @@ public class StringBuilderTest extends ResultsReporting {
         final SubClassWithProperties superClassWithProperties = new SubClassWithProperties();
         final String reflectionToString = Narrator.reflectObjectToString(superClassWithProperties);
         this.log.info(reflectionToString);
-        Assert.assertNotNull("|testSubClassWithProperties|", reflectionToString);
-        Assert.assertTrue("|testSubClassWithProperties|", reflectionToString.length() > 0);
+        assertNotNull("unexpected null", reflectionToString);
+        assertEquals("|testSubClassWithProperties|", reflectionToString);
+        assertTrue("|testSubClassWithProperties|", reflectionToString.length() > 0);
     }
 
     /**

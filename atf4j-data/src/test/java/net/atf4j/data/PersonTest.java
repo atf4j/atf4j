@@ -38,7 +38,7 @@ public final class PersonTest extends ResultsReporting {
     @Test
     public void testPerson() {
         final Person person = new Person().forename("Forname").middlename("MiddleName").surname("Surname");
-        assertNotNull(person);
+        assertNotNull("unexpected null",person);
     }
 
     /**
@@ -47,7 +47,7 @@ public final class PersonTest extends ResultsReporting {
     @Test
     public void testPersonFornameMiddleSurname() {
         final Person person = new Person("Forname", "MiddleName", "Surname");
-        assertNotNull(person);
+        assertNotNull("unexpected null",person);
     }
 
     /**

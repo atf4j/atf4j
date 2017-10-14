@@ -37,7 +37,7 @@ public final class NinoTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(new Nino());
+        assertNotNull("unexpected null",new Nino());
     }
 
     /**
@@ -45,7 +45,7 @@ public final class NinoTest extends ResultsReporting {
      */
     @Test
     public void testNationalInsurance() {
-        assertNotNull(new Nino());
+        assertNotNull("unexpected null",new Nino());
     }
 
     /**
@@ -53,7 +53,7 @@ public final class NinoTest extends ResultsReporting {
      */
     @Test
     public void testCreate() {
-        assertNotNull(Nino.create());
+        assertNotNull("unexpected null",Nino.create());
     }
 
     /**
@@ -72,7 +72,7 @@ public final class NinoTest extends ResultsReporting {
     @Test
     public void testToString() {
         final String string = new Nino().toString();
-        assertNotNull(string);
+        assertNotNull("unexpected null",string);
     }
 
 }

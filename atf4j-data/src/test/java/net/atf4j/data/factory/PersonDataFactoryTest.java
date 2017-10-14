@@ -17,6 +17,7 @@
 
 package net.atf4j.data.factory;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -35,7 +36,7 @@ public final class PersonDataFactoryTest extends ResultsReporting {
     @Test
     public void testExpectedUsage() {
         final Person person = PersonDataFactory.create();
-        assertNotNull(person);
+        assertNotNull("unexpected null", person);
 
         this.log.info("{}", PersonDataFactory.randomForename());
         this.log.info("{}", PersonDataFactory.randomFemaleForename());
@@ -60,8 +61,8 @@ public final class PersonDataFactoryTest extends ResultsReporting {
     @Test
     public final void testDefaultConstructor() throws Exception {
         final PersonDataFactory personDataFactory = new PersonDataFactory();
-        assertNotNull(personDataFactory);
-        assertNotNull("{}", personDataFactory.toString());
+        assertNotNull("unexpected null", personDataFactory);
+        assertEquals("{}", personDataFactory.toString());
     }
 
     /**
@@ -70,8 +71,8 @@ public final class PersonDataFactoryTest extends ResultsReporting {
     @Test
     public void testGetInstance() {
         final AbstractDataFactory personDataFactory = PersonDataFactory.getInstance();
-        assertNotNull(personDataFactory);
-        assertNotNull(personDataFactory.toString());
+        assertNotNull("unexpected null", personDataFactory);
+        assertNotNull("unexpected null", personDataFactory.toString());
     }
 
     /**
@@ -80,7 +81,7 @@ public final class PersonDataFactoryTest extends ResultsReporting {
     @Test
     public void testCreate() {
         final Person person = PersonDataFactory.create();
-        assertNotNull(person);
+        assertNotNull("unexpected null", person);
         this.log.info("{}", person.toString());
     }
 

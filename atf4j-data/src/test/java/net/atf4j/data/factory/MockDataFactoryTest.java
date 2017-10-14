@@ -26,19 +26,19 @@ import net.atf4j.core.ResultsReporting;
 /**
  * A UnitTest for AbstractDataFactory objects.
  */
-public final class AbstractDataFactoryTest extends ResultsReporting {
+public final class MockDataFactoryTest extends ResultsReporting {
 
     /**
      * Mock Test Data.
      */
-    public final class TestDataFactory extends AbstractDataFactory {
+    public final class MockDataFactory extends AbstractDataFactory {
         /**
          * Instantiates a new test data.
          *
          * @throws Exception
          *             the exception
          */
-        public TestDataFactory() throws Exception {
+        public MockDataFactory() throws Exception {
             super();
         }
     }
@@ -51,8 +51,8 @@ public final class AbstractDataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testDefaultConstructor() throws Exception {
-        final TestDataFactory testDataFactory = new TestDataFactory();
-        assertNotNull(testDataFactory);
+        final MockDataFactory testDataFactory = new MockDataFactory();
+        assertNotNull("unexpected null",testDataFactory);
     }
 
     /**

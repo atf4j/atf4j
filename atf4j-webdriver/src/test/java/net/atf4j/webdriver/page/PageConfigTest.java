@@ -53,6 +53,6 @@ public class PageConfigTest {
     @Test
     public final void testPageConfig() throws ConfigurationNotLoaded {
         final PageConfig pageConfig = new MockPageConfig();
-        assertNotNull(pageConfig);
+        assertNotNull("unexpected null",pageConfig);
     }
 }

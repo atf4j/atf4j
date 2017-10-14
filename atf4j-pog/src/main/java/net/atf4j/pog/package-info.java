@@ -1,5 +1,5 @@
 /**
- * Package provides code for atf4j ...
+ * Package provides code for atf4j page object generator.
  * <p>
  * This file is part of Automated Testing Framework for Java (atf4j).
  *

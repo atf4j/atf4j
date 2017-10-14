@@ -40,7 +40,7 @@ public class TimerTest extends ResultsReporting {
     @Test
     public void testDefaultConstructor() {
         MilliTimer timer = new MilliTimer();
-        assertNotNull(timer);
+        assertNotNull("unexpected null",timer);
     }
 
     /**

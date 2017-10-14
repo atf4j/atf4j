@@ -37,7 +37,7 @@ public final class BankSortCodeTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(new BankSortCode());
+        assertNotNull("unexpected null",new BankSortCode());
     }
 
     /**
@@ -46,7 +46,7 @@ public final class BankSortCodeTest extends ResultsReporting {
     @Test
     public void testBankSortCodeString() {
         final String actual = "99:99:99";
-        assertNotNull(new BankSortCode(actual));
+        assertNotNull("unexpected null",new BankSortCode(actual));
     }
 
     /**
@@ -55,7 +55,7 @@ public final class BankSortCodeTest extends ResultsReporting {
     @Test
     public void testCreate() {
         final BankSortCode sortCode = BankSortCode.create();
-        assertNotNull(sortCode);
+        assertNotNull("unexpected null",sortCode);
         this.log.info("{}", sortCode);
     }
 
@@ -107,7 +107,7 @@ public final class BankSortCodeTest extends ResultsReporting {
     @Test
     public void testToString() {
         final String string = new BankSortCode().toString();
-        assertNotNull(string);
+        assertNotNull("unexpected null",string);
         this.log.info("{}", string);
     }
 

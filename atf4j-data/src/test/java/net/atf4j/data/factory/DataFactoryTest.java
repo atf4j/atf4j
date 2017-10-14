@@ -47,7 +47,7 @@ public final class DataFactoryTest extends ResultsReporting {
     @Test
     public void testExpectedUsage() {
         final Calendar today = DataFactory.today();
-        assertNotNull(today);
+        assertNotNull("unexpected null",today);
         this.log.info("DataFactory.today() = {}", DataFactory.format(today));
         final Calendar dateOfBirth = DataFactory.dateOfBirth();
         this.log.info("DataFactory.dateOfBirth() = {}", DataFactory.format(dateOfBirth));
@@ -98,7 +98,7 @@ public final class DataFactoryTest extends ResultsReporting {
     @Test
     public final void testDefaultConstructor() throws Exception {
         final DataFactory dataFactory = new DataFactory();
-        assertNotNull(dataFactory);
+        assertNotNull("unexpected null",dataFactory);
     }
 
     /**
@@ -110,7 +110,7 @@ public final class DataFactoryTest extends ResultsReporting {
     @Test
     public final void testToday() throws Exception {
         final Calendar today = DataFactory.today();
-        assertNotNull(today);
+        assertNotNull("unexpected null",today);
         verifyDateData(today);
     }
 
@@ -216,13 +216,13 @@ public final class DataFactoryTest extends ResultsReporting {
      *            the date data
      */
     private void verifyDateData(final Calendar dateData) {
-        assertNotNull(dateData);
+        assertNotNull("unexpected null",dateData);
         this.log.info("verifyDateData({})", dateData.toString());
         final String fromCalendar = DataFactory.format(dateData);
         final Date time = dateData.getTime();
         final String fromDate = DataFactory.format(time);
-        assertNotNull(fromCalendar);
-        assertNotNull(fromDate);
+        assertNotNull("unexpected null",fromCalendar);
+        assertNotNull("unexpected null",fromDate);
         assertEquals(fromCalendar, fromDate);
     }
 
@@ -232,7 +232,7 @@ public final class DataFactoryTest extends ResultsReporting {
     @Test
     public void testCreatePerson() {
         final Person person = DataFactory.createPerson();
-        assertNotNull(person);
+        assertNotNull("unexpected null",person);
         this.log.info("{}", person.toString());
     }
 
@@ -242,7 +242,7 @@ public final class DataFactoryTest extends ResultsReporting {
     @Test
     public void testCreateCustomer() {
         final Customer customer = DataFactory.createCustomer();
-        assertNotNull(customer);
+        assertNotNull("unexpected null",customer);
         this.log.info("{}", customer.toString());
     }
 
@@ -252,7 +252,7 @@ public final class DataFactoryTest extends ResultsReporting {
     @Test
     public void testCreateConsumer() {
         final Consumer consumer = DataFactory.createConsumer();
-        assertNotNull(consumer);
+        assertNotNull("unexpected null",consumer);
         this.log.info("{}", consumer.toString());
     }
 
@@ -262,7 +262,7 @@ public final class DataFactoryTest extends ResultsReporting {
     @Test
     public void testCreateCard() {
         final Card card = DataFactory.createCard();
-        assertNotNull(card);
+        assertNotNull("unexpected null",card);
         this.log.info("{}", card.toString());
     }
 
@@ -272,7 +272,7 @@ public final class DataFactoryTest extends ResultsReporting {
     @Test
     public void testCreateBusiness() {
         final Business business = DataFactory.createBusiness();
-        assertNotNull(business);
+        assertNotNull("unexpected null",business);
         this.log.info("{}", business.toString());
     }
 
@@ -282,7 +282,7 @@ public final class DataFactoryTest extends ResultsReporting {
     @Test
     public void testCreateBank() {
         final Bank bank = DataFactory.createBank();
-        assertNotNull(bank);
+        assertNotNull("unexpected null",bank);
         this.log.info("{}", bank.toString());
     }
 
@@ -292,7 +292,7 @@ public final class DataFactoryTest extends ResultsReporting {
     @Test
     public void testCreateAddress() {
         final PostalAddress address = DataFactory.createAddress();
-        assertNotNull(address);
+        assertNotNull("unexpected null",address);
         this.log.info("{}", address.toString());
     }
 

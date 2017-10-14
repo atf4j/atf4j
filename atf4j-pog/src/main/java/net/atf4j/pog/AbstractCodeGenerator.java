@@ -298,7 +298,7 @@ public abstract class AbstractCodeGenerator {
      */
     private AbstractCodeGenerator generate(final InputStreamReader templateReader) throws Exception {
         final BufferedWriter bufferedWriter = destinationWriter();
-        assertNotNull(bufferedWriter);
+        assertNotNull("unexpected null",bufferedWriter);
         return generate(templateReader, bufferedWriter);
     }
 
@@ -393,8 +393,8 @@ public abstract class AbstractCodeGenerator {
      * @return the string
      */
     private String targetPath(final String homeFolder, final String packageFolder) {
-        assertNotNull(homeFolder);
-        assertNotNull(packageFolder);
+        assertNotNull("unexpected null",homeFolder);
+        assertNotNull("unexpected null",packageFolder);
         final String targetPath = String.format("%s/%s", homeFolder, packageFolder);
         this.log.info("targetPath={}", targetPath);
         new File(targetPath).mkdirs();

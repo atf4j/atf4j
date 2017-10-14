@@ -40,7 +40,7 @@ public class PageObjectGeneratorTest extends ResultsReporting {
     public void testExpected() throws Exception {
         this.log.info("==============================================");
         final PageObjectData pageObjectData = new PageObjectData();
-        assertNotNull(pageObjectData);
+        assertNotNull("unexpected null",pageObjectData);
 
         final PageWebElement idElement = new PageWebElement("findById", Strategy.ID, "id");
         final PageWebElement nameElement = new PageWebElement("findByName", Strategy.NAME, "name");

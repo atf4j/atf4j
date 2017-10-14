@@ -27,7 +27,7 @@ public class AutomationConfigTest extends ResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final AutomationConfig config = new AutomationConfig();
-        assertNotNull(config);
+        assertNotNull("unexpected null",config);
     }
 
 }

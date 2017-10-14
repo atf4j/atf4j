@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import static org.junit.Assert.assertNotNull;
@@ -87,7 +88,7 @@ public abstract class AbstractWalker {
      *             the exception
      */
     protected AbstractWalker walk(final String path) throws Exception {
-        assertNotNull(path);
+        assertNotNull("unexpected null", path);
         this.log.trace("walk({})", path);
         final URL resource = this.getClass().getResource(path);
         this.log.trace("url:{}", resource);

@@ -38,7 +38,7 @@ public class BehaviourPassTest extends ResultsReporting {
     public void testGiven() {
         LOG.info("{}.testGiven", this.getClass().getSimpleName());
         Given given = new Given();
-        assertNotNull(given);
+        assertNotNull("unexpected null",given);
         given.execute();
     }
 
@@ -49,7 +49,7 @@ public class BehaviourPassTest extends ResultsReporting {
     public void testWhen() {
         LOG.info("{}.testGiven", this.getClass().getSimpleName());
         When when = new When();
-        assertNotNull(when);
+        assertNotNull("unexpected null",when);
         when.execute();
     }
 
@@ -60,7 +60,7 @@ public class BehaviourPassTest extends ResultsReporting {
     public void testThen() {
         LOG.info("{}.testGiven", this.getClass().getSimpleName());
         Then then = new Then();
-        assertNotNull(then);
+        assertNotNull("unexpected null",then);
         then.execute();
     }
 

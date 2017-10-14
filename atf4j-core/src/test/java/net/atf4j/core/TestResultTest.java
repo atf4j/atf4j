@@ -37,7 +37,7 @@ public class TestResultTest extends ResultsReporting {
     @Test
     public void testInitialise() {
         final TestResult testStatus = TestResult.initialise();
-        assertNotNull(testStatus);
+        assertNotNull("unexpected null",testStatus);
         verifyEquals(TestResult.PENDING, testStatus);
     }
 

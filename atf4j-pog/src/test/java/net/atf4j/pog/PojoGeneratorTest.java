@@ -37,8 +37,8 @@ public class PojoGeneratorTest extends ResultsReporting {
     public void testPrototype() throws Exception {
         this.log.info("==============================================");
         final PojoGenerator pojoGenerator = new PojoGenerator();
-        assertNotNull(pojoGenerator);
-        assertNotNull(pojoGenerator.setClassName("FluentPojo"));
+        assertNotNull("unexpected null",pojoGenerator);
+        assertNotNull("unexpected null",pojoGenerator.setClassName("FluentPojo"));
         pojoGenerator.addStringField("string");
         pojoGenerator.addDateField("date");
         pojoGenerator.addBooleanField("bool");
@@ -56,8 +56,8 @@ public class PojoGeneratorTest extends ResultsReporting {
     public void testExpected() throws Exception {
         this.log.info("==============================================");
         final PojoGenerator pojoGenerator = new PojoGenerator();
-        assertNotNull(pojoGenerator);
-        assertNotNull(pojoGenerator.setClassName("FluentPojo"));
+        assertNotNull("unexpected null",pojoGenerator);
+        assertNotNull("unexpected null",pojoGenerator.setClassName("FluentPojo"));
         pojoGenerator.addStringField("string");
         pojoGenerator.addDateField("date");
         pojoGenerator.addBooleanField("bool");

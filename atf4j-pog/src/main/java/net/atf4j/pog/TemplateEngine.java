@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.pog;
 
 import java.io.StringWriter;
@@ -28,7 +29,7 @@ import org.slf4j.LoggerFactory;
  * The TemplateEngine Class.
  */
 public abstract class TemplateEngine {
-    String templateFilename = "template.vm";
+    protected String templateFilename = "template.vm";
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**

@@ -38,7 +38,7 @@ public class WebDriverConfigTest extends ResultsReporting {
     @Test
     public final void testDefaultConstructor() throws ConfigurationNotLoaded {
         final WebDriverConfig config = new WebDriverConfig();
-        assertNotNull(config);
+        assertNotNull("unexpected null",config);
     }
 
     /**
@@ -50,12 +50,12 @@ public class WebDriverConfigTest extends ResultsReporting {
     @Test
     public final void testHappyPath() throws ConfigurationNotLoaded {
         final WebDriverConfig config = new WebDriverConfig();
-        assertNotNull(config);
-        assertNotNull(config.targetBrowser());
-        assertNotNull(config.targetUrl());
-        assertNotNull(config.seleniumUrl());
-        assertNotNull(config.chromeBinaryDriver());
-        assertNotNull(config.firefoxBinaryDriver());
+        assertNotNull("unexpected null",config);
+        assertNotNull("unexpected null",config.targetBrowser());
+        assertNotNull("unexpected null",config.targetUrl());
+        assertNotNull("unexpected null",config.seleniumUrl());
+        assertNotNull("unexpected null",config.chromeBinaryDriver());
+        assertNotNull("unexpected null",config.firefoxBinaryDriver());
         assertEquals(1000, config.pageLoadTimeout());
         assertEquals(1, config.implicitWait());
     }

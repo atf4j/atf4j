@@ -31,7 +31,7 @@ public class CriticalFailTest {
     @Test
     public void testCriticalFail() {
         final CriticalFail criticalFail = new CriticalFail();
-        assertNotNull(criticalFail);
+        assertNotNull("unexpected null",criticalFail);
     }
 
     /**
@@ -40,7 +40,7 @@ public class CriticalFailTest {
     @Test
     public void testCriticalFailNull() {
         final CriticalFail criticalFail = new CriticalFail(null);
-        assertNotNull(criticalFail);
+        assertNotNull("unexpected null",criticalFail);
     }
 
 }

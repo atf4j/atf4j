@@ -35,7 +35,7 @@ public final class AddressDataFactoryTest extends ResultsReporting {
     @Test
     public void testExpectedUsage() {
         final PostalAddress address = AddressDataFactory.random();
-        assertNotNull(address);
+        assertNotNull("unexpected null",address);
         this.log.info("{}", address);
     }
 
@@ -47,7 +47,7 @@ public final class AddressDataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testDefaultConstructor() throws Exception {
-        assertNotNull(new AddressDataFactory());
+        assertNotNull("unexpected null",new AddressDataFactory());
     }
 
     /**
@@ -56,7 +56,7 @@ public final class AddressDataFactoryTest extends ResultsReporting {
     @Test
     public void testGetInstance() {
         final AddressDataFactory instance = AddressDataFactory.getInstance();
-        assertNotNull(instance);
+        assertNotNull("unexpected null",instance);
         this.log.info("{}", instance.toString());
     }
 
@@ -66,7 +66,7 @@ public final class AddressDataFactoryTest extends ResultsReporting {
     @Test
     public void testCreate() {
         final PostalAddress address = AddressDataFactory.create();
-        assertNotNull(address);
+        assertNotNull("unexpected null",address);
         this.log.info("{}", address.toString());
     }
 
@@ -76,7 +76,7 @@ public final class AddressDataFactoryTest extends ResultsReporting {
     @Test
     public void testRandom() {
         final PostalAddress address = AddressDataFactory.random();
-        assertNotNull(address);
+        assertNotNull("unexpected null",address);
         this.log.info("{}", address.toString());
     }
 
@@ -86,7 +86,7 @@ public final class AddressDataFactoryTest extends ResultsReporting {
     @Test
     public void testGetFromTag() {
         final PostalAddress address = AddressDataFactory.forTag("WIP");
-        assertNotNull(address);
+        assertNotNull("unexpected null",address);
         this.log.info("{}", address.toString());
     }
 

@@ -47,7 +47,7 @@ public class ClassFieldTest extends ResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final ClassField classField = new ClassField();
-        assertNotNull(classField);
+        assertNotNull("unexpected null",classField);
     }
 
     /**
@@ -56,7 +56,7 @@ public class ClassFieldTest extends ResultsReporting {
     @Test
     public void testClassField() {
         final ClassField classField = new ClassField();
-        assertNotNull(classField);
+        assertNotNull("unexpected null",classField);
         this.log.info(classField.toString());
         this.log.info(classField.toCode());
     }
@@ -67,11 +67,11 @@ public class ClassFieldTest extends ResultsReporting {
     @Test
     public void testBooleanField() {
         final ClassField classField = new ClassField(FieldType.BOOLEAN, "bool");
-        assertNotNull(classField);
+        assertNotNull("unexpected null",classField);
         this.log.info(classField.toCode());
 
         final ClassField booleanField = new ClassField("Boolean", "bool");
-        assertNotNull(booleanField);
+        assertNotNull("unexpected null",booleanField);
         this.log.info(booleanField.toString());
     }
 
@@ -81,11 +81,11 @@ public class ClassFieldTest extends ResultsReporting {
     @Test
     public void testDateField() {
         final ClassField classField = new ClassField(FieldType.DATE, "date");
-        assertNotNull(classField);
+        assertNotNull("unexpected null",classField);
         this.log.info(classField.toCode());
 
         final ClassField dateField = new ClassField("Date", "date");
-        assertNotNull(dateField);
+        assertNotNull("unexpected null",dateField);
         this.log.info(dateField.toString());
     }
 
@@ -95,11 +95,11 @@ public class ClassFieldTest extends ResultsReporting {
     @Test
     public void testNumberField() {
         final ClassField classField = new ClassField(FieldType.NUMBER, "number");
-        assertNotNull(classField);
+        assertNotNull("unexpected null",classField);
         this.log.info(classField.toCode());
 
         final ClassField numberField = new ClassField("Number", "number");
-        assertNotNull(numberField);
+        assertNotNull("unexpected null",numberField);
         this.log.info(classField.toString());
     }
 
@@ -109,11 +109,11 @@ public class ClassFieldTest extends ResultsReporting {
     @Test
     public void testStringField() {
         final ClassField classField = new ClassField(FieldType.STRING, "string");
-        assertNotNull(classField);
+        assertNotNull("unexpected null",classField);
         this.log.info(classField.toCode());
 
         final ClassField stringField = new ClassField("String", "string");
-        assertNotNull(stringField);
+        assertNotNull("unexpected null",stringField);
         this.log.info(stringField.toString());
     }
 
@@ -123,11 +123,11 @@ public class ClassFieldTest extends ResultsReporting {
     @Test
     public void testValueField() {
         final ClassField classField = new ClassField(FieldType.VALUE, "value");
-        assertNotNull(classField);
+        assertNotNull("unexpected null",classField);
         this.log.info(classField.toCode());
 
         final ClassField stringField = new ClassField("Object", "value");
-        assertNotNull(stringField);
+        assertNotNull("unexpected null",stringField);
         this.log.info(stringField.toString());
     }
 
@@ -137,11 +137,11 @@ public class ClassFieldTest extends ResultsReporting {
     @Test
     public void testObject() {
         final ClassField classField = new ClassField(FieldType.OBJECT, "object");
-        assertNotNull(classField);
+        assertNotNull("unexpected null",classField);
         this.log.info(classField.toCode());
 
         final ClassField stringField = new ClassField("Object", "object");
-        assertNotNull(stringField);
+        assertNotNull("unexpected null",stringField);
         this.log.info(stringField.toString());
     }
 

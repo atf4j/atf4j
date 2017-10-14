@@ -93,7 +93,7 @@ public abstract class AbstractPageObject {
      * Configure time out.
      */
     private void initialiseWebDriverTimeOut() {
-        assertNotNull(this.webDriver);
+        assertNotNull("unexpected null",this.webDriver);
         final Options manage = this.webDriver.manage();
         final Timeouts timeouts = manage.timeouts();
         timeouts.implicitlyWait(this.config.implicitWait(), TimeUnit.SECONDS);
@@ -108,7 +108,7 @@ public abstract class AbstractPageObject {
      * @return the current url
      */
     protected String currentUrl() {
-        assertNotNull(this.webDriver);
+        assertNotNull("unexpected null",this.webDriver);
         return this.webDriver.getCurrentUrl();
     }
 
@@ -140,7 +140,7 @@ public abstract class AbstractPageObject {
      * @return the title
      */
     protected String getTitle() {
-        assertNotNull(this.webDriver);
+        assertNotNull("unexpected null",this.webDriver);
         return this.webDriver.getTitle();
     }
 
@@ -171,7 +171,7 @@ public abstract class AbstractPageObject {
      * @see net.atf4j.webdriver.page.PageInterface#open()
      */
     public AbstractPageObject open(final String pageUrl) {
-        assertNotNull(this.webDriver);
+        assertNotNull("unexpected null",this.webDriver);
         this.webDriver.get(pageUrl);
         PageFactory.initElements(this.webDriver, this);
         return this;
@@ -195,7 +195,7 @@ public abstract class AbstractPageObject {
      * @return the web page
      */
     public AbstractPageObject urlShouldBeUnchanged() {
-        assertNotNull(this.webDriver);
+        assertNotNull("unexpected null",this.webDriver);
         final String currentUrl = this.webDriver.getCurrentUrl();
         currentUrl.equals(this.targetUrl());
         return this;
@@ -208,7 +208,7 @@ public abstract class AbstractPageObject {
      * @see net.atf4j.webdriver.page.PageInterface#verify()
      */
     public AbstractPageObject verify() {
-        assertNotNull(this.webDriver);
+        assertNotNull("unexpected null",this.webDriver);
         this.webDriver.getTitle();
         return this;
     }
@@ -221,10 +221,10 @@ public abstract class AbstractPageObject {
      *            false.
      */
     protected boolean verifyElement(final WebElement webElement) {
-        assertNotNull(webElement);
+        assertNotNull("unexpected null",webElement);
         final boolean testStatus = true;
-        assertNotNull(webElement);
-        assertNotNull(webElement.toString());
+        assertNotNull("unexpected null",webElement);
+        assertNotNull("unexpected null",webElement.toString());
         assertTrue(webElement.isDisplayed());
         assertTrue(webElement.isEnabled());
         return testStatus;
@@ -237,7 +237,7 @@ public abstract class AbstractPageObject {
      *            the web element
      */
     public void clickWhenReady(final WebElement webElement) {
-        assertNotNull(webElement);
+        assertNotNull("unexpected null",webElement);
         this.webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
         webElement.click();
     }
@@ -250,7 +250,7 @@ public abstract class AbstractPageObject {
      * @return the webElement when visible, otherwise TimeoutException.
      */
     public WebElement waitUntilVisible(final WebElement webElement) {
-        Assert.assertNotNull(webElement);
+        Assert.assertNotNull("unexpected null",webElement);
         return this.webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
     }
 
@@ -262,7 +262,7 @@ public abstract class AbstractPageObject {
      * @return the web element when clickable, otherwise TimeoutException.
      */
     public WebElement waitUntilClickable(final WebElement webElement) {
-        Assert.assertNotNull(webElement);
+        Assert.assertNotNull("unexpected null",webElement);
         return this.webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
@@ -285,7 +285,7 @@ public abstract class AbstractPageObject {
      * @return the abstract page object
      */
     public AbstractPageObject verifyPageTitle(final String expectedPageTitle) {
-        assertNotNull(this.webDriver);
+        assertNotNull("unexpected null",this.webDriver);
         final String actualPageTitle = this.webDriver.getTitle();
         assertEquals(expectedPageTitle, actualPageTitle);
         return this;
@@ -358,7 +358,7 @@ public abstract class AbstractPageObject {
      * Close page.
      */
     protected void close() {
-        assertNotNull(this.webDriver);
+        assertNotNull("unexpected null",this.webDriver);
         if (this.webDriver != null) {
             this.webDriver.close();
         }
@@ -368,7 +368,7 @@ public abstract class AbstractPageObject {
      * Quit webDriver, closes browser.
      */
     protected void quit() {
-        assertNotNull(this.webDriver);
+        assertNotNull("unexpected null",this.webDriver);
         if (this.webDriver != null) {
             this.webDriver.quit();
         }

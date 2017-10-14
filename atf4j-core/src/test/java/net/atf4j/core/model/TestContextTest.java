@@ -34,7 +34,7 @@ public class TestContextTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(new TestContext());
+        assertNotNull("unexpected null",new TestContext());
     }
 
     /**

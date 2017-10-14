@@ -82,7 +82,7 @@ public class PageObjectTest {
      */
     @Test
     public final void testDefaultConstructor() throws ConfigurationNotLoaded {
-        assertNotNull(new MockPage());
+        assertNotNull("unexpected null",new MockPage());
     }
 
     /**
@@ -96,7 +96,7 @@ public class PageObjectTest {
     public final void testDefaultOpen() throws ConfigurationNotLoaded {
         final MockPage mockPage = new MockPage();
         assumeNotNull(mockPage);
-        assertNotNull(mockPage.open());
+        assertNotNull("unexpected null",mockPage.open());
     }
 
     /**
@@ -110,7 +110,7 @@ public class PageObjectTest {
     public final void testOpen() throws ConfigurationNotLoaded {
         final MockPage mockPage = new MockPage(MockPage.TARGET_URL);
         assumeNotNull(mockPage);
-        assertNotNull(mockPage.open());
+        assertNotNull("unexpected null",mockPage.open());
     }
 
     /**
@@ -124,7 +124,7 @@ public class PageObjectTest {
     public final void testOpenString() throws ConfigurationNotLoaded {
         final MockPage mockPage = new MockPage();
         assumeNotNull(mockPage);
-        assertNotNull(mockPage.open());
+        assertNotNull("unexpected null",mockPage.open());
     }
 
     /**
@@ -138,8 +138,8 @@ public class PageObjectTest {
     public final void testVerify() throws ConfigurationNotLoaded {
         final MockPage mockPage = new MockPage();
         assumeNotNull(mockPage);
-        assertNotNull(mockPage.open());
-        assertNotNull(mockPage.verify());
+        assertNotNull("unexpected null",mockPage.open());
+        assertNotNull("unexpected null",mockPage.verify());
     }
 
     /**
@@ -152,8 +152,8 @@ public class PageObjectTest {
     public final void testWebDriverConstructor() throws ConfigurationNotLoaded {
         final MockPage mockPage = new MockPage(new HtmlUnitDriver());
         assumeNotNull(mockPage);
-        assertNotNull(mockPage.open());
-        assertNotNull(mockPage.verify());
+        assertNotNull("unexpected null",mockPage.open());
+        assertNotNull("unexpected null",mockPage.verify());
     }
 
 }

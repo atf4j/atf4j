@@ -117,7 +117,7 @@ public class CookieManager {
      * @return the web driver
      */
     private WebDriver setWebDriver(final WebDriver webDriver) {
-        assertNotNull(this.webDriver);
+        assertNotNull("unexpected null",this.webDriver);
         return this.webDriver = webDriver;
     }
 }

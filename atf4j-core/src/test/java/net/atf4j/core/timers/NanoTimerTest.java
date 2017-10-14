@@ -14,8 +14,10 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core.timers;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -33,7 +35,7 @@ public class NanoTimerTest extends ResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull(nanoTimer);
+        assertNotNull("unexpected null", nanoTimer);
     }
 
     /**
@@ -43,8 +45,8 @@ public class NanoTimerTest extends ResultsReporting {
     public void testNanoTimerString() {
         final String actual = "Named NanoTimer";
         final NanoTimer nanoTimer = new NanoTimer(actual);
-        assertNotNull(nanoTimer);
-        assertNotNull(actual, nanoTimer.getTimerName());
+        assertNotNull("unexpected null", nanoTimer);
+        assertEquals(actual, nanoTimer.getTimerName());
     }
 
     /**
@@ -53,7 +55,7 @@ public class NanoTimerTest extends ResultsReporting {
     @Test
     public void testStart() {
         final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull(nanoTimer.start());
+        assertNotNull("unexpected null", nanoTimer.start());
     }
 
     /**
@@ -62,7 +64,7 @@ public class NanoTimerTest extends ResultsReporting {
     @Test
     public void testStop() {
         final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull(nanoTimer.stop());
+        assertNotNull("unexpected null", nanoTimer.stop());
     }
 
     /**
@@ -71,7 +73,7 @@ public class NanoTimerTest extends ResultsReporting {
     @Test
     public void testGetStartTime() {
         final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull(nanoTimer.getStartTime());
+        assertNotNull("unexpected null", nanoTimer.getStartTime());
     }
 
     /**
@@ -80,7 +82,7 @@ public class NanoTimerTest extends ResultsReporting {
     @Test
     public void testGetElapsedTime() {
         final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull(nanoTimer.getElapsedTime());
+        assertNotNull("unexpected null", nanoTimer.getElapsedTime());
     }
 
     /**
@@ -89,7 +91,7 @@ public class NanoTimerTest extends ResultsReporting {
     @Test
     public void testToString() {
         final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull(nanoTimer.toString());
+        assertNotNull("unexpected null", nanoTimer.toString());
     }
 
 }

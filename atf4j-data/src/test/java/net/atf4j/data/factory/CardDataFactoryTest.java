@@ -35,7 +35,7 @@ public final class CardDataFactoryTest extends ResultsReporting {
     @Test
     public void testCreate() {
         final Card card = CardDataFactory.create();
-        assertNotNull(card);
+        assertNotNull("unexpected null",card);
         this.log.info("{}", card.toString());
     }
 

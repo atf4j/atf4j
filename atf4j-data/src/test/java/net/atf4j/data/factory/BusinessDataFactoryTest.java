@@ -35,7 +35,7 @@ public final class BusinessDataFactoryTest extends ResultsReporting {
     @Test
     public void testCreate() {
         Business business = BusinessDataFactory.create();
-        assertNotNull(business);
+        assertNotNull("unexpected null",business);
         this.log.info("business={}", business);
     }
 

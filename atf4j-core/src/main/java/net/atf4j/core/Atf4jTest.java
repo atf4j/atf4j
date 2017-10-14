@@ -32,7 +32,7 @@ public class Atf4jTest {
     @Test
     public void testStartEnd() {
         Atf4j.start();
-        assertNotNull(this);
+        assertNotNull("unexpected null",this);
         Atf4j.end();
     }
 

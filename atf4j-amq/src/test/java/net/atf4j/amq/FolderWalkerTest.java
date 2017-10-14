@@ -91,7 +91,7 @@ public class FolderWalkerTest {
     public void testFolderWalker() {
         LOG.info("testFolderWalker");
         final FolderWalkerInterface folderWalker = new FolderWalker();
-        assertNotNull(folderWalker);
+        assertNotNull("unexpected null",folderWalker);
         folderWalker.walk();
     }
 
@@ -102,7 +102,7 @@ public class FolderWalkerTest {
     public void testFolderWalkerNull() {
         LOG.info("testFolderWalkerNull");
         final FolderWalkerInterface folderWalker = new FolderWalker(null);
-        assertNotNull(folderWalker);
+        assertNotNull("unexpected null",folderWalker);
         folderWalker.walk();
     }
 
@@ -113,7 +113,7 @@ public class FolderWalkerTest {
     public void testFolderWalkerEmpty() {
         LOG.info("testFolderWalkerEmpty");
         final FolderWalkerInterface folderWalker = new FolderWalker("");
-        assertNotNull(folderWalker);
+        assertNotNull("unexpected null",folderWalker);
         folderWalker.walk();
     }
 
@@ -124,7 +124,7 @@ public class FolderWalkerTest {
     public void testFolderWalkerDot() {
         LOG.info("testFolderWalkerDot");
         final FolderWalkerInterface folderWalker = new FolderWalker(".");
-        assertNotNull(folderWalker);
+        assertNotNull("unexpected null",folderWalker);
         folderWalker.walk();
     }
 
@@ -135,7 +135,7 @@ public class FolderWalkerTest {
     public void testFolderWalkerString() {
         LOG.info("testFolderWalkerString");
         final FolderWalkerInterface folderWalker = new FolderWalker("messages");
-        assertNotNull(folderWalker);
+        assertNotNull("unexpected null",folderWalker);
         folderWalker.walk();
     }
 }

@@ -34,7 +34,7 @@ public final class LoremIpsumTest extends ResultsReporting {
     @Test
     public void testLoremIpsum() {
         final String text = LoremIpsum.text();
-        assertNotNull(text);
+        assertNotNull("unexpected null",text);
         this.log.info("LoremIpsum.text() = {}", LoremIpsum.text());
 
         this.log.info("LoremIpsum.word() = {}", LoremIpsum.word());

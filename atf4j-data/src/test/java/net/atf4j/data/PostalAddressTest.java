@@ -34,7 +34,7 @@ public final class PostalAddressTest extends ResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final PostalAddress address = new PostalAddress();
-        assertNotNull(address);
+        assertNotNull("unexpected null",address);
     }
 
     /**
@@ -43,7 +43,7 @@ public final class PostalAddressTest extends ResultsReporting {
     @Test
     public void testToString() {
         final String addressString = new PostalAddress().toString();
-        assertNotNull(addressString);
+        assertNotNull("unexpected null",addressString);
     }
 
     /**
@@ -52,7 +52,7 @@ public final class PostalAddressTest extends ResultsReporting {
     @Test
     public void testDebugString() {
         final String addressString = new PostalAddress().debugString();
-        assertNotNull(addressString);
+        assertNotNull("unexpected null",addressString);
     }
 
 }

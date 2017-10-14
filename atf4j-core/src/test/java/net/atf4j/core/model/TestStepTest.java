@@ -44,7 +44,7 @@ public class TestStepTest {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(new TestStep());
+        assertNotNull("unexpected null",new TestStep());
     }
 
     /**
@@ -53,7 +53,7 @@ public class TestStepTest {
     @Test
     public void testTestStep() {
         final TestStep testStep = new TestStep();
-        assertNotNull(testStep);
+        assertNotNull("unexpected null",testStep);
         testStep.result();
     }
 
@@ -67,7 +67,7 @@ public class TestStepTest {
     public void testRegisterLogging() throws Atf4jException {
         final TestCase testCase = new TestCase();
         final MockTestReport logging = new MockTestReport();
-        assertNotNull(testCase.registerLogging(logging));
+        assertNotNull("unexpected null",testCase.registerLogging(logging));
     }
 
     /**
@@ -79,10 +79,10 @@ public class TestStepTest {
     @Test
     public void testExecuteTestContext() throws Atf4jException {
         final TestContext context = new TestContext();
-        assertNotNull(context);
+        assertNotNull("unexpected null",context);
         final TestStep testStep = new TestStep();
-        assertNotNull(testStep);
-        assertNotNull(testStep.execute(context));
+        assertNotNull("unexpected null",testStep);
+        assertNotNull("unexpected null",testStep.execute(context));
     }
 
     /**
@@ -91,7 +91,7 @@ public class TestStepTest {
     @Test
     public void testPreCondition() {
         final TestStep testStep = new TestStep();
-        assertNotNull(testStep);
+        assertNotNull("unexpected null",testStep);
         testStep.addPreCondition(new PassingCondition());
     }
 
@@ -101,7 +101,7 @@ public class TestStepTest {
     @Test
     public void testPostCondition() {
         final TestStep testStep = new TestStep();
-        assertNotNull(testStep);
+        assertNotNull("unexpected null",testStep);
         testStep.addPostCondition(new PassingCondition());
     }
 

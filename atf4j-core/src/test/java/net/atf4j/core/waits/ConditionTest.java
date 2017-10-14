@@ -45,7 +45,7 @@ public class ConditionTest extends ResultsReporting {
      */
     @Test
     public void PassingCondition() {
-        assertNotNull(new PassingCondition());
+        assertNotNull("unexpected null",new PassingCondition());
     }
 
     /**
@@ -53,7 +53,7 @@ public class ConditionTest extends ResultsReporting {
      */
     @Test
     public void testFailingCondition() {
-        assertNotNull(new FailingCondition());
+        assertNotNull("unexpected null",new FailingCondition());
     }
 
 }

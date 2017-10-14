@@ -105,7 +105,7 @@ public class ConfigTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(new DefaultConfig());
+        assertNotNull("unexpected null",new DefaultConfig());
     }
 
     /**
@@ -117,7 +117,7 @@ public class ConfigTest extends ResultsReporting {
     @Test
     public void testMissingConfig() throws ConfigurationNotLoaded {
         final ConfigurationInterface missingConfig = new MissingProperties();
-        assertNotNull(missingConfig);
+        assertNotNull("unexpected null",missingConfig);
         this.log.info(missingConfig.toString());
     }
 
@@ -130,7 +130,7 @@ public class ConfigTest extends ResultsReporting {
     @Test
     public void testLoad() throws ConfigurationNotLoaded {
         final ConfigurationInterface mockConfig = new MissingProperties();
-        assertNotNull(mockConfig);
+        assertNotNull("unexpected null",mockConfig);
         this.log.info(mockConfig.toString());
     }
 
@@ -145,7 +145,7 @@ public class ConfigTest extends ResultsReporting {
     @Test
     public void testConfigFromFile() throws ConfigurationNotLoaded, PropertyNotFound {
         final ConfigFromFile config = new ConfigFromFile();
-        assertNotNull(config);
+        assertNotNull("unexpected null",config);
         assertEquals("true", config.get("loaded"));
         assertEquals(true, config.valueFor("loaded", false));
         assertEquals("ConfigFromSystem.properties", config.get("name"));
@@ -163,7 +163,7 @@ public class ConfigTest extends ResultsReporting {
     @Test
     public final void testSystemOveridesConfig() throws ConfigurationNotLoaded, PropertyNotFound {
         final ConfigFromFile config = new ConfigFromFile();
-        assertNotNull(config);
+        assertNotNull("unexpected null",config);
         final String key = "property";
         final String value = "FromSystem";
         System.setProperty(key, value);
@@ -178,6 +178,6 @@ public class ConfigTest extends ResultsReporting {
      */
     @Test
     public final void testStaticConfig() throws ConfigurationNotLoaded {
-        assertNotNull(ConfigTest.config);
+        assertNotNull("unexpected null",ConfigTest.config);
     }
 }
