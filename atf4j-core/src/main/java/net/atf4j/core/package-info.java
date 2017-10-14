@@ -1,4 +1,6 @@
 /**
+ * Package provides core code Automated Testing Framework for Java (atf4j).
+ * <p>
  * This file is part of Automated Testing Framework for Java (atf4j).
  *
  * Atf4j is free software: you can redistribute it and/or modify it under the
