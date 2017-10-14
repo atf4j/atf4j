@@ -24,7 +24,7 @@ import javax.jms.TextMessage;
 /**
  * Producer Class.
  */
-public class Producer extends AbstractCommon {
+public final class Producer extends AbstractConnectionWrapper {
 
     private MessageProducer messageProducer;
 

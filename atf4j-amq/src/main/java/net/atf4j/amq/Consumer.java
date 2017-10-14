@@ -25,7 +25,7 @@ import javax.jms.TextMessage;
 /**
  * Consumer Class.
  */
-public class Consumer extends AbstractCommon {
+public final class Consumer extends AbstractConnectionWrapper {
 
     private MessageConsumer messageConsumer;
 

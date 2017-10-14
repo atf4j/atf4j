@@ -26,13 +26,20 @@ import org.slf4j.LoggerFactory;
 /**
  * An Annotation Helper class.
  */
-public class AnnotationHelper {
+public final class AnnotationHelper {
 
-    private static final Logger log = LoggerFactory.getLogger(AnnotationHelper.class);
     private static final String EXPECTED_TEST_TAG = "Expected @Atf4j.TestTag annotation not found.";
     private static final String EXPECTED_TEST_ID = "Expected @Atf4j.TestId annotation not found.";
     private static final String EXPECTED_TEST_NAME = "Expected @Atf4j.TestName annotation not found.";
     private static final String EXPECTED_TEST_DESCRIPTION = "Expected @Atf4j.TestDescription annotation not found.";
+    private static final Logger LOG = LoggerFactory.getLogger(AnnotationHelper.class);
+
+    /**
+     * Prevent instantiation.
+     */
+    private AnnotationHelper() {
+        super();
+    }
 
     /**
      * Gets the test tag.
@@ -40,7 +47,7 @@ public class AnnotationHelper {
      * @return the test tag
      */
     public static String getTestTag() {
-        log.trace("AnnotationHelper.getTestId");
+        LOG.trace("AnnotationHelper.getTestId");
         final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         final Method testMethod = findTestMethod(stackTrace);
         if (testMethod == null) {
@@ -58,7 +65,7 @@ public class AnnotationHelper {
      * @return the getTestId as String
      */
     public static String getTestId() {
-        log.trace("AnnotationHelper.getTestId");
+        LOG.trace("AnnotationHelper.getTestId");
         final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         final Method testMethod = findTestMethod(stackTrace);
         if (testMethod == null) {
@@ -76,7 +83,7 @@ public class AnnotationHelper {
      * @return the getTestName as String
      */
     public static String getTestName() {
-        log.info("AnnotationHelper.getTestName");
+        LOG.info("AnnotationHelper.getTestName");
         final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         final Method testMethod = findTestMethod(stackTrace);
         if (testMethod == null) {
@@ -94,7 +101,7 @@ public class AnnotationHelper {
      * @return the getTestDescriptions as String
      */
     public static String getTestDescription() {
-        log.info("AnnotationHelper.getTestDescription");
+        LOG.info("AnnotationHelper.getTestDescription");
         final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         final Method testMethod = findTestMethod(stackTrace);
         if (testMethod == null) {
@@ -115,7 +122,7 @@ public class AnnotationHelper {
      * @return the method
      */
     private static Method findTestMethod(final StackTraceElement[] stackTrace) {
-        log.info("AbstractAtf4jAnnotatedTest.findTestMethod");
+        LOG.info("AbstractAtf4jAnnotatedTest.findTestMethod");
         for (final StackTraceElement stackTraceElement : stackTrace) {
             final String candidateClassName = stackTraceElement.getClassName();
             try {
@@ -133,9 +140,9 @@ public class AnnotationHelper {
                     }
                 }
             } catch (final ClassNotFoundException classNotFoundException) {
-                log.error(classNotFoundException.toString());
+                LOG.error(classNotFoundException.toString());
             } catch (final SecurityException securityException) {
-                log.error(securityException.toString());
+                LOG.error(securityException.toString());
             }
         }
         return null;

@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core;
 
 /**
@@ -92,7 +93,8 @@ public enum TestResult {
     /**
      * Checks if is.
      *
-     * @param result            the result \* @return true, if successful, otherwise false.
+     * @param result
+     *            the result \* @return true, if successful, otherwise false.
      * @return true, if successful, otherwise false.
      */
     public boolean is(final TestResult result) {

@@ -31,9 +31,9 @@ import org.slf4j.LoggerFactory;
 /**
  * Abstract Common class.
  */
-public abstract class AbstractCommon {
+public abstract class AbstractConnectionWrapper implements ConnectionWrapperInterface {
 
-    protected static final Logger log = LoggerFactory.getLogger(AbstractCommon.class);
+    protected static final Logger log = LoggerFactory.getLogger(AbstractConnectionWrapper.class);
     protected static String url = ActiveMQConnection.DEFAULT_BROKER_URL;
     protected ConnectionFactory connectionFactory;
     protected Connection connection;
@@ -47,7 +47,7 @@ public abstract class AbstractCommon {
      * @throws JMSException
      *             the JMS exception
      */
-    public AbstractCommon() throws JMSException {
+    protected AbstractConnectionWrapper() throws JMSException {
         super();
         this.connection = initialise();
         this.session = newSession(this.connection);

@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core;
 
 import net.atf4j.core.AbstractConfig.PropertyNotFound;
@@ -32,7 +33,7 @@ public interface ConfigurationInterface {
      * @throws PropertyNotFound
      *             the property not found
      */
-    String valueFor(final String key) throws PropertyNotFound;
+    public String valueFor(final String key) throws PropertyNotFound;
 
     /**
      * Get the value of a long from configuration property by key.
@@ -43,7 +44,7 @@ public interface ConfigurationInterface {
      *            the default value as int.
      * @return int value.
      */
-    int valueFor(final String key, final int defaultValue);
+    public int valueFor(final String key, final int defaultValue);
 
     /**
      * Get the value of a long from configuration property by key.
@@ -54,17 +55,19 @@ public interface ConfigurationInterface {
      *            the default value as long.
      * @return long value.
      */
-    long valueFor(final String key, final long defaultValue);
+    public long valueFor(final String key, final long defaultValue);
 
     /**
      * Get the value of a long from configuration property by key.
      *
-     * @param key            the key of the value as String.
-     * @param defaultValue            the default value as boolean. \* @return true, if successful,
+     * @param key
+     *            the key of the value as String.
+     * @param defaultValue
+     *            the default value as boolean. \* @return true, if successful,
      *            otherwise false. otherwise false.
      * @return true, if successful, otherwise false.
      */
-    boolean valueFor(final String key, final boolean defaultValue);
+    public boolean valueFor(final String key, final boolean defaultValue);
 
     /**
      * Get the value of a long from configuration property by key.
@@ -75,6 +78,6 @@ public interface ConfigurationInterface {
      *            the default value as a String.
      * @return the configuration property as a String.
      */
-    String valueFor(final String key, final String defaultValue);
+    public String valueFor(final String key, final String defaultValue);
 
 }

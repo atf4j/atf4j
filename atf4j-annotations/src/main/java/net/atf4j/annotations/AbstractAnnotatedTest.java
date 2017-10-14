@@ -26,6 +26,13 @@ public abstract class AbstractAnnotatedTest {
     protected static final Logger log = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
     /**
+     * Instantiates a new abstract annotated test.
+     */
+    protected AbstractAnnotatedTest() {
+        super();
+    }
+
+    /**
      * Test tag.
      *
      * @return the string
