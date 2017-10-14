@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.bdd;
 
 import java.lang.reflect.Method;
@@ -74,7 +75,10 @@ public class ScenarioRunner {
      * @return the scenario runner
      */
     private ScenarioRunner executeGiven() {
-        return executeGiven(this.targetScenario);
+        if (this.targetScenario != null) {
+            return executeGiven(this.targetScenario);
+        }
+        return this;
     }
 
     /**

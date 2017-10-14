@@ -14,10 +14,12 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.bdd;
 
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,12 +38,13 @@ public class MissingGivenScenarioTest extends ResultsReporting {
     /**
      * Test scenario runner.
      */
+    @Ignore
     @Test
     public void testScenarioRunner() {
         LOG.info("{}.testScenarioRunner", this.getClass().getSimpleName());
         ScenarioRunner scenarioRunner = new ScenarioRunner();
-        assertNotNull("unexpected null",scenarioRunner);
-        scenarioRunner.execute();
+        assertNotNull("unexpected null", scenarioRunner);
+        assertNotNull("unexpected null", scenarioRunner.execute());
     }
 
     // Deliberately missing.
