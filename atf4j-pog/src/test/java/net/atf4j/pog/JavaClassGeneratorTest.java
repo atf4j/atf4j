@@ -30,7 +30,7 @@ public class JavaClassGeneratorTest extends ResultsReporting {
     /**
      * The JavaClassGenerator Class.
      */
-    public class JavaClassGenerator extends CodeGenerator {
+    public class JavaClassGenerator extends AbstractCodeGenerator {
 
         /**
          * Instantiates a new java class generator.

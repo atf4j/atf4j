@@ -47,6 +47,7 @@ public final class DataFactoryTest extends ResultsReporting {
     @Test
     public void testExpectedUsage() {
         final Calendar today = DataFactory.today();
+        assertNotNull(today);
         this.log.info("DataFactory.today() = {}", DataFactory.format(today));
         final Calendar dateOfBirth = DataFactory.dateOfBirth();
         this.log.info("DataFactory.dateOfBirth() = {}", DataFactory.format(dateOfBirth));
@@ -96,8 +97,8 @@ public final class DataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testDefaultConstructor() throws Exception {
-        final DataFactory object = new DataFactory();
-        assertNotNull(object);
+        final DataFactory dataFactory = new DataFactory();
+        assertNotNull(dataFactory);
     }
 
     /**

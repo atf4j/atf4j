@@ -21,7 +21,7 @@ import net.atf4j.pog.ClassField.FieldType;
 /**
  * The PojoGenerator Class.
  */
-public class PojoGenerator extends CodeGenerator {
+public class PojoGenerator extends AbstractCodeGenerator {
 
     /**
      * Instantiates a new pojo generator.
@@ -40,7 +40,7 @@ public class PojoGenerator extends CodeGenerator {
      *            the field name
      * @return the code generator
      */
-    public CodeGenerator addDateField(final String fieldName) {
+    public AbstractCodeGenerator addDateField(final String fieldName) {
         final ClassField classField = new ClassField(FieldType.DATE, fieldName);
         this.fields.add(classField);
         return this;
@@ -53,7 +53,7 @@ public class PojoGenerator extends CodeGenerator {
      *            the field name
      * @return the code generator
      */
-    public CodeGenerator addBooleanField(final String fieldName) {
+    public AbstractCodeGenerator addBooleanField(final String fieldName) {
         final ClassField classField = new ClassField(FieldType.BOOLEAN, fieldName);
         this.fields.add(classField);
         return this;
@@ -66,7 +66,7 @@ public class PojoGenerator extends CodeGenerator {
      *            the field name
      * @return the code generator
      */
-    public CodeGenerator addStringField(final String fieldName) {
+    public AbstractCodeGenerator addStringField(final String fieldName) {
         final ClassField classField = new ClassField(FieldType.STRING, fieldName);
         this.fields.add(classField);
         return this;
@@ -81,7 +81,7 @@ public class PojoGenerator extends CodeGenerator {
      *            the field name
      * @return the code generator
      */
-    public CodeGenerator addField(final FieldType fieldType, final String fieldName) {
+    public AbstractCodeGenerator addField(final FieldType fieldType, final String fieldName) {
         final ClassField classField = new ClassField(fieldType, fieldName);
         this.fields.add(classField);
         return this;
@@ -96,7 +96,7 @@ public class PojoGenerator extends CodeGenerator {
      *            the field name
      * @return the code generator
      */
-    public CodeGenerator addField(final String fieldType, final String fieldName) {
+    public AbstractCodeGenerator addField(final String fieldType, final String fieldName) {
         final ClassField classField = new ClassField(fieldType, fieldName);
         this.fields.add(classField);
         return this;

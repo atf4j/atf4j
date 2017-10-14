@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.pog;
 
 import static org.junit.Assert.assertNotNull;
@@ -39,10 +40,9 @@ import org.slf4j.LoggerFactory;
 import net.atf4j.core.Atf4jException;
 
 /**
- * The CodeGenerator Class.
+ * Abstract Code Generator class.
  */
-public abstract class CodeGenerator {
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+public abstract class AbstractCodeGenerator {
 
     private final VelocityEngine velocityEngine = new VelocityEngine();
     private final VelocityContext context = new VelocityContext();
@@ -53,16 +53,17 @@ public abstract class CodeGenerator {
     private String templateFilename = CLASS_TEMPLATE;
     private String packageName = "net.atf4j.generated";
     private String className = "ExampleClass";
+    private String targetHomeFolder = TARGET_FOLDER;
 
     protected ArrayList<ClassField> fields = new ArrayList<ClassField>();
     protected ArrayList<ClassMethod> methods = new ArrayList<ClassMethod>();
 
-    private final String targetHomeFolder = TARGET_FOLDER;
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Instantiates a new code generator.
      */
-    public CodeGenerator() {
+    public AbstractCodeGenerator() {
         initialise();
     }
 
@@ -74,7 +75,7 @@ public abstract class CodeGenerator {
      * @throws TemplateNotLoaded
      *             the template not loaded
      */
-    public CodeGenerator(final String templateFilename) throws TemplateNotLoaded {
+    public AbstractCodeGenerator(final String templateFilename) throws TemplateNotLoaded {
         setTemplate(templateFilename);
         initialise();
     }
@@ -96,7 +97,7 @@ public abstract class CodeGenerator {
      *            the value
      * @return the code generator
      */
-    public CodeGenerator contextBinding(final String key, final Object value) {
+    public AbstractCodeGenerator contextBinding(final String key, final Object value) {
         assumeNotNull(key);
         assumeTrue(key.length() > 0);
         assumeNotNull(value);
@@ -113,7 +114,7 @@ public abstract class CodeGenerator {
      * @throws TemplateNotLoaded
      *             the template not loaded
      */
-    public CodeGenerator setTemplate(final String templateFilename) throws TemplateNotLoaded {
+    public AbstractCodeGenerator setTemplate(final String templateFilename) throws TemplateNotLoaded {
         this.templateFilename = templateFilename;
         return this;
     }
@@ -125,7 +126,7 @@ public abstract class CodeGenerator {
      *            the package name
      * @return the code generator
      */
-    public CodeGenerator setPackageName(final String packageName) {
+    public AbstractCodeGenerator setPackageName(final String packageName) {
         this.packageName = packageName;
         return this;
     }
@@ -137,7 +138,7 @@ public abstract class CodeGenerator {
      *            the class name
      * @return the code generator
      */
-    public CodeGenerator setClassName(final String className) {
+    public AbstractCodeGenerator setClassName(final String className) {
         this.className = classCase(className);
         return this;
     }
@@ -214,7 +215,7 @@ public abstract class CodeGenerator {
      *            the class field
      * @return the code generator
      */
-    public CodeGenerator addField(final ClassField classField) {
+    public AbstractCodeGenerator addField(final ClassField classField) {
         this.fields.add(classField);
         return this;
     }
@@ -228,7 +229,7 @@ public abstract class CodeGenerator {
      *            the method name
      * @return the code generator
      */
-    public CodeGenerator addMethod(final String returnType, final String methodName) {
+    public AbstractCodeGenerator addMethod(final String returnType, final String methodName) {
         final ClassMethod classField = new ClassMethod(returnType, methodName);
         this.methods.add(classField);
         return this;
@@ -241,7 +242,7 @@ public abstract class CodeGenerator {
      *            the class method
      * @return the code generator
      */
-    public CodeGenerator addMethod(final ClassMethod classMethod) {
+    public AbstractCodeGenerator addMethod(final ClassMethod classMethod) {
         this.methods.add(classMethod);
         return this;
     }
@@ -267,7 +268,7 @@ public abstract class CodeGenerator {
      * @throws Exception
      *             the exception
      */
-    public CodeGenerator generate() throws Exception {
+    public AbstractCodeGenerator generate() throws Exception {
         assumeNotNull(this.templateFilename);
         assumeTrue(this.templateFilename.length() > 0);
         return generate(this.templateFilename);
@@ -282,7 +283,7 @@ public abstract class CodeGenerator {
      * @throws Exception
      *             the exception
      */
-    public CodeGenerator generate(final String templateFilename) throws Exception {
+    public AbstractCodeGenerator generate(final String templateFilename) throws Exception {
         return generate(templateReader(templateFilename));
     }
 
@@ -295,7 +296,7 @@ public abstract class CodeGenerator {
      * @throws Exception
      *             the exception
      */
-    private CodeGenerator generate(final InputStreamReader templateReader) throws Exception {
+    private AbstractCodeGenerator generate(final InputStreamReader templateReader) throws Exception {
         final BufferedWriter bufferedWriter = destinationWriter();
         assertNotNull(bufferedWriter);
         return generate(templateReader, bufferedWriter);
@@ -312,7 +313,8 @@ public abstract class CodeGenerator {
      * @throws Exception
      *             the exception
      */
-    private CodeGenerator generate(final InputStreamReader templateReader, final Writer writer) throws Exception {
+    private AbstractCodeGenerator generate(final InputStreamReader templateReader, final Writer writer)
+            throws Exception {
         final String logTag = this.getClass().getSimpleName();
 
         contextBinding("packageName", this.packageName);

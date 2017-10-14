@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.pog;
 
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ import org.slf4j.LoggerFactory;
 /**
  * A Class to represent a method of the class to be Generated.
  */
-public class ClassMethod {
+public final class ClassMethod {
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
     private static final String METHOD_CODE = "public %s %s() { return new %s(); }";
     private String access;
@@ -96,8 +97,8 @@ public class ClassMethod {
     /**
      * Adds the.
      *
-     * @param e
-     *            the e \* @return true, if successful, otherwise false.
+     * @param e            the e \* @return true, if successful, otherwise false.
+     * @return true, if successful, otherwise false.
      */
     public boolean add(final ClassField e) {
         return this.parameters.add(e);

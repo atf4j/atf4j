@@ -24,7 +24,7 @@ import com.google.gson.JsonParser;
 /**
  * The JsonToPojo Class.
  */
-public class JsonToPojo extends CodeGenerator {
+public class JsonToPojo extends AbstractCodeGenerator {
 
     private final JsonParser parser = new JsonParser();
     private JsonObject json;

@@ -24,7 +24,7 @@ import java.net.URL;
 /**
  * Generator for Selenium WebDriver PageObject.
  */
-public class PageObjectGenerator extends CodeGenerator {
+public class PageObjectGenerator extends AbstractCodeGenerator {
 
     private static final String DEFAULT_TARGET = "http://atf4j.net";
     private static final String PAGE_OBJECT_TEMPLATE = "/templates/PageObject.vm";
