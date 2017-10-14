@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.pog;
 
 import com.google.gson.Gson;
@@ -26,10 +27,6 @@ import com.google.gson.JsonParser;
  */
 public class JsonToPojo extends AbstractCodeGenerator {
 
-    private final JsonParser parser = new JsonParser();
-    private JsonObject json;
-    private Gson gson;
-
     /**
      * Json.
      *
@@ -37,10 +34,11 @@ public class JsonToPojo extends AbstractCodeGenerator {
      *            the json string
      * @return the string
      */
-    public String json(final String jsonString) {
-        this.json = this.parser.parse(jsonString).getAsJsonObject();
-        this.gson = new GsonBuilder().setPrettyPrinting().create();
-        final String prettyJson = this.gson.toJson(this.json);
+    public String toJson(final String jsonString) {
+        final JsonParser parser = new JsonParser();
+        JsonObject json = parser.parse(jsonString).getAsJsonObject();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        final String prettyJson = gson.toJson(json);
         return prettyJson;
     }
 

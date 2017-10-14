@@ -14,9 +14,11 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.pog;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * PageObject data class. <code>
@@ -31,10 +33,10 @@ import java.util.ArrayList;
  */
 public class PageObjectData {
 
-    private final ArrayList<PageWebElement> pageElements = new ArrayList<PageWebElement>();
-    private final ArrayList<PageWebElement> navElements = new ArrayList<PageWebElement>();
-    private final ArrayList<PageWebElement> inputElements = new ArrayList<PageWebElement>();
-    private final ArrayList<PageWebElement> contentElements = new ArrayList<PageWebElement>();
+    private final List<PageWebElement> pageElements = new ArrayList<PageWebElement>();
+    private final List<PageWebElement> navElements = new ArrayList<PageWebElement>();
+    private final List<PageWebElement> inputElements = new ArrayList<PageWebElement>();
+    private final List<PageWebElement> contentElements = new ArrayList<PageWebElement>();
 
     /**
      * Instantiates a new page object data.
@@ -96,7 +98,7 @@ public class PageObjectData {
      *
      * @return the array list
      */
-    public ArrayList<PageWebElement> get() {
+    public List<PageWebElement> get() {
         return this.pageElements;
     }
 
@@ -105,7 +107,7 @@ public class PageObjectData {
      *
      * @return the content
      */
-    public ArrayList<PageWebElement> getContent() {
+    public List<PageWebElement> getContent() {
         return this.contentElements;
     }
 
@@ -114,7 +116,7 @@ public class PageObjectData {
      *
      * @return the input
      */
-    public ArrayList<PageWebElement> getInput() {
+    public List<PageWebElement> getInput() {
         return this.inputElements;
     }
 
@@ -123,7 +125,7 @@ public class PageObjectData {
      *
      * @return the nav
      */
-    public ArrayList<PageWebElement> getNav() {
+    public List<PageWebElement> getNav() {
         return this.navElements;
     }
 
