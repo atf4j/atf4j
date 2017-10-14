@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core.model;
 
 import static org.junit.Assert.assertNotNull;
@@ -21,11 +22,13 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import net.atf4j.core.Atf4jException;
+import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResult;
 
 /**
  * A UnitTest for TestStep objects.
  */
-public class TestStepTest {
+public class TestStepTest extends ResultsReporting {
 
     /**
      * The TestCaseReport Class.
@@ -44,7 +47,7 @@ public class TestStepTest {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null",new TestStep());
+        assertNotNull("unexpected null", new TestStep());
     }
 
     /**
@@ -53,8 +56,10 @@ public class TestStepTest {
     @Test
     public void testTestStep() {
         final TestStep testStep = new TestStep();
-        assertNotNull("unexpected null",testStep);
-        testStep.result();
+        assertNotNull("unexpected null", testStep);
+        TestResult result = testStep.result();
+        assertNotNull("unexpected null", result);
+        this.log.info("testResult={}", result);
     }
 
     /**
@@ -67,7 +72,7 @@ public class TestStepTest {
     public void testRegisterLogging() throws Atf4jException {
         final TestCase testCase = new TestCase();
         final MockTestReport logging = new MockTestReport();
-        assertNotNull("unexpected null",testCase.registerLogging(logging));
+        assertNotNull("unexpected null", testCase.registerLogging(logging));
     }
 
     /**
@@ -79,10 +84,10 @@ public class TestStepTest {
     @Test
     public void testExecuteTestContext() throws Atf4jException {
         final TestContext context = new TestContext();
-        assertNotNull("unexpected null",context);
+        assertNotNull("unexpected null", context);
         final TestStep testStep = new TestStep();
-        assertNotNull("unexpected null",testStep);
-        assertNotNull("unexpected null",testStep.execute(context));
+        assertNotNull("unexpected null", testStep);
+        assertNotNull("unexpected null", testStep.execute(context));
     }
 
     /**
@@ -91,7 +96,7 @@ public class TestStepTest {
     @Test
     public void testPreCondition() {
         final TestStep testStep = new TestStep();
-        assertNotNull("unexpected null",testStep);
+        assertNotNull("unexpected null", testStep);
         testStep.addPreCondition(new PassingCondition());
     }
 
@@ -101,7 +106,7 @@ public class TestStepTest {
     @Test
     public void testPostCondition() {
         final TestStep testStep = new TestStep();
-        assertNotNull("unexpected null",testStep);
+        assertNotNull("unexpected null", testStep);
         testStep.addPostCondition(new PassingCondition());
     }
 

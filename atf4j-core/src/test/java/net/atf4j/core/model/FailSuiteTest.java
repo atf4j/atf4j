@@ -14,9 +14,12 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core.model;
 
 import static org.junit.Assert.assertNotNull;
+
+import org.junit.Test;
 
 /**
  * A UnitTest for FailSuite objects.
@@ -26,8 +29,9 @@ public class FailSuiteTest {
     /**
      * Unit Test for test fail case.
      */
+    @Test
     public void testFailCase() {
-        assertNotNull("unexpected null",new FailCase());
+        assertNotNull("unexpected null", new FailCase());
     }
 
 }

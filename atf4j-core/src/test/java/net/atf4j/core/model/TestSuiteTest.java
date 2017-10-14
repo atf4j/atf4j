@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core.model;
 
 import static org.junit.Assert.assertEquals;
@@ -23,6 +24,7 @@ import org.junit.Test;
 
 import net.atf4j.core.Atf4jException;
 import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResult;
 
 /**
  * A UnitTest for TestSuite objects.
@@ -46,7 +48,7 @@ public class TestSuiteTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null",new TestSuite());
+        assertNotNull("unexpected null", new TestSuite());
     }
 
     /**
@@ -55,8 +57,10 @@ public class TestSuiteTest extends ResultsReporting {
     @Test
     public void testTestSuite() {
         final TestSuite testSuite = new TestSuite();
-        assertNotNull("unexpected null",testSuite);
-        this.log.info("testResult={}", testSuite.result());
+        assertNotNull("unexpected null", testSuite);
+        TestResult result = testSuite.result();
+        assertNotNull("unexpected null", result);
+        this.log.info("testResult={}", result);
     }
 
     /**
@@ -65,7 +69,7 @@ public class TestSuiteTest extends ResultsReporting {
     @Test
     public void testTestSuiteTestContext() {
         final TestSuite testSuite = new TestSuite(new TestContext());
-        assertNotNull("unexpected null",testSuite);
+        assertNotNull("unexpected null", testSuite);
         this.log.info("testResult={}", testSuite.result());
     }
 
@@ -78,7 +82,7 @@ public class TestSuiteTest extends ResultsReporting {
     @Test
     public void testTestSuiteExecute() throws Atf4jException {
         final TestSuite testSuite = new TestSuite();
-        assertNotNull("unexpected null",testSuite.execute());
+        assertNotNull("unexpected null", testSuite.execute());
         this.log.info("testResult={}", testSuite.result());
     }
 
@@ -91,7 +95,7 @@ public class TestSuiteTest extends ResultsReporting {
     @Test
     public void testTestSuiteExecuteTestContext() throws Atf4jException {
         final TestSuite testSuite = new TestSuite();
-        assertNotNull("unexpected null",testSuite.execute(new TestContext()));
+        assertNotNull("unexpected null", testSuite.execute(new TestContext()));
         this.log.info("testResult={}", testSuite.result());
     }
 
@@ -115,6 +119,17 @@ public class TestSuiteTest extends ResultsReporting {
         final TestSuite addTestCase = testSuite.addTestCase(newTestCase);
         final int numberOfTestSteps = addTestCase.numberOfTestCases();
         assertEquals(1, numberOfTestSteps);
+    }
+
+    /**
+     * Test method for TestSuite}.
+     */
+    @Test
+    public void testAddNullTestCase() {
+        final TestSuite testSuite = new TestSuite();
+        final TestSuite addTestCase = testSuite.addTestCase(null);
+        final int numberOfTestSteps = addTestCase.numberOfTestCases();
+        assertEquals(0, numberOfTestSteps);
     }
 
     /**

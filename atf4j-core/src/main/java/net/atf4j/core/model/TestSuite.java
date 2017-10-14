@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core.model;
 
 import static org.junit.Assert.assertEquals;
@@ -42,7 +43,8 @@ public class TestSuite extends AbstractTestBase {
     /**
      * Instantiates a new test suite.
      *
-     * @param testContext the test context
+     * @param testContext
+     *            the test context
      */
     public TestSuite(final TestContext testContext) {
         super(testContext);
@@ -101,6 +103,7 @@ public class TestSuite extends AbstractTestBase {
         if (this.testCases == null) {
             this.testCases = new ArrayDeque<TestCase>();
         }
+        assumeNotNull(newTestCase);
         assumeTrue(this.testCases.add(newTestCase));
         return this;
     }
