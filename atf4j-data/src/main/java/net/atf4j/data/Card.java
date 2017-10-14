@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import java.util.Calendar;
@@ -34,20 +35,6 @@ public class Card {
     private Calendar startDate;
     private Calendar endDate;
     private String ccv;
-
-    /**
-     * Factory method to create new instance of a Card.
-     *
-     * @return the card instance.
-     */
-    public static Card create() {
-        final Card card = new Card();
-        card.setCardName("Card Name");
-        card.setCardNumber("1234 5678 9000 0000");
-        card.setStartDate(DataFactory.pastDate());
-        card.setEndDate(DataFactory.futureDate());
-        return card;
-    }
 
     /**
      * Instantiates a new card.
@@ -102,6 +89,20 @@ public class Card {
         this.cardName = cardName;
         this.startDate = DataFactory.toCalendar(startDate);
         this.endDate = DataFactory.toCalendar(endDate);
+    }
+
+    /**
+     * Factory method to create new instance of a Card.
+     *
+     * @return the card instance.
+     */
+    public static Card create() {
+        final Card card = new Card();
+        card.setCardName("Card Name");
+        card.setCardNumber("1234 5678 9000 0000");
+        card.setStartDate(DataFactory.pastDate());
+        card.setEndDate(DataFactory.futureDate());
+        return card;
     }
 
     /**

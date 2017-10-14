@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import static org.junit.Assert.assertEquals;
@@ -25,7 +26,7 @@ import net.atf4j.core.ResultsReporting;
 /**
  * A Unit test class for Text objects.
  */
-public class TextTest extends ResultsReporting {
+public final class TextTest extends ResultsReporting {
 
     /**
      * Test expected usage.

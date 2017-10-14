@@ -44,14 +44,14 @@ public abstract class AbstractWalker {
     /**
      * Instantiates a new abstract walker.
      * 
-     * @param path
+     * @param basePath
      *            the path
      * @throws Exception
      *             the exception
      */
-    public AbstractWalker(final String path) throws Exception {
-        this.log.info("AbstractWalker({})", path);
-        setBasePath(path);
+    public AbstractWalker(final String basePath) throws Exception {
+        this.log.info("AbstractWalker({})", basePath);
+        setBasePath(basePath);
     }
 
     /**

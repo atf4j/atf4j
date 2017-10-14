@@ -41,7 +41,7 @@ public class ConsumerTest {
     @Test
     public void testReader() throws JMSException {
         LOG.info("testReader");
-        Consumer object = new Consumer();
+        final Consumer object = new Consumer();
         assertNotNull(object);
     }
 
@@ -56,7 +56,7 @@ public class ConsumerTest {
         LOG.info("testExecute");
         final Consumer reader = new Consumer();
         assertNotNull(reader);
-        String[] execute = reader.execute();
+        final String[] execute = reader.execute();
         assertNotNull(execute);
     }
 }

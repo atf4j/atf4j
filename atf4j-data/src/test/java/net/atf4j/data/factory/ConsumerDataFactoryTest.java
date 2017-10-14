@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data.factory;
 
 import static org.junit.Assert.assertNotNull;
@@ -26,7 +27,7 @@ import net.atf4j.data.Consumer;
 /**
  * Unit Test Suite for the ConsumerDataFactory.
  */
-public class ConsumerDataFactoryTest extends ResultsReporting {
+public final class ConsumerDataFactoryTest extends ResultsReporting {
 
     /**
      * Test method for void.

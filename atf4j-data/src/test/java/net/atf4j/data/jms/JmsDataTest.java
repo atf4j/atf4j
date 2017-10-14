@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data.jms;
 
 import org.junit.Test;
@@ -23,7 +24,7 @@ import net.atf4j.data.management.JmsData;
 /**
  * A UnitTest for JmsData objects.
  */
-public class JmsDataTest {
+public final class JmsDataTest {
 
     /**
      * Test method for void.

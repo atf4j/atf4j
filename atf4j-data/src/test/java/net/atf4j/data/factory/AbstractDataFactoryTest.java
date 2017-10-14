@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data.factory;
 
 import static org.junit.Assert.assertNotNull;
@@ -25,12 +26,12 @@ import net.atf4j.core.ResultsReporting;
 /**
  * A UnitTest for AbstractDataFactory objects.
  */
-public class AbstractDataFactoryTest extends ResultsReporting {
+public final class AbstractDataFactoryTest extends ResultsReporting {
 
     /**
      * Mock Test Data.
      */
-    public class TestDataFactory extends AbstractDataFactory {
+    public final class TestDataFactory extends AbstractDataFactory {
         /**
          * Instantiates a new test data.
          *

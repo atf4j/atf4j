@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import static org.junit.Assert.assertNotNull;
@@ -25,7 +26,7 @@ import net.atf4j.core.ResultsReporting;
 /**
  * A Unit test class for PostalAddress.
  */
-public class PostalAddressTest extends ResultsReporting {
+public final class PostalAddressTest extends ResultsReporting {
 
     /**
      * Test method for PostalAddress}.

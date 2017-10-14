@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data.factory;
 
 import static org.junit.Assert.assertNotNull;
@@ -26,7 +27,7 @@ import net.atf4j.data.Business;
 /**
  * A UnitTest for BusinessDataFactory objects.
  */
-public class BusinessDataFactoryTest extends ResultsReporting {
+public final class BusinessDataFactoryTest extends ResultsReporting {
 
     /**
      * Test method for expected usage.

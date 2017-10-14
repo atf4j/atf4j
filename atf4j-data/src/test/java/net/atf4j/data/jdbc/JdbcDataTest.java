@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data.jdbc;
 
 import org.junit.Test;
@@ -24,7 +25,7 @@ import net.atf4j.data.management.JdbcData;
 /**
  * A UnitTest for JdbcData objects.
  */
-public class JdbcDataTest {
+public final class JdbcDataTest {
 
     /**
      * Test method for void.

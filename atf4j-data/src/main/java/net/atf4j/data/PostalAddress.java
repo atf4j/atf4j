@@ -80,7 +80,7 @@ public class PostalAddress {
      * @return the postal address
      */
     public PostalAddress setAddress(final String[] address) {
-        this.addressLines = address;
+        this.addressLines = Arrays.copyOf(address, address.length);
         return this;
     }
 
@@ -116,7 +116,7 @@ public class PostalAddress {
      * @return the address
      */
     public String[] getAddress() {
-        return this.addressLines;
+        return Arrays.copyOf(this.addressLines, this.addressLines.length);
     }
 
     /**

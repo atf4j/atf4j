@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import static org.junit.Assert.assertFalse;
@@ -29,7 +30,7 @@ import net.atf4j.core.ResultsReporting;
 /**
  * A Unit test class for Card objects.
  */
-public class CardTest extends ResultsReporting {
+public final class CardTest extends ResultsReporting {
 
     private static final String INVALID_NUMBER = "1111-1111-1111-1111";
     private static final String AMEX_1 = "0000 1234 5678 9999";
@@ -78,8 +79,12 @@ public class CardTest extends ResultsReporting {
         final String cardName = "Card Name";
         final Date endDate = new Date();
         final Date startDate = new Date();
-        final Card card = new Card().setProvider(provider).setCardNumber(cardNumber).setCardName(cardName)
-                .setStartDate(startDate).setEndDate(endDate);
+        final Card card = new Card()
+            .setProvider(provider)
+            .setCardNumber(cardNumber)
+            .setCardName(cardName)
+            .setStartDate(startDate)
+            .setEndDate(endDate);
         assertNotNull(card);
     }
 

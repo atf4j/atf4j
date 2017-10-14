@@ -33,8 +33,14 @@ public class FolderWalkerTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(FolderWalkerTest.class);
 
+    /**
+     * The FolderWalker Class.
+     */
     public class FolderWalker extends AbstractFolderWalker {
 
+        /**
+         * The ExtensionFilter Class.
+         */
         public class ExtensionFilter implements FilenameFilter {
             private final String extension;
 
@@ -50,7 +56,7 @@ public class FolderWalkerTest {
 
             /*
              * (non-Javadoc)
-             * 
+             *
              * @see java.io.FilenameFilter#accept(java.io.File,
              * java.lang.String)
              */

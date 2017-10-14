@@ -1,10 +1,11 @@
+
 package net.atf4j.data.manager;
 
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-public class DataManagerTest {
+public final class DataManagerTest {
 
     @Test
     public final void testDefaultConstructor() throws Exception {

@@ -41,7 +41,7 @@ public class ProducerTest {
     @Test
     public void testProducer() throws JMSException {
         LOG.info("testProducer");
-        Producer object = new Producer();
+        final Producer object = new Producer();
         assertNotNull(object);
     }
 

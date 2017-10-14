@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import org.junit.Test;
@@ -21,7 +22,7 @@ import org.junit.Test;
 /**
  * A Unit test class for AbstractWalker objects.
  */
-public class AbstractWalkerTest {
+public final class AbstractWalkerTest {
 
     /**
      * MockWalker Class.

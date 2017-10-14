@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data.factory;
 
 import static org.junit.Assert.assertEquals;
@@ -38,7 +39,7 @@ import net.atf4j.data.PostalAddress;
 /**
  * A UnitTest for DataFactory objects.
  */
-public class DataFactoryTest extends ResultsReporting {
+public final class DataFactoryTest extends ResultsReporting {
 
     /**
      * Test method for expected usage.

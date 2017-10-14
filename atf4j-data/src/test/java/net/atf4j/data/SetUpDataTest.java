@@ -11,6 +11,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j. If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import static org.junit.Assert.assertTrue;
@@ -28,7 +29,7 @@ import net.atf4j.data.management.SetUpData;
 /**
  * A Unit test class for SetUpData objects.
  */
-public class SetUpDataTest extends ResultsReporting {
+public final class SetUpDataTest extends ResultsReporting {
 
     protected SetUpData jdbcData = new JdbcData();
     protected SetUpData jmsData = new JmsData();

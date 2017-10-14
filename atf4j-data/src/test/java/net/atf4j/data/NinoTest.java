@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import static org.junit.Assert.assertFalse;
@@ -26,7 +27,7 @@ import net.atf4j.core.ResultsReporting;
 /**
  * A Unit test class for National Insurance number objects.
  */
-public class NinoTest extends ResultsReporting {
+public final class NinoTest extends ResultsReporting {
 
     private static final String BLANK_NI = "";
     private static final String PIC = "XX-99-99-99X";

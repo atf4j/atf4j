@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import static org.junit.Assert.assertNotNull;
@@ -25,7 +26,7 @@ import net.atf4j.core.ResultsReporting;
 /**
  * A Unit test class for EmailAddress objects.
  */
-public class EmailAddressTest extends ResultsReporting {
+public final class EmailAddressTest extends ResultsReporting {
 
     private static final String NAME_EXAMPLE_COM = "name@example.com";
 

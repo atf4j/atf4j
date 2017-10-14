@@ -42,8 +42,10 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
      * Unfiltered filename class.
      */
     public class Unfiltered implements FilenameFilter {
-        
-        /* (non-Javadoc)
+
+        /*
+         * (non-Javadoc)
+         * 
          * @see java.io.FilenameFilter#accept(java.io.File, java.lang.String)
          */
         @Override
@@ -83,7 +85,9 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
         setExtensionFilter(extensionFilter);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see net.atf4j.amq.FolderWalkerInterface#setPath(java.lang.String)
      */
     @Override
@@ -91,15 +95,20 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
         this.path = path;
     }
 
-    /* (non-Javadoc)
-     * @see net.atf4j.amq.FolderWalkerInterface#setExtensionFilter(java.io.FilenameFilter)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see net.atf4j.amq.FolderWalkerInterface#setExtensionFilter(java.io.
+     * FilenameFilter)
      */
     @Override
     public void setExtensionFilter(final FilenameFilter extensionFilter) {
         this.filter = extensionFilter;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see net.atf4j.amq.FolderWalkerInterface#walk()
      */
     @Override
@@ -107,7 +116,9 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
         return walk(this.path);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see net.atf4j.amq.FolderWalkerInterface#walk(java.lang.String)
      */
     @Override
@@ -129,7 +140,9 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
         return this.foundFiles;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see net.atf4j.amq.FolderWalkerInterface#scan(java.lang.String)
      */
     @Override
@@ -169,7 +182,9 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
         return file;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see net.atf4j.amq.FolderWalkerInterface#getPath()
      */
     @Override
@@ -177,7 +192,9 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
         return this.path;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see net.atf4j.amq.FolderWalkerInterface#getFoundFiles()
      */
     @Override

@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import static org.junit.Assert.assertEquals;
@@ -26,7 +27,7 @@ import net.atf4j.core.ResultsReporting;
 /**
  * A Unit test class for Telephone objects.
  */
-public class TelephoneTest extends ResultsReporting {
+public final class TelephoneTest extends ResultsReporting {
 
     private static final String _0123456789 = "0123456789";
 

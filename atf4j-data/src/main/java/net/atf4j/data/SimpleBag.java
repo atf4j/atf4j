@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import java.util.ArrayList;
@@ -56,7 +57,7 @@ public class SimpleBag {
      * @return the simple bag
      */
     public SimpleBag fill(final String[] values) {
-        this.values = values;
+        this.values = Arrays.copyOf(values, values.length);
         for (final String value : values) {
             this.bag.add(value);
         }
