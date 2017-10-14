@@ -10,11 +10,11 @@ public class ExampleWalkerTest {
     public class ExampleWalker extends AbstractWalker {
     }
 
-    @Test
+    @Test(expected = AssertionError.class)
     public void testAbstractWalker() throws Exception {
         ExampleWalker exampleWalker = new ExampleWalker();
-        assertNotNull("unexpected null",exampleWalker);
-        exampleWalker.walk();
+        assertNotNull("unexpected null", exampleWalker);
+        assertNotNull("unexpected null", exampleWalker.walk());
     }
 
 }

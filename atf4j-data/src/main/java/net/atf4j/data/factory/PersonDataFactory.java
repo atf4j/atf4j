@@ -14,7 +14,10 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data.factory;
+
+import java.util.Arrays;
 
 import net.atf4j.data.EmailAddress;
 import net.atf4j.data.Person;
@@ -144,4 +147,9 @@ public class PersonDataFactory extends AbstractDataFactory {
         return EmailAddress.create().toString();
     }
 
+    @Override
+    public String toString() {
+        return "PersonDataFactory [maleForenames=" + Arrays.toString(maleForenames) + ", femaleForenames="
+                + Arrays.toString(femaleForenames) + ", surnames=" + Arrays.toString(surnames) + "]";
+    }
 }

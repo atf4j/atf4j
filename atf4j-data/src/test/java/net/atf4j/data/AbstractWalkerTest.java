@@ -17,6 +17,8 @@
 
 package net.atf4j.data;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
 
 /**
@@ -48,9 +50,11 @@ public final class AbstractWalkerTest {
      * @throws Exception
      *             the exception
      */
-    @Test
+    @Test(expected = AssertionError.class)
     public void testAbstractWalker() throws Exception {
-        new MockWalker(".").walk();
+        MockWalker mockWalker = new MockWalker(".");
+        assertNotNull("unexpected null", mockWalker);
+        assertNotNull("unexpected null", mockWalker.walk());
     }
 
 }
