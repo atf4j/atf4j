@@ -48,6 +48,7 @@ public final class BankSortCodeTest extends ResultsReporting {
      * Test method for void.
      */
     @Test
+    @Ignore
     public void testRandom() {
         final BankSortCode sortCode = BankSortCode.random();
         assertNotNull(UNEXPECTED_NULL, sortCode);
