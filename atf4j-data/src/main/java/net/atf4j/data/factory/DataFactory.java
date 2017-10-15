@@ -40,7 +40,7 @@ public class DataFactory {
     public static final String ISO_TIME = "HH:mm'Z'";
     public static final String UK_DATE = "dd:MM-yyyy";
 
-    private static Random random = new Random(System.currentTimeMillis());
+    private static Random rnd = new Random(System.currentTimeMillis());
 
     /**
      * Random char.
@@ -48,7 +48,7 @@ public class DataFactory {
      * @return the char
      */
     public static char randomChar() {
-        return (char) ('a' + random.nextInt(26));
+        return (char) ('a' + rnd.nextInt(26));
     }
 
     /**
@@ -72,7 +72,7 @@ public class DataFactory {
      * @return the char
      */
     public static char randomDigit() {
-        return (char) ('0' + random.nextInt(9));
+        return (char) ('0' + rnd.nextInt(9));
     }
 
     /**

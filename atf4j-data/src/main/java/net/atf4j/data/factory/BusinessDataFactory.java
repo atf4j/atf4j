@@ -31,6 +31,7 @@ public class BusinessDataFactory extends AbstractDataFactory {
      * Instantiates a new business data factory.
      */
     protected BusinessDataFactory() {
+        super();
         initialise();
     }
 

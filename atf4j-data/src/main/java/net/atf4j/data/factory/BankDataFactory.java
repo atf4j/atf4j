@@ -32,6 +32,7 @@ public class BankDataFactory extends AbstractDataFactory {
      * Instantiates a new bank data factory.
      */
     protected BankDataFactory() {
+        super();
         initialise();
     }
 

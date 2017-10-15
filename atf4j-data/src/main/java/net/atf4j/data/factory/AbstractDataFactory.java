@@ -38,7 +38,7 @@ public abstract class AbstractDataFactory {
     private static final String UNEXPECTED_NULL = "unexpected null";
     private String[] lines;
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
-    protected static Random random = new Random(System.currentTimeMillis());
+    protected static Random rnd = new Random(System.currentTimeMillis());
 
     /**
      * Load data file.
@@ -96,7 +96,7 @@ public abstract class AbstractDataFactory {
      */
     protected static String randomEntry(final String[] content) {
         final int bounds = content.length;
-        final int randomIndex = random.nextInt(bounds);
+        final int randomIndex = rnd.nextInt(bounds);
         return content[randomIndex];
     }
 

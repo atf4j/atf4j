@@ -40,6 +40,7 @@ public class AddressDataFactory extends AbstractDataFactory {
      * Instantiates a new address data factory.
      */
     protected AddressDataFactory() {
+        super();
         initialise();
     }
 

@@ -43,6 +43,7 @@ public class CsvFile {
      *             Signals that an I/O exception has occurred.
      */
     public CsvFile() {
+        super();
         load();
     }
 
@@ -55,6 +56,7 @@ public class CsvFile {
      *             the exception
      */
     public CsvFile(final String dataFilename) {
+        super();
         load(dataFilename);
     }
 
@@ -102,17 +104,17 @@ public class CsvFile {
     /**
      * Load.
      *
-     * @param in
+     * @param inputStream
      *            the InputStream
      * @throws Exception
      *             the exception
      */
-    public void load(final InputStream in) {
-        final InputStreamReader inputStreamReader = new InputStreamReader(in);
+    public void load(final InputStream inputStream) {
+        final InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         final BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         try {
             String line = bufferedReader.readLine().trim();
-            if (line.startsWith("#")) {
+            if (line.charAt(0) == '#') {
                 this.header = new HeaderLine(line.substring(1));
             } else {
                 this.data.add(new CsvRow(line));

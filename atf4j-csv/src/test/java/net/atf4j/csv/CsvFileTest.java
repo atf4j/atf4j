@@ -34,10 +34,10 @@ import org.slf4j.LoggerFactory;
 public class CsvFileTest {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
     private static final String EXPECTED_HEADER = "HeaderLine [fields=[ColumnOne, ColumnTwo, ColumnThree, ColumnFour]]";
     private static final String MISSING_CSV = "missing.csv";
     private static final String TEST_DATA_CSV = "TestData.csv";
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * The TestData Class.

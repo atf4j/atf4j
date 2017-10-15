@@ -36,6 +36,7 @@ public class PersonDataFactory extends AbstractDataFactory {
      * Instantiates a new person data factory.
      */
     protected PersonDataFactory() {
+        super();
         initialise();
     }
 
@@ -95,7 +96,7 @@ public class PersonDataFactory extends AbstractDataFactory {
      * @return the string
      */
     public static String randomForename() {
-        if (random.nextBoolean()) {
+        if (rnd.nextBoolean()) {
             return randomMaleForename();
         } else {
             return randomFemaleForename();

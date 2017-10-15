@@ -31,6 +31,7 @@ public class ConsumerDataFactory extends AbstractDataFactory {
      * Instantiates a new consumer data factory.
      */
     protected ConsumerDataFactory() {
+        super();
         initialise();
     }
 

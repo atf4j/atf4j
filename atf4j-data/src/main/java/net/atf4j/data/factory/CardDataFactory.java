@@ -31,6 +31,7 @@ public class CardDataFactory extends AbstractDataFactory {
      * Instantiates a new card data factory.
      */
     protected CardDataFactory() {
+        super();
         initialise();
     }
 
