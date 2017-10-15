@@ -254,7 +254,7 @@ public abstract class AbstractPageObject {
      * @return the webElement when visible, otherwise TimeoutException.
      */
     public WebElement waitUntilVisible(final WebElement webElement) {
-        Assert.assertNotNull(UNEXPECTED_NULL, webElement);
+        assertNotNull(UNEXPECTED_NULL, webElement);
         return this.webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
     }
 
@@ -266,7 +266,7 @@ public abstract class AbstractPageObject {
      * @return the web element when clickable, otherwise TimeoutException.
      */
     public WebElement waitUntilClickable(final WebElement webElement) {
-        Assert.assertNotNull(UNEXPECTED_NULL, webElement);
+        assertNotNull(UNEXPECTED_NULL, webElement);
         return this.webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 

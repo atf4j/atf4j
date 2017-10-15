@@ -28,7 +28,6 @@ import java.util.Date;
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
-import net.atf4j.data.Bank;
 import net.atf4j.data.Business;
 import net.atf4j.data.Card;
 import net.atf4j.data.Consumer;
@@ -302,12 +301,12 @@ public final class DataFactoryTest extends ResultsReporting {
     /**
      * Test create bank.
      */
-    @Test
-    public void testCreateBank() {
-        final Bank bank = DataFactory.createBank();
-        assertNotNull(UNEXPECTED_NULL, bank);
-        this.log.info("{}", bank.toString());
-    }
+    // @Test
+    // public void testCreateBank() {
+    // final Bank bank = DataFactory.createBank();
+    // assertNotNull(UNEXPECTED_NULL, bank);
+    // this.log.info("{}", bank.toString());
+    // }
 
     /**
      * Test create address.

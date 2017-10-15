@@ -19,6 +19,8 @@ package net.atf4j.data.factory;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.io.FileNotFoundException;
+
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -34,13 +36,16 @@ public final class BankDataFactoryTest extends ResultsReporting {
 
     /**
      * Test method for expected usage.
+     * 
+     * @throws FileNotFoundException
      */
     @Test
     @Ignore
-    public void testExpectedUsage() {
-        final String randomThing = BankDataFactory.random();
-        assertNotNull(UNEXPECTED_NULL,randomThing);
-        this.log.info("{}", randomThing);
+    public void testExpectedUsage() throws FileNotFoundException {
+        BankDataFactory instance = BankDataFactory.getInstance();
+        Bank randomBank = instance.random();
+        assertNotNull(UNEXPECTED_NULL, randomBank);
+        this.log.info("{}", randomBank);
     }
 
     /**
@@ -51,26 +56,32 @@ public final class BankDataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() throws Exception {
-        assertNotNull(UNEXPECTED_NULL,new BankDataFactory());
+        BankDataFactory banKDataFactory = new BankDataFactory();
+        assertNotNull(UNEXPECTED_NULL, banKDataFactory);
     }
 
     /**
      * Test method of get singleton instance of PersonDataFactory.
+     * 
+     * @throws FileNotFoundException
      */
     @Test
-    public void testGetInstance() {
+    public void testGetInstance() throws FileNotFoundException {
         final BankDataFactory instance = BankDataFactory.getInstance();
-        assertNotNull(UNEXPECTED_NULL,instance);
+        assertNotNull(UNEXPECTED_NULL, instance);
         this.log.info("{}", instance.toString());
     }
 
     /**
      * Test method for void.
+     * 
+     * @throws FileNotFoundException
      */
     @Test
-    public void testCreate() {
-        final Bank bank = BankDataFactory.create();
-        assertNotNull(UNEXPECTED_NULL,bank);
+    public void testCreate() throws FileNotFoundException {
+        BankDataFactory instance = BankDataFactory.getInstance();
+        final Bank bank = instance.create();
+        assertNotNull(UNEXPECTED_NULL, bank);
         this.log.info("{}", bank.toString());
     }
 

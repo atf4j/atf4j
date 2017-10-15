@@ -17,6 +17,8 @@
 
 package net.atf4j.data.factory;
 
+import java.io.FileNotFoundException;
+
 import net.atf4j.data.Bank;
 
 /**
@@ -24,35 +26,27 @@ import net.atf4j.data.Bank;
  */
 public class BankDataFactory extends AbstractDataFactory {
 
-    private static final String BANK_DATA = "data.txt";
+    private static final String BANK_DATA = "sortcodesData.csv";
     private static BankDataFactory instance = null;
-    private String[] bankData = null;
 
     /**
      * Instantiates a new bank data factory.
+     * 
+     * @throws FileNotFoundException
+     * 
+     * @throws Exception
      */
-    protected BankDataFactory() {
-        super();
-        initialise();
-    }
-
-    /**
-     * Initialise.
-     */
-    protected void initialise() {
-        try {
-            this.bankData = load(BANK_DATA);
-        } catch (final Exception e) {
-            this.log.error(e.getMessage());
-        }
+    protected BankDataFactory() throws FileNotFoundException {
+        super(BANK_DATA);
     }
 
     /**
      * Gets the single instance of BankDataFactory.
      *
      * @return single instance of BankDataFactory
+     * @throws FileNotFoundException
      */
-    public static BankDataFactory getInstance() {
+    public static BankDataFactory getInstance() throws FileNotFoundException {
         if (BankDataFactory.instance == null) {
             BankDataFactory.instance = new BankDataFactory();
         }
@@ -64,17 +58,28 @@ public class BankDataFactory extends AbstractDataFactory {
      *
      * @return the bank
      */
-    public static Bank create() {
-        return new Bank();
+    public Bank create() {
+        Bank bank = Bank.create();
+        return bank;
     }
 
     /**
      * Random.
      *
      * @return the string
+     * @throws FileNotFoundException
      */
-    public static String random() {
-        return null;
+    public Bank random() {
+        Bank bank = new Bank();
+        try {
+            instance = BankDataFactory.getInstance();
+            String randomEntry = instance.randomEntry();
+            String[] bankDetails = randomEntry.split(",");
+            bank.setBankSortCode(bankDetails[0]);
+            bank.setBankName(bankDetails[1]);
+        } catch (FileNotFoundException e) {
+        }
+        return bank;
     }
 
 }

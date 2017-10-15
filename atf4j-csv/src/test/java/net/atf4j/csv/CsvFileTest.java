@@ -19,11 +19,10 @@ package net.atf4j.csv;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
 
 import java.io.FileNotFoundException;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,39 +56,46 @@ public class CsvFileTest {
 
     /**
      * Test constructor with missing file.
+     * 
+     * @throws FileNotFoundException
      *
      * @throws Exception
      *             the exception
      */
     @Test(expected = FileNotFoundException.class)
-    public void testConstructorWithMissingFile() throws Exception {
-        final CsvFile csvFile = new CsvFile(MISSING_CSV);
-        assertNull(csvFile);
+    public void testConstructorWithMissingFile() throws FileNotFoundException {
+        new CsvFile(MISSING_CSV);
+        fail("expected FileNotFoundException");
     }
 
     /**
      * Test read missing file.
+     * 
+     * @throws FileNotFoundException
      *
      * @throws Exception
      *             the exception
      */
     @Test(expected = FileNotFoundException.class)
-    public void testReadMissingFile() throws Exception {
-        final CsvFile csvFile = CsvFile.read(MISSING_CSV);
-        assertNull(csvFile);
+    public void testReadMissingFile() throws FileNotFoundException {
+        CsvFile.read(MISSING_CSV);
+        fail("expected FileNotFoundException");
     }
 
     /**
      * Test load missing file.
+     * 
+     * @throws FileNotFoundException
      *
      * @throws Exception
      *             the exception
      */
     @Test(expected = FileNotFoundException.class)
-    public void testLoadMissingFile() throws Exception {
+    public void testLoadMissingFile() throws FileNotFoundException {
         final CsvFile csvFile = new CsvFile();
         assertNotNull(UNEXPECTED_NULL, csvFile);
         csvFile.load(MISSING_CSV);
+        fail("expected FileNotFoundException");
     }
 
     /**
@@ -101,6 +107,7 @@ public class CsvFileTest {
     @Test
     public void testExpectedUsage() throws Exception {
         final TestData testData = new TestData();
+        assertNotNull(testData);
         this.log.info(testData.toString());
     }
 
@@ -113,7 +120,7 @@ public class CsvFileTest {
     @Test
     public void testConstructorWithDataPresent() throws Exception {
         final CsvFile csvFile = new CsvFile(TEST_DATA_CSV);
-        Assert.assertNotNull(UNEXPECTED_NULL, csvFile);
+        assertNotNull(UNEXPECTED_NULL, csvFile);
         this.log.info(csvFile.debugString());
         this.log.info(csvFile.toString());
     }

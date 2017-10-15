@@ -18,6 +18,7 @@
 package net.atf4j.csv;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -38,11 +39,13 @@ public class CsvFile {
 
     /**
      * Default Constructor instantiates a new empty CsvFile object.
+     * 
+     * @throws FileNotFoundException
      *
      * @throws Exception
      *             Signals that an I/O exception has occurred.
      */
-    public CsvFile() {
+    public CsvFile() throws FileNotFoundException {
         super();
         load();
     }
@@ -52,10 +55,11 @@ public class CsvFile {
      *
      * @param dataFilename
      *            the data filename
+     * @throws FileNotFoundException
      * @throws Exception
      *             the exception
      */
-    public CsvFile(final String dataFilename) {
+    public CsvFile(final String dataFilename) throws FileNotFoundException {
         super();
         load(dataFilename);
     }
@@ -66,20 +70,23 @@ public class CsvFile {
      * @param dataFilename
      *            the data filename
      * @return the csv file
+     * @throws FileNotFoundException
      * @throws Exception
      *             the exception
      */
-    public static CsvFile read(final String dataFilename) throws Exception {
+    public static CsvFile read(final String dataFilename) throws FileNotFoundException {
         return new CsvFile(dataFilename);
     }
 
     /**
      * Load.
+     * 
+     * @throws FileNotFoundException
      *
      * @throws Exception
      *             the exception
      */
-    protected void load() {
+    protected void load() throws FileNotFoundException {
         final String simpleName = this.getClass().getSimpleName();
         final String dataFilename = String.format("%s.csv", simpleName);
         load(dataFilename);
@@ -88,16 +95,20 @@ public class CsvFile {
     /**
      * Load.
      *
-     * @param dataFilename
+     * @param csvFilename
      *            the data filename
+     * @throws FileNotFoundException
      * @throws Exception
      *             the exception
      */
-    public void load(final String dataFilename) {
+    public void load(final String csvFilename) throws FileNotFoundException {
         final ClassLoader classLoader = this.getClass().getClassLoader();
-        final InputStream in = classLoader.getResourceAsStream(dataFilename);
+        final InputStream in = classLoader.getResourceAsStream(csvFilename);
         if (in != null) {
             load(in);
+        } else {
+            String message = String.format("Expected '%s'", csvFilename);
+            throw new FileNotFoundException(message);
         }
     }
 

@@ -17,11 +17,12 @@
 
 package net.atf4j.bdd;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +35,6 @@ import org.slf4j.LoggerFactory;
 public abstract class Behaviour {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
-
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /** The given situation. */
@@ -95,15 +95,18 @@ public abstract class Behaviour {
     public Properties execute(final Properties properties) {
         this.log.info("{}.execute", this.getClass().getSimpleName());
         for (final Given given : this.givenList) {
-            Assert.assertNotNull(UNEXPECTED_NULL, given.execute(properties));
+            Properties execute = given.execute(properties);
+            assertNotNull(UNEXPECTED_NULL, execute);
         }
 
         for (final When when : this.whenList) {
-            Assert.assertNotNull(UNEXPECTED_NULL, when.execute(properties));
+            Properties execute = when.execute(properties);
+            assertNotNull(UNEXPECTED_NULL, execute);
         }
 
         for (final Then then : this.thenList) {
-            Assert.assertNotNull(UNEXPECTED_NULL, then.execute(properties));
+            Properties execute = then.execute(properties);
+            assertNotNull(UNEXPECTED_NULL, execute);
         }
 
         return properties;

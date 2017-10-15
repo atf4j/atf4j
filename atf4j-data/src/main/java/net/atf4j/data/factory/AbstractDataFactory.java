@@ -21,6 +21,7 @@ import static org.junit.Assert.assertNotNull;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -41,15 +42,50 @@ public abstract class AbstractDataFactory {
     protected static Random rnd = new Random(System.currentTimeMillis());
 
     /**
+     * Instantiates a new abstract data factory.
+     */
+    protected AbstractDataFactory() {
+        super();
+    }
+
+    /**
+     * Instantiates a new abstract data factory.
+     *
+     * @param dataFilename
+     *            the data filename
+     * @throws FileNotFoundException
+     *             the file not found exception
+     */
+    protected AbstractDataFactory(final String dataFilename) throws FileNotFoundException {
+        super();
+        load(dataFilename);
+    }
+
+    /**
+     * Load.
+     * 
+     * @throws FileNotFoundException
+     *
+     * @throws Exception
+     *             the exception
+     */
+    protected void load() throws FileNotFoundException {
+        final String simpleName = this.getClass().getSimpleName();
+        final String dataFilename = String.format("%s.csv", simpleName);
+        load(dataFilename);
+    }
+
+    /**
      * Load data file.
      *
      * @param dataFilename
      *            the data filename
      * @return the string[]
+     * @throws FileNotFoundException
      * @throws Exception
      *             the exception
      */
-    public String[] load(final String dataFilename) throws Exception {
+    public String[] load(final String dataFilename) throws FileNotFoundException {
         assertNotNull(UNEXPECTED_NULL, dataFilename);
         final ClassLoader classLoader = this.getClass().getClassLoader();
         final InputStream inputStream = classLoader.getResourceAsStream(dataFilename);
@@ -70,7 +106,7 @@ public abstract class AbstractDataFactory {
      * @throws Exception
      *             the exception
      */
-    public String[] load(final InputStream inputStream) throws Exception {
+    public String[] load(final InputStream inputStream) {
         assertNotNull(UNEXPECTED_NULL, inputStream);
         final InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         final BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -81,10 +117,22 @@ public abstract class AbstractDataFactory {
                 lines.add(line);
                 this.log.trace(line);
             }
-        } finally {
             bufferedReader.close();
+        } catch (IOException e) {
+            log.error("{}", e.getLocalizedMessage());
         }
         return lines.toArray(new String[lines.size()]);
+    }
+
+    /**
+     * Random entry.
+     *
+     * @return the string
+     */
+    protected String randomEntry() {
+        final int bounds = this.lines.length;
+        final int randomIndex = rnd.nextInt(bounds);
+        return this.lines[randomIndex];
     }
 
     /**
@@ -108,7 +156,7 @@ public abstract class AbstractDataFactory {
      * @return the string
      */
     public String dataForTag(final String tag) {
-        if (tag.startsWith("@")) {
+        if (tag.charAt(0) == '@') {
             for (final String line : this.lines) {
                 final String[] fields = line.split(",");
                 if (fields[0].contains(tag)) {
