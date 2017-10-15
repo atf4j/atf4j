@@ -20,6 +20,6 @@ package net.atf4j.bdd;
 /**
  * Expectation.
  */
-public class Expectation extends AbstractExpectation {
+public final class Expectation extends AbstractExpectation {
 
 }

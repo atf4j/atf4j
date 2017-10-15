@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Scenario Runner class.
  */
-public class ScenarioRunner {
+public final class ScenarioRunner {
 
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
     private AbstractScenario targetScenario;

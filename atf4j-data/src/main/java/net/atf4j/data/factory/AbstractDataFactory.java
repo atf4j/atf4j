@@ -87,8 +87,7 @@ public abstract class AbstractDataFactory {
      */
     public String[] load(final String dataFilename) throws FileNotFoundException {
         assertNotNull(UNEXPECTED_NULL, dataFilename);
-        final ClassLoader classLoader = this.getClass().getClassLoader();
-        final InputStream inputStream = classLoader.getResourceAsStream(dataFilename);
+        final InputStream inputStream = resourceAsStream(dataFilename);
         if (inputStream != null) {
             this.lines = load(inputStream);
             return this.lines;
@@ -96,6 +95,11 @@ public abstract class AbstractDataFactory {
             throw new FileNotFoundException(dataFilename);
         }
     }
+    
+    private InputStream resourceAsStream(final String resourceFilename) {
+        final ClassLoader classLoader = this.getClass().getClassLoader();
+        return classLoader.getResourceAsStream(resourceFilename);
+    }    
 
     /**
      * Load.

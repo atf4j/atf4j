@@ -87,9 +87,12 @@ public class CsvFile {
      *             the exception
      */
     protected void load() throws FileNotFoundException {
+        load(configFilename());
+    }
+
+    private String configFilename() {
         final String simpleName = this.getClass().getSimpleName();
-        final String dataFilename = String.format("%s.csv", simpleName);
-        load(dataFilename);
+        return String.format("%s.csv", simpleName);
     }
 
     /**
@@ -102,10 +105,9 @@ public class CsvFile {
      *             the exception
      */
     public void load(final String csvFilename) throws FileNotFoundException {
-        final ClassLoader classLoader = this.getClass().getClassLoader();
-        final InputStream in = classLoader.getResourceAsStream(csvFilename);
-        if (in != null) {
-            load(in);
+        InputStream resourceAsStream = resourceAsStream(csvFilename);
+        if (resourceAsStream != null) {
+            load(resourceAsStream);
         } else {
             String message = String.format("Expected '%s'", csvFilename);
             throw new FileNotFoundException(message);
@@ -139,6 +141,11 @@ public class CsvFile {
         } catch (IOException e) {
             log.error("{}", e.getLocalizedMessage());
         }
+    }
+
+    private InputStream resourceAsStream(final String resourceFilename) {
+        final ClassLoader classLoader = this.getClass().getClassLoader();
+        return classLoader.getResourceAsStream(resourceFilename);
     }
 
     /**

@@ -21,6 +21,7 @@ import static org.junit.Assert.assertNotNull;
 
 import java.io.File;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Paths;
 
@@ -32,25 +33,26 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class AbstractWalker {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
-    private String basePath;
+    private String basePath = ".";
 
     /**
      * Instantiates a new abstract walker.
      */
     public AbstractWalker() {
+        super();
         this.log.info("AbstractWalker()");
     }
 
     /**
      * Instantiates a new abstract walker.
      *
-     * @param basePath
-     *            the path
-     * @throws Exception
-     *             the exception
+     * @param basePath the path
+     * @throws Exception the exception
      */
-    public AbstractWalker(final String basePath) throws Exception {
+    public AbstractWalker(final String basePath) {
+        super();
         this.log.info("AbstractWalker({})", basePath);
         setBasePath(basePath);
     }
@@ -58,8 +60,7 @@ public abstract class AbstractWalker {
     /**
      * Sets the base path.
      *
-     * @param basePath
-     *            the base path
+     * @param basePath the base path
      * @return the abstract walker
      */
     public AbstractWalker setBasePath(final String basePath) {
@@ -68,70 +69,92 @@ public abstract class AbstractWalker {
     }
 
     /**
-     * Walk.
+     * Walk the folders under the base path.
      *
      * @return the abstract walker
-     * @throws Exception
-     *             the exception
      */
-    protected AbstractWalker walk() throws Exception {
+    protected AbstractWalker walk() {
         return walk(this.basePath);
     }
 
     /**
-     * Walk.
+     * Walk the folders under the path.
      *
-     * @param path
-     *            the path
+     * @param path the path
      * @return the abstract walker
-     * @throws Exception
-     *             the exception
      */
-    protected AbstractWalker walk(final String path) throws Exception {
-        assertNotNull("unexpected null", path);
+    protected AbstractWalker walk(final String path) {
+        assertNotNull(UNEXPECTED_NULL, path);
         this.log.trace("walk({})", path);
         final URL resource = this.getClass().getResource(path);
-        this.log.trace("url:{}", resource);
-        if (resource != null) {
-            final URI uri = resource.toURI();
-            if (uri != null) {
-                final File root = Paths.get(uri).toFile();
-                if (root != null) {
-                    final File[] list = root.listFiles();
-                    if (list != null) {
-                        this.log.trace("length:{}", list.length);
-                        for (final File file : list) {
-                            if (file.isDirectory()) {
-                                walk(file.getAbsolutePath());
-                            } else {
-                                processFile(file);
-                            }
-                        }
-                    } else {
-                        this.log.trace("listFiles is null");
-                    }
+        walk(resource);
+        return this;
+    }
+
+    private void walk(final URL url) {
+        assertNotNull(UNEXPECTED_NULL, url);
+        this.log.trace("url:{}", url);
+        if (url != null) {
+            URI uri;
+            try {
+                uri = url.toURI();
+                walk(uri);
+            } catch (URISyntaxException e) {
+                log.error("{}", e.getLocalizedMessage());
+            }
+        }
+    }
+
+    private void walk(URI uri) {
+        if (uri != null) {
+            final File root = Paths.get(uri).toFile();
+            walk(root);
+        } else {
+            this.log.trace("url is null");
+        }
+    }
+
+    private void walk(final File root) {
+        if (root != null) {
+            final File[] list = root.listFiles();
+            walk(list);
+        } else {
+            this.log.trace("root is null");
+        }
+    }
+
+    private void walk(final File[] list) {
+        if (list != null) {
+            this.log.trace("length:{}", list.length);
+            for (final File file : list) {
+                if (file.isDirectory()) {
+                    walk(file.getAbsolutePath());
                 } else {
-                    this.log.trace("root is null");
+                    processFile(file);
                 }
-            } else {
-                this.log.trace("url is null");
             }
         } else {
-            assertNotNull("No messages found for {}", resource);
+            this.log.trace("listFiles is null");
         }
-        return this;
     }
 
     /**
      * Process file.
      *
-     * @param file
-     *            the file
-     * @throws Exception
-     *             the exception
+     * @param file the file
      */
-    private void processFile(final File file) throws Exception {
+    private void processFile(final File file) {
         this.log.info("processFile({})", file.getName());
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return String.format("AbstractWalker [basePath=%s]", basePath);
     }
 
 }

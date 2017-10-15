@@ -20,6 +20,6 @@ package net.atf4j.bdd;
 /**
  * BDD Story Narrative.
  */
-public class Story extends AbstractStory {
+public final class Story extends AbstractStory {
 
 }

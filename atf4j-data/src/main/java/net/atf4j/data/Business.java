@@ -36,6 +36,10 @@ public class Business extends Name {
         return new Business();
     }
 
+    public static Business random() {
+        return null;
+    }
+
     /**
      * Instantiates a new business.
      */
@@ -46,8 +50,7 @@ public class Business extends Name {
     /**
      * Instantiates a new business.
      *
-     * @param name
-     *            the string
+     * @param name the string
      */
     public Business(final String name) {
         super(name);
@@ -56,10 +59,8 @@ public class Business extends Name {
     /**
      * Instantiates a new business.
      *
-     * @param name
-     *            the name
-     * @param address
-     *            the address
+     * @param name the name
+     * @param address the address
      */
     public Business(final String name, final PostalAddress address) {
         super(name);
@@ -69,8 +70,7 @@ public class Business extends Name {
     /**
      * Sets the address.
      *
-     * @param address
-     *            the address
+     * @param address the address
      * @return the business
      */
     public Business setAddress(final PostalAddress address) {
@@ -82,8 +82,7 @@ public class Business extends Name {
     /**
      * Sets the address.
      *
-     * @param address
-     *            the address
+     * @param address the address
      * @return the business
      */
     public Business setAddress(final String[] address) {
@@ -95,10 +94,8 @@ public class Business extends Name {
     /**
      * Sets the address row.
      *
-     * @param lineNo
-     *            the line no
-     * @param addressLine
-     *            the address line
+     * @param lineNo the line no
+     * @param addressLine the address line
      */
     public void setAddressRow(final int lineNo, final String addressLine) {
         assertNotNull(UNEXPECTED_NULL, lineNo);
@@ -109,8 +106,7 @@ public class Business extends Name {
     /**
      * Sets the postcode.
      *
-     * @param postcode
-     *            the postcode
+     * @param postcode the postcode
      * @return the postal address
      */
     public PostalAddress setPostcode(final Postcode postcode) {

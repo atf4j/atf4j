@@ -20,6 +20,6 @@ package net.atf4j.bdd;
 /**
  * Event.
  */
-public class Event extends AbstractEvent {
+public final class Event extends AbstractEvent {
 
 }

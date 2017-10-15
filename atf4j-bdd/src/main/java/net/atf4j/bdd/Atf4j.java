@@ -37,7 +37,6 @@ public @interface Atf4j {
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
     public @interface Behaviour {
-
         /**
          * Value.
          *
@@ -53,7 +52,6 @@ public @interface Atf4j {
     @Target(ElementType.TYPE)
     @Retention(RetentionPolicy.RUNTIME)
     public @interface Scenario {
-
         /**
          * Value.
          *
@@ -69,7 +67,6 @@ public @interface Atf4j {
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
     public @interface Given {
-
         /**
          * Value.
          *
@@ -85,7 +82,6 @@ public @interface Atf4j {
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
     public @interface When {
-
         /**
          * Value.
          *
@@ -101,7 +97,6 @@ public @interface Atf4j {
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
     public @interface Then {
-
         /**
          * Value.
          *

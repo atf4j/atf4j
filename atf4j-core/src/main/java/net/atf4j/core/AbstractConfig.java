@@ -45,6 +45,7 @@ public abstract class AbstractConfig implements ConfigurationInterface {
      *             the missing exception
      */
     public AbstractConfig(final String propertyFilename) throws ConfigurationNotLoaded {
+        super();
         load(propertyFilename);
     }
 
@@ -55,19 +56,15 @@ public abstract class AbstractConfig implements ConfigurationInterface {
      */
     protected ConfigurationInterface load() {
         try {
-            load(configFilename());
+            load(propertiesFilename());
         } catch (final ConfigurationNotLoaded e) {
             this.log.error("Using default values; {}", e.getMessage());
         }
         return this;
     }
 
-    private String configFilename() {
+    private String propertiesFilename() {
         final String simpleName = this.getClass().getSimpleName();
-        return propertyFilename(simpleName);
-    }
-
-    private String propertyFilename(final String simpleName) {
         return String.format("/%s.properties", simpleName);
     }
 
@@ -82,13 +79,17 @@ public abstract class AbstractConfig implements ConfigurationInterface {
      */
     protected ConfigurationInterface load(final String propertyFilename) throws ConfigurationNotLoaded {
         try {
-            final InputStream resourceAsStream = this.getClass().getResourceAsStream(propertyFilename);
-            this.properties.load(resourceAsStream);
+            this.properties.load(resourceAsStream(propertyFilename));
             this.properties.setProperty("propertiesFilename", propertyFilename);
         } catch (final Exception e) {
             throw new ConfigurationNotLoaded(propertyFilename);
         }
         return this;
+    }
+
+    private InputStream resourceAsStream(final String resourceFilename) {
+        final ClassLoader classLoader = this.getClass().getClassLoader();
+        return classLoader.getResourceAsStream(resourceFilename);
     }
 
     /*

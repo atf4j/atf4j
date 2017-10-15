@@ -32,7 +32,7 @@ public class BankSortCode {
     private static final Pattern pattern = Pattern.compile("^(\\d){2}-(\\d){2}-(\\d){2}$");
 
     private final String bankName = "";
-    private String sortcode;
+    private String sortcode = "00:00:00";
 
     /**
      * Create new instance of create.
@@ -41,6 +41,15 @@ public class BankSortCode {
      */
     public static BankSortCode create() {
         return new BankSortCode();
+    }
+
+    /**
+     * Random.
+     *
+     * @return the bank sort code
+     */
+    public static BankSortCode random() {
+        return null;
     }
 
     /**
@@ -54,8 +63,7 @@ public class BankSortCode {
     /**
      * Instantiates a new bank sort code.
      *
-     * @param bankSortCode
-     *            the bank sort code
+     * @param bankSortCode the bank sort code
      */
     public BankSortCode(final String bankSortCode) {
         super();
@@ -65,8 +73,7 @@ public class BankSortCode {
     /**
      * Sets the bank sort code.
      *
-     * @param bankSortCode
-     *            the bank sort code
+     * @param bankSortCode the bank sort code
      * @return the bank sort code
      */
     public BankSortCode setBankSortCode(final String bankSortCode) {
@@ -87,8 +94,7 @@ public class BankSortCode {
     /**
      * Verify the sort code format.
      *
-     * @param sortcode
-     *            the sortcode
+     * @param sortcode the sortcode
      * @return true, if successful, otherwise false.
      */
     public static boolean verify(final String sortcode) {

@@ -35,8 +35,27 @@ public final class BankTest extends ResultsReporting {
      * Test method for Bank.
      */
     @Test
+    public void testCreate() {
+        final Bank bank = Bank.create();
+        assertNotNull(UNEXPECTED_NULL, bank);
+        this.log.info("{}", bank);
+    }
+
+    @Test
+    public void testRandom() {
+        final Bank bank = Bank.random();
+        assertNotNull(UNEXPECTED_NULL, bank);
+        this.log.info("{}", bank);
+    }
+
+    /**
+     * Test method for Bank.
+     */
+    @Test
     public void testDefaultConstructor() {
-        assertNotNull(UNEXPECTED_NULL,new Bank());
+        Bank bank = new Bank();
+        assertNotNull(UNEXPECTED_NULL, bank);
+        log.info("{}", bank);
     }
 
     /**
@@ -45,17 +64,7 @@ public final class BankTest extends ResultsReporting {
     @Test
     public void testBank() {
         final Bank bank = new Bank("");
-        assertNotNull(UNEXPECTED_NULL,bank);
-        this.log.info("{}", bank);
-    }
-
-    /**
-     * Test method for Bank.
-     */
-    @Test
-    public void testCreate() {
-        final Bank bank = Bank.create();
-        assertNotNull(UNEXPECTED_NULL,bank);
+        assertNotNull(UNEXPECTED_NULL, bank);
         this.log.info("{}", bank);
     }
 
@@ -76,7 +85,7 @@ public final class BankTest extends ResultsReporting {
     @Test
     public void testDebugString() {
         final String string = new Bank().debugString();
-        assertNotNull(UNEXPECTED_NULL,string);
+        assertNotNull(UNEXPECTED_NULL, string);
         this.log.info("{}", string);
     }
 
@@ -86,7 +95,7 @@ public final class BankTest extends ResultsReporting {
     @Test
     public void testToString() {
         final String string = new Bank().toString();
-        assertNotNull(UNEXPECTED_NULL,string);
+        assertNotNull(UNEXPECTED_NULL, string);
         this.log.info("{}", string);
     }
 

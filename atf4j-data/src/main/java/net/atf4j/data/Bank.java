@@ -42,6 +42,10 @@ public class Bank extends Business {
         return bank;
     }
 
+    public static Bank random() {
+        return null;
+    }
+
     /**
      * Instantiates a new bank.
      */
@@ -53,8 +57,7 @@ public class Bank extends Business {
     /**
      * Instantiates a new bank.
      *
-     * @param bankName
-     *            the bank name
+     * @param bankName the bank name
      */
     public Bank(final String bankName) {
         super();
@@ -65,8 +68,7 @@ public class Bank extends Business {
     /**
      * Sets the bank sort code.
      *
-     * @param bankSortCode
-     *            the bank sort code
+     * @param bankSortCode the bank sort code
      * @return the bank
      */
     public Bank setBankSortCode(final String bankSortCode) {
@@ -78,8 +80,7 @@ public class Bank extends Business {
     /**
      * Sets the bank sort code.
      *
-     * @param bankSortCode
-     *            the bankSortCode to set
+     * @param bankSortCode the bankSortCode to set
      * @return the bank
      */
     public Bank setBankSortCode(final BankSortCode bankSortCode) {
@@ -91,8 +92,7 @@ public class Bank extends Business {
     /**
      * Sets the bank name.
      *
-     * @param bankName
-     *            the bank name
+     * @param bankName the bank name
      * @return the bank
      */
     public Bank setBankName(final String bankName) {
@@ -104,8 +104,7 @@ public class Bank extends Business {
     /**
      * Sets the sort code.
      *
-     * @param sortCode
-     *            the sort code
+     * @param sortCode the sort code
      * @return the bank
      */
     public Bank setSortCode(final String sortCode) {
@@ -117,8 +116,7 @@ public class Bank extends Business {
     /**
      * Sets the iban.
      *
-     * @param iban
-     *            the iban
+     * @param iban the iban
      * @return the bank
      */
     public Bank setIban(final String iban) {

@@ -1,5 +1,5 @@
 /**
- * Package provides code for atf4j bdd.
+ * Package provides code for atf4j behaviour driven development.
  * <p>
  * This file is part of Automated Testing Framework for Java (atf4j).
  *

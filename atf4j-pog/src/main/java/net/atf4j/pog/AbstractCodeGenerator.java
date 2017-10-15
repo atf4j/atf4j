@@ -346,12 +346,17 @@ public abstract class AbstractCodeGenerator {
      */
     private InputStreamReader templateReader(final String templateFilename) throws TemplateNotLoaded {
         this.log.info(templateFilename);
-        final InputStream resourceAsStream = this.getClass().getResourceAsStream(templateFilename);
+        final InputStream resourceAsStream = resourceAsStream(templateFilename);
         if (resourceAsStream == null) {
             throw new TemplateNotLoaded(templateFilename);
         } else {
             return new InputStreamReader(resourceAsStream);
         }
+    }
+
+    private InputStream resourceAsStream(final String resourceFilename) {
+        final ClassLoader classLoader = this.getClass().getClassLoader();
+        return classLoader.getResourceAsStream(resourceFilename);
     }
 
     /**
