@@ -36,7 +36,8 @@ public class IntervalTest extends ResultsReporting {
      */
     @Test
     public void testInterval() {
-        assertEquals(DEFAULT_INTERVAL, new Interval(DEFAULT_INTERVAL).asMilliSeconds(), DELTA);
+        long asMilliSeconds = new Interval(DEFAULT_INTERVAL).asMilliSeconds();
+        assertEquals(DEFAULT_INTERVAL, asMilliSeconds, DELTA);
     }
 
     /**
@@ -44,7 +45,8 @@ public class IntervalTest extends ResultsReporting {
      */
     @Test
     public void testInMilliSeconds() {
-        assertEquals(DEFAULT_INTERVAL, Interval.inMilliSeconds(DEFAULT_INTERVAL).asMilliSeconds(), DELTA);
+        long asMilliSeconds = Interval.inMilliSeconds(DEFAULT_INTERVAL).asMilliSeconds();
+        assertEquals(DEFAULT_INTERVAL, asMilliSeconds, DELTA);
     }
 
     /**
@@ -52,7 +54,8 @@ public class IntervalTest extends ResultsReporting {
      */
     @Test
     public void testInSeconds() {
-        assertEquals(DEFAULT_INTERVAL * 1, Interval.inSeconds(1).asMilliSeconds(), DELTA);
+        long asMilliSeconds = Interval.inSeconds(1).asMilliSeconds();
+        assertEquals(DEFAULT_INTERVAL * 1, asMilliSeconds, DELTA);
     }
 
     /**
@@ -60,7 +63,8 @@ public class IntervalTest extends ResultsReporting {
      */
     @Test
     public void testInMinutes() {
-        assertEquals(DEFAULT_INTERVAL * 60, Interval.inMinutes(1).asMilliSeconds(), DELTA);
+        long asMilliSeconds = Interval.inMinutes(1).asMilliSeconds();
+        assertEquals(DEFAULT_INTERVAL * 60, asMilliSeconds, DELTA);
     }
 
     /**
@@ -68,7 +72,8 @@ public class IntervalTest extends ResultsReporting {
      */
     @Test
     public void testInHours() {
-        assertEquals(DEFAULT_INTERVAL * 60 * 60, Interval.inHours(1).asMilliSeconds(), DELTA);
+        long asMilliSeconds = Interval.inHours(1).asMilliSeconds();
+        assertEquals(DEFAULT_INTERVAL * 60 * 60, asMilliSeconds, DELTA);
     }
 
     /**
@@ -76,7 +81,8 @@ public class IntervalTest extends ResultsReporting {
      */
     @Test
     public void testInDays() {
-        assertEquals(DEFAULT_INTERVAL * 60 * 60 * 24, Interval.inDays(1).asMilliSeconds(), DELTA);
+        long asMilliSeconds = Interval.inDays(1).asMilliSeconds();
+        assertEquals(DEFAULT_INTERVAL * 60 * 60 * 24, asMilliSeconds, DELTA);
     }
 
     /**
@@ -84,7 +90,8 @@ public class IntervalTest extends ResultsReporting {
      */
     @Test
     public void testAsMilliSeconds() {
-        assertEquals(DEFAULT_INTERVAL, new Interval(DEFAULT_INTERVAL).asMilliSeconds(), DELTA);
+        long asMilliSeconds = new Interval(DEFAULT_INTERVAL).asMilliSeconds();
+        assertEquals(DEFAULT_INTERVAL, asMilliSeconds, DELTA);
     }
 
     /**
@@ -92,7 +99,8 @@ public class IntervalTest extends ResultsReporting {
      */
     @Test
     public void testAsLong() {
-        assertEquals(DEFAULT_INTERVAL, new Interval(DEFAULT_INTERVAL).asLong(), DELTA);
+        long asLong = new Interval(DEFAULT_INTERVAL).asLong();
+        assertEquals(DEFAULT_INTERVAL, asLong, DELTA);
     }
 
 }

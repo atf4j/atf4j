@@ -37,7 +37,9 @@ public class IntervalTest extends ResultsReporting {
      */
     @Test
     public void testInterval() {
-        this.log.info(new Interval().toString());
+        Interval interval = new Interval();
+        assertNotNull(interval);
+        this.log.info("{}", interval);
     }
 
     /**
@@ -48,6 +50,7 @@ public class IntervalTest extends ResultsReporting {
         final long useTimePeriod = 1000;
         Interval interval = new Interval(useTimePeriod);
         assertNotNull(UNEXPECTED_NULL, interval);
+        this.log.info("{}", interval);
     }
 
     /**
@@ -58,6 +61,7 @@ public class IntervalTest extends ResultsReporting {
         final long timePeriod = 1000;
         final Interval inMilliSeconds = Interval.inMilliSeconds(timePeriod);
         assertNotNull(UNEXPECTED_NULL, inMilliSeconds);
+        this.log.info("{}", inMilliSeconds);
     }
 
     /**
@@ -68,6 +72,7 @@ public class IntervalTest extends ResultsReporting {
         final long timePeriod = 1;
         final Interval inSeconds = Interval.inSeconds(timePeriod);
         assertNotNull(UNEXPECTED_NULL, inSeconds);
+        this.log.info("{}", inSeconds);
     }
 
     /**
@@ -78,6 +83,7 @@ public class IntervalTest extends ResultsReporting {
         final long timePeriod = 1;
         final Interval inMinutes = Interval.inMinutes(timePeriod);
         assertNotNull(UNEXPECTED_NULL, inMinutes);
+        this.log.info("{}", inMinutes);
     }
 
     /**
@@ -88,6 +94,7 @@ public class IntervalTest extends ResultsReporting {
         final long timePeriod = 1;
         final Interval inHours = Interval.inHours(timePeriod);
         assertNotNull(UNEXPECTED_NULL, inHours);
+        this.log.info("{}", inHours);
     }
 
     /**
@@ -98,6 +105,7 @@ public class IntervalTest extends ResultsReporting {
         final long timePeriod = 1;
         final Interval inDays = Interval.inDays(timePeriod);
         assertNotNull(UNEXPECTED_NULL, inDays);
+        this.log.info("{}", inDays);
     }
 
     /**
@@ -109,6 +117,7 @@ public class IntervalTest extends ResultsReporting {
         assertNotNull(UNEXPECTED_NULL, interval);
         long asLong = interval.asLong();
         assertEquals(0, asLong);
+        this.log.info("{}", asLong);
     }
 
     /**
@@ -120,6 +129,7 @@ public class IntervalTest extends ResultsReporting {
         assertNotNull(UNEXPECTED_NULL, interval);
         long asMilliSeconds = interval.asMilliSeconds();
         assertEquals(0, asMilliSeconds);
+        this.log.info("{}", asMilliSeconds);
     }
 
     /**
@@ -131,6 +141,7 @@ public class IntervalTest extends ResultsReporting {
         assertNotNull(UNEXPECTED_NULL, interval);
         long asSeconds = interval.asSeconds();
         assertEquals(0, asSeconds);
+        this.log.info("{}", asSeconds);
     }
 
     /**
@@ -142,6 +153,7 @@ public class IntervalTest extends ResultsReporting {
         assertNotNull(UNEXPECTED_NULL, interval);
         long asMinutes = interval.asMinutes();
         assertEquals(0, asMinutes);
+        this.log.info("{}", asMinutes);
     }
 
     /**
@@ -153,6 +165,7 @@ public class IntervalTest extends ResultsReporting {
         assertNotNull(UNEXPECTED_NULL, interval);
         long asHours = interval.asHours();
         assertEquals(0, asHours);
+        this.log.info("{}", asHours);
     }
 
     /**
@@ -164,6 +177,7 @@ public class IntervalTest extends ResultsReporting {
         assertNotNull(UNEXPECTED_NULL, interval);
         long asDays = interval.asDays();
         assertEquals(0, asDays);
+        this.log.info("{}", asDays);
     }
 
     /**
@@ -173,8 +187,7 @@ public class IntervalTest extends ResultsReporting {
     public void testIntervalToString() {
         Interval interval = new Interval();
         assertNotNull(UNEXPECTED_NULL, interval);
-        String string = interval.toString();
-        this.log.info(string);
+        this.log.info("{}", interval);
     }
 
 }
