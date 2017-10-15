@@ -24,31 +24,34 @@ import java.util.Calendar;
  */
 public class Person {
 
-    private String title;
+    private Title title;
     private String forename;
     private String middlename;
     private String surname;
     private Calendar dob;
     private PostalAddress postalAddress;
     private String emailAddress;
-    private String Gender;
+    private Gender gender;
 
     /**
      * The Gender Enum.
      */
     public static enum Gender {
-        MALE("Male"), FEMALE("Male"), UNKNOWN("");
+        MALE("Male"), FEMALE("Male"), UNKNOWN("Unknown");
 
         private final String genderString;
 
         /**
          * Instantiates a new gender.
          *
-         * @param asText
-         *            the as text
+         * @param asText the as text
          */
         private Gender(final String asText) {
             this.genderString = asText;
+        }
+
+        public static Gender fromString(String gender) {
+            return null;
         }
 
         /*
@@ -60,6 +63,7 @@ public class Person {
         public String toString() {
             return this.genderString;
         }
+
     };
 
     /**
@@ -74,11 +78,14 @@ public class Person {
         /**
          * Instantiates a new title.
          *
-         * @param asText
-         *            the as text
+         * @param asText the as text
          */
         private Title(final String asText) {
             this.titleString = asText;
+        }
+
+        public static Title fromString(String title) {
+            return null;
         }
 
         /*
@@ -102,12 +109,9 @@ public class Person {
     /**
      * Person.
      *
-     * @param forename
-     *            the forename
-     * @param middlename
-     *            the middlename
-     * @param surname
-     *            the surname
+     * @param forename the forename
+     * @param middlename the middlename
+     * @param surname the surname
      */
     public Person(final String forename, final String middlename, final String surname) {
         super();
@@ -119,11 +123,15 @@ public class Person {
     /**
      * Title.
      *
-     * @param title
-     *            the title
+     * @param title the title
      * @return the person
      */
     public Person title(final String title) {
+        this.title = Title.fromString(title);
+        return this;
+    }
+
+    public Person title(final Title title) {
         this.title = title;
         return this;
     }
@@ -131,8 +139,7 @@ public class Person {
     /**
      * Forename.
      *
-     * @param forename
-     *            the forename
+     * @param forename the forename
      * @return the person
      */
     public Person forename(final String forename) {
@@ -143,8 +150,7 @@ public class Person {
     /**
      * Middlename.
      *
-     * @param middlename
-     *            the middlename
+     * @param middlename the middlename
      * @return the person
      */
     public Person middlename(final String middlename) {
@@ -155,8 +161,7 @@ public class Person {
     /**
      * Surname.
      *
-     * @param surname
-     *            the surname
+     * @param surname the surname
      * @return the person
      */
     public Person surname(final String surname) {
@@ -167,8 +172,7 @@ public class Person {
     /**
      * Date of birth.
      *
-     * @param dob
-     *            the dob
+     * @param dob the dob
      * @return the person
      */
     public Person dateOfBirth(final Calendar dob) {
@@ -179,8 +183,7 @@ public class Person {
     /**
      * Sets the postal address.
      *
-     * @param postalAddress
-     *            the postal address
+     * @param postalAddress the postal address
      * @return the person
      */
     public Person postalAddress(final PostalAddress postalAddress) {
@@ -191,8 +194,7 @@ public class Person {
     /**
      * Sets the email address.
      *
-     * @param emailAddress
-     *            the new email address
+     * @param emailAddress the new email address
      * @return the person
      */
     public Person emailAddress(final String emailAddress) {
@@ -203,12 +205,16 @@ public class Person {
     /**
      * Gender.
      *
-     * @param gender
-     *            the gender
+     * @param gender the gender
      * @return the person
      */
     public Person gender(final String gender) {
-        this.Gender = gender;
+        this.gender = Gender.fromString(gender);
+        return this;
+    }
+
+    public Person gender(final Gender gender) {
+        this.gender = gender;
         return this;
     }
 
@@ -218,7 +224,7 @@ public class Person {
      * @return the title
      */
     public String title() {
-        return this.title;
+        return this.title.toString();
     }
 
     /**
@@ -298,8 +304,8 @@ public class Person {
      *
      * @return the string
      */
-    public String gender() {
-        return this.Gender;
+    public Gender gender() {
+        return this.gender;
     }
 
     /*

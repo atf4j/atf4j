@@ -87,7 +87,7 @@ public class Business extends Name {
      */
     public Business setAddress(final String[] address) {
         assertNotNull(UNEXPECTED_NULL, address);
-        this.address.setAddress(address);
+        this.address.setAddressLines(address);
         return this;
     }
 

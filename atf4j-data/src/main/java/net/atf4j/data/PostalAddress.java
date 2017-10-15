@@ -39,47 +39,42 @@ public class PostalAddress {
     /**
      * Instantiates a new postal address.
      *
-     * @param address
-     *            the address
+     * @param address the address
      */
     public PostalAddress(final String address) {
         super();
-        this.addressLines = address.split(",");
+        setAddressLines(address.split(","));
     }
 
     /**
      * Instantiates a new address.
      *
-     * @param address
-     *            the address
+     * @param address the address
      */
     public PostalAddress(final String[] address) {
         super();
-        setAddress(address);
+        setAddressLines(address);
     }
 
     /**
      * Instantiates a new address.
      *
-     * @param address
-     *            the address
-     * @param postcode
-     *            the postcode
+     * @param address the address
+     * @param postcode the postcode
      */
     public PostalAddress(final String[] address, final Postcode postcode) {
         super();
-        setAddress(address);
+        setAddressLines(address);
         setPostcode(postcode);
     }
 
     /**
      * Sets the address.
      *
-     * @param address
-     *            the new address
+     * @param address the new address
      * @return the postal address
      */
-    public PostalAddress setAddress(final String[] address) {
+    public PostalAddress setAddressLines(final String[] address) {
         this.addressLines = Arrays.copyOf(address, address.length);
         return this;
     }
@@ -87,10 +82,8 @@ public class PostalAddress {
     /**
      * Sets the address row.
      *
-     * @param row
-     *            the row
-     * @param line
-     *            the line
+     * @param row the row
+     * @param line the line
      */
     public void setAddressRow(final int row, final String line) {
         assertTrue(row > 0);
@@ -101,8 +94,7 @@ public class PostalAddress {
     /**
      * Sets the postcode.
      *
-     * @param postcode
-     *            the new postcode
+     * @param postcode the new postcode
      * @return the postal address
      */
     public PostalAddress setPostcode(final Postcode postcode) {
