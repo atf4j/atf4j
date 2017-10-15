@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data.factory;
 
 import java.text.SimpleDateFormat;
@@ -38,9 +39,6 @@ public class DataFactory {
     public static final String ISO_DATE = "yyyy-MM-dd";
     public static final String ISO_TIME = "HH:mm'Z'";
     public static final String UK_DATE = "dd:MM-yyyy";
-
-    /** The Constant simpleDateFormat. */
-    private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(ISO_DATE_TIME);
 
     private static Random random = new Random(System.currentTimeMillis());
 
@@ -69,7 +67,7 @@ public class DataFactory {
     }
 
     /**
-     * Random char.
+     * Random digit.
      *
      * @return the char
      */
@@ -111,7 +109,7 @@ public class DataFactory {
      */
     public static String today(final String format) {
         final Calendar today = today();
-        return simpleDateFormat.format(today);
+        return format(today);
     }
 
     /**
@@ -128,7 +126,7 @@ public class DataFactory {
     }
 
     /**
-     * Dob over 18.
+     * DOB over 18.
      *
      * @param format
      *            the format
@@ -136,7 +134,7 @@ public class DataFactory {
      */
     public static String dobOver18(final String format) {
         final Calendar dobOver18 = dobOver18();
-        return simpleDateFormat.format(dobOver18);
+        return format(dobOver18);
     }
 
     /**
@@ -153,7 +151,7 @@ public class DataFactory {
     }
 
     /**
-     * Dob under 18.
+     * DOB under 18.
      *
      * @param format
      *            the format
@@ -161,11 +159,11 @@ public class DataFactory {
      */
     public static String dobUnder18(final String format) {
         final Calendar dobOver18 = dobUnder18();
-        return simpleDateFormat.format(dobOver18);
+        return format(dobOver18);
     }
 
     /**
-     * Dob under 18.
+     * DOB under 18.
      *
      * @return the calendar
      */
@@ -186,7 +184,7 @@ public class DataFactory {
      */
     public static String tomorrow(final String format) {
         final Calendar dobOver18 = tomorrow();
-        return simpleDateFormat.format(dobOver18);
+        return format(dobOver18);
     }
 
     /**
@@ -211,7 +209,7 @@ public class DataFactory {
      */
     public static String futureDate(final String format) {
         final Calendar futureDate = futureDate();
-        return simpleDateFormat.format(futureDate);
+        return format(futureDate);
     }
 
     /**
@@ -236,7 +234,7 @@ public class DataFactory {
      */
     public static String yesterday(final String format) {
         final Calendar yesterday = yesterday();
-        return simpleDateFormat.format(yesterday);
+        return format(yesterday);
     }
 
     /**
@@ -261,7 +259,7 @@ public class DataFactory {
      */
     public static String pastDate(final String format) {
         final Calendar pastDate = pastDate();
-        return simpleDateFormat.format(pastDate);
+        return format(pastDate);
     }
 
     /**
@@ -342,7 +340,7 @@ public class DataFactory {
      * @return the string
      */
     public static String format(final Date date) {
-        return simpleDateFormat.format(date);
+        return new SimpleDateFormat().format(date);
     }
 
     /**

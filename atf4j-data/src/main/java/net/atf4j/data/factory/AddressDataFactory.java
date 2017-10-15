@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data.factory;
 
 import net.atf4j.csv.CsvFile;
@@ -67,14 +68,14 @@ public class AddressDataFactory extends AbstractDataFactory {
         try {
             this.postalTownsUK = new CsvFile("postalTownsUK.csv");
         } catch (final Exception e) {
-            this.log.error("{}", e);
+            this.log.error("{}", e.getLocalizedMessage());
         }
+
         try {
             this.postCodeData = new CsvFile("postCodeData.csv");
         } catch (final Exception e) {
-            this.log.error("{}", e);
+            this.log.error("{}", e.getLocalizedMessage());
         }
-
     }
 
     /**

@@ -35,11 +35,12 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class AbstractDataFactory {
 
+    private String[] lines;
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
     protected static Random random = new Random(System.currentTimeMillis());
 
     /**
-     * Load.
+     * Load data file.
      *
      * @param dataFilename
      *            the data filename
@@ -52,7 +53,8 @@ public abstract class AbstractDataFactory {
         final ClassLoader classLoader = this.getClass().getClassLoader();
         final InputStream inputStream = classLoader.getResourceAsStream(dataFilename);
         if (inputStream != null) {
-            return load(inputStream);
+            lines = load(inputStream);
+            return lines;
         } else {
             throw new FileNotFoundException(dataFilename);
         }
@@ -97,7 +99,22 @@ public abstract class AbstractDataFactory {
         return content[randomIndex];
     }
 
-    public static void dataForTag(final String string) {
+    /**
+     * Data for tag.
+     *
+     * @param tag
+     *            the tag
+     * @return the string
+     */
+    public String dataForTag(final String tag) {
+        if (tag.startsWith("@")) {
+            for (String line : lines) {
+                String[] fields = line.split(",");
+                if (fields[0].contains(tag)) {
+                    return line;
+                }
+            }
+        }
+        return null;
     }
-
 }

@@ -35,7 +35,7 @@ public final class AddressDataFactoryTest extends ResultsReporting {
     @Test
     public void testExpectedUsage() {
         final PostalAddress address = AddressDataFactory.random();
-        assertNotNull("unexpected null",address);
+        assertNotNull("unexpected null", address);
         this.log.info("{}", address);
     }
 
@@ -47,7 +47,8 @@ public final class AddressDataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testDefaultConstructor() throws Exception {
-        assertNotNull("unexpected null",new AddressDataFactory());
+        final AddressDataFactory addressFactory = new AddressDataFactory();
+        assertNotNull("unexpected null", addressFactory);
     }
 
     /**
@@ -55,38 +56,38 @@ public final class AddressDataFactoryTest extends ResultsReporting {
      */
     @Test
     public void testGetInstance() {
-        final AddressDataFactory instance = AddressDataFactory.getInstance();
-        assertNotNull("unexpected null",instance);
-        this.log.info("{}", instance.toString());
+        final AddressDataFactory addressFactory = AddressDataFactory.getInstance();
+        assertNotNull("unexpected null", addressFactory);
+        this.log.info("{}", addressFactory.toString());
     }
 
     /**
-     * Test method for AddressDataFactory.
+     * Test method for AddressDataFactory create.
      */
     @Test
     public void testCreate() {
         final PostalAddress address = AddressDataFactory.create();
-        assertNotNull("unexpected null",address);
+        assertNotNull("unexpected null", address);
         this.log.info("{}", address.toString());
     }
 
     /**
-     * Test method for void.
+     * Test random.
      */
     @Test
     public void testRandom() {
         final PostalAddress address = AddressDataFactory.random();
-        assertNotNull("unexpected null",address);
+        assertNotNull("unexpected null", address);
         this.log.info("{}", address.toString());
     }
 
     /**
-     * Test method for void.
+     * Test get from tag.
      */
     @Test
     public void testGetFromTag() {
         final PostalAddress address = AddressDataFactory.forTag("WIP");
-        assertNotNull("unexpected null",address);
+        assertNotNull("unexpected null", address);
         this.log.info("{}", address.toString());
     }
 

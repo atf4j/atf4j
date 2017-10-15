@@ -100,25 +100,27 @@
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
-<!--
- 		<dependency>
+
+		<!--
+		<dependency>
 			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
+			<artifactId>slf4j-simple</artifactId> 
 			<version>1.7.21</version>
-		</dependency>
- -->
+		</dependency> 
+		-->
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
-		
+
 	</dependencies>
 
 	<build>
@@ -144,22 +146,13 @@
 				</configuration>
 			</plugin>
 
-			<!-- <plugin> -->
-			<!-- <groupId>org.eclipse.jetty</groupId> -->
-			<!-- <artifactId>jetty-maven-plugin</artifactId> -->
-			<!-- <version>9.4.2-SNAPSHOT</version> -->
-			<!-- </plugin> -->
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>${maven-javadoc-plugin.version}</version>
-				<configuration>
-					<outputDirectory>${project.build.directory}/apidocs</outputDirectory>
-				</configuration>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven-source-plugin.version}</version>
 				<executions>
 					<execution>
-						<id>attach-javadocs</id>
+						<id>attach-sources</id>
 						<goals>
 							<goal>jar</goal>
 						</goals>
@@ -169,11 +162,11 @@
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>${maven-source-plugin.version}</version>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven-javadoc-plugin.version}</version>
 				<executions>
 					<execution>
-						<id>attach-sources</id>
+						<id>attach-javadocs</id>
 						<goals>
 							<goal>jar</goal>
 						</goals>
@@ -204,6 +197,12 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 			</plugin>
+
+			<!-- <plugin> -->
+			<!-- <groupId>org.eclipse.jetty</groupId> -->
+			<!-- <artifactId>jetty-maven-plugin</artifactId> -->
+			<!-- <version>9.4.2-SNAPSHOT</version> -->
+			<!-- </plugin> -->
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
