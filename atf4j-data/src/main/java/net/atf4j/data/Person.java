@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import java.util.Calendar;
@@ -22,6 +23,15 @@ import java.util.Calendar;
  * Person.
  */
 public class Person {
+
+    private String title;
+    private String forename;
+    private String middlename;
+    private String surname;
+    private Calendar dob;
+    private PostalAddress postalAddress;
+    private String emailAddress;
+    private String Gender;
 
     /**
      * The Gender Enum.
@@ -82,19 +92,11 @@ public class Person {
         }
     }
 
-    private String title;
-    private String forename;
-    private String middlename;
-    private String surname;
-    private Calendar dob;
-    private PostalAddress postalAddress;
-    private String emailAddress;
-    private String Gender;
-
     /**
      * Instantiates a new person.
      */
     public Person() {
+        super();
     }
 
     /**

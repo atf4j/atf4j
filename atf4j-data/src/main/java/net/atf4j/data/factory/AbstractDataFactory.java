@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data.factory;
 
 import static org.junit.Assert.assertNotNull;
@@ -47,7 +48,7 @@ public abstract class AbstractDataFactory {
      *             the exception
      */
     public String[] load(final String dataFilename) throws Exception {
-        assertNotNull("unexpected null",dataFilename);
+        assertNotNull("unexpected null", dataFilename);
         final ClassLoader classLoader = this.getClass().getClassLoader();
         final InputStream inputStream = classLoader.getResourceAsStream(dataFilename);
         if (inputStream != null) {
@@ -67,7 +68,7 @@ public abstract class AbstractDataFactory {
      *             the exception
      */
     public String[] load(final InputStream inputStream) throws Exception {
-        assertNotNull("unexpected null",inputStream);
+        assertNotNull("unexpected null", inputStream);
         final InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         final BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         final List<String> lines = new ArrayList<String>();
@@ -92,7 +93,7 @@ public abstract class AbstractDataFactory {
      */
     protected static String randomEntry(final String[] content) {
         final int bounds = content.length;
-        final int randomIndex = random.nextInt(bounds) - 1;
+        final int randomIndex = random.nextInt(bounds);
         return content[randomIndex];
     }
 
