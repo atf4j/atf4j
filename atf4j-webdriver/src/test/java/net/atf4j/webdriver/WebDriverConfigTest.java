@@ -38,7 +38,7 @@ public class WebDriverConfigTest extends ResultsReporting {
      *             the missing property file exception
      */
     @Test
-    public final void testDefaultConstructor() throws ConfigurationNotLoaded {
+    public  void testDefaultConstructor() throws ConfigurationNotLoaded {
         final WebDriverConfig config = new WebDriverConfig();
         assertNotNull(UNEXPECTED_NULL,config);
     }
@@ -50,7 +50,7 @@ public class WebDriverConfigTest extends ResultsReporting {
      *             the configuration not loaded
      */
     @Test
-    public final void testHappyPath() throws ConfigurationNotLoaded {
+    public  void testHappyPath() throws ConfigurationNotLoaded {
         final WebDriverConfig config = new WebDriverConfig();
         assertNotNull(UNEXPECTED_NULL,config);
         assertNotNull(UNEXPECTED_NULL,config.targetBrowser());

@@ -8,12 +8,12 @@ import org.junit.Test;
 public final class DataManagerTest {
 
     @Test
-    public final void testDefaultConstructor() throws Exception {
+    public  void testDefaultConstructor() throws Exception {
         assertNotNull("unexpected null",new DataManager());
     }
 
     @Test
-    public final void testStaticDataForTag() throws Exception {
+    public  void testStaticDataForTag() throws Exception {
         DataManager.dataForTag("#Data");
     }
 }

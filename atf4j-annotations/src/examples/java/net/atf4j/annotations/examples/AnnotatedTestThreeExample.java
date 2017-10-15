@@ -50,7 +50,7 @@ public class AnnotatedTestThreeExample {
     @Atf4j.TestId("EXAMPLE-0003")
     @Atf4j.TestName("testExampleThree")
     @Atf4j.TestDescription("Example showing annotations with static import")
-    public final void testExampleThree() throws Exception {
+    public void testExampleThree() throws Exception {
         this.log.info("Test ID : = {} ", getTestId());
         this.log.info("Test Name : = {} ", getTestName());
         this.log.info("Test Description : = {} ", getTestDescription());

@@ -83,7 +83,7 @@ public class PageObjectTest {
      *             the configuration not loaded
      */
     @Test
-    public final void testDefaultConstructor() throws ConfigurationNotLoaded {
+    public void testDefaultConstructor() throws ConfigurationNotLoaded {
         assertNotNull(UNEXPECTED_NULL,new MockPage());
     }
 
@@ -95,7 +95,7 @@ public class PageObjectTest {
      *             the configuration not loaded
      */
     @Test
-    public final void testDefaultOpen() throws ConfigurationNotLoaded {
+    public  void testDefaultOpen() throws ConfigurationNotLoaded {
         final MockPage mockPage = new MockPage();
         assumeNotNull(mockPage);
         assertNotNull(UNEXPECTED_NULL,mockPage.open());
@@ -109,7 +109,7 @@ public class PageObjectTest {
      *             the configuration not loaded
      */
     @Test
-    public final void testOpen() throws ConfigurationNotLoaded {
+    public  void testOpen() throws ConfigurationNotLoaded {
         final MockPage mockPage = new MockPage(MockPage.TARGET_URL);
         assumeNotNull(mockPage);
         assertNotNull(UNEXPECTED_NULL,mockPage.open());
@@ -123,7 +123,7 @@ public class PageObjectTest {
      *             the configuration not loaded
      */
     @Test
-    public final void testOpenString() throws ConfigurationNotLoaded {
+    public  void testOpenString() throws ConfigurationNotLoaded {
         final MockPage mockPage = new MockPage();
         assumeNotNull(mockPage);
         assertNotNull(UNEXPECTED_NULL,mockPage.open());
@@ -137,7 +137,7 @@ public class PageObjectTest {
      *             the configuration not loaded
      */
     @Test
-    public final void testVerify() throws ConfigurationNotLoaded {
+    public  void testVerify() throws ConfigurationNotLoaded {
         final MockPage mockPage = new MockPage();
         assumeNotNull(mockPage);
         assertNotNull(UNEXPECTED_NULL,mockPage.open());
@@ -151,7 +151,7 @@ public class PageObjectTest {
      *             the configuration not loaded
      */
     @Test
-    public final void testWebDriverConstructor() throws ConfigurationNotLoaded {
+    public  void testWebDriverConstructor() throws ConfigurationNotLoaded {
         final MockPage mockPage = new MockPage(new HtmlUnitDriver());
         assumeNotNull(mockPage);
         assertNotNull(UNEXPECTED_NULL,mockPage.open());

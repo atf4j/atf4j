@@ -48,7 +48,7 @@ public class TimerTest extends ResultsReporting {
      * Instrument the actual timer its self. Calculates the delta for tests.
      */
     @Test
-    public final void testTimer0() {
+    public void testTimer0() {
         final TimerInterface timer = new MilliTimer(this.getClass().getSimpleName());
         timer.start();
         // NOP elapsed time should be close to zero
@@ -64,7 +64,7 @@ public class TimerTest extends ResultsReporting {
      * Unit Test method for One Second Timer.
      */
     @Test
-    public final void testTimerOneSec() {
+    public void testTimerOneSec() {
         final TimerInterface timer = new MilliTimer(this.getClass().getSimpleName());
         timer.start();
         waitDefaultInterval();

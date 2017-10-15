@@ -50,7 +50,7 @@ public final class BankDataFactoryTest extends ResultsReporting {
      *             the exception
      */
     @Test
-    public final void testDefaultConstructor() throws Exception {
+    public void testDefaultConstructor() throws Exception {
         assertNotNull(UNEXPECTED_NULL,new BankDataFactory());
     }
 

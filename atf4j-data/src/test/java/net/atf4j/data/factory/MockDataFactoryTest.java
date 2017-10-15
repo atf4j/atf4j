@@ -50,7 +50,7 @@ public final class MockDataFactoryTest extends ResultsReporting {
      *             the exception
      */
     @Test
-    public final void testDefaultConstructor() throws Exception {
+    public void testDefaultConstructor() throws Exception {
         final MockDataFactory testDataFactory = new MockDataFactory();
         assertNotNull("unexpected null", testDataFactory);
     }
@@ -62,7 +62,7 @@ public final class MockDataFactoryTest extends ResultsReporting {
      *             the exception
      */
     @Test
-    public final void testStaticDataForTag() throws Exception {
+    public  void testStaticDataForTag() throws Exception {
         MockDataFactory dataFactory = new MockDataFactory();
         String dataForTag = dataFactory.dataForTag("#Data");
         log.info("{}", dataForTag);

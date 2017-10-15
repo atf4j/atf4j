@@ -50,7 +50,7 @@ public class PageConfigTest {
      *             the missing property file exception
      */
     @Test
-    public final void testPageConfig() throws ConfigurationNotLoaded {
+    public  void testPageConfig() throws ConfigurationNotLoaded {
         final PageConfig pageConfig = new MockPageConfig();
         assertNotNull("unexpected null",pageConfig);
     }

@@ -60,7 +60,7 @@ public final class PersonDataFactoryTest extends ResultsReporting {
      *             the exception
      */
     @Test
-    public final void testDefaultConstructor() throws Exception {
+    public void testDefaultConstructor() throws Exception {
         final PersonDataFactory personDataFactory = new PersonDataFactory();
         assertNotNull(UNEXPECTED_NULL, personDataFactory);
         String string = personDataFactory.toString();

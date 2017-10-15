@@ -48,7 +48,7 @@ public final class AddressDataFactoryTest extends ResultsReporting {
      *             the exception
      */
     @Test
-    public final void testDefaultConstructor() throws Exception {
+    public void testDefaultConstructor() throws Exception {
         final AddressDataFactory addressFactory = new AddressDataFactory();
         assertNotNull(UNEXPECTED_NULL, addressFactory);
     }

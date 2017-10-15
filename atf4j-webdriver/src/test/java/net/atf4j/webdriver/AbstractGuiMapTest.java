@@ -51,7 +51,7 @@ public class AbstractGuiMapTest extends ResultsReporting {
      * Test method for { net.atf4j.webdriver.AbstractGuiMap#getKeys()}.
      */
     @Test
-    public final void testGuiMapping() {
+    public  void testGuiMapping() {
         final AbstractGuiMap instance = new LogicalGuiMap();
         final Enumeration<String> bundleKeys = instance.getKeys();
         while (bundleKeys.hasMoreElements()) {
@@ -84,7 +84,7 @@ public class AbstractGuiMapTest extends ResultsReporting {
      * test AbstractGuiMap object.
      */
     @Test(expected = MissingResourceException.class)
-    public final void testMissingGuiMapping() {
+    public  void testMissingGuiMapping() {
         assertNotNull(new MissingGuiMap());
     }
 

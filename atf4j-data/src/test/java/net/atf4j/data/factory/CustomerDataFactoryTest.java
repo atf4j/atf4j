@@ -47,7 +47,7 @@ public final class CustomerDataFactoryTest extends ResultsReporting {
      *             the exception
      */
     @Test
-    public final void testDefaultConstructor() throws Exception {
+    public void testDefaultConstructor() throws Exception {
         final CustomerDataFactory customerDataFactory = new CustomerDataFactory();
         assertNotNull(UNEXPECTED_NULL,customerDataFactory);
         this.log.info("{}", customerDataFactory);

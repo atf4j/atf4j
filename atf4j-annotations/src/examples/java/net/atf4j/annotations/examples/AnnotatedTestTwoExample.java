@@ -45,7 +45,7 @@ public class AnnotatedTestTwoExample extends AbstractAnnotatedTest {
     @Atf4j.TestId("EXAMPLE-0002")
     @Atf4j.TestName("testEample")
     @Atf4j.TestDescription("Example showing annotations with inherited context")
-    public final void testExample() throws Exception {
+    public void testExample() throws Exception {
         log.trace("{}.testExample");
         log.info("Test ID : = {} ", AnnotationHelper.getTestId());
         log.info("Test Name : = {} ", AnnotationHelper.getTestName());

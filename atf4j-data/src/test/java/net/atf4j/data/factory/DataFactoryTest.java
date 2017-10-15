@@ -80,7 +80,7 @@ public final class DataFactoryTest extends ResultsReporting {
      *             the exception
      */
     @Test
-    public final void testDefaultConstructor() throws Exception {
+    public void testDefaultConstructor() throws Exception {
         final DataFactory dataFactory = new DataFactory();
         assertNotNull(UNEXPECTED_NULL, dataFactory);
         this.log.info("DataFactory = {}", dataFactory);
@@ -93,7 +93,7 @@ public final class DataFactoryTest extends ResultsReporting {
      *             the exception
      */
     @Test
-    public final void testString() throws Exception {
+    public void testString() throws Exception {
         final char randomChar = DataFactory.randomChar();
         assertNotNull(UNEXPECTED_NULL, randomChar);
         this.log.info("DataFactory.randomChar() = {}", randomChar);
@@ -110,7 +110,7 @@ public final class DataFactoryTest extends ResultsReporting {
      *             the exception
      */
     @Test
-    public final void testDigits() throws Exception {
+    public void testDigits() throws Exception {
         final char randomDigit = DataFactory.randomDigit();
         assertNotNull(UNEXPECTED_NULL, randomDigit);
         this.log.info("DataFactory.randomDigit() = {}", randomDigit);
@@ -127,7 +127,7 @@ public final class DataFactoryTest extends ResultsReporting {
      *             the exception
      */
     @Test
-    public final void testToday() throws Exception {
+    public void testToday() throws Exception {
         final Calendar today = DataFactory.today();
         assertNotNull(UNEXPECTED_NULL, today);
         verifyDateData(today);
@@ -140,7 +140,7 @@ public final class DataFactoryTest extends ResultsReporting {
      *             the exception
      */
     @Test
-    public final void testThisMonth() throws Exception {
+    public void testThisMonth() throws Exception {
         final int thisMonth = DataFactory.thisMonth();
         assertTrue(thisMonth >= 0 && thisMonth <= 11);
     }
@@ -152,7 +152,7 @@ public final class DataFactoryTest extends ResultsReporting {
      *             the exception
      */
     @Test
-    public final void testThisYear() throws Exception {
+    public void testThisYear() throws Exception {
         final int thisYear = DataFactory.thisYear();
         assertNotEquals(0, thisYear);
     }
@@ -164,7 +164,7 @@ public final class DataFactoryTest extends ResultsReporting {
      *             the exception
      */
     @Test
-    public final void testPastDate() throws Exception {
+    public void testPastDate() throws Exception {
         final Calendar pastDate = DataFactory.pastDate();
         verifyDateData(pastDate);
     }
@@ -176,7 +176,7 @@ public final class DataFactoryTest extends ResultsReporting {
      *             the exception
      */
     @Test
-    public final void testFutureDate() throws Exception {
+    public void testFutureDate() throws Exception {
         final Calendar futureDate = DataFactory.futureDate();
         verifyDateData(futureDate);
     }
@@ -187,7 +187,7 @@ public final class DataFactoryTest extends ResultsReporting {
      * @throws Exception
      *             the exception
      */
-    public final void testDateBetween() throws Exception {
+    public void testDateBetween() throws Exception {
         final Calendar futureDate = DataFactory.dateBetween(DataFactory.pastDate(), DataFactory.today());
         verifyDateData(futureDate);
     }
@@ -199,7 +199,7 @@ public final class DataFactoryTest extends ResultsReporting {
      *             the exception
      */
     @Test
-    public final void testDateOfBirth() throws Exception {
+    public void testDateOfBirth() throws Exception {
         final Calendar dateOfBirth = DataFactory.dateOfBirth();
         verifyDateData(dateOfBirth);
     }
@@ -211,7 +211,7 @@ public final class DataFactoryTest extends ResultsReporting {
      *             the exception
      */
     @Test
-    public final void testOver18() throws Exception {
+    public void testOver18() throws Exception {
         final Calendar dobOver18 = DataFactory.dobOver18();
         verifyDateData(dobOver18);
     }
@@ -223,7 +223,7 @@ public final class DataFactoryTest extends ResultsReporting {
      *             the exception
      */
     @Test
-    public final void testUnder18() throws Exception {
+    public void testUnder18() throws Exception {
         final Calendar dobUnder18 = DataFactory.dobUnder18();
         verifyDateData(dobUnder18);
     }

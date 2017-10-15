@@ -163,7 +163,7 @@ public final class ConfigTest extends ResultsReporting {
      *             the property not found
      */
     @Test
-    public final void testSystemOveridesConfig() throws ConfigurationNotLoaded, PropertyNotFound {
+    public void testSystemOveridesConfig() throws ConfigurationNotLoaded, PropertyNotFound {
         final ConfigFromFile config = new ConfigFromFile();
         assertNotNull(UNEXPECTED_NULL, config);
         final String key = "property";
@@ -179,7 +179,7 @@ public final class ConfigTest extends ResultsReporting {
      *             the configuration not loaded
      */
     @Test
-    public final void testStaticConfig() throws ConfigurationNotLoaded {
+    public void testStaticConfig() throws ConfigurationNotLoaded {
         assertNotNull(UNEXPECTED_NULL, ConfigTest.config);
     }
 }

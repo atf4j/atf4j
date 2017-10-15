@@ -29,7 +29,7 @@ public final class NestedTimersTest extends ResultsReporting {
      * test NestedTimers.
      */
     @Test
-    public final void testNestedTimers() {
+    public void testNestedTimers() {
         final NestedTimers multiTimers = NestedTimers.getInstance();
         for (int i = 0; i < 10; i++) {
             this.log.info(multiTimers.startTimer(String.format("Test case Timer %s", i)).toString());
@@ -45,7 +45,7 @@ public final class NestedTimersTest extends ResultsReporting {
      * {net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
      */
     @Test
-    public final void testTimerInstance() {
+    public void testTimerInstance() {
         final NestedTimers multiTimers = NestedTimers.getInstance();
         multiTimers.startTimer("Timer Instance : Test case 1");
         waitDefaultInterval();
@@ -72,7 +72,7 @@ public final class NestedTimersTest extends ResultsReporting {
      * {net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
      */
     @Test
-    public final void testStaticNamedTimers() {
+    public void testStaticNamedTimers() {
         NestedTimers.start();
         waitDefaultInterval();
         NestedTimers.start();
