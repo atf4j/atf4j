@@ -149,7 +149,7 @@ public class PersonDataFactory extends AbstractDataFactory {
 
     @Override
     public String toString() {
-        return "PersonDataFactory [maleForenames=" + Arrays.toString(maleForenames) + ", femaleForenames="
-                + Arrays.toString(femaleForenames) + ", surnames=" + Arrays.toString(surnames) + "]";
+        return "PersonDataFactory [maleForenames=" + Arrays.toString(this.maleForenames) + ", femaleForenames="
+                + Arrays.toString(this.femaleForenames) + ", surnames=" + Arrays.toString(this.surnames) + "]";
     }
 }

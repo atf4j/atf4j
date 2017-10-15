@@ -53,8 +53,8 @@ public abstract class AbstractDataFactory {
         final ClassLoader classLoader = this.getClass().getClassLoader();
         final InputStream inputStream = classLoader.getResourceAsStream(dataFilename);
         if (inputStream != null) {
-            lines = load(inputStream);
-            return lines;
+            this.lines = load(inputStream);
+            return this.lines;
         } else {
             throw new FileNotFoundException(dataFilename);
         }
@@ -108,8 +108,8 @@ public abstract class AbstractDataFactory {
      */
     public String dataForTag(final String tag) {
         if (tag.startsWith("@")) {
-            for (String line : lines) {
-                String[] fields = line.split(",");
+            for (final String line : this.lines) {
+                final String[] fields = line.split(",");
                 if (fields[0].contains(tag)) {
                     return line;
                 }

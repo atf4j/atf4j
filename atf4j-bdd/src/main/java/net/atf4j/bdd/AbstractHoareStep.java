@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.bdd;
 
 import java.util.Properties;
@@ -37,7 +38,7 @@ public abstract class AbstractHoareStep implements HoareStepInterface {
      *            the string
      */
     public AbstractHoareStep(final String string) {
-        log.info("AbstractHoareStep({}", string);
+        this.log.info("AbstractHoareStep({}", string);
         this.string = string;
     }
 
@@ -47,18 +48,18 @@ public abstract class AbstractHoareStep implements HoareStepInterface {
      * @return the properties
      */
     public Properties execute() {
-        log.info("AbstractHoareStep({}", string);
+        this.log.info("AbstractHoareStep({}", this.string);
         return this.properties;
     }
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.bdd.HoareStepInterface#execute(java.util.Properties)
      */
     @Override
     public Properties execute(final Properties properties) {
-        log.info("AbstractHoareStep({}", string);
+        this.log.info("AbstractHoareStep({}", this.string);
         this.properties = properties;
         return properties;
     }

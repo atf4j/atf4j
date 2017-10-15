@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import java.util.regex.Matcher;
@@ -26,7 +27,7 @@ public class Nino {
 
     /** REGULAR EXPRESSION. */
     private static final Pattern pattern = Pattern
-            .compile("^[A-CEGHJ-PR-TW-Z]{1}[A-CEGHJ-NPR-TW-Z]{1}[0-9]{6}[A-D]{1}$");
+        .compile("^[A-CEGHJ-PR-TW-Z]{1}[A-CEGHJ-NPR-TW-Z]{1}[0-9]{6}[A-D]{1}$");
 
     private String nino;
 
@@ -60,7 +61,8 @@ public class Nino {
     /**
      * Verify.
      *
-     * @param code            the code \* @return true, if successful, otherwise false.
+     * @param code
+     *            the code \* @return true, if successful, otherwise false.
      * @return true, if successful, otherwise false.
      */
     public static boolean verify(final String code) {
@@ -91,7 +93,7 @@ public class Nino {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override

@@ -87,7 +87,7 @@ public abstract class Name extends Datum {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.data.Datum#debugString()
      */
     @Override
@@ -97,7 +97,7 @@ public abstract class Name extends Datum {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.data.Datum#toString()
      */
     @Override

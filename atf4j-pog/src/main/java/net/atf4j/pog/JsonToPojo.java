@@ -36,8 +36,8 @@ public class JsonToPojo extends AbstractCodeGenerator {
      */
     public String toJson(final String jsonString) {
         final JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(jsonString).getAsJsonObject();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        final JsonObject json = parser.parse(jsonString).getAsJsonObject();
+        final Gson gson = new GsonBuilder().setPrettyPrinting().create();
         final String prettyJson = gson.toJson(json);
         return prettyJson;
     }

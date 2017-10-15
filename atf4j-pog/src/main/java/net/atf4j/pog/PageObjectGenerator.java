@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.pog;
 
 import static org.junit.Assert.assertNotNull;
@@ -100,7 +101,7 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @return the page object generator
      */
     public PageObjectGenerator add(final PageObjectData pageObjectData) {
-        assertNotNull("unexpected null",pageObjectData);
+        assertNotNull("unexpected null", pageObjectData);
         this.pageObjectData = pageObjectData;
         super.contextBinding("pageElements", this.pageObjectData.get());
         super.contextBinding("navigation", this.pageObjectData.getNav());
@@ -117,8 +118,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @return the page object generator
      */
     public PageObjectGenerator add(final PageWebElement pageWebElement) {
-        assertNotNull("unexpected null",pageWebElement);
-        assertNotNull("unexpected null",this.pageObjectData);
+        assertNotNull("unexpected null", pageWebElement);
+        assertNotNull("unexpected null", this.pageObjectData);
         this.pageObjectData.add(pageWebElement);
         return this;
     }
@@ -131,8 +132,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @return the page object generator
      */
     public PageObjectGenerator addNavigation(final PageWebElement pageWebElement) {
-        assertNotNull("unexpected null",pageWebElement);
-        assertNotNull("unexpected null",this.pageObjectData);
+        assertNotNull("unexpected null", pageWebElement);
+        assertNotNull("unexpected null", this.pageObjectData);
         this.pageObjectData.addNav(pageWebElement);
         return this;
     }
@@ -145,8 +146,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @return the page object generator
      */
     public PageObjectGenerator addContent(final PageWebElement pageWebElement) {
-        assertNotNull("unexpected null",pageWebElement);
-        assertNotNull("unexpected null",this.pageObjectData);
+        assertNotNull("unexpected null", pageWebElement);
+        assertNotNull("unexpected null", this.pageObjectData);
         this.pageObjectData.addContent(pageWebElement);
         return this;
     }
@@ -159,8 +160,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @return the page object generator
      */
     public PageObjectGenerator addInput(final PageWebElement pageWebElement) {
-        assertNotNull("unexpected null",pageWebElement);
-        assertNotNull("unexpected null",this.pageObjectData);
+        assertNotNull("unexpected null", pageWebElement);
+        assertNotNull("unexpected null", this.pageObjectData);
         this.pageObjectData.addInput(pageWebElement);
         return this;
     }
@@ -192,12 +193,12 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.pog.CodeGenerator#toString()
      */
     @Override
     public String toString() {
-        assertNotNull("unexpected null",this.pageObjectData);
+        assertNotNull("unexpected null", this.pageObjectData);
         return this.pageObjectData.toString();
     }
 

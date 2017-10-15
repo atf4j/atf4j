@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import java.util.List;
@@ -31,7 +32,7 @@ public class Chord {
      * @param stem
      *            the new stem
      */
-    public void setStem(CharSequence stem) {
+    public void setStem(final CharSequence stem) {
         this.stem = stem;
     }
 
@@ -41,7 +42,7 @@ public class Chord {
      * @return the stem
      */
     public CharSequence getStem() {
-        return stem;
+        return this.stem;
     }
 
     /**
@@ -51,17 +52,17 @@ public class Chord {
      *            the e
      * @return true, if successful, otherwise false.
      */
-    public boolean add(Chord e) {
-        return children.add(e);
+    public boolean add(final Chord e) {
+        return this.children.add(e);
     }
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return "Chord [stem=" + stem + ", children=" + children + "]";
+        return "Chord [stem=" + this.stem + ", children=" + this.children + "]";
     }
 }

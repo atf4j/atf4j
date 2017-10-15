@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import java.io.File;
@@ -36,7 +37,7 @@ public class FileWalker extends AbstractWalker {
 
     /**
      * Instantiates a new file walker.
-     * 
+     *
      * @param path
      *            the path
      * @throws Exception
@@ -50,7 +51,7 @@ public class FileWalker extends AbstractWalker {
 
     /**
      * Process file.
-     * 
+     *
      * @param f
      *            the f
      * @throws Exception
@@ -65,7 +66,7 @@ public class FileWalker extends AbstractWalker {
 
     /**
      * Read file.
-     * 
+     *
      * @param filename
      *            the filename
      * @return the string

@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core.waits;
 
 import static org.junit.Assert.assertEquals;
@@ -44,7 +45,7 @@ public class IntervalTest extends ResultsReporting {
     public void testIntervalLong() {
         final long useTimePeriod = 1000;
         Interval interval = new Interval(useTimePeriod);
-        assertNotNull("unexpected null",interval);
+        assertNotNull("unexpected null", interval);
     }
 
     /**
@@ -54,7 +55,7 @@ public class IntervalTest extends ResultsReporting {
     public void testInMilliSeconds() {
         final long timePeriod = 1000;
         final Interval inMilliSeconds = Interval.inMilliSeconds(timePeriod);
-        assertNotNull("unexpected null",inMilliSeconds);
+        assertNotNull("unexpected null", inMilliSeconds);
     }
 
     /**
@@ -64,7 +65,7 @@ public class IntervalTest extends ResultsReporting {
     public void testInSeconds() {
         final long timePeriod = 1;
         final Interval inSeconds = Interval.inSeconds(timePeriod);
-        assertNotNull("unexpected null",inSeconds);
+        assertNotNull("unexpected null", inSeconds);
     }
 
     /**
@@ -74,7 +75,7 @@ public class IntervalTest extends ResultsReporting {
     public void testInMinutes() {
         final long timePeriod = 1;
         final Interval inMinutes = Interval.inMinutes(timePeriod);
-        assertNotNull("unexpected null",inMinutes);
+        assertNotNull("unexpected null", inMinutes);
     }
 
     /**
@@ -84,7 +85,7 @@ public class IntervalTest extends ResultsReporting {
     public void testInHours() {
         final long timePeriod = 1;
         final Interval inHours = Interval.inHours(timePeriod);
-        assertNotNull("unexpected null",inHours);
+        assertNotNull("unexpected null", inHours);
     }
 
     /**
@@ -94,7 +95,7 @@ public class IntervalTest extends ResultsReporting {
     public void testInDays() {
         final long timePeriod = 1;
         final Interval inDays = Interval.inDays(timePeriod);
-        assertNotNull("unexpected null",inDays);
+        assertNotNull("unexpected null", inDays);
     }
 
     /**
@@ -103,7 +104,7 @@ public class IntervalTest extends ResultsReporting {
     @Test
     public void testAsLong() {
         Interval interval = new Interval();
-        assertNotNull("unexpected null",interval);
+        assertNotNull("unexpected null", interval);
         long asLong = interval.asLong();
         assertEquals(0, asLong);
     }
@@ -114,7 +115,7 @@ public class IntervalTest extends ResultsReporting {
     @Test
     public void testAsMilliSeconds() {
         Interval interval = new Interval();
-        assertNotNull("unexpected null",interval);
+        assertNotNull("unexpected null", interval);
         long asMilliSeconds = interval.asMilliSeconds();
         assertEquals(0, asMilliSeconds);
     }
@@ -125,7 +126,7 @@ public class IntervalTest extends ResultsReporting {
     @Test
     public void testAsSeconds() {
         Interval interval = new Interval();
-        assertNotNull("unexpected null",interval);
+        assertNotNull("unexpected null", interval);
         long asSeconds = interval.asSeconds();
         assertEquals(0, asSeconds);
     }
@@ -136,7 +137,7 @@ public class IntervalTest extends ResultsReporting {
     @Test
     public void testAsMinutes() {
         Interval interval = new Interval();
-        assertNotNull("unexpected null",interval);
+        assertNotNull("unexpected null", interval);
         long asMinutes = interval.asMinutes();
         assertEquals(0, asMinutes);
     }
@@ -147,7 +148,7 @@ public class IntervalTest extends ResultsReporting {
     @Test
     public void testAsHours() {
         Interval interval = new Interval();
-        assertNotNull("unexpected null",interval);
+        assertNotNull("unexpected null", interval);
         long asHours = interval.asHours();
         assertEquals(0, asHours);
     }
@@ -158,7 +159,7 @@ public class IntervalTest extends ResultsReporting {
     @Test
     public void testAsDays() {
         Interval interval = new Interval();
-        assertNotNull("unexpected null",interval);
+        assertNotNull("unexpected null", interval);
         long asDays = interval.asDays();
         assertEquals(0, asDays);
     }
@@ -169,7 +170,7 @@ public class IntervalTest extends ResultsReporting {
     @Test
     public void testIntervalToString() {
         Interval interval = new Interval();
-        assertNotNull("unexpected null",interval);
+        assertNotNull("unexpected null", interval);
         String string = interval.toString();
         this.log.info(string);
     }

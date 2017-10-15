@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data.factory;
 
 import net.atf4j.data.Customer;
@@ -67,7 +68,7 @@ public class CustomerDataFactory extends AbstractDataFactory {
 
     /**
      * Random thing.
-     * 
+     *
      * @return the string
      */
     public static String randomThing() {

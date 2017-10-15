@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.bdd;
 
 import java.util.ArrayList;
@@ -51,7 +52,7 @@ public abstract class Behaviour {
      * @return the behaviour
      */
     protected Behaviour given(final Given given) {
-        log.info("{}.given", this.getClass().getSimpleName());
+        this.log.info("{}.given", this.getClass().getSimpleName());
         this.givenList.add(given);
         return this;
     }
@@ -64,7 +65,7 @@ public abstract class Behaviour {
      * @return the behaviour
      */
     protected Behaviour when(final When when) {
-        log.info("{}.given", this.getClass().getSimpleName());
+        this.log.info("{}.given", this.getClass().getSimpleName());
         this.whenList.add(when);
         return this;
     }
@@ -77,7 +78,7 @@ public abstract class Behaviour {
      * @return the behaviour
      */
     protected Behaviour then(final Then then) {
-        log.info("{}.given", this.getClass().getSimpleName());
+        this.log.info("{}.given", this.getClass().getSimpleName());
         this.thenList.add(then);
         return this;
     }
@@ -90,17 +91,17 @@ public abstract class Behaviour {
      * @return the properties
      */
     public Properties execute(final Properties properties) {
-        log.info("{}.execute", this.getClass().getSimpleName());
+        this.log.info("{}.execute", this.getClass().getSimpleName());
         for (final Given given : this.givenList) {
-            Assert.assertNotNull("unexpected null",given.execute(properties));
+            Assert.assertNotNull("unexpected null", given.execute(properties));
         }
 
         for (final When when : this.whenList) {
-            Assert.assertNotNull("unexpected null",when.execute(properties));
+            Assert.assertNotNull("unexpected null", when.execute(properties));
         }
 
         for (final Then then : this.thenList) {
-            Assert.assertNotNull("unexpected null",then.execute(properties));
+            Assert.assertNotNull("unexpected null", then.execute(properties));
         }
 
         return properties;

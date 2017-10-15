@@ -25,8 +25,8 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class AbstractConfig implements ConfigurationInterface {
 
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
     protected final Properties properties = new Properties();
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Default Constructor for Configuration.
@@ -54,14 +54,21 @@ public abstract class AbstractConfig implements ConfigurationInterface {
      * @return the abstract configuration
      */
     protected ConfigurationInterface load() {
-        final String propertyFilename = String.format("/%s.properties", this.getClass().getSimpleName());
-
         try {
-            load(propertyFilename);
+            load(configFilename());
         } catch (final ConfigurationNotLoaded e) {
             this.log.error("Using default values; {}", e.getMessage());
         }
         return this;
+    }
+
+    private String configFilename() {
+        final String simpleName = this.getClass().getSimpleName();
+        return propertyFilename(simpleName);
+    }
+
+    private String propertyFilename(final String simpleName) {
+        return String.format("/%s.properties", simpleName);
     }
 
     /**

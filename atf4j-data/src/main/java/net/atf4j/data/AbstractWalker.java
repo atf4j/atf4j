@@ -44,7 +44,7 @@ public abstract class AbstractWalker {
 
     /**
      * Instantiates a new abstract walker.
-     * 
+     *
      * @param basePath
      *            the path
      * @throws Exception
@@ -57,7 +57,7 @@ public abstract class AbstractWalker {
 
     /**
      * Sets the base path.
-     * 
+     *
      * @param basePath
      *            the base path
      * @return the abstract walker
@@ -69,7 +69,7 @@ public abstract class AbstractWalker {
 
     /**
      * Walk.
-     * 
+     *
      * @return the abstract walker
      * @throws Exception
      *             the exception
@@ -80,7 +80,7 @@ public abstract class AbstractWalker {
 
     /**
      * Walk.
-     * 
+     *
      * @param path
      *            the path
      * @return the abstract walker
@@ -124,7 +124,7 @@ public abstract class AbstractWalker {
 
     /**
      * Process file.
-     * 
+     *
      * @param file
      *            the file
      * @throws Exception

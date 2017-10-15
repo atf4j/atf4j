@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core.model;
 
 import static org.junit.Assert.assertNotNull;
@@ -36,7 +37,7 @@ public class TestResultsTest extends ResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final TestResults testResults = new TestResults();
-        assertNotNull("unexpected null",testResults);
+        assertNotNull("unexpected null", testResults);
     }
 
     /**
@@ -45,7 +46,7 @@ public class TestResultsTest extends ResultsReporting {
     @Test
     public void testAddTestResult() {
         final TestResults testResults = new TestResults();
-        assertNotNull("unexpected null",testResults);
+        assertNotNull("unexpected null", testResults);
         testResults.add(TestResult.PENDING);
     }
 
@@ -55,9 +56,9 @@ public class TestResultsTest extends ResultsReporting {
     @Test
     public void testTestResults() {
         final TestResults testResults = new TestResults();
-        assertNotNull("unexpected null",testResults);
+        assertNotNull("unexpected null", testResults);
         final Collection<TestResult> resultsCollection = testResults.getTestResults();
-        assertNotNull("unexpected null",resultsCollection);
+        assertNotNull("unexpected null", resultsCollection);
     }
 
     /**
@@ -65,7 +66,7 @@ public class TestResultsTest extends ResultsReporting {
      */
     @Test
     public void testToString() {
-        assertNotNull("unexpected null",new TestResults().toString());
+        assertNotNull("unexpected null", new TestResults().toString());
     }
 
 }

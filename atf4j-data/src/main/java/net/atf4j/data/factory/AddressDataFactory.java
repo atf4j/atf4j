@@ -115,7 +115,7 @@ public class AddressDataFactory extends AbstractDataFactory {
 
     /**
      * Random.
-     * 
+     *
      * @param string
      *            the string
      * @return the postal address

@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core.model;
 
 import static org.junit.Assert.assertNotNull;
@@ -31,7 +32,7 @@ public class CriticalFailTest {
     @Test
     public void testCriticalFail() {
         final CriticalFail criticalFail = new CriticalFail();
-        assertNotNull("unexpected null",criticalFail);
+        assertNotNull("unexpected null", criticalFail);
     }
 
     /**
@@ -40,7 +41,7 @@ public class CriticalFailTest {
     @Test
     public void testCriticalFailNull() {
         final CriticalFail criticalFail = new CriticalFail(null);
-        assertNotNull("unexpected null",criticalFail);
+        assertNotNull("unexpected null", criticalFail);
     }
 
 }

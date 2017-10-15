@@ -53,7 +53,7 @@ public class Person {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see java.lang.Enum#toString()
          */
         @Override
@@ -83,7 +83,7 @@ public class Person {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see java.lang.Enum#toString()
          */
         @Override
@@ -304,7 +304,7 @@ public class Person {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override

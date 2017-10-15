@@ -164,7 +164,7 @@ public class Bank extends Business {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.data.Business#toString()
      */
     @Override

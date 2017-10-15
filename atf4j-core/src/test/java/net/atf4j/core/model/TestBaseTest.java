@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core.model;
 
 import static org.junit.Assert.assertNotNull;
@@ -68,7 +69,7 @@ public class TestBaseTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null",new MockTestBase());
+        assertNotNull("unexpected null", new MockTestBase());
     }
 
     /**
@@ -79,7 +80,7 @@ public class TestBaseTest extends ResultsReporting {
      */
     @Test
     public void testRegisterLogging() throws Atf4jException {
-        assertNotNull("unexpected null",new MockTestBase().registerLogging(new MockTestReport()));
+        assertNotNull("unexpected null", new MockTestBase().registerLogging(new MockTestReport()));
     }
 
     /**
@@ -88,7 +89,7 @@ public class TestBaseTest extends ResultsReporting {
     @Test
     public void testUniqueIdentifier() {
         final MockTestBase mockTestBase = new MockTestBase();
-        assertNotNull("unexpected null",mockTestBase.getUniqueIdentifier());
+        assertNotNull("unexpected null", mockTestBase.getUniqueIdentifier());
     }
 
     /**
@@ -96,7 +97,7 @@ public class TestBaseTest extends ResultsReporting {
      */
     @Test
     public void testTestStatus() {
-        assertNotNull("unexpected null",new MockTestBase().getTestStatus());
+        assertNotNull("unexpected null", new MockTestBase().getTestStatus());
     }
 
     /**
@@ -134,10 +135,10 @@ public class TestBaseTest extends ResultsReporting {
     @Test
     public void testAddPreCondition() {
         final Condition newPreCondition = new PassingCondition();
-        assertNotNull("unexpected null",newPreCondition);
+        assertNotNull("unexpected null", newPreCondition);
         final MockTestBase mockTestBase = new MockTestBase();
-        assertNotNull("unexpected null",mockTestBase);
-        assertNotNull("unexpected null",mockTestBase.addPreCondition(newPreCondition));
+        assertNotNull("unexpected null", mockTestBase);
+        assertNotNull("unexpected null", mockTestBase.addPreCondition(newPreCondition));
     }
 
     /**
@@ -146,10 +147,10 @@ public class TestBaseTest extends ResultsReporting {
     @Test
     public void testAddPostCondition() {
         final Condition newPostCondition = new PassingCondition();
-        assertNotNull("unexpected null",newPostCondition);
+        assertNotNull("unexpected null", newPostCondition);
         final MockTestBase mockTestBase = new MockTestBase();
-        assertNotNull("unexpected null",mockTestBase);
-        assertNotNull("unexpected null",mockTestBase.addPostCondition(newPostCondition));
+        assertNotNull("unexpected null", mockTestBase);
+        assertNotNull("unexpected null", mockTestBase.addPostCondition(newPostCondition));
     }
 
     /**
@@ -157,7 +158,7 @@ public class TestBaseTest extends ResultsReporting {
      */
     @Test
     public void testToString() {
-        assertNotNull("unexpected null",new MockTestBase().toString());
+        assertNotNull("unexpected null", new MockTestBase().toString());
     }
 
     /**
@@ -165,7 +166,7 @@ public class TestBaseTest extends ResultsReporting {
      */
     @Test
     public void testDebugString() {
-        assertNotNull("unexpected null",new MockTestBase().debugString());
+        assertNotNull("unexpected null", new MockTestBase().debugString());
     }
 
 }

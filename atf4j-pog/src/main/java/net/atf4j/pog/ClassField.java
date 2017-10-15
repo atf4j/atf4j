@@ -72,7 +72,7 @@ public class ClassField {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see java.lang.Enum#toString()
          */
         @Override
@@ -242,7 +242,7 @@ public class ClassField {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override

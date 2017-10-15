@@ -38,7 +38,7 @@ public class BehaviourFailTest extends ResultsReporting {
     public void testGiven() {
         LOG.info("{}.testGiven", this.getClass().getSimpleName());
         final Given given = new Given();
-        assertNotNull("unexpected null",given);
+        assertNotNull("unexpected null", given);
         given.execute();
     }
 
@@ -48,8 +48,8 @@ public class BehaviourFailTest extends ResultsReporting {
     @Atf4j.When("testWhen")
     public void testWhen() {
         LOG.info("{}.testGiven", this.getClass().getSimpleName());
-        When when = new When();
-        assertNotNull("unexpected null",when);
+        final When when = new When();
+        assertNotNull("unexpected null", when);
         when.execute();
     }
 
@@ -59,8 +59,8 @@ public class BehaviourFailTest extends ResultsReporting {
     @Atf4j.Then("testThen")
     public void testThen() {
         LOG.info("{}.testGiven", this.getClass().getSimpleName());
-        Then then = new Then();
-        assertNotNull("unexpected null",then);
+        final Then then = new Then();
+        assertNotNull("unexpected null", then);
         then.execute();
     }
 

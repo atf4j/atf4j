@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core.timers;
 
 import static org.junit.Assert.assertNotNull;
@@ -33,8 +34,8 @@ public class SplitTimerTest extends ResultsReporting {
     @Test
     public void testGetSplitTime() {
         final SplitTimer splitTimer = new SplitTimer();
-        assertNotNull("unexpected null",splitTimer);
-        assertNotNull("unexpected null",splitTimer.getSplitTime());
+        assertNotNull("unexpected null", splitTimer);
+        assertNotNull("unexpected null", splitTimer.getSplitTime());
     }
 
 }

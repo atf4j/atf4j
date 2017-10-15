@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import static org.junit.Assert.assertNotNull;
@@ -102,7 +103,7 @@ public class BankAccount {
      * @return the bank account
      */
     public BankAccount setBank(final Bank bank) {
-        assertNotNull("unexpected null",bank);
+        assertNotNull("unexpected null", bank);
         this.bank = bank;
         return this;
     }
@@ -115,7 +116,7 @@ public class BankAccount {
      * @return the bank account
      */
     public BankAccount setAccountNo(final String accountNo) {
-        assertNotNull("unexpected null",accountNo);
+        assertNotNull("unexpected null", accountNo);
         this.accountNo = accountNo;
         return this;
     }
@@ -140,7 +141,7 @@ public class BankAccount {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override

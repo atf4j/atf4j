@@ -45,7 +45,7 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see java.io.FilenameFilter#accept(java.io.File, java.lang.String)
          */
         @Override
@@ -87,7 +87,7 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.amq.FolderWalkerInterface#setPath(java.lang.String)
      */
     @Override
@@ -97,7 +97,7 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.amq.FolderWalkerInterface#setExtensionFilter(java.io.
      * FilenameFilter)
      */
@@ -108,7 +108,7 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.amq.FolderWalkerInterface#walk()
      */
     @Override
@@ -118,7 +118,7 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.amq.FolderWalkerInterface#walk(java.lang.String)
      */
     @Override
@@ -142,7 +142,7 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.amq.FolderWalkerInterface#scan(java.lang.String)
      */
     @Override
@@ -184,7 +184,7 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.amq.FolderWalkerInterface#getPath()
      */
     @Override
@@ -194,7 +194,7 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.amq.FolderWalkerInterface#getFoundFiles()
      */
     @Override
@@ -204,7 +204,8 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
 
     @Override
     public String toString() {
-        return String.format("AbstractFolderWalker [path=%s, filter=%s, foundFiles=%s]", path, filter, foundFiles);
+        return String.format("AbstractFolderWalker [path=%s, filter=%s, foundFiles=%s]", this.path, this.filter,
+                this.foundFiles);
     }
 
 }

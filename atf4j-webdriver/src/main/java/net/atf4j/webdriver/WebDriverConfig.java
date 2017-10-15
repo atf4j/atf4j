@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.webdriver;
 
 import net.atf4j.core.AbstractConfig;
@@ -153,7 +154,7 @@ public class WebDriverConfig extends AbstractConfig {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
      */
     @Override

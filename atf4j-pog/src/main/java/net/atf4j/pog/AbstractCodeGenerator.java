@@ -54,7 +54,7 @@ public abstract class AbstractCodeGenerator {
     private String templateFilename = CLASS_TEMPLATE;
     private String packageName = "net.atf4j.generated";
     private String className = "ExampleClass";
-    private String targetHomeFolder = TARGET_FOLDER;
+    private final String targetHomeFolder = TARGET_FOLDER;
 
     protected final List<ClassField> fields = new ArrayList<ClassField>();
     protected final List<ClassMethod> methods = new ArrayList<ClassMethod>();
@@ -418,7 +418,7 @@ public abstract class AbstractCodeGenerator {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override

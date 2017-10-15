@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core.timers;
 
 import static org.junit.Assert.assertNotNull;
@@ -33,7 +34,7 @@ public class NestedTimersTest extends ResultsReporting {
     @Test
     public void testGetInstance() {
         final NestedTimers instance = NestedTimers.getInstance();
-        assertNotNull("unexpected null",instance);
+        assertNotNull("unexpected null", instance);
     }
 
     /**

@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core;
 
 import static org.junit.Assert.assertEquals;
@@ -27,7 +28,7 @@ import org.slf4j.LoggerFactory;
 /**
  * A UnitTest for TestStatus objects. forString
  */
-public class TestResultTest extends ResultsReporting {
+public final class TestResultTest extends ResultsReporting {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TestResultTest.class);
 
@@ -37,7 +38,7 @@ public class TestResultTest extends ResultsReporting {
     @Test
     public void testInitialise() {
         final TestResult testStatus = TestResult.initialise();
-        assertNotNull("unexpected null",testStatus);
+        assertNotNull("unexpected null", testStatus);
         verifyEquals(TestResult.PENDING, testStatus);
     }
 

@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import static org.junit.Assert.assertNotNull;
@@ -115,7 +116,7 @@ public class Telephone {
 
     /**
      * Verify.
-     * 
+     *
      * \* @return true, if successful, otherwise false.
      *
      * @return true, if successful, otherwise false.
@@ -220,18 +221,19 @@ public class Telephone {
     /**
      * Verify.
      *
-     * @param number            the number \* @return true, if successful, otherwise false.
+     * @param number
+     *            the number \* @return true, if successful, otherwise false.
      * @return true, if successful, otherwise false.
      */
     public static boolean verify(final String number) {
-        assertNotNull("unexpected null",number);
+        assertNotNull("unexpected null", number);
         final Matcher matcher = pattern.matcher(number);
         return matcher.find();
     }
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override

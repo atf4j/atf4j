@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.csv;
 
 import static org.junit.Assert.assertEquals;
@@ -39,7 +40,7 @@ public class HeaderLineTest {
     @Test
     public void testBlankHeaderLine() {
         final HeaderLine headerLine = new HeaderLine("");
-        assertNotNull("unexpected null",headerLine);
+        assertNotNull("unexpected null", headerLine);
         assertEquals(1, headerLine.length());
         this.log.info(headerLine.toString());
     }
@@ -50,7 +51,7 @@ public class HeaderLineTest {
     @Test
     public void testHeaderConstructor() {
         final HeaderLine headerLine = new HeaderLine(HEADER_LINE);
-        assertNotNull("unexpected null",headerLine);
+        assertNotNull("unexpected null", headerLine);
         assertEquals(2, headerLine.length());
         final String headerLineString = headerLine.debugString();
         assertEquals(EXPECTED_HEADER, headerLineString);
@@ -65,7 +66,7 @@ public class HeaderLineTest {
     @Test
     public void testHeaderLine() {
         final HeaderLine headerLine = new HeaderLine();
-        assertNotNull("unexpected null",headerLine);
+        assertNotNull("unexpected null", headerLine);
         assertEquals(0, headerLine.length());
         headerLine.initialise(HEADER_LINE);
         assertEquals(2, headerLine.length());

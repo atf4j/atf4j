@@ -29,7 +29,7 @@ public class BankSortCode {
 
     private static final Pattern pattern = Pattern.compile("^(\\d){2}-(\\d){2}-(\\d){2}$");
 
-    private String bankName = "";
+    private final String bankName = "";
     private String sortcode;
 
     /**
@@ -97,7 +97,7 @@ public class BankSortCode {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override

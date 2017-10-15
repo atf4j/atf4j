@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core;
 
 import static org.junit.Assert.assertEquals;
@@ -26,7 +27,7 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 /**
  * Unit test class configuration with Defaults.
  */
-public class ConfigWithDefaultTests extends ResultsReporting {
+public final class ConfigWithDefaultTests extends ResultsReporting {
 
     /**
      * A Mock Configuration with default values.
@@ -118,7 +119,7 @@ public class ConfigWithDefaultTests extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() throws ConfigurationNotLoaded {
-        assertNotNull("unexpected null",new ConfigWithDefaults());
+        assertNotNull("unexpected null", new ConfigWithDefaults());
     }
 
     /**
@@ -130,7 +131,7 @@ public class ConfigWithDefaultTests extends ResultsReporting {
     @Test
     public void testDefaultString() throws ConfigurationNotLoaded {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
-        assertNotNull("unexpected null",mockConfig);
+        assertNotNull("unexpected null", mockConfig);
         assertEquals("DEFAULT_STRING", mockConfig.getFooAsString("missing"));
     }
 
@@ -143,7 +144,7 @@ public class ConfigWithDefaultTests extends ResultsReporting {
     @Test
     public void testDefaultBoolean() throws ConfigurationNotLoaded {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
-        assertNotNull("unexpected null",mockConfig);
+        assertNotNull("unexpected null", mockConfig);
         assertEquals(true, mockConfig.getTrueAsBoolean("missing"));
         assertEquals(false, mockConfig.getFalseAsBoolean("missing"));
     }
@@ -157,7 +158,7 @@ public class ConfigWithDefaultTests extends ResultsReporting {
     @Test
     public void testDefaultInt() throws ConfigurationNotLoaded {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
-        assertNotNull("unexpected null",mockConfig);
+        assertNotNull("unexpected null", mockConfig);
         assertEquals(Integer.MAX_VALUE, mockConfig.getMax("missing"));
         assertEquals(Integer.MIN_VALUE, mockConfig.getMin("missing"));
     }

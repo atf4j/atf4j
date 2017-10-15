@@ -136,7 +136,7 @@ public class SimpleBag {
 
     /**
      * Occupied.
-     * 
+     *
      * \* @return true, if successful, otherwise false.
      *
      * @return true, if successful, otherwise false.
@@ -147,7 +147,7 @@ public class SimpleBag {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override

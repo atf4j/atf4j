@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core;
 
 import static org.junit.Assert.assertNotNull;
@@ -23,7 +24,7 @@ import org.junit.Test;
 /**
  * A UnitTest for Reporting Test Results.
  */
-public class ResultsReportingTest extends ResultsReporting {
+public final class ResultsReportingTest extends ResultsReporting {
 
     /**
      * Test method for ResultsReporting}.
@@ -43,7 +44,7 @@ public class ResultsReportingTest extends ResultsReporting {
             super.verifyEquals(new Object(), new Object());
         } catch (final AssertionError assertionError) {
             final String actualMessage = assertionError.toString();
-            assertNotNull("unexpected null",actualMessage);
+            assertNotNull("unexpected null", actualMessage);
             this.log.info(actualMessage);
         }
     }
@@ -66,7 +67,7 @@ public class ResultsReportingTest extends ResultsReporting {
             super.verifyEquals(Long.MIN_VALUE, Long.MAX_VALUE);
         } catch (final AssertionError assertionError) {
             final String actualMessage = assertionError.toString();
-            assertNotNull("unexpected null",actualMessage);
+            assertNotNull("unexpected null", actualMessage);
             this.log.info(actualMessage);
         }
     }
@@ -77,7 +78,7 @@ public class ResultsReportingTest extends ResultsReporting {
     @Test
     public void testToDescription() {
         final String description = super.toDescription();
-        assertNotNull("unexpected null",description);
+        assertNotNull("unexpected null", description);
         this.log.info(description);
     }
 

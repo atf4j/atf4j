@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.bdd;
 
 import static org.junit.Assert.assertNotNull;
@@ -172,8 +173,8 @@ public class ScenarioRunnerTest extends ResultsReporting {
     public void testScenarioExecution() {
         LOG.info("{}.testScenarioExecution", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner();
-        Scenario scenario = new Scenario();
-        assertNotNull("unexpected null",scenarioRunner);
+        final Scenario scenario = new Scenario();
+        assertNotNull("unexpected null", scenarioRunner);
         scenarioRunner.execute(scenario);
     }
 
@@ -184,8 +185,8 @@ public class ScenarioRunnerTest extends ResultsReporting {
     public void testFailGivenScenario() {
         LOG.info("{}.testFailGivenScenario", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner();
-        FailGivenScenario scenario = new FailGivenScenario();
-        assertNotNull("unexpected null",scenarioRunner);
+        final FailGivenScenario scenario = new FailGivenScenario();
+        assertNotNull("unexpected null", scenarioRunner);
         scenarioRunner.execute(scenario);
     }
 
@@ -196,8 +197,8 @@ public class ScenarioRunnerTest extends ResultsReporting {
     public void testFailWhenScenario() {
         LOG.info("{}.testFailWhenScenario", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner();
-        FailWhenScenario scenario = new FailWhenScenario();
-        assertNotNull("unexpected null",scenarioRunner);
+        final FailWhenScenario scenario = new FailWhenScenario();
+        assertNotNull("unexpected null", scenarioRunner);
         scenarioRunner.execute(scenario);
     }
 
@@ -208,8 +209,8 @@ public class ScenarioRunnerTest extends ResultsReporting {
     public void testFailThenScenario() {
         LOG.info("{}.testFailThenScenario", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner();
-        FailThenScenario scenario = new FailThenScenario();
-        assertNotNull("unexpected null",scenarioRunner);
+        final FailThenScenario scenario = new FailThenScenario();
+        assertNotNull("unexpected null", scenarioRunner);
         scenarioRunner.execute(scenario);
     }
 
@@ -219,9 +220,9 @@ public class ScenarioRunnerTest extends ResultsReporting {
     @Test
     public void testScenarioRunner() {
         LOG.info("{}.testScenarioRunner", this.getClass().getSimpleName());
-        Scenario targetScenario = new Scenario();
+        final Scenario targetScenario = new Scenario();
         final ScenarioRunner scenarioRunner = new ScenarioRunner(targetScenario);
-        assertNotNull("unexpected null",scenarioRunner);
+        assertNotNull("unexpected null", scenarioRunner);
         scenarioRunner.execute();
     }
 

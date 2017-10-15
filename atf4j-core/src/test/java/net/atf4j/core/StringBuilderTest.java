@@ -27,11 +27,6 @@ import org.junit.Test;
  */
 public class StringBuilderTest extends ResultsReporting {
 
-    private String string = "StringBuilderTest";
-    private boolean bool = true;
-    private double real = Math.PI;
-    private int number = 999;
-
     /**
      * SubClassWithoutProperties Class.
      */
@@ -58,9 +53,6 @@ public class StringBuilderTest extends ResultsReporting {
 
         /** The Constant π. */
         public static final double π = 3.14159;
-
-        /** The super class. */
-        private final String superClass = "SubClassWithProperties";
 
         /** The protected string. */
         protected String protectedString = "protectedString";

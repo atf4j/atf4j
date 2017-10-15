@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core;
 
 import org.junit.Test;
@@ -21,7 +22,7 @@ import org.junit.Test;
 /**
  * A UnitTest for Narrator objects.
  */
-public class NarratorTest extends ResultsReporting {
+public final class NarratorTest extends ResultsReporting {
 
     private final Object aObject = this;
     private final String aString = "";

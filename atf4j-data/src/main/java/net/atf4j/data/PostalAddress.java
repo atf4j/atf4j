@@ -38,7 +38,7 @@ public class PostalAddress {
 
     /**
      * Instantiates a new postal address.
-     * 
+     *
      * @param address
      *            the address
      */
@@ -140,7 +140,7 @@ public class PostalAddress {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override

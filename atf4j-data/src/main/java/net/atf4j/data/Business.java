@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import static org.junit.Assert.assertNotNull;
@@ -72,7 +73,7 @@ public class Business extends Name {
      * @return the business
      */
     public Business setAddress(final PostalAddress address) {
-        assertNotNull("unexpected null",address);
+        assertNotNull("unexpected null", address);
         this.address = address;
         return this;
     }
@@ -85,7 +86,7 @@ public class Business extends Name {
      * @return the business
      */
     public Business setAddress(final String[] address) {
-        assertNotNull("unexpected null",address);
+        assertNotNull("unexpected null", address);
         this.address.setAddress(address);
         return this;
     }
@@ -99,8 +100,8 @@ public class Business extends Name {
      *            the address line
      */
     public void setAddressRow(final int lineNo, final String addressLine) {
-        assertNotNull("unexpected null",lineNo);
-        assertNotNull("unexpected null",addressLine);
+        assertNotNull("unexpected null", lineNo);
+        assertNotNull("unexpected null", addressLine);
         this.address.setAddressRow(lineNo, addressLine);
     }
 
@@ -112,7 +113,7 @@ public class Business extends Name {
      * @return the postal address
      */
     public PostalAddress setPostcode(final Postcode postcode) {
-        assertNotNull("unexpected null",postcode);
+        assertNotNull("unexpected null", postcode);
         return this.address.setPostcode(postcode);
     }
 
@@ -127,7 +128,7 @@ public class Business extends Name {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.data.Name#toString()
      */
     @Override

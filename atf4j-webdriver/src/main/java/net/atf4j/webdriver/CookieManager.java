@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.webdriver;
 
 import static org.junit.Assert.assertNotNull;
@@ -117,7 +118,7 @@ public class CookieManager {
      * @return the web driver
      */
     private WebDriver setWebDriver(final WebDriver webDriver) {
-        assertNotNull("unexpected null",this.webDriver);
+        assertNotNull("unexpected null", this.webDriver);
         return this.webDriver = webDriver;
     }
 }

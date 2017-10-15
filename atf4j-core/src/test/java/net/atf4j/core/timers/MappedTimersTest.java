@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core.timers;
 
 import static org.junit.Assert.assertNotNull;
@@ -33,7 +34,7 @@ public class MappedTimersTest extends ResultsReporting {
     @Test
     public void testGetInstance() {
         final MappedTimers instance = MappedTimers.getInstance();
-        assertNotNull("unexpected null",instance);
+        assertNotNull("unexpected null", instance);
     }
 
     /**
@@ -42,8 +43,8 @@ public class MappedTimersTest extends ResultsReporting {
     @Test
     public void testExpectedUsage() {
         final TimerInterface timer = MappedTimers.start("testExpectedUsage");
-        assertNotNull("unexpected null",timer);
-        assertNotNull("unexpected null",timer.stop());
+        assertNotNull("unexpected null", timer);
+        assertNotNull("unexpected null", timer.stop());
         this.log.info(timer.toString());
     }
 
@@ -52,7 +53,7 @@ public class MappedTimersTest extends ResultsReporting {
      */
     @Test
     public void testStopAll() {
-        assertNotNull("unexpected null",MappedTimers.stopAll());
+        assertNotNull("unexpected null", MappedTimers.stopAll());
     }
 
     /**
@@ -60,7 +61,7 @@ public class MappedTimersTest extends ResultsReporting {
      */
     @Test
     public void testToString() {
-        assertNotNull("unexpected null",MappedTimers.debugString());
+        assertNotNull("unexpected null", MappedTimers.debugString());
     }
 
 }

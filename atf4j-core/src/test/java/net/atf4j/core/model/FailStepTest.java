@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core.model;
 
 import static org.junit.Assert.assertNotNull;
@@ -30,7 +31,7 @@ public class FailStepTest {
      */
     @Test
     public void testFailStep() {
-        assertNotNull("unexpected null",new FailStep());
+        assertNotNull("unexpected null", new FailStep());
     }
 
     /**
@@ -38,7 +39,7 @@ public class FailStepTest {
      */
     @Test
     public void testFailStepNull() {
-        assertNotNull("unexpected null",new FailStep(null));
+        assertNotNull("unexpected null", new FailStep(null));
     }
 
     /**
@@ -46,7 +47,7 @@ public class FailStepTest {
      */
     @Test
     public void testFailStepString() {
-        assertNotNull("unexpected null",new FailStep("FailStep"));
+        assertNotNull("unexpected null", new FailStep("FailStep"));
     }
 
 }

@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import java.util.regex.Matcher;
@@ -134,7 +135,8 @@ public class Postcode {
     /**
      * Verify.
      *
-     * @param postcode            the postcode \* @return true, if successful, otherwise false.
+     * @param postcode
+     *            the postcode \* @return true, if successful, otherwise false.
      * @return true, if successful, otherwise false.
      */
     public static boolean verify(final String postcode) {

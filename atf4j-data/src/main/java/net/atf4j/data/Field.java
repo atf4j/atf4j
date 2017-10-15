@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import java.util.UUID;
@@ -21,7 +22,8 @@ import java.util.UUID;
 /**
  * Field Class.
  *
- * @param <T> the generic type
+ * @param <T>
+ *            the generic type
  */
 public class Field<T> {
 

@@ -22,7 +22,7 @@ import org.junit.Test;
 /**
  * A Unit Test for Verify.
  */
-public class VerifyTest extends ResultsReporting {
+public final class VerifyTest extends ResultsReporting {
 
     /**
      * Unit Test for test equals.

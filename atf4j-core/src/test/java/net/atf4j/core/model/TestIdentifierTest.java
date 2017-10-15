@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core.model;
 
 import static org.junit.Assert.assertEquals;
@@ -35,7 +36,7 @@ public class TestIdentifierTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null",new TestIdentifier());
+        assertNotNull("unexpected null", new TestIdentifier());
     }
 
     /**
@@ -44,7 +45,7 @@ public class TestIdentifierTest extends ResultsReporting {
     @Test
     public void testCreate() {
         final TestIdentifier testId = TestIdentifier.create();
-        assertNotNull("unexpected null",testId);
+        assertNotNull("unexpected null", testId);
     }
 
     /**

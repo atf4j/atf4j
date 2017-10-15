@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 /**
@@ -43,7 +44,7 @@ public class Text {
 
     /**
      * Fill.
-     * 
+     *
      * @param length
      *            the length
      * @return the string
@@ -54,7 +55,7 @@ public class Text {
 
     /**
      * Fill.
-     * 
+     *
      * @param length
      *            the length
      * @param chr
@@ -67,7 +68,7 @@ public class Text {
 
     /**
      * Pad to length.
-     * 
+     *
      * @param stem
      *            the stem
      * @param length
@@ -80,7 +81,7 @@ public class Text {
 
     /**
      * Pad to length.
-     * 
+     *
      * @param stem
      *            the stem
      * @param length

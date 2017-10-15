@@ -14,12 +14,12 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
@@ -28,7 +28,7 @@ import net.atf4j.core.AbstractConfig.PropertyNotFound;
 /**
  * Unit tests for configuration class.
  */
-public class ConfigTest extends ResultsReporting {
+public final class ConfigTest extends ResultsReporting {
 
     /**
      * Default configuration class.
@@ -105,7 +105,7 @@ public class ConfigTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null",new DefaultConfig());
+        assertNotNull("unexpected null", new DefaultConfig());
     }
 
     /**
@@ -117,7 +117,7 @@ public class ConfigTest extends ResultsReporting {
     @Test
     public void testMissingConfig() throws ConfigurationNotLoaded {
         final ConfigurationInterface missingConfig = new MissingProperties();
-        assertNotNull("unexpected null",missingConfig);
+        assertNotNull("unexpected null", missingConfig);
         this.log.info(missingConfig.toString());
     }
 
@@ -130,7 +130,7 @@ public class ConfigTest extends ResultsReporting {
     @Test
     public void testLoad() throws ConfigurationNotLoaded {
         final ConfigurationInterface mockConfig = new MissingProperties();
-        assertNotNull("unexpected null",mockConfig);
+        assertNotNull("unexpected null", mockConfig);
         this.log.info(mockConfig.toString());
     }
 
@@ -145,7 +145,7 @@ public class ConfigTest extends ResultsReporting {
     @Test
     public void testConfigFromFile() throws ConfigurationNotLoaded, PropertyNotFound {
         final ConfigFromFile config = new ConfigFromFile();
-        assertNotNull("unexpected null",config);
+        assertNotNull("unexpected null", config);
         assertEquals("true", config.get("loaded"));
         assertEquals(true, config.valueFor("loaded", false));
         assertEquals("ConfigFromSystem.properties", config.get("name"));
@@ -163,7 +163,7 @@ public class ConfigTest extends ResultsReporting {
     @Test
     public final void testSystemOveridesConfig() throws ConfigurationNotLoaded, PropertyNotFound {
         final ConfigFromFile config = new ConfigFromFile();
-        assertNotNull("unexpected null",config);
+        assertNotNull("unexpected null", config);
         final String key = "property";
         final String value = "FromSystem";
         System.setProperty(key, value);
@@ -178,6 +178,6 @@ public class ConfigTest extends ResultsReporting {
      */
     @Test
     public final void testStaticConfig() throws ConfigurationNotLoaded {
-        assertNotNull("unexpected null",ConfigTest.config);
+        assertNotNull("unexpected null", ConfigTest.config);
     }
 }

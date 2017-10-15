@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core.model;
 
 import static org.junit.Assert.assertEquals;
@@ -46,7 +47,7 @@ public class TestCaseTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null",new TestCase());
+        assertNotNull("unexpected null", new TestCase());
     }
 
     /**
@@ -54,7 +55,7 @@ public class TestCaseTest extends ResultsReporting {
      */
     @Test
     public void testTestCaseString() {
-        assertNotNull("unexpected null",new TestCase("TestCase"));
+        assertNotNull("unexpected null", new TestCase("TestCase"));
     }
 
     /**
@@ -65,7 +66,7 @@ public class TestCaseTest extends ResultsReporting {
      */
     @Test
     public void testRegisterLogging() throws Atf4jException {
-        assertNotNull("unexpected null",new TestCase().registerLogging(new MockTestReport()));
+        assertNotNull("unexpected null", new TestCase().registerLogging(new MockTestReport()));
     }
 
     /**
@@ -77,9 +78,9 @@ public class TestCaseTest extends ResultsReporting {
     @Test
     public void testExecuteTestContext() throws Atf4jException {
         final TestContext context = new TestContext();
-        assertNotNull("unexpected null",context);
+        assertNotNull("unexpected null", context);
         final TestCase testCase = new TestCase();
-        assertNotNull("unexpected null",testCase.execute(context));
+        assertNotNull("unexpected null", testCase.execute(context));
     }
 
     /**
@@ -97,13 +98,13 @@ public class TestCaseTest extends ResultsReporting {
     @Test
     public void testAddTestStep() {
         final TestStep testStep = new TestStep();
-        assertNotNull("unexpected null",testStep);
+        assertNotNull("unexpected null", testStep);
 
         final TestCase testCase = new TestCase();
-        assertNotNull("unexpected null",testCase);
+        assertNotNull("unexpected null", testCase);
 
         final TestCase addTestStep = testCase.addTestStep(testStep);
-        assertNotNull("unexpected null",testStep);
+        assertNotNull("unexpected null", testStep);
 
         assertEquals(1, addTestStep.numberOfTestSteps());
     }
@@ -114,7 +115,7 @@ public class TestCaseTest extends ResultsReporting {
     @Test
     public void testPreCondition() {
         final TestCase testCase = new TestCase();
-        assertNotNull("unexpected null",testCase.addPreCondition(new PassingCondition()));
+        assertNotNull("unexpected null", testCase.addPreCondition(new PassingCondition()));
     }
 
     /**
@@ -123,7 +124,7 @@ public class TestCaseTest extends ResultsReporting {
     @Test
     public void testPostCondition() {
         final TestCase testCase = new TestCase();
-        assertNotNull("unexpected null",testCase.addPostCondition(new PassingCondition()));
+        assertNotNull("unexpected null", testCase.addPostCondition(new PassingCondition()));
     }
 
 }

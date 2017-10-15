@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core;
 
 import static org.junit.Assert.assertEquals;
@@ -26,7 +27,7 @@ import org.slf4j.LoggerFactory;
 /**
  * A UnitTest for Atf4jException objects.
  */
-public class Atf4jExceptionTest extends ResultsReporting {
+public final class Atf4jExceptionTest extends ResultsReporting {
 
     private static final String EXCEPTION_MESSAGE = "Force a Atf4jException";
     private static final Logger LOGGER = LoggerFactory.getLogger(Atf4jExceptionTest.class);

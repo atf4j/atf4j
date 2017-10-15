@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core;
 
 import static org.junit.Assert.assertEquals;
@@ -26,7 +27,7 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 /**
  * UnitTests for ConfigFromSystem.
  */
-public class ConfigFromSystemTests extends ResultsReporting {
+public final class ConfigFromSystemTests extends ResultsReporting {
 
     /**
      * Mock Configuration from System settings.
@@ -104,7 +105,7 @@ public class ConfigFromSystemTests extends ResultsReporting {
 
         // When
         final ConfigFromSystem mockConfig = new ConfigFromSystem();
-        assertNotNull("unexpected null",mockConfig);
+        assertNotNull("unexpected null", mockConfig);
         final String systemPropertyAsString = mockConfig.getSystemPropertyAsString(systemPropertyKey);
         assertEquals(systemPropertyValue, systemPropertyAsString);
     }
@@ -124,7 +125,7 @@ public class ConfigFromSystemTests extends ResultsReporting {
 
         // When
         final ConfigFromSystem mockConfig = new ConfigFromSystem();
-        assertNotNull("unexpected null",mockConfig);
+        assertNotNull("unexpected null", mockConfig);
         final boolean booleanFromSystem = mockConfig.getSystemPropertyAsBoolean(systemPropertyKey);
         assertEquals(true, booleanFromSystem);
     }

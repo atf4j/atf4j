@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core;
 
 import static org.junit.Assert.assertEquals;
@@ -26,7 +27,7 @@ import net.atf4j.core.AbstractConfig.PropertyNotFound;
 /**
  * ConfigLoadingTests Class.
  */
-public class ConfigLoadingTests extends ResultsReporting {
+public final class ConfigLoadingTests extends ResultsReporting {
 
     /**
      * The SimpleConfiguration Class.

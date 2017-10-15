@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import java.util.ArrayDeque;
@@ -45,7 +46,8 @@ public class ProductCatalog {
     /**
      * add a Product to catalog.
      *
-     * @param e            the e \* @return true, if successful, otherwise false.
+     * @param e
+     *            the e \* @return true, if successful, otherwise false.
      * @return true, if successful, otherwise false.
      * @see java.util.Collection#add(java.lang.Object)
      */
@@ -74,7 +76,7 @@ public class ProductCatalog {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override

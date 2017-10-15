@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core.model;
 
 import java.util.ArrayDeque;
@@ -31,7 +32,8 @@ public class TestResults {
     /**
      * Add a TestResult to collection.
      *
-     * @param testResult            the test result \* @return true, if successful, otherwise
+     * @param testResult
+     *            the test result \* @return true, if successful, otherwise
      *            false.
      * @return true, if successful, otherwise false.
      */

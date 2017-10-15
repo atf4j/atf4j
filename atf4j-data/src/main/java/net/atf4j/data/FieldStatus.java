@@ -27,7 +27,7 @@ public enum FieldStatus {
 
     /**
      * Instantiates a new field status.
-     * 
+     *
      * @param value
      *            the value
      */
@@ -46,7 +46,7 @@ public enum FieldStatus {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Enum#toString()
      */
     @Override

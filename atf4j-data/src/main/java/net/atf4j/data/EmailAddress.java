@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import java.util.regex.Matcher;
@@ -143,7 +144,8 @@ public class EmailAddress {
     /**
      * Verify.
      *
-     * @param email            the email \* @return true, if successful, otherwise false.
+     * @param email
+     *            the email \* @return true, if successful, otherwise false.
      * @return true, if successful, otherwise false.
      */
     public static boolean verify(final String email) {
@@ -153,7 +155,7 @@ public class EmailAddress {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override

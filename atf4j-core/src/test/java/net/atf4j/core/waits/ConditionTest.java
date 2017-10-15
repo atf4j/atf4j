@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core.waits;
 
 import static org.junit.Assert.assertNotNull;
@@ -45,7 +46,7 @@ public class ConditionTest extends ResultsReporting {
      */
     @Test
     public void PassingCondition() {
-        assertNotNull("unexpected null",new PassingCondition());
+        assertNotNull("unexpected null", new PassingCondition());
     }
 
     /**
@@ -53,7 +54,7 @@ public class ConditionTest extends ResultsReporting {
      */
     @Test
     public void testFailingCondition() {
-        assertNotNull("unexpected null",new FailingCondition());
+        assertNotNull("unexpected null", new FailingCondition());
     }
 
 }

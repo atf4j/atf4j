@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.pog;
 
 import static org.junit.Assert.assertNotNull;
@@ -70,7 +71,7 @@ public class PageWebElement extends ClassField {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see java.lang.Enum#toString()
          */
         @Override
@@ -122,7 +123,7 @@ public class PageWebElement extends ClassField {
      * @return the page web element
      */
     public PageWebElement setLocatorStrategy(final String strategy) {
-        assertNotNull("unexpected null",strategy);
+        assertNotNull("unexpected null", strategy);
         this.strategy = Strategy.fromString(strategy);
         return this;
     }
@@ -135,7 +136,7 @@ public class PageWebElement extends ClassField {
      * @return the page web element
      */
     public PageWebElement setLocatorStrategy(final Strategy strategy) {
-        assertNotNull("unexpected null",strategy);
+        assertNotNull("unexpected null", strategy);
         this.strategy = strategy;
         return this;
     }
@@ -148,7 +149,7 @@ public class PageWebElement extends ClassField {
      * @return the page web element
      */
     public PageWebElement setLocator(final String locator) {
-        assertNotNull("unexpected null",locator);
+        assertNotNull("unexpected null", locator);
         this.locator = locator;
         return this;
     }
@@ -173,7 +174,7 @@ public class PageWebElement extends ClassField {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.pog.ClassField#toString()
      */
     @Override

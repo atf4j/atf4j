@@ -11,6 +11,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j. If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core;
 
 import org.junit.Test;
@@ -20,7 +21,7 @@ import net.atf4j.core.timers.NestedTimers;
 /**
  * Nested Timers Test Class.
  */
-public class NestedTimersTest extends ResultsReporting {
+public final class NestedTimersTest extends ResultsReporting {
 
     private static final int DEFAULT_INTERVAL = 100;
 

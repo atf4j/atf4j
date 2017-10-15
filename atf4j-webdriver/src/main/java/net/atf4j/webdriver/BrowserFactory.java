@@ -43,6 +43,13 @@ public class BrowserFactory implements BrowserFactoryInterface {
     private static WebDriverConfig config;
 
     /**
+     * Instantiates a new browser factory.
+     */
+    protected BrowserFactory() {
+        super();
+    }
+
+    /**
      * Initialise web driver.
      *
      * @param webDriver

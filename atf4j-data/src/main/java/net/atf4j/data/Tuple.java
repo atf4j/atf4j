@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 /**
@@ -54,7 +55,7 @@ public class Tuple<K, V> implements Keyed<K, V> {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.data.Keyed#key()
      */
     @Override
@@ -64,7 +65,7 @@ public class Tuple<K, V> implements Keyed<K, V> {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.data.Keyed#value()
      */
     @Override
