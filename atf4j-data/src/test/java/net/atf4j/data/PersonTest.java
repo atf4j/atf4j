@@ -58,7 +58,8 @@ public final class PersonTest extends ResultsReporting {
     @Test
     public void testSetGetTitle() {
         final String actual = "";
-        assertEquals(actual, new Person().title(actual).title());
+        Person person = new Person();
+        assertEquals(actual, person.title(actual).title());
     }
 
     /**

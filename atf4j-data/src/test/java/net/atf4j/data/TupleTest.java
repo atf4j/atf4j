@@ -1,29 +1,40 @@
+
 package net.atf4j.data;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-public class TupleTest {
+import net.atf4j.core.ResultsReporting;
+
+public class TupleTest extends ResultsReporting {
 
     @Test
     public void testSetKey() {
-        fail("Not yet implemented");
+        Tuple<String, String> tuple = new Tuple<String, String>();
+        assertNotNull(tuple);
+        log.info("{}", tuple);
     }
 
     @Test
     public void testSetValue() {
-        fail("Not yet implemented");
+        Tuple<String, String> tuple = new Tuple<String, String>();
+        assertNotNull(tuple);
+        log.info("{}", tuple);
     }
 
     @Test
     public void testKey() {
-        fail("Not yet implemented");
+        Tuple<String, String> tuple = new Tuple<String, String>();
+        assertNotNull(tuple);
+        log.info("{}", tuple);
     }
 
     @Test
     public void testValue() {
-        fail("Not yet implemented");
+        Tuple<String, String> tuple = new Tuple<String, String>();
+        assertNotNull(tuple);
+        log.info("{}", tuple);
     }
 
 }

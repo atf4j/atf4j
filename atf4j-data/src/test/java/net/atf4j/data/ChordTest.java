@@ -1,29 +1,33 @@
+
 package net.atf4j.data;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-public class ChordTest {
+import net.atf4j.core.ResultsReporting;
+
+public class ChordTest extends ResultsReporting {
 
     @Test
     public void testSetStem() {
-        fail("Not yet implemented");
+        Chord chord = new Chord();
+        assertNotNull(chord);
+        log.info("{}", chord);
     }
 
     @Test
     public void testGetStem() {
-        fail("Not yet implemented");
+        Chord chord = new Chord();
+        assertNotNull(chord);
+        log.info("{}", chord);
     }
 
     @Test
     public void testAdd() {
-        fail("Not yet implemented");
-    }
-
-    @Test
-    public void testToString() {
-        fail("Not yet implemented");
+        Chord chord = new Chord();
+        assertNotNull(chord);
+        log.info("{}", chord);
     }
 
 }

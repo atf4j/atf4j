@@ -28,13 +28,20 @@ public class Credentials {
 
     /**
      * Instantiates a new credentials.
+     */
+    public Credentials() {
+        super();
+        this.username = "username";
+        this.password = "password";
+        this.email = "email@example.org";
+    }
+
+    /**
+     * Instantiates a new credentials.
      *
-     * @param username
-     *            the username
-     * @param password
-     *            the password
-     * @param email
-     *            the email
+     * @param username the username
+     * @param password the password
+     * @param email the email
      */
     public Credentials(final String username, final String password, final String email) {
         super();
@@ -55,8 +62,7 @@ public class Credentials {
     /**
      * Sets the username.
      *
-     * @param username
-     *            the username
+     * @param username the username
      * @return the credentials
      */
     public Credentials setUsername(final String username) {
@@ -67,8 +73,7 @@ public class Credentials {
     /**
      * Sets the password.
      *
-     * @param password
-     *            the password
+     * @param password the password
      * @return the credentials
      */
     public Credentials setPassword(final String password) {
@@ -79,8 +84,7 @@ public class Credentials {
     /**
      * Sets the email.
      *
-     * @param email
-     *            the email
+     * @param email the email
      * @return the credentials
      */
     public Credentials setEmail(final String email) {

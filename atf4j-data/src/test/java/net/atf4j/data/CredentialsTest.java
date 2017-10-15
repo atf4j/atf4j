@@ -1,49 +1,47 @@
+
 package net.atf4j.data;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-public class CredentialsTest {
+import net.atf4j.core.ResultsReporting;
+
+public class CredentialsTest extends ResultsReporting {
 
     @Test
     public void testCredentials() {
-        fail("Not yet implemented");
+        Credentials credentials = new Credentials();
+        assertNotNull(credentials);
+        log.info("{}", credentials);
     }
 
     @Test
-    public void testGetUsername() {
-        fail("Not yet implemented");
+    public void testSetGetUsername() {
+        Credentials credentials = new Credentials();
+        assertNotNull(credentials);
+        log.info("{}", credentials);
+        credentials.setUsername("username");
+        assertEquals("username", credentials.getUsername());
     }
 
     @Test
-    public void testSetUsername() {
-        fail("Not yet implemented");
+    public void testSetGetPassword() {
+        Credentials credentials = new Credentials();
+        assertNotNull(credentials);
+        log.info("{}", credentials);
+        credentials.setPassword("username");
+        assertEquals("username", credentials.getPassword());
     }
 
     @Test
-    public void testSetPassword() {
-        fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetEmail() {
-        fail("Not yet implemented");
-    }
-
-    @Test
-    public void testGetEmail() {
-        fail("Not yet implemented");
-    }
-
-    @Test
-    public void testGetPassword() {
-        fail("Not yet implemented");
-    }
-
-    @Test
-    public void testToString() {
-        fail("Not yet implemented");
+    public void testSetGetEmail() {
+        Credentials credentials = new Credentials();
+        assertNotNull(credentials);
+        log.info("{}", credentials);
+        credentials.setEmail("email@example.org");
+        assertEquals("email@example.org", credentials.getEmail());
     }
 
 }
