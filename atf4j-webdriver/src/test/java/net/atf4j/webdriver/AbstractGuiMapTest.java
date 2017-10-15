@@ -14,7 +14,10 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.webdriver;
+
+import static org.junit.Assert.assertNotNull;
 
 import java.util.Enumeration;
 import java.util.MissingResourceException;
@@ -51,9 +54,9 @@ public class AbstractGuiMapTest extends ResultsReporting {
         final Enumeration<String> bundleKeys = instance.getKeys();
         while (bundleKeys.hasMoreElements()) {
             final String key = bundleKeys.nextElement();
-            Assert.assertNotNull("unexpected null",key);
+            Assert.assertNotNull("unexpected null", key);
             Assert.assertTrue(instance.containsKey(key));
-            Assert.assertNotNull("unexpected null",instance.getString(key));
+            Assert.assertNotNull("unexpected null", instance.getString(key));
             this.log.info("{}={}", key, instance.getString(key));
         }
     }
@@ -67,11 +70,11 @@ public class AbstractGuiMapTest extends ResultsReporting {
     @Test
     public void testKeySet() throws Exception {
         final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
-        Assert.assertNotNull("unexpected null",abstractGuiMap);
+        Assert.assertNotNull("unexpected null", abstractGuiMap);
         final Set<String> keySet = abstractGuiMap.keySet();
         for (final String key : keySet) {
             final String value = abstractGuiMap.getString(key);
-            Assert.assertNotNull("unexpected null",value);
+            Assert.assertNotNull("unexpected null", value);
         }
     }
 
@@ -80,7 +83,7 @@ public class AbstractGuiMapTest extends ResultsReporting {
      */
     @Test(expected = MissingResourceException.class)
     public final void testMissingGuiMapping() {
-        new MissingGuiMap();
+        assertNotNull(new MissingGuiMap());
     }
 
     /**
@@ -92,7 +95,7 @@ public class AbstractGuiMapTest extends ResultsReporting {
     @Test
     public void testName() throws Exception {
         final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
-        Assert.assertNotNull("unexpected null",abstractGuiMap);
+        Assert.assertNotNull("unexpected null", abstractGuiMap);
         abstractGuiMap.dumpTo(System.out);
     }
 
@@ -105,7 +108,7 @@ public class AbstractGuiMapTest extends ResultsReporting {
     @Test
     public void testToString() throws Exception {
         final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
-        Assert.assertNotNull("unexpected null",abstractGuiMap);
+        Assert.assertNotNull("unexpected null", abstractGuiMap);
         this.log.info(abstractGuiMap.toString());
         this.log.info(abstractGuiMap.getBaseBundleName());
         this.log.info(abstractGuiMap.getLocale().toString());

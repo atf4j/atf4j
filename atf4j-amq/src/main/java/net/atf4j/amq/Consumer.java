@@ -22,9 +22,12 @@ import javax.jms.Message;
 import javax.jms.MessageConsumer;
 import javax.jms.TextMessage;
 
+import org.junit.Ignore;
+
 /**
  * Consumer Class.
  */
+@Ignore
 public final class Consumer extends AbstractConnectionWrapper {
 
     private MessageConsumer messageConsumer;
@@ -58,6 +61,7 @@ public final class Consumer extends AbstractConnectionWrapper {
             log.info("read {}", text);
         }
 
+        this.messageConsumer.close();
         this.connection.close();
         return new String[0];
     }

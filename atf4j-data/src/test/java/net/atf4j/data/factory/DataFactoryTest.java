@@ -47,18 +47,41 @@ public final class DataFactoryTest extends ResultsReporting {
     @Test
     public void testExpectedUsage() {
         final Calendar today = DataFactory.today();
-        assertNotNull("unexpected null",today);
+        assertNotNull("unexpected null", today);
         this.log.info("DataFactory.today() = {}", DataFactory.format(today));
+
         final Calendar dateOfBirth = DataFactory.dateOfBirth();
+        assertNotNull("unexpected null", dateOfBirth);
         this.log.info("DataFactory.dateOfBirth() = {}", DataFactory.format(dateOfBirth));
+
         final Calendar dobOver18 = DataFactory.dobOver18();
+        assertNotNull("unexpected null", dobOver18);
         this.log.info("DataFactory.dobOver18() = {}", DataFactory.format(dobOver18));
+
         final Calendar dobUnder18 = DataFactory.dobUnder18();
+        assertNotNull("unexpected null", dobUnder18);
         this.log.info("DataFactory.dobUnder18() = {}", DataFactory.format(dobUnder18));
+
         final Calendar futureDate = DataFactory.futureDate();
+        assertNotNull("unexpected null", futureDate);
         this.log.info("DataFactory.futureDate() = {}", DataFactory.format(futureDate));
+
         final Calendar pastDate = DataFactory.pastDate();
+        assertNotNull("unexpected null", pastDate);
         this.log.info("DataFactory.pastDate() = {}", DataFactory.format(pastDate));
+    }
+
+    /**
+     * Test default constructor.
+     *
+     * @throws Exception
+     *             the exception
+     */
+    @Test
+    public final void testDefaultConstructor() throws Exception {
+        final DataFactory dataFactory = new DataFactory();
+        assertNotNull("unexpected null", dataFactory);
+        this.log.info("DataFactory = {}", dataFactory);
     }
 
     /**
@@ -70,8 +93,11 @@ public final class DataFactoryTest extends ResultsReporting {
     @Test
     public final void testString() throws Exception {
         final char randomChar = DataFactory.randomChar();
+        assertNotNull("unexpected null", randomChar);
         this.log.info("DataFactory.randomChar() = {}", randomChar);
+
         final String randomString = DataFactory.randomString(10);
+        assertNotNull("unexpected null", randomString);
         this.log.info("DataFactory.randomString(10) = {}", randomString);
     }
 
@@ -84,21 +110,12 @@ public final class DataFactoryTest extends ResultsReporting {
     @Test
     public final void testDigits() throws Exception {
         final char randomDigit = DataFactory.randomDigit();
+        assertNotNull("unexpected null", randomDigit);
         this.log.info("DataFactory.randomDigit() = {}", randomDigit);
-        final String randomDigits = DataFactory.randomDigits(10);
-        this.log.info("DataFactory.randomDigits(10) = {}", randomDigits);
-    }
 
-    /**
-     * Test default constructor.
-     *
-     * @throws Exception
-     *             the exception
-     */
-    @Test
-    public final void testDefaultConstructor() throws Exception {
-        final DataFactory dataFactory = new DataFactory();
-        assertNotNull("unexpected null",dataFactory);
+        final String randomDigits = DataFactory.randomDigits(10);
+        assertNotNull("unexpected null", randomDigits);
+        this.log.info("DataFactory.randomDigits(10) = {}", randomDigits);
     }
 
     /**
@@ -110,7 +127,7 @@ public final class DataFactoryTest extends ResultsReporting {
     @Test
     public final void testToday() throws Exception {
         final Calendar today = DataFactory.today();
-        assertNotNull("unexpected null",today);
+        assertNotNull("unexpected null", today);
         verifyDateData(today);
     }
 
@@ -216,13 +233,17 @@ public final class DataFactoryTest extends ResultsReporting {
      *            the date data
      */
     private void verifyDateData(final Calendar dateData) {
-        assertNotNull("unexpected null",dateData);
+        assertNotNull("unexpected null", dateData);
         this.log.info("verifyDateData({})", dateData.toString());
+
         final String fromCalendar = DataFactory.format(dateData);
+        assertNotNull("unexpected null", fromCalendar);
+
         final Date time = dateData.getTime();
+        assertNotNull("unexpected null", time);
+
         final String fromDate = DataFactory.format(time);
-        assertNotNull("unexpected null",fromCalendar);
-        assertNotNull("unexpected null",fromDate);
+        assertNotNull("unexpected null", fromDate);
         assertEquals(fromCalendar, fromDate);
     }
 
@@ -232,67 +253,67 @@ public final class DataFactoryTest extends ResultsReporting {
     @Test
     public void testCreatePerson() {
         final Person person = DataFactory.createPerson();
-        assertNotNull("unexpected null",person);
+        assertNotNull("unexpected null", person);
         this.log.info("{}", person.toString());
     }
 
     /**
-     * Test method for void.
+     * Test create customer.
      */
     @Test
     public void testCreateCustomer() {
         final Customer customer = DataFactory.createCustomer();
-        assertNotNull("unexpected null",customer);
+        assertNotNull("unexpected null", customer);
         this.log.info("{}", customer.toString());
     }
 
     /**
-     * Test method for void.
+     * Test create consumer.
      */
     @Test
     public void testCreateConsumer() {
         final Consumer consumer = DataFactory.createConsumer();
-        assertNotNull("unexpected null",consumer);
+        assertNotNull("unexpected null", consumer);
         this.log.info("{}", consumer.toString());
     }
 
     /**
-     * Test method for void.
+     * Test create card.
      */
     @Test
     public void testCreateCard() {
         final Card card = DataFactory.createCard();
-        assertNotNull("unexpected null",card);
+        assertNotNull("unexpected null", card);
         this.log.info("{}", card.toString());
     }
 
     /**
-     * Test method for void.
+     * Test create business.
      */
     @Test
     public void testCreateBusiness() {
         final Business business = DataFactory.createBusiness();
-        assertNotNull("unexpected null",business);
+        assertNotNull("unexpected null", business);
         this.log.info("{}", business.toString());
     }
 
     /**
-     * Test method for void.
+     * Test create bank.
      */
     @Test
     public void testCreateBank() {
         final Bank bank = DataFactory.createBank();
-        assertNotNull("unexpected null",bank);
+        assertNotNull("unexpected null", bank);
         this.log.info("{}", bank.toString());
     }
 
     /**
-     * Test method for void.
+     * Test create address.
      */
     @Test
     public void testCreateAddress() {
         final PostalAddress address = DataFactory.createAddress();
-        assertNotNull("unexpected null",address);
+        assertNotNull("unexpected null", address);
         this.log.info("{}", address.toString());
     }
 

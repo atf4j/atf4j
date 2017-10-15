@@ -19,8 +19,11 @@ package net.atf4j.amq;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.util.Arrays;
+
 import javax.jms.JMSException;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +31,7 @@ import org.slf4j.LoggerFactory;
 /**
  * The ProducerTest Class.
  */
+@Ignore
 public class ProducerTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(ProducerTest.class);
@@ -41,8 +45,9 @@ public class ProducerTest {
     @Test
     public void testProducer() throws JMSException {
         LOG.info("testProducer");
-        final Producer object = new Producer();
-        assertNotNull("unexpected null",object);
+        final Producer producer = new Producer();
+        assertNotNull("unexpected null", producer);
+        LOG.info("{}", producer);
     }
 
     /**
@@ -55,8 +60,11 @@ public class ProducerTest {
     public void testExecute() throws JMSException {
         LOG.info("testExecute");
         final Producer producer = new Producer();
-        assertNotNull("unexpected null",producer);
+        assertNotNull("unexpected null", producer);
+        LOG.info("{}", producer);
+
         final String[] messages = null;
+        LOG.info("{}", Arrays.toString(messages));
         producer.execute(messages);
     }
 }

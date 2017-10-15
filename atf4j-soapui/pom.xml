@@ -13,62 +13,69 @@
 	<packaging>jar</packaging>
 	<name>ATF4J - Selenium SOAPUI</name>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>SmartBearPluginRepository</id>
-			<url>http://www.soapui.org/repository/maven2/</url>
-		</pluginRepository>
-	</pluginRepositories>
+	<profiles>
+		<profile>
+			<id>deployed</id>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>com.smartbear.soapui</groupId>
-				<artifactId>soapui-maven-plugin</artifactId>
-				<version>4.6.4</version>
-				<executions>
-					<execution>
-						<phase>test</phase>
-						<goals>
-							<goal>test</goal>
-						</goals>
-						<configuration>
-							<projectFile>soapui-project.xml</projectFile>
-							<projectProperties>
-								<value>key=value</value>
-							</projectProperties>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>SmartBearPluginRepository</id>
+					<url>http://www.soapui.org/repository/maven2/</url>
+				</pluginRepository>
+			</pluginRepositories>
 
-							<reports>${basedir}/target/surefire-reports</reports>
-							<outputFolder>${basedir}/targetreports</outputFolder>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.smartbear.soapui</groupId>
+						<artifactId>soapui-maven-plugin</artifactId>
+						<version>4.6.4</version>
+						<executions>
+							<execution>
+								<phase>test</phase>
+								<goals>
+									<goal>test</goal>
+								</goals>
+								<configuration>
+									<projectFile>soapui-project.xml</projectFile>
+									<projectProperties>
+										<value>key=value</value>
+									</projectProperties>
 
-							<!--Specifies the SoapUI settings file to use. -->
-							<!--settingsFile></settingsFile -->
+									<reports>${basedir}/target/surefire-reports</reports>
+									<outputFolder>${basedir}/targetreports</outputFolder>
 
-							<!--globalProperties> <value>Sample Project Property=My sample value</value> 
-								</globalProperties -->
+									<!--Specifies the SoapUI settings file to use. -->
+									<!--settingsFile></settingsFile -->
 
-							<!--projectProperties> <value>Some Property=My Sample Value</value> 
-								</projectProperties -->
+									<!--globalProperties> <value>Sample Project Property=My sample value</value> 
+										</globalProperties -->
 
-							<testFailIgnore>true</testFailIgnore>
+									<!--projectProperties> <value>Some Property=My Sample Value</value> 
+										</projectProperties -->
 
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-site-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-report-plugin</artifactId>
-				<version>2.19.1</version>
-			</plugin>
-		</plugins>
-	</reporting>
+									<testFailIgnore>true</testFailIgnore>
+
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-site-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<reporting>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-report-plugin</artifactId>
+					<version>2.19.1</version>
+				</plugin>
+			</plugins>
+		</reporting>
+	</profiles>
+
 </project>

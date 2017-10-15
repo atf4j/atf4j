@@ -33,10 +33,10 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class AbstractFolderWalker implements FolderWalkerInterface {
 
-    protected final Logger log = LoggerFactory.getLogger(AbstractFolderWalker.class);
     private String path;
     private FilenameFilter filter = new Unfiltered();
     private final List<File> foundFiles = new ArrayList<File>();
+    protected final Logger log = LoggerFactory.getLogger(AbstractFolderWalker.class);
 
     /**
      * Unfiltered filename class.
@@ -201,4 +201,10 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
     public List<File> getFoundFiles() {
         return this.foundFiles;
     }
+
+    @Override
+    public String toString() {
+        return String.format("AbstractFolderWalker [path=%s, filter=%s, foundFiles=%s]", path, filter, foundFiles);
+    }
+
 }

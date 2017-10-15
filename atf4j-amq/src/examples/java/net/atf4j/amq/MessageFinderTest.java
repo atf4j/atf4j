@@ -19,12 +19,19 @@ package net.atf4j.amq;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.io.File;
+import java.util.List;
+
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Message Finder Test class.
  */
 public class MessageFinderTest {
+
+    private static final Logger LOG = LoggerFactory.getLogger(MessageFinderTest.class);
 
     /**
      * Test message finder.
@@ -32,7 +39,13 @@ public class MessageFinderTest {
     @Test
     public void testMessageFinder() {
         final MessageFinder folderWalker = new MessageFinder();
-        assertNotNull("unexpected null",folderWalker);
-        folderWalker.walk();
+        assertNotNull("unexpected null", folderWalker);
+        LOG.info("{}", folderWalker);
+
+        List<File> messages = folderWalker.walk();
+        assertNotNull("unexpected null", messages);
+        for (File file : messages) {
+            LOG.info("{}", file.toString());
+        }
     }
 }

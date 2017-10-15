@@ -14,7 +14,10 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.webdriver;
+
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -27,20 +30,20 @@ public class ExamplePageTest {
     /**
      * PageObject representing Home.
      */
-    public class HomePage extends PageObject {
+    public class HomePage extends MockPageObject {
     }
 
     /**
      * The PageObject Class.
      */
-    public abstract class PageObject {
-        public WebDriver driver;
+    public abstract class MockPageObject {
+        public Object driver;
 
         /**
          * Instantiates a new page object.
          */
-        PageObject() {
-            this.driver = AbstractBrowserFactory.webDriver();
+        MockPageObject() {
+            super();
         }
 
         /**
@@ -49,7 +52,7 @@ public class ExamplePageTest {
          * @param webDriver
          *            the web driver
          */
-        PageObject(final WebDriver webDriver) {
+        MockPageObject(final WebDriver webDriver) {
             this.driver = webDriver;
         }
     }
@@ -58,8 +61,8 @@ public class ExamplePageTest {
      * Test.
      */
     @Test
-    public void test() {
-        new HomePage();
+    public void testHomePage() {
+        assertNotNull(new HomePage());
     }
 
 }
