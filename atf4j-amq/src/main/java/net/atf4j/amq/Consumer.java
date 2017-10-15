@@ -30,8 +30,6 @@ import org.junit.Ignore;
 @Ignore
 public final class Consumer extends AbstractConnectionWrapper {
 
-    private MessageConsumer messageConsumer;
-
     /**
      * Instantiates a new consumer.
      *
@@ -51,9 +49,9 @@ public final class Consumer extends AbstractConnectionWrapper {
      */
     public String[] execute() throws JMSException {
 
-        this.messageConsumer = this.session.createConsumer(this.topic);
+        final MessageConsumer messageConsumer = this.session.createConsumer(this.topic);
 
-        final Message message = this.messageConsumer.receive(1000);
+        final Message message = messageConsumer.receive(1000);
 
         if (message != null) {
             final TextMessage textMessage = (TextMessage) message;
@@ -61,7 +59,7 @@ public final class Consumer extends AbstractConnectionWrapper {
             log.info("read {}", text);
         }
 
-        this.messageConsumer.close();
+        messageConsumer.close();
         this.connection.close();
         return new String[0];
     }

@@ -26,8 +26,6 @@ import javax.jms.TextMessage;
  */
 public final class Producer extends AbstractConnectionWrapper {
 
-    private MessageProducer messageProducer;
-
     /**
      * Instantiates a new producer.
      *
@@ -48,13 +46,13 @@ public final class Producer extends AbstractConnectionWrapper {
      */
     public void execute(final String[] messages) throws JMSException {
 
-        this.messageProducer = this.session.createProducer(this.topic);
+        final MessageProducer messageProducer = this.session.createProducer(this.topic);
 
         final TextMessage textMessage = this.session.createTextMessage();
 
         for (final String messageString : messages) {
             textMessage.setText(messageString);
-            this.messageProducer.send(textMessage);
+            messageProducer.send(textMessage);
             log.info("Sent {}", messageString);
         }
         this.connection.close();
