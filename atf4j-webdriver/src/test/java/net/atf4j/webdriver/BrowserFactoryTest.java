@@ -37,7 +37,7 @@ public class BrowserFactoryTest extends ResultsReporting {
     @Test
     public void testChromeDriver() {
         System.setProperty("targetBrowser", "chromeDriver");
-        final WebDriver webDriver = AbstractBrowserFactory.webDriver();
+        final WebDriver webDriver = BrowserFactory.webDriver();
         assumeNotNull("Chrome webDriver not available", webDriver);
         verifyPageLoaded(webDriver);
     }
@@ -48,7 +48,7 @@ public class BrowserFactoryTest extends ResultsReporting {
     @Test
     public void testFirefoxDriver() {
         System.setProperty("targetBrowser", "firefoxDriver");
-        final WebDriver webDriver = AbstractBrowserFactory.webDriver();
+        final WebDriver webDriver = BrowserFactory.webDriver();
         assumeNotNull("Firefox webDriver not available", webDriver);
         verifyPageLoaded(webDriver);
     }
@@ -59,7 +59,7 @@ public class BrowserFactoryTest extends ResultsReporting {
     @Test
     public void testRemoteDriver() {
         System.setProperty("targetBrowser", "remoteDriver");
-        final WebDriver webDriver = AbstractBrowserFactory.webDriver();
+        final WebDriver webDriver = BrowserFactory.webDriver();
         assumeNotNull("remote webDriver not available", webDriver);
         verifyPageLoaded(webDriver);
     }
@@ -69,8 +69,7 @@ public class BrowserFactoryTest extends ResultsReporting {
      */
     @Test
     public void testWebDriver() {
-        BrowserFactory.create();
-        final WebDriver webDriver = AbstractBrowserFactory.webDriver();
+        final WebDriver webDriver = BrowserFactory.webDriver();
         assumeNotNull("default webDriver not available", webDriver);
         verifyPageLoaded(webDriver);
     }

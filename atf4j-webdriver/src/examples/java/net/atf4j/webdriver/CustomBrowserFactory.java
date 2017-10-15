@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.webdriver;
 
 import org.openqa.selenium.WebDriver;
@@ -21,7 +22,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * A factory for creating Browser objects.
  */
-public class BrowserFactory extends AbstractBrowserFactory {
+public class CustomBrowserFactory extends BrowserFactory {
 
     /**
      * Create new instance of create.
@@ -29,7 +30,7 @@ public class BrowserFactory extends AbstractBrowserFactory {
      * @return the web driver
      */
     public static WebDriver create() {
-        return AbstractBrowserFactory.webDriver();
+        return BrowserFactory.webDriver();
     }
 
 }

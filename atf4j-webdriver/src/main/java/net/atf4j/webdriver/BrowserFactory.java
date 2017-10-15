@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.webdriver;
 
 import java.net.MalformedURLException;
@@ -36,9 +37,9 @@ import net.atf4j.core.model.TestContext;
 /**
  * A factory class for creating Browser objects.
  */
-public abstract class AbstractBrowserFactory implements BrowserFactoryInterface {
+public class BrowserFactory implements BrowserFactoryInterface {
 
-    private static final Logger log = LoggerFactory.getLogger(AbstractBrowserFactory.class);
+    private static final Logger log = LoggerFactory.getLogger(BrowserFactory.class);
     private static WebDriverConfig config;
 
     /**
@@ -50,9 +51,9 @@ public abstract class AbstractBrowserFactory implements BrowserFactoryInterface 
     private static void initialiseWebDriver(final WebDriver webDriver) {
         final Options manage = webDriver.manage();
         final Timeouts timeouts = manage.timeouts();
-        timeouts.pageLoadTimeout(AbstractBrowserFactory.config.pageLoadTimeout(), TimeUnit.SECONDS);
-        timeouts.implicitlyWait(AbstractBrowserFactory.config.implicitWait(), TimeUnit.SECONDS);
-        timeouts.setScriptTimeout(AbstractBrowserFactory.config.scriptTimeout(), TimeUnit.MILLISECONDS);
+        timeouts.pageLoadTimeout(BrowserFactory.config.pageLoadTimeout(), TimeUnit.SECONDS);
+        timeouts.implicitlyWait(BrowserFactory.config.implicitWait(), TimeUnit.SECONDS);
+        timeouts.setScriptTimeout(BrowserFactory.config.scriptTimeout(), TimeUnit.MILLISECONDS);
     }
 
     /**
@@ -61,8 +62,8 @@ public abstract class AbstractBrowserFactory implements BrowserFactoryInterface 
      * @return the webDriver instance.
      */
     protected static WebDriver localWebDriver() {
-        AbstractBrowserFactory.log.trace("localWebDriver()");
-        final String targetBrowser = AbstractBrowserFactory.config.targetBrowser();
+        BrowserFactory.log.trace("localWebDriver()");
+        final String targetBrowser = BrowserFactory.config.targetBrowser();
         return localWebDriver(targetBrowser);
     }
 
@@ -98,7 +99,7 @@ public abstract class AbstractBrowserFactory implements BrowserFactoryInterface 
      *             the property not found
      */
     protected static WebDriver remoteWebDriver() throws PropertyNotFound {
-        final String targetBrowser = AbstractBrowserFactory.config.targetBrowser();
+        final String targetBrowser = BrowserFactory.config.targetBrowser();
         return remoteWebDriver(targetBrowser);
     }
 
@@ -110,7 +111,7 @@ public abstract class AbstractBrowserFactory implements BrowserFactoryInterface 
      * @return the web driver
      */
     protected static WebDriver remoteWebDriver(final String targetBrowser) {
-        AbstractBrowserFactory.log.trace("remoteWebDriver(targetBrowser={})", targetBrowser);
+        BrowserFactory.log.trace("remoteWebDriver(targetBrowser={})", targetBrowser);
 
         final DesiredCapabilities desiredCapabilities;
 
@@ -129,7 +130,7 @@ public abstract class AbstractBrowserFactory implements BrowserFactoryInterface 
             break;
         }
 
-        final String targetSeleniumGrid = AbstractBrowserFactory.config.seleniumUrl();
+        final String targetSeleniumGrid = BrowserFactory.config.seleniumUrl();
         final URL GRID_URL;
         try {
             GRID_URL = new URL(targetSeleniumGrid);
@@ -137,7 +138,7 @@ public abstract class AbstractBrowserFactory implements BrowserFactoryInterface 
             initialiseWebDriver(remoteWebDriver);
             return remoteWebDriver;
         } catch (final MalformedURLException e) {
-            AbstractBrowserFactory.log.error("{}", e);
+            BrowserFactory.log.error("{}", e);
         }
         return null;
     }
@@ -148,10 +149,10 @@ public abstract class AbstractBrowserFactory implements BrowserFactoryInterface 
      * @return webDriver
      */
     public static WebDriver webDriver() {
-        if (AbstractBrowserFactory.config == null) {
-            AbstractBrowserFactory.config = new BrowserFactorConfig();
+        if (BrowserFactory.config == null) {
+            BrowserFactory.config = new BrowserFactorConfig();
         }
-        return webDriver(AbstractBrowserFactory.config.targetBrowser());
+        return webDriver(BrowserFactory.config.targetBrowser());
     }
 
     /**
@@ -162,8 +163,8 @@ public abstract class AbstractBrowserFactory implements BrowserFactoryInterface 
      * @return instance of webDriver
      */
     protected static WebDriver webDriver(final String browser) {
-        if (AbstractBrowserFactory.config == null) {
-            AbstractBrowserFactory.config = new BrowserFactorConfig();
+        if (BrowserFactory.config == null) {
+            BrowserFactory.config = new BrowserFactorConfig();
         }
         if (TestContext.isLocal()) {
             return localWebDriver(browser);
