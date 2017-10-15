@@ -23,9 +23,16 @@ import static org.junit.Assert.assertNotNull;
 /**
  * The Verify Class.
  */
-public class Verify {
+public final class Verify {
 
     private static final String MESSAGE = "actual(%s) == expected(%s) - %s";
+
+    /**
+     * Instantiates a new verify.
+     */
+    private Verify() {
+        super();
+    }
 
     /**
      * Result string.

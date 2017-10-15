@@ -31,6 +31,7 @@ import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
@@ -55,15 +56,15 @@ public abstract class AbstractCodeGenerator {
     private String className = "ExampleClass";
     private String targetHomeFolder = TARGET_FOLDER;
 
-    protected ArrayList<ClassField> fields = new ArrayList<ClassField>();
-    protected ArrayList<ClassMethod> methods = new ArrayList<ClassMethod>();
-
+    protected final List<ClassField> fields = new ArrayList<ClassField>();
+    protected final List<ClassMethod> methods = new ArrayList<ClassMethod>();
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Instantiates a new code generator.
      */
     public AbstractCodeGenerator() {
+        super();
         initialise();
     }
 
@@ -76,6 +77,7 @@ public abstract class AbstractCodeGenerator {
      *             the template not loaded
      */
     public AbstractCodeGenerator(final String templateFilename) throws TemplateNotLoaded {
+        super();
         setTemplate(templateFilename);
         initialise();
     }
@@ -298,7 +300,7 @@ public abstract class AbstractCodeGenerator {
      */
     private AbstractCodeGenerator generate(final InputStreamReader templateReader) throws Exception {
         final BufferedWriter bufferedWriter = destinationWriter();
-        assertNotNull("unexpected null",bufferedWriter);
+        assertNotNull("unexpected null", bufferedWriter);
         return generate(templateReader, bufferedWriter);
     }
 
@@ -393,8 +395,8 @@ public abstract class AbstractCodeGenerator {
      * @return the string
      */
     private String targetPath(final String homeFolder, final String packageFolder) {
-        assertNotNull("unexpected null",homeFolder);
-        assertNotNull("unexpected null",packageFolder);
+        assertNotNull("unexpected null", homeFolder);
+        assertNotNull("unexpected null", packageFolder);
         final String targetPath = String.format("%s/%s", homeFolder, packageFolder);
         this.log.info("targetPath={}", targetPath);
         new File(targetPath).mkdirs();

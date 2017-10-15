@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 /**
@@ -27,6 +28,7 @@ public abstract class Name extends Datum {
      * Instantiates a new name.
      */
     public Name() {
+        super();
         setName("");
     }
 
@@ -37,6 +39,7 @@ public abstract class Name extends Datum {
      *            the name
      */
     public Name(final String name) {
+        super();
         setName(name);
     }
 

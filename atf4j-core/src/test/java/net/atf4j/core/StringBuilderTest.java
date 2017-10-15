@@ -27,10 +27,10 @@ import org.junit.Test;
  */
 public class StringBuilderTest extends ResultsReporting {
 
-    private final String string = "StringBuilderTest";
-    private final boolean bool = true;
-    private final double real = Math.PI;
-    private final int number = 999;
+    private String string = "StringBuilderTest";
+    private boolean bool = true;
+    private double real = Math.PI;
+    private int number = 999;
 
     /**
      * SubClassWithoutProperties Class.
@@ -75,17 +75,9 @@ public class StringBuilderTest extends ResultsReporting {
          */
         @Override
         public String toString() {
-            return String.format("%s [%s, protectedString=%s, publicString=%s]", this.getClass().getSimpleName(),
-                    super.toString(), this.protectedString, this.publicString);
+            return String.format("%s [%s, %s, protectedString=%s, publicString=%s]", this.getClass().getSimpleName(),
+                    CONSTANT, super.toString(), this.protectedString, this.publicString);
         }
-    }
-
-    /**
-     * Test method for StringBuilder}.
-     */
-    @Test
-    public void testDefaultConstructor() {
-        assertNotNull("unexpected null", new Narrator());
     }
 
     /**

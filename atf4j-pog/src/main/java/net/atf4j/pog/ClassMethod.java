@@ -18,6 +18,7 @@
 package net.atf4j.pog;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import org.slf4j.Logger;
@@ -32,7 +33,7 @@ public final class ClassMethod {
     private String access;
     private String returnType;
     private String methodName;
-    private final ArrayList<ClassField> parameters = new ArrayList<ClassField>();
+    private final List<ClassField> parameters = new ArrayList<ClassField>();
 
     /**
      * Instantiates a new class method.
@@ -97,7 +98,8 @@ public final class ClassMethod {
     /**
      * Adds the.
      *
-     * @param e            the e \* @return true, if successful, otherwise false.
+     * @param e
+     *            the e \* @return true, if successful, otherwise false.
      * @return true, if successful, otherwise false.
      */
     public boolean add(final ClassField e) {

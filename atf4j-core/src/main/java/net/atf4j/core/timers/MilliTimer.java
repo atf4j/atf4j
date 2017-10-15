@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core.timers;
 
 import java.util.UUID;
@@ -26,13 +27,13 @@ import net.atf4j.core.Narrator;
 public class MilliTimer implements TimerInterface {
 
     /** The start time. */
-    private long startTime = -1L;
+    private long startTime = 0;
 
     /** The stop time. */
-    private long stopTime = -1L;
+    private long stopTime = 0;
 
     /** The elapsed time. */
-    private long elapsedTime = -1L;
+    private long elapsedTime = 0;
 
     /** The timer name. */
     private final String timerName;

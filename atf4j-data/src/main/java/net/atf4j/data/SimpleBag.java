@@ -46,6 +46,7 @@ public class SimpleBag {
      *            the values
      */
     public SimpleBag(final String[] values) {
+        super();
         fill(values == null ? new String[0] : values);
     }
 

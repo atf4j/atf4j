@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import static org.junit.Assert.assertNotNull;
@@ -44,6 +45,7 @@ public class Bank extends Business {
      * Instantiates a new bank.
      */
     public Bank() {
+        super();
         this.bankSortCode = new BankSortCode();
     }
 
@@ -54,6 +56,7 @@ public class Bank extends Business {
      *            the bank name
      */
     public Bank(final String bankName) {
+        super();
         this.bankSortCode = new BankSortCode();
         setName(bankName);
     }
@@ -66,7 +69,7 @@ public class Bank extends Business {
      * @return the bank
      */
     public Bank setBankSortCode(final String bankSortCode) {
-        assertNotNull("unexpected null",bankSortCode);
+        assertNotNull("unexpected null", bankSortCode);
         this.bankSortCode.setBankSortCode(bankSortCode);
         return this;
     }
@@ -79,7 +82,7 @@ public class Bank extends Business {
      * @return the bank
      */
     public Bank setBankSortCode(final BankSortCode bankSortCode) {
-        assertNotNull("unexpected null",bankSortCode);
+        assertNotNull("unexpected null", bankSortCode);
         this.bankSortCode = bankSortCode;
         return this;
     }
@@ -92,7 +95,7 @@ public class Bank extends Business {
      * @return the bank
      */
     public Bank setBankName(final String bankName) {
-        assertNotNull("unexpected null",bankName);
+        assertNotNull("unexpected null", bankName);
         this.bankName = bankName;
         return this;
     }
@@ -105,7 +108,7 @@ public class Bank extends Business {
      * @return the bank
      */
     public Bank setSortCode(final String sortCode) {
-        assertNotNull("unexpected null",sortCode);
+        assertNotNull("unexpected null", sortCode);
         this.sortCode = sortCode;
         return this;
     }
@@ -118,7 +121,7 @@ public class Bank extends Business {
      * @return the bank
      */
     public Bank setIban(final String iban) {
-        assertNotNull("unexpected null",iban);
+        assertNotNull("unexpected null", iban);
         this.iban = iban;
         return this;
     }

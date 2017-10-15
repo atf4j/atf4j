@@ -14,10 +14,11 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.csv;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -31,9 +32,9 @@ import org.slf4j.LoggerFactory;
  */
 public class CsvFile {
 
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
     private HeaderLine header;
     private final List<CsvRow> data = new ArrayList<CsvRow>();
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Default Constructor instantiates a new empty CsvFile object.
@@ -41,7 +42,7 @@ public class CsvFile {
      * @throws Exception
      *             Signals that an I/O exception has occurred.
      */
-    public CsvFile() throws Exception {
+    public CsvFile() {
         load();
     }
 
@@ -53,7 +54,7 @@ public class CsvFile {
      * @throws Exception
      *             the exception
      */
-    public CsvFile(final String dataFilename) throws Exception {
+    public CsvFile(final String dataFilename) {
         load(dataFilename);
     }
 
@@ -76,7 +77,7 @@ public class CsvFile {
      * @throws Exception
      *             the exception
      */
-    protected void load() throws Exception {
+    protected void load() {
         final String simpleName = this.getClass().getSimpleName();
         final String dataFilename = String.format("%s.csv", simpleName);
         load(dataFilename);
@@ -90,13 +91,11 @@ public class CsvFile {
      * @throws Exception
      *             the exception
      */
-    public void load(final String dataFilename) throws Exception {
+    public void load(final String dataFilename) {
         final ClassLoader classLoader = this.getClass().getClassLoader();
         final InputStream in = classLoader.getResourceAsStream(dataFilename);
         if (in != null) {
             load(in);
-        } else {
-            throw new FileNotFoundException(dataFilename);
         }
     }
 
@@ -108,7 +107,7 @@ public class CsvFile {
      * @throws Exception
      *             the exception
      */
-    public void load(final InputStream in) throws Exception {
+    public void load(final InputStream in) {
         final InputStreamReader inputStreamReader = new InputStreamReader(in);
         final BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         try {
@@ -118,11 +117,14 @@ public class CsvFile {
             } else {
                 this.data.add(new CsvRow(line));
             }
+
             while ((line = bufferedReader.readLine()) != null) {
                 this.data.add(new CsvRow(line));
             }
-        } finally {
             bufferedReader.close();
+
+        } catch (IOException e) {
+            log.error("{}", e.getLocalizedMessage());
         }
     }
 

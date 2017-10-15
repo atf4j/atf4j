@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import static org.junit.Assert.assertNotNull;
@@ -28,7 +29,7 @@ public class BankSortCode {
 
     private static final Pattern pattern = Pattern.compile("^(\\d){2}-(\\d){2}-(\\d){2}$");
 
-    private final String bankName = "";
+    private String bankName = "";
     private String sortcode;
 
     /**
@@ -44,6 +45,7 @@ public class BankSortCode {
      * Instantiates a new bank sort code.
      */
     public BankSortCode() {
+        super();
         setBankSortCode("00-00-00");
     }
 
@@ -54,6 +56,7 @@ public class BankSortCode {
      *            the bank sort code
      */
     public BankSortCode(final String bankSortCode) {
+        super();
         setBankSortCode(bankSortCode);
     }
 
@@ -65,7 +68,7 @@ public class BankSortCode {
      * @return the bank sort code
      */
     public BankSortCode setBankSortCode(final String bankSortCode) {
-        assertNotNull("unexpected null",bankSortCode);
+        assertNotNull("unexpected null", bankSortCode);
         this.sortcode = bankSortCode;
         return this;
     }
@@ -87,7 +90,7 @@ public class BankSortCode {
      * @return true, if successful, otherwise false.
      */
     public static boolean verify(final String sortcode) {
-        assertNotNull("unexpected null",sortcode);
+        assertNotNull("unexpected null", sortcode);
         final Matcher matcher = pattern.matcher(sortcode);
         return matcher.find();
     }

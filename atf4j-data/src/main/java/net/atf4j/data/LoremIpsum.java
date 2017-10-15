@@ -14,10 +14,12 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.data;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import net.atf4j.data.factory.AbstractDataFactory;
 
@@ -28,7 +30,7 @@ public class LoremIpsum extends AbstractDataFactory {
 
     private static LoremIpsum instance = null;
     private String[] rows = null;
-    private final ArrayList<String> words = new ArrayList<String>();
+    private final List<String> words = new ArrayList<String>();
     private int bounds;
 
     /**

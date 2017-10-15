@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core.timers;
 
 import java.util.Enumeration;
@@ -40,6 +41,7 @@ public final class NestedTimers {
      * Instantiates a new nested timers collection.
      */
     private NestedTimers() {
+        super();
     }
 
     /**

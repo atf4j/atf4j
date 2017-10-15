@@ -25,9 +25,17 @@ import org.slf4j.LoggerFactory;
 /**
  * Narrate a test from the call stack.
  */
-public class Narrator {
-    private static final Logger log = LoggerFactory.getLogger(Narrator.class);
+public final class Narrator {
+
+    private static final Logger LOG = LoggerFactory.getLogger(Narrator.class);
     private static final String LAYOUT_STYLE = "%s [%s]";
+
+    /**
+     * Instantiates a new narrator.
+     */
+    private Narrator() {
+        super();
+    }
 
     /**
      * Use Reflection to produce String by introspection.
@@ -97,7 +105,7 @@ public class Narrator {
                         final String memberStr = String.format("%s=%s,", fieldName, fieldType);
                         stringBuilder.append(memberStr);
                     } catch (final Exception e) {
-                        log.error("{}", e);
+                        LOG.error("{}", e);
                     }
                 }
                 // stringBuilder.deleteCharAt(stringBuilder.length() - 1);
