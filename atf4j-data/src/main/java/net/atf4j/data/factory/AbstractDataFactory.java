@@ -35,6 +35,7 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class AbstractDataFactory {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
     private String[] lines;
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
     protected static Random random = new Random(System.currentTimeMillis());
@@ -49,7 +50,7 @@ public abstract class AbstractDataFactory {
      *             the exception
      */
     public String[] load(final String dataFilename) throws Exception {
-        assertNotNull("unexpected null", dataFilename);
+        assertNotNull(UNEXPECTED_NULL, dataFilename);
         final ClassLoader classLoader = this.getClass().getClassLoader();
         final InputStream inputStream = classLoader.getResourceAsStream(dataFilename);
         if (inputStream != null) {
@@ -70,7 +71,7 @@ public abstract class AbstractDataFactory {
      *             the exception
      */
     public String[] load(final InputStream inputStream) throws Exception {
-        assertNotNull("unexpected null", inputStream);
+        assertNotNull(UNEXPECTED_NULL, inputStream);
         final InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         final BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         final List<String> lines = new ArrayList<String>();

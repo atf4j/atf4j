@@ -28,6 +28,7 @@ import net.atf4j.core.ResultsReporting;
  */
 public final class EmailAddressTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final String NAME_EXAMPLE_COM = "name@example.com";
 
     /**
@@ -43,11 +44,11 @@ public final class EmailAddressTest extends ResultsReporting {
     }
 
     /**
-     * Test method for EmailAddress}.
+     * Test method for EmailAddress.
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null",new EmailAddress());
+        assertNotNull(UNEXPECTED_NULL,new EmailAddress());
     }
 
     /**
@@ -56,13 +57,13 @@ public final class EmailAddressTest extends ResultsReporting {
     @Test
     public void testCreate() {
         final EmailAddress emailAddress = EmailAddress.create();
-        assertNotNull("unexpected null",emailAddress);
+        assertNotNull(UNEXPECTED_NULL,emailAddress);
         final String string = emailAddress.toString();
         this.log.info(string);
     }
 
     /**
-     * Test method for EmailAddress}.
+     * Test method for EmailAddress.
      */
     @Test
     public void testEmailAddressString() {
@@ -70,7 +71,7 @@ public final class EmailAddressTest extends ResultsReporting {
     }
 
     /**
-     * Test method for EmailAddress}.
+     * Test method for EmailAddress.
      */
     @Test
     public void testVerify() {
@@ -78,14 +79,14 @@ public final class EmailAddressTest extends ResultsReporting {
     }
 
     /**
-     * Test method for EmailAddress}.
+     * Test method for EmailAddress.
      */
     @Test
     public void testToString() {
         final EmailAddress emailAddress = new EmailAddress();
-        assertNotNull("unexpected null",emailAddress);
+        assertNotNull(UNEXPECTED_NULL,emailAddress);
         final String string = emailAddress.toString();
-        assertNotNull("unexpected null",string);
+        assertNotNull(UNEXPECTED_NULL,string);
         this.log.info(string);
     }
 

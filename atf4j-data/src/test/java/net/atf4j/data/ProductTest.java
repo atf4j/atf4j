@@ -29,12 +29,14 @@ import net.atf4j.core.ResultsReporting;
  */
 public final class ProductTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * Test method for Product.
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null",new Product());
+        assertNotNull(UNEXPECTED_NULL,new Product());
     }
 
     /**
@@ -42,7 +44,7 @@ public final class ProductTest extends ResultsReporting {
      */
     @Test
     public void testProduct() {
-        assertNotNull("unexpected null",new Product());
+        assertNotNull(UNEXPECTED_NULL,new Product());
     }
 
     /**
@@ -87,12 +89,12 @@ public final class ProductTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Product}.
+     * Test method for Product.
      */
     @Test
     public void testToString() {
         final String string = new Product().toString();
-        assertNotNull("unexpected null",string);
+        assertNotNull(UNEXPECTED_NULL,string);
     }
 
 }

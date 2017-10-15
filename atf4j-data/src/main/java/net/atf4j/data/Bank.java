@@ -24,6 +24,7 @@ import static org.junit.Assert.assertNotNull;
  */
 public class Bank extends Business {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
     private BankSortCode bankSortCode;
     private String bankName;
     private String sortCode;
@@ -69,7 +70,7 @@ public class Bank extends Business {
      * @return the bank
      */
     public Bank setBankSortCode(final String bankSortCode) {
-        assertNotNull("unexpected null", bankSortCode);
+        assertNotNull(UNEXPECTED_NULL, bankSortCode);
         this.bankSortCode.setBankSortCode(bankSortCode);
         return this;
     }
@@ -82,7 +83,7 @@ public class Bank extends Business {
      * @return the bank
      */
     public Bank setBankSortCode(final BankSortCode bankSortCode) {
-        assertNotNull("unexpected null", bankSortCode);
+        assertNotNull(UNEXPECTED_NULL, bankSortCode);
         this.bankSortCode = bankSortCode;
         return this;
     }
@@ -95,7 +96,7 @@ public class Bank extends Business {
      * @return the bank
      */
     public Bank setBankName(final String bankName) {
-        assertNotNull("unexpected null", bankName);
+        assertNotNull(UNEXPECTED_NULL, bankName);
         this.bankName = bankName;
         return this;
     }
@@ -108,7 +109,7 @@ public class Bank extends Business {
      * @return the bank
      */
     public Bank setSortCode(final String sortCode) {
-        assertNotNull("unexpected null", sortCode);
+        assertNotNull(UNEXPECTED_NULL, sortCode);
         this.sortCode = sortCode;
         return this;
     }
@@ -121,7 +122,7 @@ public class Bank extends Business {
      * @return the bank
      */
     public Bank setIban(final String iban) {
-        assertNotNull("unexpected null", iban);
+        assertNotNull(UNEXPECTED_NULL, iban);
         this.iban = iban;
         return this;
     }

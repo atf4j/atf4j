@@ -30,6 +30,8 @@ import org.junit.Test;
  */
 public class Atf4jStepsExample {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * test Atf4jSteps object.
      */
@@ -61,7 +63,7 @@ public class Atf4jStepsExample {
 
             start("step two");
             {
-                assertNotNull("unexpected null",this);
+                assertNotNull(UNEXPECTED_NULL,this);
             }
             end();
         }

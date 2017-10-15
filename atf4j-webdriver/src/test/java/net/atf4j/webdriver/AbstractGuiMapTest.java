@@ -33,6 +33,8 @@ import net.atf4j.core.ResultsReporting;
  */
 public class AbstractGuiMapTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * The LogicalGuiMap Class.
      */
@@ -54,15 +56,15 @@ public class AbstractGuiMapTest extends ResultsReporting {
         final Enumeration<String> bundleKeys = instance.getKeys();
         while (bundleKeys.hasMoreElements()) {
             final String key = bundleKeys.nextElement();
-            Assert.assertNotNull("unexpected null", key);
+            Assert.assertNotNull(UNEXPECTED_NULL, key);
             Assert.assertTrue(instance.containsKey(key));
-            Assert.assertNotNull("unexpected null", instance.getString(key));
+            Assert.assertNotNull(UNEXPECTED_NULL, instance.getString(key));
             this.log.info("{}={}", key, instance.getString(key));
         }
     }
 
     /**
-     * Test method for AbstractGuiMap}.
+     * Test method for AbstractGuiMap.
      *
      * @throws Exception
      *             the exception
@@ -70,11 +72,11 @@ public class AbstractGuiMapTest extends ResultsReporting {
     @Test
     public void testKeySet() throws Exception {
         final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
-        Assert.assertNotNull("unexpected null", abstractGuiMap);
+        Assert.assertNotNull(UNEXPECTED_NULL, abstractGuiMap);
         final Set<String> keySet = abstractGuiMap.keySet();
         for (final String key : keySet) {
             final String value = abstractGuiMap.getString(key);
-            Assert.assertNotNull("unexpected null", value);
+            Assert.assertNotNull(UNEXPECTED_NULL, value);
         }
     }
 
@@ -87,7 +89,7 @@ public class AbstractGuiMapTest extends ResultsReporting {
     }
 
     /**
-     * Test method for AbstractGuiMap}.
+     * Test method for AbstractGuiMap.
      *
      * @throws Exception
      *             the exception
@@ -95,12 +97,12 @@ public class AbstractGuiMapTest extends ResultsReporting {
     @Test
     public void testName() throws Exception {
         final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
-        Assert.assertNotNull("unexpected null", abstractGuiMap);
+        Assert.assertNotNull(UNEXPECTED_NULL, abstractGuiMap);
         abstractGuiMap.dumpTo(System.out);
     }
 
     /**
-     * Test method for AbstractGuiMap}.
+     * Test method for AbstractGuiMap.
      *
      * @throws Exception
      *             the exception
@@ -108,7 +110,7 @@ public class AbstractGuiMapTest extends ResultsReporting {
     @Test
     public void testToString() throws Exception {
         final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
-        Assert.assertNotNull("unexpected null", abstractGuiMap);
+        Assert.assertNotNull(UNEXPECTED_NULL, abstractGuiMap);
         this.log.info(abstractGuiMap.toString());
         this.log.info(abstractGuiMap.getBaseBundleName());
         this.log.info(abstractGuiMap.getLocale().toString());

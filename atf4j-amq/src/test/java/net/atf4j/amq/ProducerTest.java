@@ -34,6 +34,7 @@ import org.slf4j.LoggerFactory;
 @Ignore
 public class ProducerTest {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final Logger LOG = LoggerFactory.getLogger(ProducerTest.class);
 
     /**
@@ -46,7 +47,7 @@ public class ProducerTest {
     public void testProducer() throws JMSException {
         LOG.info("testProducer");
         final Producer producer = new Producer();
-        assertNotNull("unexpected null", producer);
+        assertNotNull(UNEXPECTED_NULL, producer);
         LOG.info("{}", producer);
     }
 
@@ -60,7 +61,7 @@ public class ProducerTest {
     public void testExecute() throws JMSException {
         LOG.info("testExecute");
         final Producer producer = new Producer();
-        assertNotNull("unexpected null", producer);
+        assertNotNull(UNEXPECTED_NULL, producer);
         LOG.info("{}", producer);
 
         final String[] messages = null;

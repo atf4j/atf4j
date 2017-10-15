@@ -27,6 +27,8 @@ import java.util.regex.Pattern;
  */
 public class BankSortCode {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     private static final Pattern pattern = Pattern.compile("^(\\d){2}-(\\d){2}-(\\d){2}$");
 
     private final String bankName = "";
@@ -68,7 +70,7 @@ public class BankSortCode {
      * @return the bank sort code
      */
     public BankSortCode setBankSortCode(final String bankSortCode) {
-        assertNotNull("unexpected null", bankSortCode);
+        assertNotNull(UNEXPECTED_NULL, bankSortCode);
         this.sortcode = bankSortCode;
         return this;
     }
@@ -90,7 +92,7 @@ public class BankSortCode {
      * @return true, if successful, otherwise false.
      */
     public static boolean verify(final String sortcode) {
-        assertNotNull("unexpected null", sortcode);
+        assertNotNull(UNEXPECTED_NULL, sortcode);
         final Matcher matcher = pattern.matcher(sortcode);
         return matcher.find();
     }

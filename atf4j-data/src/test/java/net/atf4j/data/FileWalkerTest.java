@@ -28,6 +28,8 @@ import net.atf4j.core.ResultsReporting;
  */
 public final class FileWalkerTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * Unit Test for test walk.
      * 
@@ -37,7 +39,7 @@ public final class FileWalkerTest extends ResultsReporting {
     @Test
     public void testWalk() throws Exception {
         final FileWalker fileWalker = new FileWalker();
-        assertNotNull("unexpected null",fileWalker);
+        assertNotNull(UNEXPECTED_NULL,fileWalker);
         fileWalker.walk("/messages");
     }
 
@@ -50,7 +52,7 @@ public final class FileWalkerTest extends ResultsReporting {
     @Test
     public void testFileWalker() throws Exception {
         final FileWalker fileWalker = new FileWalker("/messages");
-        assertNotNull("unexpected null",fileWalker);
+        assertNotNull(UNEXPECTED_NULL,fileWalker);
     }
 
     /**
@@ -62,7 +64,7 @@ public final class FileWalkerTest extends ResultsReporting {
     @Test
     public void testFileWalkerWalk() throws Exception {
         final FileWalker fileWalker = new FileWalker();
-        assertNotNull("unexpected null",fileWalker);
+        assertNotNull(UNEXPECTED_NULL,fileWalker);
         fileWalker.walk("/messages");
     }
 }

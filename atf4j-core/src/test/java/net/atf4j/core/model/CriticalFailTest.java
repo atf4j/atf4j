@@ -26,22 +26,24 @@ import org.junit.Test;
  */
 public class CriticalFailTest {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
-     * Test method for CriticalFail}.
+     * Test method for CriticalFail.
      */
     @Test
     public void testCriticalFail() {
         final CriticalFail criticalFail = new CriticalFail();
-        assertNotNull("unexpected null", criticalFail);
+        assertNotNull(UNEXPECTED_NULL, criticalFail);
     }
 
     /**
-     * Test method for CriticalFail}.
+     * Test method for CriticalFail.
      */
     @Test
     public void testCriticalFailNull() {
         final CriticalFail criticalFail = new CriticalFail(null);
-        assertNotNull("unexpected null", criticalFail);
+        assertNotNull(UNEXPECTED_NULL, criticalFail);
     }
 
 }

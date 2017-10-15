@@ -28,76 +28,78 @@ import net.atf4j.core.ResultsReporting;
  */
 public class MilliTimerTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
-     * Test method for MilliTimer}.
+     * Test method for MilliTimer.
      */
     @Test
     public void testMilliTimer() {
         final MilliTimer milliTimer = new MilliTimer();
-        assertNotNull("unexpected null", milliTimer);
+        assertNotNull(UNEXPECTED_NULL, milliTimer);
     }
 
     /**
-     * Test method for MilliTimer}.
+     * Test method for MilliTimer.
      */
     @Test
     public void testMilliTimerString() {
         final MilliTimer milliTimer = new MilliTimer("");
-        assertNotNull("unexpected null", milliTimer);
+        assertNotNull(UNEXPECTED_NULL, milliTimer);
     }
 
     /**
-     * Test method for MilliTimer}.
+     * Test method for MilliTimer.
      */
     @Test
     public void testStart() {
         final MilliTimer milliTimer = new MilliTimer();
-        assertNotNull("unexpected null", milliTimer.start());
+        assertNotNull(UNEXPECTED_NULL, milliTimer.start());
     }
 
     /**
-     * Test method for MilliTimer}.
+     * Test method for MilliTimer.
      */
     @Test
     public void testStop() {
         final MilliTimer milliTimer = new MilliTimer();
-        assertNotNull("unexpected null", milliTimer.stop());
+        assertNotNull(UNEXPECTED_NULL, milliTimer.stop());
     }
 
     /**
-     * Test method for MilliTimer}.
+     * Test method for MilliTimer.
      */
     @Test
     public void testGetStartTime() {
         final MilliTimer milliTimer = new MilliTimer();
-        assertNotNull("unexpected null", milliTimer.getStartTime());
+        assertNotNull(UNEXPECTED_NULL, milliTimer.getStartTime());
     }
 
     /**
-     * Test method for MilliTimer}.
+     * Test method for MilliTimer.
      */
     @Test
     public void testGetElapsedTime() {
         final MilliTimer milliTimer = new MilliTimer();
-        assertNotNull("unexpected null", milliTimer.getElapsedTime());
+        assertNotNull(UNEXPECTED_NULL, milliTimer.getElapsedTime());
     }
 
     /**
-     * Test method for MilliTimer}.
+     * Test method for MilliTimer.
      */
     @Test
     public void testToString() {
         final MilliTimer milliTimer = new MilliTimer();
-        assertNotNull("unexpected null", milliTimer.toString());
+        assertNotNull(UNEXPECTED_NULL, milliTimer.toString());
     }
 
     /**
-     * Test method for MilliTimer}.
+     * Test method for MilliTimer.
      */
     @Test
     public void testGetTimerName() {
         final MilliTimer milliTimer = new MilliTimer();
-        assertNotNull("unexpected null", milliTimer.getTimerName());
+        assertNotNull(UNEXPECTED_NULL, milliTimer.getTimerName());
     }
 
 }

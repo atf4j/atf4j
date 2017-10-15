@@ -31,25 +31,27 @@ import net.atf4j.core.ResultsReporting;
  */
 public class TestIdentifierTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
-     * Test method for TestIdentifier}.
+     * Test method for TestIdentifier.
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null", new TestIdentifier());
+        assertNotNull(UNEXPECTED_NULL, new TestIdentifier());
     }
 
     /**
-     * Test method for TestIdentifier}.
+     * Test method for TestIdentifier.
      */
     @Test
     public void testCreate() {
         final TestIdentifier testId = TestIdentifier.create();
-        assertNotNull("unexpected null", testId);
+        assertNotNull(UNEXPECTED_NULL, testId);
     }
 
     /**
-     * Test method for TestIdentifier}.
+     * Test method for TestIdentifier.
      */
     @Test
     public void testSetGetUuid() {
@@ -58,7 +60,7 @@ public class TestIdentifierTest extends ResultsReporting {
     }
 
     /**
-     * Test method for TestIdentifier}.
+     * Test method for TestIdentifier.
      */
     @Test
     public void testToString() {

@@ -34,6 +34,7 @@ import org.slf4j.LoggerFactory;
 @Ignore
 public class ConsumerTest {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final Logger LOG = LoggerFactory.getLogger(ConsumerTest.class);
 
     /**
@@ -47,7 +48,7 @@ public class ConsumerTest {
         LOG.info("testReader");
 
         final Consumer consumer = new Consumer();
-        assertNotNull("unexpected null", consumer);
+        assertNotNull(UNEXPECTED_NULL, consumer);
         LOG.info("{}", consumer);
     }
 
@@ -62,11 +63,11 @@ public class ConsumerTest {
         LOG.info("testExecute");
 
         final Consumer consumer = new Consumer();
-        assertNotNull("unexpected null", consumer);
+        assertNotNull(UNEXPECTED_NULL, consumer);
         LOG.info("{}", consumer);
 
         final String[] messages = consumer.execute();
-        assertNotNull("unexpected null", messages);
+        assertNotNull(UNEXPECTED_NULL, messages);
         LOG.info("{}", Arrays.toString(messages));
     }
 }

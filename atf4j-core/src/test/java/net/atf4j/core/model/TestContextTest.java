@@ -30,16 +30,18 @@ import net.atf4j.core.ResultsReporting;
  */
 public class TestContextTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
-     * Test method for TestContext}.
+     * Test method for TestContext.
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null", new TestContext());
+        assertNotNull(UNEXPECTED_NULL, new TestContext());
     }
 
     /**
-     * Test method for TestContext}.
+     * Test method for TestContext.
      */
     @Test
     public void testIsSeleniumDefault() {
@@ -47,7 +49,7 @@ public class TestContextTest extends ResultsReporting {
     }
 
     /**
-     * Test method for TestContext}.
+     * Test method for TestContext.
      */
     @Test
     public void testIsJenkinsDefault() {
@@ -55,7 +57,7 @@ public class TestContextTest extends ResultsReporting {
     }
 
     /**
-     * Test method for TestContext}.
+     * Test method for TestContext.
      */
     @Test
     public void testSetGetPlatform() {
@@ -64,7 +66,7 @@ public class TestContextTest extends ResultsReporting {
     }
 
     /**
-     * Test method for TestContext}.
+     * Test method for TestContext.
      */
     @Test
     public void testSetGetContext() {

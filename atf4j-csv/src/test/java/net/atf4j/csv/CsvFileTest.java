@@ -33,6 +33,7 @@ import org.slf4j.LoggerFactory;
  */
 public class CsvFileTest {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
     private static final String EXPECTED_HEADER = "HeaderLine [fields=[ColumnOne, ColumnTwo, ColumnThree, ColumnFour]]";
     private static final String MISSING_CSV = "missing.csv";
@@ -87,12 +88,12 @@ public class CsvFileTest {
     @Test(expected = FileNotFoundException.class)
     public void testLoadMissingFile() throws Exception {
         final CsvFile csvFile = new CsvFile();
-        assertNotNull("unexpected null", csvFile);
+        assertNotNull(UNEXPECTED_NULL, csvFile);
         csvFile.load(MISSING_CSV);
     }
 
     /**
-     * Test method for CsvFile}.
+     * Test method for CsvFile.
      *
      * @throws Exception
      *             the exception
@@ -112,7 +113,7 @@ public class CsvFileTest {
     @Test
     public void testConstructorWithDataPresent() throws Exception {
         final CsvFile csvFile = new CsvFile(TEST_DATA_CSV);
-        Assert.assertNotNull("unexpected null", csvFile);
+        Assert.assertNotNull(UNEXPECTED_NULL, csvFile);
         this.log.info(csvFile.debugString());
         this.log.info(csvFile.toString());
     }
@@ -126,7 +127,7 @@ public class CsvFileTest {
     @Test
     public void testReadPresentData() throws Exception {
         final CsvFile csvFile = CsvFile.read(TEST_DATA_CSV);
-        assertNotNull("unexpected null", csvFile);
+        assertNotNull(UNEXPECTED_NULL, csvFile);
         verifyContent(csvFile);
     }
 
@@ -137,7 +138,7 @@ public class CsvFileTest {
      *            the csv file
      */
     private void verifyContent(final CsvFile csvFile) {
-        assertNotNull("unexpected null", csvFile);
+        assertNotNull(UNEXPECTED_NULL, csvFile);
         final HeaderLine header = csvFile.getHeaderLine();
         assertEquals(EXPECTED_HEADER, header.debugString());
         this.log.info("{}", header);
@@ -153,7 +154,7 @@ public class CsvFileTest {
     }
 
     /**
-     * Test method for CsvFile}.
+     * Test method for CsvFile.
      *
      * @throws Exception
      *             the exception
@@ -162,6 +163,6 @@ public class CsvFileTest {
     public void testScan() throws Exception {
         final CsvFile data = CsvFile.read(TEST_DATA_CSV);
         final Object[] array = data.toArray();
-        assertNotNull("unexpected null", array);
+        assertNotNull(UNEXPECTED_NULL, array);
     }
 }

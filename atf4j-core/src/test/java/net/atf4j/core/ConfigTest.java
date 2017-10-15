@@ -30,6 +30,8 @@ import net.atf4j.core.AbstractConfig.PropertyNotFound;
  */
 public final class ConfigTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * Default configuration class.
      */
@@ -105,7 +107,7 @@ public final class ConfigTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null", new DefaultConfig());
+        assertNotNull(UNEXPECTED_NULL, new DefaultConfig());
     }
 
     /**
@@ -117,7 +119,7 @@ public final class ConfigTest extends ResultsReporting {
     @Test
     public void testMissingConfig() throws ConfigurationNotLoaded {
         final ConfigurationInterface missingConfig = new MissingProperties();
-        assertNotNull("unexpected null", missingConfig);
+        assertNotNull(UNEXPECTED_NULL, missingConfig);
         this.log.info(missingConfig.toString());
     }
 
@@ -130,7 +132,7 @@ public final class ConfigTest extends ResultsReporting {
     @Test
     public void testLoad() throws ConfigurationNotLoaded {
         final ConfigurationInterface mockConfig = new MissingProperties();
-        assertNotNull("unexpected null", mockConfig);
+        assertNotNull(UNEXPECTED_NULL, mockConfig);
         this.log.info(mockConfig.toString());
     }
 
@@ -145,7 +147,7 @@ public final class ConfigTest extends ResultsReporting {
     @Test
     public void testConfigFromFile() throws ConfigurationNotLoaded, PropertyNotFound {
         final ConfigFromFile config = new ConfigFromFile();
-        assertNotNull("unexpected null", config);
+        assertNotNull(UNEXPECTED_NULL, config);
         assertEquals("true", config.get("loaded"));
         assertEquals(true, config.valueFor("loaded", false));
         assertEquals("ConfigFromSystem.properties", config.get("name"));
@@ -163,7 +165,7 @@ public final class ConfigTest extends ResultsReporting {
     @Test
     public final void testSystemOveridesConfig() throws ConfigurationNotLoaded, PropertyNotFound {
         final ConfigFromFile config = new ConfigFromFile();
-        assertNotNull("unexpected null", config);
+        assertNotNull(UNEXPECTED_NULL, config);
         final String key = "property";
         final String value = "FromSystem";
         System.setProperty(key, value);
@@ -178,6 +180,6 @@ public final class ConfigTest extends ResultsReporting {
      */
     @Test
     public final void testStaticConfig() throws ConfigurationNotLoaded {
-        assertNotNull("unexpected null", ConfigTest.config);
+        assertNotNull(UNEXPECTED_NULL, ConfigTest.config);
     }
 }

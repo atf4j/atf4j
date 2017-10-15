@@ -24,6 +24,8 @@ import static org.junit.Assert.assertNotNull;
  */
 public class PageWebElement extends ClassField {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * The Strategy Enum.
      */
@@ -123,7 +125,7 @@ public class PageWebElement extends ClassField {
      * @return the page web element
      */
     public PageWebElement setLocatorStrategy(final String strategy) {
-        assertNotNull("unexpected null", strategy);
+        assertNotNull(UNEXPECTED_NULL, strategy);
         this.strategy = Strategy.fromString(strategy);
         return this;
     }
@@ -136,7 +138,7 @@ public class PageWebElement extends ClassField {
      * @return the page web element
      */
     public PageWebElement setLocatorStrategy(final Strategy strategy) {
-        assertNotNull("unexpected null", strategy);
+        assertNotNull(UNEXPECTED_NULL, strategy);
         this.strategy = strategy;
         return this;
     }
@@ -149,7 +151,7 @@ public class PageWebElement extends ClassField {
      * @return the page web element
      */
     public PageWebElement setLocator(final String locator) {
-        assertNotNull("unexpected null", locator);
+        assertNotNull(UNEXPECTED_NULL, locator);
         this.locator = locator;
         return this;
     }

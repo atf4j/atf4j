@@ -31,13 +31,15 @@ import net.atf4j.core.TestResult;
  */
 public class TestResultsTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * Unit Test for test default constructor.
      */
     @Test
     public void testDefaultConstructor() {
         final TestResults testResults = new TestResults();
-        assertNotNull("unexpected null", testResults);
+        assertNotNull(UNEXPECTED_NULL, testResults);
     }
 
     /**
@@ -46,7 +48,7 @@ public class TestResultsTest extends ResultsReporting {
     @Test
     public void testAddTestResult() {
         final TestResults testResults = new TestResults();
-        assertNotNull("unexpected null", testResults);
+        assertNotNull(UNEXPECTED_NULL, testResults);
         testResults.add(TestResult.PENDING);
     }
 
@@ -56,9 +58,9 @@ public class TestResultsTest extends ResultsReporting {
     @Test
     public void testTestResults() {
         final TestResults testResults = new TestResults();
-        assertNotNull("unexpected null", testResults);
+        assertNotNull(UNEXPECTED_NULL, testResults);
         final Collection<TestResult> resultsCollection = testResults.getTestResults();
-        assertNotNull("unexpected null", resultsCollection);
+        assertNotNull(UNEXPECTED_NULL, resultsCollection);
     }
 
     /**
@@ -66,7 +68,7 @@ public class TestResultsTest extends ResultsReporting {
      */
     @Test
     public void testToString() {
-        assertNotNull("unexpected null", new TestResults().toString());
+        assertNotNull(UNEXPECTED_NULL, new TestResults().toString());
     }
 
 }

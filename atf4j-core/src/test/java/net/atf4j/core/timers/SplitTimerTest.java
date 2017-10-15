@@ -28,14 +28,16 @@ import net.atf4j.core.ResultsReporting;
  */
 public class SplitTimerTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
-     * Test method for SplitTimer}.
+     * Test method for SplitTimer.
      */
     @Test
     public void testGetSplitTime() {
         final SplitTimer splitTimer = new SplitTimer();
-        assertNotNull("unexpected null", splitTimer);
-        assertNotNull("unexpected null", splitTimer.getSplitTime());
+        assertNotNull(UNEXPECTED_NULL, splitTimer);
+        assertNotNull(UNEXPECTED_NULL, splitTimer.getSplitTime());
     }
 
 }

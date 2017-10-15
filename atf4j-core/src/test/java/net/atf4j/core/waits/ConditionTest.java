@@ -29,6 +29,8 @@ import net.atf4j.core.model.Condition;
  */
 public class ConditionTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * PassingCondition Class.
      */
@@ -46,15 +48,15 @@ public class ConditionTest extends ResultsReporting {
      */
     @Test
     public void PassingCondition() {
-        assertNotNull("unexpected null", new PassingCondition());
+        assertNotNull(UNEXPECTED_NULL, new PassingCondition());
     }
 
     /**
-     * Test method for Condition}.
+     * Test method for Condition.
      */
     @Test
     public void testFailingCondition() {
-        assertNotNull("unexpected null", new FailingCondition());
+        assertNotNull(UNEXPECTED_NULL, new FailingCondition());
     }
 
 }

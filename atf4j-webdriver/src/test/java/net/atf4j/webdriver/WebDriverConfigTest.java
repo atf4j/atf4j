@@ -29,8 +29,10 @@ import net.atf4j.core.ResultsReporting;
  */
 public class WebDriverConfigTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
-     * Test method for { net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.
+     * Test method for {net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.
      *
      * @throws ConfigurationNotLoaded
      *             the missing property file exception
@@ -38,7 +40,7 @@ public class WebDriverConfigTest extends ResultsReporting {
     @Test
     public final void testDefaultConstructor() throws ConfigurationNotLoaded {
         final WebDriverConfig config = new WebDriverConfig();
-        assertNotNull("unexpected null",config);
+        assertNotNull(UNEXPECTED_NULL,config);
     }
 
     /**
@@ -50,12 +52,12 @@ public class WebDriverConfigTest extends ResultsReporting {
     @Test
     public final void testHappyPath() throws ConfigurationNotLoaded {
         final WebDriverConfig config = new WebDriverConfig();
-        assertNotNull("unexpected null",config);
-        assertNotNull("unexpected null",config.targetBrowser());
-        assertNotNull("unexpected null",config.targetUrl());
-        assertNotNull("unexpected null",config.seleniumUrl());
-        assertNotNull("unexpected null",config.chromeBinaryDriver());
-        assertNotNull("unexpected null",config.firefoxBinaryDriver());
+        assertNotNull(UNEXPECTED_NULL,config);
+        assertNotNull(UNEXPECTED_NULL,config.targetBrowser());
+        assertNotNull(UNEXPECTED_NULL,config.targetUrl());
+        assertNotNull(UNEXPECTED_NULL,config.seleniumUrl());
+        assertNotNull(UNEXPECTED_NULL,config.chromeBinaryDriver());
+        assertNotNull(UNEXPECTED_NULL,config.firefoxBinaryDriver());
         assertEquals(1000, config.pageLoadTimeout());
         assertEquals(1, config.implicitWait());
     }

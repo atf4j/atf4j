@@ -27,6 +27,8 @@ import net.atf4j.core.ResultsReporting;
  */
 public class PojoGeneratorTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * Test method for void.
      *
@@ -37,8 +39,8 @@ public class PojoGeneratorTest extends ResultsReporting {
     public void testPrototype() throws Exception {
         this.log.info("==============================================");
         final PojoGenerator pojoGenerator = new PojoGenerator();
-        assertNotNull("unexpected null",pojoGenerator);
-        assertNotNull("unexpected null",pojoGenerator.setClassName("FluentPojo"));
+        assertNotNull(UNEXPECTED_NULL,pojoGenerator);
+        assertNotNull(UNEXPECTED_NULL,pojoGenerator.setClassName("FluentPojo"));
         pojoGenerator.addStringField("string");
         pojoGenerator.addDateField("date");
         pojoGenerator.addBooleanField("bool");
@@ -56,8 +58,8 @@ public class PojoGeneratorTest extends ResultsReporting {
     public void testExpected() throws Exception {
         this.log.info("==============================================");
         final PojoGenerator pojoGenerator = new PojoGenerator();
-        assertNotNull("unexpected null",pojoGenerator);
-        assertNotNull("unexpected null",pojoGenerator.setClassName("FluentPojo"));
+        assertNotNull(UNEXPECTED_NULL,pojoGenerator);
+        assertNotNull(UNEXPECTED_NULL,pojoGenerator.setClassName("FluentPojo"));
         pojoGenerator.addStringField("string");
         pojoGenerator.addDateField("date");
         pojoGenerator.addBooleanField("bool");

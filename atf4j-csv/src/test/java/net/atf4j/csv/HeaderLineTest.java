@@ -29,6 +29,8 @@ import org.slf4j.LoggerFactory;
  */
 public class HeaderLineTest {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     private static final String HEADER_LINE = "ColumnOne, ColumnTwo";
@@ -40,7 +42,7 @@ public class HeaderLineTest {
     @Test
     public void testBlankHeaderLine() {
         final HeaderLine headerLine = new HeaderLine("");
-        assertNotNull("unexpected null", headerLine);
+        assertNotNull(UNEXPECTED_NULL, headerLine);
         assertEquals(1, headerLine.length());
         this.log.info(headerLine.toString());
     }
@@ -51,7 +53,7 @@ public class HeaderLineTest {
     @Test
     public void testHeaderConstructor() {
         final HeaderLine headerLine = new HeaderLine(HEADER_LINE);
-        assertNotNull("unexpected null", headerLine);
+        assertNotNull(UNEXPECTED_NULL, headerLine);
         assertEquals(2, headerLine.length());
         final String headerLineString = headerLine.debugString();
         assertEquals(EXPECTED_HEADER, headerLineString);
@@ -66,7 +68,7 @@ public class HeaderLineTest {
     @Test
     public void testHeaderLine() {
         final HeaderLine headerLine = new HeaderLine();
-        assertNotNull("unexpected null", headerLine);
+        assertNotNull(UNEXPECTED_NULL, headerLine);
         assertEquals(0, headerLine.length());
         headerLine.initialise(HEADER_LINE);
         assertEquals(2, headerLine.length());

@@ -29,69 +29,71 @@ import net.atf4j.core.ResultsReporting;
  */
 public class NanoTimerTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
-     * Test method for NanoTimer}.
+     * Test method for NanoTimer.
      */
     @Test
     public void testDefaultConstructor() {
         final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull("unexpected null", nanoTimer);
+        assertNotNull(UNEXPECTED_NULL, nanoTimer);
     }
 
     /**
-     * Test method for NanoTimer}.
+     * Test method for NanoTimer.
      */
     @Test
     public void testNanoTimerString() {
         final String actual = "Named NanoTimer";
         final NanoTimer nanoTimer = new NanoTimer(actual);
-        assertNotNull("unexpected null", nanoTimer);
+        assertNotNull(UNEXPECTED_NULL, nanoTimer);
         assertEquals(actual, nanoTimer.getTimerName());
     }
 
     /**
-     * Test method for NanoTimer}.
+     * Test method for NanoTimer.
      */
     @Test
     public void testStart() {
         final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull("unexpected null", nanoTimer.start());
+        assertNotNull(UNEXPECTED_NULL, nanoTimer.start());
     }
 
     /**
-     * Test method for NanoTimer}.
+     * Test method for NanoTimer.
      */
     @Test
     public void testStop() {
         final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull("unexpected null", nanoTimer.stop());
+        assertNotNull(UNEXPECTED_NULL, nanoTimer.stop());
     }
 
     /**
-     * Test method for NanoTimer}.
+     * Test method for NanoTimer.
      */
     @Test
     public void testGetStartTime() {
         final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull("unexpected null", nanoTimer.getStartTime());
+        assertNotNull(UNEXPECTED_NULL, nanoTimer.getStartTime());
     }
 
     /**
-     * Test method for NanoTimer}.
+     * Test method for NanoTimer.
      */
     @Test
     public void testGetElapsedTime() {
         final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull("unexpected null", nanoTimer.getElapsedTime());
+        assertNotNull(UNEXPECTED_NULL, nanoTimer.getElapsedTime());
     }
 
     /**
-     * Test method for NanoTimer}.
+     * Test method for NanoTimer.
      */
     @Test
     public void testToString() {
         final NanoTimer nanoTimer = new NanoTimer();
-        assertNotNull("unexpected null", nanoTimer.toString());
+        assertNotNull(UNEXPECTED_NULL, nanoTimer.toString());
     }
 
 }

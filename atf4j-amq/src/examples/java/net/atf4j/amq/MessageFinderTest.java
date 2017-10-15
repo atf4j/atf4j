@@ -31,6 +31,7 @@ import org.slf4j.LoggerFactory;
  */
 public class MessageFinderTest {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final Logger LOG = LoggerFactory.getLogger(MessageFinderTest.class);
 
     /**
@@ -39,11 +40,11 @@ public class MessageFinderTest {
     @Test
     public void testMessageFinder() {
         final MessageFinder folderWalker = new MessageFinder();
-        assertNotNull("unexpected null", folderWalker);
+        assertNotNull(UNEXPECTED_NULL, folderWalker);
         LOG.info("{}", folderWalker);
 
         List<File> messages = folderWalker.walk();
-        assertNotNull("unexpected null", messages);
+        assertNotNull(UNEXPECTED_NULL, messages);
         for (File file : messages) {
             LOG.info("{}", file.toString());
         }

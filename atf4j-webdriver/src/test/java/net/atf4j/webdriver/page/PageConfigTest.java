@@ -44,8 +44,7 @@ public class PageConfigTest {
     }
 
     /**
-     * Test method for {
-     * net.atf4j.webdriver.page.AbstractPageConfig#AbstractPageConfig()}.
+     * Test method for {net.atf4j.webdriver.page.AbstractPageConfig#AbstractPageConfig()}.
      *
      * @throws ConfigurationNotLoaded
      *             the missing property file exception

@@ -31,6 +31,8 @@ import net.atf4j.core.TestResult;
  */
 public class TestSuiteTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * Test Case Report Class.
      */
@@ -44,22 +46,22 @@ public class TestSuiteTest extends ResultsReporting {
     }
 
     /**
-     * Test method for TestSuite}.
+     * Test method for TestSuite.
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null", new TestSuite());
+        assertNotNull(UNEXPECTED_NULL, new TestSuite());
     }
 
     /**
-     * Test method for TestSuite}.
+     * Test method for TestSuite.
      */
     @Test
     public void testTestSuite() {
         final TestSuite testSuite = new TestSuite();
-        assertNotNull("unexpected null", testSuite);
+        assertNotNull(UNEXPECTED_NULL, testSuite);
         TestResult result = testSuite.result();
-        assertNotNull("unexpected null", result);
+        assertNotNull(UNEXPECTED_NULL, result);
         this.log.info("testResult={}", result);
     }
 
@@ -69,7 +71,7 @@ public class TestSuiteTest extends ResultsReporting {
     @Test
     public void testTestSuiteTestContext() {
         final TestSuite testSuite = new TestSuite(new TestContext());
-        assertNotNull("unexpected null", testSuite);
+        assertNotNull(UNEXPECTED_NULL, testSuite);
         this.log.info("testResult={}", testSuite.result());
     }
 
@@ -82,7 +84,7 @@ public class TestSuiteTest extends ResultsReporting {
     @Test
     public void testTestSuiteExecute() throws Atf4jException {
         final TestSuite testSuite = new TestSuite();
-        assertNotNull("unexpected null", testSuite.execute());
+        assertNotNull(UNEXPECTED_NULL, testSuite.execute());
         this.log.info("testResult={}", testSuite.result());
     }
 
@@ -95,12 +97,12 @@ public class TestSuiteTest extends ResultsReporting {
     @Test
     public void testTestSuiteExecuteTestContext() throws Atf4jException {
         final TestSuite testSuite = new TestSuite();
-        assertNotNull("unexpected null", testSuite.execute(new TestContext()));
+        assertNotNull(UNEXPECTED_NULL, testSuite.execute(new TestContext()));
         this.log.info("testResult={}", testSuite.result());
     }
 
     /**
-     * Test method for TestSuite}.
+     * Test method for TestSuite.
      */
     @Test
     public void testNumberOfTestCases() {
@@ -110,7 +112,7 @@ public class TestSuiteTest extends ResultsReporting {
     }
 
     /**
-     * Test method for TestSuite}.
+     * Test method for TestSuite.
      */
     @Test
     public void testAddTestCase() {
@@ -122,7 +124,7 @@ public class TestSuiteTest extends ResultsReporting {
     }
 
     /**
-     * Test method for TestSuite}.
+     * Test method for TestSuite.
      */
     @Test
     public void testAddNullTestCase() {

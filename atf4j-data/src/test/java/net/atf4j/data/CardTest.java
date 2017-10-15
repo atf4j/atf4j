@@ -32,6 +32,7 @@ import net.atf4j.core.ResultsReporting;
  */
 public final class CardTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final String INVALID_NUMBER = "1111-1111-1111-1111";
     private static final String AMEX_1 = "0000 1234 5678 9999";
     private static final String AMEX_INVALID = "3714-4963-539-8431";
@@ -45,7 +46,7 @@ public final class CardTest extends ResultsReporting {
      */
     @Test
     public void testCreate() {
-        assertNotNull("unexpected null",Card.create());
+        assertNotNull(UNEXPECTED_NULL,Card.create());
     }
 
     /**
@@ -53,7 +54,7 @@ public final class CardTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null",new Card());
+        assertNotNull(UNEXPECTED_NULL,new Card());
     }
 
     /**
@@ -66,7 +67,7 @@ public final class CardTest extends ResultsReporting {
         final String cardName = "Card Name";
         final Date endDate = new Date();
         final Date startDate = new Date();
-        assertNotNull("unexpected null",new Card(provider, cardNumber, cardName, endDate, startDate));
+        assertNotNull(UNEXPECTED_NULL,new Card(provider, cardNumber, cardName, endDate, startDate));
     }
 
     /**
@@ -85,7 +86,7 @@ public final class CardTest extends ResultsReporting {
             .setCardName(cardName)
             .setStartDate(startDate)
             .setEndDate(endDate);
-        assertNotNull("unexpected null",card);
+        assertNotNull(UNEXPECTED_NULL,card);
     }
 
     /**
@@ -127,7 +128,7 @@ public final class CardTest extends ResultsReporting {
     public void testToString() {
         final Card card = new Card();
         final String string = card.toString();
-        assertNotNull("unexpected null",string);
+        assertNotNull(UNEXPECTED_NULL,string);
     }
 
 }

@@ -29,6 +29,8 @@ import net.atf4j.core.ResultsReporting;
  */
 public final class NameTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * The MockName Class.
      */
@@ -53,33 +55,33 @@ public final class NameTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Name}.
+     * Test method for Name.
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null",new MockName());
+        assertNotNull(UNEXPECTED_NULL,new MockName());
     }
 
     /**
-     * Test method for Name}.
+     * Test method for Name.
      */
     public void testName() {
-        assertNotNull("unexpected null",new MockName());
+        assertNotNull(UNEXPECTED_NULL,new MockName());
     }
 
     /**
-     * Test method for Name}.
+     * Test method for Name.
      */
     @Test
     public void testNameString() {
         final String expected = "Mock Name";
         final Name mockName = new MockName(expected);
-        assertNotNull("unexpected null",mockName);
+        assertNotNull(UNEXPECTED_NULL,mockName);
         assertEquals(expected, mockName.getName());
     }
 
     /**
-     * Test method for Name}.
+     * Test method for Name.
      */
     @Test
     public void testSetGetName() {
@@ -89,7 +91,7 @@ public final class NameTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Name}.
+     * Test method for Name.
      */
     @Test
     public void testCapitalise() {

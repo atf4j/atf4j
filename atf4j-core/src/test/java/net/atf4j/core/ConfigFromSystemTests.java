@@ -29,6 +29,8 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
  */
 public final class ConfigFromSystemTests extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * Mock Configuration from System settings.
      */
@@ -105,7 +107,7 @@ public final class ConfigFromSystemTests extends ResultsReporting {
 
         // When
         final ConfigFromSystem mockConfig = new ConfigFromSystem();
-        assertNotNull("unexpected null", mockConfig);
+        assertNotNull(UNEXPECTED_NULL, mockConfig);
         final String systemPropertyAsString = mockConfig.getSystemPropertyAsString(systemPropertyKey);
         assertEquals(systemPropertyValue, systemPropertyAsString);
     }
@@ -125,7 +127,7 @@ public final class ConfigFromSystemTests extends ResultsReporting {
 
         // When
         final ConfigFromSystem mockConfig = new ConfigFromSystem();
-        assertNotNull("unexpected null", mockConfig);
+        assertNotNull(UNEXPECTED_NULL, mockConfig);
         final boolean booleanFromSystem = mockConfig.getSystemPropertyAsBoolean(systemPropertyKey);
         assertEquals(true, booleanFromSystem);
     }

@@ -31,6 +31,7 @@ import org.slf4j.LoggerFactory;
  */
 public class FolderWalkerTest {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final Logger LOG = LoggerFactory.getLogger(FolderWalkerTest.class);
 
     /**
@@ -91,7 +92,7 @@ public class FolderWalkerTest {
     public void testFolderWalker() {
         LOG.info("testFolderWalker");
         final FolderWalkerInterface folderWalker = new FolderWalker();
-        assertNotNull("unexpected null",folderWalker);
+        assertNotNull(UNEXPECTED_NULL,folderWalker);
         folderWalker.walk();
     }
 
@@ -102,7 +103,7 @@ public class FolderWalkerTest {
     public void testFolderWalkerNull() {
         LOG.info("testFolderWalkerNull");
         final FolderWalkerInterface folderWalker = new FolderWalker(null);
-        assertNotNull("unexpected null",folderWalker);
+        assertNotNull(UNEXPECTED_NULL,folderWalker);
         folderWalker.walk();
     }
 
@@ -113,7 +114,7 @@ public class FolderWalkerTest {
     public void testFolderWalkerEmpty() {
         LOG.info("testFolderWalkerEmpty");
         final FolderWalkerInterface folderWalker = new FolderWalker("");
-        assertNotNull("unexpected null",folderWalker);
+        assertNotNull(UNEXPECTED_NULL,folderWalker);
         folderWalker.walk();
     }
 
@@ -124,7 +125,7 @@ public class FolderWalkerTest {
     public void testFolderWalkerDot() {
         LOG.info("testFolderWalkerDot");
         final FolderWalkerInterface folderWalker = new FolderWalker(".");
-        assertNotNull("unexpected null",folderWalker);
+        assertNotNull(UNEXPECTED_NULL,folderWalker);
         folderWalker.walk();
     }
 
@@ -135,7 +136,7 @@ public class FolderWalkerTest {
     public void testFolderWalkerString() {
         LOG.info("testFolderWalkerString");
         final FolderWalkerInterface folderWalker = new FolderWalker("messages");
-        assertNotNull("unexpected null",folderWalker);
+        assertNotNull(UNEXPECTED_NULL,folderWalker);
         folderWalker.walk();
     }
 }

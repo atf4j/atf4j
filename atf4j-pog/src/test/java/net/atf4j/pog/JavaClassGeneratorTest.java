@@ -27,6 +27,8 @@ import net.atf4j.core.ResultsReporting;
  */
 public class JavaClassGeneratorTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * The JavaClassGenerator Class.
      */
@@ -62,7 +64,7 @@ public class JavaClassGeneratorTest extends ResultsReporting {
     public void testPrototype() throws Exception {
         this.log.info("==============================================");
         final JavaClassGenerator javaClassGenerator = new JavaClassGenerator();
-        assertNotNull("unexpected null",javaClassGenerator);
+        assertNotNull(UNEXPECTED_NULL,javaClassGenerator);
         this.log.info(javaClassGenerator.prototype());
     }
 
@@ -76,7 +78,7 @@ public class JavaClassGeneratorTest extends ResultsReporting {
     public void testExpected() throws Exception {
         this.log.info("==============================================");
         final JavaClassGenerator javaClassGenerator = new JavaClassGenerator();
-        assertNotNull("unexpected null",javaClassGenerator);
+        assertNotNull(UNEXPECTED_NULL,javaClassGenerator);
         javaClassGenerator.setClassName("NewClass");
         javaClassGenerator.addField(new ClassField("String", "aString"));
         javaClassGenerator.addMethod(new ClassMethod("String", "toString"));

@@ -29,6 +29,7 @@ import net.atf4j.core.ResultsReporting;
  */
 public final class TelephoneTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final String _0123456789 = "0123456789";
 
     /**
@@ -36,7 +37,7 @@ public final class TelephoneTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null",new Telephone());
+        assertNotNull(UNEXPECTED_NULL,new Telephone());
     }
 
     /**
@@ -45,7 +46,7 @@ public final class TelephoneTest extends ResultsReporting {
     @Test
     public void testTelephone() {
         final Telephone telephone = new Telephone();
-        assertNotNull("unexpected null",telephone);
+        assertNotNull(UNEXPECTED_NULL,telephone);
     }
 
     /**
@@ -54,7 +55,7 @@ public final class TelephoneTest extends ResultsReporting {
     @Test
     public void testTelephoneString() {
         final Telephone telephone = new Telephone(_0123456789);
-        assertNotNull("unexpected null",telephone);
+        assertNotNull(UNEXPECTED_NULL,telephone);
         assertEquals("Phone : 0123456789", telephone.toString());
     }
 
@@ -64,7 +65,7 @@ public final class TelephoneTest extends ResultsReporting {
     @Test
     public void testTelephoneTypeString() {
         final Telephone telephone = new Telephone("Telephone", _0123456789);
-        assertNotNull("unexpected null",telephone);
+        assertNotNull(UNEXPECTED_NULL,telephone);
         assertEquals("Telephone : 0123456789", telephone.toString());
     }
 
@@ -74,7 +75,7 @@ public final class TelephoneTest extends ResultsReporting {
     @Test
     public void testSetGetNumber() {
         final Telephone telephone = new Telephone();
-        assertNotNull("unexpected null",telephone);
+        assertNotNull(UNEXPECTED_NULL,telephone);
         assertEquals(_0123456789, telephone.setNumber(_0123456789).getNumber());
     }
 
@@ -84,7 +85,7 @@ public final class TelephoneTest extends ResultsReporting {
     @Test
     public void testToString() {
         final String string = new Telephone().toString();
-        assertNotNull("unexpected null",string);
+        assertNotNull(UNEXPECTED_NULL,string);
     }
 
 }

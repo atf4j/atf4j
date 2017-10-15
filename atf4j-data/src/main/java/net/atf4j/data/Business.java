@@ -24,6 +24,7 @@ import static org.junit.Assert.assertNotNull;
  */
 public class Business extends Name {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
     private PostalAddress address;
 
     /**
@@ -73,7 +74,7 @@ public class Business extends Name {
      * @return the business
      */
     public Business setAddress(final PostalAddress address) {
-        assertNotNull("unexpected null", address);
+        assertNotNull(UNEXPECTED_NULL, address);
         this.address = address;
         return this;
     }
@@ -86,7 +87,7 @@ public class Business extends Name {
      * @return the business
      */
     public Business setAddress(final String[] address) {
-        assertNotNull("unexpected null", address);
+        assertNotNull(UNEXPECTED_NULL, address);
         this.address.setAddress(address);
         return this;
     }
@@ -100,8 +101,8 @@ public class Business extends Name {
      *            the address line
      */
     public void setAddressRow(final int lineNo, final String addressLine) {
-        assertNotNull("unexpected null", lineNo);
-        assertNotNull("unexpected null", addressLine);
+        assertNotNull(UNEXPECTED_NULL, lineNo);
+        assertNotNull(UNEXPECTED_NULL, addressLine);
         this.address.setAddressRow(lineNo, addressLine);
     }
 
@@ -113,7 +114,7 @@ public class Business extends Name {
      * @return the postal address
      */
     public PostalAddress setPostcode(final Postcode postcode) {
-        assertNotNull("unexpected null", postcode);
+        assertNotNull(UNEXPECTED_NULL, postcode);
         return this.address.setPostcode(postcode);
     }
 

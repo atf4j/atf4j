@@ -29,15 +29,16 @@ import net.atf4j.core.ResultsReporting;
  */
 public final class NinoTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final String BLANK_NI = "";
     private static final String PIC = "XX-99-99-99X";
 
     /**
-     * Test method for NationalInsurance}.
+     * Test method for NationalInsurance.
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null",new Nino());
+        assertNotNull(UNEXPECTED_NULL,new Nino());
     }
 
     /**
@@ -45,7 +46,7 @@ public final class NinoTest extends ResultsReporting {
      */
     @Test
     public void testNationalInsurance() {
-        assertNotNull("unexpected null",new Nino());
+        assertNotNull(UNEXPECTED_NULL,new Nino());
     }
 
     /**
@@ -53,7 +54,7 @@ public final class NinoTest extends ResultsReporting {
      */
     @Test
     public void testCreate() {
-        assertNotNull("unexpected null",Nino.create());
+        assertNotNull(UNEXPECTED_NULL,Nino.create());
     }
 
     /**
@@ -67,12 +68,12 @@ public final class NinoTest extends ResultsReporting {
     }
 
     /**
-     * Test method for NationalInsurance}.
+     * Test method for NationalInsurance.
      */
     @Test
     public void testToString() {
         final String string = new Nino().toString();
-        assertNotNull("unexpected null",string);
+        assertNotNull(UNEXPECTED_NULL,string);
     }
 
 }

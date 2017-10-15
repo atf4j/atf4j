@@ -29,12 +29,14 @@ import net.atf4j.core.ResultsReporting;
  */
 public final class BankTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
-     * Test method for Bank}.
+     * Test method for Bank.
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null",new Bank());
+        assertNotNull(UNEXPECTED_NULL,new Bank());
     }
 
     /**
@@ -43,17 +45,17 @@ public final class BankTest extends ResultsReporting {
     @Test
     public void testBank() {
         final Bank bank = new Bank("");
-        assertNotNull("unexpected null",bank);
+        assertNotNull(UNEXPECTED_NULL,bank);
         this.log.info("{}", bank);
     }
 
     /**
-     * Test method for Bank}.
+     * Test method for Bank.
      */
     @Test
     public void testCreate() {
         final Bank bank = Bank.create();
-        assertNotNull("unexpected null",bank);
+        assertNotNull(UNEXPECTED_NULL,bank);
         this.log.info("{}", bank);
     }
 
@@ -69,22 +71,22 @@ public final class BankTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Bank}.
+     * Test method for Bank.
      */
     @Test
     public void testDebugString() {
         final String string = new Bank().debugString();
-        assertNotNull("unexpected null",string);
+        assertNotNull(UNEXPECTED_NULL,string);
         this.log.info("{}", string);
     }
 
     /**
-     * Test method for Bank}.
+     * Test method for Bank.
      */
     @Test
     public void testToString() {
         final String string = new Bank().toString();
-        assertNotNull("unexpected null",string);
+        assertNotNull(UNEXPECTED_NULL,string);
         this.log.info("{}", string);
     }
 

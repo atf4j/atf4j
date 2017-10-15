@@ -32,6 +32,8 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 @Ignore
 public class PageObjectTest {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * Mock Page to extend AbstractPageObject.
      */
@@ -82,7 +84,7 @@ public class PageObjectTest {
      */
     @Test
     public final void testDefaultConstructor() throws ConfigurationNotLoaded {
-        assertNotNull("unexpected null",new MockPage());
+        assertNotNull(UNEXPECTED_NULL,new MockPage());
     }
 
     /**
@@ -96,7 +98,7 @@ public class PageObjectTest {
     public final void testDefaultOpen() throws ConfigurationNotLoaded {
         final MockPage mockPage = new MockPage();
         assumeNotNull(mockPage);
-        assertNotNull("unexpected null",mockPage.open());
+        assertNotNull(UNEXPECTED_NULL,mockPage.open());
     }
 
     /**
@@ -110,7 +112,7 @@ public class PageObjectTest {
     public final void testOpen() throws ConfigurationNotLoaded {
         final MockPage mockPage = new MockPage(MockPage.TARGET_URL);
         assumeNotNull(mockPage);
-        assertNotNull("unexpected null",mockPage.open());
+        assertNotNull(UNEXPECTED_NULL,mockPage.open());
     }
 
     /**
@@ -124,7 +126,7 @@ public class PageObjectTest {
     public final void testOpenString() throws ConfigurationNotLoaded {
         final MockPage mockPage = new MockPage();
         assumeNotNull(mockPage);
-        assertNotNull("unexpected null",mockPage.open());
+        assertNotNull(UNEXPECTED_NULL,mockPage.open());
     }
 
     /**
@@ -138,8 +140,8 @@ public class PageObjectTest {
     public final void testVerify() throws ConfigurationNotLoaded {
         final MockPage mockPage = new MockPage();
         assumeNotNull(mockPage);
-        assertNotNull("unexpected null",mockPage.open());
-        assertNotNull("unexpected null",mockPage.verify());
+        assertNotNull(UNEXPECTED_NULL,mockPage.open());
+        assertNotNull(UNEXPECTED_NULL,mockPage.verify());
     }
 
     /**
@@ -152,8 +154,8 @@ public class PageObjectTest {
     public final void testWebDriverConstructor() throws ConfigurationNotLoaded {
         final MockPage mockPage = new MockPage(new HtmlUnitDriver());
         assumeNotNull(mockPage);
-        assertNotNull("unexpected null",mockPage.open());
-        assertNotNull("unexpected null",mockPage.verify());
+        assertNotNull(UNEXPECTED_NULL,mockPage.open());
+        assertNotNull(UNEXPECTED_NULL,mockPage.verify());
     }
 
 }

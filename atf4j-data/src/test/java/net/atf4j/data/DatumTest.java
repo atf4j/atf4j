@@ -38,7 +38,7 @@ public final class DatumTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Datum}.
+     * Test method for Datum.
      */
     @Test
     public void testDefaultConstructor() {
@@ -94,7 +94,7 @@ public final class DatumTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Datum}.
+     * Test method for Datum.
      */
     @Test
     public void testToString() {

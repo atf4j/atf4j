@@ -33,6 +33,8 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class Behaviour {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /** The given situation. */
@@ -93,15 +95,15 @@ public abstract class Behaviour {
     public Properties execute(final Properties properties) {
         this.log.info("{}.execute", this.getClass().getSimpleName());
         for (final Given given : this.givenList) {
-            Assert.assertNotNull("unexpected null", given.execute(properties));
+            Assert.assertNotNull(UNEXPECTED_NULL, given.execute(properties));
         }
 
         for (final When when : this.whenList) {
-            Assert.assertNotNull("unexpected null", when.execute(properties));
+            Assert.assertNotNull(UNEXPECTED_NULL, when.execute(properties));
         }
 
         for (final Then then : this.thenList) {
-            Assert.assertNotNull("unexpected null", then.execute(properties));
+            Assert.assertNotNull(UNEXPECTED_NULL, then.execute(properties));
         }
 
         return properties;

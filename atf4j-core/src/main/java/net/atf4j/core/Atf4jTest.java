@@ -26,13 +26,15 @@ import org.junit.Test;
  */
 public class Atf4jTest {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * Test start end.
      */
     @Test
     public void testStartEnd() {
         Atf4j.start();
-        assertNotNull("unexpected null", this);
+        assertNotNull(UNEXPECTED_NULL, this);
         Atf4j.end();
     }
 

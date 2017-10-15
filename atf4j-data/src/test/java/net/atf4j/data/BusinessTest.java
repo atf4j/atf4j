@@ -28,30 +28,32 @@ import net.atf4j.core.ResultsReporting;
  */
 public final class BusinessTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
-     * Test method for Business}.
+     * Test method for Business.
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null",new Business());
+        assertNotNull(UNEXPECTED_NULL,new Business());
     }
 
     /**
-     * Test method for Business}.
+     * Test method for Business.
      */
     @Test
     public void testBusiness() {
-        assertNotNull("unexpected null",new Business());
+        assertNotNull(UNEXPECTED_NULL,new Business());
     }
 
     /**
-     * Test method for Business}.
+     * Test method for Business.
      */
     @Test
     public void testBusinessString() {
         final String businessName = "Business Name";
         final Business business = new Business(businessName);
-        assertNotNull("unexpected null",business);
+        assertNotNull(UNEXPECTED_NULL,business);
     }
 
     /**
@@ -59,26 +61,26 @@ public final class BusinessTest extends ResultsReporting {
      */
     @Test
     public void testCreate() {
-        assertNotNull("unexpected null",Business.create());
+        assertNotNull(UNEXPECTED_NULL,Business.create());
     }
 
     /**
-     * Test method for Business}.
+     * Test method for Business.
      */
     @Test
     public void testDebugString() {
         final String string = new Business().debugString();
-        assertNotNull("unexpected null",string);
+        assertNotNull(UNEXPECTED_NULL,string);
         this.log.info("{}", string);
     }
 
     /**
-     * Test method for Business}.
+     * Test method for Business.
      */
     @Test
     public void testToString() {
         final String string = new Business().toString();
-        assertNotNull("unexpected null",string);
+        assertNotNull(UNEXPECTED_NULL,string);
         this.log.info("{}", string);
     }
 

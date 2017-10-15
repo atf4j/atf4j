@@ -40,7 +40,7 @@ public class ConditionTest {
     }
 
     /**
-     * Test method for Condition}.
+     * Test method for Condition.
      */
     @Test
     public void testTrueCondition() {
@@ -48,7 +48,7 @@ public class ConditionTest {
     }
 
     /**
-     * Test method for Condition}.
+     * Test method for Condition.
      */
     @Test
     public void testFalseCondition() {

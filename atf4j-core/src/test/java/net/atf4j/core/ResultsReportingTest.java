@@ -26,8 +26,10 @@ import org.junit.Test;
  */
 public final class ResultsReportingTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
-     * Test method for ResultsReporting}.
+     * Test method for ResultsReporting.
      */
     @Test
     public void testVerifyEqualObjects() {
@@ -36,7 +38,7 @@ public final class ResultsReportingTest extends ResultsReporting {
     }
 
     /**
-     * Test method for ResultsReporting}.
+     * Test method for ResultsReporting.
      */
     @Test
     public void testVerifyNotEqualObjects() {
@@ -44,13 +46,13 @@ public final class ResultsReportingTest extends ResultsReporting {
             super.verifyEquals(new Object(), new Object());
         } catch (final AssertionError assertionError) {
             final String actualMessage = assertionError.toString();
-            assertNotNull("unexpected null", actualMessage);
+            assertNotNull(UNEXPECTED_NULL, actualMessage);
             this.log.info(actualMessage);
         }
     }
 
     /**
-     * Test method for ResultsReporting}.
+     * Test method for ResultsReporting.
      */
     @Test
     public void testVerifyEqualLongs() {
@@ -59,7 +61,7 @@ public final class ResultsReportingTest extends ResultsReporting {
     }
 
     /**
-     * Test method for ResultsReporting}.
+     * Test method for ResultsReporting.
      */
     @Test
     public void testVerifyNotEqualsLong() {
@@ -67,18 +69,18 @@ public final class ResultsReportingTest extends ResultsReporting {
             super.verifyEquals(Long.MIN_VALUE, Long.MAX_VALUE);
         } catch (final AssertionError assertionError) {
             final String actualMessage = assertionError.toString();
-            assertNotNull("unexpected null", actualMessage);
+            assertNotNull(UNEXPECTED_NULL, actualMessage);
             this.log.info(actualMessage);
         }
     }
 
     /**
-     * Test method for ResultsReporting}.
+     * Test method for ResultsReporting.
      */
     @Test
     public void testToDescription() {
         final String description = super.toDescription();
-        assertNotNull("unexpected null", description);
+        assertNotNull(UNEXPECTED_NULL, description);
         this.log.info(description);
     }
 

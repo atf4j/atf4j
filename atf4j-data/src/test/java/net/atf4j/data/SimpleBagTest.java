@@ -29,59 +29,61 @@ import net.atf4j.core.ResultsReporting;
  */
 public final class SimpleBagTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
-     * Test method for SimpleBag}.
+     * Test method for SimpleBag.
      */
     @Test
     public void testNullBag() {
-        assertNotNull("unexpected null",new SimpleBag(null));
+        assertNotNull(UNEXPECTED_NULL,new SimpleBag(null));
     }
 
     /**
-     * Test method for SimpleBag}.
+     * Test method for SimpleBag.
      */
     @Test
     public void testEmptyBag() {
         final SimpleBag bag = new SimpleBag(new String[0]);
-        assertNotNull("unexpected null",bag);
+        assertNotNull(UNEXPECTED_NULL,bag);
         assertEquals(0, bag.count());
         assertEquals(0, bag.clear().count());
         assertEquals(0, bag.reset().count());
     }
 
     /**
-     * Test method for SimpleBag}.
+     * Test method for SimpleBag.
      */
     @Test
     public void testBag() {
         final String[] pets = { "Fish", "Cat", "Dog", "Rabbit", "Bird" };
         final SimpleBag bag = new SimpleBag(pets);
-        assertNotNull("unexpected null",bag);
+        assertNotNull(UNEXPECTED_NULL,bag);
         assertEquals(5, bag.count());
         assertEquals(0, bag.clear().count());
         assertEquals(5, bag.reset().count());
         while (!bag.isEmpty()) {
-            assertNotNull("unexpected null",bag.pick());
+            assertNotNull(UNEXPECTED_NULL,bag.pick());
         }
         bag.clear().reset();
     }
 
     /**
-     * Test method for SimpleBag}.
+     * Test method for SimpleBag.
      */
     @Test
     public void testDebugString() {
         final String string = new SimpleBag().debugString();
-        assertNotNull("unexpected null",string);
+        assertNotNull(UNEXPECTED_NULL,string);
     }
 
     /**
-     * Test method for SimpleBag}.
+     * Test method for SimpleBag.
      */
     @Test
     public void testToString() {
         final String string = new SimpleBag().toString();
-        assertNotNull("unexpected null",string);
+        assertNotNull(UNEXPECTED_NULL,string);
     }
 
 }

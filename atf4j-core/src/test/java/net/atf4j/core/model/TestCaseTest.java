@@ -30,6 +30,8 @@ import net.atf4j.core.ResultsReporting;
  */
 public class TestCaseTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * The TestCaseReport Class.
      */
@@ -43,11 +45,11 @@ public class TestCaseTest extends ResultsReporting {
     }
 
     /**
-     * Test method for TestCase}.
+     * Test method for TestCase.
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null", new TestCase());
+        assertNotNull(UNEXPECTED_NULL, new TestCase());
     }
 
     /**
@@ -55,22 +57,22 @@ public class TestCaseTest extends ResultsReporting {
      */
     @Test
     public void testTestCaseString() {
-        assertNotNull("unexpected null", new TestCase("TestCase"));
+        assertNotNull(UNEXPECTED_NULL, new TestCase("TestCase"));
     }
 
     /**
-     * Test method for TestCase}.
+     * Test method for TestCase.
      *
      * @throws Atf4jException
      *             the atf 4 j exception
      */
     @Test
     public void testRegisterLogging() throws Atf4jException {
-        assertNotNull("unexpected null", new TestCase().registerLogging(new MockTestReport()));
+        assertNotNull(UNEXPECTED_NULL, new TestCase().registerLogging(new MockTestReport()));
     }
 
     /**
-     * Test method for TestCase}.
+     * Test method for TestCase.
      *
      * @throws Atf4jException
      *             the atf 4 j exception
@@ -78,13 +80,13 @@ public class TestCaseTest extends ResultsReporting {
     @Test
     public void testExecuteTestContext() throws Atf4jException {
         final TestContext context = new TestContext();
-        assertNotNull("unexpected null", context);
+        assertNotNull(UNEXPECTED_NULL, context);
         final TestCase testCase = new TestCase();
-        assertNotNull("unexpected null", testCase.execute(context));
+        assertNotNull(UNEXPECTED_NULL, testCase.execute(context));
     }
 
     /**
-     * Test method for TestCase}.
+     * Test method for TestCase.
      */
     @Test
     public void testNumberOfTestSteps() {
@@ -93,18 +95,18 @@ public class TestCaseTest extends ResultsReporting {
     }
 
     /**
-     * Test method for TestCase}.
+     * Test method for TestCase.
      */
     @Test
     public void testAddTestStep() {
         final TestStep testStep = new TestStep();
-        assertNotNull("unexpected null", testStep);
+        assertNotNull(UNEXPECTED_NULL, testStep);
 
         final TestCase testCase = new TestCase();
-        assertNotNull("unexpected null", testCase);
+        assertNotNull(UNEXPECTED_NULL, testCase);
 
         final TestCase addTestStep = testCase.addTestStep(testStep);
-        assertNotNull("unexpected null", testStep);
+        assertNotNull(UNEXPECTED_NULL, testStep);
 
         assertEquals(1, addTestStep.numberOfTestSteps());
     }
@@ -115,7 +117,7 @@ public class TestCaseTest extends ResultsReporting {
     @Test
     public void testPreCondition() {
         final TestCase testCase = new TestCase();
-        assertNotNull("unexpected null", testCase.addPreCondition(new PassingCondition()));
+        assertNotNull(UNEXPECTED_NULL, testCase.addPreCondition(new PassingCondition()));
     }
 
     /**
@@ -124,7 +126,7 @@ public class TestCaseTest extends ResultsReporting {
     @Test
     public void testPostCondition() {
         final TestCase testCase = new TestCase();
-        assertNotNull("unexpected null", testCase.addPostCondition(new PassingCondition()));
+        assertNotNull(UNEXPECTED_NULL, testCase.addPostCondition(new PassingCondition()));
     }
 
 }

@@ -31,6 +31,8 @@ import net.atf4j.pog.PageWebElement.Strategy;
  */
 public class PageObjectDataTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * Test method for void.
      */
@@ -38,7 +40,7 @@ public class PageObjectDataTest extends ResultsReporting {
     public void testExpected() {
         this.log.info("==============================================");
         final PageObjectData pageObjectData = new PageObjectData();
-        assertNotNull("unexpected null", pageObjectData);
+        assertNotNull(UNEXPECTED_NULL, pageObjectData);
 
         pageObjectData
             .add(new PageWebElement("findById", Strategy.ID, "id"))
@@ -60,7 +62,7 @@ public class PageObjectDataTest extends ResultsReporting {
     public void testDefaultConstructor() {
         this.log.info("==============================================");
         final PageObjectData pageObjectData = new PageObjectData();
-        assertNotNull("unexpected null", pageObjectData);
+        assertNotNull(UNEXPECTED_NULL, pageObjectData);
         this.log.info(pageObjectData.toString());
     }
 
@@ -71,7 +73,7 @@ public class PageObjectDataTest extends ResultsReporting {
     public void testPageObjectData() {
         this.log.info("==============================================");
         final PageObjectData pageObjectData = new PageObjectData();
-        assertNotNull("unexpected null", pageObjectData);
+        assertNotNull(UNEXPECTED_NULL, pageObjectData);
         this.log.info(pageObjectData.toString());
     }
 

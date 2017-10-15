@@ -33,6 +33,7 @@ import net.atf4j.core.ResultsReporting;
 @Scenario("Scenario")
 public class MissingThenScenarioTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final Logger LOG = LoggerFactory.getLogger(MissingThenScenarioTest.class);
 
     /**
@@ -43,8 +44,8 @@ public class MissingThenScenarioTest extends ResultsReporting {
     public void testScenarioRunner() {
         LOG.info("{}.testScenarioRunner", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner();
-        assertNotNull("unexpected null", scenarioRunner);
-        assertNotNull("unexpected null", scenarioRunner.execute());
+        assertNotNull(UNEXPECTED_NULL, scenarioRunner);
+        assertNotNull(UNEXPECTED_NULL, scenarioRunner.execute());
     }
 
     /**

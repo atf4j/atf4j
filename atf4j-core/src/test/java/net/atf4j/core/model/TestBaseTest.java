@@ -29,6 +29,8 @@ import net.atf4j.core.ResultsReporting;
  */
 public class TestBaseTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * The MockTestBase Class.
      */
@@ -65,43 +67,43 @@ public class TestBaseTest extends ResultsReporting {
     }
 
     /**
-     * Test method for TestCase}.
+     * Test method for TestCase.
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null", new MockTestBase());
+        assertNotNull(UNEXPECTED_NULL, new MockTestBase());
     }
 
     /**
-     * Test method for TestBase}.
+     * Test method for TestBase.
      *
      * @throws Atf4jException
      *             the atf 4 j exception
      */
     @Test
     public void testRegisterLogging() throws Atf4jException {
-        assertNotNull("unexpected null", new MockTestBase().registerLogging(new MockTestReport()));
+        assertNotNull(UNEXPECTED_NULL, new MockTestBase().registerLogging(new MockTestReport()));
     }
 
     /**
-     * Test method for TestBase}.
+     * Test method for TestBase.
      */
     @Test
     public void testUniqueIdentifier() {
         final MockTestBase mockTestBase = new MockTestBase();
-        assertNotNull("unexpected null", mockTestBase.getUniqueIdentifier());
+        assertNotNull(UNEXPECTED_NULL, mockTestBase.getUniqueIdentifier());
     }
 
     /**
-     * Test method for TestBase}.
+     * Test method for TestBase.
      */
     @Test
     public void testTestStatus() {
-        assertNotNull("unexpected null", new MockTestBase().getTestStatus());
+        assertNotNull(UNEXPECTED_NULL, new MockTestBase().getTestStatus());
     }
 
     /**
-     * Test method for TestBase}.
+     * Test method for TestBase.
      *
      * @throws Atf4jException
      *             the atf 4 j exception
@@ -117,7 +119,7 @@ public class TestBaseTest extends ResultsReporting {
     }
 
     /**
-     * Test method for TestBase}.
+     * Test method for TestBase.
      *
      * @throws Atf4jException
      *             the atf 4 j exception
@@ -130,43 +132,43 @@ public class TestBaseTest extends ResultsReporting {
     }
 
     /**
-     * Test method for TestBase}.
+     * Test method for TestBase.
      */
     @Test
     public void testAddPreCondition() {
         final Condition newPreCondition = new PassingCondition();
-        assertNotNull("unexpected null", newPreCondition);
+        assertNotNull(UNEXPECTED_NULL, newPreCondition);
         final MockTestBase mockTestBase = new MockTestBase();
-        assertNotNull("unexpected null", mockTestBase);
-        assertNotNull("unexpected null", mockTestBase.addPreCondition(newPreCondition));
+        assertNotNull(UNEXPECTED_NULL, mockTestBase);
+        assertNotNull(UNEXPECTED_NULL, mockTestBase.addPreCondition(newPreCondition));
     }
 
     /**
-     * Test method for TestBase}.
+     * Test method for TestBase.
      */
     @Test
     public void testAddPostCondition() {
         final Condition newPostCondition = new PassingCondition();
-        assertNotNull("unexpected null", newPostCondition);
+        assertNotNull(UNEXPECTED_NULL, newPostCondition);
         final MockTestBase mockTestBase = new MockTestBase();
-        assertNotNull("unexpected null", mockTestBase);
-        assertNotNull("unexpected null", mockTestBase.addPostCondition(newPostCondition));
+        assertNotNull(UNEXPECTED_NULL, mockTestBase);
+        assertNotNull(UNEXPECTED_NULL, mockTestBase.addPostCondition(newPostCondition));
     }
 
     /**
-     * Test method for TestBase}.
+     * Test method for TestBase.
      */
     @Test
     public void testToString() {
-        assertNotNull("unexpected null", new MockTestBase().toString());
+        assertNotNull(UNEXPECTED_NULL, new MockTestBase().toString());
     }
 
     /**
-     * Test method for TestBase}.
+     * Test method for TestBase.
      */
     @Test
     public void testDebugString() {
-        assertNotNull("unexpected null", new MockTestBase().debugString());
+        assertNotNull(UNEXPECTED_NULL, new MockTestBase().debugString());
     }
 
 }

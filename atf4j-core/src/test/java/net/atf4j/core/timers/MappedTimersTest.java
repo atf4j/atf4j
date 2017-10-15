@@ -28,40 +28,42 @@ import net.atf4j.core.ResultsReporting;
  */
 public class MappedTimersTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
-     * Test method for MappedTimers}.
+     * Test method for MappedTimers.
      */
     @Test
     public void testGetInstance() {
         final MappedTimers instance = MappedTimers.getInstance();
-        assertNotNull("unexpected null", instance);
+        assertNotNull(UNEXPECTED_NULL, instance);
     }
 
     /**
-     * Test method for MappedTimers}.
+     * Test method for MappedTimers.
      */
     @Test
     public void testExpectedUsage() {
         final TimerInterface timer = MappedTimers.start("testExpectedUsage");
-        assertNotNull("unexpected null", timer);
-        assertNotNull("unexpected null", timer.stop());
+        assertNotNull(UNEXPECTED_NULL, timer);
+        assertNotNull(UNEXPECTED_NULL, timer.stop());
         this.log.info(timer.toString());
     }
 
     /**
-     * Test method for MappedTimers}.
+     * Test method for MappedTimers.
      */
     @Test
     public void testStopAll() {
-        assertNotNull("unexpected null", MappedTimers.stopAll());
+        assertNotNull(UNEXPECTED_NULL, MappedTimers.stopAll());
     }
 
     /**
-     * Test method for MappedTimers}.
+     * Test method for MappedTimers.
      */
     @Test
     public void testToString() {
-        assertNotNull("unexpected null", MappedTimers.debugString());
+        assertNotNull(UNEXPECTED_NULL, MappedTimers.debugString());
     }
 
 }

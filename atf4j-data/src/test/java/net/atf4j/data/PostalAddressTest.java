@@ -28,31 +28,33 @@ import net.atf4j.core.ResultsReporting;
  */
 public final class PostalAddressTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
-     * Test method for PostalAddress}.
+     * Test method for PostalAddress.
      */
     @Test
     public void testDefaultConstructor() {
         final PostalAddress address = new PostalAddress();
-        assertNotNull("unexpected null",address);
+        assertNotNull(UNEXPECTED_NULL,address);
     }
 
     /**
-     * Test method for PostalAddress}.
+     * Test method for PostalAddress.
      */
     @Test
     public void testToString() {
         final String addressString = new PostalAddress().toString();
-        assertNotNull("unexpected null",addressString);
+        assertNotNull(UNEXPECTED_NULL,addressString);
     }
 
     /**
-     * Test method for PostalAddress}.
+     * Test method for PostalAddress.
      */
     @Test
     public void testDebugString() {
         final String addressString = new PostalAddress().debugString();
-        assertNotNull("unexpected null",addressString);
+        assertNotNull(UNEXPECTED_NULL,addressString);
     }
 
 }

@@ -26,12 +26,14 @@ import org.junit.Test;
  */
 public class FailSuiteTest {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * Unit Test for test fail case.
      */
     @Test
     public void testFailCase() {
-        assertNotNull("unexpected null", new FailCase());
+        assertNotNull(UNEXPECTED_NULL, new FailCase());
     }
 
 }

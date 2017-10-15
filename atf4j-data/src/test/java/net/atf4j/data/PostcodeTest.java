@@ -29,39 +29,41 @@ import net.atf4j.core.ResultsReporting;
  */
 public final class PostcodeTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
-     * Test method for Postcode}.
+     * Test method for Postcode.
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null",new Postcode());
+        assertNotNull(UNEXPECTED_NULL,new Postcode());
     }
 
     /**
-     * Test method for Postcode}.
+     * Test method for Postcode.
      */
     @Test
     public void testPostcode() {
-        assertNotNull("unexpected null",new Postcode());
+        assertNotNull(UNEXPECTED_NULL,new Postcode());
     }
 
     /**
      * Test method for void.
      */
     public void testPostcodeCreate() {
-        assertNotNull("unexpected null",Postcode.create());
+        assertNotNull(UNEXPECTED_NULL,Postcode.create());
     }
 
     /**
-     * Test method for Postcode}.
+     * Test method for Postcode.
      */
     @Test
     public void testPostcodeString() {
-        assertNotNull("unexpected null",new Postcode("AA00 9XX"));
+        assertNotNull(UNEXPECTED_NULL,new Postcode("AA00 9XX"));
     }
 
     /**
-     * Test method for Postcode}.
+     * Test method for Postcode.
      */
     @Test
     public void testVerify() {
@@ -69,12 +71,12 @@ public final class PostcodeTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Postcode}.
+     * Test method for Postcode.
      */
     @Test
     public void testToString() {
         final String postcode = new Postcode().toString();
-        assertNotNull("unexpected null",postcode);
+        assertNotNull(UNEXPECTED_NULL,postcode);
     }
 
 }

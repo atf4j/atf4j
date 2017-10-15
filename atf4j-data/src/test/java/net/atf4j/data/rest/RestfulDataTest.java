@@ -28,13 +28,15 @@ import net.atf4j.data.management.RestfulData;
  */
 public final class RestfulDataTest {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * Test method for void.
      */
     @Test
     public void testRestfulData() {
         final RestfulData restfulData = new RestfulData();
-        assertNotNull("unexpected null",restfulData);
+        assertNotNull(UNEXPECTED_NULL,restfulData);
     }
 
     /**
@@ -43,9 +45,9 @@ public final class RestfulDataTest {
     @Test
     public void testSetUp() {
         final RestfulData restfulData = new RestfulData();
-        assertNotNull("unexpected null",restfulData);
+        assertNotNull(UNEXPECTED_NULL,restfulData);
         final boolean data = restfulData.setUp();
-        assertNotNull("unexpected null",data);
+        assertNotNull(UNEXPECTED_NULL,data);
     }
 
     /**
@@ -54,9 +56,9 @@ public final class RestfulDataTest {
     @Test
     public void testReset() {
         final RestfulData restfulData = new RestfulData();
-        assertNotNull("unexpected null",restfulData);
+        assertNotNull(UNEXPECTED_NULL,restfulData);
         final boolean data = restfulData.reset();
-        assertNotNull("unexpected null",data);
+        assertNotNull(UNEXPECTED_NULL,data);
     }
 
     /**
@@ -65,9 +67,9 @@ public final class RestfulDataTest {
     @Test
     public void testTearDown() {
         final RestfulData restfulData = new RestfulData();
-        assertNotNull("unexpected null",restfulData);
+        assertNotNull(UNEXPECTED_NULL,restfulData);
         final boolean data = restfulData.tearDown();
-        assertNotNull("unexpected null",data);
+        assertNotNull(UNEXPECTED_NULL,data);
     }
 
 }

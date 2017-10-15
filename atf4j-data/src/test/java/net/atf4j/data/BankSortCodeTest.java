@@ -32,21 +32,23 @@ import net.atf4j.core.ResultsReporting;
  */
 public final class BankSortCodeTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
-     * Test method for BankSortCode}.
+     * Test method for BankSortCode.
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull("unexpected null",new BankSortCode());
+        assertNotNull(UNEXPECTED_NULL,new BankSortCode());
     }
 
     /**
-     * Test method for BankSortCode}.
+     * Test method for BankSortCode.
      */
     @Test
     public void testBankSortCodeString() {
         final String actual = "99:99:99";
-        assertNotNull("unexpected null",new BankSortCode(actual));
+        assertNotNull(UNEXPECTED_NULL,new BankSortCode(actual));
     }
 
     /**
@@ -55,12 +57,12 @@ public final class BankSortCodeTest extends ResultsReporting {
     @Test
     public void testCreate() {
         final BankSortCode sortCode = BankSortCode.create();
-        assertNotNull("unexpected null",sortCode);
+        assertNotNull(UNEXPECTED_NULL,sortCode);
         this.log.info("{}", sortCode);
     }
 
     /**
-     * Test method for BankSortCode}.
+     * Test method for BankSortCode.
      */
     @Test
     public void testSetGetBankSortCode() {
@@ -69,7 +71,7 @@ public final class BankSortCodeTest extends ResultsReporting {
     }
 
     /**
-     * Test method for BankSortCode}.
+     * Test method for BankSortCode.
      */
     @Test
     @Ignore
@@ -107,7 +109,7 @@ public final class BankSortCodeTest extends ResultsReporting {
     @Test
     public void testToString() {
         final String string = new BankSortCode().toString();
-        assertNotNull("unexpected null",string);
+        assertNotNull(UNEXPECTED_NULL,string);
         this.log.info("{}", string);
     }
 

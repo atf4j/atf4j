@@ -28,13 +28,15 @@ import net.atf4j.core.ResultsReporting;
  */
 public class NestedTimersTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
-     * Test method for NestedTimers}.
+     * Test method for NestedTimers.
      */
     @Test
     public void testGetInstance() {
         final NestedTimers instance = NestedTimers.getInstance();
-        assertNotNull("unexpected null", instance);
+        assertNotNull(UNEXPECTED_NULL, instance);
     }
 
     /**

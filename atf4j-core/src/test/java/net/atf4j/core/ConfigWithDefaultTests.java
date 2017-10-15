@@ -29,6 +29,8 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
  */
 public final class ConfigWithDefaultTests extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * A Mock Configuration with default values.
      */
@@ -119,7 +121,7 @@ public final class ConfigWithDefaultTests extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() throws ConfigurationNotLoaded {
-        assertNotNull("unexpected null", new ConfigWithDefaults());
+        assertNotNull(UNEXPECTED_NULL, new ConfigWithDefaults());
     }
 
     /**
@@ -131,7 +133,7 @@ public final class ConfigWithDefaultTests extends ResultsReporting {
     @Test
     public void testDefaultString() throws ConfigurationNotLoaded {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
-        assertNotNull("unexpected null", mockConfig);
+        assertNotNull(UNEXPECTED_NULL, mockConfig);
         assertEquals("DEFAULT_STRING", mockConfig.getFooAsString("missing"));
     }
 
@@ -144,7 +146,7 @@ public final class ConfigWithDefaultTests extends ResultsReporting {
     @Test
     public void testDefaultBoolean() throws ConfigurationNotLoaded {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
-        assertNotNull("unexpected null", mockConfig);
+        assertNotNull(UNEXPECTED_NULL, mockConfig);
         assertEquals(true, mockConfig.getTrueAsBoolean("missing"));
         assertEquals(false, mockConfig.getFalseAsBoolean("missing"));
     }
@@ -158,7 +160,7 @@ public final class ConfigWithDefaultTests extends ResultsReporting {
     @Test
     public void testDefaultInt() throws ConfigurationNotLoaded {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
-        assertNotNull("unexpected null", mockConfig);
+        assertNotNull(UNEXPECTED_NULL, mockConfig);
         assertEquals(Integer.MAX_VALUE, mockConfig.getMax("missing"));
         assertEquals(Integer.MIN_VALUE, mockConfig.getMin("missing"));
     }

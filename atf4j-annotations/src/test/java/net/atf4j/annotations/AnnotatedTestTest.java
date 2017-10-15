@@ -26,6 +26,8 @@ import org.junit.Test;
  */
 public class AnnotatedTestTest extends AbstractAnnotatedTest {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * Test method for AnnotatedTest.
      */
@@ -33,7 +35,7 @@ public class AnnotatedTestTest extends AbstractAnnotatedTest {
     public void testTestId() throws Exception {
         log.info("{}.testTestId", this.getClass().getSimpleName());
         final String testId = super.testId();
-        assertNotNull("unexpected null",testId);
+        assertNotNull(UNEXPECTED_NULL,testId);
         log.info("testId = {}", testId);
     }
 
@@ -44,7 +46,7 @@ public class AnnotatedTestTest extends AbstractAnnotatedTest {
     public void testTestName() {
         log.info("{}.testTestName", this.getClass().getSimpleName());
         final String testName = super.testName();
-        assertNotNull("unexpected null",testName);
+        assertNotNull(UNEXPECTED_NULL,testName);
         log.info("testName = {}", testName);
     }
 
@@ -55,7 +57,7 @@ public class AnnotatedTestTest extends AbstractAnnotatedTest {
     public void testTestDescription() {
         log.info("{}.testTestDescription", this.getClass().getSimpleName());
         final String testDescription = super.testDescription();
-        assertNotNull("unexpected null",testDescription);
+        assertNotNull(UNEXPECTED_NULL,testDescription);
         log.info("testDescription = {}", testDescription);
     }
 

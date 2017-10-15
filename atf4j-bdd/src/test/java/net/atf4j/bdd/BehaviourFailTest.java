@@ -29,6 +29,7 @@ import net.atf4j.core.ResultsReporting;
  */
 public class BehaviourFailTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final Logger LOG = LoggerFactory.getLogger(BehaviourFailTest.class);
 
     /**
@@ -38,7 +39,7 @@ public class BehaviourFailTest extends ResultsReporting {
     public void testGiven() {
         LOG.info("{}.testGiven", this.getClass().getSimpleName());
         final Given given = new Given();
-        assertNotNull("unexpected null", given);
+        assertNotNull(UNEXPECTED_NULL, given);
         given.execute();
     }
 
@@ -49,7 +50,7 @@ public class BehaviourFailTest extends ResultsReporting {
     public void testWhen() {
         LOG.info("{}.testGiven", this.getClass().getSimpleName());
         final When when = new When();
-        assertNotNull("unexpected null", when);
+        assertNotNull(UNEXPECTED_NULL, when);
         when.execute();
     }
 
@@ -60,7 +61,7 @@ public class BehaviourFailTest extends ResultsReporting {
     public void testThen() {
         LOG.info("{}.testGiven", this.getClass().getSimpleName());
         final Then then = new Then();
-        assertNotNull("unexpected null", then);
+        assertNotNull(UNEXPECTED_NULL, then);
         then.execute();
     }
 

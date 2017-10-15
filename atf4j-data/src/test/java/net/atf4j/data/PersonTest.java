@@ -32,13 +32,15 @@ import net.atf4j.data.Person.Gender;
  */
 public final class PersonTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * Test method for void.
      */
     @Test
     public void testPerson() {
         final Person person = new Person().forename("Forname").middlename("MiddleName").surname("Surname");
-        assertNotNull("unexpected null",person);
+        assertNotNull(UNEXPECTED_NULL,person);
     }
 
     /**
@@ -47,11 +49,11 @@ public final class PersonTest extends ResultsReporting {
     @Test
     public void testPersonFornameMiddleSurname() {
         final Person person = new Person("Forname", "MiddleName", "Surname");
-        assertNotNull("unexpected null",person);
+        assertNotNull(UNEXPECTED_NULL,person);
     }
 
     /**
-     * Test method for Person}.
+     * Test method for Person.
      */
     @Test
     public void testSetGetTitle() {
@@ -78,7 +80,7 @@ public final class PersonTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Person}.
+     * Test method for Person.
      */
     @Test
     public void testSetGetForenameString() {
@@ -87,7 +89,7 @@ public final class PersonTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Person}.
+     * Test method for Person.
      */
     @Test
     public void testSetGetMiddlenameString() {
@@ -96,7 +98,7 @@ public final class PersonTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Person}.
+     * Test method for Person.
      */
     @Test
     public void testSetGetSurnameString() {
@@ -105,7 +107,7 @@ public final class PersonTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Person}.
+     * Test method for Person.
      */
     @Test
     public void testSetGetDob() {
@@ -123,7 +125,7 @@ public final class PersonTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Person}.
+     * Test method for Person.
      */
     @Test
     public void testSetGetEmailAddress() {
@@ -132,7 +134,7 @@ public final class PersonTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Person}.
+     * Test method for Person.
      */
     @Test
     public void testToString() {

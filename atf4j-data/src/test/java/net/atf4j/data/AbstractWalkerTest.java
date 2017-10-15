@@ -26,6 +26,8 @@ import org.junit.Test;
  */
 public final class AbstractWalkerTest {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * MockWalker Class.
      */
@@ -53,8 +55,8 @@ public final class AbstractWalkerTest {
     @Test(expected = AssertionError.class)
     public void testAbstractWalker() throws Exception {
         MockWalker mockWalker = new MockWalker(".");
-        assertNotNull("unexpected null", mockWalker);
-        assertNotNull("unexpected null", mockWalker.walk());
+        assertNotNull(UNEXPECTED_NULL, mockWalker);
+        assertNotNull(UNEXPECTED_NULL, mockWalker.walk());
     }
 
 }

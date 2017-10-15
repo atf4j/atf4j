@@ -26,12 +26,14 @@ import org.junit.Test;
  */
 public class ConfigExampleTest {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * Test Configuration example.
      */
     @Test
     public void testConfigExample() {
         final ConfigExample configExample = new ConfigExample();
-        assertNotNull("unexpected null",configExample);
+        assertNotNull(UNEXPECTED_NULL,configExample);
     }
 }

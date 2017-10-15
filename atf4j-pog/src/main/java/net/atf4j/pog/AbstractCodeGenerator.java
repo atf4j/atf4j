@@ -50,6 +50,7 @@ public abstract class AbstractCodeGenerator {
 
     private static final String TARGET_FOLDER = "src/generated/java";
     private static final String CLASS_TEMPLATE = "/templates/Class.vm";
+    protected static final String UNEXPECTED_NULL = "unexpected null";
 
     private String templateFilename = CLASS_TEMPLATE;
     private String packageName = "net.atf4j.generated";
@@ -300,7 +301,7 @@ public abstract class AbstractCodeGenerator {
      */
     private AbstractCodeGenerator generate(final InputStreamReader templateReader) throws Exception {
         final BufferedWriter bufferedWriter = destinationWriter();
-        assertNotNull("unexpected null", bufferedWriter);
+        assertNotNull(UNEXPECTED_NULL, bufferedWriter);
         return generate(templateReader, bufferedWriter);
     }
 
@@ -395,8 +396,8 @@ public abstract class AbstractCodeGenerator {
      * @return the string
      */
     private String targetPath(final String homeFolder, final String packageFolder) {
-        assertNotNull("unexpected null", homeFolder);
-        assertNotNull("unexpected null", packageFolder);
+        assertNotNull(UNEXPECTED_NULL, homeFolder);
+        assertNotNull(UNEXPECTED_NULL, packageFolder);
         final String targetPath = String.format("%s/%s", homeFolder, packageFolder);
         this.log.info("targetPath={}", targetPath);
         new File(targetPath).mkdirs();

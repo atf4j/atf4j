@@ -26,6 +26,7 @@ import net.atf4j.data.factory.DataFactory;
  */
 public class BankAccount {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
     private Bank bank;
     private String accountNo;
 
@@ -103,7 +104,7 @@ public class BankAccount {
      * @return the bank account
      */
     public BankAccount setBank(final Bank bank) {
-        assertNotNull("unexpected null", bank);
+        assertNotNull(UNEXPECTED_NULL, bank);
         this.bank = bank;
         return this;
     }
@@ -116,7 +117,7 @@ public class BankAccount {
      * @return the bank account
      */
     public BankAccount setAccountNo(final String accountNo) {
-        assertNotNull("unexpected null", accountNo);
+        assertNotNull(UNEXPECTED_NULL, accountNo);
         this.accountNo = accountNo;
         return this;
     }

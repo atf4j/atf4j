@@ -30,6 +30,8 @@ import net.atf4j.data.Bank;
  */
 public final class BankDataFactoryTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * Test method for expected usage.
      */
@@ -37,7 +39,7 @@ public final class BankDataFactoryTest extends ResultsReporting {
     @Ignore
     public void testExpectedUsage() {
         final String randomThing = BankDataFactory.random();
-        assertNotNull("unexpected null",randomThing);
+        assertNotNull(UNEXPECTED_NULL,randomThing);
         this.log.info("{}", randomThing);
     }
 
@@ -49,7 +51,7 @@ public final class BankDataFactoryTest extends ResultsReporting {
      */
     @Test
     public final void testDefaultConstructor() throws Exception {
-        assertNotNull("unexpected null",new BankDataFactory());
+        assertNotNull(UNEXPECTED_NULL,new BankDataFactory());
     }
 
     /**
@@ -58,7 +60,7 @@ public final class BankDataFactoryTest extends ResultsReporting {
     @Test
     public void testGetInstance() {
         final BankDataFactory instance = BankDataFactory.getInstance();
-        assertNotNull("unexpected null",instance);
+        assertNotNull(UNEXPECTED_NULL,instance);
         this.log.info("{}", instance.toString());
     }
 
@@ -68,7 +70,7 @@ public final class BankDataFactoryTest extends ResultsReporting {
     @Test
     public void testCreate() {
         final Bank bank = BankDataFactory.create();
-        assertNotNull("unexpected null",bank);
+        assertNotNull(UNEXPECTED_NULL,bank);
         this.log.info("{}", bank.toString());
     }
 

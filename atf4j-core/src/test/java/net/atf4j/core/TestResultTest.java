@@ -30,15 +30,16 @@ import org.slf4j.LoggerFactory;
  */
 public final class TestResultTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final Logger LOGGER = LoggerFactory.getLogger(TestResultTest.class);
 
     /**
-     * Test method for TestResult}.
+     * Test method for TestResult.
      */
     @Test
     public void testInitialise() {
         final TestResult testStatus = TestResult.initialise();
-        assertNotNull("unexpected null", testStatus);
+        assertNotNull(UNEXPECTED_NULL, testStatus);
         verifyEquals(TestResult.PENDING, testStatus);
     }
 

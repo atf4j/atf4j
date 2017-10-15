@@ -26,12 +26,14 @@ import org.junit.Test;
  */
 public class FailStepTest {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
+
     /**
      * Unit Test for test fail step.
      */
     @Test
     public void testFailStep() {
-        assertNotNull("unexpected null", new FailStep());
+        assertNotNull(UNEXPECTED_NULL, new FailStep());
     }
 
     /**
@@ -39,7 +41,7 @@ public class FailStepTest {
      */
     @Test
     public void testFailStepNull() {
-        assertNotNull("unexpected null", new FailStep(null));
+        assertNotNull(UNEXPECTED_NULL, new FailStep(null));
     }
 
     /**
@@ -47,7 +49,7 @@ public class FailStepTest {
      */
     @Test
     public void testFailStepString() {
-        assertNotNull("unexpected null", new FailStep("FailStep"));
+        assertNotNull(UNEXPECTED_NULL, new FailStep("FailStep"));
     }
 
 }

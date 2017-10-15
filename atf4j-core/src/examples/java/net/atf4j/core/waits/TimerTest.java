@@ -31,6 +31,7 @@ import net.atf4j.core.timers.TimerInterface;
  */
 public class TimerTest extends ResultsReporting {
 
+    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final int DEFAULT_INTERVAL = 100;
     private long delta = 1000;
 
@@ -40,7 +41,7 @@ public class TimerTest extends ResultsReporting {
     @Test
     public void testDefaultConstructor() {
         MilliTimer timer = new MilliTimer();
-        assertNotNull("unexpected null",timer);
+        assertNotNull(UNEXPECTED_NULL,timer);
     }
 
     /**
