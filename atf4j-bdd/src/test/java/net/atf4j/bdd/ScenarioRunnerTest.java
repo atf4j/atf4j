@@ -45,7 +45,7 @@ public class ScenarioRunnerTest extends ResultsReporting {
          */
         @Atf4j.Given("Given")
         public void testPassGiven() {
-            LOG.info("{}.testPassWhen", this.getClass().getSimpleName());
+            LOG.info("{}.testPassGiven", this.getClass().getSimpleName());
             Assume.assumeTrue(true);
         }
 

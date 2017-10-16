@@ -300,9 +300,7 @@ public class Person {
         final int month = this.dob.get(Calendar.MONTH);
         final int year = this.dob.get(Calendar.YEAR);
 
-        final int age = (currentyear * 12 + currentmonth - (year * 12 + month)) / 12;
-
-        return age;
+        return (currentyear * 12 + currentmonth - (year * 12 + month)) / 12;
     }
 
     /**

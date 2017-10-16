@@ -22,7 +22,11 @@ import org.openqa.selenium.WebDriver;
 /**
  * A factory for creating Browser objects.
  */
-public class CustomBrowserFactory extends BrowserFactory {
+public final class CustomBrowserFactory extends BrowserFactory {
+
+    private CustomBrowserFactory() {
+        super();
+    }
 
     /**
      * Create new instance of create.

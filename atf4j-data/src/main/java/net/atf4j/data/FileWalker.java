@@ -54,11 +54,16 @@ public class FileWalker extends AbstractWalker {
      * @param f the f
      * @throws IOException Signals that an I/O exception has occurred.
      */
-    private void processFile(final File f) throws IOException {
-        final File absoluteFile = f.getAbsoluteFile();
-        this.log.info("FILE:{}", absoluteFile);
-        final String string = readFile(absoluteFile.getPath());
-        this.log.info("{}", string);
+    @Override
+    protected void processFile(final File f) {
+        try {
+            final File absoluteFile = f.getAbsoluteFile();
+            this.log.info("FILE:{}", absoluteFile);
+            final String string = readFile(absoluteFile.getPath());
+            this.log.info("{}", string);
+        } catch (IOException e) {
+            this.log.error(e.getLocalizedMessage());
+        }
     }
 
     /**
@@ -68,7 +73,7 @@ public class FileWalker extends AbstractWalker {
      * @return the string
      * @throws IOException Signals that an I/O exception has occurred.
      */
-    String readFile(final String filename) throws IOException {
+    protected String readFile(final String filename) throws IOException {
         final byte[] encoded = Files.readAllBytes(Paths.get(filename));
         return new String(encoded, Charset.defaultCharset());
     }

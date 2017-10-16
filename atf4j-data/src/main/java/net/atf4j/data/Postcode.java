@@ -34,8 +34,8 @@ public class Postcode {
 
     /** The post code. */
     private String postCode;
-    private String outCode;
-    private String inCode;
+    private String outwardCode;
+    private String inwardCode;
 
     /**
      * Create new instance of create.
@@ -73,8 +73,8 @@ public class Postcode {
         if (Postcode.verify(postCode)) {
             this.postCode = postCode;
             final String[] split = postCode.split("\\w");
-            setOutCode(split[0]);
-            setInCode(split[1]);
+            setOutwardCode(split[0]);
+            setInwardCode(split[1]);
         }
         return this;
     }
@@ -82,22 +82,22 @@ public class Postcode {
     /**
      * Sets the out code.
      *
-     * @param outCode the out code
+     * @param outwardCode the out code
      * @return the postcode
      */
-    public Postcode setOutCode(final String outCode) {
-        this.outCode = outCode;
+    public Postcode setOutwardCode(final String outwardCode) {
+        this.outwardCode = outwardCode;
         return this;
     }
 
     /**
      * Sets the in code.
      *
-     * @param inCode the in code
+     * @param inwardCode the in code
      * @return the postcode
      */
-    public Postcode setInCode(final String inCode) {
-        this.inCode = inCode;
+    public Postcode setInwardCode(final String inwardCode) {
+        this.inwardCode = inwardCode;
         return this;
     }
 
@@ -106,8 +106,8 @@ public class Postcode {
      *
      * @return the out code
      */
-    public String getOutCode() {
-        return this.outCode;
+    public String getOutwardCode() {
+        return this.outwardCode;
     }
 
     /**
@@ -115,8 +115,8 @@ public class Postcode {
      *
      * @return the in code
      */
-    public String getInCode() {
-        return this.inCode;
+    public String getInwardCode() {
+        return this.inwardCode;
     }
 
     /**
@@ -125,7 +125,7 @@ public class Postcode {
      * @return the post code
      */
     public String getPostCode() {
-        return String.format("%s %s", getOutCode(), getInCode());
+        return String.format("%s %s", getOutwardCode(), getInwardCode());
     }
 
     /**

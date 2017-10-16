@@ -15,7 +15,7 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.data.manager;
+package net.atf4j.data.management;
 
 /**
  * The DataManager Class.
@@ -23,12 +23,19 @@ package net.atf4j.data.manager;
 public final class DataManager {
 
     /**
+     * Instantiates a new data manager.
+     */
+    private DataManager() {
+        super();
+    }
+
+    /**
      * Data for tag.
      *
      * @param tag the tag
      * @return the object
      */
-    public static Object dataForTag(final String tag) {
+    public static String dataForTag(final String tag) {
         return null;
     }
 

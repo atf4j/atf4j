@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * The Verify Class.
+ * Verify Class.
  */
 public final class Verify {
 
@@ -35,14 +35,13 @@ public final class Verify {
     }
 
     /**
-     * Result string.
+     * Result as string.
      *
      * @param result the result
      * @return the string
      */
     private static String resultString(final boolean result) {
-        final String resultString = result ? "PASSED" : "FAILED";
-        return resultString;
+        return result ? "PASSED" : "FAILED";
     }
 
     /**
@@ -52,7 +51,7 @@ public final class Verify {
      * @param actual the actual
      * @return the string
      */
-    protected static String verifyEquals(final byte expected, final byte actual) {
+    public static String verifyEquals(final byte expected, final byte actual) {
         final boolean result = actual == expected;
 
         final String resultString = resultString(result);
@@ -68,7 +67,7 @@ public final class Verify {
      * @param actual the actual
      * @return the string
      */
-    protected static String verifyEquals(final char expected, final char actual) {
+    public static String verifyEquals(final char expected, final char actual) {
         final boolean result = actual == expected;
 
         final String resultString = resultString(result);
@@ -84,7 +83,7 @@ public final class Verify {
      * @param actual the actual
      * @return the string
      */
-    protected static String verifyEquals(final int expected, final int actual) {
+    public static String verifyEquals(final int expected, final int actual) {
         final boolean result = actual == expected;
 
         final String resultString = resultString(result);
@@ -100,7 +99,7 @@ public final class Verify {
      * @param actual the actual
      * @return the string
      */
-    protected static String verifyEquals(final long expected, final long actual) {
+    public static String verifyEquals(final long expected, final long actual) {
         final boolean result = actual == expected;
 
         final String resultString = resultString(result);
@@ -116,7 +115,7 @@ public final class Verify {
      * @param actual the actual
      * @return the string
      */
-    protected static String verifyEquals(final Object expected, final Object actual) {
+    public static String verifyEquals(final Object expected, final Object actual) {
         assertNotNull("Expected Value cannot be null", expected);
         assertNotNull("Actual Value cannot be null", actual);
         final boolean result = actual.equals(expected);

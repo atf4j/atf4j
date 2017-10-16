@@ -21,20 +21,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.data.management.DataManager;
+
 /**
  * The DataManagerTest Class.
  */
 public final class DataManagerTest {
-
-    /**
-     * Test default constructor.
-     *
-     * @throws Exception the exception
-     */
-    @Test
-    public void testDefaultConstructor() throws Exception {
-        assertNotNull("unexpected null", new DataManager());
-    }
 
     /**
      * Test static data for tag.
@@ -43,6 +35,7 @@ public final class DataManagerTest {
      */
     @Test
     public void testStaticDataForTag() throws Exception {
-        DataManager.dataForTag("#Data");
+        String dataForTag = DataManager.dataForTag("#Data");
+        assertNotNull(dataForTag);
     }
 }

@@ -20,7 +20,11 @@ package net.atf4j.data;
 /**
  * Text Class.
  */
-public class Text {
+public final class Text {
+
+    private Text() {
+        super();
+    }
 
     /**
      * Capitalise as Name.

@@ -93,7 +93,7 @@ public abstract class AbstractWalker {
      *
      * @param url the url
      */
-    private void walk(final URL url) {
+    protected void walk(final URL url) {
         this.log.trace("walk({})", url);
         if (url != null) {
             URI uri;
@@ -113,7 +113,7 @@ public abstract class AbstractWalker {
      *
      * @param uri the uri
      */
-    private void walk(final URI uri) {
+    protected void walk(final URI uri) {
         this.log.trace("walk({})", uri);
         if (uri != null) {
             final File root = Paths.get(uri).toFile();
@@ -128,7 +128,7 @@ public abstract class AbstractWalker {
      *
      * @param root the root
      */
-    private void walk(final File root) {
+    protected void walk(final File root) {
         this.log.trace("walk({})", root);
         if (root != null) {
             final File[] list = root.listFiles();
@@ -143,7 +143,7 @@ public abstract class AbstractWalker {
      *
      * @param list the list
      */
-    private void walk(final File[] list) {
+    protected void walk(final File[] list) {
         this.log.trace("walk({})", Arrays.toString(list));
         if (list != null) {
             this.log.trace("length:{}", list.length);
@@ -164,7 +164,7 @@ public abstract class AbstractWalker {
      *
      * @param file the file
      */
-    private void processFile(final File file) {
+    protected void processFile(final File file) {
         this.log.info("processFile({})", file.getName());
     }
 

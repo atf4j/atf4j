@@ -32,17 +32,18 @@ import net.atf4j.core.TestResult;
  */
 public abstract class AbstractTestBase extends ResultsReporting {
 
-    private TestIdentifier uniqueIdentifier;
+    protected TestIdentifier uniqueIdentifier;
     protected TestContext testContext;
-    private TestResult testResult;
+    protected TestResult testResult;
+    protected TestReport testReport;
+
     private String tester; // Actor
-    private String name;
-    private String taxonomy;
-    private String description;
+    private String name; // short name of test
+    private String taxonomy; // taxonomy of test
+    private String description; // full description of test
     private String timestamp; // ISO date.
     private Collection<Condition> preConditions;
     private Collection<Condition> postConditions;
-    private TestReport testReport;
 
     /**
      * Instantiates a new test base.
@@ -59,6 +60,7 @@ public abstract class AbstractTestBase extends ResultsReporting {
      * @param name the name
      */
     public AbstractTestBase(final String name) {
+        super();
         this.name = name;
         this.testResult = TestResult.initialise();
         this.uniqueIdentifier = new TestIdentifier();
@@ -70,6 +72,7 @@ public abstract class AbstractTestBase extends ResultsReporting {
      * @param testContext the test context
      */
     public AbstractTestBase(final TestContext testContext) {
+        super();
         this.testContext = testContext;
     }
 

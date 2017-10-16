@@ -18,6 +18,7 @@
 package net.atf4j.core.timers;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 import net.atf4j.core.Atf4jException;
@@ -32,10 +33,10 @@ public final class MappedTimers {
     private static final MappedTimers INSTANCE = new MappedTimers();
 
     /** The running timers. */
-    private final HashMap<String, MilliTimer> runningTimers = new HashMap<String, MilliTimer>();
+    private final Map<String, MilliTimer> runningTimers = new HashMap<String, MilliTimer>();
 
     /** The stopped timers. */
-    private final HashMap<String, MilliTimer> stoppedTimers = new HashMap<String, MilliTimer>();
+    private final Map<String, MilliTimer> stoppedTimers = new HashMap<String, MilliTimer>();
 
     /**
      * The TimerNotFound Class.
