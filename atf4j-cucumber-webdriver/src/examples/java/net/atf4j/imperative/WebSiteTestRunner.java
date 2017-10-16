@@ -14,7 +14,11 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.imperative;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.atf4j.fdd.AbstractTestRunner;
 
@@ -22,5 +26,23 @@ import net.atf4j.fdd.AbstractTestRunner;
  * WebSiteTestRunner Class.
  */
 public class WebSiteTestRunner extends AbstractTestRunner {
+
+    private static final Logger log = LoggerFactory.getLogger(AbstractTestRunner.class);
+
+    /**
+     * Before feature.
+     */
+    @cucumber.api.java.Before
+    public static void beforeFeature() {
+        log.trace("beforeFeature");
+    }
+
+    /**
+     * After feature.
+     */
+    @cucumber.api.java.After
+    public void afterFeature() {
+        log.trace("afterFeature");
+    }
 
 }

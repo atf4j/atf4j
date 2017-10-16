@@ -19,6 +19,7 @@ package net.atf4j.data.manager;
 
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import net.atf4j.data.management.DataManager;
@@ -33,6 +34,7 @@ public final class DataManagerTest {
      *
      * @throws Exception the exception
      */
+    @Ignore
     @Test
     public void testStaticDataForTag() throws Exception {
         String dataForTag = DataManager.dataForTag("#Data");

@@ -17,12 +17,8 @@
 
 package net.atf4j.fdd;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,29 +31,26 @@ import cucumber.api.junit.Cucumber;
  * Abstract Test Runner for Cucumber.
  */
 @RunWith(Cucumber.class)
-@CucumberOptions(monochrome = true, strict = true, snippets = SnippetType.CAMELCASE, features = "classpath:features", tags = {
-        "~@Ignore" })
+@CucumberOptions(
+        monochrome = true,
+        strict = true,
+        snippets = SnippetType.CAMELCASE,
+        features = "classpath:features",
+        tags = { "~@Ignore" })
 public abstract class AbstractTestRunner {
 
-    private static final Logger log = LoggerFactory.getLogger(AbstractTestRunner.class);
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Before class.
      */
-    @BeforeClass
-    public static void beforeClass() {
-        log.debug("beforeClass");
-        final String targetEnvironment = System.getProperty("targetEnvironment");
-        assertNotNull("Expected -DtargetEnvironment to be defined", targetEnvironment);
-    }
-
-    /**
-     * Before feature.
-     */
-    @cucumber.api.java.Before
-    public static void beforeFeature() {
-        log.trace("beforeFeature");
-    }
+    // @BeforeClass
+    // public static void beforeClass() {
+    // log.debug("beforeClass");
+    // final String targetEnvironment = System.getProperty("targetEnvironment");
+    // assertNotNull("Expected -DtargetEnvironment to be defined",
+    // targetEnvironment);
+    // }
 
     /**
      * Before test.
@@ -76,19 +69,11 @@ public abstract class AbstractTestRunner {
     }
 
     /**
-     * After feature.
-     */
-    @cucumber.api.java.After
-    public void afterFeature() {
-        log.trace("afterFeature");
-    }
-
-    /**
      * After class.
      */
-    @AfterClass
-    public void afterClass() {
-        log.trace("afterClass");
-    }
+    // @AfterClass
+    // public static void afterClass() {
+    // log.trace("afterClass");
+    // }
 
 }

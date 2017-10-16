@@ -28,7 +28,7 @@ import java.net.URL;
 public class PageObjectGenerator extends AbstractCodeGenerator {
 
     private static final String DEFAULT_TARGET = "http://atf4j.net";
-    private static final String PAGE_OBJECT_TEMPLATE = "/templates/PageObject.vm";
+    private static final String PAGE_OBJECT_TEMPLATE = "templates/PageObject.vm";
     private PageObjectData pageObjectData;
     private String pageUrl = DEFAULT_TARGET;
     private URL targetUrl = new URL(this.pageUrl);
@@ -36,8 +36,7 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
     /**
      * Instantiates a new page object generator.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     public PageObjectGenerator() throws Exception {
         super(PAGE_OBJECT_TEMPLATE);
@@ -46,10 +45,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
     /**
      * Instantiates a new page object generator.
      *
-     * @param templateFilename
-     *            the template filename
-     * @throws Exception
-     *             the exception
+     * @param templateFilename the template filename
+     * @throws Exception the exception
      */
     public PageObjectGenerator(final String templateFilename) throws Exception {
         super(templateFilename);
@@ -58,11 +55,9 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
     /**
      * The URL of the Target Page.
      *
-     * @param targetUrl
-     *            the target url
+     * @param targetUrl the target url
      * @return the page object generator
-     * @throws MalformedURLException
-     *             the malformed URL exception
+     * @throws MalformedURLException the malformed URL exception
      */
     public PageObjectGenerator target(final String targetUrl) throws MalformedURLException {
         this.targetUrl = new URL(targetUrl);
@@ -72,8 +67,7 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
     /**
      * The URL of the Target Page.
      *
-     * @param targetUrl
-     *            the targetUrl
+     * @param targetUrl the targetUrl
      * @return the page object generator
      */
     public PageObjectGenerator target(final URL targetUrl) {
@@ -86,8 +80,7 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
     /**
      * Adds the page title.
      *
-     * @param pageTitle
-     *            the page title
+     * @param pageTitle the page title
      */
     public void addPageTitle(final String pageTitle) {
         contextBinding("pageTitle", pageTitle);
@@ -96,8 +89,7 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
     /**
      * Adds the.
      *
-     * @param pageObjectData
-     *            the page object data
+     * @param pageObjectData the page object data
      * @return the page object generator
      */
     public PageObjectGenerator add(final PageObjectData pageObjectData) {
@@ -113,8 +105,7 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
     /**
      * Adds the.
      *
-     * @param pageWebElement
-     *            the page web element
+     * @param pageWebElement the page web element
      * @return the page object generator
      */
     public PageObjectGenerator add(final PageWebElement pageWebElement) {
@@ -127,8 +118,7 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
     /**
      * Adds the navigation.
      *
-     * @param pageWebElement
-     *            the page web element
+     * @param pageWebElement the page web element
      * @return the page object generator
      */
     public PageObjectGenerator addNavigation(final PageWebElement pageWebElement) {
@@ -141,8 +131,7 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
     /**
      * Adds the content.
      *
-     * @param pageWebElement
-     *            the page web element
+     * @param pageWebElement the page web element
      * @return the page object generator
      */
     public PageObjectGenerator addContent(final PageWebElement pageWebElement) {
@@ -155,8 +144,7 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
     /**
      * Adds the input.
      *
-     * @param pageWebElement
-     *            the page web element
+     * @param pageWebElement the page web element
      * @return the page object generator
      */
     public PageObjectGenerator addInput(final PageWebElement pageWebElement) {
@@ -180,8 +168,7 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
     /**
      * Survey.
      *
-     * @param pageUrl
-     *            the page url
+     * @param pageUrl the page url
      * @return the page object generator
      */
     public PageObjectGenerator survey(final String pageUrl) {
