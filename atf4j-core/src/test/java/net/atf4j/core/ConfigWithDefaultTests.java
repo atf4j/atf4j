@@ -22,7 +22,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
+import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
 
 /**
  * Unit test class configuration with Defaults.
@@ -37,9 +37,9 @@ public final class ConfigWithDefaultTests extends TestResultsReporting {
         /**
          * Instantiates a new config with defaults.
          *
-         * @throws ConfigurationNotLoaded the configuration not loaded
+         * @throws ConfigurationNotLoadedException the configuration not loaded
          */
-        public ConfigWithDefaults() throws ConfigurationNotLoaded {
+        public ConfigWithDefaults() throws ConfigurationNotLoadedException {
             super();
         }
 
@@ -79,7 +79,7 @@ public final class ConfigWithDefaultTests extends TestResultsReporting {
          * @param key the key
          * @return the max
          */
-        public Object getMax(final String key) {
+        public int getMax(final String key) {
             return super.get(key, Integer.MAX_VALUE);
         }
 
@@ -89,39 +89,28 @@ public final class ConfigWithDefaultTests extends TestResultsReporting {
          * @param key the key
          * @return the min
          */
-        public Object getMin(final String key) {
+        public int getMin(final String key) {
             return super.get(key, Integer.MIN_VALUE);
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
-         */
-        @Override
-        public String valueFor(final String key) {
-            // TODO Auto-generated method stub
-            return null;
         }
     }
 
     /**
      * Test default constructor.
      *
-     * @throws ConfigurationNotLoaded the configuration not loaded
+     * @throws ConfigurationNotLoadedException the configuration not loaded
      */
     @Test
-    public void testDefaultConstructor() throws ConfigurationNotLoaded {
+    public void testDefaultConstructor() throws ConfigurationNotLoadedException {
         assertNotNull(UNEXPECTED_NULL, new ConfigWithDefaults());
     }
 
     /**
      * Test default string.
      *
-     * @throws ConfigurationNotLoaded the configuration not loaded
+     * @throws ConfigurationNotLoadedException the configuration not loaded
      */
     @Test
-    public void testDefaultString() throws ConfigurationNotLoaded {
+    public void testDefaultString() throws ConfigurationNotLoadedException {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
         assertNotNull(UNEXPECTED_NULL, mockConfig);
         assertEquals("DEFAULT_STRING", mockConfig.getFooAsString("missing"));
@@ -130,10 +119,10 @@ public final class ConfigWithDefaultTests extends TestResultsReporting {
     /**
      * Test default boolean.
      *
-     * @throws ConfigurationNotLoaded the configuration not loaded
+     * @throws ConfigurationNotLoadedException the configuration not loaded
      */
     @Test
-    public void testDefaultBoolean() throws ConfigurationNotLoaded {
+    public void testDefaultBoolean() throws ConfigurationNotLoadedException {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
         assertNotNull(UNEXPECTED_NULL, mockConfig);
         assertEquals(true, mockConfig.getTrueAsBoolean("missing"));
@@ -143,10 +132,10 @@ public final class ConfigWithDefaultTests extends TestResultsReporting {
     /**
      * Test default int.
      *
-     * @throws ConfigurationNotLoaded the configuration not loaded
+     * @throws ConfigurationNotLoadedException the configuration not loaded
      */
     @Test
-    public void testDefaultInt() throws ConfigurationNotLoaded {
+    public void testDefaultInt() throws ConfigurationNotLoadedException {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
         assertNotNull(UNEXPECTED_NULL, mockConfig);
         assertEquals(Integer.MAX_VALUE, mockConfig.getMax("missing"));

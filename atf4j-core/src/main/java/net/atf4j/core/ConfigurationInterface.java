@@ -17,21 +17,10 @@
 
 package net.atf4j.core;
 
-import net.atf4j.core.AbstractConfig.PropertyNotFound;
-
 /**
  * ConfigurationInterface Interface.
  */
 public interface ConfigurationInterface {
-
-    /**
-     * Get the String value for the key from configuration property.
-     *
-     * @param key the key of the value as String.
-     * @return the value as a String object.
-     * @throws PropertyNotFound the property not found
-     */
-    public String valueFor(final String key) throws PropertyNotFound;
 
     /**
      * Get the value of a long from configuration property by key.

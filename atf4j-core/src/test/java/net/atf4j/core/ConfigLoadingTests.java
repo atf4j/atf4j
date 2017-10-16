@@ -18,11 +18,12 @@
 package net.atf4j.core;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
-import net.atf4j.core.AbstractConfig.PropertyNotFound;
+import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
+import net.atf4j.core.AbstractConfig.PropertyNotFoundException;
 
 /**
  * ConfigLoadingTests Class.
@@ -30,65 +31,86 @@ import net.atf4j.core.AbstractConfig.PropertyNotFound;
 public final class ConfigLoadingTests extends TestResultsReporting {
 
     /**
-     * The SimpleConfiguration Class.
+     * Missing Properties class.
      */
-    private class SimpleConfiguration extends AbstractConfig {
+    private class MissingProperties extends AbstractConfig {
 
         /**
-         * Instantiates a new simple configuration.
+         * Instantiates a new missing properties.
          *
-         * @throws ConfigurationNotLoaded the configuration not loaded
+         * @throws ConfigurationNotLoadedException the configuration not loaded
          */
-        public SimpleConfiguration() throws ConfigurationNotLoaded {
+        public MissingProperties() throws ConfigurationNotLoadedException {
             super();
         }
+    }
+
+    /**
+     * A Mock Test Configuration from file.
+     */
+    private class ConfigFromFile extends AbstractConfig {
 
         /**
-         * Gets the property filename.
+         * Instantiates a new config from file.
          *
-         * @return the property filename
-         * @throws PropertyNotFound the property not found
+         * @throws ConfigurationNotLoadedException the configuration not loaded
          */
-        public String getPropertyFilename() throws PropertyNotFound {
-            this.log.info("getPropertyFilename");
-            final String propertiesFilename = get("propertiesFilename");
-            this.log.info(propertiesFilename);
-            return propertiesFilename;
+        public ConfigFromFile() throws ConfigurationNotLoadedException {
+            super("/ConfigFromFile.properties");
         }
 
-        /*
-         * (non-Javadoc)
-         *
-         * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
-         */
-        @Override
-        public String valueFor(final String key) {
+        public String getPropertyFilename() {
             // TODO Auto-generated method stub
             return null;
         }
     }
 
     /**
-     * Test default constructor.
+     * Test method for MissingProperties.
      *
-     * @throws ConfigurationNotLoaded the configuration not loaded
+     * @throws ConfigurationNotLoadedException the configuration not loaded
      */
     @Test
-    public void testDefaultConstructor() throws ConfigurationNotLoaded {
-        new SimpleConfiguration();
+    public void testMissingConfig() throws Exception {
+        final ConfigurationInterface missingConfig = new MissingProperties();
+        assertNotNull(UNEXPECTED_NULL, missingConfig);
+        this.log.info("{}", missingConfig.toString());
     }
 
     /**
-     * Test suggested usage.
+     * Test method for value from file.
      *
-     * @throws ConfigurationNotLoaded the configuration not loaded
-     * @throws PropertyNotFound the property not found
+     * @throws ConfigurationNotLoadedException the configuration not loaded
+     * @throws PropertyNotFoundException the property not found
      */
     @Test
-    public void testSuggestedUsage() throws ConfigurationNotLoaded, PropertyNotFound {
-        final SimpleConfiguration simpleConfig = new SimpleConfiguration();
-        final String propertyFilename = simpleConfig.getPropertyFilename();
-        assertEquals("/SimpleConfiguration.properties", propertyFilename);
+    public void testConfigFromFile() throws Exception {
+        final ConfigFromFile config = new ConfigFromFile();
+        assertNotNull(UNEXPECTED_NULL, config);
+        assertEquals("true", config.get("loaded"));
+        assertEquals(true, config.valueFor("loaded", false));
+        assertEquals("ConfigFromSystem.properties", config.get("name"));
+        assertEquals(null, config.get("missing"));
+        this.log.info("{}", config.toString());
+        final String propertyFilename = config.getPropertyFilename();
+        assertEquals("ConfigFromFile.properties", propertyFilename);
+    }
+
+    /**
+     * Test method for System overriding.
+     *
+     * @throws ConfigurationNotLoadedException the configuration not loaded
+     * @throws PropertyNotFoundException the property not found
+     */
+    @Test
+    public void testSystemOveridesConfig() throws Exception {
+        final ConfigFromFile config = new ConfigFromFile();
+        assertNotNull(UNEXPECTED_NULL, config);
+        final String key = "property";
+        final String value = "FromSystem";
+        System.setProperty(key, value);
+        assertEquals(value, config.get(key));
+        this.log.info("{}", config.toString());
     }
 
 }

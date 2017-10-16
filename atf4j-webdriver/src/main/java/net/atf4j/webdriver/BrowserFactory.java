@@ -31,7 +31,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.atf4j.core.AbstractConfig.PropertyNotFound;
+import net.atf4j.core.AbstractConfig.PropertyNotFoundException;
 import net.atf4j.core.model.TestContext;
 
 /**
@@ -102,10 +102,10 @@ public class BrowserFactory implements BrowserFactoryInterface {
      * Default remote webDriver instance.
      *
      * @return the web driver
-     * @throws PropertyNotFound
+     * @throws PropertyNotFoundException
      *             the property not found
      */
-    protected static WebDriver remoteWebDriver() throws PropertyNotFound {
+    protected static WebDriver remoteWebDriver() throws PropertyNotFoundException {
         final String targetBrowser = BrowserFactory.config.targetBrowser();
         return remoteWebDriver(targetBrowser);
     }

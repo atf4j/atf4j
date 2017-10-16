@@ -20,7 +20,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
+import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
 
 /**
  * PageConfigTest.
@@ -35,10 +35,10 @@ public class PageConfigTest {
         /**
          * Instantiates a new mock page config.
          *
-         * @throws ConfigurationNotLoaded
+         * @throws ConfigurationNotLoadedException
          *             the missing property file exception
          */
-        public MockPageConfig() throws ConfigurationNotLoaded {
+        public MockPageConfig() throws ConfigurationNotLoadedException {
             super();
         }
     }
@@ -46,11 +46,11 @@ public class PageConfigTest {
     /**
      * Test method for {net.atf4j.webdriver.page.AbstractPageConfig#AbstractPageConfig()}.
      *
-     * @throws ConfigurationNotLoaded
+     * @throws ConfigurationNotLoadedException
      *             the missing property file exception
      */
     @Test
-    public  void testPageConfig() throws ConfigurationNotLoaded {
+    public  void testPageConfig() throws ConfigurationNotLoadedException {
         final PageConfig pageConfig = new MockPageConfig();
         assertNotNull("unexpected null",pageConfig);
     }

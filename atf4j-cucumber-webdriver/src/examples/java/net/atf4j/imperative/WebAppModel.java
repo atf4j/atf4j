@@ -18,7 +18,7 @@ package net.atf4j.imperative;
 
 import org.openqa.selenium.WebDriver;
 
-import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
+import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
 import net.atf4j.fdd.AbstractBehaviourModel;
 import net.atf4j.webdriver.BrowserFactory;
 
@@ -52,10 +52,10 @@ public class WebAppModel extends AbstractBehaviourModel {
     /**
      * Open default landing page.
      *
-     * @throws ConfigurationNotLoaded
+     * @throws ConfigurationNotLoadedException
      *             the configuration not loaded
      */
-    public void open() throws ConfigurationNotLoaded {
+    public void open() throws ConfigurationNotLoadedException {
         this.log.debug("open()");
         this.page = new LandingPage();
     }

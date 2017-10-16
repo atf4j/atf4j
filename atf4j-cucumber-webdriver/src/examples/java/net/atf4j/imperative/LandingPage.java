@@ -18,7 +18,7 @@ package net.atf4j.imperative;
 
 import org.openqa.selenium.WebDriver;
 
-import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
+import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
 import net.atf4j.webdriver.page.AbstractPageObject;
 
 /**
@@ -29,10 +29,10 @@ public class LandingPage extends AbstractPageObject {
     /**
      * Instantiates a new landing page.
      *
-     * @throws ConfigurationNotLoaded
+     * @throws ConfigurationNotLoadedException
      *             the configuration not loaded
      */
-    public LandingPage() throws ConfigurationNotLoaded {
+    public LandingPage() throws ConfigurationNotLoadedException {
         super();
     }
 
@@ -41,10 +41,10 @@ public class LandingPage extends AbstractPageObject {
      *
      * @param targetUrl
      *            the target url
-     * @throws ConfigurationNotLoaded
+     * @throws ConfigurationNotLoadedException
      *             the configuration not loaded
      */
-    public LandingPage(final String targetUrl) throws ConfigurationNotLoaded {
+    public LandingPage(final String targetUrl) throws ConfigurationNotLoadedException {
         super(targetUrl);
     }
 

@@ -40,9 +40,9 @@ public abstract class AbstractConfig implements ConfigurationInterface {
      * Instantiates a new configuration.
      *
      * @param propertyFilename as String
-     * @throws ConfigurationNotLoaded the missing exception
+     * @throws ConfigurationNotLoadedException the missing exception
      */
-    public AbstractConfig(final String propertyFilename) throws ConfigurationNotLoaded {
+    public AbstractConfig(final String propertyFilename) throws ConfigurationNotLoadedException {
         super();
         load(propertyFilename);
     }
@@ -55,7 +55,7 @@ public abstract class AbstractConfig implements ConfigurationInterface {
     protected ConfigurationInterface load() {
         try {
             load(propertiesFilename());
-        } catch (final ConfigurationNotLoaded e) {
+        } catch (final ConfigurationNotLoadedException e) {
             this.log.error("Using default values; {}", e.getMessage());
         }
         return this;
@@ -76,14 +76,14 @@ public abstract class AbstractConfig implements ConfigurationInterface {
      *
      * @param propertyFilename the property filename
      * @return the abstract configuration
-     * @throws ConfigurationNotLoaded the missing exception
+     * @throws ConfigurationNotLoadedException the missing exception
      */
-    protected ConfigurationInterface load(final String propertyFilename) throws ConfigurationNotLoaded {
+    protected ConfigurationInterface load(final String propertyFilename) throws ConfigurationNotLoadedException {
         try {
             this.properties.load(resourceAsStream(propertyFilename));
             this.properties.setProperty("propertiesFilename", propertyFilename);
         } catch (final Exception e) {
-            throw new ConfigurationNotLoaded(propertyFilename);
+            throw new ConfigurationNotLoadedException(propertyFilename);
         }
         return this;
     }
@@ -97,16 +97,6 @@ public abstract class AbstractConfig implements ConfigurationInterface {
     private InputStream resourceAsStream(final String resourceFilename) {
         final ClassLoader classLoader = this.getClass().getClassLoader();
         return classLoader.getResourceAsStream(resourceFilename);
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
-     */
-    @Override
-    public String valueFor(final String key) {
-        return get(key);
     }
 
     /**
@@ -165,6 +155,17 @@ public abstract class AbstractConfig implements ConfigurationInterface {
      * (non-Javadoc)
      *
      * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String,
+     * java.lang.String)
+     */
+    @Override
+    public String valueFor(final String key, final String defaultValue) {
+        return get(key, defaultValue);
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String,
      * int)
      */
     @Override
@@ -197,33 +198,6 @@ public abstract class AbstractConfig implements ConfigurationInterface {
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String,
-     * java.lang.String)
-     */
-    @Override
-    public String valueFor(final String key, final String defaultValue) {
-        return get(key, defaultValue);
-    }
-
-    /**
-     * The property file was not found.
-     */
-    public class PropertyNotFound extends Atf4jException {
-        private static final long serialVersionUID = 1L;
-
-        /**
-         * Instantiates a new property not found.
-         *
-         * @param propertyKey the property key
-         */
-        public PropertyNotFound(final String propertyKey) {
-            super(String.format("Property not found for key %s", propertyKey));
-        }
-    }
-
-    /*
-     * (non-Javadoc)
-     *
      * @see java.lang.Object#toString()
      */
     @Override
@@ -232,9 +206,25 @@ public abstract class AbstractConfig implements ConfigurationInterface {
     }
 
     /**
+     * The property file was not found.
+     */
+    public class PropertyNotFoundException extends Atf4jException {
+        private static final long serialVersionUID = 1L;
+
+        /**
+         * Instantiates a new property not found.
+         *
+         * @param propertyKey the property key
+         */
+        public PropertyNotFoundException(final String propertyKey) {
+            super(String.format("Property not found for key %s", propertyKey));
+        }
+    }
+
+    /**
      * Configuration Not Loaded.
      */
-    public class ConfigurationNotLoaded extends Atf4jException {
+    public class ConfigurationNotLoadedException extends Atf4jException {
         private static final long serialVersionUID = 1L;
 
         /**
@@ -242,7 +232,7 @@ public abstract class AbstractConfig implements ConfigurationInterface {
          *
          * @param propertyFilename the property filename
          */
-        public ConfigurationNotLoaded(final String propertyFilename) {
+        public ConfigurationNotLoadedException(final String propertyFilename) {
             super(String.format("PropertyFile %s not found", propertyFilename));
         }
     }

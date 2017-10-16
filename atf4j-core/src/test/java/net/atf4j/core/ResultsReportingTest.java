@@ -41,7 +41,9 @@ public final class ResultsReportingTest extends TestResultsReporting {
     @Test
     public void testVerifyNotEqualObjects() {
         try {
-            super.verifyEquals(new Object(), new Object());
+            Object actual = new Object();
+            Object expected = new Object();
+            super.verifyEquals(expected, actual);
         } catch (final AssertionError assertionError) {
             final String actualMessage = assertionError.toString();
             assertNotNull(UNEXPECTED_NULL, actualMessage);

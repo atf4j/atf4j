@@ -20,7 +20,7 @@ package net.atf4j.core;
 /**
  * Configuration Class.
  */
-public class Config extends AbstractConfig {
+public final class Config extends AbstractConfig {
 
     private static Config instance = null;
 
@@ -36,9 +36,9 @@ public class Config extends AbstractConfig {
      * Instantiates a new configuration.
      *
      * @param propertyFilename the property filename
-     * @throws ConfigurationNotLoaded the configuration not loaded
+     * @throws ConfigurationNotLoadedException the configuration not loaded
      */
-    public Config(final String propertyFilename) throws ConfigurationNotLoaded {
+    public Config(final String propertyFilename) throws ConfigurationNotLoadedException {
         super(propertyFilename);
     }
 
@@ -54,14 +54,14 @@ public class Config extends AbstractConfig {
         return instance;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Value for key.
      *
-     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
+     * @param key the key
+     * @return the string
      */
-    @Override
-    public String valueFor(final String key) {
-        return get(key, null);
+    public static String valueFor(final String key) {
+        return getInstance().get(key);
     }
 
 }

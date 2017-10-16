@@ -29,14 +29,4 @@ public class AutomationConfig extends AbstractConfig {
 
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
-     */
-    @Override
-    public String valueFor(final String key) {
-        return valueFor(key, null);
-    }
-
 }

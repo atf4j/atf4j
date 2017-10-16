@@ -22,7 +22,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
+import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
 
 /**
  * UnitTests for ConfigFromSystem.
@@ -37,9 +37,9 @@ public final class ConfigFromSystemTests extends TestResultsReporting {
         /**
          * Instantiates a new config from system.
          *
-         * @throws ConfigurationNotLoaded the configuration not loaded
+         * @throws ConfigurationNotLoadedException the configuration not loaded
          */
-        public ConfigFromSystem() throws ConfigurationNotLoaded {
+        public ConfigFromSystem() throws ConfigurationNotLoadedException {
             super();
         }
 
@@ -64,36 +64,26 @@ public final class ConfigFromSystemTests extends TestResultsReporting {
             final String property = System.getProperty(key);
             return property;
         }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
-         */
-        @Override
-        public String valueFor(final String key) {
-            // TODO Auto-generated method stub
-            return null;
-        }
     }
 
     /**
      * Test default constructor.
      *
-     * @throws ConfigurationNotLoaded the configuration not loaded
+     * @throws ConfigurationNotLoadedException the configuration not loaded
      */
     @Test
-    public void testDefaultConstructor() throws ConfigurationNotLoaded {
-        new ConfigFromSystem();
+    public void testDefaultConstructor() throws Exception {
+        ConfigFromSystem configFromSystem = new ConfigFromSystem();
+        assertNotNull(UNEXPECTED_NULL, configFromSystem);
     }
 
     /**
      * Test system string.
      *
-     * @throws ConfigurationNotLoaded the configuration not loaded
+     * @throws ConfigurationNotLoadedException the configuration not loaded
      */
     @Test
-    public void testSystemString() throws ConfigurationNotLoaded {
+    public void testSystemString() throws Exception {
         final String systemPropertyKey = "stringFromSystem";
         final String systemPropertyValue = "present";
         System.setProperty(systemPropertyKey, systemPropertyValue);
@@ -108,10 +98,10 @@ public final class ConfigFromSystemTests extends TestResultsReporting {
     /**
      * Test system boolean.
      *
-     * @throws ConfigurationNotLoaded the configuration not loaded
+     * @throws ConfigurationNotLoadedException the configuration not loaded
      */
     @Test
-    public void testSystemBoolean() throws ConfigurationNotLoaded {
+    public void testSystemBoolean() throws Exception {
         final String systemPropertyKey = "booleanFromSystem";
         final String systemPropertyValue = "true";
         System.setProperty(systemPropertyKey, systemPropertyValue);

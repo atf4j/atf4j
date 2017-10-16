@@ -21,7 +21,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
+import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
 import net.atf4j.core.TestResultsReporting;
 
 /**
@@ -32,11 +32,11 @@ public class WebDriverConfigTest extends TestResultsReporting {
     /**
      * Test method for {net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.
      *
-     * @throws ConfigurationNotLoaded
+     * @throws ConfigurationNotLoadedException
      *             the missing property file exception
      */
     @Test
-    public  void testDefaultConstructor() throws ConfigurationNotLoaded {
+    public  void testDefaultConstructor() throws ConfigurationNotLoadedException {
         final WebDriverConfig config = new WebDriverConfig();
         assertNotNull(UNEXPECTED_NULL,config);
     }
@@ -44,11 +44,11 @@ public class WebDriverConfigTest extends TestResultsReporting {
     /**
      * test WebDriverConfig object.
      *
-     * @throws ConfigurationNotLoaded
+     * @throws ConfigurationNotLoadedException
      *             the configuration not loaded
      */
     @Test
-    public  void testHappyPath() throws ConfigurationNotLoaded {
+    public  void testHappyPath() throws ConfigurationNotLoadedException {
         final WebDriverConfig config = new WebDriverConfig();
         assertNotNull(UNEXPECTED_NULL,config);
         assertNotNull(UNEXPECTED_NULL,config.targetBrowser());

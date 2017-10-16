@@ -17,158 +17,34 @@
 
 package net.atf4j.core;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
-
-import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
-import net.atf4j.core.AbstractConfig.PropertyNotFound;
 
 /**
  * Unit tests for configuration class.
  */
 public final class ConfigTest extends TestResultsReporting {
 
-    /**
-     * Default configuration class.
-     */
-    private class DefaultConfig extends AbstractConfig {
-        /*
-         * (non-Javadoc)
-         *
-         * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
-         */
-        @Override
-        public String valueFor(final String key) {
-            return null;
-        }
-    }
-
-    /**
-     * Missing Properties class.
-     */
-    private class MissingProperties extends AbstractConfig {
-
-        /**
-         * Instantiates a new missing properties.
-         *
-         * @throws ConfigurationNotLoaded the configuration not loaded
-         */
-        public MissingProperties() throws ConfigurationNotLoaded {
-            super();
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
-         */
-        @Override
-        public String valueFor(final String key) {
-            return null;
-        }
-    }
-
-    /**
-     * A Mock Test Configuration from file.
-     */
-    private class ConfigFromFile extends AbstractConfig {
-
-        /**
-         * Instantiates a new config from file.
-         *
-         * @throws ConfigurationNotLoaded the configuration not loaded
-         */
-        public ConfigFromFile() throws ConfigurationNotLoaded {
-            super("/ConfigFromFile.properties");
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String)
-         */
-        @Override
-        public String valueFor(final String key) {
-            // TODO Auto-generated method stub
-            return null;
-        }
-    }
-
-    private static Config config = Config.getInstance();
-
-    /**
-     * Test method for Default Configuration.
-     */
     @Test
-    public void testDefaultConstructor() {
-        assertNotNull(UNEXPECTED_NULL, new DefaultConfig());
-    }
-
-    /**
-     * Test method for MissingProperties.
-     *
-     * @throws ConfigurationNotLoaded the configuration not loaded
-     */
-    @Test
-    public void testMissingConfig() throws ConfigurationNotLoaded {
-        final ConfigurationInterface missingConfig = new MissingProperties();
-        assertNotNull(UNEXPECTED_NULL, missingConfig);
-        this.log.info(missingConfig.toString());
-    }
-
-    /**
-     * Test method for void.
-     *
-     * @throws ConfigurationNotLoaded the configuration not loaded
-     */
-    @Test
-    public void testLoad() throws ConfigurationNotLoaded {
-        final ConfigurationInterface mockConfig = new MissingProperties();
-        assertNotNull(UNEXPECTED_NULL, mockConfig);
-        this.log.info(mockConfig.toString());
-    }
-
-    /**
-     * Test method for value from file.
-     *
-     * @throws ConfigurationNotLoaded the configuration not loaded
-     * @throws PropertyNotFound the property not found
-     */
-    @Test
-    public void testConfigFromFile() throws ConfigurationNotLoaded, PropertyNotFound {
-        final ConfigFromFile config = new ConfigFromFile();
+    public void testGetInstance() {
+        Config config = Config.getInstance();
         assertNotNull(UNEXPECTED_NULL, config);
-        assertEquals("true", config.get("loaded"));
-        assertEquals(true, config.valueFor("loaded", false));
-        assertEquals("ConfigFromSystem.properties", config.get("name"));
-        assertEquals(null, config.get("missing"));
+        this.log.info("{}", config.toString());
     }
 
-    /**
-     * Test method for System overriding.
-     *
-     * @throws ConfigurationNotLoaded the configuration not loaded
-     * @throws PropertyNotFound the property not found
-     */
     @Test
-    public void testSystemOveridesConfig() throws ConfigurationNotLoaded, PropertyNotFound {
-        final ConfigFromFile config = new ConfigFromFile();
-        assertNotNull(UNEXPECTED_NULL, config);
-        final String key = "property";
-        final String value = "FromSystem";
-        System.setProperty(key, value);
-        assertEquals(value, config.get(key));
+    public void testValueForKey() {
+        String value = Config.valueFor("key");
+        assertNotNull(UNEXPECTED_NULL, value);
+        log.info("{}", value);
     }
 
-    /**
-     * Unit Test for test static config.
-     *
-     * @throws ConfigurationNotLoaded the configuration not loaded
-     */
     @Test
-    public void testStaticConfig() throws ConfigurationNotLoaded {
-        assertNotNull(UNEXPECTED_NULL, ConfigTest.config);
+    public void testValueForMissingKey() {
+        String value = Config.valueFor("missing");
+        assertNotNull(UNEXPECTED_NULL, value);
+        log.info("{}", value);
     }
+
 }
