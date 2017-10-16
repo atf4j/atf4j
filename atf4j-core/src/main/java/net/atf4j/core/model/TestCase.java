@@ -43,8 +43,7 @@ public class TestCase extends AbstractTestBase {
     /**
      * Instantiates a new test case with a name.
      *
-     * @param name
-     *            the name
+     * @param name the name
      */
     public TestCase(final String name) {
         super(name);
@@ -53,8 +52,7 @@ public class TestCase extends AbstractTestBase {
     /**
      * Instantiates a new test case.
      *
-     * @param testContext
-     *            the test context
+     * @param testContext the test context
      */
     public TestCase(final TestContext testContext) {
         super(testContext);
@@ -64,8 +62,7 @@ public class TestCase extends AbstractTestBase {
      * Execute.
      *
      * @return the test case
-     * @throws Atf4jException
-     *             the atf 4 j exception
+     * @throws Atf4jException the atf 4 j exception
      */
     public TestCase execute() throws Atf4jException {
         return execute(this.testContext);
@@ -74,11 +71,9 @@ public class TestCase extends AbstractTestBase {
     /**
      * Execute.
      *
-     * @param context
-     *            the context
+     * @param context the context
      * @return the abstract test result
-     * @throws Atf4jException
-     *             the atf4j exception
+     * @throws Atf4jException the atf4j exception
      * @see net.atf4j.core.model.AbstractTestBase#execute(net.atf4j.core.model.TestContext)
      */
     @Override
@@ -106,8 +101,7 @@ public class TestCase extends AbstractTestBase {
     /**
      * Adds the test step.
      *
-     * @param newTestStep
-     *            as TestStep Object.
+     * @param newTestStep as TestStep Object.
      * @return success as boolean.
      * @see java.util.Collection#add(java.lang.Object)
      */

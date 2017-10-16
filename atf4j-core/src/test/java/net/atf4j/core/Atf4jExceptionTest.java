@@ -35,8 +35,7 @@ public final class Atf4jExceptionTest extends ResultsReporting {
     /**
      * test Atf4jException object.
      *
-     * @throws Atf4jException
-     *             the atf4j exception
+     * @throws Atf4jException the atf4j exception
      */
     @Test(expected = Atf4jException.class)
     public void testAtf4jException() throws Atf4jException {
@@ -46,8 +45,7 @@ public final class Atf4jExceptionTest extends ResultsReporting {
     /**
      * Test method for Atf4jException.
      *
-     * @throws Atf4jException
-     *             the Atf4j exception
+     * @throws Atf4jException the Atf4j exception
      */
     @Test(expected = Atf4jException.class)
     public void testAtf4jExceptionString() throws Atf4jException {
@@ -64,8 +62,7 @@ public final class Atf4jExceptionTest extends ResultsReporting {
     /**
      * Test method for Atf4jException.
      *
-     * @throws Atf4jException
-     *             the Atf4j exception
+     * @throws Atf4jException the Atf4j exception
      */
     @Test(expected = Atf4jException.class)
     public void testAtf4jExceptionAssertion() throws Atf4jException {

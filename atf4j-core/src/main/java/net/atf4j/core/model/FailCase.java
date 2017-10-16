@@ -35,8 +35,7 @@ public class FailCase extends FailStep {
     /**
      * Instantiates a new fail case.
      *
-     * @param message
-     *            the message
+     * @param message the message
      */
     public FailCase(final String message) {
         super(message);

@@ -37,8 +37,7 @@ public class FailStep extends Atf4jException {
     /**
      * Instantiates a new fail step.
      *
-     * @param message
-     *            the message
+     * @param message the message
      */
     public FailStep(final String message) {
         super(message);

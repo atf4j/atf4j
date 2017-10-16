@@ -62,8 +62,7 @@ public final class MappedTimers {
     /**
      * Start.
      *
-     * @param timerName
-     *            the timer name
+     * @param timerName the timer name
      * @return the i timer
      */
     public static TimerInterface start(final String timerName) {
@@ -73,8 +72,7 @@ public final class MappedTimers {
     /**
      * Start timer.
      *
-     * @param timerName
-     *            the timer name
+     * @param timerName the timer name
      * @return the i timer
      */
     public TimerInterface startTimer(final String timerName) {
@@ -87,8 +85,7 @@ public final class MappedTimers {
     /**
      * Stop.
      *
-     * @param timerName
-     *            the timer name
+     * @param timerName the timer name
      * @return the i timer
      */
     public static TimerInterface stop(final String timerName) {
@@ -98,8 +95,7 @@ public final class MappedTimers {
     /**
      * stop the top Timer.
      *
-     * @param timerName
-     *            as String.
+     * @param timerName as String.
      * @return Timer.
      */
     public TimerInterface stopTimer(final String timerName) {

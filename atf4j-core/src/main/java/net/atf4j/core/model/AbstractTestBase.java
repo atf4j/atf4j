@@ -56,8 +56,7 @@ public abstract class AbstractTestBase extends ResultsReporting {
     /**
      * Instantiates a new test base.
      *
-     * @param name
-     *            the name
+     * @param name the name
      */
     public AbstractTestBase(final String name) {
         this.name = name;
@@ -68,8 +67,7 @@ public abstract class AbstractTestBase extends ResultsReporting {
     /**
      * Instantiates a new test base.
      *
-     * @param testContext
-     *            the test context
+     * @param testContext the test context
      */
     public AbstractTestBase(final TestContext testContext) {
         this.testContext = testContext;
@@ -78,11 +76,9 @@ public abstract class AbstractTestBase extends ResultsReporting {
     /**
      * Register logging.
      *
-     * @param logging
-     *            the logging
+     * @param logging the logging
      * @return the test base
-     * @throws Atf4jException
-     *             the atf4j exception
+     * @throws Atf4jException the atf4j exception
      */
     public AbstractTestBase registerLogging(final TestReport logging) throws Atf4jException {
         setLogging(logging);
@@ -92,11 +88,9 @@ public abstract class AbstractTestBase extends ResultsReporting {
     /**
      * Execute.
      *
-     * @param context
-     *            the context
+     * @param context the context
      * @return the test result
-     * @throws Atf4jException
-     *             the atf4j exception
+     * @throws Atf4jException the atf4j exception
      */
     public AbstractTestBase execute(final TestContext context) throws Atf4jException {
         throw new Atf4jException("execute Must be overridden.");
@@ -105,8 +99,7 @@ public abstract class AbstractTestBase extends ResultsReporting {
     /**
      * Adds the pre condition.
      *
-     * @param newPreCondition
-     *            as Condition
+     * @param newPreCondition as Condition
      * @return success as boolean.
      * @see java.util.Collection#add(java.lang.Object)
      */
@@ -137,8 +130,7 @@ public abstract class AbstractTestBase extends ResultsReporting {
     /**
      * Adds the post condition.
      *
-     * @param newPostCondition
-     *            as Condition.
+     * @param newPostCondition as Condition.
      * @return success as boolean.
      * @see java.util.Collection#add(java.lang.Object)
      */
@@ -178,8 +170,7 @@ public abstract class AbstractTestBase extends ResultsReporting {
     /**
      * Sets the test status.
      *
-     * @param testStatus
-     *            the testStatus to set
+     * @param testStatus the testStatus to set
      * @return the test base
      */
     protected AbstractTestBase setTestStatus(final TestResult testStatus) {
@@ -199,8 +190,7 @@ public abstract class AbstractTestBase extends ResultsReporting {
     /**
      * Sets the unique identifier.
      *
-     * @param uniqueIdentifier
-     *            the uniqueIdentifier to set
+     * @param uniqueIdentifier the uniqueIdentifier to set
      * @return the test base
      */
     protected AbstractTestBase setUniqueIdentifier(final TestIdentifier uniqueIdentifier) {
@@ -220,8 +210,7 @@ public abstract class AbstractTestBase extends ResultsReporting {
     /**
      * Sets the test context.
      *
-     * @param testContext
-     *            the testContext to set
+     * @param testContext the testContext to set
      * @return the test base
      */
     protected AbstractTestBase setTestContext(final TestContext testContext) {
@@ -241,8 +230,7 @@ public abstract class AbstractTestBase extends ResultsReporting {
     /**
      * Sets the tester.
      *
-     * @param tester
-     *            the tester to set
+     * @param tester the tester to set
      * @return the test base
      */
     protected AbstractTestBase setTester(final String tester) {
@@ -262,8 +250,7 @@ public abstract class AbstractTestBase extends ResultsReporting {
     /**
      * Sets the name.
      *
-     * @param name
-     *            the name to set
+     * @param name the name to set
      * @return the test base
      */
     protected AbstractTestBase setName(final String name) {
@@ -283,8 +270,7 @@ public abstract class AbstractTestBase extends ResultsReporting {
     /**
      * Sets the taxonomy.
      *
-     * @param taxonomy
-     *            the taxonomy to set
+     * @param taxonomy the taxonomy to set
      * @return the test base
      */
     protected AbstractTestBase setTaxonomy(final String taxonomy) {
@@ -304,8 +290,7 @@ public abstract class AbstractTestBase extends ResultsReporting {
     /**
      * Sets the description.
      *
-     * @param description
-     *            the description to set
+     * @param description the description to set
      * @return the test base
      */
     protected AbstractTestBase setDescription(final String description) {
@@ -325,8 +310,7 @@ public abstract class AbstractTestBase extends ResultsReporting {
     /**
      * Sets the timestamp.
      *
-     * @param timestamp
-     *            the timestamp to set
+     * @param timestamp the timestamp to set
      * @return the test base
      */
     protected AbstractTestBase setTimestamp(final String timestamp) {
@@ -364,8 +348,7 @@ public abstract class AbstractTestBase extends ResultsReporting {
     /**
      * Sets the logging.
      *
-     * @param logging
-     *            the new logging
+     * @param logging the new logging
      * @return the test base
      */
     public AbstractTestBase setLogging(final TestReport logging) {

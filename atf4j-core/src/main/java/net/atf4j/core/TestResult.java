@@ -48,8 +48,7 @@ public enum TestResult {
     /**
      * Constructor for Test Status from string.
      *
-     * @param asText
-     *            the as text
+     * @param asText the as text
      */
     private TestResult(final String asText) {
         this.statusDescription = asText;
@@ -67,8 +66,7 @@ public enum TestResult {
     /**
      * Status forString.
      *
-     * @param asText
-     *            the as text
+     * @param asText the as text
      * @return Status value
      */
     public static TestResult forString(final String asText) {
@@ -93,8 +91,7 @@ public enum TestResult {
     /**
      * Checks if is.
      *
-     * @param result
-     *            the result \* @return true, if successful, otherwise false.
+     * @param result the result \* @return true, if successful, otherwise false.
      * @return true, if successful, otherwise false.
      */
     public boolean is(final TestResult result) {

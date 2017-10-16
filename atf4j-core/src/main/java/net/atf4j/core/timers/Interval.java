@@ -47,8 +47,7 @@ public class Interval {
     /**
      * Interval.
      *
-     * @param useTimePeriod
-     *            the use time period
+     * @param useTimePeriod the use time period
      */
     public Interval(final long useTimePeriod) {
         this.timePeriod = useTimePeriod;
@@ -57,8 +56,7 @@ public class Interval {
     /**
      * factory method helper inMilliSeconds.
      *
-     * @param timePeriod
-     *            the use time period
+     * @param timePeriod the use time period
      * @return new Interval object.
      */
     public static Interval inMilliSeconds(final long timePeriod) {
@@ -68,8 +66,7 @@ public class Interval {
     /**
      * inSeconds.
      *
-     * @param timePeriod
-     *            in Seconds.
+     * @param timePeriod in Seconds.
      * @return new Interval object.
      */
     public static Interval inSeconds(final long timePeriod) {
@@ -79,8 +76,7 @@ public class Interval {
     /**
      * inMinutes.
      *
-     * @param timePeriod
-     *            in Minutes.
+     * @param timePeriod in Minutes.
      * @return new Interval object.
      */
     public static Interval inMinutes(final long timePeriod) {
@@ -90,8 +86,7 @@ public class Interval {
     /**
      * inHours.
      *
-     * @param timePeriod
-     *            in Hours.
+     * @param timePeriod in Hours.
      * @return new Interval object.
      */
     public static Interval inHours(final long timePeriod) {
@@ -101,8 +96,7 @@ public class Interval {
     /**
      * inDays.
      *
-     * @param timePeriod
-     *            in Days.
+     * @param timePeriod in Days.
      * @return new Interval object.
      */
     public static Interval inDays(final long timePeriod) {

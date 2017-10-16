@@ -35,8 +35,7 @@ public class FailSuite extends FailCase {
     /**
      * Instantiates a new fail suite.
      *
-     * @param message
-     *            the message
+     * @param message the message
      */
     public FailSuite(final String message) {
         super(message);

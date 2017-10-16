@@ -55,8 +55,7 @@ public class TestContext {
     /**
      * Sets the platform.
      *
-     * @param platform
-     *            the platform to set
+     * @param platform the platform to set
      * @return the test context
      */
     public TestContext setPlatform(final String platform) {
@@ -67,8 +66,7 @@ public class TestContext {
     /**
      * Sets the context.
      *
-     * @param context
-     *            the context
+     * @param context the context
      * @return the test context
      */
     public TestContext setContext(final String context) {

@@ -66,8 +66,7 @@ public final class NestedTimers {
     /**
      * start a new Timer.
      *
-     * @param timerName
-     *            as String.
+     * @param timerName as String.
      * @return Timer.
      */
     public TimerInterface startTimer(final String timerName) {

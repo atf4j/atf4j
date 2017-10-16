@@ -35,10 +35,8 @@ public class Config extends AbstractConfig {
     /**
      * Instantiates a new configuration.
      *
-     * @param propertyFilename
-     *            the property filename
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
+     * @param propertyFilename the property filename
+     * @throws ConfigurationNotLoaded the configuration not loaded
      */
     public Config(final String propertyFilename) throws ConfigurationNotLoaded {
         super(propertyFilename);

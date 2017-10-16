@@ -48,8 +48,7 @@ public class MilliTimer implements TimerInterface {
     /**
      * Instantiates a new named timer.
      *
-     * @param useName
-     *            is a name for this Timer
+     * @param useName is a name for this Timer
      */
     public MilliTimer(final String useName) {
         this.timerName = useName;

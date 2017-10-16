@@ -34,8 +34,7 @@ public class Atf4jException extends Exception {
     /**
      * Instantiates a new atf4j exception.
      *
-     * @param message
-     *            the message
+     * @param message the message
      */
     public Atf4jException(final String message) {
         super(message);
@@ -44,8 +43,7 @@ public class Atf4jException extends Exception {
     /**
      * Instantiates a new atf4j exception.
      *
-     * @param cause
-     *            the cause
+     * @param cause the cause
      */
     public Atf4jException(final Throwable cause) {
         super(cause);

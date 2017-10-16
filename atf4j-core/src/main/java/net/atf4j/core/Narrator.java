@@ -40,8 +40,7 @@ public final class Narrator {
     /**
      * Use Reflection to produce String by introspection.
      *
-     * @param object
-     *            the object
+     * @param object the object
      * @return the string Object.
      */
     public static String reflectObjectToString(final Object object) {
@@ -59,10 +58,8 @@ public final class Narrator {
     /**
      * Reflect class to string.
      *
-     * @param object
-     *            the object
-     * @param aClass
-     *            the a class
+     * @param object the object
+     * @param aClass the a class
      * @return the string
      */
     private static String reflectClassToString(final Object object, final Class<? extends Object> aClass) {
@@ -86,10 +83,8 @@ public final class Narrator {
     /**
      * Members to string.
      *
-     * @param object
-     *            the object
-     * @param aClass
-     *            the a class
+     * @param object the object
+     * @param aClass the a class
      * @return the string
      */
     private static String membersToString(final Object object, final Class<?> aClass) {

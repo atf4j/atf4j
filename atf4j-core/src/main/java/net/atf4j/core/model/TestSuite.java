@@ -43,8 +43,7 @@ public class TestSuite extends AbstractTestBase {
     /**
      * Instantiates a new test suite.
      *
-     * @param testContext
-     *            the test context
+     * @param testContext the test context
      */
     public TestSuite(final TestContext testContext) {
         super(testContext);
@@ -54,8 +53,7 @@ public class TestSuite extends AbstractTestBase {
      * Execute.
      *
      * @return the test suite
-     * @throws Atf4jException
-     *             the atf4j exception
+     * @throws Atf4jException the atf4j exception
      */
     public TestSuite execute() throws Atf4jException {
         return execute(this.testContext);
@@ -64,11 +62,9 @@ public class TestSuite extends AbstractTestBase {
     /**
      * Execute.
      *
-     * @param context
-     *            the context
+     * @param context the context
      * @return the abstract test result
-     * @throws Atf4jException
-     *             the atf4j exception
+     * @throws Atf4jException the atf4j exception
      * @see net.atf4j.core.model.AbstractTestBase#execute(net.atf4j.core.model.TestContext)
      */
     @Override
@@ -94,8 +90,7 @@ public class TestSuite extends AbstractTestBase {
     /**
      * Adds the test case.
      *
-     * @param newTestCase
-     *            as TestCase
+     * @param newTestCase as TestCase
      * @return success as boolean.
      * @see java.util.Collection#add(java.lang.Object)
      */

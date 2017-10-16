@@ -39,8 +39,7 @@ public final class ConfigWithDefaultTests extends ResultsReporting {
         /**
          * Instantiates a new config with defaults.
          *
-         * @throws ConfigurationNotLoaded
-         *             the configuration not loaded
+         * @throws ConfigurationNotLoaded the configuration not loaded
          */
         public ConfigWithDefaults() throws ConfigurationNotLoaded {
             super();
@@ -49,8 +48,7 @@ public final class ConfigWithDefaultTests extends ResultsReporting {
         /**
          * Gets the true as boolean.
          *
-         * @param key
-         *            the key
+         * @param key the key
          * @return the true as boolean
          */
         public boolean getTrueAsBoolean(final String key) {
@@ -60,8 +58,7 @@ public final class ConfigWithDefaultTests extends ResultsReporting {
         /**
          * Gets the false as boolean.
          *
-         * @param key
-         *            the key
+         * @param key the key
          * @return the false as boolean
          */
         public boolean getFalseAsBoolean(final String key) {
@@ -71,8 +68,7 @@ public final class ConfigWithDefaultTests extends ResultsReporting {
         /**
          * Gets the foo as string.
          *
-         * @param key
-         *            the key
+         * @param key the key
          * @return the foo as string
          */
         public String getFooAsString(final String key) {
@@ -82,8 +78,7 @@ public final class ConfigWithDefaultTests extends ResultsReporting {
         /**
          * Gets the max.
          *
-         * @param key
-         *            the key
+         * @param key the key
          * @return the max
          */
         public Object getMax(final String key) {
@@ -93,8 +88,7 @@ public final class ConfigWithDefaultTests extends ResultsReporting {
         /**
          * Gets the min.
          *
-         * @param key
-         *            the key
+         * @param key the key
          * @return the min
          */
         public Object getMin(final String key) {
@@ -116,8 +110,7 @@ public final class ConfigWithDefaultTests extends ResultsReporting {
     /**
      * Test default constructor.
      *
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
+     * @throws ConfigurationNotLoaded the configuration not loaded
      */
     @Test
     public void testDefaultConstructor() throws ConfigurationNotLoaded {
@@ -127,8 +120,7 @@ public final class ConfigWithDefaultTests extends ResultsReporting {
     /**
      * Test default string.
      *
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
+     * @throws ConfigurationNotLoaded the configuration not loaded
      */
     @Test
     public void testDefaultString() throws ConfigurationNotLoaded {
@@ -140,8 +132,7 @@ public final class ConfigWithDefaultTests extends ResultsReporting {
     /**
      * Test default boolean.
      *
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
+     * @throws ConfigurationNotLoaded the configuration not loaded
      */
     @Test
     public void testDefaultBoolean() throws ConfigurationNotLoaded {
@@ -154,8 +145,7 @@ public final class ConfigWithDefaultTests extends ResultsReporting {
     /**
      * Test default int.
      *
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
+     * @throws ConfigurationNotLoaded the configuration not loaded
      */
     @Test
     public void testDefaultInt() throws ConfigurationNotLoaded {

@@ -37,8 +37,7 @@ public final class ConfigLoadingTests extends ResultsReporting {
         /**
          * Instantiates a new simple configuration.
          *
-         * @throws ConfigurationNotLoaded
-         *             the configuration not loaded
+         * @throws ConfigurationNotLoaded the configuration not loaded
          */
         public SimpleConfiguration() throws ConfigurationNotLoaded {
             super();
@@ -48,8 +47,7 @@ public final class ConfigLoadingTests extends ResultsReporting {
          * Gets the property filename.
          *
          * @return the property filename
-         * @throws PropertyNotFound
-         *             the property not found
+         * @throws PropertyNotFound the property not found
          */
         public String getPropertyFilename() throws PropertyNotFound {
             this.log.info("getPropertyFilename");
@@ -73,8 +71,7 @@ public final class ConfigLoadingTests extends ResultsReporting {
     /**
      * Test default constructor.
      *
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
+     * @throws ConfigurationNotLoaded the configuration not loaded
      */
     @Test
     public void testDefaultConstructor() throws ConfigurationNotLoaded {
@@ -84,10 +81,8 @@ public final class ConfigLoadingTests extends ResultsReporting {
     /**
      * Test suggested usage.
      *
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
-     * @throws PropertyNotFound
-     *             the property not found
+     * @throws ConfigurationNotLoaded the configuration not loaded
+     * @throws PropertyNotFound the property not found
      */
     @Test
     public void testSuggestedUsage() throws ConfigurationNotLoaded, PropertyNotFound {

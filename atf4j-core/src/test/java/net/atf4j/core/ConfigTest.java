@@ -55,8 +55,7 @@ public final class ConfigTest extends ResultsReporting {
         /**
          * Instantiates a new missing properties.
          *
-         * @throws ConfigurationNotLoaded
-         *             the configuration not loaded
+         * @throws ConfigurationNotLoaded the configuration not loaded
          */
         public MissingProperties() throws ConfigurationNotLoaded {
             super();
@@ -81,8 +80,7 @@ public final class ConfigTest extends ResultsReporting {
         /**
          * Instantiates a new config from file.
          *
-         * @throws ConfigurationNotLoaded
-         *             the configuration not loaded
+         * @throws ConfigurationNotLoaded the configuration not loaded
          */
         public ConfigFromFile() throws ConfigurationNotLoaded {
             super("/ConfigFromFile.properties");
@@ -113,8 +111,7 @@ public final class ConfigTest extends ResultsReporting {
     /**
      * Test method for MissingProperties.
      *
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
+     * @throws ConfigurationNotLoaded the configuration not loaded
      */
     @Test
     public void testMissingConfig() throws ConfigurationNotLoaded {
@@ -126,8 +123,7 @@ public final class ConfigTest extends ResultsReporting {
     /**
      * Test method for void.
      *
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
+     * @throws ConfigurationNotLoaded the configuration not loaded
      */
     @Test
     public void testLoad() throws ConfigurationNotLoaded {
@@ -139,10 +135,8 @@ public final class ConfigTest extends ResultsReporting {
     /**
      * Test method for value from file.
      *
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
-     * @throws PropertyNotFound
-     *             the property not found
+     * @throws ConfigurationNotLoaded the configuration not loaded
+     * @throws PropertyNotFound the property not found
      */
     @Test
     public void testConfigFromFile() throws ConfigurationNotLoaded, PropertyNotFound {
@@ -157,10 +151,8 @@ public final class ConfigTest extends ResultsReporting {
     /**
      * Test method for System overriding.
      *
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
-     * @throws PropertyNotFound
-     *             the property not found
+     * @throws ConfigurationNotLoaded the configuration not loaded
+     * @throws PropertyNotFound the property not found
      */
     @Test
     public void testSystemOveridesConfig() throws ConfigurationNotLoaded, PropertyNotFound {
@@ -175,8 +167,7 @@ public final class ConfigTest extends ResultsReporting {
     /**
      * Unit Test for test static config.
      *
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
+     * @throws ConfigurationNotLoaded the configuration not loaded
      */
     @Test
     public void testStaticConfig() throws ConfigurationNotLoaded {

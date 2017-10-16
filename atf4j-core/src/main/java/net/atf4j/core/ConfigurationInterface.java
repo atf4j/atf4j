@@ -27,21 +27,17 @@ public interface ConfigurationInterface {
     /**
      * Get the String value for the key from configuration property.
      *
-     * @param key
-     *            the key of the value as String.
+     * @param key the key of the value as String.
      * @return the value as a String object.
-     * @throws PropertyNotFound
-     *             the property not found
+     * @throws PropertyNotFound the property not found
      */
     public String valueFor(final String key) throws PropertyNotFound;
 
     /**
      * Get the value of a long from configuration property by key.
      *
-     * @param key
-     *            the key of the value as String.
-     * @param defaultValue
-     *            the default value as int.
+     * @param key the key of the value as String.
+     * @param defaultValue the default value as int.
      * @return int value.
      */
     public int valueFor(final String key, final int defaultValue);
@@ -49,10 +45,8 @@ public interface ConfigurationInterface {
     /**
      * Get the value of a long from configuration property by key.
      *
-     * @param key
-     *            the key of the value as String.
-     * @param defaultValue
-     *            the default value as long.
+     * @param key the key of the value as String.
+     * @param defaultValue the default value as long.
      * @return long value.
      */
     public long valueFor(final String key, final long defaultValue);
@@ -60,11 +54,9 @@ public interface ConfigurationInterface {
     /**
      * Get the value of a long from configuration property by key.
      *
-     * @param key
-     *            the key of the value as String.
-     * @param defaultValue
-     *            the default value as boolean. \* @return true, if successful,
-     *            otherwise false. otherwise false.
+     * @param key the key of the value as String.
+     * @param defaultValue the default value as boolean. \* @return true, if
+     *            successful, otherwise false. otherwise false.
      * @return true, if successful, otherwise false.
      */
     public boolean valueFor(final String key, final boolean defaultValue);
@@ -72,10 +64,8 @@ public interface ConfigurationInterface {
     /**
      * Get the value of a long from configuration property by key.
      *
-     * @param key
-     *            the key of the value as String.
-     * @param defaultValue
-     *            the default value as a String.
+     * @param key the key of the value as String.
+     * @param defaultValue the default value as a String.
      * @return the configuration property as a String.
      */
     public String valueFor(final String key, final String defaultValue);

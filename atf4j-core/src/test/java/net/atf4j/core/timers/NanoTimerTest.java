@@ -38,7 +38,7 @@ public class NanoTimerTest extends ResultsReporting {
     public void testDefaultConstructor() {
         final NanoTimer nanoTimer = new NanoTimer();
         assertNotNull(UNEXPECTED_NULL, nanoTimer);
-        log.error("{}", nanoTimer);
+        this.log.error("{}", nanoTimer);
     }
 
     /**
@@ -50,7 +50,7 @@ public class NanoTimerTest extends ResultsReporting {
         final NanoTimer nanoTimer = new NanoTimer(actual);
         assertNotNull(UNEXPECTED_NULL, nanoTimer);
         assertEquals(actual, nanoTimer.getTimerName());
-        log.error("{}", nanoTimer);
+        this.log.error("{}", nanoTimer);
     }
 
     /**
@@ -60,7 +60,7 @@ public class NanoTimerTest extends ResultsReporting {
     public void testStart() {
         final NanoTimer nanoTimer = new NanoTimer();
         assertNotNull(UNEXPECTED_NULL, nanoTimer.start());
-        log.error("{}", nanoTimer);
+        this.log.error("{}", nanoTimer);
     }
 
     /**
@@ -70,7 +70,7 @@ public class NanoTimerTest extends ResultsReporting {
     public void testStop() {
         final NanoTimer nanoTimer = new NanoTimer();
         assertNotNull(UNEXPECTED_NULL, nanoTimer.stop());
-        log.error("{}", nanoTimer);
+        this.log.error("{}", nanoTimer);
     }
 
     /**
@@ -80,7 +80,7 @@ public class NanoTimerTest extends ResultsReporting {
     public void testGetStartTime() {
         final NanoTimer nanoTimer = new NanoTimer();
         assertNotNull(UNEXPECTED_NULL, nanoTimer.getStartTime());
-        log.error("{}", nanoTimer);
+        this.log.error("{}", nanoTimer);
     }
 
     /**
@@ -90,7 +90,7 @@ public class NanoTimerTest extends ResultsReporting {
     public void testGetElapsedTime() {
         final NanoTimer nanoTimer = new NanoTimer();
         assertNotNull(UNEXPECTED_NULL, nanoTimer.getElapsedTime());
-        log.error("{}", nanoTimer);
+        this.log.error("{}", nanoTimer);
     }
 
     /**
@@ -100,7 +100,7 @@ public class NanoTimerTest extends ResultsReporting {
     public void testToString() {
         final NanoTimer nanoTimer = new NanoTimer();
         assertNotNull(UNEXPECTED_NULL, nanoTimer.toString());
-        log.error("{}", nanoTimer);
+        this.log.error("{}", nanoTimer);
     }
 
 }

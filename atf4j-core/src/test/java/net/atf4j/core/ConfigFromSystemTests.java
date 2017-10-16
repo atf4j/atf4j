@@ -39,8 +39,7 @@ public final class ConfigFromSystemTests extends ResultsReporting {
         /**
          * Instantiates a new config from system.
          *
-         * @throws ConfigurationNotLoaded
-         *             the configuration not loaded
+         * @throws ConfigurationNotLoaded the configuration not loaded
          */
         public ConfigFromSystem() throws ConfigurationNotLoaded {
             super();
@@ -49,8 +48,7 @@ public final class ConfigFromSystemTests extends ResultsReporting {
         /**
          * Gets the system property as boolean.
          *
-         * @param key
-         *            the key
+         * @param key the key
          * @return the system property as boolean
          */
         public boolean getSystemPropertyAsBoolean(final String key) {
@@ -61,8 +59,7 @@ public final class ConfigFromSystemTests extends ResultsReporting {
         /**
          * Gets the system property as string.
          *
-         * @param key
-         *            the key
+         * @param key the key
          * @return the system property as string
          */
         public String getSystemPropertyAsString(final String key) {
@@ -85,8 +82,7 @@ public final class ConfigFromSystemTests extends ResultsReporting {
     /**
      * Test default constructor.
      *
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
+     * @throws ConfigurationNotLoaded the configuration not loaded
      */
     @Test
     public void testDefaultConstructor() throws ConfigurationNotLoaded {
@@ -96,8 +92,7 @@ public final class ConfigFromSystemTests extends ResultsReporting {
     /**
      * Test system string.
      *
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
+     * @throws ConfigurationNotLoaded the configuration not loaded
      */
     @Test
     public void testSystemString() throws ConfigurationNotLoaded {
@@ -115,8 +110,7 @@ public final class ConfigFromSystemTests extends ResultsReporting {
     /**
      * Test system boolean.
      *
-     * @throws ConfigurationNotLoaded
-     *             the configuration not loaded
+     * @throws ConfigurationNotLoaded the configuration not loaded
      */
     @Test
     public void testSystemBoolean() throws ConfigurationNotLoaded {

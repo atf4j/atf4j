@@ -35,10 +35,8 @@ public abstract class ResultsReporting {
     /**
      * Verify two Strings are equal.
      *
-     * @param expected
-     *            the expected value.
-     * @param actual
-     *            the actual value.
+     * @param expected the expected value.
+     * @param actual the actual value.
      * @return the string
      */
     protected String verifyEquals(final Object expected, final Object actual) {
@@ -54,10 +52,8 @@ public abstract class ResultsReporting {
     /**
      * Verify equals.
      *
-     * @param expected
-     *            the expected
-     * @param actual
-     *            the actual
+     * @param expected the expected
+     * @param actual the actual
      * @return the string
      */
     protected String verifyEquals(final long expected, final long actual) {

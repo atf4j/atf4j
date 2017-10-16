@@ -93,7 +93,7 @@ public final class NestedTimersTest extends ResultsReporting {
         try {
             Thread.sleep(DEFAULT_INTERVAL);
         } catch (final InterruptedException interruptedException) {
-            Thread currentThread = Thread.currentThread();
+            final Thread currentThread = Thread.currentThread();
             currentThread.interrupt();
             this.log.error(interruptedException.toString());
         }

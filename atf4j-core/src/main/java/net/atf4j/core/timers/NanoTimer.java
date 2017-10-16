@@ -49,8 +49,7 @@ public class NanoTimer implements TimerInterface {
     /**
      * Instantiates a new named timer.
      *
-     * @param useName
-     *            is a name for this Timer
+     * @param useName is a name for this Timer
      */
     public NanoTimer(final String useName) {
         this.timerName = useName;

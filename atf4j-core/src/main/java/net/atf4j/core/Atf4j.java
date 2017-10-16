@@ -39,8 +39,7 @@ public class Atf4j {
     /**
      * Start.
      *
-     * @param string
-     *            the string
+     * @param string the string
      */
     public static void start(final String string) {
         log.info(string);
@@ -65,8 +64,7 @@ public class Atf4j {
     /**
      * Document.
      *
-     * @param stackTrace
-     *            the stack trace
+     * @param stackTrace the stack trace
      * @return the string
      */
     public static String document(final StackTraceElement[] stackTrace) {

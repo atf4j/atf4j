@@ -37,7 +37,7 @@ public class MilliTimerTest extends ResultsReporting {
     public void testMilliTimer() {
         final MilliTimer milliTimer = new MilliTimer();
         assertNotNull(UNEXPECTED_NULL, milliTimer);
-        log.error("{}", milliTimer);
+        this.log.error("{}", milliTimer);
     }
 
     /**
@@ -47,7 +47,7 @@ public class MilliTimerTest extends ResultsReporting {
     public void testMilliTimerString() {
         final MilliTimer milliTimer = new MilliTimer("");
         assertNotNull(UNEXPECTED_NULL, milliTimer);
-        log.error("{}", milliTimer);
+        this.log.error("{}", milliTimer);
     }
 
     /**
@@ -57,7 +57,7 @@ public class MilliTimerTest extends ResultsReporting {
     public void testStart() {
         final MilliTimer milliTimer = new MilliTimer();
         assertNotNull(UNEXPECTED_NULL, milliTimer.start());
-        log.error("{}", milliTimer);
+        this.log.error("{}", milliTimer);
     }
 
     /**
@@ -67,7 +67,7 @@ public class MilliTimerTest extends ResultsReporting {
     public void testStop() {
         final MilliTimer milliTimer = new MilliTimer();
         assertNotNull(UNEXPECTED_NULL, milliTimer.stop());
-        log.error("{}", milliTimer);
+        this.log.error("{}", milliTimer);
     }
 
     /**
@@ -77,7 +77,7 @@ public class MilliTimerTest extends ResultsReporting {
     public void testGetStartTime() {
         final MilliTimer milliTimer = new MilliTimer();
         assertNotNull(UNEXPECTED_NULL, milliTimer.getStartTime());
-        log.error("{}", milliTimer);
+        this.log.error("{}", milliTimer);
     }
 
     /**
@@ -87,7 +87,7 @@ public class MilliTimerTest extends ResultsReporting {
     public void testGetElapsedTime() {
         final MilliTimer milliTimer = new MilliTimer();
         assertNotNull(UNEXPECTED_NULL, milliTimer.getElapsedTime());
-        log.error("{}", milliTimer);
+        this.log.error("{}", milliTimer);
     }
 
     /**
@@ -97,7 +97,7 @@ public class MilliTimerTest extends ResultsReporting {
     public void testToString() {
         final MilliTimer milliTimer = new MilliTimer();
         assertNotNull(UNEXPECTED_NULL, milliTimer.toString());
-        log.error("{}", milliTimer);
+        this.log.error("{}", milliTimer);
     }
 
     /**
@@ -107,7 +107,7 @@ public class MilliTimerTest extends ResultsReporting {
     public void testGetTimerName() {
         final MilliTimer milliTimer = new MilliTimer();
         assertNotNull(UNEXPECTED_NULL, milliTimer.getTimerName());
-        log.error("{}", milliTimer);
+        this.log.error("{}", milliTimer);
     }
 
 }

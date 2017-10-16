@@ -45,8 +45,7 @@ public class TestIdentifier {
     /**
      * Set the unique test identifier.
      *
-     * @param uuidIn
-     *            the new uuid
+     * @param uuidIn the new uuid
      * @return the test identifier
      */
     public TestIdentifier setUuid(final UUID uuidIn) {

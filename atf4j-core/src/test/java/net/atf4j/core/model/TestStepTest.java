@@ -59,7 +59,7 @@ public class TestStepTest extends ResultsReporting {
     public void testTestStep() {
         final TestStep testStep = new TestStep();
         assertNotNull(UNEXPECTED_NULL, testStep);
-        TestResult result = testStep.result();
+        final TestResult result = testStep.result();
         assertNotNull(UNEXPECTED_NULL, result);
         this.log.info("testResult={}", result);
     }
@@ -67,8 +67,7 @@ public class TestStepTest extends ResultsReporting {
     /**
      * Test method for TestCase.
      *
-     * @throws Atf4jException
-     *             the atf 4 j exception
+     * @throws Atf4jException the atf 4 j exception
      */
     @Test
     public void testRegisterLogging() throws Atf4jException {
@@ -80,8 +79,7 @@ public class TestStepTest extends ResultsReporting {
     /**
      * Test method for TestCase.
      *
-     * @throws Atf4jException
-     *             the atf 4 j exception
+     * @throws Atf4jException the atf 4 j exception
      */
     @Test
     public void testExecuteTestContext() throws Atf4jException {

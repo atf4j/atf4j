@@ -39,10 +39,8 @@ public abstract class AbstractConfig implements ConfigurationInterface {
     /**
      * Instantiates a new configuration.
      *
-     * @param propertyFilename
-     *            as String
-     * @throws ConfigurationNotLoaded
-     *             the missing exception
+     * @param propertyFilename as String
+     * @throws ConfigurationNotLoaded the missing exception
      */
     public AbstractConfig(final String propertyFilename) throws ConfigurationNotLoaded {
         super();
@@ -63,6 +61,11 @@ public abstract class AbstractConfig implements ConfigurationInterface {
         return this;
     }
 
+    /**
+     * Properties filename.
+     *
+     * @return the string
+     */
     private String propertiesFilename() {
         final String simpleName = this.getClass().getSimpleName();
         return String.format("/%s.properties", simpleName);
@@ -71,11 +74,9 @@ public abstract class AbstractConfig implements ConfigurationInterface {
     /**
      * Load properties file.
      *
-     * @param propertyFilename
-     *            the property filename
+     * @param propertyFilename the property filename
      * @return the abstract configuration
-     * @throws ConfigurationNotLoaded
-     *             the missing exception
+     * @throws ConfigurationNotLoaded the missing exception
      */
     protected ConfigurationInterface load(final String propertyFilename) throws ConfigurationNotLoaded {
         try {
@@ -87,6 +88,12 @@ public abstract class AbstractConfig implements ConfigurationInterface {
         return this;
     }
 
+    /**
+     * Resource as stream.
+     *
+     * @param resourceFilename the resource filename
+     * @return the input stream
+     */
     private InputStream resourceAsStream(final String resourceFilename) {
         final ClassLoader classLoader = this.getClass().getClassLoader();
         return classLoader.getResourceAsStream(resourceFilename);
@@ -105,8 +112,7 @@ public abstract class AbstractConfig implements ConfigurationInterface {
     /**
      * Gets the value from the properties.
      *
-     * @param key
-     *            the key
+     * @param key the key
      * @return the string
      */
     protected String get(final String key) {
@@ -116,10 +122,8 @@ public abstract class AbstractConfig implements ConfigurationInterface {
     /**
      * Gets the value for the key.
      *
-     * @param key
-     *            the key
-     * @param defaultValue
-     *            the default value
+     * @param key the key
+     * @param defaultValue the default value
      * @return the int
      */
     protected int get(final String key, final int defaultValue) {
@@ -129,10 +133,8 @@ public abstract class AbstractConfig implements ConfigurationInterface {
     /**
      * Gets the value for the key.
      *
-     * @param key
-     *            the key
-     * @param defaultValue
-     *            the default value
+     * @param key the key
+     * @param defaultValue the default value
      * @return the long
      */
     protected long get(final String key, final long defaultValue) {
@@ -143,10 +145,8 @@ public abstract class AbstractConfig implements ConfigurationInterface {
      * Get a property from System Property if available, otherwise from Property
      * File if available, otherwise default.
      *
-     * @param key
-     *            the key
-     * @param defaultValue
-     *            the default value
+     * @param key the key
+     * @param defaultValue the default value
      * @return the string
      */
     protected String get(final String key, final String defaultValue) {
@@ -214,8 +214,7 @@ public abstract class AbstractConfig implements ConfigurationInterface {
         /**
          * Instantiates a new property not found.
          *
-         * @param propertyKey
-         *            the property key
+         * @param propertyKey the property key
          */
         public PropertyNotFound(final String propertyKey) {
             super(String.format("Property not found for key %s", propertyKey));
@@ -241,8 +240,7 @@ public abstract class AbstractConfig implements ConfigurationInterface {
         /**
          * Instantiates a missing configuration exception.
          *
-         * @param propertyFilename
-         *            the property filename
+         * @param propertyFilename the property filename
          */
         public ConfigurationNotLoaded(final String propertyFilename) {
             super(String.format("PropertyFile %s not found", propertyFilename));
