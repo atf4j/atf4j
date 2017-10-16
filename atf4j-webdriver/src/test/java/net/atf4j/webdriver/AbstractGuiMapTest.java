@@ -26,14 +26,12 @@ import java.util.Set;
 import org.junit.Assert;
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A UnitTest for LogicalGuiMap objects.
  */
-public class AbstractGuiMapTest extends ResultsReporting {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public class AbstractGuiMapTest extends TestResultsReporting {
 
     /**
      * The LogicalGuiMap Class.

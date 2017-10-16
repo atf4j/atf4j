@@ -22,7 +22,7 @@ import org.junit.Test;
 /**
  * A UnitTest for Narrator objects.
  */
-public final class NarratorTest extends ResultsReporting {
+public final class NarratorTest extends TestResultsReporting {
 
     private final Object aObject = this;
     private final String aString = "";

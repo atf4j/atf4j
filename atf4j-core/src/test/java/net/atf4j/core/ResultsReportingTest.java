@@ -24,9 +24,7 @@ import org.junit.Test;
 /**
  * A UnitTest for Reporting Test Results.
  */
-public final class ResultsReportingTest extends ResultsReporting {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public final class ResultsReportingTest extends TestResultsReporting {
 
     /**
      * Test method for ResultsReporting.

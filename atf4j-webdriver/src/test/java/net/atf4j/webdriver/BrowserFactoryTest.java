@@ -23,13 +23,13 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A UnitTest for BrowserFactory objects.
  */
 @Ignore
-public class BrowserFactoryTest extends ResultsReporting {
+public class BrowserFactoryTest extends TestResultsReporting {
 
     /**
      * test BrowserFactory returns Chrome.

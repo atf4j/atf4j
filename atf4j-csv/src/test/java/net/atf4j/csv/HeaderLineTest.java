@@ -21,18 +21,15 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import net.atf4j.core.ResultsReporting;
 
 /**
  * A UnitTest for HeaderLine objects.
  */
-public class HeaderLineTest {
+public class HeaderLineTest extends ResultsReporting {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
-
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
-
     private static final String HEADER_LINE = "ColumnOne, ColumnTwo";
     private static final String EXPECTED_HEADER = "HeaderLine [fields=[ColumnOne, ColumnTwo]]";
 

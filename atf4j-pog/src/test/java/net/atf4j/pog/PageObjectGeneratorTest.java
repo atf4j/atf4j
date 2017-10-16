@@ -21,13 +21,13 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.pog.PageWebElement.Strategy;
 
 /**
  * A UnitTest for PageObjectGenerator objects.
  */
-public class PageObjectGeneratorTest extends ResultsReporting {
+public class PageObjectGeneratorTest extends TestResultsReporting {
 
     private static final String HTTP_ATF4J_NET = "http://atf4j.net";
 

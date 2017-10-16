@@ -22,10 +22,12 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * A UnitTest for Condition objects.
  */
-public class ConditionTest {
+public class ConditionTest extends TestResultsReporting {
 
     /**
      * MockTrue Class.

@@ -25,9 +25,7 @@ import org.junit.Test;
 /**
  * StringBuilderTest Class.
  */
-public class StringBuilderTest extends ResultsReporting {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public class StringBuilderTest extends TestResultsReporting {
 
     /**
      * SubClassWithoutProperties Class.

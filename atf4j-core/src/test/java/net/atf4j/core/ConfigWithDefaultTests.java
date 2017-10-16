@@ -27,9 +27,7 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 /**
  * Unit test class configuration with Defaults.
  */
-public final class ConfigWithDefaultTests extends ResultsReporting {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public final class ConfigWithDefaultTests extends TestResultsReporting {
 
     /**
      * A Mock Configuration with default values.

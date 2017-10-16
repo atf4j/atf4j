@@ -17,14 +17,12 @@
 
 package net.atf4j.pog;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A UnitTest for JavaClassGenerator objects.
  */
-public class JavaClassGeneratorTest extends ResultsReporting {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public class JavaClassGeneratorTest extends TestResultsReporting {
 
     /**
      * The JavaClassGenerator Class.

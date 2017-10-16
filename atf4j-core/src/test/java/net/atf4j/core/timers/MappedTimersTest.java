@@ -21,14 +21,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A UnitTest for MappedTimers objects.
  */
-public class MappedTimersTest extends ResultsReporting {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public class MappedTimersTest extends TestResultsReporting {
 
     /**
      * Test method for MappedTimers.

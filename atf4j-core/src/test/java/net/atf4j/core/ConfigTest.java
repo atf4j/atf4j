@@ -28,9 +28,7 @@ import net.atf4j.core.AbstractConfig.PropertyNotFound;
 /**
  * Unit tests for configuration class.
  */
-public final class ConfigTest extends ResultsReporting {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public final class ConfigTest extends TestResultsReporting {
 
     /**
      * Default configuration class.

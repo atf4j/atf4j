@@ -20,12 +20,12 @@ import java.util.UUID;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A UnitTest for Unit objects.
  */
-public class UnitTest extends ResultsReporting {
+public class UnitTest extends TestResultsReporting {
 
     /**
      * Test method for void.

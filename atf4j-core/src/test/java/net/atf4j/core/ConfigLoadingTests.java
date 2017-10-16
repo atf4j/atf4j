@@ -27,7 +27,7 @@ import net.atf4j.core.AbstractConfig.PropertyNotFound;
 /**
  * ConfigLoadingTests Class.
  */
-public final class ConfigLoadingTests extends ResultsReporting {
+public final class ConfigLoadingTests extends TestResultsReporting {
 
     /**
      * The SimpleConfiguration Class.

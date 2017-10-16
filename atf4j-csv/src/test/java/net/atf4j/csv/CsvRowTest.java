@@ -20,17 +20,14 @@ package net.atf4j.csv;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import net.atf4j.core.ResultsReporting;
 
 /**
  * A UnitTest for CsvRow objects.
  */
-public class CsvRowTest {
-
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
-
-    private static final String ONE_TWO_THREE_FOUR = "One, Two, Three, Four";
+public class CsvRowTest extends ResultsReporting {
+    private static final String TEST_ROW = "One, Two, Three, Four";
     private static final String EXPECTED = "CsvRow [fields=[One, Two, Three, Four]]";
 
     /**
@@ -54,7 +51,7 @@ public class CsvRowTest {
      */
     @Test
     public void testGetField() {
-        final CsvRow csvRow = new CsvRow(ONE_TWO_THREE_FOUR);
+        final CsvRow csvRow = new CsvRow(TEST_ROW);
         assertEquals(4, csvRow.length());
         assertEquals("One", csvRow.getField(1));
         assertEquals("Two", csvRow.getField(2));
@@ -67,7 +64,7 @@ public class CsvRowTest {
      */
     @Test
     public void testGetFields() {
-        final CsvRow csvRow = new CsvRow(ONE_TWO_THREE_FOUR);
+        final CsvRow csvRow = new CsvRow(TEST_ROW);
         final String[] fields = csvRow.getFields();
         assertEquals(4, fields.length);
         for (final String field : fields) {
@@ -80,8 +77,8 @@ public class CsvRowTest {
      */
     @Test
     public void testToString() {
-        final String actual = new CsvRow(ONE_TWO_THREE_FOUR).toString();
-        assertEquals(ONE_TWO_THREE_FOUR, actual);
+        final String actual = new CsvRow(TEST_ROW).toString();
+        assertEquals(TEST_ROW, actual);
         this.log.info("ACTUAL = {}", actual);
     }
 
@@ -90,7 +87,7 @@ public class CsvRowTest {
      */
     @Test
     public void testDebugString() {
-        final String actual = new CsvRow(ONE_TWO_THREE_FOUR).debugString();
+        final String actual = new CsvRow(TEST_ROW).debugString();
         assertEquals(EXPECTED, actual);
         this.log.info("ACTUAL = {}", actual);
     }

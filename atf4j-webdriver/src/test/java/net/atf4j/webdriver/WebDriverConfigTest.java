@@ -22,14 +22,12 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * WebDriverConfigTest Class.
  */
-public class WebDriverConfigTest extends ResultsReporting {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public class WebDriverConfigTest extends TestResultsReporting {
 
     /**
      * Test method for {net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.

@@ -24,14 +24,13 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Pass Scenario test class.
  */
-public class ScenarioPassTest extends ResultsReporting {
+public class ScenarioPassTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final Logger LOG = LoggerFactory.getLogger(ScenarioPassTest.class);
 
     /**

@@ -23,14 +23,12 @@ import static org.junit.Assume.assumeFalse;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A UnitTest for TestContext objects.
  */
-public class TestContextTest extends ResultsReporting {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public class TestContextTest extends TestResultsReporting {
 
     /**
      * Test method for TestContext.

@@ -21,14 +21,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A UnitTest for PojoGenerator objects.
  */
-public class PojoGeneratorTest extends ResultsReporting {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public class PojoGeneratorTest extends TestResultsReporting {
 
     /**
      * Test method for void.

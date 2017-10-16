@@ -22,15 +22,13 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import net.atf4j.core.Atf4jException;
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.core.TestResult;
 
 /**
  * A UnitTest for TestStep objects.
  */
-public class TestStepTest extends ResultsReporting {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public class TestStepTest extends TestResultsReporting {
 
     /**
      * The TestCaseReport Class.

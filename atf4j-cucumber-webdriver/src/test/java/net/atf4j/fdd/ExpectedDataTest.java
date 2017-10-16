@@ -20,9 +20,9 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
-public class ExpectedDataTest extends ResultsReporting {
+public class ExpectedDataTest extends TestResultsReporting {
 
     public class ExpectedData extends AbstractExpectedData {
     }

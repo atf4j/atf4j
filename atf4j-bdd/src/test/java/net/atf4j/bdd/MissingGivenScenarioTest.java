@@ -25,15 +25,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.atf4j.bdd.Atf4j.Scenario;
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Scenario with a missing Given.
  */
 @Scenario("Scenario")
-public class MissingGivenScenarioTest extends ResultsReporting {
+public class MissingGivenScenarioTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final Logger LOG = LoggerFactory.getLogger(MissingGivenScenarioTest.class);
 
     /**

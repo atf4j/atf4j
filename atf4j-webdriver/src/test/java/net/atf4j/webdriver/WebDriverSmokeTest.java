@@ -21,13 +21,13 @@ import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Smoke Tests for WebDriver.
  */
 @Ignore
-public class WebDriverSmokeTest extends ResultsReporting {
+public class WebDriverSmokeTest extends TestResultsReporting {
 
     /**
      * Smoke test ChromeDriver.

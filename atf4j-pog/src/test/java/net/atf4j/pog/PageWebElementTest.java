@@ -20,15 +20,13 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.pog.PageWebElement.Strategy;
 
 /**
  * A UnitTest for PageWebElement objects.
  */
-public class PageWebElementTest extends ResultsReporting {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public class PageWebElementTest extends TestResultsReporting {
 
     /**
      * Test method for void.

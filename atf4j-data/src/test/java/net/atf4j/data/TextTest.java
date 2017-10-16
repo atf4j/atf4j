@@ -18,6 +18,7 @@
 package net.atf4j.data;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
@@ -32,9 +33,17 @@ public final class TextTest extends ResultsReporting {
      * Test expected usage.
      */
     @Test
-    public void testExpected() {
-        this.log.info(Text.fill(10));
-        this.log.info(Text.fill(10, '*'));
+    public void testTextFill() {
+        String fill = Text.fill(10);
+        assertNotNull(fill);
+        this.log.info("{}", fill);
+    }
+
+    @Test
+    public void testTextFillStar() {
+        String fill = Text.fill(10, '*');
+        assertNotNull(fill);
+        this.log.info("{}", fill);
     }
 
     /**

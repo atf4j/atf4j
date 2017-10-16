@@ -22,14 +22,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A UnitTest for NanoTimer objects.
  */
-public class NanoTimerTest extends ResultsReporting {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public class NanoTimerTest extends TestResultsReporting {
 
     /**
      * Test method for NanoTimer.

@@ -20,9 +20,9 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
-public class BehaviourModelTest extends ResultsReporting {
+public class BehaviourModelTest extends TestResultsReporting {
 
     public class BehaviourModel extends AbstractBehaviourModel {
     }

@@ -18,12 +18,12 @@ package net.atf4j.pog;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A UnitTest for JsonToPojo objects.
  */
-public class JsonToPojoTest extends ResultsReporting {
+public class JsonToPojoTest extends TestResultsReporting {
 
     /**
      * Test method for void.

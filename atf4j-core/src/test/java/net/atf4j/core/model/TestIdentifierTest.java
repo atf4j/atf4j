@@ -24,14 +24,12 @@ import java.util.UUID;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A UnitTest for TestIdentifier objects.
  */
-public class TestIdentifierTest extends ResultsReporting {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public class TestIdentifierTest extends TestResultsReporting {
 
     /**
      * Test method for TestIdentifier.

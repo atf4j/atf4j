@@ -21,12 +21,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * A UnitTest for CriticalFail objects.
  */
-public class CriticalFailTest {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public class CriticalFailTest extends TestResultsReporting {
 
     /**
      * Test method for CriticalFail.

@@ -23,15 +23,13 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.core.TestResult;
 
 /**
  * A UnitTest for TestResults objects.
  */
-public class TestResultsTest extends ResultsReporting {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public class TestResultsTest extends TestResultsReporting {
 
     /**
      * Unit Test for test default constructor.

@@ -21,15 +21,13 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.core.model.Condition;
 
 /**
  * A UnitTest for Condition objects.
  */
-public class ConditionTest extends ResultsReporting {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public class ConditionTest extends TestResultsReporting {
 
     /**
      * PassingCondition Class.

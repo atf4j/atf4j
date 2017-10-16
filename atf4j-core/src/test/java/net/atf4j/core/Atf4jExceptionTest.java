@@ -27,7 +27,7 @@ import org.slf4j.LoggerFactory;
 /**
  * A UnitTest for Atf4jException objects.
  */
-public final class Atf4jExceptionTest extends ResultsReporting {
+public final class Atf4jExceptionTest extends TestResultsReporting {
 
     private static final String EXCEPTION_MESSAGE = "Force a Atf4jException";
     private static final Logger LOGGER = LoggerFactory.getLogger(Atf4jExceptionTest.class);

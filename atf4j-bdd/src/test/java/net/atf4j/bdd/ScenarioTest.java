@@ -27,15 +27,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.atf4j.bdd.Atf4j.Scenario;
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Scenario Test class.
  */
 @Scenario("Scenario")
-public class ScenarioTest extends ResultsReporting {
+public class ScenarioTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final Logger LOG = LoggerFactory.getLogger(ScenarioTest.class);
 
     /**

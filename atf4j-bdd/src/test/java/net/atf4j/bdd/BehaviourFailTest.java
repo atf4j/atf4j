@@ -22,14 +22,13 @@ import static org.junit.Assert.assertNotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Behaviour Fail Test Class.
  */
-public class BehaviourFailTest extends ResultsReporting {
+public class BehaviourFailTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final Logger LOG = LoggerFactory.getLogger(BehaviourFailTest.class);
 
     /**

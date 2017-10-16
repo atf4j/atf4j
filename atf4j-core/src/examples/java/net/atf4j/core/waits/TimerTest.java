@@ -22,16 +22,15 @@ import static org.junit.Assume.assumeTrue;
 import org.junit.Assert;
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.core.timers.MilliTimer;
 import net.atf4j.core.timers.TimerInterface;
 
 /**
  * Timer Test.
  */
-public class TimerTest extends ResultsReporting {
+public class TimerTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final int DEFAULT_INTERVAL = 100;
     private long delta = 1000;
 

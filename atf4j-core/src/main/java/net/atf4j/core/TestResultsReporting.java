@@ -20,19 +20,18 @@ package net.atf4j.core;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.After;
+import org.junit.BeforeClass;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
- * Verify Class.
+ * ResultsReporting Class.
  */
-public final class Verify {
-
+public abstract class TestResultsReporting {
     private static final String MESSAGE = "actual(%s) == expected(%s) - %s";
-
-    /**
-     * Instantiates a new verify.
-     */
-    private Verify() {
-        super();
-    }
+    protected static final String UNEXPECTED_NULL = "unexpected null";
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Result as string.
@@ -125,4 +124,39 @@ public final class Verify {
         assertEquals(message, expected, actual);
         return message;
     }
+
+    /**
+     * To description.
+     *
+     * @return the string
+     */
+    protected String toDescription() {
+        final StringBuffer message = new StringBuffer();
+        final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        for (final StackTraceElement stackTraceElement : stackTrace) {
+            final String candidateMethodName = stackTraceElement.getMethodName();
+            message.append(candidateMethodName);
+            message.append(' ');
+        }
+        return message.toString();
+    }
+
+    /**
+     * Before.
+     */
+    @BeforeClass
+    public static void before() {
+        final String string = new String(new char[40]).replace("\0", "=");
+        LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME).trace(string);
+    }
+
+    /**
+     * After.
+     */
+    @After
+    public void after() {
+        final String string = new String(new char[40]).replace("\0", "-");
+        this.log.trace(string);
+    }
+
 }

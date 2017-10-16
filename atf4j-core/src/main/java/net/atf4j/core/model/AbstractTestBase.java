@@ -24,13 +24,13 @@ import java.util.ArrayDeque;
 import java.util.Collection;
 
 import net.atf4j.core.Atf4jException;
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.core.TestResult;
 
 /**
  * Abstract Test Base Class.
  */
-public abstract class AbstractTestBase extends ResultsReporting {
+public abstract class AbstractTestBase extends TestResultsReporting {
 
     protected TestIdentifier uniqueIdentifier;
     protected TestContext testContext;

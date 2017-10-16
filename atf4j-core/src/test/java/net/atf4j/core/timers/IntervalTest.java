@@ -21,12 +21,12 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * IntervalTester Class.
  */
-public class IntervalTest extends ResultsReporting {
+public class IntervalTest extends TestResultsReporting {
 
     private static final long DEFAULT_INTERVAL = 1000L;
     private static final long DELTA = 0L;

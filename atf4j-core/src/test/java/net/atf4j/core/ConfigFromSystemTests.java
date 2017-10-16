@@ -27,9 +27,7 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoaded;
 /**
  * UnitTests for ConfigFromSystem.
  */
-public final class ConfigFromSystemTests extends ResultsReporting {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public final class ConfigFromSystemTests extends TestResultsReporting {
 
     /**
      * Mock Configuration from System settings.

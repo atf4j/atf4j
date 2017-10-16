@@ -23,15 +23,13 @@ import java.util.List;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.pog.PageWebElement.Strategy;
 
 /**
  * A UnitTest for PageObjectData objects.
  */
-public class PageObjectDataTest extends ResultsReporting {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public class PageObjectDataTest extends TestResultsReporting {
 
     /**
      * Test method for void.

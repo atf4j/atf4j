@@ -21,12 +21,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * A UnitTest for FailSuite objects.
  */
-public class FailSuiteTest {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public class FailSuiteTest extends TestResultsReporting {
 
     /**
      * Unit Test for test fail case.

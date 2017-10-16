@@ -24,19 +24,18 @@ import static org.junit.Assert.fail;
 import java.io.FileNotFoundException;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import net.atf4j.core.ResultsReporting;
 
 /**
  * Unit Test for CsvFile class.
  */
-public class CsvFileTest {
+public class CsvFileTest extends ResultsReporting {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
     private static final String EXPECTED_HEADER = "HeaderLine [fields=[ColumnOne, ColumnTwo, ColumnThree, ColumnFour]]";
     private static final String MISSING_CSV = "missing.csv";
     private static final String TEST_DATA_CSV = "TestData.csv";
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * The TestData Class.
@@ -46,8 +45,7 @@ public class CsvFileTest {
         /**
          * Instantiates a new test data.
          *
-         * @throws Exception
-         *             the exception
+         * @throws Exception the exception
          */
         public TestData() throws Exception {
             super();
@@ -59,8 +57,7 @@ public class CsvFileTest {
      * 
      * @throws FileNotFoundException
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test(expected = FileNotFoundException.class)
     public void testConstructorWithMissingFile() throws FileNotFoundException {
@@ -73,8 +70,7 @@ public class CsvFileTest {
      * 
      * @throws FileNotFoundException
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test(expected = FileNotFoundException.class)
     public void testReadMissingFile() throws FileNotFoundException {
@@ -87,8 +83,7 @@ public class CsvFileTest {
      * 
      * @throws FileNotFoundException
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test(expected = FileNotFoundException.class)
     public void testLoadMissingFile() throws FileNotFoundException {
@@ -101,8 +96,7 @@ public class CsvFileTest {
     /**
      * Test method for CsvFile.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testExpectedUsage() throws Exception {
@@ -114,8 +108,7 @@ public class CsvFileTest {
     /**
      * Test constructor with data present.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testConstructorWithDataPresent() throws Exception {
@@ -128,8 +121,7 @@ public class CsvFileTest {
     /**
      * Test read present data.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testReadPresentData() throws Exception {
@@ -141,8 +133,7 @@ public class CsvFileTest {
     /**
      * Verify CsvFile object.
      *
-     * @param csvFile
-     *            the csv file
+     * @param csvFile the csv file
      */
     private void verifyContent(final CsvFile csvFile) {
         assertNotNull(UNEXPECTED_NULL, csvFile);
@@ -163,8 +154,7 @@ public class CsvFileTest {
     /**
      * Test method for CsvFile.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testScan() throws Exception {

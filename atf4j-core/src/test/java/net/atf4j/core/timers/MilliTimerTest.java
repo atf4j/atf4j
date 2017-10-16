@@ -21,14 +21,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A UnitTest for MilliTimer objects.
  */
-public class MilliTimerTest extends ResultsReporting {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public class MilliTimerTest extends TestResultsReporting {
 
     /**
      * Test method for MilliTimer.
