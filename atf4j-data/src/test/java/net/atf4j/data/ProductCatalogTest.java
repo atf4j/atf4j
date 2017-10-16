@@ -35,9 +35,9 @@ public final class ProductCatalogTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        ProductCatalog catalog = new ProductCatalog();
+        final ProductCatalog catalog = new ProductCatalog();
         assertNotNull(UNEXPECTED_NULL, catalog);
-        log.info("{}", catalog);
+        this.log.info("{}", catalog);
     }
 
     /**
@@ -47,9 +47,9 @@ public final class ProductCatalogTest extends ResultsReporting {
     public void testProductCatalog() {
         final ProductCatalog productCatalog = new ProductCatalog();
         assertNotNull(UNEXPECTED_NULL, productCatalog);
-        Product product = new Product();
+        final Product product = new Product();
         productCatalog.add(product);
-        log.info("{}", productCatalog);
+        this.log.info("{}", productCatalog);
     }
 
     /**

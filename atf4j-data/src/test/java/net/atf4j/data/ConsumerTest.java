@@ -33,7 +33,7 @@ public class ConsumerTest extends ResultsReporting {
      */
     @Test
     public void testConsumer() {
-        Consumer consumer = new Consumer();
+        final Consumer consumer = new Consumer();
         assertNotNull(consumer);
     }
 
@@ -42,9 +42,9 @@ public class ConsumerTest extends ResultsReporting {
      */
     @Test
     public void testConsumerCredentials() {
-        Credentials credentials = new Credentials();
+        final Credentials credentials = new Credentials();
         assertNotNull(credentials);
-        Consumer consumer = new Consumer(credentials);
+        final Consumer consumer = new Consumer(credentials);
         assertNotNull(consumer);
     }
 
@@ -53,7 +53,7 @@ public class ConsumerTest extends ResultsReporting {
      */
     @Test
     public void testConsumerStringStringString() {
-        Consumer consumer = new Consumer();
+        final Consumer consumer = new Consumer();
         assertNotNull(consumer);
     }
 
@@ -62,7 +62,7 @@ public class ConsumerTest extends ResultsReporting {
      */
     @Test
     public void testSetGetCredentials() {
-        Consumer consumer = new Consumer();
+        final Consumer consumer = new Consumer();
         assertNotNull(consumer);
     }
 
@@ -71,7 +71,7 @@ public class ConsumerTest extends ResultsReporting {
      */
     @Test
     public void testSetGetUsername() {
-        Consumer consumer = new Consumer();
+        final Consumer consumer = new Consumer();
         assertNotNull(consumer);
     }
 
@@ -80,7 +80,7 @@ public class ConsumerTest extends ResultsReporting {
      */
     @Test
     public void testSetGetPassword() {
-        Consumer consumer = new Consumer();
+        final Consumer consumer = new Consumer();
         assertNotNull(consumer);
     }
 
@@ -89,7 +89,7 @@ public class ConsumerTest extends ResultsReporting {
      */
     @Test
     public void testSetGetEmail() {
-        Consumer consumer = new Consumer();
+        final Consumer consumer = new Consumer();
         assertNotNull(consumer);
     }
 

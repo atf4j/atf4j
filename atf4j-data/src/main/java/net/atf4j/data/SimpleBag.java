@@ -42,8 +42,7 @@ public class SimpleBag {
     /**
      * Instantiates a new simple bag.
      *
-     * @param values
-     *            the values
+     * @param values the values
      */
     public SimpleBag(final String[] values) {
         super();
@@ -53,8 +52,7 @@ public class SimpleBag {
     /**
      * Fill.
      *
-     * @param values
-     *            the values
+     * @param values the values
      * @return the simple bag
      */
     public SimpleBag fill(final String[] values) {
@@ -86,8 +84,7 @@ public class SimpleBag {
     /**
      * Put.
      *
-     * @param item
-     *            the item
+     * @param item the item
      * @return the simple bag
      */
     public SimpleBag put(final String item) {

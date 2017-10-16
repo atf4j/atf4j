@@ -35,8 +35,7 @@ public abstract class Name extends Datum {
     /**
      * Instantiates a new name.
      *
-     * @param name
-     *            the name
+     * @param name the name
      */
     public Name(final String name) {
         super();
@@ -46,8 +45,7 @@ public abstract class Name extends Datum {
     /**
      * Sets the name.
      *
-     * @param name
-     *            the new name
+     * @param name the new name
      * @return the name
      */
     public Name setName(final String name) {
@@ -67,8 +65,7 @@ public abstract class Name extends Datum {
     /**
      * Capitalise as Name.
      *
-     * @param input
-     *            as String.
+     * @param input as String.
      * @return string input as capitalised String.
      */
     @Deprecated

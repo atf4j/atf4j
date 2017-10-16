@@ -29,8 +29,7 @@ public class Chord {
     /**
      * Sets the stem.
      *
-     * @param stem
-     *            the new stem
+     * @param stem the new stem
      */
     public void setStem(final CharSequence stem) {
         this.stem = stem;
@@ -48,8 +47,7 @@ public class Chord {
     /**
      * Adds the.
      *
-     * @param e
-     *            the e
+     * @param e the e
      * @return true, if successful, otherwise false.
      */
     public boolean add(final Chord e) {

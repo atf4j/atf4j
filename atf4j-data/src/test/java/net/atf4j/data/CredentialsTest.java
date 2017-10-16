@@ -34,9 +34,9 @@ public class CredentialsTest extends ResultsReporting {
      */
     @Test
     public void testCredentials() {
-        Credentials credentials = new Credentials();
+        final Credentials credentials = new Credentials();
         assertNotNull(credentials);
-        log.info("{}", credentials);
+        this.log.info("{}", credentials);
     }
 
     /**
@@ -44,9 +44,9 @@ public class CredentialsTest extends ResultsReporting {
      */
     @Test
     public void testCredentialsUsernamePasswordEmail() {
-        Credentials credentials = new Credentials("Username", "Password", "email@example.org");
+        final Credentials credentials = new Credentials("Username", "Password", "email@example.org");
         assertNotNull(credentials);
-        log.info("{}", credentials);
+        this.log.info("{}", credentials);
     }
 
     /**
@@ -54,9 +54,9 @@ public class CredentialsTest extends ResultsReporting {
      */
     @Test
     public void testSetGetUsername() {
-        Credentials credentials = new Credentials();
+        final Credentials credentials = new Credentials();
         assertNotNull(credentials);
-        log.info("{}", credentials);
+        this.log.info("{}", credentials);
         credentials.setUsername("username");
         assertEquals("username", credentials.getUsername());
     }
@@ -66,9 +66,9 @@ public class CredentialsTest extends ResultsReporting {
      */
     @Test
     public void testSetGetPassword() {
-        Credentials credentials = new Credentials();
+        final Credentials credentials = new Credentials();
         assertNotNull(credentials);
-        log.info("{}", credentials);
+        this.log.info("{}", credentials);
         credentials.setPassword("username");
         assertEquals("username", credentials.getPassword());
     }
@@ -78,9 +78,9 @@ public class CredentialsTest extends ResultsReporting {
      */
     @Test
     public void testSetGetEmail() {
-        Credentials credentials = new Credentials();
+        final Credentials credentials = new Credentials();
         assertNotNull(credentials);
-        log.info("{}", credentials);
+        this.log.info("{}", credentials);
         credentials.setEmail("email@example.org");
         assertEquals("email@example.org", credentials.getEmail());
     }

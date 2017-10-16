@@ -58,7 +58,7 @@ public final class PersonTest extends ResultsReporting {
      */
     @Test
     public void testSetGetTitle() {
-        Person person = new Person();
+        final Person person = new Person();
         assertNotNull(UNEXPECTED_NULL, person);
         assertEquals(Title.SIR, person.title(Title.SIR).title());
     }

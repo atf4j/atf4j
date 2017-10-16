@@ -55,8 +55,7 @@ public class DataFactory {
     /**
      * Random string.
      *
-     * @param length
-     *            the length
+     * @param length the length
      * @return the string
      */
     public static String randomString(final int length) {
@@ -79,8 +78,7 @@ public class DataFactory {
     /**
      * Random digits.
      *
-     * @param length
-     *            the length
+     * @param length the length
      * @return the string
      */
     public static String randomDigits(final int length) {
@@ -104,8 +102,7 @@ public class DataFactory {
     /**
      * Today date as string.
      *
-     * @param format
-     *            the format to use for date
+     * @param format the format to use for date
      * @return today as String.
      */
     public static String today(final String format) {
@@ -129,8 +126,7 @@ public class DataFactory {
     /**
      * DOB over 18.
      *
-     * @param format
-     *            the format
+     * @param format the format
      * @return the string
      */
     public static String dobOver18(final String format) {
@@ -154,8 +150,7 @@ public class DataFactory {
     /**
      * DOB under 18.
      *
-     * @param format
-     *            the format
+     * @param format the format
      * @return the string
      */
     public static String dobUnder18(final String format) {
@@ -179,8 +174,7 @@ public class DataFactory {
     /**
      * Tomorrow.
      *
-     * @param format
-     *            the format
+     * @param format the format
      * @return the string
      */
     public static String tomorrow(final String format) {
@@ -204,8 +198,7 @@ public class DataFactory {
     /**
      * Future date.
      *
-     * @param format
-     *            the format
+     * @param format the format
      * @return the string
      */
     public static String futureDate(final String format) {
@@ -229,8 +222,7 @@ public class DataFactory {
     /**
      * Yesterday.
      *
-     * @param format
-     *            the format
+     * @param format the format
      * @return the string
      */
     public static String yesterday(final String format) {
@@ -254,8 +246,7 @@ public class DataFactory {
     /**
      * Past date.
      *
-     * @param format
-     *            the format
+     * @param format the format
      * @return the string
      */
     public static String pastDate(final String format) {
@@ -279,10 +270,8 @@ public class DataFactory {
     /**
      * Date between.
      *
-     * @param startDate
-     *            the start date
-     * @param endDate
-     *            the end date
+     * @param startDate the start date
+     * @param endDate the end date
      * @return the calendar
      */
     public static Calendar dateBetween(final Date startDate, final Date endDate) {
@@ -292,10 +281,8 @@ public class DataFactory {
     /**
      * Date between.
      *
-     * @param pastDate
-     *            the past date
-     * @param today
-     *            the today
+     * @param pastDate the past date
+     * @param today the today
      * @return the calendar
      */
     public static Calendar dateBetween(final Calendar pastDate, final Calendar today) {
@@ -325,8 +312,7 @@ public class DataFactory {
     /**
      * Format.
      *
-     * @param calendar
-     *            the calendar
+     * @param calendar the calendar
      * @return the string
      */
     public static String format(final Calendar calendar) {
@@ -336,8 +322,7 @@ public class DataFactory {
     /**
      * Format.
      *
-     * @param date
-     *            the date
+     * @param date the date
      * @return the string
      */
     public static String format(final Date date) {
@@ -393,10 +378,10 @@ public class DataFactory {
      * Create a new instances of Data.
      *
      * @return the bank
-     * @throws FileNotFoundException
+     * @throws FileNotFoundException the file not found exception
      */
     public static Bank createBank() throws FileNotFoundException {
-        BankDataFactory instance = BankDataFactory.getInstance();
+        final BankDataFactory instance = BankDataFactory.getInstance();
         return instance.create();
     }
 
@@ -412,8 +397,7 @@ public class DataFactory {
     /**
      * To calendar.
      *
-     * @param startDate
-     *            the start date
+     * @param startDate the start date
      * @return the calendar
      */
     public static Calendar toCalendar(final Date startDate) {

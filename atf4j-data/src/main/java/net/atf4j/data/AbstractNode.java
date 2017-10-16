@@ -41,7 +41,7 @@ public abstract class AbstractNode<L, R> {
      * @param left the left
      * @param right the right
      */
-    public AbstractNode(L left, R right) {
+    public AbstractNode(final L left, final R right) {
         super();
         this.left = left;
         this.right = right;

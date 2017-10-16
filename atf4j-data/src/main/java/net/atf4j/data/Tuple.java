@@ -20,10 +20,8 @@ package net.atf4j.data;
 /**
  * Two Tuple Class.
  *
- * @param <K>
- *            the key type
- * @param <V>
- *            the value type
+ * @param <K> the key type
+ * @param <V> the value type
  */
 public class Tuple<K, V> implements Keyed<K, V> {
     private K key;
@@ -32,8 +30,7 @@ public class Tuple<K, V> implements Keyed<K, V> {
     /**
      * Sets the key.
      *
-     * @param key
-     *            the key
+     * @param key the key
      * @return the keyed
      */
     public Keyed<K, V> setKey(final K key) {
@@ -44,8 +41,7 @@ public class Tuple<K, V> implements Keyed<K, V> {
     /**
      * Sets the value.
      *
-     * @param value
-     *            the value
+     * @param value the value
      * @return the keyed
      */
     public Keyed<K, V> setValue(final V value) {

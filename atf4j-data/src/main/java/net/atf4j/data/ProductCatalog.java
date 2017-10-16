@@ -36,6 +36,11 @@ public class ProductCatalog {
         return new ProductCatalog();
     }
 
+    /**
+     * Random.
+     *
+     * @return the product catalog
+     */
     public static ProductCatalog random() {
         return null;
     }

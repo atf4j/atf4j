@@ -35,8 +35,7 @@ public final class MockDataFactoryTest extends ResultsReporting {
         /**
          * Instantiates a new test data.
          *
-         * @throws Exception
-         *             the exception
+         * @throws Exception the exception
          */
         public MockDataFactory() throws Exception {
             super();
@@ -46,8 +45,7 @@ public final class MockDataFactoryTest extends ResultsReporting {
     /**
      * Test default constructor.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testDefaultConstructor() throws Exception {
@@ -58,14 +56,13 @@ public final class MockDataFactoryTest extends ResultsReporting {
     /**
      * Test static data for tag.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
-    public  void testStaticDataForTag() throws Exception {
-        MockDataFactory dataFactory = new MockDataFactory();
-        String dataForTag = dataFactory.dataForTag("#Data");
-        log.info("{}", dataForTag);
+    public void testStaticDataForTag() throws Exception {
+        final MockDataFactory dataFactory = new MockDataFactory();
+        final String dataForTag = dataFactory.dataForTag("#Data");
+        this.log.info("{}", dataForTag);
     }
 
 }

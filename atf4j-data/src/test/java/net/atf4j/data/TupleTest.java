@@ -34,12 +34,12 @@ public class TupleTest extends ResultsReporting {
      */
     @Test
     public void testSetGetKey() {
-        Tuple<String, String> tuple = new Tuple<String, String>();
+        final Tuple<String, String> tuple = new Tuple<String, String>();
         assertNotNull(tuple);
-        String key = "key";
+        final String key = "key";
         tuple.setKey(key);
         assertEquals(key, tuple.key());
-        log.info("{}", tuple);
+        this.log.info("{}", tuple);
     }
 
     /**
@@ -47,12 +47,12 @@ public class TupleTest extends ResultsReporting {
      */
     @Test
     public void testSetGetValue() {
-        Tuple<String, String> tuple = new Tuple<String, String>();
+        final Tuple<String, String> tuple = new Tuple<String, String>();
         assertNotNull(tuple);
-        String value = "value";
+        final String value = "value";
         tuple.setValue(value);
         assertEquals(value, tuple.value());
-        log.info("{}", tuple);
+        this.log.info("{}", tuple);
     }
 
 }

@@ -56,14 +56,13 @@ public final class PersonDataFactoryTest extends ResultsReporting {
     /**
      * Test default constructor.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testDefaultConstructor() throws Exception {
         final PersonDataFactory personDataFactory = new PersonDataFactory();
         assertNotNull(UNEXPECTED_NULL, personDataFactory);
-        String string = personDataFactory.toString();
+        final String string = personDataFactory.toString();
         this.log.debug("{}", string);
     }
 

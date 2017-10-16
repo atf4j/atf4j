@@ -51,10 +51,8 @@ public abstract class AbstractDataFactory {
     /**
      * Instantiates a new abstract data factory.
      *
-     * @param dataFilename
-     *            the data filename
-     * @throws FileNotFoundException
-     *             the file not found exception
+     * @param dataFilename the data filename
+     * @throws FileNotFoundException the file not found exception
      */
     protected AbstractDataFactory(final String dataFilename) throws FileNotFoundException {
         super();
@@ -63,11 +61,8 @@ public abstract class AbstractDataFactory {
 
     /**
      * Load.
-     * 
-     * @throws FileNotFoundException
      *
-     * @throws Exception
-     *             the exception
+     * @throws FileNotFoundException the file not found exception
      */
     protected void load() throws FileNotFoundException {
         final String simpleName = this.getClass().getSimpleName();
@@ -78,12 +73,9 @@ public abstract class AbstractDataFactory {
     /**
      * Load data file.
      *
-     * @param dataFilename
-     *            the data filename
+     * @param dataFilename the data filename
      * @return the string[]
-     * @throws FileNotFoundException
-     * @throws Exception
-     *             the exception
+     * @throws FileNotFoundException the file not found exception
      */
     public String[] load(final String dataFilename) throws FileNotFoundException {
         assertNotNull(UNEXPECTED_NULL, dataFilename);
@@ -95,20 +87,23 @@ public abstract class AbstractDataFactory {
             throw new FileNotFoundException(dataFilename);
         }
     }
-    
+
+    /**
+     * Resource as stream.
+     *
+     * @param resourceFilename the resource filename
+     * @return the input stream
+     */
     private InputStream resourceAsStream(final String resourceFilename) {
         final ClassLoader classLoader = this.getClass().getClassLoader();
         return classLoader.getResourceAsStream(resourceFilename);
-    }    
+    }
 
     /**
      * Load.
      *
-     * @param inputStream
-     *            the input stream
+     * @param inputStream the input stream
      * @return the string[]
-     * @throws Exception
-     *             the exception
      */
     public String[] load(final InputStream inputStream) {
         assertNotNull(UNEXPECTED_NULL, inputStream);
@@ -122,8 +117,8 @@ public abstract class AbstractDataFactory {
                 this.log.trace(line);
             }
             bufferedReader.close();
-        } catch (IOException e) {
-            log.error("{}", e.getLocalizedMessage());
+        } catch (final IOException e) {
+            this.log.error("{}", e.getLocalizedMessage());
         }
         return lines.toArray(new String[lines.size()]);
     }
@@ -142,8 +137,7 @@ public abstract class AbstractDataFactory {
     /**
      * Random entry.
      *
-     * @param content
-     *            the content
+     * @param content the content
      * @return the string
      */
     protected static String randomEntry(final String[] content) {
@@ -155,8 +149,7 @@ public abstract class AbstractDataFactory {
     /**
      * Data for tag.
      *
-     * @param tag
-     *            the tag
+     * @param tag the tag
      * @return the string
      */
     public String dataForTag(final String tag) {

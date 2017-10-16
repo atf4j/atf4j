@@ -69,7 +69,7 @@ public final class BankSortCodeTest extends ResultsReporting {
     @Test
     public void testBankSortCodeString() {
         final String actual = "99:99:99";
-        BankSortCode sortCode = new BankSortCode(actual);
+        final BankSortCode sortCode = new BankSortCode(actual);
         assertNotNull(UNEXPECTED_NULL, sortCode);
         this.log.info("{}", sortCode);
     }

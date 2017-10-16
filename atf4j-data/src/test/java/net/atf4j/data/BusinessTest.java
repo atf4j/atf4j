@@ -35,9 +35,9 @@ public final class BusinessTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        Business business = new Business();
+        final Business business = new Business();
         assertNotNull(UNEXPECTED_NULL, business);
-        log.info("{}", business);
+        this.log.info("{}", business);
     }
 
     /**
@@ -45,9 +45,9 @@ public final class BusinessTest extends ResultsReporting {
      */
     @Test
     public void testBusiness() {
-        Business business = new Business();
+        final Business business = new Business();
         assertNotNull(UNEXPECTED_NULL, business);
-        log.info("{}", business);
+        this.log.info("{}", business);
     }
 
     /**
@@ -66,10 +66,10 @@ public final class BusinessTest extends ResultsReporting {
     @Test
     public void testBusinessStringPostcode() {
         final String businessName = "Business Name";
-        PostalAddress postalAddress = new PostalAddress();
-        Business business = new Business(businessName, postalAddress);
+        final PostalAddress postalAddress = new PostalAddress();
+        final Business business = new Business(businessName, postalAddress);
         assertNotNull(UNEXPECTED_NULL, business);
-        log.info("{}", business);
+        this.log.info("{}", business);
     }
 
     /**
@@ -77,7 +77,7 @@ public final class BusinessTest extends ResultsReporting {
      */
     @Test
     public void testCreate() {
-        Business business = Business.create();
+        final Business business = Business.create();
         assertNotNull(UNEXPECTED_NULL, business);
     }
 

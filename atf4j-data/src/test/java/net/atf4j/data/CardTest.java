@@ -46,7 +46,7 @@ public final class CardTest extends ResultsReporting {
      */
     @Test
     public void testCreate() {
-        assertNotNull(UNEXPECTED_NULL,Card.create());
+        assertNotNull(UNEXPECTED_NULL, Card.create());
     }
 
     /**
@@ -54,7 +54,7 @@ public final class CardTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(UNEXPECTED_NULL,new Card());
+        assertNotNull(UNEXPECTED_NULL, new Card());
     }
 
     /**
@@ -67,7 +67,7 @@ public final class CardTest extends ResultsReporting {
         final String cardName = "Card Name";
         final Date endDate = new Date();
         final Date startDate = new Date();
-        assertNotNull(UNEXPECTED_NULL,new Card(provider, cardNumber, cardName, endDate, startDate));
+        assertNotNull(UNEXPECTED_NULL, new Card(provider, cardNumber, cardName, endDate, startDate));
     }
 
     /**
@@ -86,7 +86,7 @@ public final class CardTest extends ResultsReporting {
             .setCardName(cardName)
             .setStartDate(startDate)
             .setEndDate(endDate);
-        assertNotNull(UNEXPECTED_NULL,card);
+        assertNotNull(UNEXPECTED_NULL, card);
     }
 
     /**
@@ -128,7 +128,7 @@ public final class CardTest extends ResultsReporting {
     public void testToString() {
         final Card card = new Card();
         final String string = card.toString();
-        assertNotNull(UNEXPECTED_NULL,string);
+        assertNotNull(UNEXPECTED_NULL, string);
     }
 
 }

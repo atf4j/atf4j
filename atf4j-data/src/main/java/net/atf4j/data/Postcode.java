@@ -56,8 +56,7 @@ public class Postcode {
     /**
      * Instantiates a new postcode.
      *
-     * @param postCode
-     *            the post code
+     * @param postCode the post code
      */
     public Postcode(final String postCode) {
         super();
@@ -67,8 +66,7 @@ public class Postcode {
     /**
      * Sets the post code.
      *
-     * @param postCode
-     *            the post code
+     * @param postCode the post code
      * @return the postcode
      */
     public Postcode setPostCode(final String postCode) {
@@ -84,8 +82,7 @@ public class Postcode {
     /**
      * Sets the out code.
      *
-     * @param outCode
-     *            the out code
+     * @param outCode the out code
      * @return the postcode
      */
     public Postcode setOutCode(final String outCode) {
@@ -96,8 +93,7 @@ public class Postcode {
     /**
      * Sets the in code.
      *
-     * @param inCode
-     *            the in code
+     * @param inCode the in code
      * @return the postcode
      */
     public Postcode setInCode(final String inCode) {
@@ -135,8 +131,8 @@ public class Postcode {
     /**
      * Verify.
      *
-     * @param postcode
-     *            the postcode \* @return true, if successful, otherwise false.
+     * @param postcode the postcode \* @return true, if successful, otherwise
+     *            false.
      * @return true, if successful, otherwise false.
      */
     public static boolean verify(final String postcode) {

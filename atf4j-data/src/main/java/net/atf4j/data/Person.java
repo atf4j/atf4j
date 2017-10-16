@@ -56,7 +56,7 @@ public class Person {
          * @param gender the gender
          * @return the gender
          */
-        public static Gender fromString(String gender) {
+        public static Gender fromString(final String gender) {
             return null;
         }
 
@@ -96,7 +96,7 @@ public class Person {
          * @param title the title
          * @return the title
          */
-        public static Title fromString(String title) {
+        public static Title fromString(final String title) {
             return null;
         }
 

@@ -25,8 +25,7 @@ public class Text {
     /**
      * Capitalise as Name.
      *
-     * @param input
-     *            as String.
+     * @param input as String.
      * @return string input as capitalised String.
      */
     public static String capitalise(final String input) {
@@ -45,8 +44,7 @@ public class Text {
     /**
      * Fill.
      *
-     * @param length
-     *            the length
+     * @param length the length
      * @return the string
      */
     public static String fill(final int length) {
@@ -56,10 +54,8 @@ public class Text {
     /**
      * Fill.
      *
-     * @param length
-     *            the length
-     * @param chr
-     *            the chr
+     * @param length the length
+     * @param chr the chr
      * @return the string
      */
     public static String fill(final int length, final char chr) {
@@ -69,10 +65,8 @@ public class Text {
     /**
      * Pad to length.
      *
-     * @param stem
-     *            the stem
-     * @param length
-     *            the length
+     * @param stem the stem
+     * @param length the length
      * @return the string
      */
     public static String padToLength(final String stem, final int length) {
@@ -82,12 +76,9 @@ public class Text {
     /**
      * Pad to length.
      *
-     * @param stem
-     *            the stem
-     * @param length
-     *            the length
-     * @param chr
-     *            the chr
+     * @param stem the stem
+     * @param length the length
+     * @param chr the chr
      * @return the string
      */
     public static String padToLength(final String stem, final int length, final char chr) {

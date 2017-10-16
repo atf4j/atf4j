@@ -36,6 +36,11 @@ public class Business extends Name {
         return new Business();
     }
 
+    /**
+     * Random.
+     *
+     * @return the business
+     */
     public static Business random() {
         return null;
     }

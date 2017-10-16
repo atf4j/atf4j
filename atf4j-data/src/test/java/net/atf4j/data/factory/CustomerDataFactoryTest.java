@@ -43,13 +43,12 @@ public final class CustomerDataFactoryTest extends ResultsReporting {
     /**
      * Test default constructor.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testDefaultConstructor() throws Exception {
         final CustomerDataFactory customerDataFactory = new CustomerDataFactory();
-        assertNotNull(UNEXPECTED_NULL,customerDataFactory);
+        assertNotNull(UNEXPECTED_NULL, customerDataFactory);
         this.log.info("{}", customerDataFactory);
     }
 
@@ -59,7 +58,7 @@ public final class CustomerDataFactoryTest extends ResultsReporting {
     @Test
     public void testGetInstance() {
         final CustomerDataFactory customerDataFactory = CustomerDataFactory.getInstance();
-        assertNotNull(UNEXPECTED_NULL,customerDataFactory);
+        assertNotNull(UNEXPECTED_NULL, customerDataFactory);
         this.log.info("{}", customerDataFactory);
     }
 
@@ -69,7 +68,7 @@ public final class CustomerDataFactoryTest extends ResultsReporting {
     @Test
     public void testCreate() {
         final Customer customer = CustomerDataFactory.create();
-        assertNotNull(UNEXPECTED_NULL,customer);
+        assertNotNull(UNEXPECTED_NULL, customer);
         this.log.info("{}", customer);
     }
 

@@ -44,8 +44,7 @@ public final class AddressDataFactoryTest extends ResultsReporting {
     /**
      * Test default constructor.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testDefaultConstructor() throws Exception {

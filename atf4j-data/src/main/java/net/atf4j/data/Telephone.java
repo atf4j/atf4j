@@ -47,8 +47,7 @@ public class Telephone {
         /**
          * Instantiates a new type.
          *
-         * @param name
-         *            the name
+         * @param name the name
          */
         private Type(final String name) {
             this.typeName = name;
@@ -66,8 +65,7 @@ public class Telephone {
         /**
          * For string.
          *
-         * @param asText
-         *            the as text
+         * @param asText the as text
          * @return the type
          */
         public static Type forString(final String asText) {
@@ -92,8 +90,7 @@ public class Telephone {
     /**
      * Create new instance of create.
      *
-     * @param type
-     *            the type
+     * @param type the type
      * @return the telephone
      */
     public static Telephone create(final Type type) {
@@ -103,10 +100,8 @@ public class Telephone {
     /**
      * Instantiates a new telephone.
      *
-     * @param type
-     *            the type
-     * @param number
-     *            the number
+     * @param type the type
+     * @param number the number
      */
     public Telephone(final Type type, final String number) {
         super();
@@ -137,8 +132,7 @@ public class Telephone {
     /**
      * Instantiates a new telephone number.
      *
-     * @param number
-     *            the number
+     * @param number the number
      */
     public Telephone(final String number) {
         super();
@@ -149,10 +143,8 @@ public class Telephone {
     /**
      * Instantiates a new telephone.
      *
-     * @param type
-     *            the type
-     * @param number
-     *            the number
+     * @param type the type
+     * @param number the number
      */
     public Telephone(final String type, final String number) {
         super();
@@ -163,8 +155,7 @@ public class Telephone {
     /**
      * Sets the number.
      *
-     * @param number
-     *            the number to set
+     * @param number the number to set
      * @return the telephone number
      */
     public Telephone setNumber(final String number) {
@@ -175,8 +166,7 @@ public class Telephone {
     /**
      * Sets the type.
      *
-     * @param type
-     *            the type
+     * @param type the type
      * @return the telephone
      */
     public Telephone setType(final String type) {
@@ -187,8 +177,7 @@ public class Telephone {
     /**
      * Sets the type.
      *
-     * @param type
-     *            the type
+     * @param type the type
      * @return the telephone
      */
     public Telephone setType(final Telephone.Type type) {
@@ -221,8 +210,7 @@ public class Telephone {
     /**
      * Verify.
      *
-     * @param number
-     *            the number \* @return true, if successful, otherwise false.
+     * @param number the number \* @return true, if successful, otherwise false.
      * @return true, if successful, otherwise false.
      */
     public static boolean verify(final String number) {

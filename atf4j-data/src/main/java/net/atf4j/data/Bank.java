@@ -42,20 +42,34 @@ public class Bank extends Business {
         return bank;
     }
 
+    /**
+     * Random.
+     *
+     * @return the bank
+     */
     public static Bank random() {
         return null;
     }
 
+    /**
+     * Instantiates a new bank.
+     */
     public Bank() {
         super();
         setBankSortCode(new BankSortCode());
         setName("Bank Name");
     }
 
+    /**
+     * Instantiates a new bank.
+     *
+     * @param sortcode the sortcode
+     * @param name the name
+     */
     public Bank(final BankSortCode sortcode, final String name) {
         super();
-        setBankSortCode(bankSortCode);
-        setName(bankName);
+        setBankSortCode(this.bankSortCode);
+        setName(this.bankName);
     }
 
     /**

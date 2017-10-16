@@ -33,9 +33,9 @@ public class ChordTest extends ResultsReporting {
      */
     @Test
     public void testSetStem() {
-        Chord chord = new Chord();
+        final Chord chord = new Chord();
         assertNotNull(chord);
-        log.info("{}", chord);
+        this.log.info("{}", chord);
     }
 
     /**
@@ -43,9 +43,9 @@ public class ChordTest extends ResultsReporting {
      */
     @Test
     public void testGetStem() {
-        Chord chord = new Chord();
+        final Chord chord = new Chord();
         assertNotNull(chord);
-        log.info("{}", chord);
+        this.log.info("{}", chord);
     }
 
     /**
@@ -53,9 +53,9 @@ public class ChordTest extends ResultsReporting {
      */
     @Test
     public void testAdd() {
-        Chord chord = new Chord();
+        final Chord chord = new Chord();
         assertNotNull(chord);
-        log.info("{}", chord);
+        this.log.info("{}", chord);
     }
 
 }

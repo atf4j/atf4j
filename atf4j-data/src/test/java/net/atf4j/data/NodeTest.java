@@ -46,7 +46,7 @@ public class NodeTest extends ResultsReporting {
          * @param left the left
          * @param right the right
          */
-        protected Node(Object left, Object right) {
+        protected Node(final Object left, final Object right) {
             super(left, right);
         }
 
@@ -57,7 +57,7 @@ public class NodeTest extends ResultsReporting {
      */
     @Test
     public void testNode() {
-        Node node = new Node();
+        final Node node = new Node();
         assertNotNull(node);
     }
 
@@ -66,7 +66,7 @@ public class NodeTest extends ResultsReporting {
      */
     @Test
     public void testLeft() {
-        Node node = new Node(new Object(), new Object());
+        final Node node = new Node(new Object(), new Object());
         assertNotNull(node);
         assertNotNull(node.left());
     }
@@ -76,7 +76,7 @@ public class NodeTest extends ResultsReporting {
      */
     @Test
     public void testRight() {
-        Node node = new Node(new Object(), new Object());
+        final Node node = new Node(new Object(), new Object());
         assertNotNull(node);
         assertNotNull(node.right());
     }

@@ -63,8 +63,7 @@ public class BankAccount {
     /**
      * Instantiates a new bank account.
      *
-     * @param bank
-     *            the bank
+     * @param bank the bank
      */
     public BankAccount(final Bank bank) {
         super();
@@ -74,8 +73,7 @@ public class BankAccount {
     /**
      * Instantiates a new bank account.
      *
-     * @param accountNo
-     *            the account no
+     * @param accountNo the account no
      */
     public BankAccount(final String accountNo) {
         super();
@@ -85,10 +83,8 @@ public class BankAccount {
     /**
      * Instantiates a new bank account.
      *
-     * @param bank
-     *            the bank
-     * @param accountNo
-     *            the account no
+     * @param bank the bank
+     * @param accountNo the account no
      */
     public BankAccount(final Bank bank, final String accountNo) {
         super();
@@ -99,8 +95,7 @@ public class BankAccount {
     /**
      * Sets the bank.
      *
-     * @param bank
-     *            the bank
+     * @param bank the bank
      * @return the bank account
      */
     public BankAccount setBank(final Bank bank) {
@@ -112,8 +107,7 @@ public class BankAccount {
     /**
      * Sets the account no.
      *
-     * @param accountNo
-     *            the account no
+     * @param accountNo the account no
      * @return the bank account
      */
     public BankAccount setAccountNo(final String accountNo) {

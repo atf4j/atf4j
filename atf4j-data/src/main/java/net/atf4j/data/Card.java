@@ -46,16 +46,11 @@ public class Card {
     /**
      * Instantiates a new card.
      *
-     * @param provider
-     *            the provider
-     * @param cardNumber
-     *            the card number
-     * @param cardName
-     *            the card name
-     * @param endDate
-     *            the end date
-     * @param startDate
-     *            the start date
+     * @param provider the provider
+     * @param cardNumber the card number
+     * @param cardName the card name
+     * @param endDate the end date
+     * @param startDate the start date
      */
     public Card(final String provider, final String cardNumber, final String cardName, final Calendar endDate,
             final Calendar startDate) {
@@ -70,16 +65,11 @@ public class Card {
     /**
      * Instantiates a new card.
      *
-     * @param provider
-     *            the provider
-     * @param cardNumber
-     *            the card number
-     * @param cardName
-     *            the card name
-     * @param endDate
-     *            the end date
-     * @param startDate
-     *            the start date
+     * @param provider the provider
+     * @param cardNumber the card number
+     * @param cardName the card name
+     * @param endDate the end date
+     * @param startDate the start date
      */
     public Card(final String provider, final String cardNumber, final String cardName, final Date endDate,
             final Date startDate) {
@@ -117,8 +107,7 @@ public class Card {
     /**
      * Sets the Card's provider.
      *
-     * @param provider
-     *            the provider
+     * @param provider the provider
      * @return the card
      */
     public Card setProvider(final String provider) {
@@ -138,8 +127,7 @@ public class Card {
     /**
      * Sets the Card's card number.
      *
-     * @param cardNumber
-     *            the card number
+     * @param cardNumber the card number
      * @return the card
      */
     public Card setCardNumber(final String cardNumber) {
@@ -159,8 +147,7 @@ public class Card {
     /**
      * Sets the Card's card name.
      *
-     * @param cardName
-     *            the card name
+     * @param cardName the card name
      * @return the card
      */
     public Card setCardName(final String cardName) {
@@ -198,8 +185,7 @@ public class Card {
     /**
      * Sets the card's start date.
      *
-     * @param startDate
-     *            the start date
+     * @param startDate the start date
      * @return the card
      */
     public Card setStartDate(final Date startDate) {
@@ -209,8 +195,7 @@ public class Card {
     /**
      * Sets the start date.
      *
-     * @param startDate
-     *            the start date
+     * @param startDate the start date
      * @return the card
      */
     public Card setStartDate(final Calendar startDate) {
@@ -221,8 +206,7 @@ public class Card {
     /**
      * Sets the end date.
      *
-     * @param startDate
-     *            the start date
+     * @param startDate the start date
      * @return the card
      */
     public Card setEndDate(final Date startDate) {
@@ -232,8 +216,7 @@ public class Card {
     /**
      * Sets the end date.
      *
-     * @param endDate
-     *            the end date
+     * @param endDate the end date
      * @return the card
      */
     public Card setEndDate(final Calendar endDate) {
@@ -244,8 +227,7 @@ public class Card {
     /**
      * Sets the ccv.
      *
-     * @param ccv
-     *            the ccv
+     * @param ccv the ccv
      * @return the card
      */
     public Card setCcv(final String ccv) {
@@ -256,8 +238,7 @@ public class Card {
     /**
      * Luhn check.
      *
-     * @param cardNumber
-     *            the card number
+     * @param cardNumber the card number
      * @return true, if successful, otherwise false.
      */
     public static boolean luhnCheck(final String cardNumber) {
@@ -281,8 +262,7 @@ public class Card {
     /**
      * Verify amex number.
      *
-     * @param candidate
-     *            the candidate
+     * @param candidate the candidate
      * @return true, if successful, otherwise false.
      */
     public static boolean verifyAmex(final String candidate) {
@@ -294,8 +274,7 @@ public class Card {
     /**
      * Verify visa card number.
      *
-     * @param candidate
-     *            the candidate
+     * @param candidate the candidate
      * @return true, if successful, otherwise false.
      */
     public static boolean verifyVisa(final String candidate) {
@@ -307,8 +286,7 @@ public class Card {
     /**
      * Verify master card number.
      *
-     * @param candidate
-     *            the candidate
+     * @param candidate the candidate
      * @return true, if successful, otherwise false.
      */
     public static boolean verifyMasterCard(final String candidate) {
@@ -320,8 +298,7 @@ public class Card {
     /**
      * Clean card number of surplus characters.
      *
-     * @param cardNumber
-     *            the card number
+     * @param cardNumber the card number
      * @return the card as a String
      */
     private static String cleanCardNumber(final String cardNumber) {

@@ -100,8 +100,8 @@ public abstract class AbstractWalker {
             try {
                 uri = url.toURI();
                 walk(uri);
-            } catch (URISyntaxException e) {
-                log.error("{}", e.getLocalizedMessage());
+            } catch (final URISyntaxException e) {
+                this.log.error("{}", e.getLocalizedMessage());
             }
         } else {
             this.log.error("url is null");
@@ -113,7 +113,7 @@ public abstract class AbstractWalker {
      *
      * @param uri the uri
      */
-    private void walk(URI uri) {
+    private void walk(final URI uri) {
         this.log.trace("walk({})", uri);
         if (uri != null) {
             final File root = Paths.get(uri).toFile();
@@ -170,12 +170,12 @@ public abstract class AbstractWalker {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return String.format("AbstractWalker [basePath=%s]", basePath);
+        return String.format("AbstractWalker [basePath=%s]", this.basePath);
     }
 
 }

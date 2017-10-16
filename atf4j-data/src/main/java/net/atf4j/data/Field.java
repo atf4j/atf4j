@@ -22,8 +22,7 @@ import java.util.UUID;
 /**
  * Field Class.
  *
- * @param <T>
- *            the generic type
+ * @param <T> the generic type
  */
 public class Field<T> {
 
@@ -43,8 +42,7 @@ public class Field<T> {
     /**
      * Instantiates a new field.
      *
-     * @param value
-     *            the value
+     * @param value the value
      */
     public Field(final T value) {
         super();
@@ -55,10 +53,8 @@ public class Field<T> {
     /**
      * Instantiates a new field.
      *
-     * @param key
-     *            the key
-     * @param value
-     *            the value
+     * @param key the key
+     * @param value the value
      */
     public Field(final String key, final T value) {
         super();
@@ -69,10 +65,8 @@ public class Field<T> {
     /**
      * Sets the field key and value.
      *
-     * @param key
-     *            the key
-     * @param value
-     *            the value
+     * @param key the key
+     * @param value the value
      * @return the field
      */
     private Field set(final String key, final T value) {
@@ -84,8 +78,7 @@ public class Field<T> {
     /**
      * Sets the key.
      *
-     * @param key
-     *            the key
+     * @param key the key
      * @return the field
      */
     public Field setKey(final String key) {
@@ -97,8 +90,7 @@ public class Field<T> {
     /**
      * Sets the value.
      *
-     * @param value
-     *            the value
+     * @param value the value
      * @return the field
      */
     public Field setValue(final T value) {
@@ -110,8 +102,7 @@ public class Field<T> {
     /**
      * Sets the status.
      *
-     * @param fieldStatus
-     *            the field status
+     * @param fieldStatus the field status
      * @return the field
      */
     public Field setStatus(final FieldStatus fieldStatus) {

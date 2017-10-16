@@ -52,7 +52,7 @@ public class FileWalker extends AbstractWalker {
      * Process file.
      *
      * @param f the f
-     * @throws IOException
+     * @throws IOException Signals that an I/O exception has occurred.
      */
     private void processFile(final File f) throws IOException {
         final File absoluteFile = f.getAbsoluteFile();
@@ -66,8 +66,7 @@ public class FileWalker extends AbstractWalker {
      *
      * @param filename the filename
      * @return the string
-     * @throws IOException
-     * @throws Exception the exception
+     * @throws IOException Signals that an I/O exception has occurred.
      */
     String readFile(final String filename) throws IOException {
         final byte[] encoded = Files.readAllBytes(Paths.get(filename));

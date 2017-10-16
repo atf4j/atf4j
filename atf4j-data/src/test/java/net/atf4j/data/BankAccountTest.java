@@ -46,7 +46,7 @@ public final class BankAccountTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        BankAccount bankAccount = new BankAccount();
+        final BankAccount bankAccount = new BankAccount();
         assertNotNull(UNEXPECTED_NULL, bankAccount);
         this.log.info("{}", bankAccount);
     }

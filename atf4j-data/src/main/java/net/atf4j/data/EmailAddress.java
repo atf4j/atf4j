@@ -38,8 +38,7 @@ public class EmailAddress {
     /**
      * At.
      *
-     * @param domain
-     *            the domain
+     * @param domain the domain
      * @return the email address
      */
     public static EmailAddress at(final String domain) {
@@ -70,8 +69,7 @@ public class EmailAddress {
     /**
      * Instantiates a new email address.
      *
-     * @param domain
-     *            the domain
+     * @param domain the domain
      */
     public EmailAddress(final String domain) {
         super();
@@ -81,8 +79,7 @@ public class EmailAddress {
     /**
      * Sets the email.
      *
-     * @param email
-     *            the email
+     * @param email the email
      * @return the email address
      */
     public EmailAddress setEmail(final String email) {
@@ -93,8 +90,7 @@ public class EmailAddress {
     /**
      * Sets the domain.
      *
-     * @param domain
-     *            the domain
+     * @param domain the domain
      * @return the email address
      */
     public EmailAddress setDomain(final String domain) {
@@ -105,8 +101,7 @@ public class EmailAddress {
     /**
      * Sets the local part.
      *
-     * @param localPart
-     *            the local part
+     * @param localPart the local part
      * @return the email address
      */
     public EmailAddress setLocalPart(final String localPart) {
@@ -144,8 +139,7 @@ public class EmailAddress {
     /**
      * Verify.
      *
-     * @param email
-     *            the email \* @return true, if successful, otherwise false.
+     * @param email the email \* @return true, if successful, otherwise false.
      * @return true, if successful, otherwise false.
      */
     public static boolean verify(final String email) {

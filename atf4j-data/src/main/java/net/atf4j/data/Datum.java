@@ -30,8 +30,7 @@ abstract public class Datum {
     /**
      * Fresh.
      *
-     * @param isNew
-     *            the is new
+     * @param isNew the is new
      * @return the datum
      */
     protected Datum fresh(final boolean isNew) {
@@ -42,8 +41,7 @@ abstract public class Datum {
     /**
      * Changed.
      *
-     * @param isDirty
-     *            the is dirty
+     * @param isDirty the is dirty
      * @return the datum
      */
     protected Datum changed(final boolean isDirty) {
@@ -54,8 +52,7 @@ abstract public class Datum {
     /**
      * Deleted.
      *
-     * @param isDeleted
-     *            the is deleted
+     * @param isDeleted the is deleted
      * @return the datum
      */
     protected Datum deleted(final boolean isDeleted) {
@@ -66,8 +63,7 @@ abstract public class Datum {
     /**
      * Used.
      *
-     * @param isUsed
-     *            the is used
+     * @param isUsed the is used
      * @return the datum
      */
     protected Datum used(final boolean isUsed) {

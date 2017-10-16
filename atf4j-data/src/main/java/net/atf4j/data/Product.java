@@ -45,12 +45,9 @@ public class Product {
     /**
      * Instantiates a new product.
      *
-     * @param id
-     *            the id
-     * @param name
-     *            the name
-     * @param details
-     *            the details
+     * @param id the id
+     * @param name the name
+     * @param details the details
      */
     public Product(final String id, final String name, final String details) {
         super();
@@ -62,8 +59,7 @@ public class Product {
     /**
      * Sets the id.
      *
-     * @param id
-     *            the id
+     * @param id the id
      * @return the product
      */
     public Product setId(final String id) {
@@ -74,8 +70,7 @@ public class Product {
     /**
      * Sets the name.
      *
-     * @param name
-     *            the name
+     * @param name the name
      * @return the product
      */
     public Product setName(final String name) {
@@ -86,8 +81,7 @@ public class Product {
     /**
      * Sets the details.
      *
-     * @param details
-     *            the details to set
+     * @param details the details to set
      * @return the product
      */
     public Product setDetails(final String details) {

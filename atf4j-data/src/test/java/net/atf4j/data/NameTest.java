@@ -46,8 +46,7 @@ public final class NameTest extends ResultsReporting {
         /**
          * Instantiates a new mock name.
          *
-         * @param name
-         *            the name
+         * @param name the name
          */
         public MockName(final String name) {
             super(name);
@@ -59,14 +58,14 @@ public final class NameTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(UNEXPECTED_NULL,new MockName());
+        assertNotNull(UNEXPECTED_NULL, new MockName());
     }
 
     /**
      * Test method for Name.
      */
     public void testName() {
-        assertNotNull(UNEXPECTED_NULL,new MockName());
+        assertNotNull(UNEXPECTED_NULL, new MockName());
     }
 
     /**
@@ -76,7 +75,7 @@ public final class NameTest extends ResultsReporting {
     public void testNameString() {
         final String expected = "Mock Name";
         final Name mockName = new MockName(expected);
-        assertNotNull(UNEXPECTED_NULL,mockName);
+        assertNotNull(UNEXPECTED_NULL, mockName);
         assertEquals(expected, mockName.getName());
     }
 

@@ -31,10 +31,8 @@ public class BankDataFactory extends AbstractDataFactory {
 
     /**
      * Instantiates a new bank data factory.
-     * 
-     * @throws FileNotFoundException
-     * 
-     * @throws Exception
+     *
+     * @throws FileNotFoundException the file not found exception
      */
     protected BankDataFactory() throws FileNotFoundException {
         super(BANK_DATA);
@@ -44,7 +42,7 @@ public class BankDataFactory extends AbstractDataFactory {
      * Gets the single instance of BankDataFactory.
      *
      * @return single instance of BankDataFactory
-     * @throws FileNotFoundException
+     * @throws FileNotFoundException the file not found exception
      */
     public static BankDataFactory getInstance() throws FileNotFoundException {
         if (BankDataFactory.instance == null) {
@@ -59,7 +57,7 @@ public class BankDataFactory extends AbstractDataFactory {
      * @return the bank
      */
     public Bank create() {
-        Bank bank = Bank.create();
+        final Bank bank = Bank.create();
         return bank;
     }
 
@@ -67,17 +65,16 @@ public class BankDataFactory extends AbstractDataFactory {
      * Random.
      *
      * @return the string
-     * @throws FileNotFoundException
      */
     public Bank random() {
-        Bank bank = new Bank();
+        final Bank bank = new Bank();
         try {
             instance = BankDataFactory.getInstance();
-            String randomEntry = instance.randomEntry();
-            String[] bankDetails = randomEntry.split(",");
+            final String randomEntry = instance.randomEntry();
+            final String[] bankDetails = randomEntry.split(",");
             bank.setBankSortCode(bankDetails[0]);
             bank.setBankName(bankDetails[1]);
-        } catch (FileNotFoundException e) {
+        } catch (final FileNotFoundException e) {
         }
         return bank;
     }

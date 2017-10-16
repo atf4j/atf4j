@@ -38,9 +38,9 @@ public final class NinoTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        Nino nino = new Nino();
+        final Nino nino = new Nino();
         assertNotNull(UNEXPECTED_NULL, nino);
-        log.info("{}", nino);
+        this.log.info("{}", nino);
     }
 
     /**
@@ -48,9 +48,9 @@ public final class NinoTest extends ResultsReporting {
      */
     @Test
     public void testNationalInsurance() {
-        Nino nino = new Nino();
+        final Nino nino = new Nino();
         assertNotNull(UNEXPECTED_NULL, nino);
-        log.info("{}", nino);
+        this.log.info("{}", nino);
     }
 
     /**
@@ -58,9 +58,9 @@ public final class NinoTest extends ResultsReporting {
      */
     @Test
     public void testNationalInsurancePic() {
-        Nino nino = new Nino(PIC);
+        final Nino nino = new Nino(PIC);
         assertNotNull(UNEXPECTED_NULL, nino);
-        log.info("{}", nino);
+        this.log.info("{}", nino);
     }
 
     /**
@@ -68,9 +68,9 @@ public final class NinoTest extends ResultsReporting {
      */
     @Test
     public void testCreate() {
-        Nino nino = Nino.create();
+        final Nino nino = Nino.create();
         assertNotNull(UNEXPECTED_NULL, nino);
-        log.info("{}", nino);
+        this.log.info("{}", nino);
     }
 
     /**

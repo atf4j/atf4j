@@ -50,8 +50,7 @@ public class Nino {
     /**
      * Instantiates a new national insurance number.
      *
-     * @param code
-     *            the code
+     * @param code the code
      */
     public Nino(final String code) {
         super();
@@ -61,8 +60,7 @@ public class Nino {
     /**
      * Verify.
      *
-     * @param code
-     *            the code \* @return true, if successful, otherwise false.
+     * @param code the code \* @return true, if successful, otherwise false.
      * @return true, if successful, otherwise false.
      */
     public static boolean verify(final String code) {
@@ -82,8 +80,7 @@ public class Nino {
     /**
      * Sets the code.
      *
-     * @param code
-     *            the code to set
+     * @param code the code to set
      * @return the national insurance
      */
     public Nino setCode(final String code) {

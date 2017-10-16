@@ -48,7 +48,7 @@ public final class EmailAddressTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(UNEXPECTED_NULL,new EmailAddress());
+        assertNotNull(UNEXPECTED_NULL, new EmailAddress());
     }
 
     /**
@@ -57,7 +57,7 @@ public final class EmailAddressTest extends ResultsReporting {
     @Test
     public void testCreate() {
         final EmailAddress emailAddress = EmailAddress.create();
-        assertNotNull(UNEXPECTED_NULL,emailAddress);
+        assertNotNull(UNEXPECTED_NULL, emailAddress);
         final String string = emailAddress.toString();
         this.log.info(string);
     }
@@ -84,9 +84,9 @@ public final class EmailAddressTest extends ResultsReporting {
     @Test
     public void testToString() {
         final EmailAddress emailAddress = new EmailAddress();
-        assertNotNull(UNEXPECTED_NULL,emailAddress);
+        assertNotNull(UNEXPECTED_NULL, emailAddress);
         final String string = emailAddress.toString();
-        assertNotNull(UNEXPECTED_NULL,string);
+        assertNotNull(UNEXPECTED_NULL, string);
         this.log.info(string);
     }
 

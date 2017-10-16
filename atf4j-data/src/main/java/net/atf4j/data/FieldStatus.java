@@ -28,8 +28,7 @@ public enum FieldStatus {
     /**
      * Instantiates a new field status.
      *
-     * @param value
-     *            the value
+     * @param value the value
      */
     private FieldStatus(final String value) {
         this.value = value;

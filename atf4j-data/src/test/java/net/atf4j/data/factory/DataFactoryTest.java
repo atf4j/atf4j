@@ -75,8 +75,7 @@ public final class DataFactoryTest extends ResultsReporting {
     /**
      * Test default constructor.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testDefaultConstructor() throws Exception {
@@ -88,8 +87,7 @@ public final class DataFactoryTest extends ResultsReporting {
     /**
      * Test random string creation.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testString() throws Exception {
@@ -105,8 +103,7 @@ public final class DataFactoryTest extends ResultsReporting {
     /**
      * Test random numeric string creation.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testDigits() throws Exception {
@@ -122,8 +119,7 @@ public final class DataFactoryTest extends ResultsReporting {
     /**
      * test DataFactory object.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testToday() throws Exception {
@@ -135,8 +131,7 @@ public final class DataFactoryTest extends ResultsReporting {
     /**
      * Test method for DataFactory.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testThisMonth() throws Exception {
@@ -147,8 +142,7 @@ public final class DataFactoryTest extends ResultsReporting {
     /**
      * Test method for DataFactory.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testThisYear() throws Exception {
@@ -159,8 +153,7 @@ public final class DataFactoryTest extends ResultsReporting {
     /**
      * test DataFactory object.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testPastDate() throws Exception {
@@ -171,8 +164,7 @@ public final class DataFactoryTest extends ResultsReporting {
     /**
      * test DataFactory object.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testFutureDate() throws Exception {
@@ -183,8 +175,7 @@ public final class DataFactoryTest extends ResultsReporting {
     /**
      * Test method for void.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     public void testDateBetween() throws Exception {
         final Calendar futureDate = DataFactory.dateBetween(DataFactory.pastDate(), DataFactory.today());
@@ -194,8 +185,7 @@ public final class DataFactoryTest extends ResultsReporting {
     /**
      * test DataFactory object.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testDateOfBirth() throws Exception {
@@ -206,8 +196,7 @@ public final class DataFactoryTest extends ResultsReporting {
     /**
      * test DataFactory object.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testOver18() throws Exception {
@@ -218,8 +207,7 @@ public final class DataFactoryTest extends ResultsReporting {
     /**
      * test DataFactory object.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testUnder18() throws Exception {
@@ -230,8 +218,7 @@ public final class DataFactoryTest extends ResultsReporting {
     /**
      * Verify DataFactory object.
      *
-     * @param dateData
-     *            the date data
+     * @param dateData the date data
      */
     private void verifyDateData(final Calendar dateData) {
         assertNotNull(UNEXPECTED_NULL, dateData);

@@ -36,14 +36,14 @@ public final class BankDataFactoryTest extends ResultsReporting {
 
     /**
      * Test method for expected usage.
-     * 
-     * @throws FileNotFoundException
+     *
+     * @throws FileNotFoundException the file not found exception
      */
     @Test
     @Ignore
     public void testExpectedUsage() throws FileNotFoundException {
-        BankDataFactory instance = BankDataFactory.getInstance();
-        Bank randomBank = instance.random();
+        final BankDataFactory instance = BankDataFactory.getInstance();
+        final Bank randomBank = instance.random();
         assertNotNull(UNEXPECTED_NULL, randomBank);
         this.log.info("{}", randomBank);
     }
@@ -51,19 +51,18 @@ public final class BankDataFactoryTest extends ResultsReporting {
     /**
      * Test default constructor.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testDefaultConstructor() throws Exception {
-        BankDataFactory banKDataFactory = new BankDataFactory();
+        final BankDataFactory banKDataFactory = new BankDataFactory();
         assertNotNull(UNEXPECTED_NULL, banKDataFactory);
     }
 
     /**
      * Test method of get singleton instance of PersonDataFactory.
-     * 
-     * @throws FileNotFoundException
+     *
+     * @throws FileNotFoundException the file not found exception
      */
     @Test
     public void testGetInstance() throws FileNotFoundException {
@@ -74,12 +73,12 @@ public final class BankDataFactoryTest extends ResultsReporting {
 
     /**
      * Test method for void.
-     * 
-     * @throws FileNotFoundException
+     *
+     * @throws FileNotFoundException the file not found exception
      */
     @Test
     public void testCreate() throws FileNotFoundException {
-        BankDataFactory instance = BankDataFactory.getInstance();
+        final BankDataFactory instance = BankDataFactory.getInstance();
         final Bank bank = instance.create();
         assertNotNull(UNEXPECTED_NULL, bank);
         this.log.info("{}", bank.toString());

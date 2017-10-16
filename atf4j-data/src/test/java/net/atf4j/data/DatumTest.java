@@ -64,7 +64,7 @@ public final class DatumTest extends ResultsReporting {
      * Test method for { net.atf4j.data.Datum#isDirty()}.
      */
     @Test
-    public  void testIsDirty() {
+    public void testIsDirty() {
         final MockDatum mockDatum = new MockDatum();
         Assume.assumeFalse(mockDatum.isChanged());
         mockDatum.changed(true);
@@ -86,7 +86,7 @@ public final class DatumTest extends ResultsReporting {
      * Test method for { net.atf4j.data.Datum#setUsed(boolean)}.
      */
     @Test
-    public  void testIsUsed() {
+    public void testIsUsed() {
         final MockDatum mockDatum = new MockDatum();
         Assume.assumeFalse(mockDatum.isUsed());
         mockDatum.used(true);
