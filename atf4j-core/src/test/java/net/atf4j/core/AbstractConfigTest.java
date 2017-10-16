@@ -90,11 +90,32 @@ public final class AbstractConfigTest extends TestResultsReporting {
         assertEquals(Integer.MAX_VALUE, config.valueFor("missingKey", Integer.MAX_VALUE));
         assertEquals(Long.MAX_VALUE, config.valueFor("missingKey", Long.MAX_VALUE));
         assertEquals(true, config.valueFor("missingKey", true));
-        assertEquals(defaultValue, config.valueFor("stringKey", defaultValue));
-        assertEquals(1, config.valueFor("intKey", Integer.MAX_VALUE));
-        assertEquals(1, config.valueFor("longKey", Long.MAX_VALUE));
-        assertEquals(false, config.valueFor("booleanKey", true));
+        assertEquals("stringValue", config.valueFor("keyForString", defaultValue));
+        assertEquals(1, config.valueFor("keyForIntOne", Integer.MAX_VALUE));
+        assertEquals(1, config.valueFor("keyForLongOne", Long.MAX_VALUE));
+        assertEquals(true, config.valueFor("keyForTrue", false));
+        assertEquals(false, config.valueFor("keyForFalse", true));
+    }
 
+    @Test
+    public void testIntValueForKey() {
+        String value = Config.valueFor("keyForInt");
+        assertNotNull(UNEXPECTED_NULL, value);
+        log.info("{}", value);
+    }
+
+    @Test
+    public void testLongValueForKey() {
+        String value = Config.valueFor("keyForLong");
+        assertNotNull(UNEXPECTED_NULL, value);
+        log.info("{}", value);
+    }
+
+    @Test
+    public void testBooleanValueForKey() {
+        // @TODO: WIP
+        Config.valueFor("keyForTrue");
+        Config.valueFor("keyForFalse");
     }
 
 }

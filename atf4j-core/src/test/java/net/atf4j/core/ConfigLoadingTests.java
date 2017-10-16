@@ -49,19 +49,22 @@ public final class ConfigLoadingTests extends TestResultsReporting {
      * A Mock Test Configuration from file.
      */
     private class ConfigFromFile extends AbstractConfig {
-
         /**
-         * Instantiates a new config from file.
+         * Instantiates a new Configuration from file.
          *
          * @throws ConfigurationNotLoadedException the configuration not loaded
          */
         public ConfigFromFile() throws ConfigurationNotLoadedException {
-            super("/ConfigFromFile.properties");
+            super("ConfigFromFile.properties");
         }
 
+        /**
+         * Gets the property filename.
+         *
+         * @return the property filename
+         */
         public String getPropertyFilename() {
-            // TODO Auto-generated method stub
-            return null;
+            return get("filename");
         }
     }
 
@@ -87,12 +90,8 @@ public final class ConfigLoadingTests extends TestResultsReporting {
     public void testConfigFromFile() throws Exception {
         final ConfigFromFile config = new ConfigFromFile();
         assertNotNull(UNEXPECTED_NULL, config);
-        assertEquals("true", config.get("loaded"));
-        assertEquals(true, config.valueFor("loaded", false));
-        assertEquals("ConfigFromSystem.properties", config.get("name"));
-        assertEquals(null, config.get("missing"));
         this.log.info("{}", config.toString());
-        final String propertyFilename = config.getPropertyFilename();
+        String propertyFilename = config.getPropertyFilename();
         assertEquals("ConfigFromFile.properties", propertyFilename);
     }
 

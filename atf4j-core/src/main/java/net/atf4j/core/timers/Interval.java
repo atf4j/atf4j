@@ -166,4 +166,5 @@ public class Interval {
     public String toString() {
         return String.format("Interval [timePeriod=%s]", this.timePeriod);
     }
+
 }

@@ -18,6 +18,7 @@
 package net.atf4j.core;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
@@ -34,8 +35,36 @@ public final class ConfigTest extends TestResultsReporting {
     }
 
     @Test
-    public void testValueForKey() {
-        String value = Config.valueFor("key");
+    public void testStringValueForKey() {
+        String value = Config.valueFor("keyForString");
+        assertNotNull(UNEXPECTED_NULL, value);
+        log.info("{}", value);
+    }
+
+    @Test
+    public void testIntValueForKey() {
+        int value = Config.intValueFor("keyForInt");
+        assertNotNull(UNEXPECTED_NULL, value);
+        log.info("{}", value);
+    }
+
+    @Test
+    public void testLongValueForKey() {
+        long value = Config.longValueFor("keyForLong");
+        assertNotNull(UNEXPECTED_NULL, value);
+        log.info("{}", value);
+    }
+
+    @Test
+    public void testTrueValueForKey() {
+        boolean value = Config.booleanValueFor("keyForTrue");
+        assertNotNull(UNEXPECTED_NULL, value);
+        log.info("{}", value);
+    }
+
+    @Test
+    public void testFalseValueForKey() {
+        boolean value = Config.booleanValueFor("keyForFalse");
         assertNotNull(UNEXPECTED_NULL, value);
         log.info("{}", value);
     }
@@ -43,7 +72,7 @@ public final class ConfigTest extends TestResultsReporting {
     @Test
     public void testValueForMissingKey() {
         String value = Config.valueFor("missing");
-        assertNotNull(UNEXPECTED_NULL, value);
+        assertNull(value);
         log.info("{}", value);
     }
 

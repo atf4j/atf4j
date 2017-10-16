@@ -43,7 +43,7 @@ public class MilliTimerTest extends TestResultsReporting {
      */
     @Test
     public void testMilliTimerString() {
-        final MilliTimer milliTimer = new MilliTimer("");
+        final MilliTimer milliTimer = new MilliTimer("MilliTimer");
         assertNotNull(UNEXPECTED_NULL, milliTimer);
         this.log.error("{}", milliTimer);
     }

@@ -33,19 +33,9 @@ public final class Config extends AbstractConfig {
     }
 
     /**
-     * Instantiates a new configuration.
-     *
-     * @param propertyFilename the property filename
-     * @throws ConfigurationNotLoadedException the configuration not loaded
-     */
-    public Config(final String propertyFilename) throws ConfigurationNotLoadedException {
-        super(propertyFilename);
-    }
-
-    /**
      * Gets the single instance of configuration.
      *
-     * @return single instance of Configuation.
+     * @return single instance of configuration.
      */
     public static Config getInstance() {
         if (instance == null) {
@@ -62,6 +52,36 @@ public final class Config extends AbstractConfig {
      */
     public static String valueFor(final String key) {
         return getInstance().get(key);
+    }
+
+    /**
+     * int value for.
+     *
+     * @param key the key
+     * @return the int
+     */
+    public static int intValueFor(final String key) {
+        return getInstance().get(key, 1);
+    }
+
+    /**
+     * long value for.
+     *
+     * @param key the key
+     * @return the long
+     */
+    public static long longValueFor(final String key) {
+        return getInstance().get(key, 1);
+    }
+
+    /**
+     * Boolean value for.
+     *
+     * @param key the key
+     * @return true, if successful, otherwise false.
+     */
+    public static boolean booleanValueFor(final String key) {
+        return getInstance().get(key, false);
     }
 
 }

@@ -68,7 +68,7 @@ public abstract class AbstractConfig implements ConfigurationInterface {
      */
     private String propertiesFilename() {
         final String simpleName = this.getClass().getSimpleName();
-        return String.format("/%s.properties", simpleName);
+        return String.format("%s.properties", simpleName);
     }
 
     /**
@@ -110,6 +110,26 @@ public abstract class AbstractConfig implements ConfigurationInterface {
     }
 
     /**
+     * Get a property from System Property if available, otherwise from Property
+     * File if available, otherwise default.
+     *
+     * @param key the key
+     * @param defaultValue the default value
+     * @return the string
+     */
+    protected String get(final String key, final String defaultValue) {
+        final String systemProperty = System.getProperty(key);
+        this.log.trace("Using system property for key {} = {}", key, systemProperty);
+        if (systemProperty == null) {
+            final String property = this.properties.getProperty(key, defaultValue);
+            this.log.trace("Using property file for key {} = {}", key, property);
+            return property;
+        } else {
+            return systemProperty;
+        }
+    }
+
+    /**
      * Gets the value for the key.
      *
      * @param key the key
@@ -132,23 +152,14 @@ public abstract class AbstractConfig implements ConfigurationInterface {
     }
 
     /**
-     * Get a property from System Property if available, otherwise from Property
-     * File if available, otherwise default.
+     * Gets the value for the key.
      *
      * @param key the key
      * @param defaultValue the default value
-     * @return the string
+     * @return the boolean
      */
-    protected String get(final String key, final String defaultValue) {
-        final String systemProperty = System.getProperty(key);
-        this.log.trace("Using system property for key {} = {}", key, systemProperty);
-        if (systemProperty == null) {
-            final String property = this.properties.getProperty(key, defaultValue);
-            this.log.trace("Using property file for key {} = {}", key, property);
-            return property;
-        } else {
-            return systemProperty;
-        }
+    protected boolean get(final String key, final boolean defaultValue) {
+        return Boolean.parseBoolean(this.get(key, Boolean.toString(defaultValue)));
     }
 
     /*
@@ -170,7 +181,7 @@ public abstract class AbstractConfig implements ConfigurationInterface {
      */
     @Override
     public int valueFor(final String key, final int defaultValue) {
-        return Integer.parseInt(this.get(key, Integer.toString(defaultValue)));
+        return get(key, defaultValue);
     }
 
     /*
@@ -181,7 +192,7 @@ public abstract class AbstractConfig implements ConfigurationInterface {
      */
     @Override
     public long valueFor(final String key, final long defaultValue) {
-        return Long.parseLong(this.get(key, Long.toString(defaultValue)));
+        return get(key, defaultValue);
     }
 
     /*
@@ -192,7 +203,7 @@ public abstract class AbstractConfig implements ConfigurationInterface {
      */
     @Override
     public boolean valueFor(final String key, final boolean defaultValue) {
-        return Boolean.parseBoolean(this.get(key, Boolean.toString(defaultValue)));
+        return get(key, defaultValue);
     }
 
     /*
