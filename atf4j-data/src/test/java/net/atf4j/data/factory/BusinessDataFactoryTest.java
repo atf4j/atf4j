@@ -21,13 +21,13 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.data.Business;
 
 /**
  * A UnitTest for BusinessDataFactory objects.
  */
-public final class BusinessDataFactoryTest extends ResultsReporting {
+public final class BusinessDataFactoryTest extends TestResultsReporting {
 
     /**
      * Test method for expected usage.

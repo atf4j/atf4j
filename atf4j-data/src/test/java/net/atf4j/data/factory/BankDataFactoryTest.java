@@ -24,13 +24,13 @@ import java.io.FileNotFoundException;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.data.Bank;
 
 /**
  * A UnitTest for BankDataFactory objects.
  */
-public final class BankDataFactoryTest extends ResultsReporting {
+public final class BankDataFactoryTest extends TestResultsReporting {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
 

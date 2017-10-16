@@ -21,13 +21,13 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.data.Consumer;
 
 /**
  * Unit Test Suite for the ConsumerDataFactory.
  */
-public final class ConsumerDataFactoryTest extends ResultsReporting {
+public final class ConsumerDataFactoryTest extends TestResultsReporting {
 
     /**
      * Test method for void.

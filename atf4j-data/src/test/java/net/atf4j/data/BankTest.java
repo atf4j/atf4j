@@ -23,12 +23,12 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A Unit test class for Bank objects.
  */
-public final class BankTest extends ResultsReporting {
+public final class BankTest extends TestResultsReporting {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
 

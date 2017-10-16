@@ -22,12 +22,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * The CredentialsTest Class.
  */
-public class CredentialsTest extends ResultsReporting {
+public class CredentialsTest extends TestResultsReporting {
 
     /**
      * Test credentials.

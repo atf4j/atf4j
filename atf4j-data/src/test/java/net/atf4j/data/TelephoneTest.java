@@ -22,12 +22,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A Unit test class for Telephone objects.
  */
-public final class TelephoneTest extends ResultsReporting {
+public final class TelephoneTest extends TestResultsReporting {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
     private static final String _0123456789 = "0123456789";

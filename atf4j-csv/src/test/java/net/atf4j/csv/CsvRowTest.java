@@ -18,15 +18,17 @@
 package net.atf4j.csv;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A UnitTest for CsvRow objects.
  */
-public class CsvRowTest extends ResultsReporting {
+public class CsvRowTest extends TestResultsReporting {
+
     private static final String TEST_ROW = "One, Two, Three, Four";
     private static final String EXPECTED = "CsvRow [fields=[One, Two, Three, Four]]";
 
@@ -35,7 +37,8 @@ public class CsvRowTest extends ResultsReporting {
      */
     @Test
     public void testDefaultCsvRow() {
-        new CsvRow();
+        CsvRow csvRow = new CsvRow();
+        assertNotNull(csvRow);
     }
 
     /**
@@ -43,7 +46,8 @@ public class CsvRowTest extends ResultsReporting {
      */
     @Test
     public void testEmptyCsvRow() {
-        new CsvRow("");
+        CsvRow csvRow = new CsvRow("");
+        assertNotNull(csvRow);
     }
 
     /**
@@ -52,6 +56,7 @@ public class CsvRowTest extends ResultsReporting {
     @Test
     public void testGetField() {
         final CsvRow csvRow = new CsvRow(TEST_ROW);
+        assertNotNull(csvRow);
         assertEquals(4, csvRow.length());
         assertEquals("One", csvRow.getField(1));
         assertEquals("Two", csvRow.getField(2));
@@ -65,7 +70,9 @@ public class CsvRowTest extends ResultsReporting {
     @Test
     public void testGetFields() {
         final CsvRow csvRow = new CsvRow(TEST_ROW);
+        assertNotNull(csvRow);
         final String[] fields = csvRow.getFields();
+        assertNotNull(fields);
         assertEquals(4, fields.length);
         for (final String field : fields) {
             this.log.info("field = {}", field);
@@ -77,7 +84,10 @@ public class CsvRowTest extends ResultsReporting {
      */
     @Test
     public void testToString() {
-        final String actual = new CsvRow(TEST_ROW).toString();
+        CsvRow csvRow = new CsvRow(TEST_ROW);
+        assertNotNull(csvRow);
+        final String actual = csvRow.toString();
+        assertNotNull(actual);
         assertEquals(TEST_ROW, actual);
         this.log.info("ACTUAL = {}", actual);
     }
@@ -87,7 +97,10 @@ public class CsvRowTest extends ResultsReporting {
      */
     @Test
     public void testDebugString() {
-        final String actual = new CsvRow(TEST_ROW).debugString();
+        CsvRow csvRow = new CsvRow(TEST_ROW);
+        assertNotNull(csvRow);
+        final String actual = csvRow.debugString();
+        assertNotNull(actual);
         assertEquals(EXPECTED, actual);
         this.log.info("ACTUAL = {}", actual);
     }

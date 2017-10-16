@@ -22,12 +22,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A Unit test class for Text objects.
  */
-public final class TextTest extends ResultsReporting {
+public final class TextTest extends TestResultsReporting {
 
     /**
      * Test expected usage.
@@ -82,7 +82,8 @@ public final class TextTest extends ResultsReporting {
      */
     @Test
     public void testPadToLengthStringInt() {
-        assertEquals("Stem ", Text.padToLength("Stem", 5));
+        String padToLength = Text.padToLength("Stem", 5);
+        assertEquals("Stem ", padToLength);
     }
 
     /**
@@ -90,7 +91,8 @@ public final class TextTest extends ResultsReporting {
      */
     @Test
     public void testPadToLengthStringIntChar() {
-        assertEquals("Stem*", Text.padToLength("Stem", 5, '*'));
+        String padToLength = Text.padToLength("Stem", 5, '*');
+        assertEquals("Stem*", padToLength);
     }
 
 }

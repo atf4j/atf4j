@@ -21,12 +21,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A UnitTest for AbstractDataFactory objects.
  */
-public final class MockDataFactoryTest extends ResultsReporting {
+public final class MockDataFactoryTest extends TestResultsReporting {
 
     /**
      * Mock Test Data.

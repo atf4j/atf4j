@@ -20,7 +20,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.data.management.JdbcData;
 import net.atf4j.data.management.JmsData;
 import net.atf4j.data.management.RestfulData;
@@ -29,7 +29,7 @@ import net.atf4j.data.management.SetUpData;
 /**
  * A Unit test class for SetUpData objects.
  */
-public final class SetUpDataTest extends ResultsReporting {
+public final class SetUpDataTest extends TestResultsReporting {
 
     protected SetUpData jdbcData = new JdbcData();
     protected SetUpData jmsData = new JmsData();

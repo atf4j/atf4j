@@ -22,12 +22,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A UnitTest for HeaderLine objects.
  */
-public class HeaderLineTest extends ResultsReporting {
+public class HeaderLineTest extends TestResultsReporting {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
     private static final String HEADER_LINE = "ColumnOne, ColumnTwo";

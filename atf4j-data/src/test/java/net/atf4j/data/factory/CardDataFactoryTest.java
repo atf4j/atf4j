@@ -21,13 +21,13 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.data.Card;
 
 /**
  * A UnitTest for CardDataFactory objects.
  */
-public final class CardDataFactoryTest extends ResultsReporting {
+public final class CardDataFactoryTest extends TestResultsReporting {
 
     /**
      * Test method for void.

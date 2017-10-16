@@ -27,7 +27,7 @@ import java.util.Date;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.data.Business;
 import net.atf4j.data.Card;
 import net.atf4j.data.Consumer;
@@ -38,7 +38,7 @@ import net.atf4j.data.PostalAddress;
 /**
  * A UnitTest for DataFactory objects.
  */
-public final class DataFactoryTest extends ResultsReporting {
+public final class DataFactoryTest extends TestResultsReporting {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
 

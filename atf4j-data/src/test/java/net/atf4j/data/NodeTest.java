@@ -21,12 +21,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * The NodeTest Class.
  */
-public class NodeTest extends ResultsReporting {
+public class NodeTest extends TestResultsReporting {
 
     /**
      * The Node Class.

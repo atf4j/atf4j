@@ -21,12 +21,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A Unit test class for ProductCatalog objects.
  */
-public final class ProductCatalogTest extends ResultsReporting {
+public final class ProductCatalogTest extends TestResultsReporting {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
 

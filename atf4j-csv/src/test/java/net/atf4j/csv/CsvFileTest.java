@@ -25,14 +25,13 @@ import java.io.FileNotFoundException;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Unit Test for CsvFile class.
  */
-public class CsvFileTest extends ResultsReporting {
+public class CsvFileTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final String EXPECTED_HEADER = "HeaderLine [fields=[ColumnOne, ColumnTwo, ColumnThree, ColumnFour]]";
     private static final String MISSING_CSV = "missing.csv";
     private static final String TEST_DATA_CSV = "TestData.csv";
@@ -61,7 +60,8 @@ public class CsvFileTest extends ResultsReporting {
      */
     @Test(expected = FileNotFoundException.class)
     public void testConstructorWithMissingFile() throws FileNotFoundException {
-        new CsvFile(MISSING_CSV);
+        CsvFile csvFile = new CsvFile(MISSING_CSV);
+        assertNotNull(UNEXPECTED_NULL, csvFile);
         fail("expected FileNotFoundException");
     }
 
@@ -74,7 +74,8 @@ public class CsvFileTest extends ResultsReporting {
      */
     @Test(expected = FileNotFoundException.class)
     public void testReadMissingFile() throws FileNotFoundException {
-        CsvFile.read(MISSING_CSV);
+        CsvFile csvFile = CsvFile.read(MISSING_CSV);
+        assertNotNull(UNEXPECTED_NULL, csvFile);
         fail("expected FileNotFoundException");
     }
 

@@ -24,14 +24,14 @@ import java.util.Calendar;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.data.Person.Gender;
 import net.atf4j.data.Person.Title;
 
 /**
  * A Unit test class for Person objects.
  */
-public final class PersonTest extends ResultsReporting {
+public final class PersonTest extends TestResultsReporting {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
 

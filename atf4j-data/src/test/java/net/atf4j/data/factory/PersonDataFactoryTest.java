@@ -21,13 +21,13 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.data.Person;
 
 /**
  * Unit Test Suite for the PersonDataFactory.
  */
-public final class PersonDataFactoryTest extends ResultsReporting {
+public final class PersonDataFactoryTest extends TestResultsReporting {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
 

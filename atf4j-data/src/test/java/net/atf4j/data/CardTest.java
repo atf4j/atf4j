@@ -25,12 +25,12 @@ import java.util.Date;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A Unit test class for Card objects.
  */
-public final class CardTest extends ResultsReporting {
+public final class CardTest extends TestResultsReporting {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
     private static final String INVALID_NUMBER = "1111-1111-1111-1111";

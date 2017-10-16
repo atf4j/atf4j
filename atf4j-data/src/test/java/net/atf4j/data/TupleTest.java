@@ -22,12 +22,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * The TupleTest Class.
  */
-public class TupleTest extends ResultsReporting {
+public class TupleTest extends TestResultsReporting {
 
     /**
      * Test set get key.

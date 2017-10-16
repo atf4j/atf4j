@@ -24,12 +24,12 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Assume;
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A Unit test class for Datum.
  */
-public final class DatumTest extends ResultsReporting {
+public final class DatumTest extends TestResultsReporting {
 
     /**
      * The MockDatum Class.

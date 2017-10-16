@@ -21,12 +21,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.ResultsReporting;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A Unit test class for FieldStatus objects.
  */
-public final class FieldStatusTest extends ResultsReporting {
+public final class FieldStatusTest extends TestResultsReporting {
 
     /**
      * Test method for void.
