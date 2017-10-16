@@ -70,8 +70,8 @@ public abstract class AbstractGuiMap {
     /**
      * Contains key.
      *
-     * @param key
-     *            the key \* @return true, if successful, otherwise false.
+     * @param key            the key \* @return true, if successful, otherwise false.
+     * @return true, if successful, otherwise false.
      */
     public boolean containsKey(final String key) {
         return this.resourceBundle.containsKey(key);

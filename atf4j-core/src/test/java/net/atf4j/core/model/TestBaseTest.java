@@ -75,7 +75,7 @@ public class TestBaseTest extends TestResultsReporting {
     /**
      * Test method for TestBase.
      *
-     * @throws Atf4jException the atf 4 j exception
+     * @throws Atf4jException the Atf4jException
      */
     @Test
     public void testRegisterLogging() throws Atf4jException {
@@ -102,7 +102,7 @@ public class TestBaseTest extends TestResultsReporting {
     /**
      * Test method for TestBase.
      *
-     * @throws Atf4jException the atf 4 j exception
+     * @throws Atf4jException the Atf4jException
      */
     @Test
     public void testExecute() throws Atf4jException {
@@ -117,7 +117,7 @@ public class TestBaseTest extends TestResultsReporting {
     /**
      * Test method for TestBase.
      *
-     * @throws Atf4jException the atf 4 j exception
+     * @throws Atf4jException the Atf4jException
      */
     @Test(expected = Atf4jException.class)
     public void testMissingExecute() throws Atf4jException {

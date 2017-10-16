@@ -65,7 +65,7 @@ public class TestStepTest extends TestResultsReporting {
     /**
      * Test method for TestCase.
      *
-     * @throws Atf4jException the atf 4 j exception
+     * @throws Atf4jException the Atf4jException
      */
     @Test
     public void testRegisterLogging() throws Atf4jException {
@@ -77,7 +77,7 @@ public class TestStepTest extends TestResultsReporting {
     /**
      * Test method for TestCase.
      *
-     * @throws Atf4jException the atf 4 j exception
+     * @throws Atf4jException the Atf4jException
      */
     @Test
     public void testExecuteTestContext() throws Atf4jException {

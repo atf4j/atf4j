@@ -62,7 +62,7 @@ public class TestCase extends AbstractTestBase {
      * Execute.
      *
      * @return the test case
-     * @throws Atf4jException the atf 4 j exception
+     * @throws Atf4jException the Atf4jException
      */
     public TestCase execute() throws Atf4jException {
         return execute(this.testContext);

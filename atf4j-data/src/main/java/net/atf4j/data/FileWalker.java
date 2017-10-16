@@ -52,7 +52,6 @@ public class FileWalker extends AbstractWalker {
      * Process file.
      *
      * @param f the f
-     * @throws IOException Signals that an I/O exception has occurred.
      */
     @Override
     protected void processFile(final File f) {

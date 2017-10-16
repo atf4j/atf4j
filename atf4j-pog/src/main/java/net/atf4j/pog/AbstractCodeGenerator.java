@@ -191,9 +191,7 @@ public abstract class AbstractCodeGenerator {
      *
      * @param string the string
      * @return the string
-     * @Deprecated
      */
-    @Deprecated
     public String firstUpper(final String string) {
         final char[] charArray = string.toCharArray();
         charArray[0] = Character.toUpperCase(charArray[0]);
@@ -239,7 +237,7 @@ public abstract class AbstractCodeGenerator {
      * Generate.
      *
      * @return the code generator
-     * @throws Exception the exception
+     * @throws Atf4jException the Atf4jException
      */
     public AbstractCodeGenerator generate() throws Atf4jException {
         assumeNotNull(this.templateFilename);
@@ -252,9 +250,7 @@ public abstract class AbstractCodeGenerator {
      *
      * @param templateFilename the template filename
      * @return the code generator
-     * @throws Atf4jException
-     * @throws TemplateNotLoadedException
-     * @throws Exception the exception
+     * @throws Atf4jException the Atf4jException
      */
     public AbstractCodeGenerator generate(final String templateFilename) throws Atf4jException {
         return generate(templateReader(templateFilename));
@@ -264,9 +260,8 @@ public abstract class AbstractCodeGenerator {
      * Generate from input steam reader to output stream.
      *
      * @param templateReader the template reader
-     * @param writer the writer
      * @return the code generator
-     * @throws IOException
+     * @throws Atf4jException the Atf4jException
      */
     private AbstractCodeGenerator generate(final InputStreamReader templateReader) throws Atf4jException {
         final Writer writer;
@@ -416,10 +411,11 @@ public abstract class AbstractCodeGenerator {
      */
     @SuppressWarnings("serial")
     public class CodeNotGeneratedException extends Atf4jException {
+
         /**
          * Instantiates a new template not loaded.
          *
-         * @param expectedTemplateFilename the expected template filename
+         * @param expectedCodeFilename the expected code filename
          */
         public CodeNotGeneratedException(final String expectedCodeFilename) {
             super(String.format("TemplateNotLoaded [expectedCodeFilename=%s]", expectedCodeFilename));

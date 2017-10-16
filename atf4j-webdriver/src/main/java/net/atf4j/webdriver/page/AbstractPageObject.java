@@ -24,7 +24,6 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriver.Options;
@@ -66,8 +65,7 @@ public abstract class AbstractPageObject {
     /**
      * Instantiates a new abstract page object.
      *
-     * @param targetUrl
-     *            the target url
+     * @param targetUrl the target url
      */
     public AbstractPageObject(final String targetUrl) {
         super();
@@ -80,8 +78,7 @@ public abstract class AbstractPageObject {
     /**
      * Instantiates a new page object.
      *
-     * @param webDriver
-     *            the web driver
+     * @param webDriver the web driver
      */
     public AbstractPageObject(final WebDriver webDriver) {
         super();
@@ -168,8 +165,7 @@ public abstract class AbstractPageObject {
     /**
      * Open.
      *
-     * @param pageUrl
-     *            the page url
+     * @param pageUrl the page url
      * @return this for a fluent interface.
      * @see net.atf4j.webdriver.page.PageInterface#open()
      */
@@ -219,9 +215,8 @@ public abstract class AbstractPageObject {
     /**
      * Verify.
      *
-     * @param webElement
-     *            the web element \* @return true, if successful, otherwise
-     *            false.
+     * @param webElement the web element \* @return true, if successful,
+     *            otherwise false.
      * @return true, if successful, otherwise false.
      */
     protected boolean verifyElement(final WebElement webElement) {
@@ -237,8 +232,7 @@ public abstract class AbstractPageObject {
     /**
      * Click when ready.
      *
-     * @param webElement
-     *            the web element
+     * @param webElement the web element
      */
     public void clickWhenReady(final WebElement webElement) {
         assertNotNull(UNEXPECTED_NULL, webElement);
@@ -249,8 +243,7 @@ public abstract class AbstractPageObject {
     /**
      * Wait until webElement is visible.
      *
-     * @param webElement
-     *            the web element
+     * @param webElement the web element
      * @return the webElement when visible, otherwise TimeoutException.
      */
     public WebElement waitUntilVisible(final WebElement webElement) {
@@ -261,8 +254,7 @@ public abstract class AbstractPageObject {
     /**
      * Wait until webElement is clickable.
      *
-     * @param webElement
-     *            the web element
+     * @param webElement the web element
      * @return the web element when clickable, otherwise TimeoutException.
      */
     public WebElement waitUntilClickable(final WebElement webElement) {
@@ -273,8 +265,7 @@ public abstract class AbstractPageObject {
     /**
      * Wait until url is value.
      *
-     * @param url
-     *            the url
+     * @param url the url
      * @return true if within timeout, otherwise false.
      */
     public Boolean waitUntilUrlIs(final String url) {
@@ -284,8 +275,7 @@ public abstract class AbstractPageObject {
     /**
      * Verify page title.
      *
-     * @param expectedPageTitle
-     *            the expected page title
+     * @param expectedPageTitle the expected page title
      * @return this for a fluent interface.
      */
     public AbstractPageObject verifyPageTitle(final String expectedPageTitle) {
@@ -298,8 +288,7 @@ public abstract class AbstractPageObject {
     /**
      * Wait for title to become equal to specific text.
      *
-     * @param pageTitle
-     *            the page title
+     * @param pageTitle the page title
      * @return true if within timeout, otherwise false.
      */
     public Boolean waitUntilTitle(final String pageTitle) {
@@ -309,8 +298,7 @@ public abstract class AbstractPageObject {
     /**
      * Wait until title contains partial text.
      *
-     * @param pageTitle
-     *            the partial page title
+     * @param pageTitle the partial page title
      * @return true if within timeout, otherwise false.
      */
     public Boolean waitUntilTitleContains(final String pageTitle) {
@@ -320,10 +308,8 @@ public abstract class AbstractPageObject {
     /**
      * Wait until count.
      *
-     * @param webElements
-     *            the web elements
-     * @param count
-     *            the count
+     * @param webElements the web elements
+     * @param count the count
      */
     public void waitUntilCount(final List<WebElement> webElements, final int count) {
         this.webDriverWait.until(new ExpectedCondition<Boolean>() {
@@ -341,10 +327,8 @@ public abstract class AbstractPageObject {
     /**
      * Waits until the expectations are full filled or timeout runs out.
      *
-     * @param condition
-     *            The conditions the element should meet
-     * @param timeout
-     *            The timeout to wait
+     * @param condition The conditions the element should meet
+     * @param timeout The timeout to wait
      * @return True if element meets the condition
      */
     protected boolean waitForExpectedCondition(final ExpectedCondition<?> condition, final int timeout) {
@@ -352,13 +336,18 @@ public abstract class AbstractPageObject {
     }
 
     /**
-     * Helper for a custom ExpectedCondition<Boolean> that returns true when the
-     * search is complete.
+     * Search finished.
      *
      * @return the expected condition
      */
     protected ExpectedCondition<Boolean> searchFinished() {
         return new ExpectedCondition<Boolean>() {
+
+            /*
+             * (non-Javadoc)
+             * 
+             * @see com.google.common.base.Function#apply(java.lang.Object)
+             */
             @Override
             public Boolean apply(final WebDriver webDriver) {
                 final String xpathExpression = "";

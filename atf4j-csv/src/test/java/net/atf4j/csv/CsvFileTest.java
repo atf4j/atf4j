@@ -53,10 +53,8 @@ public class CsvFileTest extends TestResultsReporting {
 
     /**
      * Test constructor with missing file.
-     * 
-     * @throws FileNotFoundException
      *
-     * @throws Exception the exception
+     * @throws FileNotFoundException the file not found exception
      */
     @Test(expected = FileNotFoundException.class)
     public void testConstructorWithMissingFile() throws FileNotFoundException {
@@ -67,10 +65,8 @@ public class CsvFileTest extends TestResultsReporting {
 
     /**
      * Test read missing file.
-     * 
-     * @throws FileNotFoundException
      *
-     * @throws Exception the exception
+     * @throws FileNotFoundException the file not found exception
      */
     @Test(expected = FileNotFoundException.class)
     public void testReadMissingFile() throws FileNotFoundException {
@@ -81,10 +77,8 @@ public class CsvFileTest extends TestResultsReporting {
 
     /**
      * Test load missing file.
-     * 
-     * @throws FileNotFoundException
      *
-     * @throws Exception the exception
+     * @throws FileNotFoundException the file not found exception
      */
     @Test(expected = FileNotFoundException.class)
     public void testLoadMissingFile() throws FileNotFoundException {

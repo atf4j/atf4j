@@ -39,11 +39,8 @@ public class CsvFile {
 
     /**
      * Default Constructor instantiates a new empty CsvFile object.
-     * 
-     * @throws FileNotFoundException
      *
-     * @throws Exception
-     *             Signals that an I/O exception has occurred.
+     * @throws FileNotFoundException the file not found exception
      */
     public CsvFile() throws FileNotFoundException {
         super();
@@ -53,11 +50,8 @@ public class CsvFile {
     /**
      * Instantiates a new CSV file.
      *
-     * @param dataFilename
-     *            the data filename
-     * @throws FileNotFoundException
-     * @throws Exception
-     *             the exception
+     * @param dataFilename            the data filename
+     * @throws FileNotFoundException the file not found exception
      */
     public CsvFile(final String dataFilename) throws FileNotFoundException {
         super();
@@ -67,12 +61,9 @@ public class CsvFile {
     /**
      * Factory Method returns file as CsvFile instance.
      *
-     * @param dataFilename
-     *            the data filename
+     * @param dataFilename            the data filename
      * @return the csv file
-     * @throws FileNotFoundException
-     * @throws Exception
-     *             the exception
+     * @throws FileNotFoundException the file not found exception
      */
     public static CsvFile read(final String dataFilename) throws FileNotFoundException {
         return new CsvFile(dataFilename);
@@ -80,16 +71,18 @@ public class CsvFile {
 
     /**
      * Load.
-     * 
-     * @throws FileNotFoundException
      *
-     * @throws Exception
-     *             the exception
+     * @throws FileNotFoundException the file not found exception
      */
     protected void load() throws FileNotFoundException {
         load(configFilename());
     }
 
+    /**
+     * Config filename.
+     *
+     * @return the string
+     */
     private String configFilename() {
         final String simpleName = this.getClass().getSimpleName();
         return String.format("%s.csv", simpleName);
@@ -98,11 +91,8 @@ public class CsvFile {
     /**
      * Load.
      *
-     * @param csvFilename
-     *            the data filename
-     * @throws FileNotFoundException
-     * @throws Exception
-     *             the exception
+     * @param csvFilename            the data filename
+     * @throws FileNotFoundException the file not found exception
      */
     public void load(final String csvFilename) throws FileNotFoundException {
         InputStream resourceAsStream = resourceAsStream(csvFilename);
@@ -117,10 +107,7 @@ public class CsvFile {
     /**
      * Load.
      *
-     * @param inputStream
-     *            the InputStream
-     * @throws Exception
-     *             the exception
+     * @param inputStream            the InputStream
      */
     public void load(final InputStream inputStream) {
         final InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -143,6 +130,12 @@ public class CsvFile {
         }
     }
 
+    /**
+     * Resource as stream.
+     *
+     * @param resourceFilename the resource filename
+     * @return the input stream
+     */
     private InputStream resourceAsStream(final String resourceFilename) {
         final ClassLoader classLoader = this.getClass().getClassLoader();
         return classLoader.getResourceAsStream(resourceFilename);
