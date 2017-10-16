@@ -14,11 +14,8 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.pog;
-
-import static org.junit.Assert.assertNotNull;
-
-import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
 
@@ -44,45 +41,11 @@ public class JavaClassGeneratorTest extends ResultsReporting {
         /**
          * Instantiates a new java class generator.
          *
-         * @param templateFilename
-         *            the template filename
-         * @throws TemplateNotLoaded
-         *             the template not loaded
+         * @param templateFilename the template filename
+         * @throws TemplateNotLoadedException the template not loaded
          */
-        public JavaClassGenerator(final String templateFilename) throws TemplateNotLoaded {
+        public JavaClassGenerator(final String templateFilename) throws TemplateNotLoadedException {
             super(templateFilename);
         }
-    }
-
-    /**
-     * Test method for void.
-     *
-     * @throws Exception
-     *             the exception
-     */
-    @Test
-    public void testPrototype() throws Exception {
-        this.log.info("==============================================");
-        final JavaClassGenerator javaClassGenerator = new JavaClassGenerator();
-        assertNotNull(UNEXPECTED_NULL,javaClassGenerator);
-        this.log.info(javaClassGenerator.prototype());
-    }
-
-    /**
-     * Test method for void.
-     *
-     * @throws Exception
-     *             the exception
-     */
-    @Test
-    public void testExpected() throws Exception {
-        this.log.info("==============================================");
-        final JavaClassGenerator javaClassGenerator = new JavaClassGenerator();
-        assertNotNull(UNEXPECTED_NULL,javaClassGenerator);
-        javaClassGenerator.setClassName("NewClass");
-        javaClassGenerator.addField(new ClassField("String", "aString"));
-        javaClassGenerator.addMethod(new ClassMethod("String", "toString"));
-        this.log.info(javaClassGenerator.prototype());
-        javaClassGenerator.generate();
     }
 }

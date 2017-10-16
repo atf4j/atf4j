@@ -27,10 +27,10 @@ public class PojoGenerator extends AbstractCodeGenerator {
     /**
      * Instantiates a new pojo generator.
      *
-     * @throws TemplateNotLoaded
+     * @throws TemplateNotLoadedException
      *             the template not loaded
      */
-    public PojoGenerator() throws TemplateNotLoaded {
+    public PojoGenerator() throws TemplateNotLoadedException {
         super("/templates/PojoClass.vm");
     }
 

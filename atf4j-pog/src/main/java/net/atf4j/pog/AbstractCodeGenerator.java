@@ -28,7 +28,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.StringWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,21 +44,21 @@ import net.atf4j.core.Atf4jException;
  */
 public abstract class AbstractCodeGenerator {
 
-    private final VelocityEngine velocityEngine = new VelocityEngine();
-    private final VelocityContext context = new VelocityContext();
-
     private static final String TARGET_FOLDER = "src/generated/java";
     private static final String CLASS_TEMPLATE = "/templates/Class.vm";
     protected static final String UNEXPECTED_NULL = "unexpected null";
 
-    private String templateFilename = CLASS_TEMPLATE;
-    private String packageName = "net.atf4j.generated";
-    private String className = "ExampleClass";
-    private final String targetHomeFolder = TARGET_FOLDER;
+    private final VelocityEngine velocityEngine = new VelocityEngine();
+    private final VelocityContext context = new VelocityContext();
 
     protected final List<ClassField> fields = new ArrayList<ClassField>();
     protected final List<ClassMethod> methods = new ArrayList<ClassMethod>();
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+
+    private String templateFilename = CLASS_TEMPLATE;
+    private String packageName = "net.atf4j.generated";
+    private String className = "ExampleClass";
+    private String targetHomeFolder = TARGET_FOLDER;
 
     /**
      * Instantiates a new code generator.
@@ -72,12 +71,10 @@ public abstract class AbstractCodeGenerator {
     /**
      * Instantiates a new code generator.
      *
-     * @param templateFilename
-     *            the template filename
-     * @throws TemplateNotLoaded
-     *             the template not loaded
+     * @param templateFilename the template filename
+     * @throws TemplateNotLoadedException the template not loaded
      */
-    public AbstractCodeGenerator(final String templateFilename) throws TemplateNotLoaded {
+    public AbstractCodeGenerator(final String templateFilename) throws TemplateNotLoadedException {
         super();
         setTemplate(templateFilename);
         initialise();
@@ -94,10 +91,8 @@ public abstract class AbstractCodeGenerator {
     /**
      * Context binding.
      *
-     * @param key
-     *            the key
-     * @param value
-     *            the value
+     * @param key the key
+     * @param value the value
      * @return the code generator
      */
     public AbstractCodeGenerator contextBinding(final String key, final Object value) {
@@ -111,13 +106,11 @@ public abstract class AbstractCodeGenerator {
     /**
      * Sets the template.
      *
-     * @param templateFilename
-     *            the template filename
+     * @param templateFilename the template filename
      * @return the code generator
-     * @throws TemplateNotLoaded
-     *             the template not loaded
+     * @throws TemplateNotLoadedException the template not loaded
      */
-    public AbstractCodeGenerator setTemplate(final String templateFilename) throws TemplateNotLoaded {
+    public AbstractCodeGenerator setTemplate(final String templateFilename) throws TemplateNotLoadedException {
         this.templateFilename = templateFilename;
         return this;
     }
@@ -125,8 +118,7 @@ public abstract class AbstractCodeGenerator {
     /**
      * Sets the package name.
      *
-     * @param packageName
-     *            the package name
+     * @param packageName the package name
      * @return the code generator
      */
     public AbstractCodeGenerator setPackageName(final String packageName) {
@@ -137,8 +129,7 @@ public abstract class AbstractCodeGenerator {
     /**
      * Sets the class name.
      *
-     * @param className
-     *            the class name
+     * @param className the class name
      * @return the code generator
      */
     public AbstractCodeGenerator setClassName(final String className) {
@@ -176,8 +167,7 @@ public abstract class AbstractCodeGenerator {
     /**
      * Class case.
      *
-     * @param candidateClassName
-     *            the candidate class name
+     * @param candidateClassName the candidate class name
      * @return the string
      */
     public String classCase(final String candidateClassName) {
@@ -187,8 +177,7 @@ public abstract class AbstractCodeGenerator {
     /**
      * Method case.
      *
-     * @param string
-     *            the string
+     * @param string the string
      * @return the string
      */
     public String methodCase(final String string) {
@@ -200,9 +189,9 @@ public abstract class AbstractCodeGenerator {
     /**
      * First upper.
      *
-     * @param string
-     *            the string
+     * @param string the string
      * @return the string
+     * @Deprecated
      */
     @Deprecated
     public String firstUpper(final String string) {
@@ -214,8 +203,7 @@ public abstract class AbstractCodeGenerator {
     /**
      * Adds the field.
      *
-     * @param classField
-     *            the class field
+     * @param classField the class field
      * @return the code generator
      */
     public AbstractCodeGenerator addField(final ClassField classField) {
@@ -226,10 +214,8 @@ public abstract class AbstractCodeGenerator {
     /**
      * Adds the method.
      *
-     * @param returnType
-     *            the return type
-     * @param methodName
-     *            the method name
+     * @param returnType the return type
+     * @param methodName the method name
      * @return the code generator
      */
     public AbstractCodeGenerator addMethod(final String returnType, final String methodName) {
@@ -241,8 +227,7 @@ public abstract class AbstractCodeGenerator {
     /**
      * Adds the method.
      *
-     * @param classMethod
-     *            the class method
+     * @param classMethod the class method
      * @return the code generator
      */
     public AbstractCodeGenerator addMethod(final ClassMethod classMethod) {
@@ -251,109 +236,92 @@ public abstract class AbstractCodeGenerator {
     }
 
     /**
-     * Prototype.
-     *
-     * @return the string
-     * @throws Exception
-     *             the exception
-     */
-    public String prototype() throws Exception {
-        final InputStreamReader templateReader = templateReader(this.templateFilename);
-        final StringWriter writer = new StringWriter();
-        generate(templateReader, writer);
-        return writer.toString();
-    }
-
-    /**
      * Generate.
      *
      * @return the code generator
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
-    public AbstractCodeGenerator generate() throws Exception {
+    public AbstractCodeGenerator generate() throws Atf4jException {
         assumeNotNull(this.templateFilename);
         assumeTrue(this.templateFilename.length() > 0);
         return generate(this.templateFilename);
     }
 
     /**
-     * Generate.
+     * Generate from template.
      *
-     * @param templateFilename
-     *            the template filename
+     * @param templateFilename the template filename
      * @return the code generator
-     * @throws Exception
-     *             the exception
+     * @throws Atf4jException
+     * @throws TemplateNotLoadedException
+     * @throws Exception the exception
      */
-    public AbstractCodeGenerator generate(final String templateFilename) throws Exception {
+    public AbstractCodeGenerator generate(final String templateFilename) throws Atf4jException {
         return generate(templateReader(templateFilename));
     }
 
     /**
-     * Generate.
+     * Generate from input steam reader to output stream.
      *
-     * @param templateReader
-     *            the template reader
+     * @param templateReader the template reader
+     * @param writer the writer
      * @return the code generator
-     * @throws Exception
-     *             the exception
+     * @throws IOException
      */
-    private AbstractCodeGenerator generate(final InputStreamReader templateReader) throws Exception {
-        final BufferedWriter bufferedWriter = destinationWriter();
-        assertNotNull(UNEXPECTED_NULL, bufferedWriter);
-        return generate(templateReader, bufferedWriter);
-    }
+    private AbstractCodeGenerator generate(final InputStreamReader templateReader) throws Atf4jException {
+        final Writer writer;
 
-    /**
-     * Generate.
-     *
-     * @param templateReader
-     *            the template reader
-     * @param writer
-     *            the writer
-     * @return the code generator
-     * @throws Exception
-     *             the exception
-     */
-    private AbstractCodeGenerator generate(final InputStreamReader templateReader, final Writer writer)
-            throws Exception {
+        try {
+            writer = destinationWriter();
+        } catch (IOException e) {
+            this.log.error("{}", e);
+            throw new CodeNotGeneratedException(this.className);
+        }
+
+        assertNotNull(UNEXPECTED_NULL, writer);
+
         final String logTag = this.getClass().getSimpleName();
-
         contextBinding("packageName", this.packageName);
         contextBinding("className", this.className);
         contextBinding("fields", this.fields);
         contextBinding("methods", this.methods);
 
-        final boolean evaluate = this.velocityEngine.evaluate(this.context, writer, logTag, templateReader);
+        assertTrue(this.velocityEngine.evaluate(this.context, writer, logTag, templateReader));
 
-        writer.flush();
-        writer.close();
-
-        assertTrue(evaluate);
+        try {
+            writer.flush();
+            writer.close();
+        } catch (IOException e) {
+            this.log.error("{}", e);
+            throw new CodeNotGeneratedException(this.className);
+        }
 
         return this;
     }
 
     /**
-     * Template reader.
+     * Template reader from template filename.
      *
-     * @param templateFilename
-     *            the template filename
+     * @param templateFilename the template filename
      * @return the input stream reader
-     * @throws TemplateNotLoaded
-     *             the template not loaded
+     * @throws TemplateNotLoadedException the template not loaded
      */
-    private InputStreamReader templateReader(final String templateFilename) throws TemplateNotLoaded {
+    private InputStreamReader templateReader(final String templateFilename) throws TemplateNotLoadedException {
         this.log.info(templateFilename);
         final InputStream resourceAsStream = resourceAsStream(templateFilename);
         if (resourceAsStream == null) {
-            throw new TemplateNotLoaded(templateFilename);
+            throw new TemplateNotLoadedException(templateFilename);
         } else {
             return new InputStreamReader(resourceAsStream);
         }
     }
 
+    /**
+     * Resource as stream from resource name.
+     *
+     * @param resourceFilename the resource filename
+     * @return the input stream
+     */
     private InputStream resourceAsStream(final String resourceFilename) {
         final ClassLoader classLoader = this.getClass().getClassLoader();
         return classLoader.getResourceAsStream(resourceFilename);
@@ -363,8 +331,7 @@ public abstract class AbstractCodeGenerator {
      * Destination writer.
      *
      * @return the buffered writer
-     * @throws IOException
-     *             Signals that an I/O exception has occurred.
+     * @throws IOException Signals that an I/O exception has occurred.
      */
     private BufferedWriter destinationWriter() throws IOException {
         final String packageFolder = packageFolder(this.packageName);
@@ -379,10 +346,8 @@ public abstract class AbstractCodeGenerator {
     /**
      * Target filename.
      *
-     * @param targetPath
-     *            the target path
-     * @param className
-     *            the class name
+     * @param targetPath the target path
+     * @param className the class name
      * @return the string
      */
     private String targetFilename(final String targetPath, final String className) {
@@ -394,10 +359,8 @@ public abstract class AbstractCodeGenerator {
     /**
      * Target path.
      *
-     * @param homeFolder
-     *            the home folder
-     * @param packageFolder
-     *            the package folder
+     * @param homeFolder the home folder
+     * @param packageFolder the package folder
      * @return the string
      */
     private String targetPath(final String homeFolder, final String packageFolder) {
@@ -412,8 +375,7 @@ public abstract class AbstractCodeGenerator {
     /**
      * Package folder.
      *
-     * @param packageName
-     *            the package name
+     * @param packageName the package name
      * @return the string
      */
     private String packageFolder(final String packageName) {
@@ -435,20 +397,32 @@ public abstract class AbstractCodeGenerator {
     }
 
     /**
-     * The TemplateNotLoaded Class.
+     * Exception to indicate that no Template was not loaded.
      */
     @SuppressWarnings("serial")
-    public class TemplateNotLoaded extends Atf4jException {
-
+    public class TemplateNotLoadedException extends Atf4jException {
         /**
          * Instantiates a new template not loaded.
          *
-         * @param expectedTemplateFilename
-         *            the expected template filename
+         * @param expectedTemplateFilename the expected template filename
          */
-        public TemplateNotLoaded(final String expectedTemplateFilename) {
+        public TemplateNotLoadedException(final String expectedTemplateFilename) {
             super(String.format("TemplateNotLoaded [expectedTemplateFilename=%s]", expectedTemplateFilename));
         }
     }
 
+    /**
+     * Exception to indicate that no Code was Generated.
+     */
+    @SuppressWarnings("serial")
+    public class CodeNotGeneratedException extends Atf4jException {
+        /**
+         * Instantiates a new template not loaded.
+         *
+         * @param expectedTemplateFilename the expected template filename
+         */
+        public CodeNotGeneratedException(final String expectedCodeFilename) {
+            super(String.format("TemplateNotLoaded [expectedCodeFilename=%s]", expectedCodeFilename));
+        }
+    }
 }

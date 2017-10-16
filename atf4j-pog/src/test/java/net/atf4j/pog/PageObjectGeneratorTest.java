@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.pog;
 
 import static org.junit.Assert.assertNotNull;
@@ -33,14 +34,13 @@ public class PageObjectGeneratorTest extends ResultsReporting {
     /**
      * Test method for void.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testExpected() throws Exception {
         this.log.info("==============================================");
         final PageObjectData pageObjectData = new PageObjectData();
-        assertNotNull("unexpected null",pageObjectData);
+        assertNotNull("unexpected null", pageObjectData);
 
         final PageWebElement idElement = new PageWebElement("findById", Strategy.ID, "id");
         final PageWebElement nameElement = new PageWebElement("findByName", Strategy.NAME, "name");
@@ -52,8 +52,14 @@ public class PageObjectGeneratorTest extends ResultsReporting {
                 "//a[contains(text(), 'ATF4J')]");
         final PageWebElement cssElement = new PageWebElement("findByCss", Strategy.CSS, ".");
 
-        pageObjectData.add(idElement).add(nameElement).add(classNameElement).add(linkTextElement)
-                .add(partialLinkTextElement).add(xpathElement).add(cssElement);
+        pageObjectData
+            .add(idElement)
+            .add(nameElement)
+            .add(classNameElement)
+            .add(linkTextElement)
+            .add(partialLinkTextElement)
+            .add(xpathElement)
+            .add(cssElement);
 
         pageObjectData.addNav(linkTextElement);
         pageObjectData.addNav(partialLinkTextElement);
@@ -64,15 +70,14 @@ public class PageObjectGeneratorTest extends ResultsReporting {
         pog.setClassName("ExamplePageObject");
         pog.add(pageObjectData);
 
-        this.log.info(pog.prototype());
+        this.log.info("{}", pog.generate());
         pog.generate();
     }
 
     /**
      * Test method for void.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testPageObjectTargetSurvey() throws Exception {
@@ -84,8 +89,7 @@ public class PageObjectGeneratorTest extends ResultsReporting {
     /**
      * Test method for void.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testPageObjectSurvey() throws Exception {
@@ -97,27 +101,13 @@ public class PageObjectGeneratorTest extends ResultsReporting {
     /**
      * Test method for void.
      *
-     * @throws Exception
-     *             the exception
-     */
-    @Test
-    public void testPageObjectPrototype() throws Exception {
-        this.log.info("==============================================");
-        final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
-        pageObjectGenerator.target(HTTP_ATF4J_NET).prototype();
-    }
-
-    /**
-     * Test method for void.
-     *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testPageObjectGenerator() throws Exception {
         this.log.info("==============================================");
         final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
-        pageObjectGenerator.target(HTTP_ATF4J_NET).survey().prototype();
+        pageObjectGenerator.target(HTTP_ATF4J_NET).survey().generate();
 
         pageObjectGenerator.generate();
     }

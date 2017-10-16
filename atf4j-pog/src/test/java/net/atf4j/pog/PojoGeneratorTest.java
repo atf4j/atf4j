@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.pog;
 
 import static org.junit.Assert.assertNotNull;
@@ -32,39 +33,19 @@ public class PojoGeneratorTest extends ResultsReporting {
     /**
      * Test method for void.
      *
-     * @throws Exception
-     *             the exception
-     */
-    @Test
-    public void testPrototype() throws Exception {
-        this.log.info("==============================================");
-        final PojoGenerator pojoGenerator = new PojoGenerator();
-        assertNotNull(UNEXPECTED_NULL,pojoGenerator);
-        assertNotNull(UNEXPECTED_NULL,pojoGenerator.setClassName("FluentPojo"));
-        pojoGenerator.addStringField("string");
-        pojoGenerator.addDateField("date");
-        pojoGenerator.addBooleanField("bool");
-
-        this.log.info(pojoGenerator.prototype());
-    }
-
-    /**
-     * Test method for void.
-     *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     public void testExpected() throws Exception {
         this.log.info("==============================================");
         final PojoGenerator pojoGenerator = new PojoGenerator();
-        assertNotNull(UNEXPECTED_NULL,pojoGenerator);
-        assertNotNull(UNEXPECTED_NULL,pojoGenerator.setClassName("FluentPojo"));
+        assertNotNull(UNEXPECTED_NULL, pojoGenerator);
+        assertNotNull(UNEXPECTED_NULL, pojoGenerator.setClassName("FluentPojo"));
         pojoGenerator.addStringField("string");
         pojoGenerator.addDateField("date");
         pojoGenerator.addBooleanField("bool");
 
-        this.log.info(pojoGenerator.prototype());
+        this.log.info("{}", pojoGenerator.generate());
         pojoGenerator.generate();
     }
 
