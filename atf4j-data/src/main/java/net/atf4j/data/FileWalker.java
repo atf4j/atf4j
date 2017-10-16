@@ -18,6 +18,7 @@
 package net.atf4j.data;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -38,10 +39,8 @@ public class FileWalker extends AbstractWalker {
     /**
      * Instantiates a new file walker.
      *
-     * @param path
-     *            the path
-     * @throws Exception
-     *             the exception
+     * @param path the path
+     * @throws Exception the exception
      */
     public FileWalker(final String path) throws Exception {
         super();
@@ -52,12 +51,10 @@ public class FileWalker extends AbstractWalker {
     /**
      * Process file.
      *
-     * @param f
-     *            the f
-     * @throws Exception
-     *             the exception
+     * @param f the f
+     * @throws IOException
      */
-    private void processFile(final File f) throws Exception {
+    private void processFile(final File f) throws IOException {
         final File absoluteFile = f.getAbsoluteFile();
         this.log.info("FILE:{}", absoluteFile);
         final String string = readFile(absoluteFile.getPath());
@@ -67,13 +64,12 @@ public class FileWalker extends AbstractWalker {
     /**
      * Read file.
      *
-     * @param filename
-     *            the filename
+     * @param filename the filename
      * @return the string
-     * @throws Exception
-     *             the exception
+     * @throws IOException
+     * @throws Exception the exception
      */
-    String readFile(final String filename) throws Exception {
+    String readFile(final String filename) throws IOException {
         final byte[] encoded = Files.readAllBytes(Paths.get(filename));
         return new String(encoded, Charset.defaultCharset());
     }

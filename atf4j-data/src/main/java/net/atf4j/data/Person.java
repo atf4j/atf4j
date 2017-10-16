@@ -50,6 +50,12 @@ public class Person {
             this.genderString = asText;
         }
 
+        /**
+         * From string.
+         *
+         * @param gender the gender
+         * @return the gender
+         */
         public static Gender fromString(String gender) {
             return null;
         }
@@ -84,6 +90,12 @@ public class Person {
             this.titleString = asText;
         }
 
+        /**
+         * From string.
+         *
+         * @param title the title
+         * @return the title
+         */
         public static Title fromString(String title) {
             return null;
         }
@@ -131,9 +143,24 @@ public class Person {
         return this;
     }
 
+    /**
+     * Title.
+     *
+     * @param title the title
+     * @return the person
+     */
     public Person title(final Title title) {
         this.title = title;
         return this;
+    }
+
+    /**
+     * Gets the title.
+     *
+     * @return the title
+     */
+    public String title() {
+        return this.title.toString();
     }
 
     /**
@@ -213,18 +240,15 @@ public class Person {
         return this;
     }
 
+    /**
+     * Gender.
+     *
+     * @param gender the gender
+     * @return the person
+     */
     public Person gender(final Gender gender) {
         this.gender = gender;
         return this;
-    }
-
-    /**
-     * Gets the title.
-     *
-     * @return the title
-     */
-    public String title() {
-        return this.title.toString();
     }
 
     /**

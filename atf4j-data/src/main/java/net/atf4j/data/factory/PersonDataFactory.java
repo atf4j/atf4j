@@ -21,6 +21,7 @@ import java.util.Arrays;
 
 import net.atf4j.data.EmailAddress;
 import net.atf4j.data.Person;
+import net.atf4j.data.Person.Title;
 
 /**
  * PersonFactory, a data factory to create data.
@@ -86,7 +87,7 @@ public class PersonDataFactory extends AbstractDataFactory {
         person.surname(randomSurname());
         person.dateOfBirth(DataFactory.dateOfBirth());
         person.emailAddress(EmailAddress.create().toString());
-        person.title();
+        person.title(Title.DR);
         return person;
     }
 

@@ -8,9 +8,12 @@ import org.junit.Test;
 public class ExampleWalkerTest {
 
     public class ExampleWalker extends AbstractWalker {
+        private ExampleWalker() {
+            super("/messages");
+        }
     }
 
-    @Test(expected = AssertionError.class)
+    @Test
     public void testAbstractWalker() throws Exception {
         ExampleWalker exampleWalker = new ExampleWalker();
         assertNotNull("unexpected null", exampleWalker);

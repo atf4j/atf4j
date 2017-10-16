@@ -20,16 +20,15 @@ package net.atf4j.data;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import net.atf4j.core.ResultsReporting;
 
 /**
  * A Unit test class for AbstractWalker objects.
  */
-public final class AbstractWalkerTest {
+public final class AbstractWalkerTest extends ResultsReporting {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
-    private static final Logger LOG = LoggerFactory.getLogger(AbstractWalkerTest.class);
 
     /**
      * MockWalker Class.
@@ -46,21 +45,19 @@ public final class AbstractWalkerTest {
         /**
          * Instantiates a new mock walker.
          * 
-         * @param basePath
-         *            the base path
-         * @throws Exception
-         *             the exception
+         * @param basePath the base path
+         * @throws Exception the exception
          */
         public MockWalker(final String basePath) {
             super(basePath);
         }
     }
 
-    @Test(expected = AssertionError.class)
+    @Test
     public void testAbstractWalker() {
         MockWalker mockWalker = new MockWalker();
         assertNotNull(UNEXPECTED_NULL, mockWalker);
-        LOG.info("{}", mockWalker);
+        log.info("{}", mockWalker);
         assertNotNull(UNEXPECTED_NULL, mockWalker.walk());
     }
 
@@ -68,7 +65,7 @@ public final class AbstractWalkerTest {
     public void testAbstractWalkerDot() {
         MockWalker mockWalker = new MockWalker(".");
         assertNotNull(UNEXPECTED_NULL, mockWalker);
-        LOG.info("{}", mockWalker);
+        log.info("{}", mockWalker);
         assertNotNull(UNEXPECTED_NULL, mockWalker.walk());
     }
 
@@ -76,7 +73,7 @@ public final class AbstractWalkerTest {
     public void testAbstractWalkerFolder() {
         MockWalker mockWalker = new MockWalker("/messages");
         assertNotNull(UNEXPECTED_NULL, mockWalker);
-        LOG.info("{}", mockWalker);
+        log.info("{}", mockWalker);
         assertNotNull(UNEXPECTED_NULL, mockWalker.walk());
     }
 
@@ -84,7 +81,7 @@ public final class AbstractWalkerTest {
     public void testAbstractWalkerMissingFolder() {
         MockWalker mockWalker = new MockWalker("/missing");
         assertNotNull(UNEXPECTED_NULL, mockWalker);
-        LOG.info("{}", mockWalker);
+        log.info("{}", mockWalker);
         assertNotNull(UNEXPECTED_NULL, mockWalker.walk());
     }
 }

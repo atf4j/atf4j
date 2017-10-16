@@ -20,14 +20,32 @@ package net.atf4j.data;
 /**
  * Node Class.
  *
- * @param <L>
- *            the generic type
- * @param <R>
- *            the generic type
+ * @param <L> the generic type
+ * @param <R> the generic type
  */
-public abstract class Node<L, R> {
+public abstract class AbstractNode<L, R> {
+
     private L left;
     private R right;
+
+    /**
+     * Instantiates a new abstract node.
+     */
+    public AbstractNode() {
+        super();
+    }
+
+    /**
+     * Instantiates a new abstract node.
+     *
+     * @param left the left
+     * @param right the right
+     */
+    public AbstractNode(L left, R right) {
+        super();
+        this.left = left;
+        this.right = right;
+    }
 
     /**
      * Left.

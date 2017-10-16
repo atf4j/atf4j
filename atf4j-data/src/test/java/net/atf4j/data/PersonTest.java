@@ -25,7 +25,7 @@ import java.util.Calendar;
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
-import net.atf4j.data.Person.Gender;
+import net.atf4j.data.Person.Title;
 
 /**
  * A Unit test class for Person objects.
@@ -40,7 +40,7 @@ public final class PersonTest extends ResultsReporting {
     @Test
     public void testPerson() {
         final Person person = new Person().forename("Forname").middlename("MiddleName").surname("Surname");
-        assertNotNull(UNEXPECTED_NULL,person);
+        assertNotNull(UNEXPECTED_NULL, person);
     }
 
     /**
@@ -49,7 +49,7 @@ public final class PersonTest extends ResultsReporting {
     @Test
     public void testPersonFornameMiddleSurname() {
         final Person person = new Person("Forname", "MiddleName", "Surname");
-        assertNotNull(UNEXPECTED_NULL,person);
+        assertNotNull(UNEXPECTED_NULL, person);
     }
 
     /**
@@ -57,27 +57,9 @@ public final class PersonTest extends ResultsReporting {
      */
     @Test
     public void testSetGetTitle() {
-        final String actual = "";
         Person person = new Person();
-        assertEquals(actual, person.title(actual).title());
-    }
-
-    /**
-     * Unit Test for test title.
-     */
-    @Test
-    public void testTitle() {
-        final Person.Title title = Person.Title.DR;
-        assertEquals("Dr", title.toString());
-    }
-
-    /**
-     * Unit Test for test gender.
-     */
-    @Test
-    public void testGender() {
-        final Gender gender = Gender.MALE;
-        assertEquals("Male", gender.toString());
+        assertNotNull(UNEXPECTED_NULL, person);
+        assertEquals(Title.SIR.toString(), person.title(Title.SIR).title());
     }
 
     /**

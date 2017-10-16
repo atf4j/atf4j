@@ -17,13 +17,12 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertNotNull;
-
 import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Paths;
+import java.util.Arrays;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,7 +48,6 @@ public abstract class AbstractWalker {
      * Instantiates a new abstract walker.
      *
      * @param basePath the path
-     * @throws Exception the exception
      */
     public AbstractWalker(final String basePath) {
         super();
@@ -84,16 +82,19 @@ public abstract class AbstractWalker {
      * @return the abstract walker
      */
     protected AbstractWalker walk(final String path) {
-        assertNotNull(UNEXPECTED_NULL, path);
         this.log.trace("walk({})", path);
         final URL resource = this.getClass().getResource(path);
         walk(resource);
         return this;
     }
 
+    /**
+     * Walk.
+     *
+     * @param url the url
+     */
     private void walk(final URL url) {
-        assertNotNull(UNEXPECTED_NULL, url);
-        this.log.trace("url:{}", url);
+        this.log.trace("walk({})", url);
         if (url != null) {
             URI uri;
             try {
@@ -102,28 +103,48 @@ public abstract class AbstractWalker {
             } catch (URISyntaxException e) {
                 log.error("{}", e.getLocalizedMessage());
             }
+        } else {
+            this.log.error("url is null");
         }
     }
 
+    /**
+     * Walk.
+     *
+     * @param uri the uri
+     */
     private void walk(URI uri) {
+        this.log.trace("walk({})", uri);
         if (uri != null) {
             final File root = Paths.get(uri).toFile();
             walk(root);
         } else {
-            this.log.trace("url is null");
+            this.log.error("uri is null");
         }
     }
 
+    /**
+     * Walk.
+     *
+     * @param root the root
+     */
     private void walk(final File root) {
+        this.log.trace("walk({})", root);
         if (root != null) {
             final File[] list = root.listFiles();
             walk(list);
         } else {
-            this.log.trace("root is null");
+            this.log.error("root is null");
         }
     }
 
+    /**
+     * Walk.
+     *
+     * @param list the list
+     */
     private void walk(final File[] list) {
+        this.log.trace("walk({})", Arrays.toString(list));
         if (list != null) {
             this.log.trace("length:{}", list.length);
             for (final File file : list) {
@@ -134,7 +155,7 @@ public abstract class AbstractWalker {
                 }
             }
         } else {
-            this.log.trace("listFiles is null");
+            this.log.error("listFiles is null");
         }
     }
 

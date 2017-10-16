@@ -36,7 +36,8 @@ public final class PostcodeTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(UNEXPECTED_NULL,new Postcode());
+        Postcode postcode = new Postcode();
+        assertNotNull(UNEXPECTED_NULL, postcode);
     }
 
     /**
@@ -44,14 +45,16 @@ public final class PostcodeTest extends ResultsReporting {
      */
     @Test
     public void testPostcode() {
-        assertNotNull(UNEXPECTED_NULL,new Postcode());
+        Postcode postcode = new Postcode();
+        assertNotNull(UNEXPECTED_NULL, postcode);
     }
 
     /**
      * Test method for void.
      */
     public void testPostcodeCreate() {
-        assertNotNull(UNEXPECTED_NULL,Postcode.create());
+        Postcode postcode = Postcode.create();
+        assertNotNull(UNEXPECTED_NULL, postcode);
     }
 
     /**
@@ -59,7 +62,8 @@ public final class PostcodeTest extends ResultsReporting {
      */
     @Test
     public void testPostcodeString() {
-        assertNotNull(UNEXPECTED_NULL,new Postcode("AA00 9XX"));
+        Postcode postcode = new Postcode("AA00 9XX");
+        assertNotNull(UNEXPECTED_NULL, postcode);
     }
 
     /**
@@ -75,8 +79,9 @@ public final class PostcodeTest extends ResultsReporting {
      */
     @Test
     public void testToString() {
-        final String postcode = new Postcode().toString();
-        assertNotNull(UNEXPECTED_NULL,postcode);
+        Postcode postcode = new Postcode();
+        final String string = postcode.toString();
+        assertNotNull(UNEXPECTED_NULL, string);
     }
 
 }
