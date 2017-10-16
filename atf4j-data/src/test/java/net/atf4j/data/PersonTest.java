@@ -25,6 +25,7 @@ import java.util.Calendar;
 import org.junit.Test;
 
 import net.atf4j.core.ResultsReporting;
+import net.atf4j.data.Person.Gender;
 import net.atf4j.data.Person.Title;
 
 /**
@@ -35,7 +36,7 @@ public final class PersonTest extends ResultsReporting {
     private static final String UNEXPECTED_NULL = "unexpected null";
 
     /**
-     * Test method for void.
+     * Test person.
      */
     @Test
     public void testPerson() {
@@ -44,7 +45,7 @@ public final class PersonTest extends ResultsReporting {
     }
 
     /**
-     * Test method for void.
+     * Test person forname middle surname.
      */
     @Test
     public void testPersonFornameMiddleSurname() {
@@ -53,17 +54,17 @@ public final class PersonTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Person.
+     * Test set get title.
      */
     @Test
     public void testSetGetTitle() {
         Person person = new Person();
         assertNotNull(UNEXPECTED_NULL, person);
-        assertEquals(Title.SIR.toString(), person.title(Title.SIR).title());
+        assertEquals(Title.SIR, person.title(Title.SIR).title());
     }
 
     /**
-     * Test method for Person.
+     * Test set get forename string.
      */
     @Test
     public void testSetGetForenameString() {
@@ -72,7 +73,7 @@ public final class PersonTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Person.
+     * Test set get middlename string.
      */
     @Test
     public void testSetGetMiddlenameString() {
@@ -81,7 +82,7 @@ public final class PersonTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Person.
+     * Test set get surname string.
      */
     @Test
     public void testSetGetSurnameString() {
@@ -90,7 +91,7 @@ public final class PersonTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Person.
+     * Test set get dob.
      */
     @Test
     public void testSetGetDob() {
@@ -99,7 +100,7 @@ public final class PersonTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Person}.
+     * Test set get postal address.
      */
     @Test
     public void testSetGetPostalAddress() {
@@ -108,7 +109,7 @@ public final class PersonTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Person.
+     * Test set get email address.
      */
     @Test
     public void testSetGetEmailAddress() {
@@ -117,7 +118,15 @@ public final class PersonTest extends ResultsReporting {
     }
 
     /**
-     * Test method for Person.
+     * Test set get gender.
+     */
+    @Test
+    public void testSetGetGender() {
+        assertEquals(Gender.UNKNOWN, new Person().gender(Gender.UNKNOWN).gender());
+    }
+
+    /**
+     * Test to string.
      */
     @Test
     public void testToString() {

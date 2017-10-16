@@ -38,7 +38,9 @@ public final class NinoTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(UNEXPECTED_NULL,new Nino());
+        Nino nino = new Nino();
+        assertNotNull(UNEXPECTED_NULL, nino);
+        log.info("{}", nino);
     }
 
     /**
@@ -46,7 +48,19 @@ public final class NinoTest extends ResultsReporting {
      */
     @Test
     public void testNationalInsurance() {
-        assertNotNull(UNEXPECTED_NULL,new Nino());
+        Nino nino = new Nino();
+        assertNotNull(UNEXPECTED_NULL, nino);
+        log.info("{}", nino);
+    }
+
+    /**
+     * Test national insurance pic.
+     */
+    @Test
+    public void testNationalInsurancePic() {
+        Nino nino = new Nino(PIC);
+        assertNotNull(UNEXPECTED_NULL, nino);
+        log.info("{}", nino);
     }
 
     /**
@@ -54,7 +68,9 @@ public final class NinoTest extends ResultsReporting {
      */
     @Test
     public void testCreate() {
-        assertNotNull(UNEXPECTED_NULL,Nino.create());
+        Nino nino = Nino.create();
+        assertNotNull(UNEXPECTED_NULL, nino);
+        log.info("{}", nino);
     }
 
     /**
@@ -63,8 +79,7 @@ public final class NinoTest extends ResultsReporting {
     @Test
     public void testVerify() {
         assertFalse(Nino.verify(BLANK_NI));
-        assertFalse(Nino.verify(BLANK_NI));
-        assertFalse(Nino.verify(BLANK_NI));
+        assertFalse(Nino.verify(PIC));
     }
 
     /**
@@ -73,7 +88,6 @@ public final class NinoTest extends ResultsReporting {
     @Test
     public void testToString() {
         final String string = new Nino().toString();
-        assertNotNull(UNEXPECTED_NULL,string);
+        assertNotNull(UNEXPECTED_NULL, string);
     }
-
 }

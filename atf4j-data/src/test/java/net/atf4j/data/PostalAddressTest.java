@@ -28,15 +28,38 @@ import net.atf4j.core.ResultsReporting;
  */
 public final class PostalAddressTest extends ResultsReporting {
 
+    private static final String ADDRESS = "LineOne,LineTwo,LineThree,LineFour,LineFive,LineSix,LineSeven,LineEight";
     private static final String UNEXPECTED_NULL = "unexpected null";
 
     /**
-     * Test method for PostalAddress.
+     * Test default constructor.
      */
     @Test
     public void testDefaultConstructor() {
         final PostalAddress address = new PostalAddress();
-        assertNotNull(UNEXPECTED_NULL,address);
+        assertNotNull(UNEXPECTED_NULL, address);
+        log.info("{}", address);
+    }
+
+    /**
+     * Test postal address string.
+     */
+    @Test
+    public void testPostalAddressString() {
+        final PostalAddress address = new PostalAddress(ADDRESS);
+        assertNotNull(UNEXPECTED_NULL, address);
+        log.info("{}", address);
+    }
+
+    /**
+     * Test postal address string array.
+     */
+    @Test
+    public void testPostalAddressStringArray() {
+        String[] addressLines = ADDRESS.split(",");
+        final PostalAddress address = new PostalAddress(addressLines);
+        assertNotNull(UNEXPECTED_NULL, address);
+        log.info("{}", address);
     }
 
     /**
@@ -45,7 +68,8 @@ public final class PostalAddressTest extends ResultsReporting {
     @Test
     public void testToString() {
         final String addressString = new PostalAddress().toString();
-        assertNotNull(UNEXPECTED_NULL,addressString);
+        assertNotNull(UNEXPECTED_NULL, addressString);
+        log.info("{}", addressString);
     }
 
     /**
@@ -54,7 +78,8 @@ public final class PostalAddressTest extends ResultsReporting {
     @Test
     public void testDebugString() {
         final String addressString = new PostalAddress().debugString();
-        assertNotNull(UNEXPECTED_NULL,addressString);
+        assertNotNull(UNEXPECTED_NULL, addressString);
+        log.info("{}", addressString);
     }
 
 }

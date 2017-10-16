@@ -44,15 +44,17 @@ public final class AbstractWalkerTest extends ResultsReporting {
 
         /**
          * Instantiates a new mock walker.
-         * 
+         *
          * @param basePath the base path
-         * @throws Exception the exception
          */
         public MockWalker(final String basePath) {
             super(basePath);
         }
     }
 
+    /**
+     * Test abstract walker.
+     */
     @Test
     public void testAbstractWalker() {
         MockWalker mockWalker = new MockWalker();
@@ -61,6 +63,9 @@ public final class AbstractWalkerTest extends ResultsReporting {
         assertNotNull(UNEXPECTED_NULL, mockWalker.walk());
     }
 
+    /**
+     * Test abstract walker dot.
+     */
     @Test
     public void testAbstractWalkerDot() {
         MockWalker mockWalker = new MockWalker(".");
@@ -69,6 +74,9 @@ public final class AbstractWalkerTest extends ResultsReporting {
         assertNotNull(UNEXPECTED_NULL, mockWalker.walk());
     }
 
+    /**
+     * Test abstract walker folder.
+     */
     @Test
     public void testAbstractWalkerFolder() {
         MockWalker mockWalker = new MockWalker("/messages");
@@ -77,6 +85,9 @@ public final class AbstractWalkerTest extends ResultsReporting {
         assertNotNull(UNEXPECTED_NULL, mockWalker.walk());
     }
 
+    /**
+     * Test abstract walker missing folder.
+     */
     @Test
     public void testAbstractWalkerMissingFolder() {
         MockWalker mockWalker = new MockWalker("/missing");

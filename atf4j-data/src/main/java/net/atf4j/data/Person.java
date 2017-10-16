@@ -159,8 +159,8 @@ public class Person {
      *
      * @return the title
      */
-    public String title() {
-        return this.title.toString();
+    public Title title() {
+        return this.title;
     }
 
     /**

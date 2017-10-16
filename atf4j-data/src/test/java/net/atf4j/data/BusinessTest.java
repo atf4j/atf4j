@@ -35,33 +35,50 @@ public final class BusinessTest extends ResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(UNEXPECTED_NULL,new Business());
+        Business business = new Business();
+        assertNotNull(UNEXPECTED_NULL, business);
+        log.info("{}", business);
     }
 
     /**
-     * Test method for Business.
+     * Test business.
      */
     @Test
     public void testBusiness() {
-        assertNotNull(UNEXPECTED_NULL,new Business());
+        Business business = new Business();
+        assertNotNull(UNEXPECTED_NULL, business);
+        log.info("{}", business);
     }
 
     /**
-     * Test method for Business.
+     * Test business string.
      */
     @Test
     public void testBusinessString() {
         final String businessName = "Business Name";
         final Business business = new Business(businessName);
-        assertNotNull(UNEXPECTED_NULL,business);
+        assertNotNull(UNEXPECTED_NULL, business);
     }
 
     /**
-     * Test method for void.
+     * Test business string postcode.
+     */
+    @Test
+    public void testBusinessStringPostcode() {
+        final String businessName = "Business Name";
+        PostalAddress postalAddress = new PostalAddress();
+        Business business = new Business(businessName, postalAddress);
+        assertNotNull(UNEXPECTED_NULL, business);
+        log.info("{}", business);
+    }
+
+    /**
+     * Test create.
      */
     @Test
     public void testCreate() {
-        assertNotNull(UNEXPECTED_NULL,Business.create());
+        Business business = Business.create();
+        assertNotNull(UNEXPECTED_NULL, business);
     }
 
     /**
@@ -70,7 +87,7 @@ public final class BusinessTest extends ResultsReporting {
     @Test
     public void testDebugString() {
         final String string = new Business().debugString();
-        assertNotNull(UNEXPECTED_NULL,string);
+        assertNotNull(UNEXPECTED_NULL, string);
         this.log.info("{}", string);
     }
 
@@ -80,7 +97,7 @@ public final class BusinessTest extends ResultsReporting {
     @Test
     public void testToString() {
         final String string = new Business().toString();
-        assertNotNull(UNEXPECTED_NULL,string);
+        assertNotNull(UNEXPECTED_NULL, string);
         this.log.info("{}", string);
     }
 

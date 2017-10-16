@@ -42,6 +42,9 @@ public final class BankTest extends ResultsReporting {
         this.log.info("{}", bank);
     }
 
+    /**
+     * Test random.
+     */
     @Test
     @Ignore
     public void testRandom() {

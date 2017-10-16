@@ -46,12 +46,16 @@ public class Bank extends Business {
         return null;
     }
 
-    /**
-     * Instantiates a new bank.
-     */
     public Bank() {
         super();
-        this.bankSortCode = new BankSortCode();
+        setBankSortCode(new BankSortCode());
+        setName("Bank Name");
+    }
+
+    public Bank(final BankSortCode sortcode, final String name) {
+        super();
+        setBankSortCode(bankSortCode);
+        setName(bankName);
     }
 
     /**

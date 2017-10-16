@@ -36,6 +36,10 @@ public class ProductCatalog {
         return new ProductCatalog();
     }
 
+    public static ProductCatalog random() {
+        return null;
+    }
+
     /**
      * Instantiates a new product catalog.
      */
@@ -46,8 +50,7 @@ public class ProductCatalog {
     /**
      * add a Product to catalog.
      *
-     * @param e
-     *            the e \* @return true, if successful, otherwise false.
+     * @param e the e \* @return true, if successful, otherwise false.
      * @return true, if successful, otherwise false.
      * @see java.util.Collection#add(java.lang.Object)
      */
@@ -67,8 +70,7 @@ public class ProductCatalog {
     /**
      * Sets the product list.
      *
-     * @param productList
-     *            the productList to set
+     * @param productList the productList to set
      */
     public void setProductList(final Collection<Product> productList) {
         this.catalog = productList;

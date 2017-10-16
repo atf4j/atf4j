@@ -66,7 +66,7 @@ public class NodeTest extends ResultsReporting {
      */
     @Test
     public void testLeft() {
-        Node node = new Node();
+        Node node = new Node(new Object(), new Object());
         assertNotNull(node);
         assertNotNull(node.left());
     }
@@ -76,7 +76,7 @@ public class NodeTest extends ResultsReporting {
      */
     @Test
     public void testRight() {
-        Node node = new Node();
+        Node node = new Node(new Object(), new Object());
         assertNotNull(node);
         assertNotNull(node.right());
     }
