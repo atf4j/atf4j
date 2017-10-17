@@ -72,8 +72,8 @@ public class CardDataFactory extends AbstractDataFactory {
      *
      * @return the string
      */
-    public static String randomCard() {
-        return null;
+    public static Card random() {
+        return new Card();
     }
 
 }

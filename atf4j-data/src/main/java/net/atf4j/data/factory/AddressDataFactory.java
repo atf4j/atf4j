@@ -19,13 +19,13 @@ package net.atf4j.data.factory;
 
 import net.atf4j.csv.CsvFile;
 import net.atf4j.data.PostalAddress;
+import net.atf4j.data.Postcode;
 
 /**
  * Address Data Factory.
  */
 public class AddressDataFactory extends AbstractDataFactory {
 
-    public static final String RANDOM = null;
     private static AddressDataFactory instance = null;
 
     private String[] addressLineStems;
@@ -35,6 +35,40 @@ public class AddressDataFactory extends AbstractDataFactory {
 
     private CsvFile postCodeData = null;
     private CsvFile postalTownsUK = null;
+
+    /**
+     * Gets the single instance of AddressDataFactory.
+     *
+     * @return single instance of AddressDataFactory
+     */
+    public static AddressDataFactory getInstance() {
+        if (AddressDataFactory.instance == null) {
+            AddressDataFactory.instance = new AddressDataFactory();
+        }
+        return AddressDataFactory.instance;
+    }
+
+    /**
+     * Create new instance of create.
+     *
+     * @return the postal address
+     */
+    public static PostalAddress create() {
+        return new PostalAddress();
+    }
+
+    /**
+     * Random.
+     *
+     * @return the postal address
+     */
+    public static PostalAddress random() {
+        final PostalAddress postalAddress = new PostalAddress();
+        postalAddress.setAddressRow(1, "");
+        postalAddress.setAddressRow(2, "");
+        postalAddress.setPostcode(new Postcode());
+        return postalAddress;
+    }
 
     /**
      * Instantiates a new address data factory.
@@ -78,60 +112,4 @@ public class AddressDataFactory extends AbstractDataFactory {
             this.log.error("{}", e.getLocalizedMessage());
         }
     }
-
-    /**
-     * Gets the single instance of AddressDataFactory.
-     *
-     * @return single instance of AddressDataFactory
-     */
-    public static AddressDataFactory getInstance() {
-        if (AddressDataFactory.instance == null) {
-            AddressDataFactory.instance = new AddressDataFactory();
-        }
-        return AddressDataFactory.instance;
-    }
-
-    /**
-     * Create new instance of create.
-     *
-     * @return the postal address
-     */
-    public static PostalAddress create() {
-        return new PostalAddress();
-    }
-
-    /**
-     * Random.
-     *
-     * @return the postal address
-     */
-    public static PostalAddress random() {
-        // Collections.shuffle(this.data);
-        final String[] lines;
-        final PostalAddress postalAddress = new PostalAddress();
-        postalAddress.setAddressRow(1, "");
-        postalAddress.setAddressRow(2, "");
-        return postalAddress;
-    }
-
-    /**
-     * Random.
-     *
-     * @param string the string
-     * @return the postal address
-     */
-    public static PostalAddress random(final String string) {
-        return new PostalAddress();
-    }
-
-    /**
-     * For tag.
-     *
-     * @param string the string
-     * @return the postal address
-     */
-    public static PostalAddress forTag(final String string) {
-        return new PostalAddress();
-    }
-
 }

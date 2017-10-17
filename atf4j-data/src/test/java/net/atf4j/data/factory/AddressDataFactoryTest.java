@@ -82,14 +82,4 @@ public final class AddressDataFactoryTest extends TestResultsReporting {
         this.log.info("{}", address.toString());
     }
 
-    /**
-     * Test get from tag.
-     */
-    @Test
-    public void testGetFromTag() {
-        final PostalAddress address = AddressDataFactory.forTag("WIP");
-        assertNotNull(UNEXPECTED_NULL, address);
-        this.log.info("{}", address.toString());
-    }
-
 }

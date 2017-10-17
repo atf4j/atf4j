@@ -42,27 +42,27 @@ public class ScenarioRunnerTest extends TestResultsReporting {
         /**
          * Test pass given.
          */
-        @Atf4j.Given("Given")
+        @Atf4j.Given("Pass Given")
         public void testPassGiven() {
-            LOG.info("{}.testPassGiven", this.getClass().getSimpleName());
+            LOG.info("testPassGiven");
             Assume.assumeTrue(true);
         }
 
         /**
          * Test pass when.
          */
-        @Atf4j.When("When")
+        @Atf4j.When("Pass When")
         public void testPassWhen() {
-            LOG.info("{}.testPassWhen", this.getClass().getSimpleName());
+            LOG.info("testPassWhen");
             Assert.assertTrue(true);
         }
 
         /**
          * Test pass then.
          */
-        @Atf4j.Then("Then")
+        @Atf4j.Then("Pass Then")
         public void testPassThen() {
-            LOG.info("{}.testPassThen", this.getClass().getSimpleName());
+            LOG.info("testPassThen");
             Assert.assertTrue(true);
         }
     }
@@ -73,29 +73,29 @@ public class ScenarioRunnerTest extends TestResultsReporting {
     public class FailGivenScenario extends AbstractScenario {
 
         /**
-         * Test pass given.
+         * Test fail given.
          */
-        @Atf4j.Given("Given")
-        public void testPassGiven() {
-            LOG.info("{}.testPassGiven", this.getClass().getSimpleName());
+        @Atf4j.Given("Fail Given")
+        public void testFailGiven() {
+            LOG.info("testPassGiven");
             Assume.assumeTrue(false);
         }
 
         /**
          * Test pass when.
          */
-        @Atf4j.When("When")
+        @Atf4j.When("Pass When")
         public void testPassWhen() {
-            LOG.info("{}.testPassWhen", this.getClass().getSimpleName());
+            LOG.info("testPassWhen");
             Assert.assertTrue(true);
         }
 
         /**
          * Test pass then.
          */
-        @Atf4j.Then("Then")
+        @Atf4j.Then("Pass Then")
         public void testPassThen() {
-            LOG.info("{}.testPassThen", this.getClass().getSimpleName());
+            LOG.info("testPassThen");
             Assert.assertTrue(true);
         }
     }
@@ -108,18 +108,18 @@ public class ScenarioRunnerTest extends TestResultsReporting {
         /**
          * Test pass given.
          */
-        @Atf4j.Given("Given")
+        @Atf4j.Given("Pass Given")
         public void testPassGiven() {
-            LOG.info("{}.testPassGiven", this.getClass().getSimpleName());
+            LOG.info("testPassGiven");
             Assume.assumeTrue(true);
         }
 
         /**
-         * Test pass when.
+         * Test fail when.
          */
-        @Atf4j.When("When")
-        public void testPassWhen() {
-            LOG.info("{}.testPassWhen", this.getClass().getSimpleName());
+        @Atf4j.When("Fail When")
+        public void testFailWhen() {
+            LOG.info("testPassWhen");
             Assert.assertTrue(false);
         }
 
@@ -128,7 +128,7 @@ public class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Atf4j.Then("Then")
         public void testPassThen() {
-            LOG.info("{}.testPassThen", this.getClass().getSimpleName());
+            LOG.info("testPassThen");
             Assert.assertTrue(true);
         }
     }
@@ -141,27 +141,27 @@ public class ScenarioRunnerTest extends TestResultsReporting {
         /**
          * Test pass given.
          */
-        @Atf4j.Given("Given")
+        @Atf4j.Given("Pass Given")
         public void testPassGiven() {
-            LOG.info("{}.testPassGiven", this.getClass().getSimpleName());
+            LOG.info("testPassGiven");
             Assume.assumeTrue(true);
         }
 
         /**
          * Test pass when.
          */
-        @Atf4j.When("When")
+        @Atf4j.When("Pass When")
         public void testPassWhen() {
-            LOG.info("{}.testPassWhen", this.getClass().getSimpleName());
+            LOG.info("testPassWhen");
             Assert.assertTrue(true);
         }
 
         /**
-         * Test pass then.
+         * Test fail then.
          */
-        @Atf4j.Then("Then")
+        @Atf4j.Then("Fail Then")
         public void testPassThen() {
-            LOG.info("{}.testPassThen", this.getClass().getSimpleName());
+            LOG.info("testFailThen");
             Assert.assertTrue(false);
         }
     }

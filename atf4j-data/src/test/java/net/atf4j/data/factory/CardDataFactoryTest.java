@@ -39,4 +39,10 @@ public final class CardDataFactoryTest extends TestResultsReporting {
         this.log.info("{}", card.toString());
     }
 
+    @Test
+    public void testRandom() {
+        final Card card = CardDataFactory.random();
+        assertNotNull("unexpected null", card);
+        this.log.info("{}", card.toString());
+    }
 }

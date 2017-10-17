@@ -50,6 +50,38 @@ public class BrowserFactory implements BrowserFactoryInterface {
     }
 
     /**
+     * Factory method for Selenium WebDriver.instance.
+     *
+     * @return webDriver
+     */
+    public static WebDriver webDriver() {
+        if (BrowserFactory.config == null) {
+            BrowserFactory.config = new BrowserFactorConfig();
+        }
+        return webDriver(BrowserFactory.config.targetBrowser());
+    }
+
+    /**
+     * Factory method of webDriver instance.
+     *
+     * @param browser the browser
+     * @return instance of webDriver
+     */
+    protected static WebDriver webDriver(final String browser) {
+        WebDriver webDriver = null;
+
+        if (TestContext.isLocal()) {
+            webDriver = localWebDriver(browser);
+        } else if (TestContext.isGrid()) {
+            webDriver = remoteWebDriver(browser);
+        }
+
+        initialiseWebDriver(webDriver);
+
+        return webDriver;
+    }
+
+    /**
      * Initialise web driver.
      *
      * @param webDriver the web driver
@@ -82,16 +114,17 @@ public class BrowserFactory implements BrowserFactoryInterface {
     protected static WebDriver localWebDriver(final String targetBrowser) {
         WebDriver webDriver = null;
 
-        switch (targetBrowser) {
-        case "Chrome":
+        switch (targetBrowser.toLowerCase()) {
+        case "chrome":
             webDriver = new ChromeDriver();
             break;
-        case "Firefox":
+        case "firefox":
+            webDriver = new FirefoxDriver();
+            break;
+        case "ie":
             webDriver = new FirefoxDriver();
             break;
         }
-
-        initialiseWebDriver(webDriver);
 
         return webDriver;
     }
@@ -134,46 +167,15 @@ public class BrowserFactory implements BrowserFactoryInterface {
         }
 
         final String targetSeleniumGrid = BrowserFactory.config.seleniumUrl();
-        final URL GRID_URL;
+        final URL gridUrl;
+        RemoteWebDriver remoteWebDriver = null;
         try {
-            GRID_URL = new URL(targetSeleniumGrid);
-            final RemoteWebDriver remoteWebDriver = new RemoteWebDriver(GRID_URL, desiredCapabilities);
-            initialiseWebDriver(remoteWebDriver);
-            return remoteWebDriver;
+            gridUrl = new URL(targetSeleniumGrid);
+            remoteWebDriver = new RemoteWebDriver(gridUrl, desiredCapabilities);
         } catch (final MalformedURLException e) {
             BrowserFactory.log.error("{}", e);
         }
-        return null;
-    }
-
-    /**
-     * Factory method for Selenium WebDriver.instance.
-     *
-     * @return webDriver
-     */
-    public static WebDriver webDriver() {
-        if (BrowserFactory.config == null) {
-            BrowserFactory.config = new BrowserFactorConfig();
-        }
-        return webDriver(BrowserFactory.config.targetBrowser());
-    }
-
-    /**
-     * Factory method of webDriver instance.
-     *
-     * @param browser the browser
-     * @return instance of webDriver
-     */
-    protected static WebDriver webDriver(final String browser) {
-        if (BrowserFactory.config == null) {
-            BrowserFactory.config = new BrowserFactorConfig();
-        }
-        if (TestContext.isLocal()) {
-            return localWebDriver(browser);
-        } else if (TestContext.isGrid()) {
-            return remoteWebDriver(browser);
-        }
-        return null;
+        return remoteWebDriver;
     }
 
 }

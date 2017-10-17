@@ -36,7 +36,7 @@ public class Person {
     /**
      * The Gender Enum.
      */
-    public static enum Gender {
+    public enum Gender {
         MALE("Male"), FEMALE("Male"), UNKNOWN("Unknown");
 
         private final String genderString;
@@ -75,7 +75,7 @@ public class Person {
     /**
      * The Title Enum.
      */
-    public static enum Title {
+    public enum Title {
         MR("Mr"), MRS("Mrs"), MS("Ms"), MISS("Miss"), SIR("Sir"), LADY("Lady"), LORD("Lord"), DR("Dr");
 
         /** The value. */
@@ -175,6 +175,15 @@ public class Person {
     }
 
     /**
+     * Forename.
+     *
+     * @return the string
+     */
+    public String forename() {
+        return this.forename;
+    }
+
+    /**
      * Middlename.
      *
      * @param middlename the middlename
@@ -183,81 +192,6 @@ public class Person {
     public Person middlename(final String middlename) {
         this.middlename = middlename;
         return this;
-    }
-
-    /**
-     * Surname.
-     *
-     * @param surname the surname
-     * @return the person
-     */
-    public Person surname(final String surname) {
-        this.surname = surname;
-        return this;
-    }
-
-    /**
-     * Date of birth.
-     *
-     * @param dob the dob
-     * @return the person
-     */
-    public Person dateOfBirth(final Calendar dob) {
-        this.dob = dob;
-        return this;
-    }
-
-    /**
-     * Sets the postal address.
-     *
-     * @param postalAddress the postal address
-     * @return the person
-     */
-    public Person postalAddress(final PostalAddress postalAddress) {
-        this.postalAddress = postalAddress;
-        return this;
-    }
-
-    /**
-     * Sets the email address.
-     *
-     * @param emailAddress the new email address
-     * @return the person
-     */
-    public Person emailAddress(final String emailAddress) {
-        this.emailAddress = emailAddress;
-        return this;
-    }
-
-    /**
-     * Gender.
-     *
-     * @param gender the gender
-     * @return the person
-     */
-    public Person gender(final String gender) {
-        this.gender = Gender.fromString(gender);
-        return this;
-    }
-
-    /**
-     * Gender.
-     *
-     * @param gender the gender
-     * @return the person
-     */
-    public Person gender(final Gender gender) {
-        this.gender = gender;
-        return this;
-    }
-
-    /**
-     * Forename.
-     *
-     * @return the string
-     */
-    public String forename() {
-        return this.forename;
     }
 
     /**
@@ -272,10 +206,32 @@ public class Person {
     /**
      * Surname.
      *
+     * @param surname the surname
+     * @return the person
+     */
+    public Person surname(final String surname) {
+        this.surname = surname;
+        return this;
+    }
+
+    /**
+     * Surname.
+     *
      * @return the string
      */
     public String surname() {
         return this.surname;
+    }
+
+    /**
+     * Date of birth.
+     *
+     * @param dob the dob
+     * @return the person
+     */
+    public Person dateOfBirth(final Calendar dob) {
+        this.dob = dob;
+        return this;
     }
 
     /**
@@ -304,21 +260,25 @@ public class Person {
     }
 
     /**
-     * Gets the postal address.
+     * Gender.
      *
-     * @return the postal address
+     * @param gender the gender
+     * @return the person
      */
-    public PostalAddress postalAddress() {
-        return this.postalAddress;
+    public Person gender(final String gender) {
+        this.gender = Gender.fromString(gender);
+        return this;
     }
 
     /**
-     * Gets the email address.
+     * Gender.
      *
-     * @return the email address
+     * @param gender the gender
+     * @return the person
      */
-    public String emailAddress() {
-        return this.emailAddress;
+    public Person gender(final Gender gender) {
+        this.gender = gender;
+        return this;
     }
 
     /**
@@ -328,6 +288,46 @@ public class Person {
      */
     public Gender gender() {
         return this.gender;
+    }
+
+    /**
+     * Sets the postal address.
+     *
+     * @param postalAddress the postal address
+     * @return the person
+     */
+    public Person postalAddress(final PostalAddress postalAddress) {
+        this.postalAddress = postalAddress;
+        return this;
+    }
+
+    /**
+     * Gets the postal address.
+     *
+     * @return the postal address
+     */
+    public PostalAddress postalAddress() {
+        return this.postalAddress;
+    }
+
+    /**
+     * Sets the email address.
+     *
+     * @param emailAddress the new email address
+     * @return the person
+     */
+    public Person emailAddress(final String emailAddress) {
+        this.emailAddress = emailAddress;
+        return this;
+    }
+
+    /**
+     * Gets the email address.
+     *
+     * @return the email address
+     */
+    public String emailAddress() {
+        return this.emailAddress;
     }
 
     /*
