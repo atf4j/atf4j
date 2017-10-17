@@ -39,6 +39,9 @@ public final class TextTest extends TestResultsReporting {
         this.log.info("{}", fill);
     }
 
+    /**
+     * Test text fill star.
+     */
     @Test
     public void testTextFillStar() {
         String fill = Text.fill(10, '*');

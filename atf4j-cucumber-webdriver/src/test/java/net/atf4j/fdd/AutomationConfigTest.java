@@ -22,8 +22,14 @@ import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
 
+/**
+ * The AutomationConfigTest Class.
+ */
 public class AutomationConfigTest extends TestResultsReporting {
 
+    /**
+     * Test default constructor.
+     */
     @Test
     public void testDefaultConstructor() {
         final AutomationConfig config = new AutomationConfig();

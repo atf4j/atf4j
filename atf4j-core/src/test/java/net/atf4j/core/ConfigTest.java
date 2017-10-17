@@ -27,6 +27,9 @@ import org.junit.Test;
  */
 public final class ConfigTest extends TestResultsReporting {
 
+    /**
+     * Test get instance.
+     */
     @Test
     public void testGetInstance() {
         Config config = Config.getInstance();
@@ -34,6 +37,9 @@ public final class ConfigTest extends TestResultsReporting {
         this.log.info("{}", config.toString());
     }
 
+    /**
+     * Test string value for key.
+     */
     @Test
     public void testStringValueForKey() {
         String value = Config.valueFor("keyForString");
@@ -41,6 +47,9 @@ public final class ConfigTest extends TestResultsReporting {
         log.info("{}", value);
     }
 
+    /**
+     * Test int value for key.
+     */
     @Test
     public void testIntValueForKey() {
         int value = Config.intValueFor("keyForInt");
@@ -48,6 +57,9 @@ public final class ConfigTest extends TestResultsReporting {
         log.info("{}", value);
     }
 
+    /**
+     * Test long value for key.
+     */
     @Test
     public void testLongValueForKey() {
         long value = Config.longValueFor("keyForLong");
@@ -55,6 +67,9 @@ public final class ConfigTest extends TestResultsReporting {
         log.info("{}", value);
     }
 
+    /**
+     * Test true value for key.
+     */
     @Test
     public void testTrueValueForKey() {
         boolean value = Config.booleanValueFor("keyForTrue");
@@ -62,6 +77,9 @@ public final class ConfigTest extends TestResultsReporting {
         log.info("{}", value);
     }
 
+    /**
+     * Test false value for key.
+     */
     @Test
     public void testFalseValueForKey() {
         boolean value = Config.booleanValueFor("keyForFalse");
@@ -69,6 +87,9 @@ public final class ConfigTest extends TestResultsReporting {
         log.info("{}", value);
     }
 
+    /**
+     * Test value for missing key.
+     */
     @Test
     public void testValueForMissingKey() {
         String value = Config.valueFor("missing");

@@ -18,7 +18,9 @@
 package net.atf4j.core;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -28,7 +30,7 @@ import net.atf4j.core.AbstractConfig.PropertyNotFoundException;
 /**
  * Unit tests for configuration class.
  */
-public final class AbstractConfigTest extends TestResultsReporting {
+public class AbstractConfigTest extends TestResultsReporting {
 
     /**
      * Default configuration class.
@@ -113,9 +115,8 @@ public final class AbstractConfigTest extends TestResultsReporting {
 
     @Test
     public void testBooleanValueForKey() {
-        // @TODO: WIP
-        Config.valueFor("keyForTrue");
-        Config.valueFor("keyForFalse");
+        assertTrue(Config.booleanValueFor("keyForTrue"));
+        assertFalse(Config.booleanValueFor("keyForFalse"));
     }
 
 }

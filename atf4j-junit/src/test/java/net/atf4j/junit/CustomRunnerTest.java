@@ -22,14 +22,23 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+/**
+ * The CustomRunnerTest Class.
+ */
 @RunWith(value = CustomRunner.class)
 public class CustomRunnerTest {
 
+    /**
+     * Test custom runner with pass.
+     */
     @Test
     public void testCustomRunnerWithPass() {
         assertTrue(true);
     }
 
+    /**
+     * Test custom runner with fail.
+     */
     @Test(expected = AssertionError.class)
     public void testCustomRunnerWithFail() {
         assertTrue(false);
