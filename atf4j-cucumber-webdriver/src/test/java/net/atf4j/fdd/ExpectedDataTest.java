@@ -22,11 +22,20 @@ import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
 
+/**
+ * The ExpectedDataTest Class.
+ */
 public class ExpectedDataTest extends TestResultsReporting {
 
+    /**
+     * The ExpectedData Class.
+     */
     public class ExpectedData extends AbstractExpectedData {
     }
 
+    /**
+     * Test default constructor.
+     */
     @Test
     public void testDefaultConstructor() {
         final ExpectedData instance = new ExpectedData();

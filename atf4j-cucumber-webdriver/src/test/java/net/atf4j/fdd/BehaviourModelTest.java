@@ -22,11 +22,20 @@ import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
 
+/**
+ * The BehaviourModelTest Class.
+ */
 public class BehaviourModelTest extends TestResultsReporting {
 
+    /**
+     * The BehaviourModel Class.
+     */
     public class BehaviourModel extends AbstractBehaviourModel {
     }
 
+    /**
+     * Test default constructor.
+     */
     @Test
     public void testDefaultConstructor() {
         final BehaviourModel instance = new BehaviourModel();

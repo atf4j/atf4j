@@ -18,17 +18,16 @@
 package net.atf4j.core;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
-
-import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
-import net.atf4j.core.AbstractConfig.PropertyNotFoundException;
 
 /**
  * Unit tests for configuration class.
  */
-public final class AbstractConfigTest extends TestResultsReporting {
+public class AbstractConfigTest extends TestResultsReporting {
 
     /**
      * Default configuration class.
@@ -64,7 +63,7 @@ public final class AbstractConfigTest extends TestResultsReporting {
     /**
      * Test default constructor.
      *
-     * @throws ConfigurationNotLoadedException the configuration not loaded
+     * @throws Exception the exception
      */
     @Test
     public void testSimpleConfiguration() throws Exception {
@@ -76,8 +75,7 @@ public final class AbstractConfigTest extends TestResultsReporting {
     /**
      * Test suggested usage.
      *
-     * @throws ConfigurationNotLoadedException the configuration not loaded
-     * @throws PropertyNotFoundException the property not found
+     * @throws Exception the exception
      */
     @Test
     public void testSuggestedUsage() throws Exception {
@@ -97,6 +95,9 @@ public final class AbstractConfigTest extends TestResultsReporting {
         assertEquals(false, config.valueFor("keyForFalse", true));
     }
 
+    /**
+     * Test int value for key.
+     */
     @Test
     public void testIntValueForKey() {
         String value = Config.valueFor("keyForInt");
@@ -104,6 +105,9 @@ public final class AbstractConfigTest extends TestResultsReporting {
         log.info("{}", value);
     }
 
+    /**
+     * Test long value for key.
+     */
     @Test
     public void testLongValueForKey() {
         String value = Config.valueFor("keyForLong");
@@ -111,11 +115,13 @@ public final class AbstractConfigTest extends TestResultsReporting {
         log.info("{}", value);
     }
 
+    /**
+     * Test boolean value for key.
+     */
     @Test
     public void testBooleanValueForKey() {
-        // @TODO: WIP
-        Config.valueFor("keyForTrue");
-        Config.valueFor("keyForFalse");
+        assertTrue(Config.booleanValueFor("keyForTrue"));
+        assertFalse(Config.booleanValueFor("keyForFalse"));
     }
 
 }

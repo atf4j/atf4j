@@ -22,11 +22,20 @@ import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
 
+/**
+ * The StrategyTest Class.
+ */
 public class StrategyTest extends TestResultsReporting {
 
+    /**
+     * The Strategy Class.
+     */
     public class Strategy extends AbstractStrategy {
     }
 
+    /**
+     * Test default constructor.
+     */
     @Test
     public void testDefaultConstructor() {
         final Strategy instance = new Strategy();

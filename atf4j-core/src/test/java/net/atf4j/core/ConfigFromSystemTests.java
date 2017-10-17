@@ -69,7 +69,7 @@ public final class ConfigFromSystemTests extends TestResultsReporting {
     /**
      * Test default constructor.
      *
-     * @throws ConfigurationNotLoadedException the configuration not loaded
+     * @throws Exception the exception
      */
     @Test
     public void testDefaultConstructor() throws Exception {
@@ -80,7 +80,7 @@ public final class ConfigFromSystemTests extends TestResultsReporting {
     /**
      * Test system string.
      *
-     * @throws ConfigurationNotLoadedException the configuration not loaded
+     * @throws Exception the exception
      */
     @Test
     public void testSystemString() throws Exception {
@@ -98,7 +98,7 @@ public final class ConfigFromSystemTests extends TestResultsReporting {
     /**
      * Test system boolean.
      *
-     * @throws ConfigurationNotLoadedException the configuration not loaded
+     * @throws Exception the exception
      */
     @Test
     public void testSystemBoolean() throws Exception {
