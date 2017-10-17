@@ -25,8 +25,7 @@ public abstract class Invariant extends Predicate {
     /**
      * Instantiates a new Invariant.
      *
-     * @param string
-     *            the string
+     * @param string the string
      */
     public Invariant(final String string) {
         super(string);

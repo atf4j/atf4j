@@ -34,8 +34,7 @@ public abstract class AbstractHoareStep implements HoareStepInterface {
     /**
      * Instantiates a new Hoare step.
      *
-     * @param string
-     *            the string
+     * @param string the string
      */
     public AbstractHoareStep(final String string) {
         this.log.info("AbstractHoareStep({}", string);

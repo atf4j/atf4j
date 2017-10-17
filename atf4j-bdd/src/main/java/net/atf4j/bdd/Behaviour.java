@@ -49,8 +49,7 @@ public abstract class Behaviour {
     /**
      * given.
      *
-     * @param given
-     *            the given
+     * @param given the given
      * @return the behaviour
      */
     protected Behaviour given(final Given given) {
@@ -62,8 +61,7 @@ public abstract class Behaviour {
     /**
      * when.
      *
-     * @param when
-     *            the when
+     * @param when the when
      * @return the behaviour
      */
     protected Behaviour when(final When when) {
@@ -75,8 +73,7 @@ public abstract class Behaviour {
     /**
      * then.
      *
-     * @param then
-     *            the then
+     * @param then the then
      * @return the behaviour
      */
     protected Behaviour then(final Then then) {
@@ -88,8 +85,7 @@ public abstract class Behaviour {
     /**
      * Execute.
      *
-     * @param properties
-     *            the properties
+     * @param properties the properties
      * @return the properties
      */
     public Properties execute(final Properties properties) {

@@ -25,8 +25,7 @@ public abstract class Predicate extends AbstractHoareStep {
     /**
      * Instantiates a new predicate.
      *
-     * @param string
-     *            the string
+     * @param string the string
      */
     public Predicate(final String string) {
         super(string);

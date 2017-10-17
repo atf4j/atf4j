@@ -32,6 +32,7 @@ public final class AnnotationHelper {
     private static final String EXPECTED_TEST_ID = "Expected @Atf4j.TestId annotation not found.";
     private static final String EXPECTED_TEST_NAME = "Expected @Atf4j.TestName annotation not found.";
     private static final String EXPECTED_TEST_DESCRIPTION = "Expected @Atf4j.TestDescription annotation not found.";
+
     private static final Logger LOG = LoggerFactory.getLogger(AnnotationHelper.class);
 
     /**
@@ -117,8 +118,7 @@ public final class AnnotationHelper {
     /**
      * Find test method.
      *
-     * @param stackTrace
-     *            the stack trace
+     * @param stackTrace the stack trace
      * @return the method
      */
     private static Method findTestMethod(final StackTraceElement[] stackTrace) {

@@ -149,7 +149,9 @@ public class PersonDataFactory extends AbstractDataFactory {
         return EmailAddress.create().toString();
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
     @Override

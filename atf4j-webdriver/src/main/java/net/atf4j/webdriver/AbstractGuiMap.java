@@ -44,8 +44,7 @@ public abstract class AbstractGuiMap {
     /**
      * Instantiates a new logical gui map.
      *
-     * @param aClass
-     *            the a class
+     * @param aClass the a class
      */
     public AbstractGuiMap(final Class<?> aClass) {
         this.resourceBundle = ResourceBundle.getBundle(aClass.getName());
@@ -60,8 +59,7 @@ public abstract class AbstractGuiMap {
     /**
      * Instantiates a new logical gui map.
      *
-     * @param useBundleName
-     *            the use bundle name
+     * @param useBundleName the use bundle name
      */
     public AbstractGuiMap(final String useBundleName) {
         this.resourceBundle = ResourceBundle.getBundle(useBundleName);
@@ -70,7 +68,7 @@ public abstract class AbstractGuiMap {
     /**
      * Contains key.
      *
-     * @param key            the key \* @return true, if successful, otherwise false.
+     * @param key the key \* @return true, if successful, otherwise false.
      * @return true, if successful, otherwise false.
      */
     public boolean containsKey(final String key) {
@@ -80,8 +78,7 @@ public abstract class AbstractGuiMap {
     /**
      * Dump the Resource Bundle data to a PrintStream.
      *
-     * @param out
-     *            the destination Print Stream.
+     * @param out the destination Print Stream.
      */
     public void dumpTo(final PrintStream out) {
         out.println(this.getClass().getSimpleName());
@@ -124,8 +121,7 @@ public abstract class AbstractGuiMap {
     /**
      * Gets the string.
      *
-     * @param key
-     *            the key
+     * @param key the key
      * @return the string
      */
     public final String getString(final String key) {

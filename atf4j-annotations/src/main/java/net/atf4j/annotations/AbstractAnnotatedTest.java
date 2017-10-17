@@ -36,8 +36,7 @@ public abstract class AbstractAnnotatedTest {
      * Test tag.
      *
      * @return the string
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     public String testTag() throws Exception {
         return AnnotationHelper.getTestTag();
@@ -47,8 +46,7 @@ public abstract class AbstractAnnotatedTest {
      * Retrieve the Test Id from the annotation.
      *
      * @return the test id as a String.
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     public String testId() throws Exception {
         return AnnotationHelper.getTestId();

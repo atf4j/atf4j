@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
 import net.atf4j.core.AbstractConfig;
 
 /**
- * Automation Config Class.
+ * Automation Configuration Class.
  */
 public class AutomationConfig extends AbstractConfig {
 

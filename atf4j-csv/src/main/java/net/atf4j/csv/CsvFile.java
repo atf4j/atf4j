@@ -50,7 +50,7 @@ public class CsvFile {
     /**
      * Instantiates a new CSV file.
      *
-     * @param dataFilename            the data filename
+     * @param dataFilename the data filename
      * @throws FileNotFoundException the file not found exception
      */
     public CsvFile(final String dataFilename) throws FileNotFoundException {
@@ -61,7 +61,7 @@ public class CsvFile {
     /**
      * Factory Method returns file as CsvFile instance.
      *
-     * @param dataFilename            the data filename
+     * @param dataFilename the data filename
      * @return the csv file
      * @throws FileNotFoundException the file not found exception
      */
@@ -91,7 +91,7 @@ public class CsvFile {
     /**
      * Load.
      *
-     * @param csvFilename            the data filename
+     * @param csvFilename the data filename
      * @throws FileNotFoundException the file not found exception
      */
     public void load(final String csvFilename) throws FileNotFoundException {
@@ -107,7 +107,7 @@ public class CsvFile {
     /**
      * Load.
      *
-     * @param inputStream            the InputStream
+     * @param inputStream the InputStream
      */
     public void load(final InputStream inputStream) {
         final InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -171,8 +171,7 @@ public class CsvFile {
     /**
      * Gets the header for a column.
      *
-     * @param columnNumber
-     *            the column number
+     * @param columnNumber the column number
      * @return the header
      */
     public String getColumnName(final int columnNumber) {
@@ -191,8 +190,7 @@ public class CsvFile {
     /**
      * Get a row by index.
      *
-     * @param index
-     *            line number
+     * @param index line number
      * @return the csv row
      * @see java.util.List#get(int)
      */

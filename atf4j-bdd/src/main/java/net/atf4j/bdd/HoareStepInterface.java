@@ -27,8 +27,7 @@ public interface HoareStepInterface {
     /**
      * Execute.
      *
-     * @param properties
-     *            the properties
+     * @param properties the properties
      * @return the properties
      */
     public Properties execute(Properties properties);

@@ -32,8 +32,7 @@ public class HeaderLine extends CsvRow {
     /**
      * A new header line.
      *
-     * @param line
-     *            the line
+     * @param line the line
      */
     public HeaderLine(final String line) {
         super(line);

@@ -77,8 +77,7 @@ public class BrowserFactoryTest extends TestResultsReporting {
     /**
      * Verify that verify page loaded.
      * 
-     * @param webDriver
-     *            the web driver
+     * @param webDriver the web driver
      */
     private void verifyPageLoaded(final WebDriver webDriver) {
         webDriver.get("http://127.0.0.1:8080");

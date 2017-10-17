@@ -25,8 +25,7 @@ public abstract class PostCondition extends Predicate {
     /**
      * Instantiates a new post-condition.
      *
-     * @param string
-     *            the string
+     * @param string the string
      */
     public PostCondition(final String string) {
         super(string);

@@ -34,8 +34,7 @@ public final class Given extends PreCondition {
     /**
      * Instantiates a new given.
      *
-     * @param string
-     *            the string
+     * @param string the string
      */
     public Given(final String string) {
         super(string);

@@ -37,8 +37,7 @@ public class CsvRow {
     /**
      * Instantiates a new CSV row.
      *
-     * @param line
-     *            the line
+     * @param line the line
      */
     public CsvRow(final String line) {
         initialise(line);
@@ -47,8 +46,7 @@ public class CsvRow {
     /**
      * Initialise.
      *
-     * @param line
-     *            the line
+     * @param line the line
      */
     public void initialise(final String line) {
         this.fields = line.trim().split(",");
@@ -69,8 +67,7 @@ public class CsvRow {
     /**
      * Gets the field.
      *
-     * @param columnNumber
-     *            the column number
+     * @param columnNumber the column number
      * @return the field
      */
     public String getField(final int columnNumber) {

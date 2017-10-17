@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.webdriver.page;
 
 import static org.junit.Assert.assertNotNull;
@@ -45,8 +46,7 @@ public class PageObjectTest {
         /**
          * Instantiates a new mock page.
          *
-         * @throws ConfigurationNotLoadedException
-         *             the configuration not loaded
+         * @throws ConfigurationNotLoadedException the configuration not loaded
          */
         public MockPage() throws ConfigurationNotLoadedException {
             super();
@@ -55,8 +55,7 @@ public class PageObjectTest {
         /**
          * Instantiates a new mock page.
          *
-         * @param webDriver
-         *            the web driver
+         * @param webDriver the web driver
          */
         public MockPage(final WebDriver webDriver) {
             super(webDriver);
@@ -65,10 +64,8 @@ public class PageObjectTest {
         /**
          * Instantiates a new mock page.
          *
-         * @param targetUrl
-         *            the target url
-         * @throws ConfigurationNotLoadedException
-         *             the configuration not loaded
+         * @param targetUrl the target url
+         * @throws ConfigurationNotLoadedException the configuration not loaded
          */
         public MockPage(final String targetUrl) throws ConfigurationNotLoadedException {
             super(targetUrl);
@@ -79,83 +76,77 @@ public class PageObjectTest {
      * Test method for {
      * net.atf4j.webdriver.page.AbstractPageObject#AbstractPageObject()}.
      *
-     * @throws ConfigurationNotLoadedException
-     *             the configuration not loaded
+     * @throws ConfigurationNotLoadedException the configuration not loaded
      */
     @Test
     public void testDefaultConstructor() throws ConfigurationNotLoadedException {
-        assertNotNull(UNEXPECTED_NULL,new MockPage());
+        assertNotNull(UNEXPECTED_NULL, new MockPage());
     }
 
     /**
      * Test method for {
      * net.net.atf4j.webdriver.page.AbstractPageObject#open()}.
      *
-     * @throws ConfigurationNotLoadedException
-     *             the configuration not loaded
+     * @throws ConfigurationNotLoadedException the configuration not loaded
      */
     @Test
-    public  void testDefaultOpen() throws ConfigurationNotLoadedException {
+    public void testDefaultOpen() throws ConfigurationNotLoadedException {
         final MockPage mockPage = new MockPage();
         assumeNotNull(mockPage);
-        assertNotNull(UNEXPECTED_NULL,mockPage.open());
+        assertNotNull(UNEXPECTED_NULL, mockPage.open());
     }
 
     /**
      * Test method for {
      * net.net.atf4j.webdriver.page.AbstractPageObject#open()}.
      *
-     * @throws ConfigurationNotLoadedException
-     *             the configuration not loaded
+     * @throws ConfigurationNotLoadedException the configuration not loaded
      */
     @Test
-    public  void testOpen() throws ConfigurationNotLoadedException {
+    public void testOpen() throws ConfigurationNotLoadedException {
         final MockPage mockPage = new MockPage(MockPage.TARGET_URL);
         assumeNotNull(mockPage);
-        assertNotNull(UNEXPECTED_NULL,mockPage.open());
+        assertNotNull(UNEXPECTED_NULL, mockPage.open());
     }
 
     /**
      * Test method for {
      * net.net.atf4j.webdriver.page.AbstractPageObject#open(java.lang.String)}.
      *
-     * @throws ConfigurationNotLoadedException
-     *             the configuration not loaded
+     * @throws ConfigurationNotLoadedException the configuration not loaded
      */
     @Test
-    public  void testOpenString() throws ConfigurationNotLoadedException {
+    public void testOpenString() throws ConfigurationNotLoadedException {
         final MockPage mockPage = new MockPage();
         assumeNotNull(mockPage);
-        assertNotNull(UNEXPECTED_NULL,mockPage.open());
+        assertNotNull(UNEXPECTED_NULL, mockPage.open());
     }
 
     /**
      * Test method for {
      * net.net.atf4j.webdriver.page.AbstractPageObject#verify()}.
      *
-     * @throws ConfigurationNotLoadedException
-     *             the configuration not loaded
+     * @throws ConfigurationNotLoadedException the configuration not loaded
      */
     @Test
-    public  void testVerify() throws ConfigurationNotLoadedException {
+    public void testVerify() throws ConfigurationNotLoadedException {
         final MockPage mockPage = new MockPage();
         assumeNotNull(mockPage);
-        assertNotNull(UNEXPECTED_NULL,mockPage.open());
-        assertNotNull(UNEXPECTED_NULL,mockPage.verify());
+        assertNotNull(UNEXPECTED_NULL, mockPage.open());
+        assertNotNull(UNEXPECTED_NULL, mockPage.verify());
     }
 
     /**
      * test PageObject object.
      *
-     * @throws ConfigurationNotLoadedException
-     *             the configuration not loaded
+     * @throws ConfigurationNotLoadedException the configuration not loaded
      */
     @Test
-    public  void testWebDriverConstructor() throws ConfigurationNotLoadedException {
+    public void testWebDriverConstructor() throws ConfigurationNotLoadedException {
         final MockPage mockPage = new MockPage(new HtmlUnitDriver());
         assumeNotNull(mockPage);
-        assertNotNull(UNEXPECTED_NULL,mockPage.open());
-        assertNotNull(UNEXPECTED_NULL,mockPage.verify());
+        assertNotNull(UNEXPECTED_NULL, mockPage.open());
+        assertNotNull(UNEXPECTED_NULL, mockPage.verify());
     }
 
 }

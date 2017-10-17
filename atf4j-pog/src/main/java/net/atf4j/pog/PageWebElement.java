@@ -39,8 +39,7 @@ public class PageWebElement extends ClassField {
         /**
          * Instantiates a new strategy.
          *
-         * @param asText
-         *            the as text
+         * @param asText the as text
          */
         Strategy(final String asText) {
             this.strategy = asText;
@@ -58,8 +57,7 @@ public class PageWebElement extends ClassField {
         /**
          * Status forString.
          *
-         * @param asText
-         *            the as text
+         * @param asText the as text
          * @return Status value
          */
         public static Strategy fromString(final String asText) {
@@ -88,12 +86,9 @@ public class PageWebElement extends ClassField {
     /**
      * Instantiates a new page web element.
      *
-     * @param name
-     *            the name
-     * @param strategy
-     *            the strategy
-     * @param locator
-     *            the locator
+     * @param name the name
+     * @param strategy the strategy
+     * @param locator the locator
      */
     public PageWebElement(final String name, final String strategy, final String locator) {
         super("WebElement", name);
@@ -104,12 +99,9 @@ public class PageWebElement extends ClassField {
     /**
      * Instantiates a new page web element.
      *
-     * @param name
-     *            the name
-     * @param strategy
-     *            the strategy
-     * @param locator
-     *            the locator
+     * @param name the name
+     * @param strategy the strategy
+     * @param locator the locator
      */
     public PageWebElement(final String name, final Strategy strategy, final String locator) {
         super("WebElement", name);
@@ -120,8 +112,7 @@ public class PageWebElement extends ClassField {
     /**
      * Sets the locator strategy.
      *
-     * @param strategy
-     *            the strategy
+     * @param strategy the strategy
      * @return the page web element
      */
     public PageWebElement setLocatorStrategy(final String strategy) {
@@ -133,8 +124,7 @@ public class PageWebElement extends ClassField {
     /**
      * Sets the locator strategy.
      *
-     * @param strategy
-     *            the strategy
+     * @param strategy the strategy
      * @return the page web element
      */
     public PageWebElement setLocatorStrategy(final Strategy strategy) {
@@ -146,8 +136,7 @@ public class PageWebElement extends ClassField {
     /**
      * Sets the locator.
      *
-     * @param locator
-     *            the locator
+     * @param locator the locator
      * @return the page web element
      */
     public PageWebElement setLocator(final String locator) {

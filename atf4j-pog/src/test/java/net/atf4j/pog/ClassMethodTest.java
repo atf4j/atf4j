@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.pog;
 
 import static org.junit.Assert.assertNotNull;
@@ -33,7 +34,7 @@ public class ClassMethodTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final ClassMethod classMethod = new ClassMethod();
-        assertNotNull("unexpected null",classMethod);
+        assertNotNull("unexpected null", classMethod);
     }
 
     /**
@@ -42,7 +43,7 @@ public class ClassMethodTest extends TestResultsReporting {
     @Test
     public void testClassMethod() {
         final ClassMethod classMethod = new ClassMethod();
-        assertNotNull("unexpected null",classMethod);
+        assertNotNull("unexpected null", classMethod);
         final String string = classMethod.toString();
         this.log.info(string);
     }
@@ -53,7 +54,7 @@ public class ClassMethodTest extends TestResultsReporting {
     @Test
     public void testClassMethodString() {
         final ClassMethod classMethod = new ClassMethod("String", "method");
-        assertNotNull("unexpected null",classMethod);
+        assertNotNull("unexpected null", classMethod);
         final String string = classMethod.toString();
         this.log.info(string);
     }
@@ -64,7 +65,7 @@ public class ClassMethodTest extends TestResultsReporting {
     @Test
     public void testClassMethodDate() {
         final ClassMethod classMethod = new ClassMethod("Date", "date");
-        assertNotNull("unexpected null",classMethod);
+        assertNotNull("unexpected null", classMethod);
         final String string = classMethod.toString();
         this.log.info(string);
     }

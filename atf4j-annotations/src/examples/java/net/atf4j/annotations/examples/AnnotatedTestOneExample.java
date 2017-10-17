@@ -43,8 +43,7 @@ public class AnnotatedTestOneExample {
     /**
      * Annotated Test example.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     @TestId("EXAMPLE-0001")

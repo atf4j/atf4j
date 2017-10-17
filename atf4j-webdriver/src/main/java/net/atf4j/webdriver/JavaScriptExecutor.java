@@ -28,10 +28,8 @@ public class JavaScriptExecutor {
     /**
      * Inject JavaScript in to a page and execute.
      *
-     * @param webDriver
-     *            the driver
-     * @param script
-     *            the JavaScript source.
+     * @param webDriver the driver
+     * @param script the JavaScript source.
      * @return the execution object.
      */
     public static Object executeScript(final WebDriver webDriver, final String script) {

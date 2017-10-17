@@ -35,8 +35,7 @@ public class CookieManager {
     /**
      * CookieManager constructor.
      *
-     * @param webDriver
-     *            associated with Browser Session.
+     * @param webDriver associated with Browser Session.
      */
     public CookieManager(final WebDriver webDriver) {
         setWebDriver(webDriver);
@@ -45,8 +44,7 @@ public class CookieManager {
     /**
      * Add a the cookie to the local cache.
      *
-     * @param cookie
-     *            the cookie to be added to store.
+     * @param cookie the cookie to be added to store.
      * @return true, if successful, otherwise false.
      */
     public boolean add(final Cookie cookie) {
@@ -63,8 +61,7 @@ public class CookieManager {
     /**
      * Checks to see if a specific cookie is stored in the local cache.
      *
-     * @param cookie
-     *            the cookie to be checked.
+     * @param cookie the cookie to be checked.
      * @return true, if cookie is stored, otherwise false.
      */
     public boolean contains(final Cookie cookie) {
@@ -83,8 +80,7 @@ public class CookieManager {
     /**
      * Removes the cookie from the local cache.
      *
-     * @param cookie
-     *            the cookie to be removed.
+     * @param cookie the cookie to be removed.
      * @return true, if successful, otherwise false.
      */
     public boolean remove(final Cookie cookie) {
@@ -113,8 +109,7 @@ public class CookieManager {
     /**
      * Set the webDriver.
      *
-     * @param webDriver
-     *            the web driver
+     * @param webDriver the web driver
      * @return the web driver
      */
     private WebDriver setWebDriver(final WebDriver webDriver) {

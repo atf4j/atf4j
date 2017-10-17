@@ -43,8 +43,7 @@ public class AnnotatedTestThreeExample {
     /**
      * Annotated Test example two.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     @Atf4j.TestId("EXAMPLE-0003")

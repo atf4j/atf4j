@@ -78,8 +78,7 @@ public class PageObjectDataTest extends TestResultsReporting {
     /**
      * Log attributes.
      *
-     * @param pageObjectData
-     *            the page object data
+     * @param pageObjectData the page object data
      */
     private void logAttributes(final PageObjectData pageObjectData) {
         final List<PageWebElement> attributes = pageObjectData.get();

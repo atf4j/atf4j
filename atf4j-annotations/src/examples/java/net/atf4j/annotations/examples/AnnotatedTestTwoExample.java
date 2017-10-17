@@ -38,8 +38,7 @@ public class AnnotatedTestTwoExample extends AbstractAnnotatedTest {
     /**
      * Annotated Test example two.
      *
-     * @throws Exception
-     *             the exception
+     * @throws Exception the exception
      */
     @Test
     @Atf4j.TestId("EXAMPLE-0002")

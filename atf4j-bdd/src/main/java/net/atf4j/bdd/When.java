@@ -34,8 +34,7 @@ public final class When extends AbstractHoareStep {
     /**
      * When a event occurs.
      *
-     * @param string
-     *            the string
+     * @param string the string
      */
     public When(final String string) {
         super(string);

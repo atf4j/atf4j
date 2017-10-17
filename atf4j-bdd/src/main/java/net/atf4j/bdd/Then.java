@@ -34,8 +34,7 @@ public final class Then extends PostCondition {
     /**
      * Then.
      *
-     * @param string
-     *            the string
+     * @param string the string
      */
     public Then(final String string) {
         super(string);

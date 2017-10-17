@@ -30,8 +30,7 @@ public class JsonToPojo extends AbstractCodeGenerator {
     /**
      * Json.
      *
-     * @param jsonString
-     *            the json string
+     * @param jsonString the json string
      * @return the string
      */
     public String toJson(final String jsonString) {

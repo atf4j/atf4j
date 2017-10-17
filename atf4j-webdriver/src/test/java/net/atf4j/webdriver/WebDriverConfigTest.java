@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.webdriver;
 
 import static org.junit.Assert.assertEquals;
@@ -32,30 +33,29 @@ public class WebDriverConfigTest extends TestResultsReporting {
     /**
      * Test method for {net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.
      *
-     * @throws ConfigurationNotLoadedException
-     *             the missing property file exception
+     * @throws ConfigurationNotLoadedException the missing property file
+     *             exception
      */
     @Test
-    public  void testDefaultConstructor() throws ConfigurationNotLoadedException {
+    public void testDefaultConstructor() throws ConfigurationNotLoadedException {
         final WebDriverConfig config = new WebDriverConfig();
-        assertNotNull(UNEXPECTED_NULL,config);
+        assertNotNull(UNEXPECTED_NULL, config);
     }
 
     /**
      * test WebDriverConfig object.
      *
-     * @throws ConfigurationNotLoadedException
-     *             the configuration not loaded
+     * @throws ConfigurationNotLoadedException the configuration not loaded
      */
     @Test
-    public  void testHappyPath() throws ConfigurationNotLoadedException {
+    public void testHappyPath() throws ConfigurationNotLoadedException {
         final WebDriverConfig config = new WebDriverConfig();
-        assertNotNull(UNEXPECTED_NULL,config);
-        assertNotNull(UNEXPECTED_NULL,config.targetBrowser());
-        assertNotNull(UNEXPECTED_NULL,config.targetUrl());
-        assertNotNull(UNEXPECTED_NULL,config.seleniumUrl());
-        assertNotNull(UNEXPECTED_NULL,config.chromeBinaryDriver());
-        assertNotNull(UNEXPECTED_NULL,config.firefoxBinaryDriver());
+        assertNotNull(UNEXPECTED_NULL, config);
+        assertNotNull(UNEXPECTED_NULL, config.targetBrowser());
+        assertNotNull(UNEXPECTED_NULL, config.targetUrl());
+        assertNotNull(UNEXPECTED_NULL, config.seleniumUrl());
+        assertNotNull(UNEXPECTED_NULL, config.chromeBinaryDriver());
+        assertNotNull(UNEXPECTED_NULL, config.firefoxBinaryDriver());
         assertEquals(1000, config.pageLoadTimeout());
         assertEquals(1, config.implicitWait());
     }

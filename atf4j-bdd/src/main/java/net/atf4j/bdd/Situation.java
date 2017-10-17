@@ -37,8 +37,7 @@ public final class Situation {
     /**
      * Situation.
      *
-     * @param given
-     *            the given
+     * @param given the given
      */
     public Situation(final Given given) {
         LOG.info("{}.Situation({})", this.getClass().getSimpleName(), given);

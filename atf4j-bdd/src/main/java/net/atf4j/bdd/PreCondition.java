@@ -25,8 +25,7 @@ public abstract class PreCondition extends Predicate {
     /**
      * Instantiates a new pre-condition.
      *
-     * @param string
-     *            the string
+     * @param string the string
      */
     public PreCondition(final String string) {
         super(string);

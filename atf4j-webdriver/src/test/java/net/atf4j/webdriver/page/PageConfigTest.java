@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.webdriver.page;
 
 import static org.junit.Assert.assertNotNull;
@@ -35,8 +36,8 @@ public class PageConfigTest {
         /**
          * Instantiates a new mock page config.
          *
-         * @throws ConfigurationNotLoadedException
-         *             the missing property file exception
+         * @throws ConfigurationNotLoadedException the missing property file
+         *             exception
          */
         public MockPageConfig() throws ConfigurationNotLoadedException {
             super();
@@ -44,14 +45,15 @@ public class PageConfigTest {
     }
 
     /**
-     * Test method for {net.atf4j.webdriver.page.AbstractPageConfig#AbstractPageConfig()}.
+     * Test method for
+     * {net.atf4j.webdriver.page.AbstractPageConfig#AbstractPageConfig()}.
      *
-     * @throws ConfigurationNotLoadedException
-     *             the missing property file exception
+     * @throws ConfigurationNotLoadedException the missing property file
+     *             exception
      */
     @Test
-    public  void testPageConfig() throws ConfigurationNotLoadedException {
+    public void testPageConfig() throws ConfigurationNotLoadedException {
         final PageConfig pageConfig = new MockPageConfig();
-        assertNotNull("unexpected null",pageConfig);
+        assertNotNull("unexpected null", pageConfig);
     }
 }

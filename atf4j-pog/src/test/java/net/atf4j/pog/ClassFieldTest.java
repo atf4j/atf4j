@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.pog;
 
 import static org.junit.Assert.assertNotNull;
@@ -47,7 +48,7 @@ public class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final ClassField classField = new ClassField();
-        assertNotNull(UNEXPECTED_NULL,classField);
+        assertNotNull(UNEXPECTED_NULL, classField);
     }
 
     /**
@@ -56,7 +57,7 @@ public class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testClassField() {
         final ClassField classField = new ClassField();
-        assertNotNull(UNEXPECTED_NULL,classField);
+        assertNotNull(UNEXPECTED_NULL, classField);
         this.log.info(classField.toString());
         this.log.info(classField.toCode());
     }
@@ -67,11 +68,11 @@ public class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testBooleanField() {
         final ClassField classField = new ClassField(FieldType.BOOLEAN, "bool");
-        assertNotNull(UNEXPECTED_NULL,classField);
+        assertNotNull(UNEXPECTED_NULL, classField);
         this.log.info(classField.toCode());
 
         final ClassField booleanField = new ClassField("Boolean", "bool");
-        assertNotNull(UNEXPECTED_NULL,booleanField);
+        assertNotNull(UNEXPECTED_NULL, booleanField);
         this.log.info(booleanField.toString());
     }
 
@@ -81,11 +82,11 @@ public class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testDateField() {
         final ClassField classField = new ClassField(FieldType.DATE, "date");
-        assertNotNull(UNEXPECTED_NULL,classField);
+        assertNotNull(UNEXPECTED_NULL, classField);
         this.log.info(classField.toCode());
 
         final ClassField dateField = new ClassField("Date", "date");
-        assertNotNull(UNEXPECTED_NULL,dateField);
+        assertNotNull(UNEXPECTED_NULL, dateField);
         this.log.info(dateField.toString());
     }
 
@@ -95,11 +96,11 @@ public class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testNumberField() {
         final ClassField classField = new ClassField(FieldType.NUMBER, "number");
-        assertNotNull(UNEXPECTED_NULL,classField);
+        assertNotNull(UNEXPECTED_NULL, classField);
         this.log.info(classField.toCode());
 
         final ClassField numberField = new ClassField("Number", "number");
-        assertNotNull(UNEXPECTED_NULL,numberField);
+        assertNotNull(UNEXPECTED_NULL, numberField);
         this.log.info(classField.toString());
     }
 
@@ -109,11 +110,11 @@ public class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testStringField() {
         final ClassField classField = new ClassField(FieldType.STRING, "string");
-        assertNotNull(UNEXPECTED_NULL,classField);
+        assertNotNull(UNEXPECTED_NULL, classField);
         this.log.info(classField.toCode());
 
         final ClassField stringField = new ClassField("String", "string");
-        assertNotNull(UNEXPECTED_NULL,stringField);
+        assertNotNull(UNEXPECTED_NULL, stringField);
         this.log.info(stringField.toString());
     }
 
@@ -123,11 +124,11 @@ public class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testValueField() {
         final ClassField classField = new ClassField(FieldType.VALUE, "value");
-        assertNotNull(UNEXPECTED_NULL,classField);
+        assertNotNull(UNEXPECTED_NULL, classField);
         this.log.info(classField.toCode());
 
         final ClassField stringField = new ClassField("Object", "value");
-        assertNotNull(UNEXPECTED_NULL,stringField);
+        assertNotNull(UNEXPECTED_NULL, stringField);
         this.log.info(stringField.toString());
     }
 
@@ -137,11 +138,11 @@ public class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testObject() {
         final ClassField classField = new ClassField(FieldType.OBJECT, "object");
-        assertNotNull(UNEXPECTED_NULL,classField);
+        assertNotNull(UNEXPECTED_NULL, classField);
         this.log.info(classField.toCode());
 
         final ClassField stringField = new ClassField("Object", "object");
-        assertNotNull(UNEXPECTED_NULL,stringField);
+        assertNotNull(UNEXPECTED_NULL, stringField);
         this.log.info(stringField.toString());
     }
 

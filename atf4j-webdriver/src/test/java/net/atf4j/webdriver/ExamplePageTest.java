@@ -49,8 +49,7 @@ public class ExamplePageTest {
         /**
          * Instantiates a new page object.
          * 
-         * @param webDriver
-         *            the web driver
+         * @param webDriver the web driver
          */
         MockPageObject(final WebDriver webDriver) {
             this.driver = webDriver;

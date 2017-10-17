@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.pog;
 
 import static org.junit.Assert.assertNotNull;
@@ -34,7 +35,7 @@ public class PageWebElementTest extends TestResultsReporting {
     @Test
     public void testClassNameStrategy() {
         final PageWebElement pageWebElement = new PageWebElement("className", Strategy.CLASS_NAME, "class-name");
-        assertNotNull(UNEXPECTED_NULL,pageWebElement);
+        assertNotNull(UNEXPECTED_NULL, pageWebElement);
         final String string = pageWebElement.toString();
         this.log.info(string);
     }
@@ -45,7 +46,7 @@ public class PageWebElementTest extends TestResultsReporting {
     @Test
     public void testLinkTextStrategy() {
         final PageWebElement pageWebElement = new PageWebElement("linkText", Strategy.LINK_TEXT, "link");
-        assertNotNull(UNEXPECTED_NULL,pageWebElement);
+        assertNotNull(UNEXPECTED_NULL, pageWebElement);
         final String string = pageWebElement.toString();
         this.log.info(string);
     }
@@ -56,7 +57,7 @@ public class PageWebElementTest extends TestResultsReporting {
     @Test
     public void testPartialLinkText() {
         final PageWebElement pageWebElement = new PageWebElement("partialLinkText", Strategy.PARTIAL_LINK_TEXT, "Link");
-        assertNotNull(UNEXPECTED_NULL,pageWebElement);
+        assertNotNull(UNEXPECTED_NULL, pageWebElement);
         final String string = pageWebElement.toString();
         this.log.info(string);
     }
@@ -67,7 +68,7 @@ public class PageWebElementTest extends TestResultsReporting {
     @Test
     public void testCssStrategy() {
         final PageWebElement pageWebElement = new PageWebElement("byCss", Strategy.CSS, "#");
-        assertNotNull(UNEXPECTED_NULL,pageWebElement);
+        assertNotNull(UNEXPECTED_NULL, pageWebElement);
         final String string = pageWebElement.toString();
         this.log.info(string);
     }
@@ -78,7 +79,7 @@ public class PageWebElementTest extends TestResultsReporting {
     @Test
     public void testXpathStrategy() {
         final PageWebElement pageWebElement = new PageWebElement("byXpath", Strategy.XPATH, "//A");
-        assertNotNull(UNEXPECTED_NULL,pageWebElement);
+        assertNotNull(UNEXPECTED_NULL, pageWebElement);
         final String string = pageWebElement.toString();
         this.log.info(string);
     }
@@ -89,7 +90,7 @@ public class PageWebElementTest extends TestResultsReporting {
     @Test
     public void testIdStrategy() {
         final PageWebElement pageWebElement = new PageWebElement("byId", Strategy.ID, "id");
-        assertNotNull(UNEXPECTED_NULL,pageWebElement);
+        assertNotNull(UNEXPECTED_NULL, pageWebElement);
         final String string = pageWebElement.toString();
         this.log.info(string);
     }
@@ -100,7 +101,7 @@ public class PageWebElementTest extends TestResultsReporting {
     @Test
     public void testNameStrategy() {
         final PageWebElement pageWebElement = new PageWebElement("byName", Strategy.NAME, "name");
-        assertNotNull(UNEXPECTED_NULL,pageWebElement);
+        assertNotNull(UNEXPECTED_NULL, pageWebElement);
         final String string = pageWebElement.toString();
         this.log.info(string);
     }
@@ -111,7 +112,7 @@ public class PageWebElementTest extends TestResultsReporting {
     @Test
     public void testPageWebElementStringStrategyString() {
         final PageWebElement pageWebElement = new PageWebElement("byName", Strategy.UNKNOWN, "name");
-        assertNotNull(UNEXPECTED_NULL,pageWebElement);
+        assertNotNull(UNEXPECTED_NULL, pageWebElement);
         final String string = pageWebElement.toString();
         this.log.info(string);
     }

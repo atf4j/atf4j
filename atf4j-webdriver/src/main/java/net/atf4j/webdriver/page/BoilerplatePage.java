@@ -37,8 +37,7 @@ public class BoilerplatePage extends AbstractPageObject {
     /**
      * Instantiates a new Html5 Boilerplate page object.
      *
-     * @param webDriver
-     *            the web driver
+     * @param webDriver the web driver
      */
     public BoilerplatePage(final WebDriver webDriver) {
         super(webDriver);
@@ -47,8 +46,7 @@ public class BoilerplatePage extends AbstractPageObject {
     /**
      * Instantiates a new Html5 Boilerplate page object.
      *
-     * @param targetUrl
-     *            the target url
+     * @param targetUrl the target url
      */
     public BoilerplatePage(final String targetUrl) {
         super(targetUrl);

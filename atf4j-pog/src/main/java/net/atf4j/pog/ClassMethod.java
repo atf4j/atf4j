@@ -48,10 +48,8 @@ public final class ClassMethod {
     /**
      * Instantiates a new class method.
      *
-     * @param type
-     *            the type
-     * @param methodName
-     *            the method name
+     * @param type the type
+     * @param methodName the method name
      */
     public ClassMethod(final String type, final String methodName) {
         super();
@@ -62,8 +60,7 @@ public final class ClassMethod {
     /**
      * Sets the access.
      *
-     * @param access
-     *            the access
+     * @param access the access
      * @return the class method
      */
     public ClassMethod setAccess(final String access) {
@@ -74,8 +71,7 @@ public final class ClassMethod {
     /**
      * Sets the name.
      *
-     * @param name
-     *            the name
+     * @param name the name
      * @return the class method
      */
     public ClassMethod setName(final String name) {
@@ -86,8 +82,7 @@ public final class ClassMethod {
     /**
      * Sets the type.
      *
-     * @param type
-     *            the type
+     * @param type the type
      * @return the class method
      */
     public ClassMethod setType(final String type) {
@@ -98,8 +93,7 @@ public final class ClassMethod {
     /**
      * Adds the.
      *
-     * @param e
-     *            the e \* @return true, if successful, otherwise false.
+     * @param e the e \* @return true, if successful, otherwise false.
      * @return true, if successful, otherwise false.
      */
     public boolean add(final ClassField e) {
@@ -136,8 +130,7 @@ public final class ClassMethod {
     /**
      * Method case.
      *
-     * @param string
-     *            the string
+     * @param string the string
      * @return the string
      */
     public String methodCase(final String string) {

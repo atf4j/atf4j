@@ -52,8 +52,7 @@ public class BrowserFactory implements BrowserFactoryInterface {
     /**
      * Initialise web driver.
      *
-     * @param webDriver
-     *            the web driver
+     * @param webDriver the web driver
      */
     private static void initialiseWebDriver(final WebDriver webDriver) {
         final Options manage = webDriver.manage();
@@ -77,8 +76,7 @@ public class BrowserFactory implements BrowserFactoryInterface {
     /**
      * Local webDriver instance.
      *
-     * @param targetBrowser
-     *            the target browser
+     * @param targetBrowser the target browser
      * @return the webDriver
      */
     protected static WebDriver localWebDriver(final String targetBrowser) {
@@ -102,8 +100,7 @@ public class BrowserFactory implements BrowserFactoryInterface {
      * Default remote webDriver instance.
      *
      * @return the web driver
-     * @throws PropertyNotFoundException
-     *             the property not found
+     * @throws PropertyNotFoundException the property not found
      */
     protected static WebDriver remoteWebDriver() throws PropertyNotFoundException {
         final String targetBrowser = BrowserFactory.config.targetBrowser();
@@ -113,8 +110,7 @@ public class BrowserFactory implements BrowserFactoryInterface {
     /**
      * Named remote webDriver instance.
      *
-     * @param targetBrowser
-     *            the target browser
+     * @param targetBrowser the target browser
      * @return the web driver
      */
     protected static WebDriver remoteWebDriver(final String targetBrowser) {
@@ -165,8 +161,7 @@ public class BrowserFactory implements BrowserFactoryInterface {
     /**
      * Factory method of webDriver instance.
      *
-     * @param browser
-     *            the browser
+     * @param browser the browser
      * @return instance of webDriver
      */
     protected static WebDriver webDriver(final String browser) {
