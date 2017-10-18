@@ -37,7 +37,7 @@ public abstract class AbstractHoareStep implements HoareStepInterface {
      * @param string the string
      */
     public AbstractHoareStep(final String string) {
-        this.log.info("AbstractHoareStep({}", string);
+        this.log.info("AbstractHoareStep({})", string);
         this.string = string;
     }
 
@@ -47,7 +47,7 @@ public abstract class AbstractHoareStep implements HoareStepInterface {
      * @return the properties
      */
     public Properties execute() {
-        this.log.info("AbstractHoareStep({}", this.string);
+        this.log.info("AbstractHoareStep({})", this.string);
         return this.properties;
     }
 

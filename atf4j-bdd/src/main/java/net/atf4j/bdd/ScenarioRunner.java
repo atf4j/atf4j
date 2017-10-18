@@ -22,29 +22,29 @@ import java.lang.reflect.Method;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * Scenario Runner class.
  */
-public final class ScenarioRunner {
+public final class ScenarioRunner extends TestResultsReporting {
 
     private static final Logger LOG = LoggerFactory.getLogger(ScenarioRunner.class);
     private AbstractScenario targetScenario;
 
     /**
      * Instantiates a new scenario runner.
-     */
-    public ScenarioRunner() {
-        super();
-    }
-
-    /**
-     * Instantiates a new scenario runner.
      *
      * @param targetScenario the target scenario
      */
-    public ScenarioRunner(final AbstractScenario targetScenario) {
+    public ScenarioRunner(final Object targetScenario) {
         super();
-        this.targetScenario = targetScenario;
+        setTargetScenario(targetScenario);
+    }
+
+    private void setTargetScenario(Object targetScenario) {
+        // if @Scenario Tag
+        this.targetScenario = (AbstractScenario) targetScenario;
     }
 
     /**
