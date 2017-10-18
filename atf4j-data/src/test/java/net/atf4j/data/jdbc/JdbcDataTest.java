@@ -17,9 +17,10 @@
 
 package net.atf4j.data.jdbc;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.data.Customer;
 import net.atf4j.data.management.JdbcData;
 
 /**
@@ -32,7 +33,7 @@ public final class JdbcDataTest {
      */
     @Test
     public void testDefaultConstructor() {
-        new Customer();
+        assertNotNull(new JdbcData());
     }
 
     /**
@@ -40,7 +41,9 @@ public final class JdbcDataTest {
      */
     @Test
     public void testSetUp() {
-        new JdbcData().setUp();
+        JdbcData jdbcData = new JdbcData();
+        assertNotNull(jdbcData);
+        jdbcData.setUp();
     }
 
     /**
@@ -48,7 +51,9 @@ public final class JdbcDataTest {
      */
     @Test
     public void testReset() {
-        new JdbcData().reset();
+        JdbcData jdbcData = new JdbcData();
+        assertNotNull(jdbcData);
+        jdbcData.reset();
     }
 
     /**
@@ -56,14 +61,9 @@ public final class JdbcDataTest {
      */
     @Test
     public void testTearDown() {
-        new JdbcData().tearDown();
+        JdbcData jdbcData = new JdbcData();
+        assertNotNull(jdbcData);
+        jdbcData.tearDown();
     }
 
-    /**
-     * Test method for void.
-     */
-    @Test
-    public void testJdbcData() {
-        new JdbcData();
-    }
 }

@@ -360,21 +360,23 @@ public abstract class AbstractPageObject {
     /**
      * Close page.
      */
-    protected void close() {
+    protected AbstractPageObject close() {
         assertNotNull(UNEXPECTED_NULL, this.webDriver);
         if (this.webDriver != null) {
             this.webDriver.close();
         }
+        return this;
     }
 
     /**
      * Quit webDriver, closes browser.
      */
-    protected void quit() {
+    protected AbstractPageObject quit() {
         assertNotNull(UNEXPECTED_NULL, this.webDriver);
         if (this.webDriver != null) {
             this.webDriver.quit();
         }
+        return this;
     }
 
 }

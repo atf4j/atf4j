@@ -14,6 +14,7 @@
 
 package net.atf4j.core;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
@@ -82,7 +83,7 @@ public abstract class AbstractConfig implements ConfigurationInterface {
         try {
             this.properties.load(resourceAsStream(propertyFilename));
             this.properties.setProperty("propertiesFilename", propertyFilename);
-        } catch (final Exception e) {
+        } catch (final IOException e) {
             throw new ConfigurationNotLoadedException(propertyFilename);
         }
         return this;

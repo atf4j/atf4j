@@ -19,7 +19,6 @@ package net.atf4j.bdd;
 
 import static org.junit.Assert.assertNotNull;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,7 +37,6 @@ public class MissingThenScenarioTest extends TestResultsReporting {
     /**
      * Test scenario runner.
      */
-    @Ignore
     @Test
     public void testScenarioRunner() {
         LOG.info("{}.testScenarioRunner", this.getClass().getSimpleName());
@@ -50,16 +48,16 @@ public class MissingThenScenarioTest extends TestResultsReporting {
     /**
      * Test pass given.
      */
-    @Atf4j.Given("Given")
-    public void testPassGiven() {
+    @Atf4j.Given("Pass Given")
+    public void passGiven() {
         this.log.info("{}", super.toString());
     }
 
     /**
      * Test pass when.
      */
-    @Atf4j.When("When")
-    public void testPassWhen() {
+    @Atf4j.When("Pass When")
+    public void passWhen() {
         this.log.info("{}", super.toString());
     }
 

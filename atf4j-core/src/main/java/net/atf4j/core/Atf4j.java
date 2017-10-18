@@ -29,6 +29,10 @@ public class Atf4j {
     protected static final Logger log = LoggerFactory.getLogger(Atf4j.class);
     protected static final NestedTimers nestedTimers = NestedTimers.getInstance();
 
+    private Atf4j() {
+        super();
+    }
+
     /**
      * Start.
      */

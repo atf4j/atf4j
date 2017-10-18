@@ -29,6 +29,8 @@ import org.junit.Test;
  */
 public class AbstractConfigTest extends TestResultsReporting {
 
+    private static final String MISSING_KEY = "missingKey";
+
     /**
      * Default configuration class.
      */
@@ -84,15 +86,15 @@ public class AbstractConfigTest extends TestResultsReporting {
         log.info("{}", config);
 
         String defaultValue = "defaultValue";
-        assertEquals(defaultValue, config.valueFor("missingKey", defaultValue));
-        assertEquals(Integer.MAX_VALUE, config.valueFor("missingKey", Integer.MAX_VALUE));
-        assertEquals(Long.MAX_VALUE, config.valueFor("missingKey", Long.MAX_VALUE));
-        assertEquals(true, config.valueFor("missingKey", true));
+        assertEquals(defaultValue, config.valueFor(MISSING_KEY, defaultValue));
+        assertEquals(Integer.MAX_VALUE, config.valueFor(MISSING_KEY, Integer.MAX_VALUE));
+        assertEquals(Long.MAX_VALUE, config.valueFor(MISSING_KEY, Long.MAX_VALUE));
+        assertEquals(true, config.valueFor(MISSING_KEY, true));
         assertEquals("stringValue", config.valueFor("keyForString", defaultValue));
         assertEquals(1, config.valueFor("keyForIntOne", Integer.MAX_VALUE));
         assertEquals(1, config.valueFor("keyForLongOne", Long.MAX_VALUE));
-        assertEquals(true, config.valueFor("keyForTrue", false));
-        assertEquals(false, config.valueFor("keyForFalse", true));
+        assertTrue(config.valueFor("keyForTrue", false));
+        assertFalse(config.valueFor("keyForFalse", true));
     }
 
     /**

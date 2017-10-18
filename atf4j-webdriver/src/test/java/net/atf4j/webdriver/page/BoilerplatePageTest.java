@@ -17,6 +17,7 @@
 
 package net.atf4j.webdriver.page;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assume.assumeNotNull;
 
 import org.junit.Ignore;
@@ -39,9 +40,9 @@ public class BoilerplatePageTest {
     public void testBoilerplatePage() {
         final BoilerplatePage boilerplatePage = new BoilerplatePage();
         assumeNotNull(boilerplatePage);
-        boilerplatePage.open();
-        boilerplatePage.verify();
-        boilerplatePage.close();
+        assertNotNull(boilerplatePage.open());
+        assertNotNull(boilerplatePage.verify());
+        assertNotNull(boilerplatePage.close());
     }
 
     /**
@@ -51,9 +52,9 @@ public class BoilerplatePageTest {
     public void testBoilerplateLoad() {
         final BoilerplatePage boilerplatePage = new BoilerplatePage();
         assumeNotNull(boilerplatePage);
-        boilerplatePage.open();
-        boilerplatePage.verify();
-        boilerplatePage.close();
+        assertNotNull(boilerplatePage.open());
+        assertNotNull(boilerplatePage.verify());
+        assertNotNull(boilerplatePage.close());
     }
 
     /**
@@ -63,9 +64,9 @@ public class BoilerplatePageTest {
     public void testBoilerplatePageUrl() {
         final BoilerplatePage boilerplatePage = new BoilerplatePage(BoilerplatePageTest.PAGE_URL);
         assumeNotNull(boilerplatePage);
-        boilerplatePage.open();
-        boilerplatePage.verify();
-        boilerplatePage.close();
+        assertNotNull(boilerplatePage.open());
+        assertNotNull(boilerplatePage.verify());
+        assertNotNull(boilerplatePage.close());
     }
 
     /**
@@ -77,9 +78,9 @@ public class BoilerplatePageTest {
         assumeNotNull(webDriver);
         final BoilerplatePage boilerplatePage = new BoilerplatePage(webDriver);
         assumeNotNull(boilerplatePage);
-        boilerplatePage.open();
-        boilerplatePage.verify();
-        boilerplatePage.close();
+        assertNotNull(boilerplatePage.open());
+        assertNotNull(boilerplatePage.verify());
+        assertNotNull(boilerplatePage.close());
     }
 
 }

@@ -19,6 +19,7 @@ package net.atf4j.bdd;
 
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,6 +35,7 @@ public class BehaviourPassTest extends TestResultsReporting {
     /**
      * Test given.
      */
+    @Test
     @Atf4j.Given("testGiven")
     public void testGiven() {
         LOG.info("{}.testGiven", this.getClass().getSimpleName());
@@ -45,6 +47,7 @@ public class BehaviourPassTest extends TestResultsReporting {
     /**
      * Test when.
      */
+    @Test
     @Atf4j.When("testWhen")
     public void testWhen() {
         LOG.info("{}.testGiven", this.getClass().getSimpleName());
@@ -56,6 +59,7 @@ public class BehaviourPassTest extends TestResultsReporting {
     /**
      * Test then.
      */
+    @Test
     @Atf4j.Then("testThen")
     public void testThen() {
         LOG.info("{}.testGiven", this.getClass().getSimpleName());

@@ -17,6 +17,7 @@
 
 package net.atf4j.webdriver.page;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assume.assumeNotNull;
 
 import org.junit.Ignore;
@@ -39,9 +40,9 @@ public class BootstrapPageTest {
     public void testBootstrapPage() {
         final BootstrapPage bootstrapPage = new BootstrapPage();
         assumeNotNull(bootstrapPage);
-        bootstrapPage.open();
-        bootstrapPage.verify();
-        bootstrapPage.close();
+        assertNotNull(bootstrapPage.open());
+        assertNotNull(bootstrapPage.verify());
+        assertNotNull(bootstrapPage.close());
     }
 
     /**
@@ -51,9 +52,9 @@ public class BootstrapPageTest {
     public void testBootstrapPageUrl() {
         final BootstrapPage bootstrapPage = new BootstrapPage(BootstrapPageTest.PAGE_URL);
         assumeNotNull(bootstrapPage);
-        bootstrapPage.open();
-        bootstrapPage.verify();
-        bootstrapPage.close();
+        assertNotNull(bootstrapPage.open());
+        assertNotNull(bootstrapPage.verify());
+        assertNotNull(bootstrapPage.close());
     }
 
     /**
@@ -64,9 +65,9 @@ public class BootstrapPageTest {
         final HtmlUnitDriver webDriver = new HtmlUnitDriver();
         final BootstrapPage bootstrapPage = new BootstrapPage(webDriver);
         assumeNotNull(bootstrapPage);
-        bootstrapPage.open();
-        bootstrapPage.verify();
-        bootstrapPage.close();
+        assertNotNull(bootstrapPage.open());
+        assertNotNull(bootstrapPage.verify());
+        assertNotNull(bootstrapPage.close());
     }
 
 }

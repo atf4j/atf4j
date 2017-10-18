@@ -38,7 +38,6 @@ public class PageObjectGeneratorTest extends TestResultsReporting {
      */
     @Test
     public void testExpected() throws Exception {
-        this.log.info("==============================================");
         final PageObjectData pageObjectData = new PageObjectData();
         assertNotNull("unexpected null", pageObjectData);
 
@@ -81,7 +80,6 @@ public class PageObjectGeneratorTest extends TestResultsReporting {
      */
     @Test
     public void testPageObjectTargetSurvey() throws Exception {
-        this.log.info("==============================================");
         final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
         pageObjectGenerator.target(HTTP_ATF4J_NET).survey();
     }
@@ -93,7 +91,6 @@ public class PageObjectGeneratorTest extends TestResultsReporting {
      */
     @Test
     public void testPageObjectSurvey() throws Exception {
-        this.log.info("==============================================");
         final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
         pageObjectGenerator.survey(HTTP_ATF4J_NET);
     }
@@ -105,7 +102,6 @@ public class PageObjectGeneratorTest extends TestResultsReporting {
      */
     @Test
     public void testPageObjectGenerator() throws Exception {
-        this.log.info("==============================================");
         final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
         pageObjectGenerator.target(HTTP_ATF4J_NET).survey().generate();
 
