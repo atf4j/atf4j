@@ -219,4 +219,9 @@ public class CsvFile {
         return String.format("%s [header=%s, data=%s]", simpleName, this.header.toString(), this.data.toString());
     }
 
+    @Override
+    public String toString() {
+        return String.format("CsvFile [header=%s, data=%s]", header, data);
+    }
+
 }

@@ -213,7 +213,17 @@ public abstract class AbstractConfig implements ConfigurationInterface {
      */
     @Override
     public String toString() {
-        return String.format("%s [properties=%s]", this.getClass().getSimpleName(), this.properties);
+        return String.format("%s [properties=%s]", this.getClass().getSimpleName(), prettyProperties(this.properties));
+    }
+
+    /**
+     * Pretty properties.
+     *
+     * @param properties the properties
+     * @return the string
+     */
+    private String prettyProperties(final Properties properties) {
+        return properties.toString().replace("{", "{\n\t").replace(", ", "\n\t").replace("}", "\n\t}");
     }
 
     /**

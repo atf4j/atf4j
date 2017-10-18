@@ -51,6 +51,7 @@ public class Postcode {
      */
     public Postcode() {
         super();
+        setPostCode("XX99 9XX");
     }
 
     /**
@@ -70,8 +71,8 @@ public class Postcode {
      * @return the postcode
      */
     public Postcode setPostCode(final String postCode) {
-        if (Postcode.verify(postCode)) {
-            this.postCode = postCode;
+        this.postCode = postCode;
+        if (Postcode.verify(this.postCode)) {
             final String[] split = postCode.split("\\w");
             setOutwardCode(split[0]);
             setInwardCode(split[1]);

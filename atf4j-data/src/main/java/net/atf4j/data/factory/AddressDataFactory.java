@@ -17,6 +17,9 @@
 
 package net.atf4j.data.factory;
 
+import static org.junit.Assert.assertNotNull;
+
+import java.io.FileNotFoundException;
 import java.util.Arrays;
 
 import net.atf4j.csv.CsvFile;
@@ -28,15 +31,15 @@ import net.atf4j.data.Postcode;
  */
 public class AddressDataFactory extends AbstractDataFactory {
 
+    private static final String FILE_NOT_FOUND_MSG = "Expected file '%s' not found.";
+
     private static AddressDataFactory instance = null;
 
     private String[] addressLineStems;
     private String[] addressLinePostfix;
-    private String[] streetnames;
-    private String[] data;
-
+    private String[] addressLocals;
+    private String[] addressStems;
     private CsvFile postCodeData = null;
-    private CsvFile postalTownsUK = null;
 
     /**
      * Gets the single instance of AddressDataFactory.
@@ -66,8 +69,8 @@ public class AddressDataFactory extends AbstractDataFactory {
      */
     public static PostalAddress random() {
         final PostalAddress postalAddress = new PostalAddress();
-        postalAddress.setAddressRow(1, "");
-        postalAddress.setAddressRow(2, "");
+        postalAddress.setAddressRow(1, null);
+        postalAddress.setAddressRow(2, null);
         postalAddress.setPostcode(new Postcode());
         return postalAddress;
     }
@@ -93,41 +96,65 @@ public class AddressDataFactory extends AbstractDataFactory {
     protected void initialise() {
         try {
             this.addressLineStems = load("addressLineStems.txt");
-        } catch (final Exception e) {
-            this.log.error(e.getMessage());
+        } catch (final FileNotFoundException e) {
+            String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
+            this.log.error(errorMessage);
         }
 
         try {
             this.addressLinePostfix = load("addressLinePostfix.txt");
-        } catch (final Exception e) {
-            this.log.error(e.getMessage());
+        } catch (final FileNotFoundException e) {
+            String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
+            this.log.error(errorMessage);
         }
 
         try {
-            this.addressLinePostfix = load("addressLinePostfix.txt");
-        } catch (final Exception e) {
-            this.log.error(e.getMessage());
+            this.addressStems = load("addressStems.txt");
+        } catch (final FileNotFoundException e) {
+            String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
+            this.log.error(errorMessage);
         }
 
         try {
-            this.postalTownsUK = new CsvFile("postalTownsUK.csv");
-        } catch (final Exception e) {
-            this.log.error("{}", e.getLocalizedMessage());
+            this.addressLocals = load("addressLocals.txt");
+        } catch (final FileNotFoundException e) {
+            String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
+            this.log.error(errorMessage);
         }
 
         try {
             this.postCodeData = new CsvFile("postCodeData.csv");
-        } catch (final Exception e) {
-            this.log.error("{}", e.getLocalizedMessage());
+        } catch (final FileNotFoundException e) {
+            String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
+            this.log.error("{}", errorMessage);
         }
+    }
+
+    /**
+     * Format data lines.
+     *
+     * @param properties the properties
+     * @return the string
+     */
+    private String fromatData(final String data) {
+        return data.replace("{", "{\n\t").replace(", ", "\n\t").replace("}", "\n\t}");
     }
 
     @Override
     public String toString() {
+        assertNotNull(addressLineStems);
+        assertNotNull(addressLinePostfix);
+        assertNotNull(addressStems);
+        assertNotNull(addressLocals);
+        assertNotNull(postCodeData);
+
         return String.format(
-                "AddressDataFactory [addressLineStems=%s, addressLinePostfix=%s, streetnames=%s, data=%s, postCodeData=%s, postalTownsUK=%s]",
-                Arrays.toString(addressLineStems), Arrays.toString(addressLinePostfix), Arrays.toString(streetnames),
-                Arrays.toString(data), postCodeData, postalTownsUK);
+                "AddressDataFactory [addressLineStems=%s, addressLinePostfix=%s, addressStems=%s, addressLocals=%s, postCodeData=%s]",
+                fromatData(Arrays.toString(addressLineStems)),
+                fromatData(Arrays.toString(addressLinePostfix)),
+                fromatData(Arrays.toString(addressStems)),
+                fromatData(Arrays.toString(addressLocals)),
+                postCodeData.toString());
     }
 
 }
