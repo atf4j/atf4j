@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public final class NarratorTest extends TestResultsReporting {
 
-    private final Object object = this;
+    private final Object object = new Object();
     private final String string = "";
     private final Boolean aBoolean = true;
 
@@ -38,6 +38,7 @@ public final class NarratorTest extends TestResultsReporting {
 
     @Override
     public String toString() {
-        return String.format("NarratorTest [aObject=%s, aString=%s, aBoolean=%s]", object, string, aBoolean);
+        return String.format("NarratorTest [object=%s, string=%s, aBoolean=%s]", object, string, aBoolean);
     }
+
 }

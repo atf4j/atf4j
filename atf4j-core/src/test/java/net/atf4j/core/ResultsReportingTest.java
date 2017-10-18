@@ -26,6 +26,56 @@ import org.junit.Test;
  */
 public final class ResultsReportingTest extends TestResultsReporting {
 
+    @Test
+    public void testVerifyEqualByte() {
+        final Byte expected = Byte.MAX_VALUE;
+        super.verifyEquals(expected, expected);
+    }
+
+    @Test(expected = AssertionError.class)
+    public void testVerifyNotEqualByte() {
+        Byte actual = Byte.MAX_VALUE;
+        Byte expected = Byte.MIN_VALUE;
+        super.verifyEquals(expected, actual);
+    }
+
+    @Test
+    public void testVerifyEqualChar() {
+        final char expected = 'a';
+        super.verifyEquals(expected, expected);
+    }
+
+    @Test(expected = AssertionError.class)
+    public void testVerifyNotEqualChar() {
+        final char actual = 'a';
+        final char expected = 'z';
+        super.verifyEquals(expected, actual);
+    }
+
+    @Test
+    public void testVerifyEqualInt() {
+        final int expected = Integer.MAX_VALUE;
+        super.verifyEquals(expected, expected);
+    }
+
+    @Test(expected = AssertionError.class)
+    public void testVerifyNotEqualInt() {
+        final int actual = Integer.MIN_VALUE;
+        final int expected = Integer.MAX_VALUE;
+        super.verifyEquals(expected, actual);
+    }
+
+    @Test
+    public void testVerifyEqualLong() {
+        final long expected = Long.MAX_VALUE;
+        super.verifyEquals(expected, expected);
+    }
+
+    @Test(expected = AssertionError.class)
+    public void testVerifyNotEqualsLong() {
+        super.verifyEquals(Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
     /**
      * Test method for ResultsReporting.
      */
@@ -38,40 +88,11 @@ public final class ResultsReportingTest extends TestResultsReporting {
     /**
      * Test method for ResultsReporting.
      */
-    @Test
+    @Test(expected = AssertionError.class)
     public void testVerifyNotEqualObjects() {
-        try {
-            Object actual = new Object();
-            Object expected = new Object();
-            super.verifyEquals(expected, actual);
-        } catch (final AssertionError assertionError) {
-            final String actualMessage = assertionError.toString();
-            assertNotNull(UNEXPECTED_NULL, actualMessage);
-            this.log.info(actualMessage);
-        }
-    }
-
-    /**
-     * Test method for ResultsReporting.
-     */
-    @Test
-    public void testVerifyEqualLongs() {
-        final long expected = Long.MAX_VALUE;
-        super.verifyEquals(expected, expected);
-    }
-
-    /**
-     * Test method for ResultsReporting.
-     */
-    @Test
-    public void testVerifyNotEqualsLong() {
-        try {
-            super.verifyEquals(Long.MIN_VALUE, Long.MAX_VALUE);
-        } catch (final AssertionError assertionError) {
-            final String actualMessage = assertionError.toString();
-            assertNotNull(UNEXPECTED_NULL, actualMessage);
-            this.log.info(actualMessage);
-        }
+        Object actual = new Object();
+        Object expected = new Object();
+        super.verifyEquals(expected, actual);
     }
 
     /**
