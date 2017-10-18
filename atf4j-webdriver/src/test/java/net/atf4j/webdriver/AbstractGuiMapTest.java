@@ -24,6 +24,7 @@ import java.util.MissingResourceException;
 import java.util.Set;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
@@ -31,6 +32,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * A UnitTest for LogicalGuiMap objects.
  */
+@Ignore
 public class AbstractGuiMapTest extends TestResultsReporting {
 
     /**
