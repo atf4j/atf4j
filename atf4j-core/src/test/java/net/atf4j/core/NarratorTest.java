@@ -24,8 +24,8 @@ import org.junit.Test;
  */
 public final class NarratorTest extends TestResultsReporting {
 
-    private final Object aObject = this;
-    private final String aString = "";
+    private final Object object = this;
+    private final String string = "";
     private final Boolean aBoolean = true;
 
     /**
@@ -34,5 +34,10 @@ public final class NarratorTest extends TestResultsReporting {
     @Test
     public void testReflectObjectToString() {
         this.log.info(Narrator.reflectObjectToString(this));
+    }
+
+    @Override
+    public String toString() {
+        return String.format("NarratorTest [aObject=%s, aString=%s, aBoolean=%s]", object, string, aBoolean);
     }
 }

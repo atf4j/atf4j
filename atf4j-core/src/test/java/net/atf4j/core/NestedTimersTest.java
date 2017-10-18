@@ -14,6 +14,8 @@
 
 package net.atf4j.core;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
 
 import net.atf4j.core.timers.NestedTimers;
@@ -31,6 +33,7 @@ public final class NestedTimersTest extends TestResultsReporting {
     @Test
     public void testNestedTimers() {
         final NestedTimers multiTimers = NestedTimers.getInstance();
+        assertNotNull(multiTimers);
         for (int i = 0; i < 10; i++) {
             this.log.info(multiTimers.startTimer(String.format("Test case Timer %s", i)).toString());
         }
@@ -47,6 +50,7 @@ public final class NestedTimersTest extends TestResultsReporting {
     @Test
     public void testTimerInstance() {
         final NestedTimers multiTimers = NestedTimers.getInstance();
+        assertNotNull(multiTimers);
         multiTimers.startTimer("Timer Instance : Test case 1");
         waitDefaultInterval();
         multiTimers.startTimer("Timer Instance : Test case 2");
@@ -73,17 +77,17 @@ public final class NestedTimersTest extends TestResultsReporting {
      */
     @Test
     public void testStaticNamedTimers() {
-        NestedTimers.start();
+        assertNotNull(NestedTimers.start());
         waitDefaultInterval();
-        NestedTimers.start();
+        assertNotNull(NestedTimers.start());
         waitDefaultInterval();
-        NestedTimers.start();
+        assertNotNull(NestedTimers.start());
         waitDefaultInterval();
-        NestedTimers.start();
+        assertNotNull(NestedTimers.start());
         waitDefaultInterval();
-        NestedTimers.start();
+        assertNotNull(NestedTimers.start());
         waitDefaultInterval();
-        NestedTimers.stopAll();
+        assertNotNull(NestedTimers.stopAll());
     }
 
     /**
