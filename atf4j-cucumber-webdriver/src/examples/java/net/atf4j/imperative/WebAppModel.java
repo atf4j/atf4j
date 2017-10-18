@@ -14,13 +14,13 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.imperative;
 
 import org.openqa.selenium.WebDriver;
 
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
 import net.atf4j.fdd.AbstractBehaviourModel;
-import net.atf4j.webdriver.BrowserFactory;
 
 /**
  * A UnitTest for SystemUnder objects.
@@ -36,14 +36,13 @@ public class WebAppModel extends AbstractBehaviourModel {
      */
     public void aBrowser() {
         this.log.info("aBrowser()");
-        this.webDriver = BrowserFactory.webDriver();
+        // TODO this.webDriver = BrowserFactory.webDriver();
     }
 
     /**
      * Use browser.
      *
-     * @param browserName
-     *            the browser name
+     * @param browserName the browser name
      */
     public void useBrowser(final String browserName) {
         this.log.debug("useBrowser({})", browserName);
@@ -52,19 +51,17 @@ public class WebAppModel extends AbstractBehaviourModel {
     /**
      * Open default landing page.
      *
-     * @throws ConfigurationNotLoadedException
-     *             the configuration not loaded
+     * @throws ConfigurationNotLoadedException the configuration not loaded
      */
     public void open() throws ConfigurationNotLoadedException {
         this.log.debug("open()");
-        this.page = new LandingPage();
+        // TODO this.page = new LandingPage();
     }
 
     /**
      * Open the target page.
      *
-     * @param targetUrl
-     *            the target url
+     * @param targetUrl the target url
      */
     public void open(final String targetUrl) {
         this.log.debug("open({})", targetUrl);
@@ -82,8 +79,7 @@ public class WebAppModel extends AbstractBehaviourModel {
     /**
      * Page title should be.
      *
-     * @param expectedPageTitle
-     *            the expected page title
+     * @param expectedPageTitle the expected page title
      */
     public void pageTitleShouldBe(final String expectedPageTitle) {
         this.log.debug("pageTitleShouldBe({})", expectedPageTitle);
@@ -93,8 +89,7 @@ public class WebAppModel extends AbstractBehaviourModel {
     /**
      * Ensure cookie exists.
      *
-     * @param expectedCookieName
-     *            the expected cookie name
+     * @param expectedCookieName the expected cookie name
      */
     public void ensureCookieExists(final String expectedCookieName) {
         this.log.debug("ensureCookieExists({})", expectedCookieName);
@@ -103,8 +98,7 @@ public class WebAppModel extends AbstractBehaviourModel {
     /**
      * The cookie has value.
      *
-     * @param expectedCookieName
-     *            the expected cookie name
+     * @param expectedCookieName the expected cookie name
      */
     public void theCookieHasValue(final String expectedCookieName) {
         this.log.debug("{}.theCookieHasValue({})", this, expectedCookieName);

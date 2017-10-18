@@ -14,10 +14,12 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.fdd;
 
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
@@ -30,10 +32,12 @@ public class AutomationConfigTest extends TestResultsReporting {
     /**
      * Test default constructor.
      */
+    @Ignore
     @Test
     public void testDefaultConstructor() {
         final AutomationConfig config = new AutomationConfig();
-        assertNotNull("unexpected null",config);
+        assertNotNull("unexpected null", config);
+        log.info("config = {}", config);
     }
 
 }

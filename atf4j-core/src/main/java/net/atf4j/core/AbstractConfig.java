@@ -80,11 +80,15 @@ public abstract class AbstractConfig implements ConfigurationInterface {
      * @throws ConfigurationNotLoadedException the missing exception
      */
     protected ConfigurationInterface load(final String propertyFilename) throws ConfigurationNotLoadedException {
-        try {
-            InputStream resourceAsStream = resourceAsStream(propertyFilename);
-            this.properties.load(resourceAsStream);
-            this.properties.setProperty("propertiesFilename", propertyFilename);
-        } catch (final IOException e) {
+        InputStream resourceAsStream = resourceAsStream(propertyFilename);
+        if (resourceAsStream != null) {
+            try {
+                this.properties.load(resourceAsStream);
+                this.properties.setProperty("propertiesFilename", propertyFilename);
+            } catch (final IOException e) {
+                throw new ConfigurationNotLoadedException(propertyFilename);
+            }
+        } else {
             throw new ConfigurationNotLoadedException(propertyFilename);
         }
         return this;
