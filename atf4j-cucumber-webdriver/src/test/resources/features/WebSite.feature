@@ -4,6 +4,7 @@ Feature: Smoke test for Selenium WebDriver configuration
 	I want a quick and easy way to use Selenium WebDriver
 	In order to smoke test Selenium WebDriver configuration
 
+@Ignore
 Scenario: Open URL with headless browser
 	Given a web browser is available
 	When the target url is opened

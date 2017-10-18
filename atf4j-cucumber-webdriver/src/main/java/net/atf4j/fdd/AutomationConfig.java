@@ -25,7 +25,7 @@ import net.atf4j.core.AbstractConfig;
 /**
  * Automation Configuration Class.
  */
-public class AutomationConfig extends AbstractConfig {
+public final class AutomationConfig extends AbstractConfig {
 
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 

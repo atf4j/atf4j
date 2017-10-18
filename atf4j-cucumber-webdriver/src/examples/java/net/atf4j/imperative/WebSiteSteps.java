@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.imperative;
 
 import org.slf4j.Logger;
@@ -44,6 +45,11 @@ public class WebSiteSteps {
     protected static final Logger log = LoggerFactory.getLogger(WebSiteSteps.class);
     private final WebAppModel webSite = new WebAppModel();
 
+    /**
+     * Named browser.
+     *
+     * @throws Throwable the throwable
+     */
     @Given("^a web browser is available$")
     public void namedBrowser() throws Throwable {
         this.webSite.aBrowser();
@@ -52,16 +58,19 @@ public class WebSiteSteps {
     /**
      * Named browser.
      *
-     * @param browserName
-     *            the browser name
-     * @throws Throwable
-     *             the throwable
+     * @param browserName the browser name
+     * @throws Throwable the throwable
      */
     @Given("^the (?:Chrome|Firefox|Headless) Browser$")
     public void namedBrowser(final String browserName) throws Throwable {
         this.webSite.useBrowser(browserName);
     }
 
+    /**
+     * The target url is http is opened.
+     *
+     * @throws Throwable the throwable
+     */
     @When("^the target url is opened$")
     public void theTargetUrlIsHttpIsOpened() throws Throwable {
         this.webSite.open();
@@ -70,10 +79,8 @@ public class WebSiteSteps {
     /**
      * The target url is opened. \bhttp://\S+ \"([^\"]*)\"
      *
-     * @param targetUrl
-     *            the target url
-     * @throws Throwable
-     *             the throwable
+     * @param targetUrl the target url
+     * @throws Throwable the throwable
      */
     @When("^the target url http://\\S+ is opened$")
     public void theTargetUrlIsHttpIsOpened(final String targetUrl) throws Throwable {
@@ -83,10 +90,8 @@ public class WebSiteSteps {
     /**
      * The page title is.
      *
-     * @param expectedPageTitle
-     *            the expected page title
-     * @throws Throwable
-     *             the throwable
+     * @param expectedPageTitle the expected page title
+     * @throws Throwable the throwable
      */
     @Then("^the pageTitle is \"([^\"]*)\"$")
     public void thePageTitleIs(final String expectedPageTitle) throws Throwable {
@@ -96,10 +101,8 @@ public class WebSiteSteps {
     /**
      * The cookie exists.
      *
-     * @param cookieName
-     *            the cookie name
-     * @throws Throwable
-     *             the throwable
+     * @param cookieName the cookie name
+     * @throws Throwable the throwable
      */
     @Then("^the cookie \"([^\"]*)\" exists$")
     public void theCookieExists(final String cookieName) throws Throwable {
@@ -109,12 +112,9 @@ public class WebSiteSteps {
     /**
      * The cookie has value.
      *
-     * @param cookieName
-     *            the cookie name
-     * @param cookieValue
-     *            the cookie value
-     * @throws Throwable
-     *             the throwable
+     * @param cookieName the cookie name
+     * @param cookieValue the cookie value
+     * @throws Throwable the throwable
      */
     @Then("^the cookie \"([^\"]*)\" has value \"([^\"]*)\"$")
     public void theCookieHasValue(final String cookieName, final String cookieValue) throws Throwable {
