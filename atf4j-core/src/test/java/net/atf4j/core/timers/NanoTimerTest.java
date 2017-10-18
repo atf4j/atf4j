@@ -36,7 +36,7 @@ public class NanoTimerTest extends TestResultsReporting {
     public void testDefaultConstructor() {
         final NanoTimer nanoTimer = new NanoTimer();
         assertNotNull(UNEXPECTED_NULL, nanoTimer);
-        this.log.info("{}", nanoTimer);
+        this.log.info("nanoTimer = {}", nanoTimer);
     }
 
     /**
@@ -48,7 +48,7 @@ public class NanoTimerTest extends TestResultsReporting {
         final NanoTimer nanoTimer = new NanoTimer(actual);
         assertNotNull(UNEXPECTED_NULL, nanoTimer);
         assertEquals(actual, nanoTimer.getTimerName());
-        this.log.info("{}", nanoTimer);
+        this.log.info("nanoTimer = {}", nanoTimer);
     }
 
     /**
@@ -58,7 +58,7 @@ public class NanoTimerTest extends TestResultsReporting {
     public void testStart() {
         final NanoTimer nanoTimer = new NanoTimer();
         assertNotNull(UNEXPECTED_NULL, nanoTimer.start());
-        this.log.info("{}", nanoTimer);
+        this.log.info("nanoTimer = {}", nanoTimer);
     }
 
     /**
@@ -68,7 +68,7 @@ public class NanoTimerTest extends TestResultsReporting {
     public void testStop() {
         final NanoTimer nanoTimer = new NanoTimer();
         assertNotNull(UNEXPECTED_NULL, nanoTimer.stop());
-        this.log.info("{}", nanoTimer);
+        this.log.info("nanoTimer = {}", nanoTimer);
     }
 
     /**
@@ -78,7 +78,7 @@ public class NanoTimerTest extends TestResultsReporting {
     public void testGetStartTime() {
         final NanoTimer nanoTimer = new NanoTimer();
         assertNotNull(UNEXPECTED_NULL, nanoTimer.getStartTime());
-        this.log.info("{}", nanoTimer);
+        this.log.info("nanoTimer = {}", nanoTimer);
     }
 
     /**
@@ -88,7 +88,7 @@ public class NanoTimerTest extends TestResultsReporting {
     public void testGetElapsedTime() {
         final NanoTimer nanoTimer = new NanoTimer();
         assertNotNull(UNEXPECTED_NULL, nanoTimer.getElapsedTime());
-        this.log.info("{}", nanoTimer);
+        this.log.info("nanoTimer = {}", nanoTimer);
     }
 
     /**
@@ -98,7 +98,7 @@ public class NanoTimerTest extends TestResultsReporting {
     public void testToString() {
         final NanoTimer nanoTimer = new NanoTimer();
         assertNotNull(UNEXPECTED_NULL, nanoTimer.toString());
-        this.log.info("{}", nanoTimer);
+        this.log.info("nanoTimer = {}", nanoTimer);
     }
 
 }

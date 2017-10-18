@@ -36,7 +36,7 @@ public class SplitTimerTest extends TestResultsReporting {
         final SplitTimer splitTimer = new SplitTimer();
         assertNotNull(UNEXPECTED_NULL, splitTimer);
         assertNotNull(UNEXPECTED_NULL, splitTimer.getSplitTime());
-        this.log.error("{}", splitTimer);
+        this.log.error("splitTimer = {}", splitTimer);
     }
 
 }

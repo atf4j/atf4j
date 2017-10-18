@@ -35,7 +35,7 @@ public class NestedTimersTest extends TestResultsReporting {
     public void testGetInstance() {
         final NestedTimers timers = NestedTimers.getInstance();
         assertNotNull(UNEXPECTED_NULL, timers);
-        this.log.info("{}", timers);
+        this.log.info("timers = {}", timers);
     }
 
     /**
