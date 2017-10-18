@@ -17,6 +17,8 @@
 
 package net.atf4j.data.factory;
 
+import java.util.Arrays;
+
 import net.atf4j.csv.CsvFile;
 import net.atf4j.data.PostalAddress;
 import net.atf4j.data.Postcode;
@@ -71,6 +73,13 @@ public class AddressDataFactory extends AbstractDataFactory {
     }
 
     /**
+     * To log.
+     */
+    public void toLog() {
+        log.info("{}", toString());
+    }
+
+    /**
      * Instantiates a new address data factory.
      */
     protected AddressDataFactory() {
@@ -112,4 +121,13 @@ public class AddressDataFactory extends AbstractDataFactory {
             this.log.error("{}", e.getLocalizedMessage());
         }
     }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "AddressDataFactory [addressLineStems=%s, addressLinePostfix=%s, streetnames=%s, data=%s, postCodeData=%s, postalTownsUK=%s]",
+                Arrays.toString(addressLineStems), Arrays.toString(addressLinePostfix), Arrays.toString(streetnames),
+                Arrays.toString(data), postCodeData, postalTownsUK);
+    }
+
 }
