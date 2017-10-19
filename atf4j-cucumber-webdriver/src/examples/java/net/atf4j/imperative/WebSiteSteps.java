@@ -41,17 +41,16 @@ import cucumber.api.java.en.When;
  * </tt>
  */
 public class WebSiteSteps {
-
-    protected static final Logger log = LoggerFactory.getLogger(WebSiteSteps.class);
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
     private final WebAppModel webSite = new WebAppModel();
 
     /**
      * Named browser.
      *
-     * @throws Throwable the throwable
+     * @throws Exception the throwable
      */
     @Given("^a web browser is available$")
-    public void namedBrowser() throws Throwable {
+    public void namedBrowser() throws Exception {
         this.webSite.aBrowser();
     }
 
@@ -59,20 +58,20 @@ public class WebSiteSteps {
      * Named browser.
      *
      * @param browserName the browser name
-     * @throws Throwable the throwable
+     * @throws Exception the throwable
      */
     @Given("^the (?:Chrome|Firefox|Headless) Browser$")
-    public void namedBrowser(final String browserName) throws Throwable {
+    public void namedBrowser(final String browserName) throws Exception {
         this.webSite.useBrowser(browserName);
     }
 
     /**
      * The target url is http is opened.
      *
-     * @throws Throwable the throwable
+     * @throws Exception the throwable
      */
     @When("^the target url is opened$")
-    public void theTargetUrlIsHttpIsOpened() throws Throwable {
+    public void theTargetUrlIsHttpIsOpened() throws Exception {
         this.webSite.open();
     }
 
@@ -80,10 +79,10 @@ public class WebSiteSteps {
      * The target url is opened. \bhttp://\S+ \"([^\"]*)\"
      *
      * @param targetUrl the target url
-     * @throws Throwable the throwable
+     * @throws Exception the throwable
      */
     @When("^the target url http://\\S+ is opened$")
-    public void theTargetUrlIsHttpIsOpened(final String targetUrl) throws Throwable {
+    public void theTargetUrlIsHttpIsOpened(final String targetUrl) throws Exception {
         this.webSite.open(targetUrl);
     }
 
@@ -91,10 +90,10 @@ public class WebSiteSteps {
      * The page title is.
      *
      * @param expectedPageTitle the expected page title
-     * @throws Throwable the throwable
+     * @throws Exception the throwable
      */
     @Then("^the pageTitle is \"([^\"]*)\"$")
-    public void thePageTitleIs(final String expectedPageTitle) throws Throwable {
+    public void thePageTitleIs(final String expectedPageTitle) throws Exception {
         this.webSite.pageTitleShouldBe(expectedPageTitle);
     }
 
@@ -102,10 +101,10 @@ public class WebSiteSteps {
      * The cookie exists.
      *
      * @param cookieName the cookie name
-     * @throws Throwable the throwable
+     * @throws Exception the throwable
      */
     @Then("^the cookie \"([^\"]*)\" exists$")
-    public void theCookieExists(final String cookieName) throws Throwable {
+    public void theCookieExists(final String cookieName) throws Exception {
         this.webSite.ensureCookieExists(cookieName);
     }
 
@@ -114,10 +113,10 @@ public class WebSiteSteps {
      *
      * @param cookieName the cookie name
      * @param cookieValue the cookie value
-     * @throws Throwable the throwable
+     * @throws Exception the throwable
      */
     @Then("^the cookie \"([^\"]*)\" has value \"([^\"]*)\"$")
-    public void theCookieHasValue(final String cookieName, final String cookieValue) throws Throwable {
+    public void theCookieHasValue(final String cookieName, final String cookieValue) throws Exception {
         this.webSite.theCookieHasValue(cookieName);
     }
 
