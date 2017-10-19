@@ -26,12 +26,18 @@ import org.junit.Test;
  */
 public final class ResultsReportingTest extends TestResultsReporting {
 
+    /**
+     * Test verify equal byte.
+     */
     @Test
     public void testVerifyEqualByte() {
         final Byte expected = Byte.MAX_VALUE;
         super.verifyEquals(expected, expected);
     }
 
+    /**
+     * Test verify not equal byte.
+     */
     @Test(expected = AssertionError.class)
     public void testVerifyNotEqualByte() {
         Byte actual = Byte.MAX_VALUE;
@@ -39,12 +45,18 @@ public final class ResultsReportingTest extends TestResultsReporting {
         super.verifyEquals(expected, actual);
     }
 
+    /**
+     * Test verify equal char.
+     */
     @Test
     public void testVerifyEqualChar() {
         final char expected = 'a';
         super.verifyEquals(expected, expected);
     }
 
+    /**
+     * Test verify not equal char.
+     */
     @Test(expected = AssertionError.class)
     public void testVerifyNotEqualChar() {
         final char actual = 'a';
@@ -52,12 +64,18 @@ public final class ResultsReportingTest extends TestResultsReporting {
         super.verifyEquals(expected, actual);
     }
 
+    /**
+     * Test verify equal int.
+     */
     @Test
     public void testVerifyEqualInt() {
         final int expected = Integer.MAX_VALUE;
         super.verifyEquals(expected, expected);
     }
 
+    /**
+     * Test verify not equal int.
+     */
     @Test(expected = AssertionError.class)
     public void testVerifyNotEqualInt() {
         final int actual = Integer.MIN_VALUE;
@@ -65,12 +83,18 @@ public final class ResultsReportingTest extends TestResultsReporting {
         super.verifyEquals(expected, actual);
     }
 
+    /**
+     * Test verify equal long.
+     */
     @Test
     public void testVerifyEqualLong() {
         final long expected = Long.MAX_VALUE;
         super.verifyEquals(expected, expected);
     }
 
+    /**
+     * Test verify not equals long.
+     */
     @Test(expected = AssertionError.class)
     public void testVerifyNotEqualsLong() {
         super.verifyEquals(Long.MIN_VALUE, Long.MAX_VALUE);
