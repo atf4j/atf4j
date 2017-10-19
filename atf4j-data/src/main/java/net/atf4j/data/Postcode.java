@@ -21,15 +21,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * UK Postcode. <code>
- * POSTCODE     ::= Outward_Code Inward_Code
- * Outward_Code ::= Postcode_Area Postcode_District
- * Inward_Code  ::= Postcode_Sector Postcode_Unit
+ * Provides UK Postcode. <code>
+ *  POSTCODE     ::= Outward_Code Inward_Code
+ *  Outward_Code ::= Postcode_Area Postcode_District
+ *  Inward_Code  ::= Postcode_Sector Postcode_Unit
  * </code>
  */
-public class Postcode {
+public final class Postcode {
 
-    /** The Constant pattern. */
+    private static final String POSTCODE = "XX99 9XX";
+
+    /** format verification pattern. */
     private static final Pattern pattern = Pattern.compile("^[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][ABD-HJLNP-UW-Z]{2}$");
 
     /** The post code. */
@@ -40,10 +42,20 @@ public class Postcode {
     /**
      * Create new instance of create.
      *
-     * @return the postcode
+     * @return the Postcode object.
      */
     public static Postcode create() {
         return new Postcode();
+    }
+
+    /**
+     * Create a random postcode.
+     *
+     * @return the Postcode object.
+     */
+    public static Postcode random() {
+        Postcode postcode = new Postcode();
+        return postcode;
     }
 
     /**
@@ -51,7 +63,7 @@ public class Postcode {
      */
     public Postcode() {
         super();
-        setPostCode("XX99 9XX");
+        setPostCode(POSTCODE);
     }
 
     /**
@@ -67,15 +79,15 @@ public class Postcode {
     /**
      * Sets the post code.
      *
-     * @param postCode the post code
-     * @return the postcode
+     * @param postCode the post code as a String.
+     * @return this for fluent interface.
      */
     public Postcode setPostCode(final String postCode) {
         this.postCode = postCode;
         if (Postcode.verify(this.postCode)) {
-            final String[] split = postCode.split("\\w");
-            setOutwardCode(split[0]);
-            setInwardCode(split[1]);
+            final String[] parts = this.postCode.split("\\W");
+            setOutwardCode(parts[0]);
+            setInwardCode(parts[1]);
         }
         return this;
     }
@@ -84,7 +96,7 @@ public class Postcode {
      * Sets the out code.
      *
      * @param outwardCode the out code
-     * @return the postcode
+     * @return this for fluent interface.
      */
     public Postcode setOutwardCode(final String outwardCode) {
         this.outwardCode = outwardCode;
@@ -95,7 +107,7 @@ public class Postcode {
      * Sets the in code.
      *
      * @param inwardCode the in code
-     * @return the postcode
+     * @return this for fluent interface.
      */
     public Postcode setInwardCode(final String inwardCode) {
         this.inwardCode = inwardCode;
@@ -139,6 +151,16 @@ public class Postcode {
     public static boolean verify(final String postcode) {
         final Matcher matcher = pattern.matcher(postcode);
         return matcher.find();
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return String.format("%s %s", outwardCode, inwardCode);
     }
 
 }
