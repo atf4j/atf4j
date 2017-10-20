@@ -13,4 +13,6 @@
 *.jar
 
 /log4j/
-/*.log
+/velocity.log
+/velocity.log.*
+*.versionsBackup
