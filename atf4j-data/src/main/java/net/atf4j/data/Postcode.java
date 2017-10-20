@@ -20,6 +20,8 @@ package net.atf4j.data;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import net.atf4j.core.Atf4jException;
+
 /**
  * Provides UK Postcode. <code>
  *  POSTCODE     ::= Outward_Code Inward_Code
@@ -35,12 +37,12 @@ public final class Postcode {
     private static final Pattern pattern = Pattern.compile("^[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][ABD-HJLNP-UW-Z]{2}$");
 
     /** The post code. */
-    private String postCode;
-    private String outwardCode;
-    private String inwardCode;
+    private String postCode = "";
+    private String outwardCode = "";
+    private String inwardCode = "";
 
     /**
-     * Create new instance of create.
+     * Create new INSTANCE of create.
      *
      * @return the Postcode object.
      */
@@ -49,29 +51,19 @@ public final class Postcode {
     }
 
     /**
-     * Create a random postcode.
-     *
-     * @return the Postcode object.
-     */
-    public static Postcode random() {
-        Postcode postcode = new Postcode();
-        return postcode;
-    }
-
-    /**
      * Instantiates a new postcode.
      */
     public Postcode() {
         super();
-        setPostCode(POSTCODE);
     }
 
     /**
      * Instantiates a new postcode.
      *
      * @param postCode the post code
+     * @throws InvalidPostcodeException
      */
-    public Postcode(final String postCode) {
+    public Postcode(final String postCode) throws InvalidPostcodeException {
         super();
         setPostCode(postCode);
     }
@@ -81,19 +73,22 @@ public final class Postcode {
      *
      * @param postCode the post code as a String.
      * @return this for fluent interface.
+     * @throws InvalidPostcodeException
      */
-    public Postcode setPostCode(final String postCode) {
+    public Postcode setPostCode(final String postCode) throws InvalidPostcodeException {
         this.postCode = postCode;
         if (Postcode.verify(this.postCode)) {
             final String[] parts = this.postCode.split("\\W");
             setOutwardCode(parts[0]);
             setInwardCode(parts[1]);
+            return this;
+        } else {
+            throw new InvalidPostcodeException(postCode);
         }
-        return this;
     }
 
     /**
-     * Sets the out code.
+     * Sets the outward code.
      *
      * @param outwardCode the out code
      * @return this for fluent interface.
@@ -104,7 +99,7 @@ public final class Postcode {
     }
 
     /**
-     * Sets the in code.
+     * Sets the inward code.
      *
      * @param inwardCode the in code
      * @return this for fluent interface.
@@ -163,4 +158,19 @@ public final class Postcode {
         return String.format("%s %s", outwardCode, inwardCode);
     }
 
+    /**
+     * The property file was not found.
+     */
+    public class InvalidPostcodeException extends Atf4jException {
+        private static final long serialVersionUID = 1L;
+
+        /**
+         * Instantiates a new property not found.
+         *
+         * @param invalidPostcode the property key
+         */
+        public InvalidPostcodeException(final String invalidPostcode) {
+            super(String.format("Postcode %s is valid format", invalidPostcode));
+        }
+    }
 }

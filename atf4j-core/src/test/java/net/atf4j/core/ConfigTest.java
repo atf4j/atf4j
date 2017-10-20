@@ -28,7 +28,7 @@ import org.junit.Test;
 public final class ConfigTest extends TestResultsReporting {
 
     /**
-     * Test get instance.
+     * Test get INSTANCE.
      */
     @Test
     public void testGetInstance() {

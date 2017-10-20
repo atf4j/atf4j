@@ -27,7 +27,7 @@ public class Product {
     private String details;
 
     /**
-     * Create new instance of create.
+     * Create new INSTANCE of create.
      *
      * @return the product
      */

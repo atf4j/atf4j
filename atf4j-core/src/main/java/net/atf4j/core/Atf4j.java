@@ -24,11 +24,14 @@ import net.atf4j.core.timers.NestedTimers;
 /**
  * Atf4j class.
  */
-public class Atf4j {
+public final class Atf4j {
 
-    protected static final Logger log = LoggerFactory.getLogger(Atf4j.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Atf4j.class);
     protected static final NestedTimers nestedTimers = NestedTimers.getInstance();
 
+    /**
+     * Instantiates a new atf 4 j.
+     */
     private Atf4j() {
         super();
     }
@@ -46,7 +49,7 @@ public class Atf4j {
      * @param string the string
      */
     public static void start(final String string) {
-        log.info(string);
+        LOG.info(string);
         nestedTimers.startTimer(string);
     }
 
@@ -54,7 +57,7 @@ public class Atf4j {
      * End.
      */
     public static void end() {
-        log.info(nestedTimers.stopTimer().toString());
+        LOG.info(nestedTimers.stopTimer().toString());
     }
 
     /**
@@ -73,9 +76,9 @@ public class Atf4j {
      */
     public static String document(final StackTraceElement[] stackTrace) {
         for (final StackTraceElement stackTraceElement : stackTrace) {
-            log.info(stackTraceElement.toString());
+            LOG.info(stackTraceElement.toString());
             final String methodName = stackTraceElement.getMethodName();
-            log.info(methodName);
+            LOG.info(methodName);
             return methodName;
         }
         return null;

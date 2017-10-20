@@ -19,8 +19,6 @@ package net.atf4j.data;
 
 import static org.junit.Assert.assertNotNull;
 
-import net.atf4j.data.factory.DataFactory;
-
 /**
  * Bank Account Data.
  */
@@ -48,7 +46,7 @@ public class BankAccount {
      */
     public static BankAccount random() {
         final BankAccount bankAccount = new BankAccount();
-        bankAccount.setAccountNo(DataFactory.randomDigits(8));
+        bankAccount.setAccountNo(Text.randomDigits(8));
         bankAccount.setBank(Bank.create());
         return bankAccount;
     }

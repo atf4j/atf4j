@@ -58,8 +58,7 @@ public class CsvFileTest extends TestResultsReporting {
      */
     @Test(expected = FileNotFoundException.class)
     public void testConstructorWithMissingFile() throws FileNotFoundException {
-        CsvFile csvFile = new CsvFile(MISSING_CSV);
-        assertNotNull(UNEXPECTED_NULL, csvFile);
+        assertNotNull(UNEXPECTED_NULL, new CsvFile(MISSING_CSV));
         fail("expected FileNotFoundException");
     }
 
@@ -70,8 +69,7 @@ public class CsvFileTest extends TestResultsReporting {
      */
     @Test(expected = FileNotFoundException.class)
     public void testReadMissingFile() throws FileNotFoundException {
-        CsvFile csvFile = CsvFile.read(MISSING_CSV);
-        assertNotNull(UNEXPECTED_NULL, csvFile);
+        assertNotNull(UNEXPECTED_NULL, CsvFile.read(MISSING_CSV));
         fail("expected FileNotFoundException");
     }
 

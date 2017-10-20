@@ -33,7 +33,7 @@ public class AddressDataFactory extends AbstractDataFactory {
 
     private static final String FILE_NOT_FOUND_MSG = "Expected file '%s' not found.";
 
-    private static AddressDataFactory instance = null;
+    private static AddressDataFactory INSTANCE = null;
 
     private String[] addressLineStems;
     private String[] addressLinePostfix;
@@ -42,19 +42,19 @@ public class AddressDataFactory extends AbstractDataFactory {
     private CsvFile postCodeData = null;
 
     /**
-     * Gets the single instance of AddressDataFactory.
+     * Gets the single INSTANCE of AddressDataFactory.
      *
-     * @return single instance of AddressDataFactory
+     * @return single INSTANCE of AddressDataFactory
      */
     public static AddressDataFactory getInstance() {
-        if (AddressDataFactory.instance == null) {
-            AddressDataFactory.instance = new AddressDataFactory();
+        if (AddressDataFactory.INSTANCE == null) {
+            AddressDataFactory.INSTANCE = new AddressDataFactory();
         }
-        return AddressDataFactory.instance;
+        return AddressDataFactory.INSTANCE;
     }
 
     /**
-     * Create new instance of create.
+     * Create new INSTANCE of create.
      *
      * @return the postal address
      */

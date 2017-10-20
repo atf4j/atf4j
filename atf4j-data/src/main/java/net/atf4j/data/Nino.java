@@ -32,7 +32,7 @@ public class Nino {
     private String nino;
 
     /**
-     * Create new instance of create.
+     * Create new INSTANCE of create.
      *
      * @return the nino
      */

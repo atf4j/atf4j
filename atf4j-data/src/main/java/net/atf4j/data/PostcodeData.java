@@ -14,32 +14,35 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
-package net.atf4j.fdd;
 
-import static org.junit.Assert.assertNotNull;
+package net.atf4j.data;
 
-import org.junit.Test;
-
-import net.atf4j.core.TestResultsReporting;
+import net.atf4j.csv.CsvFile;
 
 /**
- * The StrategyTest Class.
+ * The PostcodeData Class.
  */
-public class StrategyTest extends TestResultsReporting {
+public class PostcodeData extends CsvFile {
+
+    private static PostcodeData INSTANCE = null;
 
     /**
-     * The Strategy Class.
+     * Instantiates a new post code data.
      */
-    public class Strategy extends AbstractStrategy {
+    public PostcodeData() {
+        super();
     }
 
     /**
-     * Test default constructor.
+     * Gets the single INSTANCE of PostcodeData.
+     *
+     * @return single INSTANCE of PostcodeData
      */
-    @Test
-    public void testDefaultConstructor() {
-        final Strategy INSTANCE = new Strategy();
-        assertNotNull("unexpected null",INSTANCE);
+    public static PostcodeData getInstance() {
+        if (PostcodeData.INSTANCE == null) {
+            PostcodeData.INSTANCE = new PostcodeData();
+        }
+        return INSTANCE;
     }
 
 }

@@ -24,7 +24,7 @@ import net.atf4j.data.Consumer;
  */
 public class ConsumerDataFactory extends AbstractDataFactory {
 
-    private static ConsumerDataFactory instance = null;
+    private static ConsumerDataFactory INSTANCE = null;
     private String[] data;
 
     /**
@@ -47,19 +47,19 @@ public class ConsumerDataFactory extends AbstractDataFactory {
     }
 
     /**
-     * Gets the single instance of ConsumerDataFactory.
+     * Gets the single INSTANCE of ConsumerDataFactory.
      *
-     * @return single instance of ConsumerDataFactory
+     * @return single INSTANCE of ConsumerDataFactory
      */
     public static ConsumerDataFactory getInstance() {
-        if (ConsumerDataFactory.instance == null) {
-            ConsumerDataFactory.instance = new ConsumerDataFactory();
+        if (ConsumerDataFactory.INSTANCE == null) {
+            ConsumerDataFactory.INSTANCE = new ConsumerDataFactory();
         }
-        return ConsumerDataFactory.instance;
+        return ConsumerDataFactory.INSTANCE;
     }
 
     /**
-     * Create new instance of create.
+     * Create new INSTANCE of create.
      *
      * @return the consumer
      */

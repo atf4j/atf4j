@@ -61,13 +61,23 @@ public abstract class AbstractDataFactory {
 
     /**
      * Load.
-     *
-     * @throws FileNotFoundException the file not found exception
      */
-    protected void load() throws FileNotFoundException {
+    protected void load() {
+        try {
+            load(filename());
+        } catch (FileNotFoundException e) {
+            this.log.error("Using default values; {}", e.getMessage());
+        }
+    }
+
+    /**
+     * filename.
+     *
+     * @return the string
+     */
+    private String filename() {
         final String simpleName = this.getClass().getSimpleName();
-        final String dataFilename = String.format("%s.csv", simpleName);
-        load(dataFilename);
+        return String.format("%s.csv", simpleName);
     }
 
     /**

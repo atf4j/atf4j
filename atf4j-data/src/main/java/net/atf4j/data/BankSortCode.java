@@ -35,7 +35,7 @@ public class BankSortCode {
     private String sortcode = "00:00:00";
 
     /**
-     * Create new instance of create.
+     * Create new INSTANCE of create.
      *
      * @return the bank sort code
      */

@@ -17,6 +17,7 @@
 
 package net.atf4j.data;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -28,13 +29,15 @@ import net.atf4j.data.factory.AbstractDataFactory;
  */
 public class LoremIpsum extends AbstractDataFactory {
 
-    private static LoremIpsum instance = null;
+    private static LoremIpsum INSTANCE = null;
     private String[] rows = null;
     private final List<String> words = new ArrayList<String>();
     private int bounds;
 
     /**
      * Instantiates a new lorem ipsum.
+     * 
+     * @throws FileNotFoundException
      */
     public LoremIpsum() {
         super();
@@ -65,15 +68,15 @@ public class LoremIpsum extends AbstractDataFactory {
     }
 
     /**
-     * Gets the single instance of LoremIpsum.
+     * Gets the single INSTANCE of LoremIpsum.
      *
-     * @return single instance of LoremIpsum
+     * @return single INSTANCE of LoremIpsum
      */
     public static LoremIpsum getInstance() {
-        if (LoremIpsum.instance == null) {
-            LoremIpsum.instance = new LoremIpsum();
+        if (LoremIpsum.INSTANCE == null) {
+            LoremIpsum.INSTANCE = new LoremIpsum();
         }
-        return LoremIpsum.instance;
+        return LoremIpsum.INSTANCE;
     }
 
     /**

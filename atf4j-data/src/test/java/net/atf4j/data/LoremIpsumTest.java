@@ -29,7 +29,7 @@ import net.atf4j.core.TestResultsReporting;
 public final class LoremIpsumTest extends TestResultsReporting {
 
     /**
-     * Unit Test.
+     * Unit Test for LoremIpsum text.
      */
     @Test
     public void testLoremIpsum() {
@@ -50,4 +50,5 @@ public final class LoremIpsumTest extends TestResultsReporting {
         this.log.info("LoremIpsum.paragraphs(1) = {} ", LoremIpsum.paragraphs(1));
         this.log.info("LoremIpsum.paragraphs(4) = {} ", LoremIpsum.paragraphs(4));
     }
+
 }
