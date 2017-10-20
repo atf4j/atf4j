@@ -22,7 +22,6 @@ import static org.junit.Assert.assertNotNull;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 
-import net.atf4j.csv.CsvFile;
 import net.atf4j.data.PostalAddress;
 import net.atf4j.data.Postcode;
 
@@ -39,7 +38,6 @@ public class AddressDataFactory extends AbstractDataFactory {
     private String[] addressLinePostfix;
     private String[] addressLocals;
     private String[] addressStems;
-    private CsvFile postCodeData = null;
 
     /**
      * Gets the single INSTANCE of AddressDataFactory.
@@ -122,12 +120,6 @@ public class AddressDataFactory extends AbstractDataFactory {
             this.log.error(errorMessage);
         }
 
-        try {
-            this.postCodeData = new CsvFile("postCodeData.csv");
-        } catch (final FileNotFoundException e) {
-            String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
-            this.log.error("{}", errorMessage);
-        }
     }
 
     /**
@@ -146,15 +138,13 @@ public class AddressDataFactory extends AbstractDataFactory {
         assertNotNull(addressLinePostfix);
         assertNotNull(addressStems);
         assertNotNull(addressLocals);
-        assertNotNull(postCodeData);
 
         return String.format(
-                "AddressDataFactory [addressLineStems=%s, addressLinePostfix=%s, addressStems=%s, addressLocals=%s, postCodeData=%s]",
+                "AddressDataFactory [addressLineStems=%s, addressLinePostfix=%s, addressStems=%s, addressLocals=%s]",
                 fromatData(Arrays.toString(addressLineStems)),
                 fromatData(Arrays.toString(addressLinePostfix)),
                 fromatData(Arrays.toString(addressStems)),
-                fromatData(Arrays.toString(addressLocals)),
-                postCodeData.toString());
+                fromatData(Arrays.toString(addressLocals)));
     }
 
 }

@@ -23,11 +23,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.atf4j.csv.CsvRow;
-import net.atf4j.data.PostalAddress;
 import net.atf4j.data.Postcode;
 import net.atf4j.data.PostcodeData;
 import net.atf4j.data.Text;
 
+/**
+ * A factory for creating PostcodeData objects.
+ */
 public class PostcodeDataFactory {
 
     private static PostcodeDataFactory INSTANCE = null;
@@ -48,12 +50,12 @@ public class PostcodeDataFactory {
     }
 
     /**
-     * Create new INSTANCE of create.
+     * Create new INSTANCE of Postcode.
      *
      * @return the postal address
      */
-    public static PostalAddress create() {
-        return new PostalAddress();
+    public static Postcode create() {
+        return new Postcode();
     }
 
     /**
@@ -68,14 +70,18 @@ public class PostcodeDataFactory {
         CsvRow row = postCodeData.getRow(randomRow);
         String[] fields = row.getFields();
         postcode.setOutwardCode(fields[0]);
-        String inward = String.format("%c%c%c", Text.randomDigit(), Text.randomChar(), Text.randomChar());
+        String inward = String.format("%c%C%C", Text.randomDigit(), Text.randomChar(), Text.randomChar());
         postcode.setInwardCode(inward);
-
         return postcode;
     }
 
     private PostcodeDataFactory() {
         super();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("PostcodeDataFactory [postCodeData=%s]", postCodeData);
     }
 
 }

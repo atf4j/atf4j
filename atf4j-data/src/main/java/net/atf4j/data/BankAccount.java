@@ -20,7 +20,7 @@ package net.atf4j.data;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * Bank Account Data.
+ * Bank Account Data. UK Bank Account Number @”^\d{8,8}$”;
  */
 public class BankAccount {
 

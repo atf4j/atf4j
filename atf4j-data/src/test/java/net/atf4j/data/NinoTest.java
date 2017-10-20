@@ -17,8 +17,10 @@
 
 package net.atf4j.data;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -29,9 +31,9 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class NinoTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
-    private static final String BLANK_NI = "";
-    private static final String PIC = "XX-99-99-99X";
+    private static final String BLANK = "";
+    private static final String INVALID = "XX-99-99-99X";
+    private static final String VALID = "AA-99-99-99A";
 
     /**
      * Test method for NationalInsurance.
@@ -40,7 +42,6 @@ public final class NinoTest extends TestResultsReporting {
     public void testDefaultConstructor() {
         final Nino nino = new Nino();
         assertNotNull(UNEXPECTED_NULL, nino);
-        this.log.info("{}", nino);
     }
 
     /**
@@ -50,17 +51,25 @@ public final class NinoTest extends TestResultsReporting {
     public void testNationalInsurance() {
         final Nino nino = new Nino();
         assertNotNull(UNEXPECTED_NULL, nino);
-        this.log.info("{}", nino);
     }
 
     /**
      * Test national insurance pic.
      */
     @Test
-    public void testNationalInsurancePic() {
-        final Nino nino = new Nino(PIC);
+    public void testInvalidNino() {
+        final Nino nino = new Nino(INVALID);
+        this.log.debug("{}", nino);
         assertNotNull(UNEXPECTED_NULL, nino);
-        this.log.info("{}", nino);
+        assertEquals(INVALID, nino.toString());
+    }
+
+    @Test
+    public void testValidNino() {
+        final Nino nino = new Nino(VALID);
+        this.log.debug("{}", nino);
+        assertNotNull(UNEXPECTED_NULL, nino);
+        assertEquals(VALID, nino.toString());
     }
 
     /**
@@ -70,7 +79,6 @@ public final class NinoTest extends TestResultsReporting {
     public void testCreate() {
         final Nino nino = Nino.create();
         assertNotNull(UNEXPECTED_NULL, nino);
-        this.log.info("{}", nino);
     }
 
     /**
@@ -78,8 +86,17 @@ public final class NinoTest extends TestResultsReporting {
      */
     @Test
     public void testVerify() {
-        assertFalse(Nino.verify(BLANK_NI));
-        assertFalse(Nino.verify(PIC));
+        assertFalse(Nino.verify(BLANK));
+        assertFalse(Nino.verify(INVALID));
+        assertTrue(Nino.verify(VALID));
+    }
+
+    @Test
+    public void testSetGetNino() {
+        Nino nino = new Nino();
+        assertNotNull(UNEXPECTED_NULL, nino);
+        assertEquals(VALID, nino.setCode(VALID).getCode());
+        assertEquals(INVALID, nino.setCode(INVALID).getCode());
     }
 
     /**

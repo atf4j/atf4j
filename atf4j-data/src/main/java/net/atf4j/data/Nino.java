@@ -21,15 +21,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * UK National Insurance number. Commonly known as Nino.
+ * UK National Insurance number, commonly known as Nino.
+ * ([0-9]){2}([0-9]){2}([0-9]){2}
  */
 public class Nino {
 
     /** REGULAR EXPRESSION. */
     private static final Pattern pattern = Pattern
-        .compile("^[A-CEGHJ-PR-TW-Z]{1}[A-CEGHJ-NPR-TW-Z]{1}[0-9]{6}[A-D]{1}$");
+        .compile("^[A-CEGHJ-PR-TW-Z]{1}[A-CEGHJ-NPR-TW-Z]{1}[- ]?[0-9]{2}[- ]?[0-9]{2}[- ]?[0-9]{2}[- ]?[A-D]?$");
 
-    private String nino;
+    private String nino = "";
 
     /**
      * Create new INSTANCE of create.
@@ -58,6 +59,17 @@ public class Nino {
     }
 
     /**
+     * Sets the code.
+     *
+     * @param code the code to set
+     * @return the national insurance
+     */
+    public Nino setCode(final String code) {
+        this.nino = code;
+        return this;
+    }
+
+    /**
      * Verify.
      *
      * @param code the code \* @return true, if successful, otherwise false.
@@ -77,25 +89,12 @@ public class Nino {
         return this.nino;
     }
 
-    /**
-     * Sets the code.
-     *
-     * @param code the code to set
-     * @return the national insurance
-     */
-    public Nino setCode(final String code) {
-        this.nino = code;
-        return this;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
+    public String debugString() {
         return String.format("Nino [nino=%s]", this.nino);
     }
 
+    @Override
+    public String toString() {
+        return this.nino;
+    }
 }
