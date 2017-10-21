@@ -24,6 +24,7 @@ import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
 import net.atf4j.core.timers.Interval;
+import net.atf4j.core.timers.IntervalInterface;
 
 /**
  * A UnitTest for Interval objects.
@@ -35,7 +36,7 @@ public class IntervalTest extends TestResultsReporting {
      */
     @Test
     public void testInterval() {
-        final Interval interval = new Interval();
+        final IntervalInterface interval = new Interval();
         assertNotNull(interval);
         this.log.info("interval = {}", interval);
     }
@@ -46,7 +47,7 @@ public class IntervalTest extends TestResultsReporting {
     @Test
     public void testIntervalLong() {
         final long useTimePeriod = 1000;
-        final Interval interval = new Interval(useTimePeriod);
+        final IntervalInterface interval = new Interval(useTimePeriod);
         assertNotNull(UNEXPECTED_NULL, interval);
         this.log.info("interval = {}", interval);
     }
@@ -57,7 +58,7 @@ public class IntervalTest extends TestResultsReporting {
     @Test
     public void testInMilliSeconds() {
         final long timePeriod = 1000;
-        final Interval inMilliSeconds = Interval.inMilliSeconds(timePeriod);
+        final IntervalInterface inMilliSeconds = Interval.inMilliSeconds(timePeriod);
         assertNotNull(UNEXPECTED_NULL, inMilliSeconds);
         this.log.info("inMilliSeconds = {}", inMilliSeconds);
     }
@@ -68,7 +69,7 @@ public class IntervalTest extends TestResultsReporting {
     @Test
     public void testInSeconds() {
         final long timePeriod = 1;
-        final Interval inSeconds = Interval.inSeconds(timePeriod);
+        final IntervalInterface inSeconds = Interval.inSeconds(timePeriod);
         assertNotNull(UNEXPECTED_NULL, inSeconds);
         this.log.info("inSeconds = {}", inSeconds);
     }
@@ -79,7 +80,7 @@ public class IntervalTest extends TestResultsReporting {
     @Test
     public void testInMinutes() {
         final long timePeriod = 1;
-        final Interval inMinutes = Interval.inMinutes(timePeriod);
+        final IntervalInterface inMinutes = Interval.inMinutes(timePeriod);
         assertNotNull(UNEXPECTED_NULL, inMinutes);
         this.log.info("inMinutes = {}", inMinutes);
     }
@@ -90,7 +91,7 @@ public class IntervalTest extends TestResultsReporting {
     @Test
     public void testInHours() {
         final long timePeriod = 1;
-        final Interval inHours = Interval.inHours(timePeriod);
+        final IntervalInterface inHours = Interval.inHours(timePeriod);
         assertNotNull(UNEXPECTED_NULL, inHours);
         this.log.info("inHours = {}", inHours);
     }
@@ -101,7 +102,7 @@ public class IntervalTest extends TestResultsReporting {
     @Test
     public void testInDays() {
         final long timePeriod = 1;
-        final Interval inDays = Interval.inDays(timePeriod);
+        final IntervalInterface inDays = Interval.inDays(timePeriod);
         assertNotNull(UNEXPECTED_NULL, inDays);
         this.log.info("inDays = {}", inDays);
     }
@@ -111,7 +112,7 @@ public class IntervalTest extends TestResultsReporting {
      */
     @Test
     public void testAsLong() {
-        final Interval interval = new Interval();
+        final IntervalInterface interval = new Interval();
         assertNotNull(UNEXPECTED_NULL, interval);
         final long asLong = interval.asLong();
         assertEquals(0, asLong);
@@ -123,7 +124,7 @@ public class IntervalTest extends TestResultsReporting {
      */
     @Test
     public void testAsMilliSeconds() {
-        final Interval interval = new Interval();
+        final IntervalInterface interval = new Interval();
         assertNotNull(UNEXPECTED_NULL, interval);
         final long asMilliSeconds = interval.asMilliSeconds();
         assertEquals(0, asMilliSeconds);
@@ -135,7 +136,7 @@ public class IntervalTest extends TestResultsReporting {
      */
     @Test
     public void testAsSeconds() {
-        final Interval interval = new Interval();
+        final IntervalInterface interval = new Interval();
         assertNotNull(UNEXPECTED_NULL, interval);
         final long asSeconds = interval.asSeconds();
         assertEquals(0, asSeconds);
@@ -147,7 +148,7 @@ public class IntervalTest extends TestResultsReporting {
      */
     @Test
     public void testAsMinutes() {
-        final Interval interval = new Interval();
+        final IntervalInterface interval = new Interval();
         assertNotNull(UNEXPECTED_NULL, interval);
         final long asMinutes = interval.asMinutes();
         assertEquals(0, asMinutes);
@@ -159,7 +160,7 @@ public class IntervalTest extends TestResultsReporting {
      */
     @Test
     public void testAsHours() {
-        final Interval interval = new Interval();
+        final IntervalInterface interval = new Interval();
         assertNotNull(UNEXPECTED_NULL, interval);
         final long asHours = interval.asHours();
         assertEquals(0, asHours);
@@ -171,7 +172,7 @@ public class IntervalTest extends TestResultsReporting {
      */
     @Test
     public void testAsDays() {
-        final Interval interval = new Interval();
+        final IntervalInterface interval = new Interval();
         assertNotNull(UNEXPECTED_NULL, interval);
         final long asDays = interval.asDays();
         assertEquals(0, asDays);
@@ -183,7 +184,7 @@ public class IntervalTest extends TestResultsReporting {
      */
     @Test
     public void testIntervalToString() {
-        final Interval interval = new Interval();
+        final IntervalInterface interval = new Interval();
         assertNotNull(UNEXPECTED_NULL, interval);
         this.log.info("interval = {}", interval);
     }

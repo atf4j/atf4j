@@ -22,7 +22,7 @@ package net.atf4j.core;
  */
 public final class Config extends AbstractConfig {
 
-    private static Config INSTANCE = null;
+    private static Config INSTANCE = new Config();
 
     /**
      * Instantiates a new configuration. Private default constructor prevents
@@ -38,9 +38,6 @@ public final class Config extends AbstractConfig {
      * @return single INSTANCE of configuration.
      */
     public static Config getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new Config();
-        }
         return INSTANCE;
     }
 

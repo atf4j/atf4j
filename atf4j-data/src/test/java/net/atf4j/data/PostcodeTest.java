@@ -43,7 +43,7 @@ public final class PostcodeTest extends TestResultsReporting {
     public void testDefaultConstructor() {
         final Postcode postcode = new Postcode();
         assertNotNull(UNEXPECTED_NULL, postcode);
-        log.info("postcode = {}", postcode);
+        this.log.info("postcode = {}", postcode);
     }
 
     /**
@@ -53,7 +53,7 @@ public final class PostcodeTest extends TestResultsReporting {
     public void testPostcodeCreate() {
         final Postcode postcode = Postcode.create();
         assertNotNull(UNEXPECTED_NULL, postcode);
-        log.info("postcode = {}", postcode);
+        this.log.info("postcode = {}", postcode);
     }
 
     /**
@@ -86,7 +86,7 @@ public final class PostcodeTest extends TestResultsReporting {
         final Postcode postcode = new Postcode();
         assertEquals(postcode, postcode.setPostCode(TEST_POSTCODE));
         assertEquals(TEST_POSTCODE, postcode.getPostCode());
-        log.info("postcode = {}", postcode);
+        this.log.info("postcode = {}", postcode);
     }
 
     /**
@@ -98,10 +98,10 @@ public final class PostcodeTest extends TestResultsReporting {
     public void testOutwardPart() throws InvalidPostcodeException {
         final Postcode postcode = new Postcode(TEST_POSTCODE);
         assertNotNull(UNEXPECTED_NULL, postcode);
-        String outwardCode = postcode.getOutwardCode();
+        final String outwardCode = postcode.getOutwardCode();
         assertNotNull(UNEXPECTED_NULL, outwardCode);
         assertEquals(TEST_OUTWARD, outwardCode);
-        log.info("outwardCode = {}", outwardCode);
+        this.log.info("outwardCode = {}", outwardCode);
     }
 
     /**
@@ -112,10 +112,10 @@ public final class PostcodeTest extends TestResultsReporting {
     @Test
     public void testInwardPart() throws InvalidPostcodeException {
         final Postcode postcode = new Postcode(TEST_POSTCODE);
-        String inwardCode = postcode.getInwardCode();
+        final String inwardCode = postcode.getInwardCode();
         assertNotNull(UNEXPECTED_NULL, inwardCode);
         assertEquals(TEST_INWARD, inwardCode);
-        log.info("inwardCode = {}", inwardCode);
+        this.log.info("inwardCode = {}", inwardCode);
     }
 
     /**
@@ -138,7 +138,7 @@ public final class PostcodeTest extends TestResultsReporting {
         final String string = postcode.toString();
         assertNotNull(UNEXPECTED_NULL, string);
         assertEquals(TEST_POSTCODE, string);
-        log.info("postcode = {}", postcode);
+        this.log.info("postcode = {}", postcode);
     }
 
 }

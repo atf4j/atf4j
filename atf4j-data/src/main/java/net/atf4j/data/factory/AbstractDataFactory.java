@@ -65,7 +65,7 @@ public abstract class AbstractDataFactory {
     protected void load() {
         try {
             load(filename());
-        } catch (FileNotFoundException e) {
+        } catch (final FileNotFoundException e) {
             this.log.error("Using default values; {}", e.getMessage());
         }
     }

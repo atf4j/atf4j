@@ -20,7 +20,7 @@ package net.atf4j.core.timers;
 /**
  * Encapsulate an Interval of Time in a [GOF] Memento.
  */
-public class Interval {
+public class Interval implements IntervalInterface {
 
     /** SECOND as 1000 Milliseconds. */
     public static final int SECOND = 1000;
@@ -35,12 +35,13 @@ public class Interval {
     public static final int DAY = 24 * HOUR;
 
     /** The time period. */
-    private final long timePeriod;
+    public long timePeriod;
 
     /**
      * Instantiates a new interval.
      */
     public Interval() {
+        super();
         this.timePeriod = 0L;
     }
 
@@ -50,6 +51,7 @@ public class Interval {
      * @param useTimePeriod the use time period
      */
     public Interval(final long useTimePeriod) {
+        super();
         this.timePeriod = useTimePeriod;
     }
 
@@ -59,7 +61,7 @@ public class Interval {
      * @param timePeriod the use time period
      * @return new Interval object.
      */
-    public static Interval inMilliSeconds(final long timePeriod) {
+    public static IntervalInterface inMilliSeconds(final long timePeriod) {
         return new Interval(timePeriod);
     }
 
@@ -69,7 +71,7 @@ public class Interval {
      * @param timePeriod in Seconds.
      * @return new Interval object.
      */
-    public static Interval inSeconds(final long timePeriod) {
+    public static IntervalInterface inSeconds(final long timePeriod) {
         return new Interval(timePeriod * Interval.SECOND);
     }
 
@@ -79,7 +81,7 @@ public class Interval {
      * @param timePeriod in Minutes.
      * @return new Interval object.
      */
-    public static Interval inMinutes(final long timePeriod) {
+    public static IntervalInterface inMinutes(final long timePeriod) {
         return new Interval(timePeriod * Interval.MINUTE);
     }
 
@@ -89,7 +91,7 @@ public class Interval {
      * @param timePeriod in Hours.
      * @return new Interval object.
      */
-    public static Interval inHours(final long timePeriod) {
+    public static IntervalInterface inHours(final long timePeriod) {
         return new Interval(timePeriod * Interval.HOUR);
     }
 
@@ -99,60 +101,66 @@ public class Interval {
      * @param timePeriod in Days.
      * @return new Interval object.
      */
-    public static Interval inDays(final long timePeriod) {
+    public static IntervalInterface inDays(final long timePeriod) {
         return new Interval(timePeriod * Interval.DAY);
     }
 
-    /**
-     * asMilliSeconds.
-     *
-     * @return timePeriod of Interval in Milliseconds as long.
+    /*
+     * (non-Javadoc)
+     * 
+     * @see net.atf4j.core.timers.IntervalInterface#asMilliSeconds()
      */
+    @Override
     public final long asMilliSeconds() {
         return this.timePeriod;
     }
 
-    /**
-     * asSeconds.
-     *
-     * @return timePeriod of Interval in seconds as long.
+    /*
+     * (non-Javadoc)
+     * 
+     * @see net.atf4j.core.timers.IntervalInterface#asSeconds()
      */
+    @Override
     public final long asSeconds() {
         return this.timePeriod / SECOND;
     }
 
-    /**
-     * asMinutes.
-     *
-     * @return timePeriod of Interval in seconds as long.
+    /*
+     * (non-Javadoc)
+     * 
+     * @see net.atf4j.core.timers.IntervalInterface#asMinutes()
      */
+    @Override
     public final long asMinutes() {
         return this.timePeriod / MINUTE;
     }
 
-    /**
-     * asHours.
-     *
-     * @return timePeriod of Interval in seconds as long.
+    /*
+     * (non-Javadoc)
+     * 
+     * @see net.atf4j.core.timers.IntervalInterface#asHours()
      */
+    @Override
     public final long asHours() {
         return this.timePeriod / HOUR;
     }
 
-    /**
-     * asDays.
-     *
-     * @return timePeriod of Interval in seconds as long.
+    /*
+     * (non-Javadoc)
+     * 
+     * @see net.atf4j.core.timers.IntervalInterface#asDays()
      */
+    @Override
     public final long asDays() {
         return this.timePeriod / DAY;
     }
 
-    /**
-     * asLong.
-     *
-     * @return timePeriod of Interval in Milliseconds as long.
+    /*
+     * (non-Javadoc)
+     * 
+     * @see net.atf4j.core.timers.IntervalInterface#asLong()
      */
+    @Override
     public final long asLong() {
         return this.timePeriod;
     }

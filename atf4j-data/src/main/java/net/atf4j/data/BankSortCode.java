@@ -26,11 +26,11 @@ import java.util.regex.Pattern;
  * BankSortCode data class. UK Bank
  * SortCode @”^\d{6,6}$|^\d{2,2}\-\d{2,2}\-\d{2,2}$”;
  */
-public class BankSortCode {
+public final class BankSortCode {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
 
-    private static final Pattern pattern = Pattern.compile("^(\\d){2}-(\\d){2}-(\\d){2}$");
+    private static final Pattern PATTERN = Pattern.compile("^(\\d){2}-(\\d){2}-(\\d){2}$");
 
     private final String bankName = "";
     private String sortcode = "00:00:00";
@@ -100,7 +100,7 @@ public class BankSortCode {
      */
     public static boolean verify(final String sortcode) {
         assertNotNull(UNEXPECTED_NULL, sortcode);
-        final Matcher matcher = pattern.matcher(sortcode);
+        final Matcher matcher = PATTERN.matcher(sortcode);
         return matcher.find();
     }
 

@@ -48,6 +48,7 @@ public final class SetUpDataTest extends TestResultsReporting {
     /**
      * After.
      */
+    @Override
     @After
     public void after() {
         assertTrue(this.jdbcData.tearDown());

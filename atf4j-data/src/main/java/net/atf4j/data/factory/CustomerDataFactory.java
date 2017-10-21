@@ -17,6 +17,8 @@
 
 package net.atf4j.data.factory;
 
+import java.io.FileNotFoundException;
+
 import net.atf4j.data.Customer;
 
 /**
@@ -40,9 +42,9 @@ public class CustomerDataFactory extends AbstractDataFactory {
      */
     protected void initialise() {
         try {
-            this.data = load("data.txt");
-        } catch (final Exception e) {
-            this.log.error(e.getMessage());
+            data = load("data.txt");
+        } catch (final FileNotFoundException e) {
+            log.error(e.getMessage());
         }
     }
 

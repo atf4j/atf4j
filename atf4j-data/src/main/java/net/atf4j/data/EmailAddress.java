@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
 /**
  * EmailAddress.
  */
-public class EmailAddress {
+public final class EmailAddress {
 
     private static final Pattern LOCAL_PART = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*$");
     private static final Pattern DOMAIN = Pattern.compile("^@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");

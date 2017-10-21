@@ -99,7 +99,7 @@ public final class NinoTest extends TestResultsReporting {
      */
     @Test
     public void testSetGetNino() {
-        Nino nino = new Nino();
+        final Nino nino = new Nino();
         assertNotNull(UNEXPECTED_NULL, nino);
         assertEquals(VALID, nino.setCode(VALID).getCode());
         assertEquals(INVALID, nino.setCode(INVALID).getCode());

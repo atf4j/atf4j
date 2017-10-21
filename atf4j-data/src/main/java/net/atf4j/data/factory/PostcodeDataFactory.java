@@ -30,12 +30,19 @@ import net.atf4j.data.Text;
 /**
  * A factory for creating PostcodeData objects.
  */
-public class PostcodeDataFactory {
+public final class PostcodeDataFactory {
 
-    private static PostcodeDataFactory INSTANCE = null;
+    private static PostcodeDataFactory INSTANCE = new PostcodeDataFactory();
     private final static PostcodeData postCodeData = PostcodeData.getInstance();
     protected static Random rnd = new Random(System.currentTimeMillis());
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+
+    /**
+     * Instantiates a new postcode data factory.
+     */
+    private PostcodeDataFactory() {
+        super();
+    }
 
     /**
      * Gets the single instance of PostcodeDataFactory.
@@ -43,9 +50,6 @@ public class PostcodeDataFactory {
      * @return single instance of PostcodeDataFactory
      */
     public static PostcodeDataFactory getInstance() {
-        if (PostcodeDataFactory.INSTANCE == null) {
-            PostcodeDataFactory.INSTANCE = new PostcodeDataFactory();
-        }
         return PostcodeDataFactory.INSTANCE;
     }
 
@@ -64,25 +68,20 @@ public class PostcodeDataFactory {
      * @return the Postcode object.
      */
     public static Postcode random() {
-        Postcode postcode = new Postcode();
-        int rowCount = postCodeData.rowCount();
-        int randomRow = rnd.nextInt(rowCount);
-        CsvRow row = postCodeData.getRow(randomRow);
-        String[] fields = row.getFields();
+        final Postcode postcode = new Postcode();
+        final int rowCount = postCodeData.rowCount();
+        final int randomRow = rnd.nextInt(rowCount);
+        final CsvRow row = postCodeData.getRow(randomRow);
+        final String[] fields = row.getFields();
         postcode.setOutwardCode(fields[0]);
-        String inward = String.format("%c%C%C", Text.randomDigit(), Text.randomChar(), Text.randomChar());
+        final String inward = String.format("%c%C%C", Text.randomDigit(), Text.randomChar(), Text.randomChar());
         postcode.setInwardCode(inward);
         return postcode;
     }
 
-    /**
-     * Instantiates a new postcode data factory.
-     */
-    private PostcodeDataFactory() {
-        super();
-    }
-
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     *
      * @see java.lang.Object#toString()
      */
     @Override

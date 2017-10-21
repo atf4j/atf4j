@@ -37,7 +37,7 @@ public final class DataManagerTest {
     @Ignore
     @Test
     public void testStaticDataForTag() throws Exception {
-        String dataForTag = DataManager.dataForTag("#Data");
+        final String dataForTag = DataManager.dataForTag("#Data");
         assertNotNull(dataForTag);
     }
 }

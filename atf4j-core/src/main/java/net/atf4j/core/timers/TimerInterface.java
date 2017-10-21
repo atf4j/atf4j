@@ -37,17 +37,24 @@ public interface TimerInterface {
     public abstract TimerInterface stop();
 
     /**
-     * Gets the elapsed time.
-     *
-     * @return time in milliseconds as long.
-     */
-    public abstract long getElapsedTime();
-
-    /**
      * Gets the start time.
      *
      * @return start time in milliseconds as long.
      */
     public abstract long getStartTime();
+
+    /**
+     * Gets the stop time.
+     *
+     * @return the stop time
+     */
+    public abstract long getStopTime();
+
+    /**
+     * Gets the elapsed time.
+     *
+     * @return time in milliseconds as long.
+     */
+    public abstract long getElapsedTime();
 
 }

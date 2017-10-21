@@ -41,7 +41,7 @@ public final class JdbcDataTest {
      */
     @Test
     public void testSetUp() {
-        JdbcData jdbcData = new JdbcData();
+        final JdbcData jdbcData = new JdbcData();
         assertNotNull(jdbcData);
         jdbcData.setUp();
     }
@@ -51,7 +51,7 @@ public final class JdbcDataTest {
      */
     @Test
     public void testReset() {
-        JdbcData jdbcData = new JdbcData();
+        final JdbcData jdbcData = new JdbcData();
         assertNotNull(jdbcData);
         jdbcData.reset();
     }
@@ -61,7 +61,7 @@ public final class JdbcDataTest {
      */
     @Test
     public void testTearDown() {
-        JdbcData jdbcData = new JdbcData();
+        final JdbcData jdbcData = new JdbcData();
         assertNotNull(jdbcData);
         jdbcData.tearDown();
     }

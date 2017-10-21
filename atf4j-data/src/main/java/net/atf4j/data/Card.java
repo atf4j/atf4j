@@ -52,7 +52,10 @@ public class Card {
      * @param endDate the end date
      * @param startDate the start date
      */
-    public Card(final String provider, final String cardNumber, final String cardName, final Calendar endDate,
+    public Card(final String provider,
+            final String cardNumber,
+            final String cardName,
+            final Calendar endDate,
             final Calendar startDate) {
         super();
         this.provider = provider;
@@ -71,7 +74,10 @@ public class Card {
      * @param endDate the end date
      * @param startDate the start date
      */
-    public Card(final String provider, final String cardNumber, final String cardName, final Date endDate,
+    public Card(final String provider,
+            final String cardNumber,
+            final String cardName,
+            final Date endDate,
             final Date startDate) {
         super();
         this.provider = provider;
@@ -313,7 +319,12 @@ public class Card {
     @Override
     public String toString() {
         return String.format("Card [provider=%s, cardNumber=%s, cardName=%s, startDate=%s, endDate=%s, ccv=%s]",
-                this.provider, this.cardNumber, this.cardName, this.startDate, this.endDate, this.ccv);
+                this.provider,
+                this.cardNumber,
+                this.cardName,
+                this.startDate,
+                this.endDate,
+                this.ccv);
     }
 
 }

@@ -41,8 +41,9 @@ import cucumber.api.java.en.When;
  * </tt>
  */
 public class WebSiteSteps {
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+
     private final WebAppModel webSite = new WebAppModel();
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Named browser.

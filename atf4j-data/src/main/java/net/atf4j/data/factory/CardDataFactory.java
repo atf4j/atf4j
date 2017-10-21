@@ -17,12 +17,14 @@
 
 package net.atf4j.data.factory;
 
+import java.io.FileNotFoundException;
+
 import net.atf4j.data.Card;
 
 /**
  * ChargeCardFactory.
  */
-public class CardDataFactory extends AbstractDataFactory {
+public final class CardDataFactory extends AbstractDataFactory {
 
     private static CardDataFactory INSTANCE = null;
     private String[] data;
@@ -40,9 +42,9 @@ public class CardDataFactory extends AbstractDataFactory {
      */
     protected void initialise() {
         try {
-            this.data = load("data.txt");
-        } catch (final Exception e) {
-            this.log.error(e.getMessage());
+            data = load("data.txt");
+        } catch (final FileNotFoundException e) {
+            log.error(e.getMessage());
         }
     }
 

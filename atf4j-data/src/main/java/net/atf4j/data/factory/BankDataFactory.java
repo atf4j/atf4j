@@ -68,14 +68,10 @@ public class BankDataFactory extends AbstractDataFactory {
      */
     public Bank random() {
         final Bank bank = new Bank();
-        try {
-            INSTANCE = BankDataFactory.getInstance();
-            final String randomEntry = INSTANCE.randomEntry();
-            final String[] bankDetails = randomEntry.split(",");
-            bank.setBankSortCode(bankDetails[0]);
-            bank.setBankName(bankDetails[1]);
-        } catch (final FileNotFoundException e) {
-        }
+        final String randomEntry = INSTANCE.randomEntry();
+        final String[] bankDetails = randomEntry.split(",");
+        bank.setBankSortCode(bankDetails[0]);
+        bank.setBankName(bankDetails[1]);
         return bank;
     }
 

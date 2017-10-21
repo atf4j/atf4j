@@ -113,8 +113,12 @@ abstract public class Datum {
      * @return the string
      */
     public String debugString() {
-        return String.format("%s [isNew=%s, isDirty=%s, isDeleted=%s, isUsed=%s]", this.getClass().getSimpleName(),
-                this.isFresh, this.isChanged, this.isDeleted, this.isUsed);
+        return String.format("%s [isNew=%s, isDirty=%s, isDeleted=%s, isUsed=%s]",
+                this.getClass().getSimpleName(),
+                this.isFresh,
+                this.isChanged,
+                this.isDeleted,
+                this.isUsed);
     }
 
     /*
