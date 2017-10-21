@@ -33,8 +33,8 @@ public class MappedTimersTest extends TestResultsReporting {
      */
     @Test
     public void testGetInstance() {
-        final MappedTimers instance = MappedTimers.getInstance();
-        assertNotNull(UNEXPECTED_NULL, instance);
+        final MappedTimers INSTANCE = MappedTimers.getInstance();
+        assertNotNull(UNEXPECTED_NULL, INSTANCE);
     }
 
     /**

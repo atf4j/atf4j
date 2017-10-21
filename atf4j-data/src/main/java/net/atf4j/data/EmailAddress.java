@@ -20,8 +20,6 @@ package net.atf4j.data;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import net.atf4j.data.factory.DataFactory;
-
 /**
  * EmailAddress.
  */
@@ -43,18 +41,18 @@ public class EmailAddress {
      */
     public static EmailAddress at(final String domain) {
         final EmailAddress emailAddress = new EmailAddress(domain);
-        emailAddress.setLocalPart(DataFactory.randomString(10));
+        emailAddress.setLocalPart(Text.randomString(10));
         return emailAddress;
     }
 
     /**
-     * Create new instance of create.
+     * Create new INSTANCE of create.
      *
      * @return the email address
      */
     public static EmailAddress create() {
         final EmailAddress emailAddress = new EmailAddress();
-        emailAddress.setLocalPart(DataFactory.randomString(10));
+        emailAddress.setLocalPart(Text.randomString(10));
         return emailAddress;
     }
 
@@ -154,7 +152,9 @@ public class EmailAddress {
      */
     @Override
     public String toString() {
-        return String.format("EmailAddress [domain=%s, localPart=%s, email=%s]", this.domain, this.localPart,
+        return String.format("EmailAddress [domain=%s, localPart=%s, email=%s]",
+                this.domain,
+                this.localPart,
                 this.email);
     }
 

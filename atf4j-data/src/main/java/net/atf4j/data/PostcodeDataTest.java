@@ -19,43 +19,39 @@ package net.atf4j.data;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.io.FileNotFoundException;
+
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * The ChordTest Class.
+ * The PostcodeDataTest Class.
  */
-public class ChordTest extends TestResultsReporting {
+public class PostcodeDataTest extends TestResultsReporting {
 
     /**
-     * Test set stem.
+     * Test postcode data.
+     *
+     * @throws FileNotFoundException the file not found exception
      */
     @Test
-    public void testSetStem() {
-        final Chord chord = new Chord();
-        this.log.debug("{}", chord);
-        assertNotNull(chord);
+    public void testPostcodeData() throws FileNotFoundException {
+        PostcodeData postcodeData = new PostcodeData();
+        assertNotNull(postcodeData);
+        log.info("{}", postcodeData.toString());
     }
 
     /**
-     * Test get stem.
+     * Test get instance.
+     *
+     * @throws FileNotFoundException the file not found exception
      */
     @Test
-    public void testGetStem() {
-        final Chord chord = new Chord();
-        this.log.debug("{}", chord);
-        assertNotNull(chord);
-    }
-
-    /**
-     * Test add.
-     */
-    @Test
-    public void testAdd() {
-        final Chord chord = new Chord();
-        this.log.debug("{}", chord);
-        assertNotNull(chord);
+    public void testGetInstance() throws FileNotFoundException {
+        PostcodeData postcodeData = PostcodeData.getInstance();
+        assertNotNull(postcodeData);
+        log.info("{}", postcodeData.toString());
     }
 
 }

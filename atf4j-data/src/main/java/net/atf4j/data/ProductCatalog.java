@@ -28,7 +28,7 @@ public class ProductCatalog {
     private Collection<Product> catalog = new ArrayDeque<Product>();
 
     /**
-     * Create new instance of create.
+     * Create new INSTANCE of create.
      *
      * @return the product catalog
      */

@@ -28,7 +28,7 @@ import net.atf4j.data.Person.Title;
  */
 public class PersonDataFactory extends AbstractDataFactory {
 
-    private static PersonDataFactory instance = null;
+    private static PersonDataFactory INSTANCE = null;
     private String[] maleForenames;
     private String[] femaleForenames;
     private String[] surnames;
@@ -65,15 +65,15 @@ public class PersonDataFactory extends AbstractDataFactory {
     }
 
     /**
-     * Gets the single instance of PersonDataFactory.
+     * Gets the single INSTANCE of PersonDataFactory.
      *
-     * @return single instance of PersonDataFactory
+     * @return single INSTANCE of PersonDataFactory
      */
     protected static PersonDataFactory getInstance() {
-        if (PersonDataFactory.instance == null) {
-            PersonDataFactory.instance = new PersonDataFactory();
+        if (PersonDataFactory.INSTANCE == null) {
+            PersonDataFactory.INSTANCE = new PersonDataFactory();
         }
-        return PersonDataFactory.instance;
+        return PersonDataFactory.INSTANCE;
     }
 
     /**
@@ -149,14 +149,15 @@ public class PersonDataFactory extends AbstractDataFactory {
         return EmailAddress.create().toString();
     }
 
-    /*
-     * (non-Javadoc)
-     * 
+    /* (non-Javadoc)
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return "PersonDataFactory [maleForenames=" + Arrays.toString(this.maleForenames) + ", femaleForenames="
-                + Arrays.toString(this.femaleForenames) + ", surnames=" + Arrays.toString(this.surnames) + "]";
+        return String.format("PersonDataFactory [maleForenames=%s, femaleForenames=%s, surnames=%s]",
+                Arrays.toString(maleForenames),
+                Arrays.toString(femaleForenames),
+                Arrays.toString(surnames));
     }
+
 }

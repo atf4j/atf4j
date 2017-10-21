@@ -82,9 +82,9 @@ public class Card {
     }
 
     /**
-     * Factory method to create new instance of a Card.
+     * Factory method to create new INSTANCE of a Card.
      *
-     * @return the card instance.
+     * @return the card INSTANCE.
      */
     public static Card create() {
         final Card card = new Card();

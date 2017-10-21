@@ -24,6 +24,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.data.Postcode.InvalidPostcodeException;
 
 /**
  * A Unit test class for Postcode objects.
@@ -33,6 +34,7 @@ public final class PostcodeTest extends TestResultsReporting {
     private static final String TEST_OUTWARD = "XX00";
     private static final String TEST_INWARD = "9XX";
     private static final String TEST_POSTCODE = "XX00 9XX";
+    private static final String INVALID_POSTCODE = "00ZZ Z00";
 
     /**
      * Test method for Postcode default constructor.
@@ -55,31 +57,32 @@ public final class PostcodeTest extends TestResultsReporting {
     }
 
     /**
-     * Test postcode random.
+     * Test method for Postcode.
+     *
+     * @throws InvalidPostcodeException the invalid postcode exception
      */
     @Test
-    public void testPostcodeRandom() {
-        final Postcode postcode = Postcode.random();
-        assertNotNull(UNEXPECTED_NULL, postcode);
-        assertTrue(Postcode.verify(postcode.toString()));
-        log.info("postcode = {}", postcode);
+    public void testPostcodeString() throws InvalidPostcodeException {
+        new Postcode(TEST_POSTCODE);
     }
 
     /**
-     * Test method for Postcode.
+     * Test set invalid postcode.
+     *
+     * @throws InvalidPostcodeException the invalid postcode exception
      */
-    @Test
-    public void testPostcodeString() {
-        final Postcode postcode = new Postcode(TEST_POSTCODE);
-        assertNotNull(UNEXPECTED_NULL, postcode);
-        log.info("postcode = {}", postcode);
+    @Test(expected = InvalidPostcodeException.class)
+    public void testSetInvalidPostcode() throws InvalidPostcodeException {
+        new Postcode().setPostCode(INVALID_POSTCODE);
     }
 
     /**
      * Test set get postcode.
+     *
+     * @throws InvalidPostcodeException the invalid postcode exception
      */
     @Test
-    public void testSetGetPostcode() {
+    public void testSetGetPostcode() throws InvalidPostcodeException {
         final Postcode postcode = new Postcode();
         assertEquals(postcode, postcode.setPostCode(TEST_POSTCODE));
         assertEquals(TEST_POSTCODE, postcode.getPostCode());
@@ -88,9 +91,11 @@ public final class PostcodeTest extends TestResultsReporting {
 
     /**
      * Test postcode parts.
+     *
+     * @throws InvalidPostcodeException the invalid postcode exception
      */
     @Test
-    public void testOutwardPart() {
+    public void testOutwardPart() throws InvalidPostcodeException {
         final Postcode postcode = new Postcode(TEST_POSTCODE);
         assertNotNull(UNEXPECTED_NULL, postcode);
         String outwardCode = postcode.getOutwardCode();
@@ -101,9 +106,11 @@ public final class PostcodeTest extends TestResultsReporting {
 
     /**
      * Test postcode parts.
+     *
+     * @throws InvalidPostcodeException the invalid postcode exception
      */
     @Test
-    public void testInwardPart() {
+    public void testInwardPart() throws InvalidPostcodeException {
         final Postcode postcode = new Postcode(TEST_POSTCODE);
         String inwardCode = postcode.getInwardCode();
         assertNotNull(UNEXPECTED_NULL, inwardCode);
@@ -121,9 +128,11 @@ public final class PostcodeTest extends TestResultsReporting {
 
     /**
      * Test method for Postcode.
+     *
+     * @throws InvalidPostcodeException the invalid postcode exception
      */
     @Test
-    public void testToString() {
+    public void testToString() throws InvalidPostcodeException {
         final Postcode postcode = new Postcode(TEST_POSTCODE);
         assertNotNull(UNEXPECTED_NULL, postcode);
         final String string = postcode.toString();

@@ -21,26 +21,26 @@ package net.atf4j.core;
  */
 public class ConfigExample extends AbstractConfig {
 
-    private static ConfigExample instance = null;
+    private static ConfigExample INSTANCE = null;
 
     /**
-     * Gets the single instance of AbstractConfig.
+     * Gets the single INSTANCE of AbstractConfig.
      *
-     * @return single instance of AbstractConfig
+     * @return single INSTANCE of AbstractConfig
      */
     public static ConfigExample getInstance() {
-        if (ConfigExample.instance == null) {
-            ConfigExample.instance = create();
+        if (ConfigExample.INSTANCE == null) {
+            ConfigExample.INSTANCE = create();
         }
-        return ConfigExample.instance;
+        return ConfigExample.INSTANCE;
     }
 
     /**
-     * Create new instance of create.
+     * Create new INSTANCE of create.
      *
      * @return the abstract configuration.
      */
-    public static ConfigExample create() {
+    private static ConfigExample create() {
         return new ConfigExample();
     }
 

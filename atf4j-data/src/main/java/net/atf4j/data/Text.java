@@ -17,13 +17,66 @@
 
 package net.atf4j.data;
 
+import java.util.Random;
+
 /**
  * Text Class.
  */
 public final class Text {
 
+    private static Random rnd = new Random(System.currentTimeMillis());
+
+    /**
+     * Instantiates a new text.
+     */
     private Text() {
         super();
+    }
+
+    /**
+     * Random char.
+     *
+     * @return the char
+     */
+    public static char randomChar() {
+        return (char) ('a' + rnd.nextInt(26));
+    }
+
+    /**
+     * Random string.
+     *
+     * @param length the length
+     * @return the string
+     */
+    public static String randomString(final int length) {
+        final StringBuffer stringBuffer = new StringBuffer();
+        for (int i = 0; i < length; i++) {
+            stringBuffer.append(randomChar());
+        }
+        return stringBuffer.toString();
+    }
+
+    /**
+     * Random digit.
+     *
+     * @return the char
+     */
+    public static char randomDigit() {
+        return (char) ('0' + rnd.nextInt(9));
+    }
+
+    /**
+     * Random digits.
+     *
+     * @param length the length
+     * @return the string
+     */
+    public static String randomDigits(final int length) {
+        final StringBuffer stringBuffer = new StringBuffer();
+        for (int i = 0; i < length; i++) {
+            stringBuffer.append(randomDigit());
+        }
+        return stringBuffer.toString();
     }
 
     /**

@@ -29,16 +29,14 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class BankAccountTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
-
     /**
      * Unit Test for BankAccount.
      */
     @Test
     public void testExpected() {
         final BankAccount bankAccount = BankAccount.random();
+        this.log.error("{}", bankAccount);
         assertNotNull(UNEXPECTED_NULL, bankAccount);
-        this.log.info("{}", bankAccount);
     }
 
     /**
@@ -47,8 +45,8 @@ public final class BankAccountTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final BankAccount bankAccount = new BankAccount();
+        this.log.error("{}", bankAccount);
         assertNotNull(UNEXPECTED_NULL, bankAccount);
-        this.log.info("{}", bankAccount);
     }
 
     /**
@@ -58,8 +56,8 @@ public final class BankAccountTest extends TestResultsReporting {
     public void testBankAccountNull() {
         final String nullString = null;
         final BankAccount bankAccount = new BankAccount(nullString);
+        this.log.error("{}", bankAccount);
         assertNotNull(UNEXPECTED_NULL, bankAccount);
-        this.log.info("{}", bankAccount);
     }
 
     /**
@@ -69,8 +67,8 @@ public final class BankAccountTest extends TestResultsReporting {
     public void testBankAccountNullObject() {
         final Bank nullBank = null;
         final BankAccount bankAccount = new BankAccount(nullBank);
+        this.log.error("{}", bankAccount);
         assertNotNull(UNEXPECTED_NULL, bankAccount);
-        this.log.info("{}", bankAccount);
     }
 
     /**
@@ -79,8 +77,8 @@ public final class BankAccountTest extends TestResultsReporting {
     @Test
     public void testBankAccountString() {
         final BankAccount bankAccount = new BankAccount("");
+        this.log.error("{}", bankAccount);
         assertNotNull(UNEXPECTED_NULL, bankAccount);
-        this.log.info("{}", bankAccount);
     }
 
     /**
@@ -89,8 +87,8 @@ public final class BankAccountTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final BankAccount bankAccount = BankAccount.create();
+        this.log.error("{}", bankAccount);
         assertNotNull(UNEXPECTED_NULL, bankAccount);
-        this.log.info("{}", bankAccount);
     }
 
     /**
@@ -103,7 +101,6 @@ public final class BankAccountTest extends TestResultsReporting {
         final String accountNo = "00001234";
         assertNotNull(UNEXPECTED_NULL, bankAccount.setAccountNo(accountNo));
         assertEquals(accountNo, bankAccount.getAccountNo());
-        this.log.info("{}", bankAccount);
     }
 
     /**
@@ -117,7 +114,6 @@ public final class BankAccountTest extends TestResultsReporting {
         assertEquals(testBank, bankAccount.getBank());
         assertNotNull(UNEXPECTED_NULL, bankAccount.setBank(testBank));
         assertEquals(testBank, bankAccount.getBank());
-        this.log.info("{}", bankAccount);
     }
 
     /**
@@ -126,8 +122,8 @@ public final class BankAccountTest extends TestResultsReporting {
     @Test
     public void testToString() {
         final String string = new BankAccount().toString();
+        this.log.error("{}", string);
         assertNotNull(UNEXPECTED_NULL, string);
-        this.log.info("{}", string);
     }
 
 }

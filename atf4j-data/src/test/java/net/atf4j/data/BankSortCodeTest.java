@@ -32,16 +32,14 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class BankSortCodeTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
-
     /**
      * Test method for void.
      */
     @Test
     public void testCreate() {
         final BankSortCode sortCode = BankSortCode.create();
+        this.log.error("{}", sortCode);
         assertNotNull(UNEXPECTED_NULL, sortCode);
-        this.log.info("{}", sortCode);
     }
 
     /**
@@ -51,8 +49,8 @@ public final class BankSortCodeTest extends TestResultsReporting {
     @Ignore
     public void testRandom() {
         final BankSortCode sortCode = BankSortCode.random();
+        this.log.error("{}", sortCode);
         assertNotNull(UNEXPECTED_NULL, sortCode);
-        this.log.info("{}", sortCode);
     }
 
     /**
@@ -60,7 +58,9 @@ public final class BankSortCodeTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(UNEXPECTED_NULL, new BankSortCode());
+        BankSortCode sortCode = new BankSortCode();
+        this.log.error("{}", sortCode);
+        assertNotNull(UNEXPECTED_NULL, sortCode);
     }
 
     /**
@@ -70,8 +70,8 @@ public final class BankSortCodeTest extends TestResultsReporting {
     public void testBankSortCodeString() {
         final String actual = "99:99:99";
         final BankSortCode sortCode = new BankSortCode(actual);
+        this.log.error("{}", sortCode);
         assertNotNull(UNEXPECTED_NULL, sortCode);
-        this.log.info("{}", sortCode);
     }
 
     /**
@@ -122,8 +122,8 @@ public final class BankSortCodeTest extends TestResultsReporting {
     @Test
     public void testToString() {
         final String string = new BankSortCode().toString();
+        this.log.error("{}", string);
         assertNotNull(UNEXPECTED_NULL, string);
-        this.log.info("{}", string);
     }
 
 }

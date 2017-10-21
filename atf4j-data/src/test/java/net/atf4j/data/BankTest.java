@@ -30,16 +30,14 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class BankTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
-
     /**
      * Test method for Bank.
      */
     @Test
     public void testCreate() {
         final Bank bank = Bank.create();
+        this.log.debug("{}", bank);
         assertNotNull(UNEXPECTED_NULL, bank);
-        this.log.info("{}", bank);
     }
 
     /**
@@ -49,8 +47,8 @@ public final class BankTest extends TestResultsReporting {
     @Ignore
     public void testRandom() {
         final Bank bank = Bank.random();
+        this.log.debug("{}", bank);
         assertNotNull(UNEXPECTED_NULL, bank);
-        this.log.info("{}", bank);
     }
 
     /**
@@ -59,8 +57,8 @@ public final class BankTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final Bank bank = new Bank();
+        this.log.debug("{}", bank);
         assertNotNull(UNEXPECTED_NULL, bank);
-        this.log.info("{}", bank);
     }
 
     /**
@@ -69,8 +67,8 @@ public final class BankTest extends TestResultsReporting {
     @Test
     public void testBank() {
         final Bank bank = new Bank("");
+        this.log.debug("{}", bank);
         assertNotNull(UNEXPECTED_NULL, bank);
-        this.log.info("{}", bank);
     }
 
     /**
@@ -80,8 +78,8 @@ public final class BankTest extends TestResultsReporting {
     public void testSetGetName() {
         final String bankName = "Bank Name";
         final Bank bank = new Bank(bankName);
+        this.log.debug("{}", bank);
         assertEquals(bankName, bank.setName(bankName).getName());
-        this.log.info("{}", bank);
     }
 
     /**
@@ -90,8 +88,8 @@ public final class BankTest extends TestResultsReporting {
     @Test
     public void testDebugString() {
         final String string = new Bank().debugString();
+        this.log.debug("{}", string);
         assertNotNull(UNEXPECTED_NULL, string);
-        this.log.info("{}", string);
     }
 
     /**
@@ -100,8 +98,8 @@ public final class BankTest extends TestResultsReporting {
     @Test
     public void testToString() {
         final String string = new Bank().toString();
+        this.log.debug("{}", string);
         assertNotNull(UNEXPECTED_NULL, string);
-        this.log.info("{}", string);
     }
 
 }

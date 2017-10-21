@@ -35,8 +35,9 @@ public final class TextTest extends TestResultsReporting {
     @Test
     public void testTextFill() {
         String fill = Text.fill(10);
-        this.log.info("{}", fill);
+        this.log.debug("{}", fill);
         assertNotNull(fill);
+        assertEquals(10, fill.length());
     }
 
     /**
@@ -45,8 +46,9 @@ public final class TextTest extends TestResultsReporting {
     @Test
     public void testTextFillStar() {
         String fill = Text.fill(10, '*');
-        this.log.info("{}", fill);
+        this.log.debug("{}", fill);
         assertNotNull(fill);
+        assertEquals(10, fill.length());
     }
 
     /**
@@ -54,6 +56,8 @@ public final class TextTest extends TestResultsReporting {
      */
     @Test
     public void testCapitalise() {
+        assertEquals("", Text.capitalise(null));
+        assertEquals("", Text.capitalise(""));
         assertEquals("Set", Text.capitalise("Set"));
         assertEquals("Set", Text.capitalise("Set"));
         assertEquals("Set.", Text.capitalise("sET."));
@@ -86,6 +90,8 @@ public final class TextTest extends TestResultsReporting {
     @Test
     public void testPadToLengthStringInt() {
         String padToLength = Text.padToLength("Stem", 5);
+        this.log.debug("{}", padToLength);
+        assertEquals(5, padToLength.length());
         assertEquals("Stem ", padToLength);
     }
 
@@ -95,7 +101,8 @@ public final class TextTest extends TestResultsReporting {
     @Test
     public void testPadToLengthStringIntChar() {
         String padToLength = Text.padToLength("Stem", 5, '*');
+        this.log.debug("{}", padToLength);
+        assertEquals(5, padToLength.length());
         assertEquals("Stem*", padToLength);
     }
-
 }

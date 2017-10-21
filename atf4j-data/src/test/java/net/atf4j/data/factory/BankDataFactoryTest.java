@@ -42,8 +42,8 @@ public final class BankDataFactoryTest extends TestResultsReporting {
     @Test
     @Ignore
     public void testExpectedUsage() throws FileNotFoundException {
-        final BankDataFactory instance = BankDataFactory.getInstance();
-        final Bank randomBank = instance.random();
+        final BankDataFactory INSTANCE = BankDataFactory.getInstance();
+        final Bank randomBank = INSTANCE.random();
         assertNotNull(UNEXPECTED_NULL, randomBank);
         this.log.info("{}", randomBank);
     }
@@ -60,15 +60,15 @@ public final class BankDataFactoryTest extends TestResultsReporting {
     }
 
     /**
-     * Test method of get singleton instance of PersonDataFactory.
+     * Test method of get singleton INSTANCE of PersonDataFactory.
      *
      * @throws FileNotFoundException the file not found exception
      */
     @Test
     public void testGetInstance() throws FileNotFoundException {
-        final BankDataFactory instance = BankDataFactory.getInstance();
-        assertNotNull(UNEXPECTED_NULL, instance);
-        this.log.info("{}", instance.toString());
+        final BankDataFactory INSTANCE = BankDataFactory.getInstance();
+        assertNotNull(UNEXPECTED_NULL, INSTANCE);
+        this.log.info("{}", INSTANCE.toString());
     }
 
     /**
@@ -78,8 +78,8 @@ public final class BankDataFactoryTest extends TestResultsReporting {
      */
     @Test
     public void testCreate() throws FileNotFoundException {
-        final BankDataFactory instance = BankDataFactory.getInstance();
-        final Bank bank = instance.create();
+        final BankDataFactory INSTANCE = BankDataFactory.getInstance();
+        final Bank bank = INSTANCE.create();
         assertNotNull(UNEXPECTED_NULL, bank);
         this.log.info("{}", bank.toString());
     }

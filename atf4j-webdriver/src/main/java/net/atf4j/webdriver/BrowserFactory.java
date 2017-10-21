@@ -50,7 +50,7 @@ public class BrowserFactory implements BrowserFactoryInterface {
     }
 
     /**
-     * Factory method for Selenium WebDriver.instance.
+     * Factory method for Selenium WebDriver.INSTANCE.
      *
      * @return webDriver
      */
@@ -62,10 +62,10 @@ public class BrowserFactory implements BrowserFactoryInterface {
     }
 
     /**
-     * Factory method of webDriver instance.
+     * Factory method of webDriver INSTANCE.
      *
      * @param browser the browser
-     * @return instance of webDriver
+     * @return INSTANCE of webDriver
      */
     protected static WebDriver webDriver(final String browser) {
         WebDriver webDriver = null;
@@ -95,9 +95,9 @@ public class BrowserFactory implements BrowserFactoryInterface {
     }
 
     /**
-     * Local webDriver instance.
+     * Local webDriver INSTANCE.
      *
-     * @return the webDriver instance.
+     * @return the webDriver INSTANCE.
      */
     protected static WebDriver localWebDriver() {
         BrowserFactory.log.trace("localWebDriver()");
@@ -106,7 +106,7 @@ public class BrowserFactory implements BrowserFactoryInterface {
     }
 
     /**
-     * Local webDriver instance.
+     * Local webDriver INSTANCE.
      *
      * @param targetBrowser the target browser
      * @return the webDriver
@@ -130,7 +130,7 @@ public class BrowserFactory implements BrowserFactoryInterface {
     }
 
     /**
-     * Default remote webDriver instance.
+     * Default remote webDriver INSTANCE.
      *
      * @return the web driver
      * @throws PropertyNotFoundException the property not found
@@ -141,7 +141,7 @@ public class BrowserFactory implements BrowserFactoryInterface {
     }
 
     /**
-     * Named remote webDriver instance.
+     * Named remote webDriver INSTANCE.
      *
      * @param targetBrowser the target browser
      * @return the web driver

@@ -34,6 +34,7 @@ import net.atf4j.data.Consumer;
 import net.atf4j.data.Customer;
 import net.atf4j.data.Person;
 import net.atf4j.data.PostalAddress;
+import net.atf4j.data.Text;
 
 /**
  * A UnitTest for DataFactory objects.
@@ -91,11 +92,11 @@ public final class DataFactoryTest extends TestResultsReporting {
      */
     @Test
     public void testString() throws Exception {
-        final char randomChar = DataFactory.randomChar();
+        final char randomChar = Text.randomChar();
         assertNotNull(UNEXPECTED_NULL, randomChar);
         this.log.info("DataFactory.randomChar() = {}", randomChar);
 
-        final String randomString = DataFactory.randomString(10);
+        final String randomString = Text.randomString(10);
         assertNotNull(UNEXPECTED_NULL, randomString);
         this.log.info("DataFactory.randomString(10) = {}", randomString);
     }
@@ -107,11 +108,11 @@ public final class DataFactoryTest extends TestResultsReporting {
      */
     @Test
     public void testDigits() throws Exception {
-        final char randomDigit = DataFactory.randomDigit();
+        final char randomDigit = Text.randomDigit();
         assertNotNull(UNEXPECTED_NULL, randomDigit);
         this.log.info("DataFactory.randomDigit() = {}", randomDigit);
 
-        final String randomDigits = DataFactory.randomDigits(10);
+        final String randomDigits = Text.randomDigits(10);
         assertNotNull(UNEXPECTED_NULL, randomDigits);
         this.log.info("DataFactory.randomDigits(10) = {}", randomDigits);
     }

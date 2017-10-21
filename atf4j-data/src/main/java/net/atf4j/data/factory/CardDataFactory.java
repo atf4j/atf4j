@@ -24,7 +24,7 @@ import net.atf4j.data.Card;
  */
 public class CardDataFactory extends AbstractDataFactory {
 
-    private static CardDataFactory instance = null;
+    private static CardDataFactory INSTANCE = null;
     private String[] data;
 
     /**
@@ -47,19 +47,19 @@ public class CardDataFactory extends AbstractDataFactory {
     }
 
     /**
-     * Gets the single instance of CardDataFactory.
+     * Gets the single INSTANCE of CardDataFactory.
      *
-     * @return single instance of CardDataFactory
+     * @return single INSTANCE of CardDataFactory
      */
     public static CardDataFactory getInstance() {
-        if (CardDataFactory.instance == null) {
-            CardDataFactory.instance = new CardDataFactory();
+        if (CardDataFactory.INSTANCE == null) {
+            CardDataFactory.INSTANCE = new CardDataFactory();
         }
-        return CardDataFactory.instance;
+        return CardDataFactory.INSTANCE;
     }
 
     /**
-     * Create new instance of create.
+     * Create new INSTANCE of create.
      *
      * @return the card
      */

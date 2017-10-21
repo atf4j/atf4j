@@ -52,14 +52,14 @@ public class AbstractGuiMapTest extends TestResultsReporting {
      */
     @Test
     public void testGuiMapping() {
-        final AbstractGuiMap instance = new LogicalGuiMap();
-        final Enumeration<String> bundleKeys = instance.getKeys();
+        final AbstractGuiMap INSTANCE = new LogicalGuiMap();
+        final Enumeration<String> bundleKeys = INSTANCE.getKeys();
         while (bundleKeys.hasMoreElements()) {
             final String key = bundleKeys.nextElement();
             assertNotNull(UNEXPECTED_NULL, key);
-            Assert.assertTrue(instance.containsKey(key));
-            assertNotNull(UNEXPECTED_NULL, instance.getString(key));
-            this.log.info("{}={}", key, instance.getString(key));
+            Assert.assertTrue(INSTANCE.containsKey(key));
+            assertNotNull(UNEXPECTED_NULL, INSTANCE.getString(key));
+            this.log.info("{}={}", key, INSTANCE.getString(key));
         }
     }
 

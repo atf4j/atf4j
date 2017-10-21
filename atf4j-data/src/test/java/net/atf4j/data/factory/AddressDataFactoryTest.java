@@ -53,7 +53,7 @@ public final class AddressDataFactoryTest extends TestResultsReporting {
     }
 
     /**
-     * Test method get single instance of AddressDataFactory.
+     * Test method get single INSTANCE of AddressDataFactory.
      */
     @Test
     public void testGetInstance() {
