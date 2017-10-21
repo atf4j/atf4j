@@ -33,7 +33,7 @@ public class FileWalker extends AbstractWalker {
      */
     public FileWalker() {
         super();
-        this.log.info("FileWalker()");
+        log.info("FileWalker()");
     }
 
     /**
@@ -44,7 +44,7 @@ public class FileWalker extends AbstractWalker {
      */
     public FileWalker(final String path) throws Exception {
         super();
-        this.log.info("FileWalker({})", path);
+        log.info("FileWalker({})", path);
         setBasePath(path);
     }
 
@@ -57,11 +57,11 @@ public class FileWalker extends AbstractWalker {
     protected void processFile(final File f) {
         try {
             final File absoluteFile = f.getAbsoluteFile();
-            this.log.info("FILE:{}", absoluteFile);
+            log.info("FILE:{}", absoluteFile);
             final String string = readFile(absoluteFile.getPath());
-            this.log.info("{}", string);
+            log.info("{}", string);
         } catch (final IOException e) {
-            this.log.error(e.getLocalizedMessage());
+            log.error(e.toString());
         }
     }
 

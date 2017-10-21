@@ -66,7 +66,7 @@ public abstract class AbstractDataFactory {
         try {
             load(filename());
         } catch (final FileNotFoundException e) {
-            this.log.error("Using default values; {}", e.getMessage());
+            this.log.error("{} Using default values.", e.getMessage());
         }
     }
 
@@ -128,7 +128,7 @@ public abstract class AbstractDataFactory {
             }
             bufferedReader.close();
         } catch (final IOException e) {
-            this.log.error("{}", e.getLocalizedMessage());
+            log.error(e.toString());
         }
         return lines.toArray(new String[lines.size()]);
     }

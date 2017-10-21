@@ -111,7 +111,7 @@ public class TestBaseTest extends TestResultsReporting {
         mockTestBase.assumedPreConditions();
         mockTestBase.execute(context);
         mockTestBase.assertPostConditions();
-        this.log.info(mockTestBase.debugString());
+        log.trace(mockTestBase.debugString());
     }
 
     /**

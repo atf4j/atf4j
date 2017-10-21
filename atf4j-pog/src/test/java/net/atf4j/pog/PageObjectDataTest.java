@@ -36,7 +36,7 @@ public class PageObjectDataTest extends TestResultsReporting {
      */
     @Test
     public void testExpected() {
-        this.log.info("==============================================");
+        log.info("==============================================");
         final PageObjectData pageObjectData = new PageObjectData();
         assertNotNull(UNEXPECTED_NULL, pageObjectData);
 
@@ -50,18 +50,16 @@ public class PageObjectDataTest extends TestResultsReporting {
             .add(new PageWebElement("findByCss", Strategy.CSS, "."));
 
         logAttributes(pageObjectData);
-        this.log.info(pageObjectData.toString());
+        log.info(pageObjectData.toString());
     }
 
     /**
-     * Test method for void.
+     * test PageObjectData class.
      */
     @Test
     public void testDefaultConstructor() {
-        this.log.info("==============================================");
         final PageObjectData pageObjectData = new PageObjectData();
         assertNotNull(UNEXPECTED_NULL, pageObjectData);
-        this.log.info(pageObjectData.toString());
     }
 
     /**
@@ -69,10 +67,8 @@ public class PageObjectDataTest extends TestResultsReporting {
      */
     @Test
     public void testPageObjectData() {
-        this.log.info("==============================================");
         final PageObjectData pageObjectData = new PageObjectData();
         assertNotNull(UNEXPECTED_NULL, pageObjectData);
-        this.log.info(pageObjectData.toString());
     }
 
     /**
@@ -83,7 +79,7 @@ public class PageObjectDataTest extends TestResultsReporting {
     private void logAttributes(final PageObjectData pageObjectData) {
         final List<PageWebElement> attributes = pageObjectData.get();
         for (final PageWebElement pageWebElement : attributes) {
-            this.log.info(pageWebElement.toString());
+            log.debug(pageWebElement.toString());
         }
     }
 }

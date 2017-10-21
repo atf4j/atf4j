@@ -67,8 +67,12 @@ public class StringBuilderTest extends TestResultsReporting {
          */
         @Override
         public String toString() {
-            return String.format("%s [%s, %s, protectedString=%s, publicString=%s]", this.getClass().getSimpleName(),
-                    CONSTANT, super.toString(), this.protectedString, this.publicString);
+            return String.format("%s [%s, %s, protectedString=%s, publicString=%s]",
+                    this.getClass().getSimpleName(),
+                    CONSTANT,
+                    super.toString(),
+                    protectedString,
+                    publicString);
         }
     }
 
@@ -78,7 +82,7 @@ public class StringBuilderTest extends TestResultsReporting {
     @Test
     public void testNullClass() {
         final String reflectionToString = Narrator.reflectObjectToString(null);
-        this.log.info(reflectionToString);
+        log.debug(reflectionToString);
         assertTrue("|testNullClass|", reflectionToString.equals("[NULL]"));
     }
 
@@ -88,7 +92,7 @@ public class StringBuilderTest extends TestResultsReporting {
     @Test
     public void testThisClass() {
         final String reflectionToString = Narrator.reflectObjectToString(this);
-        this.log.info(reflectionToString);
+        log.debug(reflectionToString);
         assertNotNull(UNEXPECTED_NULL, reflectionToString);
         assertTrue("|testThisClass|", reflectionToString.length() > 0);
     }
@@ -100,7 +104,7 @@ public class StringBuilderTest extends TestResultsReporting {
     public void testSubClassWithoutProperties() {
         final SubClassWithoutProperties superClassWithoutProperties = new SubClassWithoutProperties();
         final String reflectionToString = Narrator.reflectObjectToString(superClassWithoutProperties);
-        this.log.info(reflectionToString);
+        log.debug(reflectionToString);
         assertNotNull(UNEXPECTED_NULL, reflectionToString);
         assertTrue("expected none zero length", reflectionToString.length() > 0);
     }
@@ -112,7 +116,7 @@ public class StringBuilderTest extends TestResultsReporting {
     public void testSubClassWithProperties() {
         final SubClassWithProperties superClassWithProperties = new SubClassWithProperties();
         final String reflectionToString = Narrator.reflectObjectToString(superClassWithProperties);
-        this.log.info(reflectionToString);
+        log.debug(reflectionToString);
         assertNotNull(UNEXPECTED_NULL, reflectionToString);
         assertTrue("expected none zero length", reflectionToString.length() > 0);
     }
@@ -122,7 +126,7 @@ public class StringBuilderTest extends TestResultsReporting {
      */
     @Test
     public void testRefection() {
-        this.log.info(Narrator.reflectObjectToString(getClass()));
+        log.info(Narrator.reflectObjectToString(getClass()));
     }
 
 }

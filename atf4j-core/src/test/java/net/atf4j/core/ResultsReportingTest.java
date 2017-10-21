@@ -40,8 +40,8 @@ public final class ResultsReportingTest extends TestResultsReporting {
      */
     @Test(expected = AssertionError.class)
     public void testVerifyNotEqualByte() {
-        Byte actual = Byte.MAX_VALUE;
-        Byte expected = Byte.MIN_VALUE;
+        final Byte actual = Byte.MAX_VALUE;
+        final Byte expected = Byte.MIN_VALUE;
         super.verifyEquals(expected.byteValue(), actual.byteValue());
     }
 
@@ -114,8 +114,8 @@ public final class ResultsReportingTest extends TestResultsReporting {
      */
     @Test(expected = AssertionError.class)
     public void testVerifyNotEqualObjects() {
-        Object actual = new Object();
-        Object expected = new Object();
+        final Object actual = new Object();
+        final Object expected = new Object();
         super.verifyEquals(expected, actual);
     }
 
@@ -125,8 +125,8 @@ public final class ResultsReportingTest extends TestResultsReporting {
     @Test
     public void testToDescription() {
         final String description = super.toDescription();
+        log.debug(description);
         assertNotNull(UNEXPECTED_NULL, description);
-        this.log.info(description);
     }
 
 }
