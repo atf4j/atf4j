@@ -22,11 +22,11 @@ import static org.junit.Assert.assertNotNull;
 /**
  * Bank Account Data. UK Bank Account Number @”^\d{8,8}$”;
  */
-public class BankAccount {
+public final class BankAccount {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
-    private Bank bank;
-    private String accountNo;
+    private Bank bank = new Bank();
+    private String accountNo = "";
 
     /**
      * Creates the BankAccount object.
@@ -54,7 +54,7 @@ public class BankAccount {
     /**
      * Instantiates a new bank account.
      */
-    public BankAccount() {
+    private BankAccount() {
         super();
     }
 
@@ -148,7 +148,7 @@ public class BankAccount {
      */
     @Override
     public String toString() {
-        return String.format("%s %s", bank, accountNo);
+        return String.format("%s - %s", bank, accountNo);
     }
 
 }

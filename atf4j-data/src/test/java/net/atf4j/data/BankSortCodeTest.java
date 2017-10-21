@@ -58,9 +58,9 @@ public final class BankSortCodeTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        final BankSortCode sortCode = new BankSortCode();
-        log.debug("sortCode ={}", sortCode);
-        assertNotNull(UNEXPECTED_NULL, sortCode);
+        final BankSortCode bankSortCode = BankSortCode.create();
+        log.debug("sortCode ={}", bankSortCode);
+        assertNotNull(UNEXPECTED_NULL, bankSortCode);
     }
 
     /**
@@ -80,7 +80,8 @@ public final class BankSortCodeTest extends TestResultsReporting {
     @Test
     public void testSetGetBankSortCode() {
         final String actual = "99:99:99";
-        assertEquals(actual, new BankSortCode().setBankSortCode(actual).getBankSortCode());
+        final BankSortCode bankSortCode = BankSortCode.create();
+        assertEquals(actual, bankSortCode.setBankSortCode(actual).getBankSortCode());
     }
 
     /**
@@ -117,11 +118,22 @@ public final class BankSortCodeTest extends TestResultsReporting {
     }
 
     /**
+     * test BankSortCode object.
+     */
+    public void testDebugString() {
+        final BankSortCode bankSortCode = BankSortCode.create();
+        final String string = bankSortCode.debugString();
+        log.debug("BankSortCode().toString() = {}", string);
+        assertNotNull(UNEXPECTED_NULL, string);
+    }
+
+    /**
      * Test method for BankSortCode.
      */
     @Test
     public void testToString() {
-        final String string = new BankSortCode().toString();
+        final BankSortCode bankSortCode = BankSortCode.create();
+        final String string = bankSortCode.toString();
         log.debug("BankSortCode().toString() = {}", string);
         assertNotNull(UNEXPECTED_NULL, string);
     }

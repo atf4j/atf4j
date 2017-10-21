@@ -137,6 +137,15 @@ public class Field<T> {
         return this.status;
     }
 
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
+        return String.format("Field [status=%s, key=%s, value=%s]", this.status, this.key, this.value);
+    }
+
     /*
      * (non-Javadoc)
      *
@@ -144,7 +153,7 @@ public class Field<T> {
      */
     @Override
     public String toString() {
-        return String.format("Field [status=%s, key=%s, value=%s]", this.status, this.key, this.value);
+        return String.format("%s", this.value);
     }
 
 }

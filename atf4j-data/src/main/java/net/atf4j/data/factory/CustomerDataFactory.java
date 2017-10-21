@@ -24,7 +24,7 @@ import net.atf4j.data.Customer;
 /**
  * CustomerDataFactory, a data factory to create data representing customers.
  */
-public class CustomerDataFactory extends AbstractDataFactory {
+public final class CustomerDataFactory extends AbstractDataFactory {
 
     private static CustomerDataFactory INSTANCE = null;
     private String[] data;

@@ -28,7 +28,7 @@ import net.atf4j.data.Postcode;
 /**
  * Address Data Factory.
  */
-public class AddressDataFactory extends AbstractDataFactory {
+public final class AddressDataFactory extends AbstractDataFactory {
 
     private static final String FILE_NOT_FOUND_MSG = "Expected file '%s' not found.";
 
@@ -77,7 +77,7 @@ public class AddressDataFactory extends AbstractDataFactory {
      * To log.
      */
     public void toLog() {
-        this.log.info("{}", toString());
+        log.info("{}", toString());
     }
 
     /**
@@ -93,31 +93,31 @@ public class AddressDataFactory extends AbstractDataFactory {
      */
     protected void initialise() {
         try {
-            this.addressLineStems = load("addressLineStems.txt");
+            addressLineStems = load("addressLineStems.txt");
         } catch (final FileNotFoundException e) {
             final String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
-            this.log.error(errorMessage);
+            log.error(errorMessage);
         }
 
         try {
-            this.addressLinePostfix = load("addressLinePostfix.txt");
+            addressLinePostfix = load("addressLinePostfix.txt");
         } catch (final FileNotFoundException e) {
             final String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
-            this.log.error(errorMessage);
+            log.error(errorMessage);
         }
 
         try {
-            this.addressStems = load("addressStems.txt");
+            addressStems = load("addressStems.txt");
         } catch (final FileNotFoundException e) {
             final String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
-            this.log.error(errorMessage);
+            log.error(errorMessage);
         }
 
         try {
-            this.addressLocals = load("addressLocals.txt");
+            addressLocals = load("addressLocals.txt");
         } catch (final FileNotFoundException e) {
             final String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
-            this.log.error(errorMessage);
+            log.error(errorMessage);
         }
 
     }
@@ -134,22 +134,22 @@ public class AddressDataFactory extends AbstractDataFactory {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        assertNotNull(this.addressLineStems);
-        assertNotNull(this.addressLinePostfix);
-        assertNotNull(this.addressStems);
-        assertNotNull(this.addressLocals);
+        assertNotNull(addressLineStems);
+        assertNotNull(addressLinePostfix);
+        assertNotNull(addressStems);
+        assertNotNull(addressLocals);
 
         return String.format(
                 "AddressDataFactory [addressLineStems=%s, addressLinePostfix=%s, addressStems=%s, addressLocals=%s]",
-                fromatData(Arrays.toString(this.addressLineStems)),
-                fromatData(Arrays.toString(this.addressLinePostfix)),
-                fromatData(Arrays.toString(this.addressStems)),
-                fromatData(Arrays.toString(this.addressLocals)));
+                fromatData(Arrays.toString(addressLineStems)),
+                fromatData(Arrays.toString(addressLinePostfix)),
+                fromatData(Arrays.toString(addressStems)),
+                fromatData(Arrays.toString(addressLocals)));
     }
 
 }

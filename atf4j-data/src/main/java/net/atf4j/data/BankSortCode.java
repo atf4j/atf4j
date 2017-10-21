@@ -56,7 +56,7 @@ public final class BankSortCode {
     /**
      * Instantiates a new bank sort code.
      */
-    public BankSortCode() {
+    private BankSortCode() {
         super();
         setBankSortCode("00-00-00");
     }
@@ -79,7 +79,7 @@ public final class BankSortCode {
      */
     public BankSortCode setBankSortCode(final String bankSortCode) {
         assertNotNull(UNEXPECTED_NULL, bankSortCode);
-        this.sortcode = bankSortCode;
+        sortcode = bankSortCode;
         return this;
     }
 
@@ -89,7 +89,7 @@ public final class BankSortCode {
      * @return the bankSortCode as String.
      */
     public String getBankSortCode() {
-        return this.sortcode;
+        return sortcode;
     }
 
     /**
@@ -110,7 +110,7 @@ public final class BankSortCode {
      * @return the string
      */
     public String debugString() {
-        return String.format("BankSortCode [bankName=%s, sortcode=%s]", this.bankName, this.sortcode);
+        return String.format("BankSortCode [bankName=%s, sortcode=%s]", bankName, sortcode);
     }
 
     /*
@@ -120,7 +120,7 @@ public final class BankSortCode {
      */
     @Override
     public String toString() {
-        return this.sortcode;
+        return sortcode;
     }
 
 }

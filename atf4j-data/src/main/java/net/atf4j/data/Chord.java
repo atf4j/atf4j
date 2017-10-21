@@ -41,7 +41,7 @@ public class Chord {
      * @return the stem
      */
     public CharSequence getStem() {
-        return this.stem;
+        return stem;
     }
 
     /**
@@ -51,16 +51,12 @@ public class Chord {
      * @return true, if successful, otherwise false.
      */
     public boolean add(final Chord e) {
-        return this.children.add(e);
+        return children.add(e);
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#toString()
-     */
     @Override
     public String toString() {
-        return "Chord [stem=" + this.stem + ", children=" + this.children + "]";
+        return String.format("Chord [stem=%s, children=%s]", stem, children);
     }
+
 }

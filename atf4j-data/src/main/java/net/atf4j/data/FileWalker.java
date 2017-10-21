@@ -59,7 +59,7 @@ public class FileWalker extends AbstractWalker {
             final File absoluteFile = f.getAbsoluteFile();
             log.info("FILE:{}", absoluteFile);
             final String string = readFile(absoluteFile.getPath());
-            log.info("{}", string);
+            log.info("path = {}", string);
         } catch (final IOException e) {
             log.error(e.toString());
         }

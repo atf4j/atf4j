@@ -24,21 +24,43 @@ import java.util.Calendar;
  */
 public class Person {
 
+    /** The title. */
     private Title title;
+
+    /** The forename. */
     private String forename;
+
+    /** The middlename. */
     private String middlename;
+
+    /** The surname. */
     private String surname;
+
+    /** The dob. */
     private Calendar dob;
+
+    /** The postal address. */
     private PostalAddress postalAddress;
+
+    /** The email address. */
     private String emailAddress;
+
+    /** The gender. */
     private Gender gender;
 
     /**
-     * The Gender Enum.
+     * Gender Enum.
      */
     public enum Gender {
-        MALE("Male"), FEMALE("Male"), UNKNOWN("Unknown");
 
+        /** The male. */
+        MALE("Male"),
+        /** The female. */
+        FEMALE("Male"),
+        /** The unknown. */
+        UNKNOWN("Unknown");
+
+        /** The gender string. */
         private final String genderString;
 
         /**
@@ -47,7 +69,7 @@ public class Person {
          * @param asText the as text
          */
         private Gender(final String asText) {
-            this.genderString = asText;
+            genderString = asText;
         }
 
         /**
@@ -67,7 +89,7 @@ public class Person {
          */
         @Override
         public String toString() {
-            return this.genderString;
+            return genderString;
         }
 
     };
@@ -76,7 +98,23 @@ public class Person {
      * The Title Enum.
      */
     public enum Title {
-        MR("Mr"), MRS("Mrs"), MS("Ms"), MISS("Miss"), SIR("Sir"), LADY("Lady"), LORD("Lord"), DR("Dr");
+
+        /** The mr. */
+        MR("Mr"),
+        /** The mrs. */
+        MRS("Mrs"),
+        /** The ms. */
+        MS("Ms"),
+        /** The miss. */
+        MISS("Miss"),
+        /** The sir. */
+        SIR("Sir"),
+        /** The lady. */
+        LADY("Lady"),
+        /** The lord. */
+        LORD("Lord"),
+        /** The dr. */
+        DR("Dr");
 
         /** The value. */
         private final String titleString;
@@ -87,7 +125,7 @@ public class Person {
          * @param asText the as text
          */
         private Title(final String asText) {
-            this.titleString = asText;
+            titleString = asText;
         }
 
         /**
@@ -107,7 +145,7 @@ public class Person {
          */
         @Override
         public String toString() {
-            return this.titleString;
+            return titleString;
         }
     }
 
@@ -160,7 +198,7 @@ public class Person {
      * @return the title
      */
     public Title title() {
-        return this.title;
+        return title;
     }
 
     /**
@@ -180,7 +218,7 @@ public class Person {
      * @return the string
      */
     public String forename() {
-        return this.forename;
+        return forename;
     }
 
     /**
@@ -200,7 +238,7 @@ public class Person {
      * @return the string
      */
     public String middlename() {
-        return this.middlename;
+        return middlename;
     }
 
     /**
@@ -220,7 +258,7 @@ public class Person {
      * @return the string
      */
     public String surname() {
-        return this.surname;
+        return surname;
     }
 
     /**
@@ -240,7 +278,7 @@ public class Person {
      * @return the calendar
      */
     public Calendar dateOfBirth() {
-        return this.dob;
+        return dob;
     }
 
     /**
@@ -253,8 +291,8 @@ public class Person {
         final int currentmonth = now.get(Calendar.MONTH);
         final int currentyear = now.get(Calendar.YEAR);
 
-        final int month = this.dob.get(Calendar.MONTH);
-        final int year = this.dob.get(Calendar.YEAR);
+        final int month = dob.get(Calendar.MONTH);
+        final int year = dob.get(Calendar.YEAR);
 
         return (currentyear * 12 + currentmonth - (year * 12 + month)) / 12;
     }
@@ -287,7 +325,7 @@ public class Person {
      * @return the string
      */
     public Gender gender() {
-        return this.gender;
+        return gender;
     }
 
     /**
@@ -307,7 +345,7 @@ public class Person {
      * @return the postal address
      */
     public PostalAddress postalAddress() {
-        return this.postalAddress;
+        return postalAddress;
     }
 
     /**
@@ -327,7 +365,7 @@ public class Person {
      * @return the email address
      */
     public String emailAddress() {
-        return this.emailAddress;
+        return emailAddress;
     }
 
     /*
@@ -339,13 +377,13 @@ public class Person {
     public String toString() {
         return String.format(
                 "Person [title=%s, forename=%s, middlename=%s, surname=%s, dob=%s, postalAddress=%s, emailAddress=%s]",
-                this.title,
-                this.forename,
-                this.middlename,
-                this.surname,
-                this.dob,
-                this.postalAddress,
-                this.emailAddress);
+                title,
+                forename,
+                middlename,
+                surname,
+                dob,
+                postalAddress,
+                emailAddress);
     }
 
 }
