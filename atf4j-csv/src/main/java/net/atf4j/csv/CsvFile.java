@@ -39,8 +39,6 @@ public class CsvFile {
 
     /**
      * Default Constructor instantiates a new empty CsvFile object.
-     *
-     * @throws FileNotFoundException the file not found exception
      */
     public CsvFile() {
         super();
@@ -71,8 +69,6 @@ public class CsvFile {
 
     /**
      * Load.
-     *
-     * @throws FileNotFoundException the file not found exception
      */
     protected void load() {
         try {

@@ -89,10 +89,18 @@ public class Nino {
         return this.nino;
     }
 
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
     public String debugString() {
         return String.format("Nino [nino=%s]", this.nino);
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return this.nino;

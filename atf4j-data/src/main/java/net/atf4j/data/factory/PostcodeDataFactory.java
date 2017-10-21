@@ -75,10 +75,16 @@ public class PostcodeDataFactory {
         return postcode;
     }
 
+    /**
+     * Instantiates a new postcode data factory.
+     */
     private PostcodeDataFactory() {
         super();
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format("PostcodeDataFactory [postCodeData=%s]", postCodeData);

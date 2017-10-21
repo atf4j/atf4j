@@ -39,6 +39,9 @@ public final class CardDataFactoryTest extends TestResultsReporting {
         this.log.info("{}", card.toString());
     }
 
+    /**
+     * Test random.
+     */
     @Test
     public void testRandom() {
         final Card card = CardDataFactory.random();

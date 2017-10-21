@@ -68,8 +68,7 @@ public final class Postcode {
      * Instantiates a new postcode.
      *
      * @param postCode the post code
-     * @throws InvalidPostcodeException
-     * @throws BlankPostcodeException
+     * @throws InvalidPostcodeException the invalid postcode exception
      */
     public Postcode(final String postCode) throws InvalidPostcodeException {
         super();
@@ -81,8 +80,7 @@ public final class Postcode {
      *
      * @param postCode the post code as a String.
      * @return this for fluent interface.
-     * @throws InvalidPostcodeException
-     * @throws BlankPostcodeException
+     * @throws InvalidPostcodeException the invalid postcode exception
      */
     public Postcode setPostCode(final String postCode) throws InvalidPostcodeException {
         this.postCode = postCode;
@@ -182,7 +180,6 @@ public final class Postcode {
      * @param postcode the postcode \* @return true, if successful, otherwise
      *            false.
      * @return true, if successful, otherwise false.
-     * @throws BlankPostcodeException
      */
     public static boolean verify(final String postcode) {
         assertNotNull(postcode);

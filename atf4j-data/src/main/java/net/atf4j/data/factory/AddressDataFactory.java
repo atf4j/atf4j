@@ -125,13 +125,16 @@ public class AddressDataFactory extends AbstractDataFactory {
     /**
      * Format data lines.
      *
-     * @param properties the properties
+     * @param data the data
      * @return the string
      */
     private String fromatData(final String data) {
         return data.replace("{", "{\n\t").replace(", ", "\n\t").replace("}", "\n\t}");
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         assertNotNull(addressLineStems);

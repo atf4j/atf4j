@@ -36,8 +36,6 @@ public class LoremIpsum extends AbstractDataFactory {
 
     /**
      * Instantiates a new lorem ipsum.
-     * 
-     * @throws FileNotFoundException
      */
     public LoremIpsum() {
         super();

@@ -58,8 +58,8 @@ public final class PostcodeTest extends TestResultsReporting {
 
     /**
      * Test method for Postcode.
-     * 
-     * @throws InvalidPostcodeException
+     *
+     * @throws InvalidPostcodeException the invalid postcode exception
      */
     @Test
     public void testPostcodeString() throws InvalidPostcodeException {
@@ -78,8 +78,8 @@ public final class PostcodeTest extends TestResultsReporting {
 
     /**
      * Test set get postcode.
-     * 
-     * @throws InvalidPostcodeException
+     *
+     * @throws InvalidPostcodeException the invalid postcode exception
      */
     @Test
     public void testSetGetPostcode() throws InvalidPostcodeException {
@@ -91,6 +91,8 @@ public final class PostcodeTest extends TestResultsReporting {
 
     /**
      * Test postcode parts.
+     *
+     * @throws InvalidPostcodeException the invalid postcode exception
      */
     @Test
     public void testOutwardPart() throws InvalidPostcodeException {
@@ -104,6 +106,8 @@ public final class PostcodeTest extends TestResultsReporting {
 
     /**
      * Test postcode parts.
+     *
+     * @throws InvalidPostcodeException the invalid postcode exception
      */
     @Test
     public void testInwardPart() throws InvalidPostcodeException {
@@ -124,6 +128,8 @@ public final class PostcodeTest extends TestResultsReporting {
 
     /**
      * Test method for Postcode.
+     *
+     * @throws InvalidPostcodeException the invalid postcode exception
      */
     @Test
     public void testToString() throws InvalidPostcodeException {

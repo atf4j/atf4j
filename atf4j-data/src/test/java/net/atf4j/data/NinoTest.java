@@ -64,6 +64,9 @@ public final class NinoTest extends TestResultsReporting {
         assertEquals(INVALID, nino.toString());
     }
 
+    /**
+     * Test valid nino.
+     */
     @Test
     public void testValidNino() {
         final Nino nino = new Nino(VALID);
@@ -91,6 +94,9 @@ public final class NinoTest extends TestResultsReporting {
         assertTrue(Nino.verify(VALID));
     }
 
+    /**
+     * Test set get nino.
+     */
     @Test
     public void testSetGetNino() {
         Nino nino = new Nino();

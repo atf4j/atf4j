@@ -149,6 +149,9 @@ public class PersonDataFactory extends AbstractDataFactory {
         return EmailAddress.create().toString();
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format("PersonDataFactory [maleForenames=%s, femaleForenames=%s, surnames=%s]",
