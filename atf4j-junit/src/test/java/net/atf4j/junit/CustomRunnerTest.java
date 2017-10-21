@@ -25,7 +25,7 @@ import org.junit.runner.RunWith;
 /**
  * The CustomRunnerTest Class.
  */
-@RunWith(value = CustomRunnerExample.class)
+@RunWith(value = CustomRunner.class)
 public class CustomRunnerTest {
 
     /**

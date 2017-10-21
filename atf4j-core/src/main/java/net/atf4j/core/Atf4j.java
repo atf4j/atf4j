@@ -27,7 +27,7 @@ import net.atf4j.core.timers.NestedTimers;
 public final class Atf4j {
 
     private static final Logger LOG = LoggerFactory.getLogger(Atf4j.class);
-    protected static final NestedTimers nestedTimers = NestedTimers.getInstance();
+    private static final NestedTimers nestedTimers = NestedTimers.getInstance();
 
     /**
      * Instantiates a new atf 4 j.

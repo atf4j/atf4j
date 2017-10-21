@@ -13,7 +13,7 @@
 		<slf4j.version>1.7.21</slf4j.version>
 		<cucumber.version>1.2.4</cucumber.version>
 		<selenium.version>2.53.1</selenium.version>
-		<activemq.version>5.14.3</activemq.version>
+		<activemq.version>5.15.1</activemq.version>
 		<soapui-version>5.3.0</soapui-version>
 
 		<maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
@@ -80,17 +80,17 @@
 	</developers>
 
 	<modules>
+		<module>atf4j-amq</module>
 		<module>atf4j-annotations</module>
 		<module>atf4j-bdd</module>
+		<module>atf4j-core</module>
 		<module>atf4j-csv</module>
 		<module>atf4j-cucumber-webdriver</module>
-		<module>atf4j-junit</module>
-		<module>atf4j-core</module>
 		<module>atf4j-data</module>
+		<module>atf4j-junit</module>
 		<module>atf4j-pog</module>
-		<module>atf4j-webdriver</module>
-		<module>atf4j-amq</module>
 		<module>atf4j-soapui</module>
+		<module>atf4j-webdriver</module>
 	</modules>
 
 	<dependencies>
@@ -106,13 +106,11 @@
 			<version>${slf4j.version}</version>
 		</dependency>
 
-		<!--
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId> 
-			<version>1.7.21</version>
-		</dependency> 
-		-->
+		<!-- <dependency> -->
+		<!-- <groupId>org.slf4j</groupId> -->
+		<!-- <artifactId>slf4j-simple</artifactId> -->
+		<!-- <version>1.7.21</version> -->
+		<!-- </dependency> -->
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -203,38 +201,6 @@
 			<!-- <version>9.4.2-SNAPSHOT</version> -->
 			<!-- </plugin> -->
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-site-plugin</artifactId>
-				<version>${maven-site-plugin.version}</version>
-				<configuration>
-					<reportPlugins>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-project-info-reports-plugin</artifactId>
-							<version>${maven-project-info-reports-plugin.version}</version>
-							<reports>
-								<report>cim</report>
-								<report>issue-tracking</report>
-							</reports>
-						</plugin>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-javadoc-plugin</artifactId>
-							<version>${maven-javadoc-plugin.version}</version>
-						</plugin>
-					</reportPlugins>
-				</configuration>
-				<executions>
-					<execution>
-						<id>attach-descriptor</id>
-						<goals>
-							<goal>attach-descriptor</goal>
-						</goals>
-					</execution>
-				</executions>
-
-			</plugin>
 		</plugins>
 
 		<pluginManagement>
@@ -255,7 +221,38 @@
 	</build>
 
 	<reporting>
+		<excludeDefaults>true</excludeDefaults>
+		<outputDirectory>${project.build.directory}/site</outputDirectory>
+
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>${maven-site-plugin.version}</version>
+				<configuration>
+					<dependencyDetailsEnabled>false</dependencyDetailsEnabled>
+					<dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>dependencies</report>
+							<report>scm</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.8</version>
+			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
@@ -264,27 +261,6 @@
 					<reportSet>
 						<reports>
 							<report>index</report>
-						</reports>
-					</reportSet>
-				</reportSets>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>${maven-javadoc-plugin.version}</version>
-				<reportSets>
-					<reportSet>
-						<reports>
-							<report>javadoc</report>
-							<report>test-javadoc</report>
-						</reports>
-					</reportSet>
-					<reportSet>
-						<id>aggregate</id>
-						<inherited>false</inherited>
-						<reports>
-							<report>aggregate</report>
 						</reports>
 					</reportSet>
 				</reportSets>

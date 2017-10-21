@@ -64,9 +64,9 @@ public abstract class AbstractDataFactory {
      */
     protected void load() {
         try {
-            load(filename());
+            lines = load(filename());
         } catch (final FileNotFoundException e) {
-            this.log.error("{} Using default values.", e.getMessage());
+            log.error("{} Using default values.", e.getMessage());
         }
     }
 
@@ -91,8 +91,7 @@ public abstract class AbstractDataFactory {
         assertNotNull(UNEXPECTED_NULL, dataFilename);
         final InputStream inputStream = resourceAsStream(dataFilename);
         if (inputStream != null) {
-            this.lines = load(inputStream);
-            return this.lines;
+            return load(inputStream);
         } else {
             throw new FileNotFoundException(dataFilename);
         }
@@ -124,7 +123,7 @@ public abstract class AbstractDataFactory {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 lines.add(line);
-                this.log.trace(line);
+                log.trace(line);
             }
             bufferedReader.close();
         } catch (final IOException e) {
@@ -139,9 +138,7 @@ public abstract class AbstractDataFactory {
      * @return the string
      */
     protected String randomEntry() {
-        final int bounds = this.lines.length;
-        final int randomIndex = rnd.nextInt(bounds);
-        return this.lines[randomIndex];
+        return randomEntry(lines);
     }
 
     /**
@@ -164,7 +161,7 @@ public abstract class AbstractDataFactory {
      */
     public String dataForTag(final String tag) {
         if (tag.charAt(0) == '@') {
-            for (final String line : this.lines) {
+            for (final String line : lines) {
                 final String[] fields = line.split(",");
                 if (fields[0].contains(tag)) {
                     return line;

@@ -17,7 +17,7 @@
 
 	<artifactId>atf4j-core</artifactId>
 	<packaging>jar</packaging>
-	<name>Automation Test Framework for Java Core</name>
+	<name>ATF4J - Core</name>
 
 	<dependencies>
 		<dependency>
@@ -51,4 +51,6 @@
 		</dependency>
 
 	</dependencies>
+	<url>http://atf4j.net</url>
+	<description>Java Automated Testing Framework for Java.</description>
 </project>

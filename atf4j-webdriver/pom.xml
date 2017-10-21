@@ -43,4 +43,6 @@
 		</plugins>
 	</build>
 
+	<description>Java Automation Testing Framework for Selenium WebDriver.</description>
+	<url>http://atf4j.net</url>
 </project>

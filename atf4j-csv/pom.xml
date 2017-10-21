@@ -5,7 +5,7 @@
 
 	<artifactId>atf4j-csv</artifactId>
 	<packaging>jar</packaging>
-	<name>Automation Test Framework = CSV data files</name>
+	<name>ATF4J - CSV data files</name>
 
 	<parent>
 		<groupId>net.atf4j</groupId>
@@ -21,4 +21,6 @@
 		</dependency>
 	</dependencies>
 
+	<description>Java Automation Testing Framework for CSV data files</description>
+	<url>http://atf4j.net</url>
 </project>

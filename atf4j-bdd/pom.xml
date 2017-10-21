@@ -21,4 +21,6 @@
 		</dependency>
 	</dependencies>
 
+	<description>Java Automated Testing Framework for Behaviour Driven Development.</description>
+	<url>http://atf4j.net</url>
 </project>

@@ -78,4 +78,6 @@
 		</plugins>
 	</reporting>
 
+	<description>Automation Testing Framework for SOAPUI using Groovy &amp; Java.</description>
+	<url>http://atf4j.net</url>
 </project>

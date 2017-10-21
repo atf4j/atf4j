@@ -33,8 +33,9 @@ public class MappedTimersTest extends TestResultsReporting {
      */
     @Test
     public void testGetInstance() {
-        final MappedTimers INSTANCE = MappedTimers.getInstance();
-        assertNotNull(UNEXPECTED_NULL, INSTANCE);
+        final MappedTimers timer = MappedTimers.getInstance();
+        log.debug("MappedTimers.getInstance() = {}", timer);
+        assertNotNull(UNEXPECTED_NULL, timer);
     }
 
     /**
@@ -43,9 +44,9 @@ public class MappedTimersTest extends TestResultsReporting {
     @Test
     public void testExpectedUsage() {
         final TimerInterface timer = MappedTimers.start("testExpectedUsage");
+        log.debug("MappedTimers.getInstance() = {}", timer);
         assertNotNull(UNEXPECTED_NULL, timer);
         assertNotNull(UNEXPECTED_NULL, timer.stop());
-        this.log.info(timer.toString());
     }
 
     /**

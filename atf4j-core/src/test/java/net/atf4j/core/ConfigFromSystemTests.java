@@ -22,8 +22,6 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
-
 /**
  * UnitTests for ConfigFromSystem.
  */
@@ -50,8 +48,7 @@ public final class ConfigFromSystemTests extends TestResultsReporting {
          * @return the system property as boolean
          */
         public boolean getSystemPropertyAsBoolean(final String key) {
-            final boolean property = Boolean.getBoolean(key);
-            return property;
+            return Boolean.getBoolean(key);
         }
 
         /**
@@ -61,8 +58,7 @@ public final class ConfigFromSystemTests extends TestResultsReporting {
          * @return the system property as string
          */
         public String getSystemPropertyAsString(final String key) {
-            final String property = System.getProperty(key);
-            return property;
+            return System.getProperty(key);
         }
     }
 
@@ -73,7 +69,8 @@ public final class ConfigFromSystemTests extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() throws Exception {
-        ConfigFromSystem configFromSystem = new ConfigFromSystem();
+        final ConfigFromSystem configFromSystem = new ConfigFromSystem();
+        log.debug("configFromSystem = {}", configFromSystem);
         assertNotNull(UNEXPECTED_NULL, configFromSystem);
     }
 
@@ -89,9 +86,10 @@ public final class ConfigFromSystemTests extends TestResultsReporting {
         System.setProperty(systemPropertyKey, systemPropertyValue);
 
         // When
-        final ConfigFromSystem mockConfig = new ConfigFromSystem();
-        assertNotNull(UNEXPECTED_NULL, mockConfig);
-        final String systemPropertyAsString = mockConfig.getSystemPropertyAsString(systemPropertyKey);
+        final ConfigFromSystem configFromSystem = new ConfigFromSystem();
+        log.debug("configFromSystem = {}", configFromSystem);
+        assertNotNull(UNEXPECTED_NULL, configFromSystem);
+        final String systemPropertyAsString = configFromSystem.getSystemPropertyAsString(systemPropertyKey);
         assertEquals(systemPropertyValue, systemPropertyAsString);
     }
 
@@ -105,12 +103,13 @@ public final class ConfigFromSystemTests extends TestResultsReporting {
         final String systemPropertyKey = "booleanFromSystem";
         final String systemPropertyValue = "true";
         System.setProperty(systemPropertyKey, systemPropertyValue);
-        this.log.info(System.getProperties().toString());
+        log.debug("System.getProperties() = {}", System.getProperties());
 
         // When
-        final ConfigFromSystem mockConfig = new ConfigFromSystem();
-        assertNotNull(UNEXPECTED_NULL, mockConfig);
-        final boolean booleanFromSystem = mockConfig.getSystemPropertyAsBoolean(systemPropertyKey);
+        final ConfigFromSystem configFromSystem = new ConfigFromSystem();
+        log.debug("configFromSystem = {}", configFromSystem);
+        assertNotNull(UNEXPECTED_NULL, configFromSystem);
+        final boolean booleanFromSystem = configFromSystem.getSystemPropertyAsBoolean(systemPropertyKey);
         assertEquals(true, booleanFromSystem);
     }
 
