@@ -67,7 +67,7 @@ public class BrowserFactory implements BrowserFactoryInterface {
      * @param browser the browser
      * @return INSTANCE of webDriver
      */
-    protected static WebDriver webDriver(final String browser) {
+    public static WebDriver webDriver(final String browser) {
         WebDriver webDriver = null;
 
         if (TestContext.isLocal()) {

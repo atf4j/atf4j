@@ -17,26 +17,29 @@
 
 package net.atf4j.imperative;
 
+import static org.junit.Assert.fail;
+
 import org.openqa.selenium.WebDriver;
 
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
 import net.atf4j.fdd.AbstractBehaviourModel;
+import net.atf4j.webdriver.BrowserFactory;
 
 /**
  * A UnitTest for SystemUnder objects.
  */
-public class WebAppModel extends AbstractBehaviourModel {
+public class BehaviourModel extends AbstractBehaviourModel {
 
     protected WebDriver webDriver;
     protected String targetUrl = "http://127.0.0.1:8080";
-    protected LandingPage page;
+    protected LandingPage landingPage;
 
     /**
      * A browser.
      */
     public void aBrowser() {
-        this.log.info("aBrowser()");
-        // TODO this.webDriver = BrowserFactory.webDriver();
+        log.info("aBrowser()");
+        webDriver = BrowserFactory.webDriver();
     }
 
     /**
@@ -45,7 +48,8 @@ public class WebAppModel extends AbstractBehaviourModel {
      * @param browserName the browser name
      */
     public void useBrowser(final String browserName) {
-        this.log.debug("useBrowser({})", browserName);
+        log.debug("useBrowser({})", browserName);
+        webDriver = BrowserFactory.webDriver(browserName);
     }
 
     /**
@@ -54,26 +58,29 @@ public class WebAppModel extends AbstractBehaviourModel {
      * @throws ConfigurationNotLoadedException the configuration not loaded
      */
     public void open() throws ConfigurationNotLoadedException {
-        this.log.debug("open()");
-        // TODO this.page = new LandingPage();
+        log.debug("open()");
+        landingPage = new LandingPage();
+        landingPage.open();
     }
 
     /**
      * Open the target page.
      *
      * @param targetUrl the target url
+     * @throws ConfigurationNotLoadedException
      */
-    public void open(final String targetUrl) {
-        this.log.debug("open({})", targetUrl);
-        this.page.open(targetUrl);
+    public void open(final String targetUrl) throws ConfigurationNotLoadedException {
+        log.debug("open({})", targetUrl);
+        landingPage = new LandingPage();
+        landingPage.open(targetUrl);
     }
 
     /**
      * Verify.
      */
     public void verify() {
-        this.log.debug("verify()");
-        this.page.verify();
+        log.debug("verify()");
+        landingPage.verify();
     }
 
     /**
@@ -82,8 +89,8 @@ public class WebAppModel extends AbstractBehaviourModel {
      * @param expectedPageTitle the expected page title
      */
     public void pageTitleShouldBe(final String expectedPageTitle) {
-        this.log.debug("pageTitleShouldBe({})", expectedPageTitle);
-        this.page.verifyPageTitle(expectedPageTitle);
+        log.debug("pageTitleShouldBe({})", expectedPageTitle);
+        landingPage.verifyPageTitle(expectedPageTitle);
     }
 
     /**
@@ -92,7 +99,8 @@ public class WebAppModel extends AbstractBehaviourModel {
      * @param expectedCookieName the expected cookie name
      */
     public void ensureCookieExists(final String expectedCookieName) {
-        this.log.debug("ensureCookieExists({})", expectedCookieName);
+        log.debug("ensureCookieExists({})", expectedCookieName);
+        fail("Not yet implemented.");
     }
 
     /**
@@ -101,7 +109,9 @@ public class WebAppModel extends AbstractBehaviourModel {
      * @param expectedCookieName the expected cookie name
      */
     public void theCookieHasValue(final String expectedCookieName) {
-        this.log.debug("{}.theCookieHasValue({})", this, expectedCookieName);
+        log.debug("{}.theCookieHasValue({})", this, expectedCookieName);
+        fail("Not yet implemented.");
+
     }
 
 }

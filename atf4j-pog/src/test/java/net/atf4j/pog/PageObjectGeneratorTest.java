@@ -29,6 +29,7 @@ import net.atf4j.pog.PageWebElement.Strategy;
  */
 public class PageObjectGeneratorTest extends TestResultsReporting {
 
+    /** The Constant 			HTTP_ATF4J_NET. */
     private static final String HTTP_ATF4J_NET = "http://atf4j.net";
 
     /**

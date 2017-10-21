@@ -44,20 +44,40 @@ import net.atf4j.core.Atf4jException;
  */
 public abstract class AbstractCodeGenerator {
 
+    /** The Constant TARGET_FOLDER. */
     private static final String TARGET_FOLDER = "src/generated/java";
+
+    /** The Constant CLASS_TEMPLATE. */
     private static final String CLASS_TEMPLATE = "/templates/Class.vm";
+
+    /** The Constant UNEXPECTED_NULL. */
     protected static final String UNEXPECTED_NULL = "unexpected null";
 
+    /** The velocity engine. */
     private final VelocityEngine velocityEngine = new VelocityEngine();
+
+    /** The context. */
     private final VelocityContext context = new VelocityContext();
 
+    /** The fields. */
     protected final List<ClassField> fields = new ArrayList<ClassField>();
+
+    /** The methods. */
     protected final List<ClassMethod> methods = new ArrayList<ClassMethod>();
+
+    /** The log. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
+    /** The template filename. */
     private String templateFilename = CLASS_TEMPLATE;
+
+    /** The package name. */
     private String packageName = "net.atf4j.generated";
+
+    /** The class name. */
     private String className = "ExampleClass";
+
+    /** The target home folder. */
     private final String targetHomeFolder = TARGET_FOLDER;
 
     /**

@@ -82,7 +82,7 @@
 	<modules>
 		<module>atf4j-amq</module>
 		<module>atf4j-annotations</module>
-		<module>atf4j-bdd</module>
+		<module>atf4j-fdd</module>
 		<module>atf4j-core</module>
 		<module>atf4j-csv</module>
 		<module>atf4j-cucumber-webdriver</module>

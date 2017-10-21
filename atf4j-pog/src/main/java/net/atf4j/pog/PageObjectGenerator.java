@@ -27,17 +27,22 @@ import java.net.URL;
  */
 public class PageObjectGenerator extends AbstractCodeGenerator {
 
+    /** The Constant DEFAULT_TARGET. */
     private static final String DEFAULT_TARGET = "http://atf4j.net";
+
+    /** The Constant PAGE_OBJECT_TEMPLATE. */
     private static final String PAGE_OBJECT_TEMPLATE = "templates/PageObject.vm";
+
+    /** The page object data. */
     private PageObjectData pageObjectData;
+
+    /** The page url. */
     private String pageUrl = DEFAULT_TARGET;
 
     /**
      * Instantiates a new page object generator.
      *
-     * @throws TemplateNotLoadedException
-     *
-     * @throws Exception the exception
+     * @throws TemplateNotLoadedException the template not loaded exception
      */
     public PageObjectGenerator() throws TemplateNotLoadedException {
         super(PAGE_OBJECT_TEMPLATE);
@@ -47,9 +52,9 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * Instantiates a new page object generator.
      *
      * @param templateFilename the template filename
-     * @throws Exception the exception
+     * @throws TemplateNotLoadedException the template not loaded exception
      */
-    public PageObjectGenerator(final String templateFilename) throws Exception {
+    public PageObjectGenerator(final String templateFilename) throws TemplateNotLoadedException {
         super(templateFilename);
     }
 

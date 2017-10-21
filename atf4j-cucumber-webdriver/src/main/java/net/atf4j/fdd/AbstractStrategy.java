@@ -17,14 +17,18 @@
 
 package net.atf4j.fdd;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Abstract Strategy class.
  */
-public abstract class AbstractStrategy {
+public abstract class AbstractStrategy extends TestResultsReporting {
 
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+    /**
+     * Instantiates a new abstract strategy.
+     */
+    protected AbstractStrategy() {
+        super();
+    }
 
 }

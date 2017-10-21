@@ -32,6 +32,10 @@ public class StrategyTest extends TestResultsReporting {
      * The Strategy Class.
      */
     public class Strategy extends AbstractStrategy {
+
+        private Strategy() {
+            super();
+        }
     }
 
     /**

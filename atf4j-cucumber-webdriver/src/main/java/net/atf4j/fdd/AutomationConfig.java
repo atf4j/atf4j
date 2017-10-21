@@ -17,9 +17,6 @@
 
 package net.atf4j.fdd;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import net.atf4j.core.AbstractConfig;
 
 /**
@@ -27,6 +24,22 @@ import net.atf4j.core.AbstractConfig;
  */
 public final class AutomationConfig extends AbstractConfig {
 
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+    /**
+     * Instantiates a new automation config.
+     */
+    public AutomationConfig() {
+        super();
+    }
+
+    /**
+     * Instantiates a new automation config.
+     *
+     * @param propertyFilename the property filename
+     * @throws ConfigurationNotLoadedException the configuration not loaded
+     *             exception
+     */
+    public AutomationConfig(String propertyFilename) throws ConfigurationNotLoadedException {
+        super(propertyFilename);
+    }
 
 }

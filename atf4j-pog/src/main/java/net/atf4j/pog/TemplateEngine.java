@@ -29,7 +29,11 @@ import org.slf4j.LoggerFactory;
  * The TemplateEngine Class.
  */
 public abstract class TemplateEngine {
+    
+    /** The template filename. */
     protected String templateFilename = "template.vm";
+    
+    /** The log. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**

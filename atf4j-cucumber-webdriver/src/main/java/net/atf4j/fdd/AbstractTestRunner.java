@@ -20,12 +20,11 @@ package net.atf4j.fdd;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Abstract Test Runner for Cucumber.
@@ -37,9 +36,7 @@ import cucumber.api.junit.Cucumber;
         snippets = SnippetType.CAMELCASE,
         features = "classpath:features",
         tags = { "~@Ignore" })
-public abstract class AbstractTestRunner {
-
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+public abstract class AbstractTestRunner extends TestResultsReporting {
 
     /**
      * Before class.
@@ -57,7 +54,7 @@ public abstract class AbstractTestRunner {
      */
     @Before
     public void beforeTest() {
-        this.log.trace("beforeFeature");
+        log.trace("beforeFeature");
     }
 
     /**
@@ -65,7 +62,7 @@ public abstract class AbstractTestRunner {
      */
     @After
     public void afterTest() {
-        this.log.trace("afterTest");
+        log.trace("afterTest");
     }
 
     /**

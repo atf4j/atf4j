@@ -48,15 +48,14 @@ public final class AnnotationHelper {
      * @return the test tag
      */
     public static String getTestTag() {
-        LOG.trace("AnnotationHelper.getTestId");
+        LOG.trace("AnnotationHelper.getTestTag");
         final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         final Method testMethod = findTestMethod(stackTrace);
         if (testMethod == null) {
             return EXPECTED_TEST_TAG;
         } else {
             final Atf4j.TestTag atf4jTestTag = testMethod.getAnnotation(Atf4j.TestTag.class);
-            final String resultString = atf4jTestTag.value() == null ? EXPECTED_TEST_TAG : atf4jTestTag.value();
-            return resultString;
+            return atf4jTestTag.value() == null ? EXPECTED_TEST_TAG : atf4jTestTag.value();
         }
     }
 

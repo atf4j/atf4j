@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>atf4j-bdd</artifactId>
+	<artifactId>atf4j-fdd</artifactId>
 	<packaging>jar</packaging>
-	<name>ATF4J - Behaviour Driven Development</name>
+	<name>ATF4J - Feature Driven Development</name>
 
 	<parent>
 		<groupId>net.atf4j</groupId>
@@ -21,6 +21,6 @@
 		</dependency>
 	</dependencies>
 
-	<description>Java Automated Testing Framework for Behaviour Driven Development.</description>
+	<description>Java Automated Testing Framework for Feature Driven Development.</description>
 	<url>http://atf4j.net</url>
 </project>

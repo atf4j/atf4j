@@ -33,9 +33,16 @@ import java.util.List;
  */
 public class PageObjectData {
 
+    /** The page elements. */
     private final List<PageWebElement> pageElements = new ArrayList<PageWebElement>();
+
+    /** The nav elements. */
     private final List<PageWebElement> navElements = new ArrayList<PageWebElement>();
+
+    /** The input elements. */
     private final List<PageWebElement> inputElements = new ArrayList<PageWebElement>();
+
+    /** The content elements. */
     private final List<PageWebElement> contentElements = new ArrayList<PageWebElement>();
 
     /**
@@ -52,7 +59,7 @@ public class PageObjectData {
      * @return the page object data
      */
     public PageObjectData add(final PageWebElement pageWebElement) {
-        this.pageElements.add(pageWebElement);
+        pageElements.add(pageWebElement);
         return this;
     }
 
@@ -63,7 +70,7 @@ public class PageObjectData {
      * @return the page object data
      */
     public PageObjectData addNav(final PageWebElement navElement) {
-        this.navElements.add(navElement);
+        navElements.add(navElement);
         return this;
     }
 
@@ -74,7 +81,7 @@ public class PageObjectData {
      * @return the page object data
      */
     public PageObjectData addContent(final PageWebElement contentMethod) {
-        this.contentElements.add(contentMethod);
+        contentElements.add(contentMethod);
         return this;
     }
 
@@ -85,7 +92,7 @@ public class PageObjectData {
      * @return the page object data
      */
     public PageObjectData addInput(final PageWebElement inputMethod) {
-        this.inputElements.add(inputMethod);
+        inputElements.add(inputMethod);
         return this;
     }
 
@@ -95,7 +102,7 @@ public class PageObjectData {
      * @return the array list
      */
     public List<PageWebElement> get() {
-        return this.pageElements;
+        return pageElements;
     }
 
     /**
@@ -104,7 +111,7 @@ public class PageObjectData {
      * @return the content
      */
     public List<PageWebElement> getContent() {
-        return this.contentElements;
+        return contentElements;
     }
 
     /**
@@ -113,7 +120,7 @@ public class PageObjectData {
      * @return the input
      */
     public List<PageWebElement> getInput() {
-        return this.inputElements;
+        return inputElements;
     }
 
     /**
@@ -122,7 +129,7 @@ public class PageObjectData {
      * @return the nav
      */
     public List<PageWebElement> getNav() {
-        return this.navElements;
+        return navElements;
     }
 
     /*
@@ -133,16 +140,16 @@ public class PageObjectData {
     @Override
     public String toString() {
         final StringBuilder stringBuilder = new StringBuilder();
-        for (final PageWebElement pageWebElement : this.pageElements) {
+        for (final PageWebElement pageWebElement : pageElements) {
             stringBuilder.append(pageWebElement);
         }
-        for (final PageWebElement pageWebElement : this.navElements) {
+        for (final PageWebElement pageWebElement : navElements) {
             stringBuilder.append(pageWebElement);
         }
-        for (final PageWebElement pageWebElement : this.inputElements) {
+        for (final PageWebElement pageWebElement : inputElements) {
             stringBuilder.append(pageWebElement);
         }
-        for (final PageWebElement pageWebElement : this.contentElements) {
+        for (final PageWebElement pageWebElement : contentElements) {
             stringBuilder.append(pageWebElement);
         }
         return stringBuilder.toString();
