@@ -17,6 +17,7 @@
 
 package net.atf4j.data.factory;
 
+import java.io.FileNotFoundException;
 import java.util.Arrays;
 
 import net.atf4j.data.EmailAddress;
@@ -46,21 +47,21 @@ public class PersonDataFactory extends AbstractDataFactory {
      */
     protected void initialise() {
         try {
-            this.maleForenames = load("person-male-forenames.txt");
-        } catch (final Exception e) {
-            this.log.error(e.getMessage());
+            maleForenames = load("person-male-forenames.txt");
+        } catch (final FileNotFoundException e) {
+            log.error(e.getMessage());
         }
 
         try {
-            this.femaleForenames = load("person-female-forenames.txt");
-        } catch (final Exception e) {
-            this.log.error(e.getMessage());
+            femaleForenames = load("person-female-forenames.txt");
+        } catch (final FileNotFoundException e) {
+            log.error(e.getMessage());
         }
 
         try {
-            this.surnames = load("person-surnames.txt");
-        } catch (final Exception e) {
-            this.log.error(e.getMessage());
+            surnames = load("person-surnames.txt");
+        } catch (final FileNotFoundException e) {
+            log.error(e.getMessage());
         }
     }
 
@@ -149,7 +150,9 @@ public class PersonDataFactory extends AbstractDataFactory {
         return EmailAddress.create().toString();
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     *
      * @see java.lang.Object#toString()
      */
     @Override

@@ -17,7 +17,6 @@
 
 package net.atf4j.data;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,7 +26,7 @@ import net.atf4j.data.factory.AbstractDataFactory;
 /**
  * Lorem Ipsum text generator.
  */
-public class LoremIpsum extends AbstractDataFactory {
+public final class LoremIpsum extends AbstractDataFactory {
 
     private static LoremIpsum INSTANCE = null;
     private String[] rows = null;
@@ -37,7 +36,7 @@ public class LoremIpsum extends AbstractDataFactory {
     /**
      * Instantiates a new lorem ipsum.
      */
-    public LoremIpsum() {
+    protected LoremIpsum() {
         super();
         initialise();
     }

@@ -22,7 +22,7 @@ import net.atf4j.csv.CsvFile;
 /**
  * The PostcodeData Class.
  */
-public class PostcodeData extends CsvFile {
+public final class PostcodeData extends CsvFile {
 
     private static PostcodeData INSTANCE = null;
 

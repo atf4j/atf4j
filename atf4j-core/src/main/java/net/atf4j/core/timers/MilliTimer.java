@@ -42,6 +42,7 @@ public class MilliTimer implements TimerInterface {
      * Instantiates a new timer.
      */
     public MilliTimer() {
+        super();
         this.timerName = UUID.randomUUID().toString();
     }
 
@@ -51,6 +52,7 @@ public class MilliTimer implements TimerInterface {
      * @param useName is a name for this Timer
      */
     public MilliTimer(final String useName) {
+        super();
         this.timerName = useName;
     }
 
@@ -77,6 +79,15 @@ public class MilliTimer implements TimerInterface {
         return this;
     }
 
+    /**
+     * Gets the timer name.
+     *
+     * @return the timer name
+     */
+    public String getTimerName() {
+        return this.timerName;
+    }
+
     /*
      * (non-Javadoc)
      *
@@ -85,6 +96,16 @@ public class MilliTimer implements TimerInterface {
     @Override
     public final long getStartTime() {
         return this.startTime;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see net.atf4j.core.timers.TimerInterface#getStopTime()
+     */
+    @Override
+    public final long getStopTime() {
+        return this.stopTime;
     }
 
     /*
@@ -105,15 +126,6 @@ public class MilliTimer implements TimerInterface {
     @Override
     public final String toString() {
         return Narrator.reflectObjectToString(this);
-    }
-
-    /**
-     * Gets the timer name.
-     *
-     * @return the timer name
-     */
-    public String getTimerName() {
-        return this.timerName;
     }
 
 }

@@ -22,7 +22,7 @@ import static org.junit.Assert.assertNotNull;
 /**
  * Bank data class.
  */
-public class Bank extends Business {
+public final class Bank extends Business {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
     private BankSortCode bankSortCode;
@@ -186,8 +186,11 @@ public class Bank extends Business {
      */
     @Override
     public String toString() {
-        return String.format("Bank [bankSortCode=%s, bankName=%s, sortCode=%s, iban=%s]", this.bankSortCode,
-                this.bankName, this.sortCode, this.iban);
+        return String.format("Bank [bankSortCode=%s, bankName=%s, sortCode=%s, iban=%s]",
+                this.bankSortCode,
+                this.bankName,
+                this.sortCode,
+                this.iban);
     }
 
 }

@@ -58,7 +58,7 @@ public final class BankSortCodeTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        BankSortCode sortCode = new BankSortCode();
+        final BankSortCode sortCode = new BankSortCode();
         this.log.error("{}", sortCode);
         assertNotNull(UNEXPECTED_NULL, sortCode);
     }

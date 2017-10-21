@@ -24,10 +24,10 @@ import java.util.regex.Pattern;
  * UK National Insurance number, commonly known as Nino.
  * ([0-9]){2}([0-9]){2}([0-9]){2}
  */
-public class Nino {
+public final class Nino {
 
     /** REGULAR EXPRESSION. */
-    private static final Pattern pattern = Pattern
+    private static final Pattern PATTERN = Pattern
         .compile("^[A-CEGHJ-PR-TW-Z]{1}[A-CEGHJ-NPR-TW-Z]{1}[- ]?[0-9]{2}[- ]?[0-9]{2}[- ]?[0-9]{2}[- ]?[A-D]?$");
 
     private String nino = "";
@@ -76,7 +76,7 @@ public class Nino {
      * @return true, if successful, otherwise false.
      */
     public static boolean verify(final String code) {
-        final Matcher matcher = pattern.matcher(code);
+        final Matcher matcher = PATTERN.matcher(code);
         return matcher.find();
     }
 
@@ -98,7 +98,9 @@ public class Nino {
         return String.format("Nino [nino=%s]", this.nino);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     *
      * @see java.lang.Object#toString()
      */
     @Override

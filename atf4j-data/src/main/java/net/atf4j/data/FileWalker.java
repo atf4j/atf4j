@@ -60,7 +60,7 @@ public class FileWalker extends AbstractWalker {
             this.log.info("FILE:{}", absoluteFile);
             final String string = readFile(absoluteFile.getPath());
             this.log.info("{}", string);
-        } catch (IOException e) {
+        } catch (final IOException e) {
             this.log.error(e.getLocalizedMessage());
         }
     }

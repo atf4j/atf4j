@@ -39,7 +39,7 @@ public final class Postcode {
     // private static final Pattern pattern =
     // Pattern.compile("^[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][ABD-HJLNP-UW-Z]{2}$");
     /** format verification pattern. */
-    private static final Pattern pattern = Pattern.compile(
+    private static final Pattern PATTERN = Pattern.compile(
             "^([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z])))) [0-9][A-Za-z]{2})$");
     private static boolean passOnBlank = true;
 
@@ -122,7 +122,7 @@ public final class Postcode {
      * @param failOnBlank the fail on blank
      * @return the postcode
      */
-    public Postcode failOnBlank(boolean failOnBlank) {
+    public Postcode failOnBlank(final boolean failOnBlank) {
         Postcode.passOnBlank = false;
         return this;
     }
@@ -133,7 +133,7 @@ public final class Postcode {
      * @param failOnBlank the fail on blank
      * @return the postcode
      */
-    public Postcode passOnBlank(boolean failOnBlank) {
+    public Postcode passOnBlank(final boolean failOnBlank) {
         Postcode.passOnBlank = true;
         return this;
     }
@@ -186,14 +186,14 @@ public final class Postcode {
         if (postcode.isEmpty()) {
             return passOnBlank;
         } else {
-            final Matcher matcher = pattern.matcher(postcode);
+            final Matcher matcher = PATTERN.matcher(postcode);
             return matcher.find();
         }
     }
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override

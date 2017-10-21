@@ -77,7 +77,7 @@ public class AddressDataFactory extends AbstractDataFactory {
      * To log.
      */
     public void toLog() {
-        log.info("{}", toString());
+        this.log.info("{}", toString());
     }
 
     /**
@@ -95,28 +95,28 @@ public class AddressDataFactory extends AbstractDataFactory {
         try {
             this.addressLineStems = load("addressLineStems.txt");
         } catch (final FileNotFoundException e) {
-            String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
+            final String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
             this.log.error(errorMessage);
         }
 
         try {
             this.addressLinePostfix = load("addressLinePostfix.txt");
         } catch (final FileNotFoundException e) {
-            String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
+            final String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
             this.log.error(errorMessage);
         }
 
         try {
             this.addressStems = load("addressStems.txt");
         } catch (final FileNotFoundException e) {
-            String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
+            final String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
             this.log.error(errorMessage);
         }
 
         try {
             this.addressLocals = load("addressLocals.txt");
         } catch (final FileNotFoundException e) {
-            String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
+            final String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
             this.log.error(errorMessage);
         }
 
@@ -132,22 +132,24 @@ public class AddressDataFactory extends AbstractDataFactory {
         return data.replace("{", "{\n\t").replace(", ", "\n\t").replace("}", "\n\t}");
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        assertNotNull(addressLineStems);
-        assertNotNull(addressLinePostfix);
-        assertNotNull(addressStems);
-        assertNotNull(addressLocals);
+        assertNotNull(this.addressLineStems);
+        assertNotNull(this.addressLinePostfix);
+        assertNotNull(this.addressStems);
+        assertNotNull(this.addressLocals);
 
         return String.format(
                 "AddressDataFactory [addressLineStems=%s, addressLinePostfix=%s, addressStems=%s, addressLocals=%s]",
-                fromatData(Arrays.toString(addressLineStems)),
-                fromatData(Arrays.toString(addressLinePostfix)),
-                fromatData(Arrays.toString(addressStems)),
-                fromatData(Arrays.toString(addressLocals)));
+                fromatData(Arrays.toString(this.addressLineStems)),
+                fromatData(Arrays.toString(this.addressLinePostfix)),
+                fromatData(Arrays.toString(this.addressStems)),
+                fromatData(Arrays.toString(this.addressLocals)));
     }
 
 }

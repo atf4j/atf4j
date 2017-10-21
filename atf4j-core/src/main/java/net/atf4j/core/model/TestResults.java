@@ -27,7 +27,7 @@ import net.atf4j.core.TestResult;
  */
 public class TestResults {
 
-    Collection<TestResult> testResults = new ArrayDeque<TestResult>();
+    private Collection<TestResult> testResults = new ArrayDeque<TestResult>();
 
     /**
      * Add a TestResult to collection.

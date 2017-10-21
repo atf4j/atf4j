@@ -37,9 +37,9 @@ public class PostcodeDataTest extends TestResultsReporting {
      */
     @Test
     public void testPostcodeData() throws FileNotFoundException {
-        PostcodeData postcodeData = new PostcodeData();
+        final PostcodeData postcodeData = new PostcodeData();
         assertNotNull(postcodeData);
-        log.info("{}", postcodeData.toString());
+        this.log.info("{}", postcodeData.toString());
     }
 
     /**
@@ -49,9 +49,9 @@ public class PostcodeDataTest extends TestResultsReporting {
      */
     @Test
     public void testGetInstance() throws FileNotFoundException {
-        PostcodeData postcodeData = PostcodeData.getInstance();
+        final PostcodeData postcodeData = PostcodeData.getInstance();
         assertNotNull(postcodeData);
-        log.info("{}", postcodeData.toString());
+        this.log.info("{}", postcodeData.toString());
     }
 
 }

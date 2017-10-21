@@ -15,45 +15,53 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.data.management;
+package net.atf4j.core.timers;
 
 /**
- * SetUpData Class.
+ * The IntervalInterface Interface.
  */
-public abstract class SetUpData {
+public interface IntervalInterface {
 
     /**
-     * Instantiates a new sets the up data.
+     * asLong.
+     *
+     * @return timePeriod of Interval in Milliseconds as long.
      */
-    public SetUpData() {
-        super();
-    }
+    public long asLong();
 
     /**
-     * Sets the up.
+     * asMilliSeconds.
      *
-     * \* @return true, if successful, otherwise false.
-     *
-     * @return true, if successful, otherwise false.
+     * @return timePeriod of Interval in Milliseconds as long.
      */
-    public abstract boolean setUp();
+    public long asMilliSeconds();
 
     /**
-     * Reset.
+     * asSeconds.
      *
-     * \* @return true, if successful, otherwise false.
-     *
-     * @return true, if successful, otherwise false.
+     * @return timePeriod of Interval in seconds as long.
      */
-    public abstract boolean reset();
+    public long asSeconds();
 
     /**
-     * Tear down.
+     * asMinutes.
      *
-     * \* @return true, if successful, otherwise false.
-     *
-     * @return true, if successful, otherwise false.
+     * @return timePeriod of Interval in seconds as long.
      */
-    public abstract boolean tearDown();
+    public long asMinutes();
+
+    /**
+     * asHours.
+     *
+     * @return timePeriod of Interval in seconds as long.
+     */
+    public long asHours();
+
+    /**
+     * asDays.
+     *
+     * @return timePeriod of Interval in seconds as long.
+     */
+    public long asDays();
 
 }

@@ -43,6 +43,7 @@ public class NanoTimer implements TimerInterface {
      * Instantiates a new timer.
      */
     public NanoTimer() {
+        super();
         this.timerName = UUID.randomUUID().toString();
     }
 
@@ -52,6 +53,7 @@ public class NanoTimer implements TimerInterface {
      * @param useName is a name for this Timer
      */
     public NanoTimer(final String useName) {
+        super();
         this.timerName = useName;
     }
 
@@ -78,6 +80,15 @@ public class NanoTimer implements TimerInterface {
         return this;
     }
 
+    /**
+     * Gets the timer name.
+     *
+     * @return the timer name
+     */
+    public String getTimerName() {
+        return this.timerName;
+    }
+
     /*
      * (non-Javadoc)
      *
@@ -86,6 +97,16 @@ public class NanoTimer implements TimerInterface {
     @Override
     public final long getStartTime() {
         return this.startTime;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see net.atf4j.core.timers.TimerInterface#getStopTime()
+     */
+    @Override
+    public long getStopTime() {
+        return this.stopTime;
     }
 
     /*
@@ -107,14 +128,4 @@ public class NanoTimer implements TimerInterface {
     public final String toString() {
         return Narrator.reflectObjectToString(this);
     }
-
-    /**
-     * Gets the timer name.
-     *
-     * @return the timer name
-     */
-    public String getTimerName() {
-        return this.timerName;
-    }
-
 }

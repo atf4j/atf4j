@@ -117,7 +117,9 @@ public class Credentials {
      */
     @Override
     public String toString() {
-        return String.format("Credentials [username=%s, password=%s, email=%s]", this.username, this.password,
+        return String.format("Credentials [username=%s, password=%s, email=%s]",
+                this.username,
+                this.password,
                 this.email);
     }
 

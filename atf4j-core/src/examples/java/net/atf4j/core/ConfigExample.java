@@ -14,14 +14,22 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core;
 
 /**
  * Example Configuration class.
  */
-public class ConfigExample extends AbstractConfig {
+public final class ConfigExample extends AbstractConfig {
 
-    private static ConfigExample INSTANCE = null;
+    private static ConfigExample INSTANCE = new ConfigExample();
+
+    /**
+     * private constructor to prevent wild instantiation.
+     */
+    private ConfigExample() {
+        super();
+    }
 
     /**
      * Gets the single INSTANCE of AbstractConfig.
@@ -29,19 +37,7 @@ public class ConfigExample extends AbstractConfig {
      * @return single INSTANCE of AbstractConfig
      */
     public static ConfigExample getInstance() {
-        if (ConfigExample.INSTANCE == null) {
-            ConfigExample.INSTANCE = create();
-        }
         return ConfigExample.INSTANCE;
-    }
-
-    /**
-     * Create new INSTANCE of create.
-     *
-     * @return the abstract configuration.
-     */
-    private static ConfigExample create() {
-        return new ConfigExample();
     }
 
 }

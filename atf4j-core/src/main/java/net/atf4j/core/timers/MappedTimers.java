@@ -17,9 +17,9 @@
 
 package net.atf4j.core.timers;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 import net.atf4j.core.Atf4jException;
 
@@ -33,22 +33,16 @@ public final class MappedTimers {
     private static final MappedTimers INSTANCE = new MappedTimers();
 
     /** The running timers. */
-    private final Map<String, MilliTimer> runningTimers = new HashMap<String, MilliTimer>();
+    private final Map<String, MilliTimer> runningTimers = new ConcurrentHashMap<String, MilliTimer>();
 
     /** The stopped timers. */
-    private final Map<String, MilliTimer> stoppedTimers = new HashMap<String, MilliTimer>();
-
-    /**
-     * The TimerNotFound Class.
-     */
-    @SuppressWarnings("serial")
-    public class TimerNotFound extends Atf4jException {
-    }
+    private final Map<String, MilliTimer> stoppedTimers = new ConcurrentHashMap<String, MilliTimer>();
 
     /**
      * Private constructor to prevent wild instantiation.
      */
     private MappedTimers() {
+        super();
     }
 
     /**
@@ -123,7 +117,7 @@ public final class MappedTimers {
      *
      * @return the mapped timers
      */
-    protected MappedTimers stopAllTimers() {
+    public MappedTimers stopAllTimers() {
         final Set<String> keys = this.runningTimers.keySet();
         for (final String key : keys) {
             stopTimer(key);
@@ -147,8 +141,17 @@ public final class MappedTimers {
      */
     @Override
     public String toString() {
-        return String.format("%s [runningTimers=%s,stoppedTimers=%s]", this.getClass().getSimpleName(),
-                this.runningTimers, this.stoppedTimers);
+        return String.format("%s [runningTimers=%s,stoppedTimers=%s]",
+                this.getClass().getSimpleName(),
+                this.runningTimers,
+                this.stoppedTimers);
+    }
+
+    /**
+     * The TimerNotFound Class.
+     */
+    @SuppressWarnings("serial")
+    public class TimerNotFound extends Atf4jException {
     }
 
 }

@@ -36,10 +36,10 @@ public class PostcodeDataFactoryTest extends TestResultsReporting {
      */
     @Test
     public void testPostcodeGetInstance() {
-        PostcodeDataFactory instance = PostcodeDataFactory.getInstance();
+        final PostcodeDataFactory instance = PostcodeDataFactory.getInstance();
         assertNotNull(UNEXPECTED_NULL, instance);
-        log.info("PostcodeDataFactory = {}", instance);
-        PostcodeDataFactory same = PostcodeDataFactory.getInstance();
+        this.log.info("PostcodeDataFactory = {}", instance);
+        final PostcodeDataFactory same = PostcodeDataFactory.getInstance();
         assertNotNull(UNEXPECTED_NULL, same);
         assertEquals(same, instance);
     }
@@ -51,8 +51,8 @@ public class PostcodeDataFactoryTest extends TestResultsReporting {
     public void testPostcodeCreate() {
         final Postcode postcode = PostcodeDataFactory.create();
         assertNotNull(UNEXPECTED_NULL, postcode);
-        String string = postcode.toString();
-        boolean verify = Postcode.verify(string);
+        final String string = postcode.toString();
+        final boolean verify = Postcode.verify(string);
         assertTrue(verify);
     }
 
@@ -63,11 +63,11 @@ public class PostcodeDataFactoryTest extends TestResultsReporting {
     public void testPostcodeRandom() {
         final Postcode postcode = PostcodeDataFactory.random();
         assertNotNull(UNEXPECTED_NULL, postcode);
-        String string = postcode.toString();
-        log.info("string  = {}", string);
-        boolean verify = Postcode.verify(string);
+        final String string = postcode.toString();
+        this.log.info("string  = {}", string);
+        final boolean verify = Postcode.verify(string);
         assertTrue(verify);
-        log.info("postcode = {}", postcode);
+        this.log.info("postcode = {}", postcode);
     }
 
 }

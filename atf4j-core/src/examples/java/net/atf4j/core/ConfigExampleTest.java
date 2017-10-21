@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core;
 
 import static org.junit.Assert.assertNotNull;
@@ -26,14 +27,12 @@ import org.junit.Test;
  */
 public class ConfigExampleTest {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
-
     /**
      * Test Configuration example.
      */
     @Test
     public void testConfigExample() {
-        final ConfigExample configExample = new ConfigExample();
-        assertNotNull(UNEXPECTED_NULL,configExample);
+        final ConfigExample instance = ConfigExample.getInstance();
+        assertNotNull("unexpected null", instance);
     }
 }

@@ -28,7 +28,7 @@ import java.util.regex.Pattern;
 public class Telephone {
 
     /** RegExp for verification. */
-    private static final Pattern pattern = Pattern.compile("^(\\d){2}-(\\d){2}-(\\d){2}$");
+    private static final Pattern PATTERN = Pattern.compile("^(\\d){2}-(\\d){2}-(\\d){2}$");
 
     private String number;
     private Type type;
@@ -215,7 +215,7 @@ public class Telephone {
      */
     public static boolean verify(final String number) {
         assertNotNull("unexpected null", number);
-        final Matcher matcher = pattern.matcher(number);
+        final Matcher matcher = PATTERN.matcher(number);
         return matcher.find();
     }
 
