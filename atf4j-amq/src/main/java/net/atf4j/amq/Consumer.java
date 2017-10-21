@@ -33,8 +33,7 @@ public final class Consumer extends AbstractConnectionWrapper {
     /**
      * Instantiates a new consumer.
      *
-     * @throws JMSException
-     *             the JMS exception
+     * @throws JMSException the JMS exception
      */
     public Consumer() throws JMSException {
         super();
@@ -44,8 +43,7 @@ public final class Consumer extends AbstractConnectionWrapper {
      * Execute.
      *
      * @return the string[]
-     * @throws JMSException
-     *             the JMS exception
+     * @throws JMSException the JMS exception
      */
     public String[] execute() throws JMSException {
 

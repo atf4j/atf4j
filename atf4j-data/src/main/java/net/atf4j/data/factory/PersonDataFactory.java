@@ -27,7 +27,7 @@ import net.atf4j.data.Person.Title;
 /**
  * PersonFactory, a data factory to create data.
  */
-public class PersonDataFactory extends AbstractDataFactory {
+public final class PersonDataFactory extends AbstractDataFactory {
 
     private static PersonDataFactory INSTANCE = null;
     private String[] maleForenames;

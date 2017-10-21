@@ -76,7 +76,7 @@ public class BrowserFactoryTest extends TestResultsReporting {
 
     /**
      * Verify that verify page loaded.
-     * 
+     *
      * @param webDriver the web driver
      */
     private void verifyPageLoaded(final WebDriver webDriver) {

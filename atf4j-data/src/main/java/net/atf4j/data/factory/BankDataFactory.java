@@ -24,7 +24,7 @@ import net.atf4j.data.Bank;
 /**
  * BankAccountFactory.
  */
-public class BankDataFactory extends AbstractDataFactory {
+public final class BankDataFactory extends AbstractDataFactory {
 
     private static final String BANK_DATA = "sortcodesData.csv";
     private static BankDataFactory INSTANCE = null;

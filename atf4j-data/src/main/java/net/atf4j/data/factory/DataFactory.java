@@ -33,7 +33,7 @@ import net.atf4j.data.PostalAddress;
 /**
  * Factory for random data. TODO: Add variants formated date string.
  */
-public class DataFactory {
+public final class DataFactory {
 
     public static final String ISO_DATE_TIME = "yyyy-MM-dd'T'HH:mm'Z'";
     public static final String ISO_DATE = "yyyy-MM-dd";

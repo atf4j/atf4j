@@ -40,8 +40,7 @@ public class ProducerTest {
     /**
      * Test producer.
      *
-     * @throws JMSException
-     *             the JMS exception
+     * @throws JMSException the JMS exception
      */
     @Test
     public void testProducer() throws JMSException {
@@ -54,8 +53,7 @@ public class ProducerTest {
     /**
      * Test execute.
      *
-     * @throws JMSException
-     *             the JMS exception
+     * @throws JMSException the JMS exception
      */
     @Test
     public void testExecute() throws JMSException {

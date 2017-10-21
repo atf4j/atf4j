@@ -73,8 +73,8 @@ public class CsvFile {
     protected void load() {
         try {
             load(configFilename());
-        } catch (FileNotFoundException e) {
-            log.warn(e.toString());
+        } catch (final FileNotFoundException e) {
+            this.log.warn(e.toString());
         }
     }
 
@@ -95,11 +95,11 @@ public class CsvFile {
      * @throws FileNotFoundException the file not found exception
      */
     public void load(final String csvFilename) throws FileNotFoundException {
-        InputStream resourceAsStream = resourceAsStream(csvFilename);
+        final InputStream resourceAsStream = resourceAsStream(csvFilename);
         if (resourceAsStream != null) {
             load(resourceAsStream);
         } else {
-            String message = String.format("Expected '%s'", csvFilename);
+            final String message = String.format("Expected '%s'", csvFilename);
             throw new FileNotFoundException(message);
         }
     }
@@ -125,8 +125,8 @@ public class CsvFile {
             }
             bufferedReader.close();
 
-        } catch (IOException e) {
-            log.error(e.toString());
+        } catch (final IOException e) {
+            this.log.error(e.toString());
         }
     }
 
@@ -221,13 +221,13 @@ public class CsvFile {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        String simpleName = this.getClass().getSimpleName();
-        return String.format("%s [header=%s, data=%s]", simpleName, header, data);
+        final String simpleName = this.getClass().getSimpleName();
+        return String.format("%s [header=%s, data=%s]", simpleName, this.header, this.data);
     }
 
 }

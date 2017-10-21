@@ -107,7 +107,7 @@ public class Interval implements IntervalInterface {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.core.timers.IntervalInterface#asMilliSeconds()
      */
     @Override
@@ -117,7 +117,7 @@ public class Interval implements IntervalInterface {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.core.timers.IntervalInterface#asSeconds()
      */
     @Override
@@ -127,7 +127,7 @@ public class Interval implements IntervalInterface {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.core.timers.IntervalInterface#asMinutes()
      */
     @Override
@@ -137,7 +137,7 @@ public class Interval implements IntervalInterface {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.core.timers.IntervalInterface#asHours()
      */
     @Override
@@ -147,7 +147,7 @@ public class Interval implements IntervalInterface {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.core.timers.IntervalInterface#asDays()
      */
     @Override
@@ -157,7 +157,7 @@ public class Interval implements IntervalInterface {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.core.timers.IntervalInterface#asLong()
      */
     @Override

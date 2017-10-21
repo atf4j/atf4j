@@ -30,6 +30,8 @@ public class AnnotatedTestTest extends AbstractAnnotatedTest {
 
     /**
      * Test method for AnnotatedTest.
+     *
+     * @throws Exception the exception
      */
     @Test
     public void testTestId() throws Exception {

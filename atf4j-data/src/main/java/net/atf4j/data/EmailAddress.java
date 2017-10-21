@@ -61,7 +61,7 @@ public final class EmailAddress {
      */
     protected EmailAddress() {
         super();
-        setEmail(String.format("%s@%s", this.localPart, this.domain));
+        setEmail(String.format("%s@%s", localPart, domain));
     }
 
     /**
@@ -113,7 +113,7 @@ public final class EmailAddress {
      * @return the domain
      */
     public String getDomain() {
-        return this.domain;
+        return domain;
     }
 
     /**
@@ -122,7 +122,7 @@ public final class EmailAddress {
      * @return the local part
      */
     public String getLocalPart() {
-        return this.localPart;
+        return localPart;
     }
 
     /**
@@ -131,7 +131,7 @@ public final class EmailAddress {
      * @return the email
      */
     public String getEmail() {
-        return this.email;
+        return email;
     }
 
     /**
@@ -145,6 +145,15 @@ public final class EmailAddress {
         return matcher.find();
     }
 
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
+        return String.format("EmailAddress [domain=%s, localPart=%s, email=%s]", domain, localPart, email);
+    }
+
     /*
      * (non-Javadoc)
      *
@@ -152,10 +161,7 @@ public final class EmailAddress {
      */
     @Override
     public String toString() {
-        return String.format("EmailAddress [domain=%s, localPart=%s, email=%s]",
-                this.domain,
-                this.localPart,
-                this.email);
+        return email;
     }
 
 }

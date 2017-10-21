@@ -24,7 +24,7 @@ import net.atf4j.data.Business;
 /**
  * Business Data Factory.
  */
-public class BusinessDataFactory extends AbstractDataFactory {
+public final class BusinessDataFactory extends AbstractDataFactory {
 
     private static BusinessDataFactory INSTANCE = null;
     private String[] data;
@@ -61,12 +61,21 @@ public class BusinessDataFactory extends AbstractDataFactory {
     }
 
     /**
-     * Create new INSTANCE of create.
+     * Factory method to create new instance of business.
      *
      * @return the business
      */
     public static Business create() {
-        return new Business();
+        return Business.create();
+    }
+
+    /**
+     * Factory method to create new instance of business with random data.
+     *
+     * @return the business
+     */
+    public static Business random() {
+        return Business.random();
     }
 
 }

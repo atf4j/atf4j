@@ -29,8 +29,7 @@ public final class Producer extends AbstractConnectionWrapper {
     /**
      * Instantiates a new producer.
      *
-     * @throws JMSException
-     *             the JMS exception
+     * @throws JMSException the JMS exception
      */
     public Producer() throws JMSException {
         super();
@@ -39,10 +38,8 @@ public final class Producer extends AbstractConnectionWrapper {
     /**
      * Execute.
      *
-     * @param messages
-     *            the messages
-     * @throws JMSException
-     *             the JMS exception
+     * @param messages the messages
+     * @throws JMSException the JMS exception
      */
     public void execute(final String[] messages) throws JMSException {
 

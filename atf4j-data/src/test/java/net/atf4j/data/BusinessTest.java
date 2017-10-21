@@ -28,16 +28,14 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class BusinessTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
-
     /**
      * Test method for Business.
      */
     @Test
     public void testDefaultConstructor() {
         final Business business = new Business();
+        log.debug("new Business() = {}", business);
         assertNotNull(UNEXPECTED_NULL, business);
-        this.log.info("{}", business);
     }
 
     /**
@@ -46,8 +44,8 @@ public final class BusinessTest extends TestResultsReporting {
     @Test
     public void testBusiness() {
         final Business business = new Business();
+        log.debug("new Business() = {}", business);
         assertNotNull(UNEXPECTED_NULL, business);
-        this.log.info("{}", business);
     }
 
     /**
@@ -57,6 +55,7 @@ public final class BusinessTest extends TestResultsReporting {
     public void testBusinessString() {
         final String businessName = "Business Name";
         final Business business = new Business(businessName);
+        log.debug("new Business(businessName) = {}", business);
         assertNotNull(UNEXPECTED_NULL, business);
     }
 
@@ -67,9 +66,10 @@ public final class BusinessTest extends TestResultsReporting {
     public void testBusinessStringPostcode() {
         final String businessName = "Business Name";
         final PostalAddress postalAddress = new PostalAddress();
+        log.debug("new PostalAddress() = {}", postalAddress);
         final Business business = new Business(businessName, postalAddress);
+        log.debug("new Business(businessName, postalAddress) = {}", business);
         assertNotNull(UNEXPECTED_NULL, business);
-        this.log.info("{}", business);
     }
 
     /**
@@ -78,6 +78,7 @@ public final class BusinessTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final Business business = Business.create();
+        log.debug("Business.create() = {}", business);
         assertNotNull(UNEXPECTED_NULL, business);
     }
 
@@ -87,8 +88,8 @@ public final class BusinessTest extends TestResultsReporting {
     @Test
     public void testDebugString() {
         final String string = new Business().debugString();
+        log.debug("new Business().debugString() = {}", string);
         assertNotNull(UNEXPECTED_NULL, string);
-        this.log.info("{}", string);
     }
 
     /**
@@ -97,8 +98,8 @@ public final class BusinessTest extends TestResultsReporting {
     @Test
     public void testToString() {
         final String string = new Business().toString();
+        log.debug("new Business().toString() = {}", string);
         assertNotNull(UNEXPECTED_NULL, string);
-        this.log.info("{}", string);
     }
 
 }

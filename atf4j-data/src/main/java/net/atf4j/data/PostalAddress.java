@@ -75,7 +75,7 @@ public class PostalAddress {
      * @return the postal address
      */
     public PostalAddress setAddressLines(final String[] address) {
-        this.addressLines = Arrays.copyOf(address, address.length);
+        addressLines = Arrays.copyOf(address, address.length);
         return this;
     }
 
@@ -87,8 +87,8 @@ public class PostalAddress {
      */
     public void setAddressRow(final int row, final String line) {
         assertTrue(row > 0);
-        assertTrue(row < this.addressLines.length);
-        this.addressLines[row] = line;
+        assertTrue(row < addressLines.length);
+        addressLines[row] = line;
     }
 
     /**
@@ -108,7 +108,7 @@ public class PostalAddress {
      * @return the address
      */
     public String[] getAddress() {
-        return Arrays.copyOf(this.addressLines, this.addressLines.length);
+        return Arrays.copyOf(addressLines, addressLines.length);
     }
 
     /**
@@ -117,7 +117,7 @@ public class PostalAddress {
      * @return the postcode
      */
     public Postcode getPostcode() {
-        return this.postcode;
+        return postcode;
     }
 
     /**
@@ -128,8 +128,8 @@ public class PostalAddress {
     public String debugString() {
         return String.format("%s [address=%s, postcode=%s]",
                 this.getClass().getSimpleName(),
-                Arrays.toString(this.addressLines),
-                this.postcode);
+                Arrays.toString(addressLines),
+                postcode);
     }
 
     /*
@@ -139,7 +139,7 @@ public class PostalAddress {
      */
     @Override
     public String toString() {
-        return debugString();
+        return String.format("%s, %s", Arrays.toString(addressLines), postcode);
     }
 
 }

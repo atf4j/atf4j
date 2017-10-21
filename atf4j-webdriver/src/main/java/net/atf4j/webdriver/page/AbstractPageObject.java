@@ -56,8 +56,8 @@ public abstract class AbstractPageObject {
      */
     public AbstractPageObject() {
         super();
-        config = initialiseConfiguration();
-        webDriver = BrowserFactory.webDriver();
+        this.config = initialiseConfiguration();
+        this.webDriver = BrowserFactory.webDriver();
         initialiseWebDriverTimeOut();
         this.open();
     }
@@ -69,8 +69,8 @@ public abstract class AbstractPageObject {
      */
     public AbstractPageObject(final String targetUrl) {
         super();
-        config = initialiseConfiguration();
-        webDriver = BrowserFactory.webDriver();
+        this.config = initialiseConfiguration();
+        this.webDriver = BrowserFactory.webDriver();
         initialiseWebDriverTimeOut();
         this.open(targetUrl);
     }
@@ -82,7 +82,7 @@ public abstract class AbstractPageObject {
      */
     public AbstractPageObject(final WebDriver webDriver) {
         super();
-        config = initialiseConfiguration();
+        this.config = initialiseConfiguration();
         this.webDriver = webDriver;
         initialiseWebDriverTimeOut();
         this.open();
@@ -92,12 +92,13 @@ public abstract class AbstractPageObject {
      * Configure time out.
      */
     private void initialiseWebDriverTimeOut() {
-        assertNotNull(UNEXPECTED_NULL, webDriver);
-        final Options manage = webDriver.manage();
+        assertNotNull(UNEXPECTED_NULL, this.webDriver);
+        final Options manage = this.webDriver.manage();
         final Timeouts timeouts = manage.timeouts();
-        timeouts.implicitlyWait(config.implicitWait(), TimeUnit.SECONDS);
-        timeouts.pageLoadTimeout(config.pageLoadTimeout(), TimeUnit.SECONDS);
-        webDriverWait = new WebDriverWait(webDriver, config.timeOutInSeconds(), config.pollingInterval());
+        timeouts.implicitlyWait(this.config.implicitWait(), TimeUnit.SECONDS);
+        timeouts.pageLoadTimeout(this.config.pageLoadTimeout(), TimeUnit.SECONDS);
+        this.webDriverWait = new WebDriverWait(this.webDriver, this.config.timeOutInSeconds(),
+                this.config.pollingInterval());
     }
 
     /**
@@ -106,8 +107,8 @@ public abstract class AbstractPageObject {
      * @return the current url.
      */
     protected String currentUrl() {
-        assertNotNull(UNEXPECTED_NULL, webDriver);
-        return webDriver.getCurrentUrl();
+        assertNotNull(UNEXPECTED_NULL, this.webDriver);
+        return this.webDriver.getCurrentUrl();
     }
 
     /**
@@ -118,17 +119,17 @@ public abstract class AbstractPageObject {
     protected String targetUrl() {
         String targetUrl = System.getProperty("targetUrl");
         if (targetUrl == null) {
-            targetUrl = config.targetUrl();
+            targetUrl = this.config.targetUrl();
             if (targetUrl == null) {
                 targetUrl = targetUrlAnnotation();
-                log.warn("targetUrl from annotation");
+                this.log.warn("targetUrl from annotation");
             } else {
-                log.warn("targetUrl from config");
+                this.log.warn("targetUrl from config");
             }
         } else {
-            log.warn("targetUrl from System");
+            this.log.warn("targetUrl from System");
         }
-        log.info("targetUrl={}", targetUrl);
+        this.log.info("targetUrl={}", targetUrl);
         return targetUrl;
     }
 
@@ -138,8 +139,8 @@ public abstract class AbstractPageObject {
      * @return the page title as a String object.
      */
     protected String getTitle() {
-        assertNotNull(UNEXPECTED_NULL, webDriver);
-        return webDriver.getTitle();
+        assertNotNull(UNEXPECTED_NULL, this.webDriver);
+        return this.webDriver.getTitle();
     }
 
     /**
@@ -169,9 +170,9 @@ public abstract class AbstractPageObject {
      * @see net.atf4j.webdriver.page.PageInterface#open()
      */
     public AbstractPageObject open(final String pageUrl) {
-        assertNotNull(UNEXPECTED_NULL, webDriver);
-        webDriver.get(pageUrl);
-        PageFactory.initElements(webDriver, this);
+        assertNotNull(UNEXPECTED_NULL, this.webDriver);
+        this.webDriver.get(pageUrl);
+        PageFactory.initElements(this.webDriver, this);
         return this;
     }
 
@@ -193,8 +194,8 @@ public abstract class AbstractPageObject {
      * @return this for a fluent interface.
      */
     public AbstractPageObject urlShouldBeUnchanged() {
-        assertNotNull(UNEXPECTED_NULL, webDriver);
-        final String currentUrl = webDriver.getCurrentUrl();
+        assertNotNull(UNEXPECTED_NULL, this.webDriver);
+        final String currentUrl = this.webDriver.getCurrentUrl();
         currentUrl.equals(this.targetUrl());
         return this;
     }
@@ -206,8 +207,8 @@ public abstract class AbstractPageObject {
      * @see net.atf4j.webdriver.page.PageInterface#verify()
      */
     public AbstractPageObject verify() {
-        assertNotNull(UNEXPECTED_NULL, webDriver);
-        webDriver.getTitle();
+        assertNotNull(UNEXPECTED_NULL, this.webDriver);
+        this.webDriver.getTitle();
         return this;
     }
 
@@ -235,7 +236,7 @@ public abstract class AbstractPageObject {
      */
     public void clickWhenReady(final WebElement webElement) {
         assertNotNull(UNEXPECTED_NULL, webElement);
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
+        this.webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
         webElement.click();
     }
 
@@ -247,7 +248,7 @@ public abstract class AbstractPageObject {
      */
     public WebElement waitUntilVisible(final WebElement webElement) {
         assertNotNull(UNEXPECTED_NULL, webElement);
-        return webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
+        return this.webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
     }
 
     /**
@@ -258,7 +259,7 @@ public abstract class AbstractPageObject {
      */
     public WebElement waitUntilClickable(final WebElement webElement) {
         assertNotNull(UNEXPECTED_NULL, webElement);
-        return webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
+        return this.webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
     /**
@@ -268,7 +269,7 @@ public abstract class AbstractPageObject {
      * @return true if within timeout, otherwise false.
      */
     public Boolean waitUntilUrlIs(final String url) {
-        return webDriverWait.until(ExpectedConditions.urlToBe(url));
+        return this.webDriverWait.until(ExpectedConditions.urlToBe(url));
     }
 
     /**
@@ -278,8 +279,8 @@ public abstract class AbstractPageObject {
      * @return this for a fluent interface.
      */
     public AbstractPageObject verifyPageTitle(final String expectedPageTitle) {
-        assertNotNull(UNEXPECTED_NULL, webDriver);
-        final String actualPageTitle = webDriver.getTitle();
+        assertNotNull(UNEXPECTED_NULL, this.webDriver);
+        final String actualPageTitle = this.webDriver.getTitle();
         assertEquals(expectedPageTitle, actualPageTitle);
         return this;
     }
@@ -291,7 +292,7 @@ public abstract class AbstractPageObject {
      * @return true if within timeout, otherwise false.
      */
     public Boolean waitUntilTitle(final String pageTitle) {
-        return webDriverWait.until(ExpectedConditions.titleIs(pageTitle));
+        return this.webDriverWait.until(ExpectedConditions.titleIs(pageTitle));
     }
 
     /**
@@ -301,7 +302,7 @@ public abstract class AbstractPageObject {
      * @return true if within timeout, otherwise false.
      */
     public Boolean waitUntilTitleContains(final String pageTitle) {
-        return webDriverWait.until(ExpectedConditions.titleContains(pageTitle));
+        return this.webDriverWait.until(ExpectedConditions.titleContains(pageTitle));
     }
 
     /**
@@ -311,7 +312,7 @@ public abstract class AbstractPageObject {
      * @param count the count
      */
     public void waitUntilCount(final List<WebElement> webElements, final int count) {
-        webDriverWait.until(new ExpectedCondition<Boolean>() {
+        this.webDriverWait.until(new ExpectedCondition<Boolean>() {
             @Override
             public Boolean apply(final WebDriver driver) {
                 if (webElements.size() >= count) {
@@ -360,9 +361,9 @@ public abstract class AbstractPageObject {
      * Close page.
      */
     protected AbstractPageObject close() {
-        assertNotNull(UNEXPECTED_NULL, webDriver);
-        if (webDriver != null) {
-            webDriver.close();
+        assertNotNull(UNEXPECTED_NULL, this.webDriver);
+        if (this.webDriver != null) {
+            this.webDriver.close();
         }
         return this;
     }
@@ -371,9 +372,9 @@ public abstract class AbstractPageObject {
      * Quit webDriver, closes browser.
      */
     protected AbstractPageObject quit() {
-        assertNotNull(UNEXPECTED_NULL, webDriver);
-        if (webDriver != null) {
-            webDriver.quit();
+        assertNotNull(UNEXPECTED_NULL, this.webDriver);
+        if (this.webDriver != null) {
+            this.webDriver.quit();
         }
         return this;
     }

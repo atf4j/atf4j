@@ -66,8 +66,7 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
     /**
      * Instantiates a new abstract folder walker.
      *
-     * @param path
-     *            the path
+     * @param path the path
      */
     public AbstractFolderWalker(final String path) {
         super();
@@ -77,8 +76,7 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
     /**
      * Instantiates a new abstract folder walker.
      *
-     * @param extensionFilter
-     *            the extension filter
+     * @param extensionFilter the extension filter
      */
     public AbstractFolderWalker(final FilenameFilter extensionFilter) {
         super();
@@ -164,8 +162,7 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
     /**
      * File from resource URL.
      *
-     * @param path
-     *            the path
+     * @param path the path
      * @return the file
      */
     protected File fileFromResourceURL(final String path) {
@@ -202,9 +199,16 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
         return this.foundFiles;
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
-        return String.format("AbstractFolderWalker [path=%s, filter=%s, foundFiles=%s]", this.path, this.filter,
+        return String.format("AbstractFolderWalker [path=%s, filter=%s, foundFiles=%s]",
+                this.path,
+                this.filter,
                 this.foundFiles);
     }
 

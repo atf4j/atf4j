@@ -26,7 +26,8 @@ public enum TestResult {
      */
     PENDING("Pending"),
     /**
-     * False premise - Failed Assumption.
+     * The test was skipped because of an assumption was false, a pre-condition
+     * was false.
      **/
     SKIPPED("Skipped"),
     /**
@@ -34,11 +35,11 @@ public enum TestResult {
      */
     PASSED("Passed"),
     /**
-     * The test has been run and failed.
+     * The test has been run and the SUT failed.
      */
     FAILED("Failed"),
     /**
-     * The Test failed to complete. Note : Distinction
+     * The test failed with an exception.
      */
     EXCEPTION("Exception");
 
@@ -51,7 +52,7 @@ public enum TestResult {
      * @param asText the as text
      */
     private TestResult(final String asText) {
-        this.statusDescription = asText;
+        statusDescription = asText;
     }
 
     /**
@@ -85,7 +86,7 @@ public enum TestResult {
      */
     @Override
     public String toString() {
-        return this.statusDescription;
+        return statusDescription;
     }
 
     /**

@@ -58,22 +58,22 @@ public class SimpleBag {
     public SimpleBag fill(final String[] values) {
         this.values = Arrays.copyOf(values, values.length);
         for (final String value : values) {
-            this.bag.add(value);
+            bag.add(value);
         }
         return this;
     }
 
     /**
-     * Pick.
+     * Pick an item from the bag.
      *
      * @return the string
      */
     public String pick() {
-        return this.bag.remove(this.random.nextInt(this.bag.size()));
+        return bag.remove(random.nextInt(bag.size()));
     }
 
     /**
-     * Take.
+     * Take an item from the bag.
      *
      * @return the string
      */
@@ -82,53 +82,53 @@ public class SimpleBag {
     }
 
     /**
-     * Put.
+     * Put an item into the bag.
      *
      * @param item the item
      * @return the simple bag
      */
     public SimpleBag put(final String item) {
-        this.bag.add(item);
+        bag.add(item);
         return this;
     }
 
     /**
-     * Reset.
+     * Reset the bag to its initial state.
      *
      * @return the simple bag
      */
     public SimpleBag reset() {
-        return fill(this.values);
+        return fill(values);
     }
 
     /**
-     * Clear.
+     * Clear the bag, empty it.
      *
      * @return the simple bag
      * @see java.util.List#clear()
      */
     public SimpleBag clear() {
-        this.bag.clear();
+        bag.clear();
         return this;
     }
 
     /**
-     * the current size of bag.
+     * count the current items in the bag.
      *
      * @return the int
      */
     public int count() {
-        return this.bag.size();
+        return bag.size();
     }
 
     /**
-     * Checks if is empty.
+     * Checks if the bag is empty.
      *
-     * @return true, if is empty
+     * @return true, if is empty, otherwise false.
      * @see java.util.List#isEmpty()
      */
     public boolean isEmpty() {
-        return this.bag.isEmpty();
+        return bag.isEmpty();
     }
 
     /**
@@ -139,7 +139,7 @@ public class SimpleBag {
      * @return true, if successful, otherwise false.
      */
     public boolean occupied() {
-        return !this.bag.isEmpty();
+        return !bag.isEmpty();
     }
 
     /*
@@ -158,7 +158,7 @@ public class SimpleBag {
      * @return the string
      */
     public String debugString() {
-        return String.format("%s [values=%s]", this.getClass().getSimpleName(), Arrays.toString(this.values));
+        return String.format("%s [values=%s]", this.getClass().getSimpleName(), Arrays.toString(values));
     }
 
 }

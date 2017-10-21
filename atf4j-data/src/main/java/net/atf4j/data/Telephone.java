@@ -30,7 +30,10 @@ public class Telephone {
     /** RegExp for verification. */
     private static final Pattern PATTERN = Pattern.compile("^(\\d){2}-(\\d){2}-(\\d){2}$");
 
+    /** The number. */
     private String number;
+
+    /** The type. */
     private Type type;
     // Country Code
     // Area Code
@@ -40,8 +43,29 @@ public class Telephone {
      * The Type Enum.
      */
     public enum Type {
-        Phone("Phone"), Landline("Landline"), Mobile("Mobile"), Fax("Fax"), Telex("Telex"), Unknown("Unknown");
 
+        /** Phone. */
+        Phone("Phone"),
+
+        /** Landline. */
+        Landline("Landline"),
+
+        /** Mobile. */
+        Mobile("Mobile"),
+
+        /** Fax. */
+        Fax("Fax"),
+
+        /** Telex. */
+        Telex("Telex"),
+
+        /** Other. */
+        Other("Other"),
+
+        /** Unknown. */
+        Unknown("Unknown");
+
+        /** The type name. */
         private final String typeName;
 
         /**
@@ -50,7 +74,7 @@ public class Telephone {
          * @param name the name
          */
         private Type(final String name) {
-            this.typeName = name;
+            typeName = name;
         }
 
         /**
@@ -191,7 +215,7 @@ public class Telephone {
      * @return the number
      */
     public String getNumber() {
-        return this.number;
+        return number;
     }
 
     /**
@@ -200,8 +224,8 @@ public class Telephone {
      * @return the type
      */
     public String getType() {
-        if (this.type != null) {
-            return this.type.toString();
+        if (type != null) {
+            return type.toString();
         } else {
             return "Telephone";
         }
@@ -219,6 +243,15 @@ public class Telephone {
         return matcher.find();
     }
 
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
+        return String.format("Telephone [number=%s, type=%s]", number, type);
+    }
+
     /*
      * (non-Javadoc)
      *
@@ -228,5 +261,4 @@ public class Telephone {
     public String toString() {
         return String.format("%s : %s", getType(), getNumber());
     }
-
 }

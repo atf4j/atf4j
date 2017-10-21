@@ -57,7 +57,7 @@ public abstract class AbstractTestRunner {
      */
     @Before
     public void beforeTest() {
-        log.trace("beforeFeature");
+        this.log.trace("beforeFeature");
     }
 
     /**
@@ -65,7 +65,7 @@ public abstract class AbstractTestRunner {
      */
     @After
     public void afterTest() {
-        log.trace("afterTest");
+        this.log.trace("afterTest");
     }
 
     /**

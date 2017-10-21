@@ -18,10 +18,21 @@
 package net.atf4j.data;
 
 /**
- * Field Status.
+ * An enumeration to hold the status of a field.
  */
 public enum FieldStatus {
-    PRISTINE("Pristine"), CHANGED("Changed"), PERSISTED("Persisted"), UNWANTED("Unwanted");
+
+    /** The field is pristine, unchanged. */
+    PRISTINE("Pristine"),
+
+    /** The field has been changed. */
+    CHANGED("Changed"),
+
+    /** The change to field has been persisted. */
+    PERSISTED("Persisted"),
+
+    /** The field is unwanted. */
+    UNWANTED("Unwanted");
 
     private String value;
 
@@ -50,7 +61,7 @@ public enum FieldStatus {
      */
     @Override
     public String toString() {
-        return String.format("FieldStatus [value=%s]", this.value);
+        return String.format("FieldStatus [value=%s]", value);
     }
 
 }

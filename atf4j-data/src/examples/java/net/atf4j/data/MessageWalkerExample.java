@@ -15,38 +15,40 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.amq;
+package net.atf4j.data;
 
 import static org.junit.Assert.assertNotNull;
 
-import java.io.File;
-import java.util.List;
-
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
- * Message Finder Test class.
+ * The Class MessageWalkerExample.
  */
-public class MessageFinderTest {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
-    private static final Logger LOG = LoggerFactory.getLogger(MessageFinderTest.class);
+public class MessageWalkerExample {
 
     /**
-     * Test message finder.
+     * The Class MessageWalker.
      */
-    @Test
-    public void testMessageFinder() {
-        final MessageFinder folderWalker = new MessageFinder();
-        assertNotNull(UNEXPECTED_NULL, folderWalker);
-        LOG.info("{}", folderWalker);
+    public class MessageWalker extends AbstractWalker {
 
-        List<File> messages = folderWalker.walk();
-        assertNotNull(UNEXPECTED_NULL, messages);
-        for (File file : messages) {
-            LOG.info("{}", file.toString());
+        /**
+         * Instantiates a new message walker.
+         */
+        private MessageWalker() {
+            super("/messages");
         }
     }
+
+    /**
+     * Test abstract walker.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void testAbstractWalker() throws Exception {
+        final MessageWalker exampleWalker = new MessageWalker();
+        assertNotNull("unexpected null", exampleWalker);
+        assertNotNull("unexpected null", exampleWalker.walk());
+    }
+
 }

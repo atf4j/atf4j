@@ -15,53 +15,38 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.webdriver;
+package net.atf4j.amq;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.io.File;
+import java.util.List;
+
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * A UnitTest for ExamplePage objects.
+ * Message Finder Test class.
  */
-public class ExamplePageTest {
+public class MessageFinderTest {
+
+    private static final String UNEXPECTED_NULL = "unexpected null";
+    private static final Logger LOG = LoggerFactory.getLogger(MessageFinderExample.class);
 
     /**
-     * PageObject representing Home.
-     */
-    public class HomePage extends MockPageObject {
-    }
-
-    /**
-     * The PageObject Class.
-     */
-    public abstract class MockPageObject {
-        public Object driver;
-
-        /**
-         * Instantiates a new page object.
-         */
-        MockPageObject() {
-            super();
-        }
-
-        /**
-         * Instantiates a new page object.
-         *
-         * @param webDriver the web driver
-         */
-        MockPageObject(final WebDriver webDriver) {
-            this.driver = webDriver;
-        }
-    }
-
-    /**
-     * Test.
+     * Test message finder.
      */
     @Test
-    public void testHomePage() {
-        assertNotNull(new HomePage());
-    }
+    public void testMessageFinder() {
+        final MessageFinder folderWalker = new MessageFinder();
+        LOG.info("{}", folderWalker);
+        assertNotNull(UNEXPECTED_NULL, folderWalker);
 
+        final List<File> messages = folderWalker.walk();
+        assertNotNull(UNEXPECTED_NULL, messages);
+        for (final File file : messages) {
+            LOG.info("{}", file.toString());
+        }
+    }
 }

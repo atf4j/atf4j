@@ -35,17 +35,7 @@ public final class BankAccountTest extends TestResultsReporting {
     @Test
     public void testExpected() {
         final BankAccount bankAccount = BankAccount.random();
-        log.debug("bankAccount = {}", bankAccount);
-        assertNotNull(UNEXPECTED_NULL, bankAccount);
-    }
-
-    /**
-     * Unit Test for BankAccount default constructor.
-     */
-    @Test
-    public void testDefaultConstructor() {
-        final BankAccount bankAccount = new BankAccount();
-        log.debug("bankAccount = {}", bankAccount);
+        log.debug("BankAccount.random() = {}", bankAccount);
         assertNotNull(UNEXPECTED_NULL, bankAccount);
     }
 
@@ -56,7 +46,7 @@ public final class BankAccountTest extends TestResultsReporting {
     public void testBankAccountNull() {
         final String nullString = null;
         final BankAccount bankAccount = new BankAccount(nullString);
-        log.debug("bankAccount = {}", bankAccount);
+        log.debug("new BankAccount(null) = {}", bankAccount);
         assertNotNull(UNEXPECTED_NULL, bankAccount);
     }
 
@@ -67,7 +57,7 @@ public final class BankAccountTest extends TestResultsReporting {
     public void testBankAccountNullObject() {
         final Bank nullBank = null;
         final BankAccount bankAccount = new BankAccount(nullBank);
-        log.debug("bankAccount = {}", bankAccount);
+        log.debug("new BankAccount(null) = {}", bankAccount);
         assertNotNull(UNEXPECTED_NULL, bankAccount);
     }
 
@@ -77,7 +67,7 @@ public final class BankAccountTest extends TestResultsReporting {
     @Test
     public void testBankAccountString() {
         final BankAccount bankAccount = new BankAccount("");
-        log.debug("bankAccount = {}", bankAccount);
+        log.debug("new BankAccount('') = {}", bankAccount);
         assertNotNull(UNEXPECTED_NULL, bankAccount);
     }
 
@@ -87,7 +77,7 @@ public final class BankAccountTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final BankAccount bankAccount = BankAccount.create();
-        log.debug("bankAccount = {}", bankAccount);
+        log.debug("BankAccount.create() = {}", bankAccount);
         assertNotNull(UNEXPECTED_NULL, bankAccount);
     }
 
@@ -96,7 +86,7 @@ public final class BankAccountTest extends TestResultsReporting {
      */
     @Test
     public void testSetGetAccountNo() {
-        final BankAccount bankAccount = new BankAccount();
+        final BankAccount bankAccount = BankAccount.create();
         assertNotNull(UNEXPECTED_NULL, bankAccount);
         final String accountNo = "00001234";
         assertNotNull(UNEXPECTED_NULL, bankAccount.setAccountNo(accountNo));
@@ -108,7 +98,7 @@ public final class BankAccountTest extends TestResultsReporting {
      */
     @Test
     public void testSetGetBank() {
-        final Bank testBank = new Bank("TestBank");
+        final Bank testBank = new Bank("Test Bank");
         assertNotNull(UNEXPECTED_NULL, testBank);
         final BankAccount bankAccount = new BankAccount(testBank);
         assertEquals(testBank, bankAccount.getBank());
@@ -116,13 +106,22 @@ public final class BankAccountTest extends TestResultsReporting {
         assertEquals(testBank, bankAccount.getBank());
     }
 
+    @Test
+    public void testdebugString() {
+        final BankAccount bankAccount = BankAccount.create();
+        final String string = bankAccount.debugString();
+        log.error("bankAccount.debugString() = {}", string);
+        assertNotNull(UNEXPECTED_NULL, string);
+    }
+
     /**
      * Unit Test for BankAccount.
      */
     @Test
     public void testToString() {
-        final String string = new BankAccount().toString();
-        log.error("BankAccount().toString() = {}", string);
+        final BankAccount bankAccount = BankAccount.create();
+        final String string = bankAccount.toString();
+        log.error("bankAccount.toString() = {}", string);
         assertNotNull(UNEXPECTED_NULL, string);
     }
 

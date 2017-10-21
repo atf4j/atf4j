@@ -29,7 +29,6 @@ import net.atf4j.core.TestResultsReporting;
 public final class PostalAddressTest extends TestResultsReporting {
 
     private static final String ADDRESS = "LineOne,LineTwo,LineThree,LineFour,LineFive,LineSix,LineSeven,LineEight";
-    private static final String UNEXPECTED_NULL = "unexpected null";
 
     /**
      * Test default constructor.
@@ -38,7 +37,7 @@ public final class PostalAddressTest extends TestResultsReporting {
     public void testDefaultConstructor() {
         final PostalAddress address = new PostalAddress();
         assertNotNull(UNEXPECTED_NULL, address);
-        this.log.info("{}", address);
+        log.info("{}", address);
     }
 
     /**
@@ -48,7 +47,7 @@ public final class PostalAddressTest extends TestResultsReporting {
     public void testPostalAddressString() {
         final PostalAddress address = new PostalAddress(ADDRESS);
         assertNotNull(UNEXPECTED_NULL, address);
-        this.log.info("{}", address);
+        log.info("{}", address);
     }
 
     /**
@@ -59,7 +58,7 @@ public final class PostalAddressTest extends TestResultsReporting {
         final String[] addressLines = ADDRESS.split(",");
         final PostalAddress address = new PostalAddress(addressLines);
         assertNotNull(UNEXPECTED_NULL, address);
-        this.log.info("{}", address);
+        log.info("{}", address);
     }
 
     /**
@@ -69,7 +68,7 @@ public final class PostalAddressTest extends TestResultsReporting {
     public void testToString() {
         final String addressString = new PostalAddress().toString();
         assertNotNull(UNEXPECTED_NULL, addressString);
-        this.log.info("{}", addressString);
+        log.info("{}", addressString);
     }
 
     /**
@@ -79,7 +78,7 @@ public final class PostalAddressTest extends TestResultsReporting {
     public void testDebugString() {
         final String addressString = new PostalAddress().debugString();
         assertNotNull(UNEXPECTED_NULL, addressString);
-        this.log.info("{}", addressString);
+        log.info("{}", addressString);
     }
 
 }

@@ -48,7 +48,7 @@ public final class Bank extends Business {
      * @return the bank
      */
     public static Bank random() {
-        return null;
+        return create();
     }
 
     /**
@@ -56,7 +56,7 @@ public final class Bank extends Business {
      */
     public Bank() {
         super();
-        setBankSortCode(new BankSortCode());
+        setBankSortCode(BankSortCode.create());
         setName("Bank Name");
     }
 
@@ -68,8 +68,8 @@ public final class Bank extends Business {
      */
     public Bank(final BankSortCode sortcode, final String name) {
         super();
-        setBankSortCode(this.bankSortCode);
-        setName(this.bankName);
+        setBankSortCode(bankSortCode);
+        setName(bankName);
     }
 
     /**
@@ -79,7 +79,7 @@ public final class Bank extends Business {
      */
     public Bank(final String bankName) {
         super();
-        this.bankSortCode = new BankSortCode();
+        bankSortCode = BankSortCode.create();
         setName(bankName);
     }
 
@@ -149,7 +149,7 @@ public final class Bank extends Business {
      * @return the bankSortCode
      */
     public BankSortCode getBankSortCode() {
-        return this.bankSortCode;
+        return bankSortCode;
     }
 
     /**
@@ -158,7 +158,7 @@ public final class Bank extends Business {
      * @return the bank name
      */
     public String getBankName() {
-        return this.bankName;
+        return bankName;
     }
 
     /**
@@ -167,7 +167,7 @@ public final class Bank extends Business {
      * @return the sort code
      */
     public String getSortCode() {
-        return this.sortCode;
+        return sortCode;
     }
 
     /**
@@ -176,7 +176,7 @@ public final class Bank extends Business {
      * @return the iban
      */
     public String getIban() {
-        return this.iban;
+        return iban;
     }
 
     /*
@@ -187,10 +187,10 @@ public final class Bank extends Business {
     @Override
     public String toString() {
         return String.format("Bank [bankSortCode=%s, bankName=%s, sortCode=%s, iban=%s]",
-                this.bankSortCode,
-                this.bankName,
-                this.sortCode,
-                this.iban);
+                bankSortCode,
+                bankName,
+                sortCode,
+                iban);
     }
 
 }

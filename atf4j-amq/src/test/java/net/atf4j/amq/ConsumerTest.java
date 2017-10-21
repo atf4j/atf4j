@@ -40,8 +40,7 @@ public class ConsumerTest {
     /**
      * Test reader.
      *
-     * @throws JMSException
-     *             the JMS exception
+     * @throws JMSException the JMS exception
      */
     @Test
     public void testReader() throws JMSException {
@@ -55,8 +54,7 @@ public class ConsumerTest {
     /**
      * Test execute.
      *
-     * @throws JMSException
-     *             the JMS exception
+     * @throws JMSException the JMS exception
      */
     @Test
     public void testExecute() throws JMSException {

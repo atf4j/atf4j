@@ -29,7 +29,6 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class TelephoneTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final String _0123456789 = "0123456789";
 
     /**

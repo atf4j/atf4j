@@ -25,7 +25,7 @@ import static org.junit.Assert.assertNotNull;
 public class Business extends Name {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
-    private PostalAddress address;
+    private PostalAddress address = new PostalAddress();
 
     /**
      * Create new INSTANCE of create.
@@ -42,13 +42,13 @@ public class Business extends Name {
      * @return the business
      */
     public static Business random() {
-        return null;
+        return create();
     }
 
     /**
      * Instantiates a new business.
      */
-    public Business() {
+    protected Business() {
         super();
     }
 
@@ -105,7 +105,7 @@ public class Business extends Name {
     public void setAddressRow(final int lineNo, final String addressLine) {
         assertNotNull(UNEXPECTED_NULL, lineNo);
         assertNotNull(UNEXPECTED_NULL, addressLine);
-        this.address.setAddressRow(lineNo, addressLine);
+        address.setAddressRow(lineNo, addressLine);
     }
 
     /**
@@ -116,7 +116,7 @@ public class Business extends Name {
      */
     public PostalAddress setPostcode(final Postcode postcode) {
         assertNotNull(UNEXPECTED_NULL, postcode);
-        return this.address.setPostcode(postcode);
+        return address.setPostcode(postcode);
     }
 
     /**
@@ -125,7 +125,7 @@ public class Business extends Name {
      * @return the address
      */
     public PostalAddress getAddress() {
-        return this.address;
+        return address;
     }
 
     /*
@@ -135,7 +135,7 @@ public class Business extends Name {
      */
     @Override
     public String toString() {
-        return String.format("Business [address=%s]", this.address);
+        return String.format("Business [address=%s]", address);
     }
 
 }

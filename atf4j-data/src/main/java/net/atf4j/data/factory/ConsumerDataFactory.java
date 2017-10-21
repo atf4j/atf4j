@@ -24,7 +24,7 @@ import net.atf4j.data.Consumer;
 /**
  * CustomerDataFactory.
  */
-public class ConsumerDataFactory extends AbstractDataFactory {
+public final class ConsumerDataFactory extends AbstractDataFactory {
 
     private static ConsumerDataFactory INSTANCE = null;
     private String[] data;

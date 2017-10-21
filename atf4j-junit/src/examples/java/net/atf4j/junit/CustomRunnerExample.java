@@ -32,7 +32,7 @@ import org.junit.runners.model.TestClass;
 /**
  * Custom Test Runner class.
  */
-public class CustomRunner extends Runner {
+public class CustomRunnerExample extends Runner {
     private final List<Method> testMethods = new ArrayList<Method>();
     private final TestClass testClass;
 
@@ -41,7 +41,7 @@ public class CustomRunner extends Runner {
      *
      * @param aClass the a class
      */
-    public CustomRunner(final Class<?> aClass) {
+    public CustomRunnerExample(final Class<?> aClass) {
         testClass = new TestClass(aClass);
         final Method[] classMethods = aClass.getDeclaredMethods();
         for (final Method classMethod : classMethods) {
