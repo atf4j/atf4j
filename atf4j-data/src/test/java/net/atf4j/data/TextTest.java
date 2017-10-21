@@ -35,8 +35,8 @@ public final class TextTest extends TestResultsReporting {
     @Test
     public void testTextFill() {
         String fill = Text.fill(10);
-        assertNotNull(fill);
         this.log.info("{}", fill);
+        assertNotNull(fill);
     }
 
     /**
@@ -45,8 +45,8 @@ public final class TextTest extends TestResultsReporting {
     @Test
     public void testTextFillStar() {
         String fill = Text.fill(10, '*');
-        assertNotNull(fill);
         this.log.info("{}", fill);
+        assertNotNull(fill);
     }
 
     /**

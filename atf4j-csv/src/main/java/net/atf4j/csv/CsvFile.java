@@ -42,7 +42,7 @@ public class CsvFile {
      *
      * @throws FileNotFoundException the file not found exception
      */
-    public CsvFile() throws FileNotFoundException {
+    protected CsvFile() throws FileNotFoundException {
         super();
         load();
     }
