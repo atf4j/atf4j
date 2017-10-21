@@ -78,7 +78,7 @@ public class CsvFile {
         try {
             load(configFilename());
         } catch (FileNotFoundException e) {
-            log.error(e.toString());
+            log.warn(e.toString());
         }
     }
 

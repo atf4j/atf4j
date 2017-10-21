@@ -94,8 +94,8 @@ public class CsvFileTest extends TestResultsReporting {
     @Test
     public void testExpectedUsage() throws Exception {
         final TestData testData = new TestData();
+        this.log.debug(testData.toString());
         assertNotNull(testData);
-        this.log.info(testData.toString());
     }
 
     /**
@@ -106,9 +106,8 @@ public class CsvFileTest extends TestResultsReporting {
     @Test
     public void testConstructorWithDataPresent() throws Exception {
         final CsvFile csvFile = new CsvFile(TEST_DATA_CSV);
+        this.log.debug(csvFile.debugString());
         assertNotNull(UNEXPECTED_NULL, csvFile);
-        this.log.info(csvFile.debugString());
-        this.log.info(csvFile.toString());
     }
 
     /**
@@ -119,6 +118,7 @@ public class CsvFileTest extends TestResultsReporting {
     @Test
     public void testReadPresentData() throws Exception {
         final CsvFile csvFile = CsvFile.read(TEST_DATA_CSV);
+        this.log.debug(csvFile.debugString());
         assertNotNull(UNEXPECTED_NULL, csvFile);
         verifyContent(csvFile);
     }
@@ -130,6 +130,7 @@ public class CsvFileTest extends TestResultsReporting {
      */
     private void verifyContent(final CsvFile csvFile) {
         assertNotNull(UNEXPECTED_NULL, csvFile);
+        this.log.debug(csvFile.debugString());
         final HeaderLine header = csvFile.getHeaderLine();
         assertEquals(EXPECTED_HEADER, header.debugString());
         this.log.info("{}", header);
