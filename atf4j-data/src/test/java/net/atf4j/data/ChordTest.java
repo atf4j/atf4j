@@ -17,6 +17,7 @@
 
 package net.atf4j.data;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -32,20 +33,13 @@ public class ChordTest extends TestResultsReporting {
      * Test set stem.
      */
     @Test
-    public void testSetStem() {
+    public void testSetGetStem() {
         final Chord chord = new Chord();
-        this.log.debug("{}", chord);
+        log.debug("new Chord() = {}", chord);
         assertNotNull(chord);
-    }
-
-    /**
-     * Test get stem.
-     */
-    @Test
-    public void testGetStem() {
-        final Chord chord = new Chord();
-        this.log.debug("{}", chord);
-        assertNotNull(chord);
+        final String stem = "Stem";
+        chord.setStem(stem);
+        assertEquals(stem, chord.getStem());
     }
 
     /**
@@ -54,8 +48,33 @@ public class ChordTest extends TestResultsReporting {
     @Test
     public void testAdd() {
         final Chord chord = new Chord();
-        this.log.debug("{}", chord);
+        log.debug("new Chord() = {}", chord);
         assertNotNull(chord);
+        chord.add(new Chord());
+    }
+
+    /**
+     * Test debug string.
+     */
+    @Test
+    public void testDebugString() {
+        final Chord chord = new Chord();
+        log.debug("new Chord() = {}", chord.debugString());
+        assertNotNull(chord);
+        chord.add(new Chord());
+        log.debug("new Chord() = {}", chord.debugString());
+    }
+
+    /**
+     * Test to string.
+     */
+    @Test
+    public void testToString() {
+        final Chord chord = new Chord();
+        log.debug("new Chord() = {}", chord.toString());
+        assertNotNull(chord);
+        chord.add(new Chord());
+        log.debug("new Chord() = {}", chord.toString());
     }
 
 }

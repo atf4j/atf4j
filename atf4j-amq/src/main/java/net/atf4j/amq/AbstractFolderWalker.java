@@ -201,7 +201,7 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override

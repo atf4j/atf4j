@@ -43,8 +43,9 @@ public class ExpectedDataTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        final ExpectedData INSTANCE = new ExpectedData();
-        assertNotNull("unexpected null", INSTANCE);
+        final ExpectedData expectedData = new ExpectedData();
+        log.debug("expectedData = {}", expectedData);
+        assertNotNull(UNEXPECTED_NULL, expectedData);
     }
 
 }

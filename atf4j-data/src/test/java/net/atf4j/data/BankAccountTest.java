@@ -106,6 +106,9 @@ public final class BankAccountTest extends TestResultsReporting {
         assertEquals(testBank, bankAccount.getBank());
     }
 
+    /**
+     * Testdebug string.
+     */
     @Test
     public void testdebugString() {
         final BankAccount bankAccount = BankAccount.create();

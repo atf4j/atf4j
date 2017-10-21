@@ -43,8 +43,9 @@ public class StrategyTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        final Strategy INSTANCE = new Strategy();
-        assertNotNull("unexpected null", INSTANCE);
+        final Strategy strategy = new Strategy();
+        log.debug("strategy = {}", strategy);
+        assertNotNull(UNEXPECTED_NULL, strategy);
     }
 
 }

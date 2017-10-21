@@ -38,7 +38,7 @@ public class BehaviourModel extends AbstractBehaviourModel {
      * A browser.
      */
     public void aBrowser() {
-        log.info("aBrowser()");
+        log.debug("aBrowser()");
         webDriver = BrowserFactory.webDriver();
     }
 
