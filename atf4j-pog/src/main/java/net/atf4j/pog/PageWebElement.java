@@ -24,14 +24,38 @@ import static org.junit.Assert.assertNotNull;
  */
 public class PageWebElement extends ClassField {
 
+    /** The Constant 			UNEXPECTED_NULL. */
     private static final String UNEXPECTED_NULL = "unexpected null";
 
     /**
      * The Strategy Enum.
      */
     public enum Strategy {
-        UNKNOWN("Unknown"), ID("id"), NAME("name"), CLASS_NAME("className"), XPATH("xpath"), CSS("css"), LINK_TEXT(
-                "linkText"), PARTIAL_LINK_TEXT("partialLinkText");
+        
+        /** The unknown. */
+        UNKNOWN("Unknown"),
+        
+        /** The id. */
+        ID("id"),
+        
+        /** The name. */
+        NAME("name"),
+        
+        /** The class name. */
+        CLASS_NAME("className"),
+        
+        /** The xpath. */
+        XPATH("xpath"),
+        
+        /** The css. */
+        CSS("css"),
+        
+        /** The link text. */
+        LINK_TEXT(
+                "linkText"),
+        
+        /** The partial link text. */
+        PARTIAL_LINK_TEXT("partialLinkText");
 
         /** The value. */
         private final String strategy;
@@ -80,7 +104,10 @@ public class PageWebElement extends ClassField {
         }
     }
 
+    /** The strategy. */
     private Strategy strategy = null;
+    
+    /** The locator. */
     private String locator = null;
 
     /**

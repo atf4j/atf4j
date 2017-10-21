@@ -31,8 +31,21 @@ public class ClassField {
      * The FieldType Enum.
      */
     public enum FieldType {
-        BOOLEAN("boolean"), DATE("Date"), NUMBER("BigDecimal"), STRING("String"), VALUE("Object"), OBJECT("Object");
 
+        /** The boolean. */
+        BOOLEAN("boolean"),
+        /** The date. */
+        DATE("Date"),
+        /** The number. */
+        NUMBER("BigDecimal"),
+        /** The string. */
+        STRING("String"),
+        /** The value. */
+        VALUE("Object"),
+        /** The object. */
+        OBJECT("Object");
+
+        /** The type. */
         private final String type;
 
         /**
@@ -41,7 +54,7 @@ public class ClassField {
          * @param asText the as text
          */
         FieldType(final String asText) {
-            this.type = asText;
+            type = asText;
         }
 
         /**
@@ -75,14 +88,23 @@ public class ClassField {
          */
         @Override
         public String toString() {
-            return this.type;
+            return type;
         }
     }
 
+    /** The log. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+
+    /** The Constant FIELD_CODE. */
     private static final String FIELD_CODE = "%s %s %s;";
+
+    /** The access. */
     private String access;
+
+    /** The type. */
     private String type;
+
+    /** The name. */
     private String name;
 
     /**
@@ -183,7 +205,7 @@ public class ClassField {
      * @return the access
      */
     public String getAccess() {
-        return this.access;
+        return access;
     }
 
     /**
@@ -192,7 +214,7 @@ public class ClassField {
      * @return the type
      */
     public String getType() {
-        return this.type;
+        return type;
     }
 
     /**
@@ -201,7 +223,7 @@ public class ClassField {
      * @return the name
      */
     public String getName() {
-        return this.name;
+        return name;
     }
 
     /**
@@ -222,7 +244,7 @@ public class ClassField {
      * @return the string
      */
     public String toCode() {
-        final String string = String.format(FIELD_CODE, this.access, this.type, this.name);
+        final String string = String.format(FIELD_CODE, access, type, name);
         return string;
     }
 
@@ -233,7 +255,7 @@ public class ClassField {
      */
     @Override
     public String toString() {
-        return String.format("ClassField [access=%s, type=%s, name=%s]", this.access, this.type, this.name);
+        return String.format("ClassField [access=%s, type=%s, name=%s]", access, type, name);
     }
 
 }

@@ -17,16 +17,21 @@
 
 package net.atf4j.fdd;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Abstract Behaviour Model Class.
  */
-public abstract class AbstractBehaviourModel {
+public abstract class AbstractBehaviourModel extends TestResultsReporting {
 
+    /** The expected data. */
     protected AbstractExpectedData expectedData;
 
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+    /**
+     * Instantiates a new abstract behaviour model.
+     */
+    protected AbstractBehaviourModel() {
+        super();
+    }
 
 }

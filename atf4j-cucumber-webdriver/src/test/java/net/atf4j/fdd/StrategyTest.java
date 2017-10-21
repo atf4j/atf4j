@@ -32,6 +32,10 @@ public class StrategyTest extends TestResultsReporting {
      * The Strategy Class.
      */
     public class Strategy extends AbstractStrategy {
+
+        private Strategy() {
+            super();
+        }
     }
 
     /**
@@ -39,8 +43,9 @@ public class StrategyTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        final Strategy INSTANCE = new Strategy();
-        assertNotNull("unexpected null", INSTANCE);
+        final Strategy strategy = new Strategy();
+        log.debug("strategy = {}", strategy);
+        assertNotNull(UNEXPECTED_NULL, strategy);
     }
 
 }

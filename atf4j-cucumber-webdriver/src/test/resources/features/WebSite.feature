@@ -1,3 +1,4 @@
+@Ignore
 @atf4j
 Feature: Smoke test for Selenium WebDriver configuration
 	As an Automated Tester

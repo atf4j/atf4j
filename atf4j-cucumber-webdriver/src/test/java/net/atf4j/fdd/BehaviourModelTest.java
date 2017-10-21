@@ -32,6 +32,10 @@ public class BehaviourModelTest extends TestResultsReporting {
      * The BehaviourModel Class.
      */
     public class BehaviourModel extends AbstractBehaviourModel {
+
+        private BehaviourModel() {
+            super();
+        }
     }
 
     /**
@@ -39,8 +43,9 @@ public class BehaviourModelTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        final BehaviourModel INSTANCE = new BehaviourModel();
-        assertNotNull("unexpected null", INSTANCE);
+        final BehaviourModel behaviour = new BehaviourModel();
+        log.debug("behaviour = {}", behaviour);
+        assertNotNull(UNEXPECTED_NULL, behaviour);
     }
 
 }

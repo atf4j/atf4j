@@ -20,7 +20,7 @@ package net.atf4j.data;
 /**
  * Datum for providing field status.
  */
-abstract public class Datum {
+public abstract class Datum {
 
     private boolean isFresh = true;
     private boolean isChanged = false;
@@ -34,7 +34,7 @@ abstract public class Datum {
      * @return the datum
      */
     protected Datum fresh(final boolean isNew) {
-        this.isChanged = !(this.isFresh = isNew);
+        isChanged = !(isFresh = isNew);
         return this;
     }
 
@@ -45,7 +45,7 @@ abstract public class Datum {
      * @return the datum
      */
     protected Datum changed(final boolean isDirty) {
-        this.isFresh = !(this.isChanged = isDirty);
+        isFresh = !(isChanged = isDirty);
         return this;
     }
 
@@ -77,7 +77,7 @@ abstract public class Datum {
      * @return true, if is new
      */
     public boolean isFresh() {
-        return this.isFresh;
+        return isFresh;
     }
 
     /**
@@ -86,7 +86,7 @@ abstract public class Datum {
      * @return true, if is dirty
      */
     public boolean isChanged() {
-        return this.isChanged;
+        return isChanged;
     }
 
     /**
@@ -95,7 +95,7 @@ abstract public class Datum {
      * @return true, if is deleted
      */
     public boolean isDeleted() {
-        return this.isDeleted;
+        return isDeleted;
     }
 
     /**
@@ -104,7 +104,7 @@ abstract public class Datum {
      * @return true, if is used
      */
     public boolean isUsed() {
-        return this.isUsed;
+        return isUsed;
     }
 
     /**
@@ -115,10 +115,10 @@ abstract public class Datum {
     public String debugString() {
         return String.format("%s [isNew=%s, isDirty=%s, isDeleted=%s, isUsed=%s]",
                 this.getClass().getSimpleName(),
-                this.isFresh,
-                this.isChanged,
-                this.isDeleted,
-                this.isUsed);
+                isFresh,
+                isChanged,
+                isDeleted,
+                isUsed);
     }
 
     /*

@@ -36,7 +36,7 @@ public class PageObjectDataTest extends TestResultsReporting {
      */
     @Test
     public void testExpected() {
-        log.info("==============================================");
+        this.log.info("==============================================");
         final PageObjectData pageObjectData = new PageObjectData();
         assertNotNull(UNEXPECTED_NULL, pageObjectData);
 
@@ -50,7 +50,7 @@ public class PageObjectDataTest extends TestResultsReporting {
             .add(new PageWebElement("findByCss", Strategy.CSS, "."));
 
         logAttributes(pageObjectData);
-        log.info(pageObjectData.toString());
+        this.log.info(pageObjectData.toString());
     }
 
     /**
@@ -79,7 +79,7 @@ public class PageObjectDataTest extends TestResultsReporting {
     private void logAttributes(final PageObjectData pageObjectData) {
         final List<PageWebElement> attributes = pageObjectData.get();
         for (final PageWebElement pageWebElement : attributes) {
-            log.debug(pageWebElement.toString());
+            this.log.debug(pageWebElement.toString());
         }
     }
 }

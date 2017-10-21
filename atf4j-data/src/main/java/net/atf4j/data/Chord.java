@@ -17,22 +17,45 @@
 
 package net.atf4j.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Chord Class.
  */
 public class Chord {
+
+    /** The stem. */
     private CharSequence stem;
-    private List<Chord> children;
+
+    /** The chords. */
+    private final List<Chord> chords = new ArrayList<Chord>();
+
+    /**
+     * Instantiates a new chord.
+     */
+    public Chord() {
+        super();
+    }
+
+    /**
+     * Instantiates a new chord.
+     *
+     * @param stem the stem
+     */
+    public Chord(CharSequence stem) {
+        super();
+        this.stem = stem;
+    }
 
     /**
      * Sets the stem.
      *
      * @param stem the new stem
      */
-    public void setStem(final CharSequence stem) {
+    public Chord setStem(final CharSequence stem) {
         this.stem = stem;
+        return this;
     }
 
     /**
@@ -50,13 +73,28 @@ public class Chord {
      * @param e the e
      * @return true, if successful, otherwise false.
      */
-    public boolean add(final Chord e) {
-        return children.add(e);
+    public Chord add(final Chord e) {
+        chords.add(e);
+        return this;
     }
 
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
+        return String.format("Chord [stem=%s, children=%s]", stem, chords);
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
-        return String.format("Chord [stem=%s, children=%s]", stem, children);
+        return String.format("%s %s", stem, chords);
     }
 
 }

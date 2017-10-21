@@ -17,14 +17,18 @@
 
 package net.atf4j.fdd;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Abstract Expected Data Class.
  */
-public abstract class AbstractExpectedData {
+public abstract class AbstractExpectedData extends TestResultsReporting {
 
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+    /**
+     * Instantiates a new abstract expected data.
+     */
+    protected AbstractExpectedData() {
+        super();
+    }
 
 }

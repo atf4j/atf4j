@@ -157,8 +157,7 @@ public abstract class AbstractPageObject {
      * @return this for a fluent interface.
      */
     public AbstractPageObject open() {
-        final String targetUrl = targetUrl();
-        return open(targetUrl);
+        return open(targetUrl());
     }
 
     /**

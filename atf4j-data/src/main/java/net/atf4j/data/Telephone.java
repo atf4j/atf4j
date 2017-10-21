@@ -136,8 +136,6 @@ public class Telephone {
     /**
      * Verify.
      *
-     * \* @return true, if successful, otherwise false.
-     *
      * @return true, if successful, otherwise false.
      */
     public static boolean verify() {

@@ -23,6 +23,7 @@ import org.slf4j.LoggerFactory;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
 
 /**
  * Web Site Steps, these are bindings from Gherkin to Java. <tt>
@@ -42,7 +43,7 @@ import cucumber.api.java.en.When;
  */
 public class WebSiteSteps {
 
-    private final WebAppModel webSite = new WebAppModel();
+    private final BehaviourModel webSite = new BehaviourModel();
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
@@ -51,8 +52,8 @@ public class WebSiteSteps {
      * @throws Exception the throwable
      */
     @Given("^a web browser is available$")
-    public void namedBrowser() throws Exception {
-        this.webSite.aBrowser();
+    public void namedBrowser() {
+        webSite.aBrowser();
     }
 
     /**
@@ -62,29 +63,31 @@ public class WebSiteSteps {
      * @throws Exception the throwable
      */
     @Given("^the (?:Chrome|Firefox|Headless) Browser$")
-    public void namedBrowser(final String browserName) throws Exception {
-        this.webSite.useBrowser(browserName);
+    public void namedBrowser(final String browserName) {
+        webSite.useBrowser(browserName);
     }
 
     /**
      * The target url is http is opened.
      *
-     * @throws Exception the throwable
+     * @throws ConfigurationNotLoadedException the configuration not loaded
+     *             exception
      */
     @When("^the target url is opened$")
-    public void theTargetUrlIsHttpIsOpened() throws Exception {
-        this.webSite.open();
+    public void theTargetUrlIsHttpIsOpened() throws ConfigurationNotLoadedException {
+        webSite.open();
     }
 
     /**
      * The target url is opened. \bhttp://\S+ \"([^\"]*)\"
      *
      * @param targetUrl the target url
-     * @throws Exception the throwable
+     * @throws ConfigurationNotLoadedException the configuration not loaded
+     *             exception
      */
     @When("^the target url http://\\S+ is opened$")
-    public void theTargetUrlIsHttpIsOpened(final String targetUrl) throws Exception {
-        this.webSite.open(targetUrl);
+    public void theTargetUrlIsHttpIsOpened(final String targetUrl) throws ConfigurationNotLoadedException {
+        webSite.open(targetUrl);
     }
 
     /**
@@ -94,8 +97,8 @@ public class WebSiteSteps {
      * @throws Exception the throwable
      */
     @Then("^the pageTitle is \"([^\"]*)\"$")
-    public void thePageTitleIs(final String expectedPageTitle) throws Exception {
-        this.webSite.pageTitleShouldBe(expectedPageTitle);
+    public void thePageTitleIs(final String expectedPageTitle) {
+        webSite.pageTitleShouldBe(expectedPageTitle);
     }
 
     /**
@@ -105,8 +108,8 @@ public class WebSiteSteps {
      * @throws Exception the throwable
      */
     @Then("^the cookie \"([^\"]*)\" exists$")
-    public void theCookieExists(final String cookieName) throws Exception {
-        this.webSite.ensureCookieExists(cookieName);
+    public void theCookieExists(final String cookieName) {
+        webSite.ensureCookieExists(cookieName);
     }
 
     /**
@@ -117,8 +120,8 @@ public class WebSiteSteps {
      * @throws Exception the throwable
      */
     @Then("^the cookie \"([^\"]*)\" has value \"([^\"]*)\"$")
-    public void theCookieHasValue(final String cookieName, final String cookieValue) throws Exception {
-        this.webSite.theCookieHasValue(cookieName);
+    public void theCookieHasValue(final String cookieName, final String cookieValue) {
+        webSite.theCookieHasValue(cookieName);
     }
 
 }
