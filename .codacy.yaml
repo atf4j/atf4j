@@ -1,12 +1,23 @@
+
+engines:
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - java
+    checks:
+      Similar code:
+        enabled: false
+  fixme:
+    enabled: true
+     
+  metrics:
+   enabled: true
+
+  coverage:
+   enabled: true
+
 exclude_paths:
 - 'src/test/**/*'
 - 'src/site/**/*'
-
-duplication:
-   enabled: true
-     
-metrics:
-   enabled: true
-
-coverage:
-   enabled: true
+   
