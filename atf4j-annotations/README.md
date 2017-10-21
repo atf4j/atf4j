@@ -8,8 +8,8 @@ Provides Annotations for enhanced reporting for automated unit tests for enhance
 
 	<dependency>
 		<groupId>net.atf4j</groupId>
-		<artifactId>atf4j-core</artifactId>
-		<version>0.4.0-SNAPSHOT</version>
+		<artifactId>atf4j-annotations</artifactId>
+		<version>0.10.0-SNAPSHOT</version>
 	</dependency>
 
 ## Example Code

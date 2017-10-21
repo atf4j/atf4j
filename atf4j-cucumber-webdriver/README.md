@@ -2,12 +2,14 @@
 
 ## Automated Test Framework for Feature Driven Development
 
+Java Automated Test Framework for Feature Driven Development
+
 ## Maven Dependency
 
 	<dependency>
 		<groupId>net.atf4j</groupId>
-		<artifactId>atf4j</artifactId>
-		<version>0.4.0-SNAPSHOT</version>
+		<artifactId>atf4j-cucumber-webdriver</artifactId>
+		<version>0.10.0-SNAPSHOT</version>
 	</dependency>
 
 ## Usage
