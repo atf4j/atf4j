@@ -28,8 +28,7 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class EmailAddressTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
-    private static final String NAME_EXAMPLE_COM = "name@example.com";
+    private static final String NAME_EXAMPLE_COM = "test@example.com";
 
     /**
      * Unit Test for test expected.
@@ -37,10 +36,10 @@ public final class EmailAddressTest extends TestResultsReporting {
     @Test
     public void testExpected() {
         final EmailAddress emailAddress = new EmailAddress();
-        this.log.info(emailAddress.toString());
+        log.info(emailAddress.toString());
 
         final EmailAddress atExample = EmailAddress.at("example.com");
-        this.log.info(atExample.toString());
+        log.info(atExample.toString());
     }
 
     /**
@@ -59,7 +58,7 @@ public final class EmailAddressTest extends TestResultsReporting {
         final EmailAddress emailAddress = EmailAddress.create();
         assertNotNull(UNEXPECTED_NULL, emailAddress);
         final String string = emailAddress.toString();
-        this.log.info(string);
+        log.info(string);
     }
 
     /**
@@ -67,7 +66,7 @@ public final class EmailAddressTest extends TestResultsReporting {
      */
     @Test
     public void testEmailAddressString() {
-        this.log.info(new EmailAddress(NAME_EXAMPLE_COM).toString());
+        log.info(new EmailAddress(NAME_EXAMPLE_COM).toString());
     }
 
     /**
@@ -75,7 +74,7 @@ public final class EmailAddressTest extends TestResultsReporting {
      */
     @Test
     public void testVerify() {
-        this.log.info(new EmailAddress(NAME_EXAMPLE_COM).toString());
+        log.info(new EmailAddress(NAME_EXAMPLE_COM).toString());
     }
 
     /**
@@ -87,7 +86,7 @@ public final class EmailAddressTest extends TestResultsReporting {
         assertNotNull(UNEXPECTED_NULL, emailAddress);
         final String string = emailAddress.toString();
         assertNotNull(UNEXPECTED_NULL, string);
-        this.log.info(string);
+        log.info(string);
     }
 
 }

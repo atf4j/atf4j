@@ -100,7 +100,7 @@ public class MilliTimer implements TimerInterface {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.core.timers.TimerInterface#getStopTime()
      */
     @Override

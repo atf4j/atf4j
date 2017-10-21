@@ -37,7 +37,7 @@ public class AutomationConfigTest extends TestResultsReporting {
     public void testDefaultConstructor() {
         final AutomationConfig config = new AutomationConfig();
         assertNotNull("unexpected null", config);
-        log.info("config = {}", config);
+        this.log.info("config = {}", config);
     }
 
 }

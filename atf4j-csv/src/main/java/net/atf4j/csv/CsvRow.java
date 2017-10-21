@@ -95,7 +95,7 @@ public class CsvRow {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override

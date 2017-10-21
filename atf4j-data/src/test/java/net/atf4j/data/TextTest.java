@@ -35,7 +35,7 @@ public final class TextTest extends TestResultsReporting {
     @Test
     public void testTextFill() {
         final String fill = Text.fill(10);
-        this.log.debug("{}", fill);
+        log.debug("Text.fill(10) = '{}'", fill);
         assertNotNull(fill);
         assertEquals(10, fill.length());
     }
@@ -46,7 +46,7 @@ public final class TextTest extends TestResultsReporting {
     @Test
     public void testTextFillStar() {
         final String fill = Text.fill(10, '*');
-        this.log.debug("{}", fill);
+        log.debug("Text.fill(10, '*') = {}", fill);
         assertNotNull(fill);
         assertEquals(10, fill.length());
     }
@@ -85,23 +85,23 @@ public final class TextTest extends TestResultsReporting {
     }
 
     /**
-     * Unit Test for test pad to length string int.
+     * Unit Test for test pad strin to length with spaces.
      */
     @Test
     public void testPadToLengthStringInt() {
         final String padToLength = Text.padToLength("Stem", 5);
-        this.log.debug("{}", padToLength);
+        log.debug("Text.padToLength('Stem', 5) = {}", padToLength);
         assertEquals(5, padToLength.length());
         assertEquals("Stem ", padToLength);
     }
 
     /**
-     * Unit Test for test pad to length string int char.
+     * Unit Test for test pad to a string to length with character.
      */
     @Test
     public void testPadToLengthStringIntChar() {
         final String padToLength = Text.padToLength("Stem", 5, '*');
-        this.log.debug("{}", padToLength);
+        log.debug("Text.padToLength('Stem', 5, '*') = {}", padToLength);
         assertEquals(5, padToLength.length());
         assertEquals("Stem*", padToLength);
     }

@@ -91,17 +91,17 @@ public abstract class Behaviour {
     public Properties execute(final Properties properties) {
         this.log.info("{}.execute", this.getClass().getSimpleName());
         for (final Given given : this.givenList) {
-            Properties execute = given.execute(properties);
+            final Properties execute = given.execute(properties);
             assertNotNull(UNEXPECTED_NULL, execute);
         }
 
         for (final When when : this.whenList) {
-            Properties execute = when.execute(properties);
+            final Properties execute = when.execute(properties);
             assertNotNull(UNEXPECTED_NULL, execute);
         }
 
         for (final Then then : this.thenList) {
-            Properties execute = then.execute(properties);
+            final Properties execute = then.execute(properties);
             assertNotNull(UNEXPECTED_NULL, execute);
         }
 

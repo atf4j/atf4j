@@ -38,7 +38,7 @@ public interface PageInterface {
 
     /**
      * Verify that.
-     * 
+     *
      * @return this for a fluent interface
      */
     public abstract PageInterface verify();

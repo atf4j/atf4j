@@ -24,8 +24,8 @@ import java.util.ArrayDeque;
 import java.util.Collection;
 
 import net.atf4j.core.Atf4jException;
-import net.atf4j.core.TestResultsReporting;
 import net.atf4j.core.TestResult;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Abstract Test Base Class.

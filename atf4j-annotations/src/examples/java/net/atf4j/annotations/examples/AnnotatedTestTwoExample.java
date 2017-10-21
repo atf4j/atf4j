@@ -28,7 +28,7 @@ import net.atf4j.annotations.Atf4j;
 /**
  * Annotated Test Example Two, using static imports. Allows annotations to be
  * accessed directly with the functions :- <code>
- *  getTestId(); 
+ *  getTestId();
  *  getTestName();
  *  getTestDescription();
  * </code>

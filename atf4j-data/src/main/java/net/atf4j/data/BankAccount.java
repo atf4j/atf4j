@@ -120,7 +120,7 @@ public class BankAccount {
      * @return the bank
      */
     public Bank getBank() {
-        return this.bank;
+        return bank;
     }
 
     /**
@@ -129,7 +129,16 @@ public class BankAccount {
      * @return the account no
      */
     public String getAccountNo() {
-        return this.accountNo;
+        return accountNo;
+    }
+
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
+        return String.format("BankAccount [bank=%s, accountNo=%s]", bank, accountNo);
     }
 
     /*
@@ -139,7 +148,7 @@ public class BankAccount {
      */
     @Override
     public String toString() {
-        return String.format("BankAccount [bank=%s, accountNo=%s]", this.bank, this.accountNo);
+        return String.format("%s %s", bank, accountNo);
     }
 
 }

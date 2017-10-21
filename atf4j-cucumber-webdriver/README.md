@@ -1,6 +1,6 @@
 # Cucumber Selenium WebDriver
 
-## Automated Test Framework for Java
+## Automated Test Framework for Feature Driven Development
 
 ## Maven Dependency
 

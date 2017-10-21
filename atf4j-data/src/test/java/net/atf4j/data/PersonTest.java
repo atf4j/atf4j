@@ -33,8 +33,6 @@ import net.atf4j.data.Person.Title;
  */
 public final class PersonTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
-
     /**
      * Test person.
      */

@@ -29,8 +29,6 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class ProductTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
-
     /**
      * Test method for Product.
      */

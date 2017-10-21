@@ -28,8 +28,6 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class AbstractWalkerTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
-
     /**
      * MockWalker Class.
      */
@@ -59,7 +57,7 @@ public final class AbstractWalkerTest extends TestResultsReporting {
     public void testAbstractWalker() {
         final MockWalker mockWalker = new MockWalker();
         assertNotNull(UNEXPECTED_NULL, mockWalker);
-        this.log.info("{}", mockWalker);
+        log.info("{}", mockWalker);
         assertNotNull(UNEXPECTED_NULL, mockWalker.walk());
     }
 
@@ -70,7 +68,7 @@ public final class AbstractWalkerTest extends TestResultsReporting {
     public void testAbstractWalkerDot() {
         final MockWalker mockWalker = new MockWalker(".");
         assertNotNull(UNEXPECTED_NULL, mockWalker);
-        this.log.info("{}", mockWalker);
+        log.info("{}", mockWalker);
         assertNotNull(UNEXPECTED_NULL, mockWalker.walk());
     }
 
@@ -81,7 +79,7 @@ public final class AbstractWalkerTest extends TestResultsReporting {
     public void testAbstractWalkerFolder() {
         final MockWalker mockWalker = new MockWalker("/messages");
         assertNotNull(UNEXPECTED_NULL, mockWalker);
-        this.log.info("{}", mockWalker);
+        log.info("{}", mockWalker);
         assertNotNull(UNEXPECTED_NULL, mockWalker.walk());
     }
 
@@ -92,7 +90,7 @@ public final class AbstractWalkerTest extends TestResultsReporting {
     public void testAbstractWalkerMissingFolder() {
         final MockWalker mockWalker = new MockWalker("/missing");
         assertNotNull(UNEXPECTED_NULL, mockWalker);
-        this.log.info("{}", mockWalker);
+        log.info("{}", mockWalker);
         assertNotNull(UNEXPECTED_NULL, mockWalker.walk());
     }
 }

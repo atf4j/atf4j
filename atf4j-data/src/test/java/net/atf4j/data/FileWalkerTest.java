@@ -28,8 +28,6 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class FileWalkerTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
-
     /**
      * Unit Test for test walk.
      *

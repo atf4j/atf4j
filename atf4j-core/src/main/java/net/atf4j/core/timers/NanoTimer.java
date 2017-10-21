@@ -101,7 +101,7 @@ public class NanoTimer implements TimerInterface {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.atf4j.core.timers.TimerInterface#getStopTime()
      */
     @Override

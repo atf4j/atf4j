@@ -42,7 +42,12 @@ public final class ScenarioRunner extends TestResultsReporting {
         setTargetScenario(targetScenario);
     }
 
-    private void setTargetScenario(Object targetScenario) {
+    /**
+     * Sets the target scenario.
+     *
+     * @param targetScenario the new target scenario
+     */
+    private void setTargetScenario(final Object targetScenario) {
         // if @Scenario Tag
         this.targetScenario = (AbstractScenario) targetScenario;
     }

@@ -29,16 +29,14 @@ public interface FolderWalkerInterface {
     /**
      * Sets the path.
      *
-     * @param path
-     *            the new path
+     * @param path the new path
      */
     public void setPath(String path);
 
     /**
      * Sets the extension filter.
      *
-     * @param extensionFilter
-     *            the new extension filter
+     * @param extensionFilter the new extension filter
      */
     public void setExtensionFilter(FilenameFilter extensionFilter);
 
@@ -52,8 +50,7 @@ public interface FolderWalkerInterface {
     /**
      * Walk the path.
      *
-     * @param path
-     *            the path
+     * @param path the path
      * @return the list
      */
     public List<File> walk(String path);
@@ -61,8 +58,7 @@ public interface FolderWalkerInterface {
     /**
      * Scan the path.
      *
-     * @param path
-     *            the path
+     * @param path the path
      * @return the list
      */
     public List<File> scan(String path);
