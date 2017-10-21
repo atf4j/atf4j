@@ -17,6 +17,8 @@
 
 package net.atf4j.data;
 
+import java.io.FileNotFoundException;
+
 import net.atf4j.csv.CsvFile;
 
 /**
@@ -28,6 +30,8 @@ public final class PostcodeData extends CsvFile {
 
     /**
      * Instantiates a new post code data.
+     * 
+     * @throws FileNotFoundException
      */
     public PostcodeData() {
         super();

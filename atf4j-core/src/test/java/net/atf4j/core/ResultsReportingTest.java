@@ -42,7 +42,7 @@ public final class ResultsReportingTest extends TestResultsReporting {
     public void testVerifyNotEqualByte() {
         Byte actual = Byte.MAX_VALUE;
         Byte expected = Byte.MIN_VALUE;
-        super.verifyEquals(expected, actual);
+        super.verifyEquals(expected.byteValue(), actual.byteValue());
     }
 
     /**
