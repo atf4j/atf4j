@@ -1,4 +1,12 @@
-
 exclude_paths:
 - 'src/test/**/*'
 - 'src/site/**/*'
+
+duplication:
+   enabled: true
+     
+metrics:
+   enabled: true
+
+coverage:
+   enabled: true
