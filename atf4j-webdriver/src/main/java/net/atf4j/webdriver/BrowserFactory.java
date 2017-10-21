@@ -173,7 +173,7 @@ public class BrowserFactory implements BrowserFactoryInterface {
             gridUrl = new URL(targetSeleniumGrid);
             remoteWebDriver = new RemoteWebDriver(gridUrl, desiredCapabilities);
         } catch (final MalformedURLException e) {
-            BrowserFactory.log.error("{}", e);
+            BrowserFactory.log.error(e.toString());
         }
         return remoteWebDriver;
     }

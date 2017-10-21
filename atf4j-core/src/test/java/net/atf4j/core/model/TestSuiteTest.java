@@ -23,8 +23,8 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import net.atf4j.core.Atf4jException;
-import net.atf4j.core.TestResultsReporting;
 import net.atf4j.core.TestResult;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A UnitTest for TestSuite objects.
@@ -57,10 +57,11 @@ public class TestSuiteTest extends TestResultsReporting {
     @Test
     public void testTestSuite() {
         final TestSuite testSuite = new TestSuite();
+        log.debug("testSuite = {}", testSuite);
         assertNotNull(UNEXPECTED_NULL, testSuite);
         final TestResult result = testSuite.result();
+        log.debug("result = {}", result);
         assertNotNull(UNEXPECTED_NULL, result);
-        this.log.info("testResult={}", result);
     }
 
     /**
@@ -69,8 +70,9 @@ public class TestSuiteTest extends TestResultsReporting {
     @Test
     public void testTestSuiteTestContext() {
         final TestSuite testSuite = new TestSuite(new TestContext());
+        log.debug("testSuite = {}", testSuite);
+        log.debug("testResult={}", testSuite.result());
         assertNotNull(UNEXPECTED_NULL, testSuite);
-        this.log.info("testResult={}", testSuite.result());
     }
 
     /**
@@ -81,8 +83,9 @@ public class TestSuiteTest extends TestResultsReporting {
     @Test
     public void testTestSuiteExecute() throws Atf4jException {
         final TestSuite testSuite = new TestSuite();
+        log.debug("testSuite = {}", testSuite);
+        log.debug("testResult={}", testSuite.result());
         assertNotNull(UNEXPECTED_NULL, testSuite.execute());
-        this.log.info("testResult={}", testSuite.result());
     }
 
     /**
@@ -93,8 +96,9 @@ public class TestSuiteTest extends TestResultsReporting {
     @Test
     public void testTestSuiteExecuteTestContext() throws Atf4jException {
         final TestSuite testSuite = new TestSuite();
+        log.debug("testSuite = {}", testSuite);
+        log.debug("testResult={}", testSuite.result());
         assertNotNull(UNEXPECTED_NULL, testSuite.execute(new TestContext()));
-        this.log.info("testResult={}", testSuite.result());
     }
 
     /**

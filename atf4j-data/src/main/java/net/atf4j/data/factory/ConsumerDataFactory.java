@@ -44,7 +44,7 @@ public class ConsumerDataFactory extends AbstractDataFactory {
         try {
             data = load("data.txt");
         } catch (final FileNotFoundException e) {
-            log.error(e.getMessage());
+            log.error(e.toString());
         }
     }
 

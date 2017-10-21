@@ -22,9 +22,6 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
-import net.atf4j.core.AbstractConfig.PropertyNotFoundException;
-
 /**
  * ConfigLoadingTests Class.
  */
@@ -76,8 +73,8 @@ public final class ConfigLoadingTests extends TestResultsReporting {
     @Test
     public void testMissingConfig() throws Exception {
         final ConfigurationInterface missingConfig = new MissingProperties();
+        log.debug("missingConfig = {}", missingConfig.toString());
         assertNotNull(UNEXPECTED_NULL, missingConfig);
-        this.log.info("{}", missingConfig.toString());
     }
 
     /**
@@ -88,9 +85,9 @@ public final class ConfigLoadingTests extends TestResultsReporting {
     @Test
     public void testConfigFromFile() throws Exception {
         final ConfigFromFile config = new ConfigFromFile();
+        log.debug("config = {}", config.toString());
         assertNotNull(UNEXPECTED_NULL, config);
-        this.log.info("{}", config.toString());
-        String propertyFilename = config.getPropertyFilename();
+        final String propertyFilename = config.getPropertyFilename();
         assertEquals("ConfigFromFile.properties", propertyFilename);
     }
 
@@ -102,12 +99,12 @@ public final class ConfigLoadingTests extends TestResultsReporting {
     @Test
     public void testSystemOveridesConfig() throws Exception {
         final ConfigFromFile config = new ConfigFromFile();
+        log.debug("config = {}", config.toString());
         assertNotNull(UNEXPECTED_NULL, config);
         final String key = "property";
         final String value = "FromSystem";
         System.setProperty(key, value);
         assertEquals(value, config.get(key));
-        this.log.info("{}", config.toString());
     }
 
 }

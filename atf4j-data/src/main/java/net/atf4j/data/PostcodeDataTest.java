@@ -31,18 +31,6 @@ import net.atf4j.core.TestResultsReporting;
 public class PostcodeDataTest extends TestResultsReporting {
 
     /**
-     * Test postcode data.
-     *
-     * @throws FileNotFoundException the file not found exception
-     */
-    @Test
-    public void testPostcodeData() throws FileNotFoundException {
-        final PostcodeData postcodeData = new PostcodeData();
-        assertNotNull(postcodeData);
-        this.log.info("{}", postcodeData.toString());
-    }
-
-    /**
      * Test get instance.
      *
      * @throws FileNotFoundException the file not found exception
@@ -51,7 +39,6 @@ public class PostcodeDataTest extends TestResultsReporting {
     public void testGetInstance() throws FileNotFoundException {
         final PostcodeData postcodeData = PostcodeData.getInstance();
         assertNotNull(postcodeData);
-        this.log.info("{}", postcodeData.toString());
     }
 
 }

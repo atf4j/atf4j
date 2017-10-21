@@ -49,7 +49,7 @@ public final class Atf4j {
      * @param string the string
      */
     public static void start(final String string) {
-        LOG.info(string);
+        LOG.info("start {}", string);
         nestedTimers.startTimer(string);
     }
 
@@ -57,7 +57,7 @@ public final class Atf4j {
      * End.
      */
     public static void end() {
-        LOG.info(nestedTimers.stopTimer().toString());
+        LOG.info("end {}", nestedTimers.stopTimer().toString());
     }
 
     /**
@@ -76,9 +76,9 @@ public final class Atf4j {
      */
     public static String document(final StackTraceElement[] stackTrace) {
         for (final StackTraceElement stackTraceElement : stackTrace) {
-            LOG.info(stackTraceElement.toString());
+            LOG.trace(stackTraceElement.toString());
             final String methodName = stackTraceElement.getMethodName();
-            LOG.info(methodName);
+            LOG.debug(methodName);
             return methodName;
         }
         return null;

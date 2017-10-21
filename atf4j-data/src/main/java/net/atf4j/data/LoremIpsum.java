@@ -17,6 +17,7 @@
 
 package net.atf4j.data;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -46,21 +47,21 @@ public final class LoremIpsum extends AbstractDataFactory {
      */
     protected void initialise() {
         try {
-            this.rows = load("lorem-ipsum.txt");
-            for (final String row : this.rows) {
+            rows = load("lorem-ipsum.txt");
+            for (final String row : rows) {
                 final String sanitised = row.replace(",", "").replace(".", "").replace("?", "");
                 if (sanitised.length() > 0) {
                     final String[] words = sanitised.split("\\W");
-                    this.log.debug(Arrays.toString(words));
+                    log.debug(Arrays.toString(words));
                     for (final String word : words) {
                         this.words.add(word.trim().toLowerCase());
                     }
                 }
             }
-            this.bounds = this.words.size();
-            this.log.debug(Arrays.toString(this.words.toArray()));
-        } catch (final Exception e) {
-            this.log.error(e.getMessage());
+            bounds = words.size();
+            log.debug(Arrays.toString(words.toArray()));
+        } catch (final FileNotFoundException e) {
+            log.error(e.toString());
         }
     }
 
@@ -92,7 +93,7 @@ public final class LoremIpsum extends AbstractDataFactory {
      */
     protected String getText() {
         final StringBuilder stringBuilder = new StringBuilder();
-        for (final String row : this.rows) {
+        for (final String row : rows) {
             stringBuilder.append(row);
             stringBuilder.append(System.lineSeparator());
         }
@@ -200,8 +201,8 @@ public final class LoremIpsum extends AbstractDataFactory {
     private String getWords(final int count) {
         final StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < count; i++) {
-            final int nextInt = rnd.nextInt(this.bounds);
-            final String word = this.words.get(nextInt);
+            final int nextInt = rnd.nextInt(bounds);
+            final String word = words.get(nextInt);
             stringBuilder.append(word);
             stringBuilder.append(' ');
         }

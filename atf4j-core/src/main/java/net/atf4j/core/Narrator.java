@@ -31,7 +31,7 @@ public final class Narrator {
     private static final String LAYOUT_STYLE = "%s [%s]";
 
     /**
-     * Instantiates a new narrator.
+     * private constructor to prevent rampant instantiation.
      */
     private Narrator() {
         super();
@@ -97,10 +97,10 @@ public final class Narrator {
                         field.setAccessible(true);
                         final String fieldName = field.getName();
                         final Object fieldType = field.get(object);
-                        final String memberStr = String.format("%s=%s,", fieldName, fieldType);
+                        final String memberStr = String.format("%s = %s,", fieldName, fieldType);
                         stringBuilder.append(memberStr);
                     } catch (final Exception e) {
-                        LOG.error("{}", e);
+                        LOG.error(e.toString());
                     }
                 }
                 // stringBuilder.deleteCharAt(stringBuilder.length() - 1);

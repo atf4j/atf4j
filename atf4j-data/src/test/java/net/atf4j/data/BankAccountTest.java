@@ -35,7 +35,7 @@ public final class BankAccountTest extends TestResultsReporting {
     @Test
     public void testExpected() {
         final BankAccount bankAccount = BankAccount.random();
-        this.log.error("{}", bankAccount);
+        log.debug("bankAccount = {}", bankAccount);
         assertNotNull(UNEXPECTED_NULL, bankAccount);
     }
 
@@ -45,7 +45,7 @@ public final class BankAccountTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final BankAccount bankAccount = new BankAccount();
-        this.log.error("{}", bankAccount);
+        log.debug("bankAccount = {}", bankAccount);
         assertNotNull(UNEXPECTED_NULL, bankAccount);
     }
 
@@ -56,7 +56,7 @@ public final class BankAccountTest extends TestResultsReporting {
     public void testBankAccountNull() {
         final String nullString = null;
         final BankAccount bankAccount = new BankAccount(nullString);
-        this.log.error("{}", bankAccount);
+        log.debug("bankAccount = {}", bankAccount);
         assertNotNull(UNEXPECTED_NULL, bankAccount);
     }
 
@@ -67,7 +67,7 @@ public final class BankAccountTest extends TestResultsReporting {
     public void testBankAccountNullObject() {
         final Bank nullBank = null;
         final BankAccount bankAccount = new BankAccount(nullBank);
-        this.log.error("{}", bankAccount);
+        log.debug("bankAccount = {}", bankAccount);
         assertNotNull(UNEXPECTED_NULL, bankAccount);
     }
 
@@ -77,7 +77,7 @@ public final class BankAccountTest extends TestResultsReporting {
     @Test
     public void testBankAccountString() {
         final BankAccount bankAccount = new BankAccount("");
-        this.log.error("{}", bankAccount);
+        log.debug("bankAccount = {}", bankAccount);
         assertNotNull(UNEXPECTED_NULL, bankAccount);
     }
 
@@ -87,7 +87,7 @@ public final class BankAccountTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final BankAccount bankAccount = BankAccount.create();
-        this.log.error("{}", bankAccount);
+        log.debug("bankAccount = {}", bankAccount);
         assertNotNull(UNEXPECTED_NULL, bankAccount);
     }
 
@@ -122,7 +122,7 @@ public final class BankAccountTest extends TestResultsReporting {
     @Test
     public void testToString() {
         final String string = new BankAccount().toString();
-        this.log.error("{}", string);
+        log.error("BankAccount().toString() = {}", string);
         assertNotNull(UNEXPECTED_NULL, string);
     }
 

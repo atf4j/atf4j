@@ -17,23 +17,19 @@
 
 package net.atf4j.data;
 
-import java.io.FileNotFoundException;
-
 import net.atf4j.csv.CsvFile;
 
 /**
- * The PostcodeData Class.
+ * Postcode Data Class.
  */
 public final class PostcodeData extends CsvFile {
 
-    private static PostcodeData INSTANCE = null;
+    private static PostcodeData INSTANCE = new PostcodeData();
 
     /**
      * Instantiates a new post code data.
-     * 
-     * @throws FileNotFoundException
      */
-    public PostcodeData() {
+    private PostcodeData() {
         super();
     }
 
@@ -43,9 +39,6 @@ public final class PostcodeData extends CsvFile {
      * @return single INSTANCE of PostcodeData
      */
     public static PostcodeData getInstance() {
-        if (PostcodeData.INSTANCE == null) {
-            PostcodeData.INSTANCE = new PostcodeData();
-        }
         return INSTANCE;
     }
 

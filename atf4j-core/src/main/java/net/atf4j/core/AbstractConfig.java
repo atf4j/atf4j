@@ -57,7 +57,7 @@ public abstract class AbstractConfig implements ConfigurationInterface {
         try {
             load(propertiesFilename());
         } catch (final ConfigurationNotLoadedException e) {
-            this.log.error("Using default values; {}", e.getMessage());
+            log.warn("Using default values; {}", e.getMessage());
         }
         return this;
     }
@@ -81,9 +81,9 @@ public abstract class AbstractConfig implements ConfigurationInterface {
      */
     protected ConfigurationInterface load(final String propertyFilename) throws ConfigurationNotLoadedException {
         try {
-            InputStream resourceAsStream = resourceAsStream(propertyFilename);
-            this.properties.load(resourceAsStream);
-            this.properties.setProperty("propertiesFilename", propertyFilename);
+            final InputStream resourceAsStream = resourceAsStream(propertyFilename);
+            properties.load(resourceAsStream);
+            properties.setProperty("propertiesFilename", propertyFilename);
         } catch (IOException | NullPointerException e) {
             throw new ConfigurationNotLoadedException(propertyFilename);
         }
@@ -121,10 +121,10 @@ public abstract class AbstractConfig implements ConfigurationInterface {
      */
     protected String get(final String key, final String defaultValue) {
         final String systemProperty = System.getProperty(key);
-        this.log.trace("Using system property for key {} = {}", key, systemProperty);
+        log.trace("Using system property for key {} = {}", key, systemProperty);
         if (systemProperty == null) {
-            final String property = this.properties.getProperty(key, defaultValue);
-            this.log.trace("Using property file for key {} = {}", key, property);
+            final String property = properties.getProperty(key, defaultValue);
+            log.trace("Using property file for key {} = {}", key, property);
             return property;
         } else {
             return systemProperty;
@@ -215,7 +215,7 @@ public abstract class AbstractConfig implements ConfigurationInterface {
      */
     @Override
     public String toString() {
-        return String.format("%s [properties=%s]", this.getClass().getSimpleName(), prettyProperties(this.properties));
+        return String.format("%s [properties=%s]", this.getClass().getSimpleName(), prettyProperties(properties));
     }
 
     /**
