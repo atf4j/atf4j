@@ -13,5 +13,4 @@
 *.jar
 
 /log4j/
-pom.xml.versionsBackup
-
+*.versionsBackup

@@ -79,7 +79,7 @@ public class Telephone {
     }
 
     /**
-     * Create new instance of create.
+     * Create new INSTANCE of create.
      *
      * @return the telephone
      */
@@ -88,7 +88,7 @@ public class Telephone {
     }
 
     /**
-     * Create new instance of create.
+     * Create new INSTANCE of create.
      *
      * @param type the type
      * @return the telephone

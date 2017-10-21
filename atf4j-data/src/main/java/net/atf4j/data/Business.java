@@ -28,7 +28,7 @@ public class Business extends Name {
     private PostalAddress address;
 
     /**
-     * Create new instance of create.
+     * Create new INSTANCE of create.
      *
      * @return the business
      */

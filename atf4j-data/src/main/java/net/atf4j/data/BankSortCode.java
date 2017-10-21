@@ -23,7 +23,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * BankSortCode data class.
+ * BankSortCode data class. UK Bank
+ * SortCode @”^\d{6,6}$|^\d{2,2}\-\d{2,2}\-\d{2,2}$”;
  */
 public class BankSortCode {
 
@@ -35,7 +36,7 @@ public class BankSortCode {
     private String sortcode = "00:00:00";
 
     /**
-     * Create new instance of create.
+     * Create new INSTANCE of create.
      *
      * @return the bank sort code
      */
@@ -103,6 +104,15 @@ public class BankSortCode {
         return matcher.find();
     }
 
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
+        return String.format("BankSortCode [bankName=%s, sortcode=%s]", this.bankName, this.sortcode);
+    }
+
     /*
      * (non-Javadoc)
      *
@@ -110,7 +120,7 @@ public class BankSortCode {
      */
     @Override
     public String toString() {
-        return String.format("BankSortCode [bankName=%s, sortcode=%s]", this.bankName, this.sortcode);
+        return this.sortcode;
     }
 
 }

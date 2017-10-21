@@ -32,9 +32,8 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class AbstractWalker {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
     private String basePath = ".";
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Instantiates a new abstract walker.

@@ -17,45 +17,32 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertNotNull;
-
-import org.junit.Test;
-
-import net.atf4j.core.TestResultsReporting;
+import net.atf4j.csv.CsvFile;
 
 /**
- * The ChordTest Class.
+ * The PostcodeData Class.
  */
-public class ChordTest extends TestResultsReporting {
+public class PostcodeData extends CsvFile {
+
+    private static PostcodeData INSTANCE = null;
 
     /**
-     * Test set stem.
+     * Instantiates a new post code data.
      */
-    @Test
-    public void testSetStem() {
-        final Chord chord = new Chord();
-        this.log.debug("{}", chord);
-        assertNotNull(chord);
+    public PostcodeData() {
+        super();
     }
 
     /**
-     * Test get stem.
+     * Gets the single INSTANCE of PostcodeData.
+     *
+     * @return single INSTANCE of PostcodeData
      */
-    @Test
-    public void testGetStem() {
-        final Chord chord = new Chord();
-        this.log.debug("{}", chord);
-        assertNotNull(chord);
-    }
-
-    /**
-     * Test add.
-     */
-    @Test
-    public void testAdd() {
-        final Chord chord = new Chord();
-        this.log.debug("{}", chord);
-        assertNotNull(chord);
+    public static PostcodeData getInstance() {
+        if (PostcodeData.INSTANCE == null) {
+            PostcodeData.INSTANCE = new PostcodeData();
+        }
+        return INSTANCE;
     }
 
 }

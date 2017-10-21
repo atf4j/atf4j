@@ -39,10 +39,8 @@ public class CsvFile {
 
     /**
      * Default Constructor instantiates a new empty CsvFile object.
-     *
-     * @throws FileNotFoundException the file not found exception
      */
-    public CsvFile() throws FileNotFoundException {
+    public CsvFile() {
         super();
         load();
     }
@@ -59,7 +57,7 @@ public class CsvFile {
     }
 
     /**
-     * Factory Method returns file as CsvFile instance.
+     * Factory Method returns file as CsvFile INSTANCE.
      *
      * @param dataFilename the data filename
      * @return the csv file
@@ -71,15 +69,17 @@ public class CsvFile {
 
     /**
      * Load.
-     *
-     * @throws FileNotFoundException the file not found exception
      */
-    protected void load() throws FileNotFoundException {
-        load(configFilename());
+    protected void load() {
+        try {
+            load(configFilename());
+        } catch (FileNotFoundException e) {
+            log.warn(e.toString());
+        }
     }
 
     /**
-     * Config filename.
+     * Configuration filename.
      *
      * @return the string
      */
@@ -126,7 +126,7 @@ public class CsvFile {
             bufferedReader.close();
 
         } catch (IOException e) {
-            log.error("{}", e.getLocalizedMessage());
+            log.error(e.toString());
         }
     }
 
@@ -219,9 +219,15 @@ public class CsvFile {
         return String.format("%s [header=%s, data=%s]", simpleName, this.header.toString(), this.data.toString());
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
-        return String.format("CsvFile [header=%s, data=%s]", header, data);
+        String simpleName = this.getClass().getSimpleName();
+        return String.format("%s [header=%s, data=%s]", simpleName, header, data);
     }
 
 }

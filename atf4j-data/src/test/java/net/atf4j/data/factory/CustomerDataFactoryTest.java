@@ -36,8 +36,8 @@ public final class CustomerDataFactoryTest extends TestResultsReporting {
      */
     @Test
     public void testExpectedUsage() {
-        final String randomThing = CustomerDataFactory.randomThing();
-        this.log.info("{}", randomThing);
+        final Customer customer = CustomerDataFactory.random();
+        this.log.info("{}", customer);
     }
 
     /**

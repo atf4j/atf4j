@@ -21,7 +21,6 @@ import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Random;
 
 import net.atf4j.data.Bank;
 import net.atf4j.data.Business;
@@ -41,62 +40,14 @@ public class DataFactory {
     public static final String ISO_TIME = "HH:mm'Z'";
     public static final String UK_DATE = "dd:MM-yyyy";
 
-    private static Random rnd = new Random(System.currentTimeMillis());
-
-    /**
-     * Random char.
-     *
-     * @return the char
-     */
-    public static char randomChar() {
-        return (char) ('a' + rnd.nextInt(26));
-    }
-
-    /**
-     * Random string.
-     *
-     * @param length the length
-     * @return the string
-     */
-    public static String randomString(final int length) {
-        final StringBuffer stringBuffer = new StringBuffer();
-        for (int i = 0; i < length; i++) {
-            stringBuffer.append(randomChar());
-        }
-        return stringBuffer.toString();
-    }
-
-    /**
-     * Random digit.
-     *
-     * @return the char
-     */
-    public static char randomDigit() {
-        return (char) ('0' + rnd.nextInt(9));
-    }
-
-    /**
-     * Random digits.
-     *
-     * @param length the length
-     * @return the string
-     */
-    public static String randomDigits(final int length) {
-        final StringBuffer stringBuffer = new StringBuffer();
-        for (int i = 0; i < length; i++) {
-            stringBuffer.append(randomDigit());
-        }
-        return stringBuffer.toString();
-    }
-
     /**
      * Today date.
      *
      * @return today as Calendar
      */
     public static Calendar today() {
-        final Calendar instance = Calendar.getInstance();
-        return instance;
+        final Calendar INSTANCE = Calendar.getInstance();
+        return INSTANCE;
     }
 
     /**
@@ -260,11 +211,11 @@ public class DataFactory {
      * @return the calendar
      */
     public static Calendar pastDate() {
-        final Calendar instance = Calendar.getInstance();
-        instance.add(Calendar.YEAR, -1);
-        instance.add(Calendar.MONTH, -1);
-        instance.add(Calendar.DATE, -1);
-        return instance;
+        final Calendar INSTANCE = Calendar.getInstance();
+        INSTANCE.add(Calendar.YEAR, -1);
+        INSTANCE.add(Calendar.MONTH, -1);
+        INSTANCE.add(Calendar.DATE, -1);
+        return INSTANCE;
     }
 
     /**
@@ -295,8 +246,8 @@ public class DataFactory {
      * @return the int
      */
     public static int thisYear() {
-        final Calendar instance = Calendar.getInstance();
-        return instance.get(Calendar.YEAR);
+        final Calendar INSTANCE = Calendar.getInstance();
+        return INSTANCE.get(Calendar.YEAR);
     }
 
     /**
@@ -305,8 +256,8 @@ public class DataFactory {
      * @return the int
      */
     public static int thisMonth() {
-        final Calendar instance = Calendar.getInstance();
-        return instance.get(Calendar.MONTH);
+        final Calendar INSTANCE = Calendar.getInstance();
+        return INSTANCE.get(Calendar.MONTH);
     }
 
     /**
@@ -330,7 +281,7 @@ public class DataFactory {
     }
 
     /**
-     * Create a new instances of Data.
+     * Create a new INSTANCEs of Data.
      *
      * @return the person
      */
@@ -339,7 +290,7 @@ public class DataFactory {
     }
 
     /**
-     * Create a new instances of Data.
+     * Create a new INSTANCEs of Data.
      *
      * @return the consumer
      */
@@ -348,7 +299,7 @@ public class DataFactory {
     }
 
     /**
-     * Create a new instances of Data.
+     * Create a new INSTANCEs of Data.
      *
      * @return the customer
      */
@@ -357,7 +308,7 @@ public class DataFactory {
     }
 
     /**
-     * Create a new instances of Data.
+     * Create a new INSTANCEs of Data.
      *
      * @return the card
      */
@@ -366,7 +317,7 @@ public class DataFactory {
     }
 
     /**
-     * Create a new instances of Data.
+     * Create a new INSTANCEs of Data.
      *
      * @return the business
      */
@@ -375,18 +326,18 @@ public class DataFactory {
     }
 
     /**
-     * Create a new instances of Data.
+     * Create a new INSTANCEs of Data.
      *
      * @return the bank
      * @throws FileNotFoundException the file not found exception
      */
     public static Bank createBank() throws FileNotFoundException {
-        final BankDataFactory instance = BankDataFactory.getInstance();
-        return instance.create();
+        final BankDataFactory INSTANCE = BankDataFactory.getInstance();
+        return INSTANCE.create();
     }
 
     /**
-     * Create a new instances of Data.
+     * Create a new INSTANCEs of Data.
      *
      * @return the postal address
      */
@@ -401,9 +352,9 @@ public class DataFactory {
      * @return the calendar
      */
     public static Calendar toCalendar(final Date startDate) {
-        final Calendar instance = Calendar.getInstance();
-        instance.setTime(startDate);
-        return instance;
+        final Calendar INSTANCE = Calendar.getInstance();
+        INSTANCE.setTime(startDate);
+        return INSTANCE;
     }
 
 }

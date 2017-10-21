@@ -65,15 +65,17 @@ public class HeaderLineTest extends TestResultsReporting {
     @Test
     public void testHeaderLine() {
         final HeaderLine headerLine = new HeaderLine();
+        this.log.trace(headerLine.toString());
         assertNotNull(UNEXPECTED_NULL, headerLine);
         assertEquals(0, headerLine.length());
         headerLine.initialise(HEADER_LINE);
+        this.log.trace(headerLine.toString());
         assertEquals(2, headerLine.length());
         final String headerLineString = headerLine.debugString();
+        this.log.trace(headerLineString.toString());
         assertEquals(EXPECTED_HEADER, headerLineString);
         assertEquals("ColumnOne", headerLine.getField(1));
         assertEquals("ColumnTwo", headerLine.getField(2));
-        this.log.trace(headerLine.toString());
     }
 
 }

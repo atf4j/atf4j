@@ -17,8 +17,12 @@
 
 package net.atf4j.data;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import net.atf4j.core.Atf4jException;
 
 /**
  * Provides UK Postcode. <code>
@@ -28,19 +32,24 @@ import java.util.regex.Pattern;
  * </code>
  */
 public final class Postcode {
-
     private static final String POSTCODE = "XX99 9XX";
+    private static final String GIRO_BANK = "GIR 0AA";
 
+    // old format verification pattern.
+    // private static final Pattern pattern =
+    // Pattern.compile("^[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][ABD-HJLNP-UW-Z]{2}$");
     /** format verification pattern. */
-    private static final Pattern pattern = Pattern.compile("^[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][ABD-HJLNP-UW-Z]{2}$");
+    private static final Pattern pattern = Pattern.compile(
+            "^([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z])))) [0-9][A-Za-z]{2})$");
+    private static boolean passOnBlank = true;
 
     /** The post code. */
-    private String postCode;
-    private String outwardCode;
-    private String inwardCode;
+    private String postCode = "";
+    private String outwardCode = "";
+    private String inwardCode = "";
 
     /**
-     * Create new instance of create.
+     * Create new INSTANCE of create.
      *
      * @return the Postcode object.
      */
@@ -49,29 +58,19 @@ public final class Postcode {
     }
 
     /**
-     * Create a random postcode.
-     *
-     * @return the Postcode object.
-     */
-    public static Postcode random() {
-        Postcode postcode = new Postcode();
-        return postcode;
-    }
-
-    /**
      * Instantiates a new postcode.
      */
     public Postcode() {
         super();
-        setPostCode(POSTCODE);
     }
 
     /**
      * Instantiates a new postcode.
      *
      * @param postCode the post code
+     * @throws InvalidPostcodeException the invalid postcode exception
      */
-    public Postcode(final String postCode) {
+    public Postcode(final String postCode) throws InvalidPostcodeException {
         super();
         setPostCode(postCode);
     }
@@ -81,19 +80,22 @@ public final class Postcode {
      *
      * @param postCode the post code as a String.
      * @return this for fluent interface.
+     * @throws InvalidPostcodeException the invalid postcode exception
      */
-    public Postcode setPostCode(final String postCode) {
+    public Postcode setPostCode(final String postCode) throws InvalidPostcodeException {
         this.postCode = postCode;
         if (Postcode.verify(this.postCode)) {
             final String[] parts = this.postCode.split("\\W");
             setOutwardCode(parts[0]);
             setInwardCode(parts[1]);
+            return this;
+        } else {
+            throw new InvalidPostcodeException(postCode);
         }
-        return this;
     }
 
     /**
-     * Sets the out code.
+     * Sets the outward code.
      *
      * @param outwardCode the out code
      * @return this for fluent interface.
@@ -104,13 +106,35 @@ public final class Postcode {
     }
 
     /**
-     * Sets the in code.
+     * Sets the inward code.
      *
      * @param inwardCode the in code
      * @return this for fluent interface.
      */
     public Postcode setInwardCode(final String inwardCode) {
         this.inwardCode = inwardCode;
+        return this;
+    }
+
+    /**
+     * Fail on blank.
+     *
+     * @param failOnBlank the fail on blank
+     * @return the postcode
+     */
+    public Postcode failOnBlank(boolean failOnBlank) {
+        Postcode.passOnBlank = false;
+        return this;
+    }
+
+    /**
+     * Pass on blank.
+     *
+     * @param failOnBlank the fail on blank
+     * @return the postcode
+     */
+    public Postcode passOnBlank(boolean failOnBlank) {
+        Postcode.passOnBlank = true;
         return this;
     }
 
@@ -142,6 +166,15 @@ public final class Postcode {
     }
 
     /**
+     * Checks if is fail on blank.
+     *
+     * @return true, if is fail on blank
+     */
+    public static boolean isPassOnBlank() {
+        return passOnBlank;
+    }
+
+    /**
      * Verify.
      *
      * @param postcode the postcode \* @return true, if successful, otherwise
@@ -149,8 +182,13 @@ public final class Postcode {
      * @return true, if successful, otherwise false.
      */
     public static boolean verify(final String postcode) {
-        final Matcher matcher = pattern.matcher(postcode);
-        return matcher.find();
+        assertNotNull(postcode);
+        if (postcode.isEmpty()) {
+            return passOnBlank;
+        } else {
+            final Matcher matcher = pattern.matcher(postcode);
+            return matcher.find();
+        }
     }
 
     /*
@@ -160,7 +198,22 @@ public final class Postcode {
      */
     @Override
     public String toString() {
-        return String.format("%s %s", outwardCode, inwardCode);
+        // return String.format("%s %s", outwardCode, inwardCode);
+        return String.format("%s", this.postCode);
     }
 
+    /**
+     * The property file was not found.
+     */
+    @SuppressWarnings("serial")
+    public class InvalidPostcodeException extends Atf4jException {
+        /**
+         * Instantiates a new property not found.
+         *
+         * @param invalidPostcode the property key
+         */
+        public InvalidPostcodeException(final String invalidPostcode) {
+            super(String.format("Postcode %s is valid format", invalidPostcode));
+        }
+    }
 }

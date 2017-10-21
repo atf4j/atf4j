@@ -29,7 +29,7 @@ public final class CustomBrowserFactory extends BrowserFactory {
     }
 
     /**
-     * Create new instance of create.
+     * Create new INSTANCE of create.
      * 
      * @return the web driver
      */

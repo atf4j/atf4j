@@ -31,7 +31,7 @@ public class Bank extends Business {
     private String iban;
 
     /**
-     * Create new instance of create.
+     * Create new INSTANCE of create.
      *
      * @return the bank
      */

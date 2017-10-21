@@ -10,7 +10,14 @@ engines:
         enabled: false
   fixme:
     enabled: true
+     
+  metrics:
+   enabled: true
+
+  coverage:
+   enabled: true
 
 exclude_paths:
 - 'src/test/**/*'
 - 'src/site/**/*'
+   

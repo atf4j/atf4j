@@ -22,7 +22,6 @@ import static org.junit.Assert.assertNotNull;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 
-import net.atf4j.csv.CsvFile;
 import net.atf4j.data.PostalAddress;
 import net.atf4j.data.Postcode;
 
@@ -33,28 +32,27 @@ public class AddressDataFactory extends AbstractDataFactory {
 
     private static final String FILE_NOT_FOUND_MSG = "Expected file '%s' not found.";
 
-    private static AddressDataFactory instance = null;
+    private static AddressDataFactory INSTANCE = null;
 
     private String[] addressLineStems;
     private String[] addressLinePostfix;
     private String[] addressLocals;
     private String[] addressStems;
-    private CsvFile postCodeData = null;
 
     /**
-     * Gets the single instance of AddressDataFactory.
+     * Gets the single INSTANCE of AddressDataFactory.
      *
-     * @return single instance of AddressDataFactory
+     * @return single INSTANCE of AddressDataFactory
      */
     public static AddressDataFactory getInstance() {
-        if (AddressDataFactory.instance == null) {
-            AddressDataFactory.instance = new AddressDataFactory();
+        if (AddressDataFactory.INSTANCE == null) {
+            AddressDataFactory.INSTANCE = new AddressDataFactory();
         }
-        return AddressDataFactory.instance;
+        return AddressDataFactory.INSTANCE;
     }
 
     /**
-     * Create new instance of create.
+     * Create new INSTANCE of create.
      *
      * @return the postal address
      */
@@ -122,39 +120,34 @@ public class AddressDataFactory extends AbstractDataFactory {
             this.log.error(errorMessage);
         }
 
-        try {
-            this.postCodeData = new CsvFile("postCodeData.csv");
-        } catch (final FileNotFoundException e) {
-            String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
-            this.log.error("{}", errorMessage);
-        }
     }
 
     /**
      * Format data lines.
      *
-     * @param properties the properties
+     * @param data the data
      * @return the string
      */
     private String fromatData(final String data) {
         return data.replace("{", "{\n\t").replace(", ", "\n\t").replace("}", "\n\t}");
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         assertNotNull(addressLineStems);
         assertNotNull(addressLinePostfix);
         assertNotNull(addressStems);
         assertNotNull(addressLocals);
-        assertNotNull(postCodeData);
 
         return String.format(
-                "AddressDataFactory [addressLineStems=%s, addressLinePostfix=%s, addressStems=%s, addressLocals=%s, postCodeData=%s]",
+                "AddressDataFactory [addressLineStems=%s, addressLinePostfix=%s, addressStems=%s, addressLocals=%s]",
                 fromatData(Arrays.toString(addressLineStems)),
                 fromatData(Arrays.toString(addressLinePostfix)),
                 fromatData(Arrays.toString(addressStems)),
-                fromatData(Arrays.toString(addressLocals)),
-                postCodeData.toString());
+                fromatData(Arrays.toString(addressLocals)));
     }
 
 }
