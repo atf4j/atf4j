@@ -24,11 +24,13 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * A UnitTest for BootstrapPage objects.
  */
 @Ignore
-public class BootstrapPageTest {
+public final class BootstrapPageTest extends TestResultsReporting {
 
     private static final String PAGE_URL = "http://atf4j.net/bootstrap/";
     // private static final String PAGE_URL = "http://127.0.0.1:8080/bootstrap";

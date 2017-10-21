@@ -46,7 +46,7 @@ public class CsvFileTest extends TestResultsReporting {
          *
          * @throws Exception the exception
          */
-        public TestData() throws Exception {
+        public TestData() {
             super();
         }
     }
@@ -94,7 +94,7 @@ public class CsvFileTest extends TestResultsReporting {
     @Test
     public void testExpectedUsage() throws Exception {
         final TestData testData = new TestData();
-        this.log.debug(testData.toString());
+        log.debug(testData.toString());
         assertNotNull(testData);
     }
 
@@ -106,7 +106,7 @@ public class CsvFileTest extends TestResultsReporting {
     @Test
     public void testConstructorWithDataPresent() throws Exception {
         final CsvFile csvFile = new CsvFile(TEST_DATA_CSV);
-        this.log.debug(csvFile.debugString());
+        log.debug(csvFile.debugString());
         assertNotNull(UNEXPECTED_NULL, csvFile);
     }
 
@@ -118,7 +118,7 @@ public class CsvFileTest extends TestResultsReporting {
     @Test
     public void testReadPresentData() throws Exception {
         final CsvFile csvFile = CsvFile.read(TEST_DATA_CSV);
-        this.log.debug(csvFile.debugString());
+        log.debug(csvFile.debugString());
         assertNotNull(UNEXPECTED_NULL, csvFile);
         verifyContent(csvFile);
     }
@@ -130,13 +130,13 @@ public class CsvFileTest extends TestResultsReporting {
      */
     private void verifyContent(final CsvFile csvFile) {
         assertNotNull(UNEXPECTED_NULL, csvFile);
-        this.log.debug(csvFile.debugString());
+        log.debug(csvFile.debugString());
         final HeaderLine header = csvFile.getHeaderLine();
         assertEquals(EXPECTED_HEADER, header.debugString());
-        this.log.info("{}", header);
+        log.info("{}", header);
         for (int i = 1; i < csvFile.rowCount(); i++) {
             final CsvRow csvRow = csvFile.getRow(i);
-            this.log.info("{}", csvRow);
+            log.info("{}", csvRow);
             for (int j = 1; j < csvRow.length(); j++) {
                 final String expected = String.format("data-%s-%s", i, j);
                 final String actual = csvRow.getField(j);

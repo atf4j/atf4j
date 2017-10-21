@@ -28,12 +28,12 @@ import org.slf4j.LoggerFactory;
  * A Class to represent a method of the class to be Generated.
  */
 public final class ClassMethod {
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
     private static final String METHOD_CODE = "public %s %s() { return new %s(); }";
     private String access;
     private String returnType;
     private String methodName;
     private final List<ClassField> parameters = new ArrayList<ClassField>();
+    private final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Instantiates a new class method.
@@ -75,7 +75,7 @@ public final class ClassMethod {
      * @return the class method
      */
     public ClassMethod setName(final String name) {
-        this.methodName = methodCase(name);
+        methodName = methodCase(name);
         return this;
     }
 
@@ -86,7 +86,7 @@ public final class ClassMethod {
      * @return the class method
      */
     public ClassMethod setType(final String type) {
-        this.returnType = type;
+        returnType = type;
         return this;
     }
 
@@ -97,7 +97,7 @@ public final class ClassMethod {
      * @return true, if successful, otherwise false.
      */
     public boolean add(final ClassField e) {
-        return this.parameters.add(e);
+        return parameters.add(e);
     }
 
     /**
@@ -106,7 +106,7 @@ public final class ClassMethod {
      * @return the access
      */
     public String getAccess() {
-        return this.access;
+        return access;
     }
 
     /**
@@ -115,7 +115,7 @@ public final class ClassMethod {
      * @return the type
      */
     public String getType() {
-        return this.returnType;
+        return returnType;
     }
 
     /**
@@ -124,7 +124,7 @@ public final class ClassMethod {
      * @return the name
      */
     public String getName() {
-        return this.methodName;
+        return methodName;
     }
 
     /**
@@ -145,12 +145,12 @@ public final class ClassMethod {
      * @return the string
      */
     public String toCode() {
-        if (this.parameters.size() > 0) {
-            final String string = this.parameters.toString();
-            this.log.info(string);
-            return String.format(METHOD_CODE, this.returnType, this.methodName, this.returnType);
+        if (parameters.size() > 0) {
+            final String string = parameters.toString();
+            log.info(string);
+            return String.format(METHOD_CODE, returnType, methodName, returnType);
         } else {
-            return String.format(METHOD_CODE, this.returnType, this.methodName, this.returnType);
+            return String.format(METHOD_CODE, returnType, methodName, returnType);
         }
     }
 
@@ -161,8 +161,10 @@ public final class ClassMethod {
      */
     @Override
     public String toString() {
-        return String.format("ClassMethod [access=%s, returnType=%s, methodName=%s]", this.access, this.returnType,
-                this.methodName);
+        return String.format("ClassMethod [access=%s, returnType=%s, methodName=%s]",
+                access,
+                returnType,
+                methodName);
     }
 
     /*
@@ -174,8 +176,8 @@ public final class ClassMethod {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + (this.methodName == null ? 0 : this.methodName.hashCode());
-        result = prime * result + (this.returnType == null ? 0 : this.returnType.hashCode());
+        result = prime * result + (methodName == null ? 0 : methodName.hashCode());
+        result = prime * result + (returnType == null ? 0 : returnType.hashCode());
         return result;
     }
 
@@ -196,18 +198,18 @@ public final class ClassMethod {
             return false;
         }
         final ClassMethod other = (ClassMethod) obj;
-        if (this.methodName == null) {
+        if (methodName == null) {
             if (other.methodName != null) {
                 return false;
             }
-        } else if (!this.methodName.equals(other.methodName)) {
+        } else if (!methodName.equals(other.methodName)) {
             return false;
         }
-        if (this.returnType == null) {
+        if (returnType == null) {
             if (other.returnType != null) {
                 return false;
             }
-        } else if (!this.returnType.equals(other.returnType)) {
+        } else if (!returnType.equals(other.returnType)) {
             return false;
         }
         return true;

@@ -23,7 +23,14 @@ import org.openqa.selenium.WebDriver;
 /**
  * The JavaScriptExecutor Class.
  */
-public class JavaScriptExecutor {
+public final class JavaScriptExecutor {
+
+    /**
+     * Private to prevent wild construction.
+     */
+    private JavaScriptExecutor() {
+        super();
+    }
 
     /**
      * Inject JavaScript in to a page and execute.

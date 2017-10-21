@@ -31,14 +31,15 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
     private static final String PAGE_OBJECT_TEMPLATE = "templates/PageObject.vm";
     private PageObjectData pageObjectData;
     private String pageUrl = DEFAULT_TARGET;
-    private URL targetUrl = new URL(this.pageUrl);
 
     /**
      * Instantiates a new page object generator.
      *
+     * @throws TemplateNotLoadedException
+     *
      * @throws Exception the exception
      */
-    public PageObjectGenerator() throws Exception {
+    public PageObjectGenerator() throws TemplateNotLoadedException {
         super(PAGE_OBJECT_TEMPLATE);
     }
 
@@ -60,8 +61,7 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @throws MalformedURLException the malformed URL exception
      */
     public PageObjectGenerator target(final String targetUrl) throws MalformedURLException {
-        this.targetUrl = new URL(targetUrl);
-        return target(this.targetUrl);
+        return target(new URL(targetUrl));
     }
 
     /**
@@ -71,9 +71,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @return the page object generator
      */
     public PageObjectGenerator target(final URL targetUrl) {
-        this.targetUrl = targetUrl;
-        this.pageUrl = targetUrl.toString();
-        super.contextBinding("pageUrl", this.pageUrl);
+        pageUrl = targetUrl.toString();
+        super.contextBinding("pageUrl", pageUrl);
         return this;
     }
 
@@ -110,8 +109,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      */
     public PageObjectGenerator add(final PageWebElement pageWebElement) {
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
-        assertNotNull(UNEXPECTED_NULL, this.pageObjectData);
-        this.pageObjectData.add(pageWebElement);
+        assertNotNull(UNEXPECTED_NULL, pageObjectData);
+        pageObjectData.add(pageWebElement);
         return this;
     }
 
@@ -123,8 +122,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      */
     public PageObjectGenerator addNavigation(final PageWebElement pageWebElement) {
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
-        assertNotNull(UNEXPECTED_NULL, this.pageObjectData);
-        this.pageObjectData.addNav(pageWebElement);
+        assertNotNull(UNEXPECTED_NULL, pageObjectData);
+        pageObjectData.addNav(pageWebElement);
         return this;
     }
 
@@ -136,8 +135,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      */
     public PageObjectGenerator addContent(final PageWebElement pageWebElement) {
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
-        assertNotNull(UNEXPECTED_NULL, this.pageObjectData);
-        this.pageObjectData.addContent(pageWebElement);
+        assertNotNull(UNEXPECTED_NULL, pageObjectData);
+        pageObjectData.addContent(pageWebElement);
         return this;
     }
 
@@ -149,8 +148,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      */
     public PageObjectGenerator addInput(final PageWebElement pageWebElement) {
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
-        assertNotNull(UNEXPECTED_NULL, this.pageObjectData);
-        this.pageObjectData.addInput(pageWebElement);
+        assertNotNull(UNEXPECTED_NULL, pageObjectData);
+        pageObjectData.addInput(pageWebElement);
         return this;
     }
 
@@ -160,9 +159,9 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @return the page object generator
      */
     public PageObjectGenerator survey() {
-        this.log.info("survey");
-        this.log.info("this.pageUrl={}", this.pageUrl);
-        return survey(this.pageUrl);
+        log.info("survey");
+        log.info("this.pageUrl={}", pageUrl);
+        return survey(pageUrl);
     }
 
     /**
@@ -172,7 +171,7 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @return the page object generator
      */
     public PageObjectGenerator survey(final String pageUrl) {
-        this.log.info("survey(pageUrl={})", pageUrl);
+        log.info("survey(pageUrl={})", pageUrl);
         addPageTitle("Landing Page");
         setClassName("LandingPage");
         return this;
@@ -185,8 +184,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      */
     @Override
     public String toString() {
-        assertNotNull(UNEXPECTED_NULL, this.pageObjectData);
-        return this.pageObjectData.toString();
+        assertNotNull(UNEXPECTED_NULL, pageObjectData);
+        return pageObjectData.toString();
     }
 
 }

@@ -26,14 +26,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Unit Test for abstract PageObject.
  */
 @Ignore
-public class PageObjectTest {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public final class PageObjectTest extends TestResultsReporting {
 
     /**
      * Mock Page to extend AbstractPageObject.

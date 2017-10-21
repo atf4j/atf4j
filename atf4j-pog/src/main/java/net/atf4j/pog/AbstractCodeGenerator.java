@@ -334,8 +334,7 @@ public abstract class AbstractCodeGenerator {
         final String targetFile = targetFilename(targetPath, className);
         final File file = new File(targetFile);
         final FileWriter fileWriter = new FileWriter(file);
-        final BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-        return bufferedWriter;
+        return new BufferedWriter(fileWriter);
     }
 
     /**

@@ -17,6 +17,7 @@
 
 package net.atf4j.junit;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ public class CustomRunner extends Runner {
      * @param aClass the a class
      */
     public CustomRunner(final Class<?> aClass) {
+        super();
         testClass = new TestClass(aClass);
         final Method[] classMethods = aClass.getDeclaredMethods();
         for (final Method classMethod : classMethods) {
@@ -49,13 +51,18 @@ public class CustomRunner extends Runner {
             final int length = classMethod.getParameterTypes().length;
             final int modifiers = classMethod.getModifiers();
 
-            if (retClass == null || length != 0 || Modifier.isStatic(modifiers) || !Modifier.isPublic(modifiers)
-                    || Modifier.isInterface(modifiers) || Modifier.isAbstract(modifiers)) {
+            if (retClass == null
+                    || length != 0
+                    || Modifier.isStatic(modifiers)
+                    || Modifier.isInterface(modifiers)
+                    || Modifier.isAbstract(modifiers)
+                    || !Modifier.isPublic(modifiers)) {
                 continue;
             }
 
             final String methodName = classMethod.getName();
-            if (methodName.toUpperCase().startsWith("TEST") || classMethod.getAnnotation(Test.class) != null) {
+            if (methodName.toUpperCase().startsWith("TEST")
+                    || classMethod.getAnnotation(Test.class) != null) {
                 testMethods.add(classMethod);
             }
 
@@ -67,19 +74,20 @@ public class CustomRunner extends Runner {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.junit.runner.Runner#getDescription()
      */
     @Override
     public Description getDescription() {
-        final Description spec = Description.createSuiteDescription(testClass.getName(),
-                testClass.getJavaClass().getAnnotations());
-        return spec;
+        final String className = testClass.getName();
+        final Class<?> javaClass = testClass.getJavaClass();
+        final Annotation[] annotations = javaClass.getAnnotations();
+        return Description.createSuiteDescription(className, annotations);
     }
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * org.junit.runner.Runner#run(org.junit.runner.notification.RunNotifier)
      */
@@ -87,8 +95,9 @@ public class CustomRunner extends Runner {
     public void run(final RunNotifier runNotifier) {
         for (int i = 0; i < testMethods.size(); i++) {
             final Method method = testMethods.get(i);
-            final Description spec = Description.createTestDescription(method.getClass(), method.getName());
-            runNotifier.fireTestStarted(spec);
+            final Class<? extends Method> methodClass = method.getClass();
+            final String methodName = method.getName();
+            runNotifier.fireTestStarted(Description.createTestDescription(methodClass, methodName));
         }
     }
 }
