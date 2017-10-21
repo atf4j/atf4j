@@ -27,4 +27,6 @@
 		</dependency>
 	</dependencies>
 
+	<description>Java Automation Testing Framework Data Factory.</description>
+	<url>http://atf4j.net</url>
 </project>

@@ -11,7 +11,7 @@
 
 	<artifactId>atf4j-amq</artifactId>
 	<packaging>jar</packaging>
-	<name>ATF4J - Apache ActiveMQ</name>
+	<name>ATF4J for Apache ActiveMQ</name>
 
 	<dependencies>
 		<dependency>
@@ -20,17 +20,19 @@
 			<version>0.10.0-SNAPSHOT</version>
 		</dependency>
 
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-all</artifactId>
 			<version>${activemq.version}</version>
 		</dependency>
-
+ -->
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-client</artifactId>
 			<version>${activemq.version}</version>
 		</dependency>
 	</dependencies>
+	<url>http://atf4j.net</url>
+	<description>Java Automated Testing Framework for Apache ActiveMQ.</description>
 </project>
 
