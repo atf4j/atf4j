@@ -5,7 +5,7 @@
 
 	<artifactId>atf4j-junit</artifactId>
 	<packaging>jar</packaging>
-	<name>Java Automation Test Framework for JUnit</name>
+	<name>ATF4J - JUnit</name>
 
 	<parent>
 		<groupId>net.atf4j</groupId>

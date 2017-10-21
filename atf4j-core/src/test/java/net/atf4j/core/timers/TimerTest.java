@@ -15,17 +15,14 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.core.waits;
+package net.atf4j.core.timers;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assume.assumeTrue;
+import static org.junit.Assert.assertTrue;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.core.timers.MilliTimer;
-import net.atf4j.core.timers.TimerInterface;
 
 /**
  * Timer Test.
@@ -33,7 +30,7 @@ import net.atf4j.core.timers.TimerInterface;
 public class TimerTest extends TestResultsReporting {
 
     private static final int DEFAULT_INTERVAL = 100;
-    private long delta = 1000;
+    private final long delta = 1000;
 
     /**
      * Test method for DefaultConstructor.
@@ -50,14 +47,15 @@ public class TimerTest extends TestResultsReporting {
     @Test
     public void testTimer0() {
         final TimerInterface timer = new MilliTimer(this.getClass().getSimpleName());
-        timer.start();
-        // NOP elapsed time should be close to zero
-        timer.stop();
-        log.debug("testTimer0.Start Time=" + timer.getStartTime());
-        log.debug("testTimer0.Elapsed Time=" + timer.getElapsedTime());
-        log.debug("testTimer0." + timer.toString() + " Elapsed time not within delta (" + delta + ")");
-        assumeTrue(timer.getElapsedTime() <= delta);
-        delta = timer.getElapsedTime();
+        assertNotNull(timer);
+        assertNotNull(timer.start());
+        assertNotNull(timer.stop());
+        log.debug("testTimer0.Start Time = {}", timer.getStartTime());
+        final long elapsedTime = timer.getElapsedTime();
+        log.debug("testTimer0.Elapsed Time = {} ", elapsedTime);
+        log.debug("testTimer0.{} Elapsed time not within delta (%s)", timer.toString(), delta);
+        final String message = String.format(" Elapsed time not within delta (%s)", timer, delta);
+        assertTrue(message, timer.getElapsedTime() <= DEFAULT_INTERVAL + delta);
     }
 
     /**
@@ -66,13 +64,14 @@ public class TimerTest extends TestResultsReporting {
     @Test
     public void testTimerOneSec() {
         final TimerInterface timer = new MilliTimer(this.getClass().getSimpleName());
-        timer.start();
+        assertNotNull(timer);
+        assertNotNull(timer.start());
         waitDefaultInterval();
-        timer.stop();
-        log.debug("testTimerOneSec.Start Time=" + timer.getStartTime());
-        log.debug("testTimerOneSec.Elapsed Time=" + timer.getElapsedTime());
-        final String message = timer.toString() + " Elapsed time not within delta (" + delta + ")";
-        Assert.assertTrue(message, timer.getElapsedTime() <= DEFAULT_INTERVAL + delta);
+        assertNotNull(timer.stop());
+        log.debug("testTimerOneSec.Start Time = {}", timer.getStartTime());
+        log.debug("testTimerOneSec.Elapsed Time = {}", timer.getElapsedTime());
+        final String message = String.format(" Elapsed time not within delta (%s)", timer, delta);
+        assertTrue(message, timer.getElapsedTime() <= DEFAULT_INTERVAL + delta);
     }
 
     /**

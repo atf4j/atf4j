@@ -11,7 +11,7 @@
 
 	<artifactId>atf4j-amq</artifactId>
 	<packaging>jar</packaging>
-	<name>ATF4J for Apache ActiveMQ</name>
+	<name>ATF4J - Apache ActiveMQ</name>
 
 	<dependencies>
 		<dependency>
