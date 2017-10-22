@@ -35,7 +35,7 @@ public final class ScenarioFailTest extends TestResultsReporting {
     @Ignore
     @Test
     public void testScenarioRunner() {
-        log.debug("testScenarioRunner", this.getClass().getSimpleName());
+        this.log.debug("testScenarioRunner", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         assertNotNull(UNEXPECTED_NULL, scenarioRunner);
         assertNotNull(UNEXPECTED_NULL, scenarioRunner.execute());

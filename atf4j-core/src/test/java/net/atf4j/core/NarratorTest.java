@@ -24,17 +24,28 @@ import org.junit.Test;
  */
 public final class NarratorTest extends TestResultsReporting {
 
-    private final Object object = new Object();
-    private final String className = this.getClass().getSimpleName();
-    private final Boolean aBoolean = true;
-    private final long number = Long.MAX_VALUE;
+    public final class ClassUnderTest {
+        private final Object object = new Object();
+        private final String className = this.getClass().getSimpleName();
+        private final Boolean aBoolean = true;
+        private final long number = Long.MAX_VALUE;
+
+        @Override
+        public String toString() {
+            return String.format("NarratorTest [object=%s, className=%s, aBoolean=%s, number=%s]",
+                    object,
+                    className,
+                    aBoolean,
+                    number);
+        }
+    }
 
     /**
      * Unit Test for test reflect object to string.
      */
     @Test
     public void testReflectObjectToString() {
-        log.info(Narrator.reflectObjectToString(this));
+        log.info(Narrator.reflectObjectToString(new ClassUnderTest()));
     }
 
 }

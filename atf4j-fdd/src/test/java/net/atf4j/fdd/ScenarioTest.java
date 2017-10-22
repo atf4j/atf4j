@@ -39,7 +39,7 @@ public final class ScenarioTest extends TestResultsReporting {
     @Ignore
     @Test
     public void testScenarioRunner() {
-        log.debug("testScenarioRunner", this.getClass().getSimpleName());
+        this.log.debug("testScenarioRunner", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         assertNotNull(UNEXPECTED_NULL, scenarioRunner);
         assertNotNull(UNEXPECTED_NULL, scenarioRunner.execute());
@@ -50,7 +50,7 @@ public final class ScenarioTest extends TestResultsReporting {
      */
     @Feature.Given("Given")
     public void passGiven() {
-        log.debug("passGiven");
+        this.log.debug("passGiven");
         Assume.assumeTrue(true);
     }
 
@@ -59,7 +59,7 @@ public final class ScenarioTest extends TestResultsReporting {
      */
     @Feature.When("When")
     public void passWhen() {
-        log.debug("passWhen");
+        this.log.debug("passWhen");
         Assert.assertTrue(true);
     }
 
@@ -68,7 +68,7 @@ public final class ScenarioTest extends TestResultsReporting {
      */
     @Feature.Then("Then")
     public void passThen() {
-        log.debug("passThen");
+        this.log.debug("passThen");
         Assert.assertTrue(true);
     }
 

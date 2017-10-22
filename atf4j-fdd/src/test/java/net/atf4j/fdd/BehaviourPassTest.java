@@ -22,10 +22,6 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.fdd.Feature;
-import net.atf4j.fdd.Given;
-import net.atf4j.fdd.Then;
-import net.atf4j.fdd.When;
 
 /**
  * Behaviour Pass Test Class.
@@ -36,36 +32,36 @@ public final class BehaviourPassTest extends TestResultsReporting {
      * Test given.
      */
     @Test
-    @Feature.Given("testGiven")
-    public void testGiven() {
-        log.debug("testGiven", this.getClass().getSimpleName());
+    @Feature.Given("passGiven")
+    public void passGiven() {
+        this.log.debug("passGiven");
         final Given given = new Given();
         assertNotNull(UNEXPECTED_NULL, given);
-        given.execute();
+        assertNotNull(UNEXPECTED_NULL, given.execute());
     }
 
     /**
      * Test when.
      */
     @Test
-    @Feature.When("testWhen")
-    public void testWhen() {
-        log.debug("testGiven", this.getClass().getSimpleName());
+    @Feature.When("passWhen")
+    public void passWhen() {
+        this.log.debug("passWhen");
         final When when = new When();
         assertNotNull(UNEXPECTED_NULL, when);
-        when.execute();
+        assertNotNull(UNEXPECTED_NULL, when.execute());
     }
 
     /**
      * Test then.
      */
     @Test
-    @Feature.Then("testThen")
-    public void testThen() {
-        log.debug("testGiven", this.getClass().getSimpleName());
+    @Feature.Then("passThen")
+    public void passThen() {
+        this.log.debug("passThen");
         final Then then = new Then();
         assertNotNull(UNEXPECTED_NULL, then);
-        then.execute();
+        assertNotNull(UNEXPECTED_NULL, then.execute());
     }
 
 }

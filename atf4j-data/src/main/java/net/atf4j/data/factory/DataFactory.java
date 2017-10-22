@@ -21,6 +21,7 @@ import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 
 import net.atf4j.core.TestResultsReporting;
 import net.atf4j.data.Bank;
@@ -32,14 +33,22 @@ import net.atf4j.data.Person;
 import net.atf4j.data.PostalAddress;
 
 /**
- * Factory for random data. TODO: Add variants formated date string.
+ * Factory for random data.
  */
 public final class DataFactory extends TestResultsReporting {
 
+    private static Random random = new Random(System.currentTimeMillis());
     public static final String ISO_DATE_TIME = "yyyy-MM-dd'T'HH:mm'Z'";
     public static final String ISO_DATE = "yyyy-MM-dd";
     public static final String ISO_TIME = "HH:mm'Z'";
     public static final String UK_DATE = "dd:MM-yyyy";
+
+    /**
+     * Instantiates a new data factory.
+     */
+    private DataFactory() {
+        super();
+    }
 
     /**
      * Today date.
@@ -47,19 +56,7 @@ public final class DataFactory extends TestResultsReporting {
      * @return today as Calendar
      */
     public static Calendar today() {
-        final Calendar INSTANCE = Calendar.getInstance();
-        return INSTANCE;
-    }
-
-    /**
-     * Today date as string.
-     *
-     * @param format the format to use for date
-     * @return today as String.
-     */
-    public static String today(final String format) {
-        final Calendar today = today();
-        return format(today);
+        return Calendar.getInstance();
     }
 
     /**
@@ -78,17 +75,6 @@ public final class DataFactory extends TestResultsReporting {
     /**
      * DOB over 18.
      *
-     * @param format the format
-     * @return the string
-     */
-    public static String dobOver18(final String format) {
-        final Calendar dobOver18 = dobOver18();
-        return format(dobOver18);
-    }
-
-    /**
-     * DOB over 18.
-     *
      * @return the calendar
      */
     public static Calendar dobOver18() {
@@ -97,17 +83,6 @@ public final class DataFactory extends TestResultsReporting {
         dobOver18.add(Calendar.MONTH, 0);
         dobOver18.add(Calendar.DATE, 1);
         return dobOver18;
-    }
-
-    /**
-     * DOB under 18.
-     *
-     * @param format the format
-     * @return the string
-     */
-    public static String dobUnder18(final String format) {
-        final Calendar dobOver18 = dobUnder18();
-        return format(dobOver18);
     }
 
     /**
@@ -124,38 +99,16 @@ public final class DataFactory extends TestResultsReporting {
     }
 
     /**
-     * Tomorrow.
-     *
-     * @param format the format
-     * @return the string
-     */
-    public static String tomorrow(final String format) {
-        final Calendar dobOver18 = tomorrow();
-        return format(dobOver18);
-    }
-
-    /**
      * Tomorrow date.
      *
      * @return the calendar
      */
     public static Calendar tomorrow() {
-        final Calendar tomorrow = Calendar.getInstance();
-        tomorrow.add(Calendar.YEAR, 0);
-        tomorrow.add(Calendar.MONTH, 0);
-        tomorrow.add(Calendar.DATE, 1);
-        return tomorrow;
-    }
-
-    /**
-     * Future date.
-     *
-     * @param format the format
-     * @return the string
-     */
-    public static String futureDate(final String format) {
-        final Calendar futureDate = futureDate();
-        return format(futureDate);
+        final Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.YEAR, 0);
+        calendar.add(Calendar.MONTH, 0);
+        calendar.add(Calendar.DATE, 1);
+        return calendar;
     }
 
     /**
@@ -174,17 +127,6 @@ public final class DataFactory extends TestResultsReporting {
     /**
      * Yesterday.
      *
-     * @param format the format
-     * @return the string
-     */
-    public static String yesterday(final String format) {
-        final Calendar yesterday = yesterday();
-        return format(yesterday);
-    }
-
-    /**
-     * Yesterday.
-     *
      * @return the calendar
      */
     public static Calendar yesterday() {
@@ -198,25 +140,14 @@ public final class DataFactory extends TestResultsReporting {
     /**
      * Past date.
      *
-     * @param format the format
-     * @return the string
-     */
-    public static String pastDate(final String format) {
-        final Calendar pastDate = pastDate();
-        return format(pastDate);
-    }
-
-    /**
-     * Past date.
-     *
      * @return the calendar
      */
     public static Calendar pastDate() {
-        final Calendar INSTANCE = Calendar.getInstance();
-        INSTANCE.add(Calendar.YEAR, -1);
-        INSTANCE.add(Calendar.MONTH, -1);
-        INSTANCE.add(Calendar.DATE, -1);
-        return INSTANCE;
+        final Calendar pastDate = Calendar.getInstance();
+        pastDate.add(Calendar.YEAR, -1);
+        pastDate.add(Calendar.MONTH, -1);
+        pastDate.add(Calendar.DATE, -1);
+        return pastDate;
     }
 
     /**
@@ -227,7 +158,10 @@ public final class DataFactory extends TestResultsReporting {
      * @return the calendar
      */
     public static Calendar dateBetween(final Date startDate, final Date endDate) {
-        return dateBetween(toCalendar(startDate), toCalendar(endDate));
+        final long difference = endDate.getTime() - startDate.getTime();
+        final Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(difference);
+        return calendar;
     }
 
     /**
@@ -237,8 +171,8 @@ public final class DataFactory extends TestResultsReporting {
      * @param today the today
      * @return the calendar
      */
-    public static Calendar dateBetween(final Calendar pastDate, final Calendar today) {
-        return null;
+    public static Calendar dateBetween(final Calendar startDate, final Calendar endDate) {
+        return dateBetween(startDate.getTime(), endDate.getTime());
     }
 
     /**
@@ -247,8 +181,7 @@ public final class DataFactory extends TestResultsReporting {
      * @return the int
      */
     public static int thisYear() {
-        final Calendar INSTANCE = Calendar.getInstance();
-        return INSTANCE.get(Calendar.YEAR);
+        return Calendar.getInstance().get(Calendar.YEAR);
     }
 
     /**
@@ -257,8 +190,19 @@ public final class DataFactory extends TestResultsReporting {
      * @return the int
      */
     public static int thisMonth() {
-        final Calendar INSTANCE = Calendar.getInstance();
-        return INSTANCE.get(Calendar.MONTH);
+        return Calendar.getInstance().get(Calendar.MONTH);
+    }
+
+    /**
+     * To calendar.
+     *
+     * @param startDate the start date
+     * @return the calendar
+     */
+    public static Calendar toCalendar(final Date startDate) {
+        final Calendar calendar = Calendar.getInstance();
+        calendar.setTime(startDate);
+        return calendar;
     }
 
     /**
@@ -278,7 +222,7 @@ public final class DataFactory extends TestResultsReporting {
      * @return the string
      */
     public static String format(final Date date) {
-        return new SimpleDateFormat().format(date);
+        return new SimpleDateFormat(ISO_DATE_TIME).format(date);
     }
 
     /**
@@ -332,9 +276,8 @@ public final class DataFactory extends TestResultsReporting {
      * @return the bank
      * @throws FileNotFoundException the file not found exception
      */
-    public static Bank createBank() throws FileNotFoundException {
-        final BankDataFactory INSTANCE = BankDataFactory.getInstance();
-        return INSTANCE.create();
+    public static Bank createBank() {
+        return BankDataFactory.create();
     }
 
     /**
@@ -344,18 +287,6 @@ public final class DataFactory extends TestResultsReporting {
      */
     public static PostalAddress createAddress() {
         return AddressDataFactory.create();
-    }
-
-    /**
-     * To calendar.
-     *
-     * @param startDate the start date
-     * @return the calendar
-     */
-    public static Calendar toCalendar(final Date startDate) {
-        final Calendar INSTANCE = Calendar.getInstance();
-        INSTANCE.setTime(startDate);
-        return INSTANCE;
     }
 
 }
