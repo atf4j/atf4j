@@ -15,12 +15,10 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.bdd;
+package net.atf4j.fdd;
 
 import static org.junit.Assert.assertNotNull;
 
-import org.junit.Assert;
-import org.junit.Assume;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -30,10 +28,10 @@ import net.atf4j.fdd.ScenarioRunner;
 import net.atf4j.fdd.Feature.Scenario;
 
 /**
- * Scenario Test class.
+ * Scenario Missing When class.
  */
 @Scenario("Scenario")
-public final class ScenarioTest extends TestResultsReporting {
+public final class MissingWhenScenarioTest extends TestResultsReporting {
 
     /**
      * Test scenario runner.
@@ -41,7 +39,7 @@ public final class ScenarioTest extends TestResultsReporting {
     @Ignore
     @Test
     public void testScenarioRunner() {
-        log.debug("{}.testScenarioRunner", this.getClass().getSimpleName());
+        log.debug("testScenarioRunner", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         assertNotNull(UNEXPECTED_NULL, scenarioRunner);
         assertNotNull(UNEXPECTED_NULL, scenarioRunner.execute());
@@ -50,28 +48,22 @@ public final class ScenarioTest extends TestResultsReporting {
     /**
      * Test pass given.
      */
-    @Feature.Given("Given")
-    public void testPassGiven() {
-        log.debug("{}.testPassGiven", this.getClass().getSimpleName());
-        Assume.assumeTrue(true);
+    @Feature.Given("Pass Given")
+    public void passGiven() {
+        log.debug("{}", super.toString());
     }
 
-    /**
-     * Test pass when.
-     */
-    @Feature.When("When")
-    public void testPassWhen() {
-        log.debug("{}.testPassWhen", this.getClass().getSimpleName());
-        Assert.assertTrue(true);
-    }
+    // Deliberately missing.
+    // @Atf4j.When("When")
+    // public void testPassWhen() {
+    // }
 
     /**
      * Test pass then.
      */
-    @Feature.Then("Then")
-    public void testPassThen() {
-        log.debug("{}.testPassThen", this.getClass().getSimpleName());
-        Assert.assertTrue(true);
+    @Feature.Then("Skip Then")
+    public void skipThen() {
+        log.debug("{}", super.toString());
     }
 
 }

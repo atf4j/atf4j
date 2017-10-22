@@ -15,7 +15,7 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.bdd;
+package net.atf4j.fdd;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -172,7 +172,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
      */
     @Test
     public void testScenarioExecution() {
-        log.debug("{}.testScenarioExecution", this.getClass().getSimpleName());
+        log.debug("testScenarioExecution", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         final Scenario scenario = new Scenario();
         assertNotNull(UNEXPECTED_NULL, scenarioRunner);
@@ -184,7 +184,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
      */
     @Test
     public void testFailGivenScenario() {
-        log.debug("{}.testFailGivenScenario", this.getClass().getSimpleName());
+        log.debug("testFailGivenScenario", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         final FailGivenScenario scenario = new FailGivenScenario();
         assertNotNull(UNEXPECTED_NULL, scenarioRunner);
@@ -196,7 +196,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
      */
     @Test
     public void testFailWhenScenario() {
-        log.debug("{}.testFailWhenScenario", this.getClass().getSimpleName());
+        log.debug("testFailWhenScenario", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         final FailWhenScenario scenario = new FailWhenScenario();
         assertNotNull(UNEXPECTED_NULL, scenarioRunner);
@@ -208,7 +208,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
      */
     @Test
     public void testFailThenScenario() {
-        log.debug("{}.testFailThenScenario", this.getClass().getSimpleName());
+        log.debug("testFailThenScenario", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         final FailThenScenario scenario = new FailThenScenario();
         assertNotNull(UNEXPECTED_NULL, scenarioRunner);
@@ -220,7 +220,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
      */
     @Test
     public void testScenarioRunner() {
-        log.debug("{}.testScenarioRunner", this.getClass().getSimpleName());
+        log.debug("testScenarioRunner", this.getClass().getSimpleName());
         final Scenario targetScenario = new Scenario();
         final ScenarioRunner scenarioRunner = new ScenarioRunner(targetScenario);
         assertNotNull(UNEXPECTED_NULL, scenarioRunner);

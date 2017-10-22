@@ -17,10 +17,13 @@
 
 package net.atf4j.data.jms;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.data.management.JmsData;
+import net.atf4j.data.management.MockJmsData;
 
 /**
  * A UnitTest for JmsData objects.
@@ -28,35 +31,37 @@ import net.atf4j.data.management.JmsData;
 public final class JmsDataTest extends TestResultsReporting {
 
     /**
-     * Test method for void.
+     * Test default constructor.
      */
+    @Test
+    public void testDefaultConstructor() {
+        final MockJmsData jmsData = new MockJmsData();
+        log.debug("new JmsData() = {}", jmsData);
+        assertNotNull(UNEXPECTED_NULL, jmsData);
+    }
+
     @Test
     public void testSetUp() {
-        new JmsData().setUp();
+        final MockJmsData jmsData = new MockJmsData();
+        log.debug("new JmsData() = {}", jmsData);
+        assertNotNull(UNEXPECTED_NULL, jmsData);
+        assertTrue(jmsData.setUp());
     }
 
-    /**
-     * Test method for void.
-     */
     @Test
     public void testReset() {
-        new JmsData().reset();
+        final MockJmsData jmsData = new MockJmsData();
+        log.debug("new JmsData() = {}", jmsData);
+        assertNotNull(UNEXPECTED_NULL, jmsData);
+        assertTrue(jmsData.reset());
     }
 
-    /**
-     * Test method for void.
-     */
     @Test
     public void testTearDown() {
-        new JmsData().tearDown();
-    }
-
-    /**
-     * Test method for void.
-     */
-    @Test
-    public void testJmsData() {
-        new JmsData();
+        final MockJmsData jmsData = new MockJmsData();
+        log.debug("new JmsData() = {}", jmsData);
+        assertNotNull(UNEXPECTED_NULL, jmsData);
+        assertTrue(jmsData.tearDown());
     }
 
 }

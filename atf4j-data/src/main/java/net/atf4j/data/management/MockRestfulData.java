@@ -17,45 +17,46 @@
 
 package net.atf4j.data.management;
 
-import net.atf4j.core.TestResultsReporting;
-
 /**
- * SetUpData Class.
+ * The Class MockRestfulData.
  */
-public abstract class SetUpData extends TestResultsReporting {
+public class MockRestfulData extends AbstractSetUpData {
 
     /**
-     * Instantiates a new sets the up data.
+     * Instantiates a new restful data.
      */
-    public SetUpData() {
+    public MockRestfulData() {
         super();
     }
 
-    /**
-     * Sets the up.
+    /*
+     * (non-Javadoc)
      *
-     * \* @return true, if successful, otherwise false.
-     *
-     * @return true, if successful, otherwise false.
+     * @see net.atf4j.data.SetUpData#setUp()
      */
-    public abstract boolean setUp();
+    @Override
+    public boolean setUp() {
+        return true;
+    }
 
-    /**
-     * Reset.
+    /*
+     * (non-Javadoc)
      *
-     * \* @return true, if successful, otherwise false.
-     *
-     * @return true, if successful, otherwise false.
+     * @see net.atf4j.data.SetUpData#reset()
      */
-    public abstract boolean reset();
+    @Override
+    public boolean reset() {
+        return true;
+    }
 
-    /**
-     * Tear down.
+    /*
+     * (non-Javadoc)
      *
-     * \* @return true, if successful, otherwise false.
-     *
-     * @return true, if successful, otherwise false.
+     * @see net.atf4j.data.SetUpData#tearDown()
      */
-    public abstract boolean tearDown();
+    @Override
+    public boolean tearDown() {
+        return true;
+    }
 
 }

@@ -15,48 +15,28 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.data.management;
+package net.atf4j.fdd;
+
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Test;
+
+import net.atf4j.core.TestResultsReporting;
 
 /**
- * RestfulData Class.
+ * Scenario Fail test class.
  */
-public class RestfulData extends SetUpData {
+public final class ScenarioFailTest extends TestResultsReporting {
 
     /**
-     * Instantiates a new restful data.
+     * Test scenario runner.
      */
-    public RestfulData() {
-        super();
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see net.atf4j.data.SetUpData#setUp()
-     */
-    @Override
-    public boolean setUp() {
-        return true;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see net.atf4j.data.SetUpData#reset()
-     */
-    @Override
-    public boolean reset() {
-        return true;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see net.atf4j.data.SetUpData#tearDown()
-     */
-    @Override
-    public boolean tearDown() {
-        return true;
+    @Test
+    public void testScenarioRunner() {
+        log.debug("testScenarioRunner", this.getClass().getSimpleName());
+        final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
+        assertNotNull(UNEXPECTED_NULL, scenarioRunner);
+        assertNotNull(UNEXPECTED_NULL, scenarioRunner.execute());
     }
 
 }

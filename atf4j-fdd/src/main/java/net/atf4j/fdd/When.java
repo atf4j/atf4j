@@ -20,7 +20,7 @@ package net.atf4j.fdd;
 import java.util.UUID;
 
 /**
- * BDD When Class. Hoare command as When.
+ * When as a Hoare command for FDD.
  */
 public final class When extends AbstractHoareStep {
 

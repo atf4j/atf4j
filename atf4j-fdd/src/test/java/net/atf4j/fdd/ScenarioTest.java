@@ -15,23 +15,23 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.bdd;
+package net.atf4j.fdd;
 
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Assert;
+import org.junit.Assume;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.fdd.Feature;
-import net.atf4j.fdd.ScenarioRunner;
 import net.atf4j.fdd.Feature.Scenario;
 
 /**
- * The Class ScenarioMissingThen.
+ * Scenario Test class.
  */
 @Scenario("Scenario")
-public final class MissingThenScenarioTest extends TestResultsReporting {
+public final class ScenarioTest extends TestResultsReporting {
 
     /**
      * Test scenario runner.
@@ -39,7 +39,7 @@ public final class MissingThenScenarioTest extends TestResultsReporting {
     @Ignore
     @Test
     public void testScenarioRunner() {
-        log.debug("{}.testScenarioRunner", this.getClass().getSimpleName());
+        log.debug("testScenarioRunner", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         assertNotNull(UNEXPECTED_NULL, scenarioRunner);
         assertNotNull(UNEXPECTED_NULL, scenarioRunner.execute());
@@ -48,22 +48,28 @@ public final class MissingThenScenarioTest extends TestResultsReporting {
     /**
      * Test pass given.
      */
-    @Feature.Given("Pass Given")
+    @Feature.Given("Given")
     public void passGiven() {
-        log.debug("{}", super.toString());
+        log.debug("passGiven");
+        Assume.assumeTrue(true);
     }
 
     /**
      * Test pass when.
      */
-    @Feature.When("Pass When")
+    @Feature.When("When")
     public void passWhen() {
-        log.info("{}", super.toString());
+        log.debug("passWhen");
+        Assert.assertTrue(true);
     }
 
-    // Deliberately missing.
-    // @Atf4j.Then("Then")
-    // public void testPassThen() {
-    // }
+    /**
+     * Test pass then.
+     */
+    @Feature.Then("Then")
+    public void passThen() {
+        log.debug("passThen");
+        Assert.assertTrue(true);
+    }
 
 }

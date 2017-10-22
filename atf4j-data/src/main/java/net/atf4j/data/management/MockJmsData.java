@@ -18,14 +18,14 @@
 package net.atf4j.data.management;
 
 /**
- * JdbcData Class.
+ * JmsData Class.
  */
-public class JdbcData extends SetUpData {
+public class MockJmsData extends AbstractSetUpData {
 
     /**
-     * Instantiates a new jdbc data.
+     * Instantiates a new jms data.
      */
-    public JdbcData() {
+    public MockJmsData() {
         super();
     }
 

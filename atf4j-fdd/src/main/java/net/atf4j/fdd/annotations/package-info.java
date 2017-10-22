@@ -1,5 +1,6 @@
 /**
- * Package provides code for reading atf4j bdd annotations.
+ * Package provides code for feature driven development annotations for the
+ * atf4j.
  * <p>
  * This file is part of Automated Testing Framework for Java (atf4j).
  *

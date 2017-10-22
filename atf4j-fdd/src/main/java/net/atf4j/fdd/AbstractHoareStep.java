@@ -56,7 +56,7 @@ public abstract class AbstractHoareStep
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.bdd.HoareStepInterface#execute(java.util.Properties)
+     * @see net.atf4j.fdd.HoareStepInterface#execute(java.util.Properties)
      */
     @Override
     public Properties execute(final Properties properties) {
