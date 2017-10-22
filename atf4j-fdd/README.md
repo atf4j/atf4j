@@ -1,8 +1,8 @@
 # atf4j-fdd
 
-## Automation Test Framework for Feature Driven Development
+## Automated Test Framework for Java - FDD
 
-Automation Test Framework for Feature Driven Development
+Java Automation Test Framework for Feature Driven Development.
 
 ## Maven Dependency
 

@@ -17,10 +17,12 @@
 
 package net.atf4j.core.model;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * Test Context.
  */
-public class TestContext {
+public class TestContext extends TestResultsReporting {
 
     private String platform;
     private String context;
@@ -80,7 +82,7 @@ public class TestContext {
      * @return the platform
      */
     public String getPlatform() {
-        return this.platform;
+        return platform;
     }
 
     /**
@@ -89,7 +91,7 @@ public class TestContext {
      * @return the context
      */
     public String getContext() {
-        return this.context;
+        return context;
     }
 
 }

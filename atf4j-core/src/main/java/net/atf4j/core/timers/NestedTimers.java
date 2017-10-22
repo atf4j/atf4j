@@ -22,20 +22,21 @@ import java.util.Stack;
 import java.util.UUID;
 
 import net.atf4j.core.Atf4jException;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * NestedTimers. [GOF] Singleton.
  */
-public final class NestedTimers {
+public final class NestedTimers extends TestResultsReporting {
 
     /** Singleton INSTANCE of this Class. */
     private static final NestedTimers INSTANCE = new NestedTimers();
 
     /** A FIFO stack of running timers. */
-    private final Stack<MilliTimer> runningTimers = new Stack<MilliTimer>();
+    private final Stack<NamedMilliTimer> runningTimers = new Stack<NamedMilliTimer>();
 
     /** A FIFO stack of stopped timers. */
-    private final Stack<MilliTimer> stoppedTimers = new Stack<MilliTimer>();
+    private final Stack<NamedMilliTimer> stoppedTimers = new Stack<NamedMilliTimer>();
 
     /**
      * Instantiates a new nested timers collection.
@@ -70,7 +71,8 @@ public final class NestedTimers {
      * @return Timer.
      */
     public TimerInterface startTimer(final String timerName) {
-        final MilliTimer timer = new MilliTimer(timerName);
+        final NamedMilliTimer timer = new NamedMilliTimer(timerName);
+        log.info(timer.toString());
         runningTimers.push(timer.start());
         return timer;
     }
@@ -90,7 +92,7 @@ public final class NestedTimers {
      * @return Timer.
      */
     public TimerInterface stopTimer() {
-        final MilliTimer timer = runningTimers.pop();
+        final NamedMilliTimer timer = runningTimers.pop();
         stoppedTimers.push(timer.stop());
         return timer;
     }
@@ -110,7 +112,7 @@ public final class NestedTimers {
      * @return NestedTimers
      */
     public NestedTimers stopAllTimers() {
-        for (final MilliTimer timer : runningTimers) {
+        for (final NamedMilliTimer timer : runningTimers) {
             stoppedTimers.push(timer.stop());
         }
         return this;
@@ -122,7 +124,7 @@ public final class NestedTimers {
      * @return the enumeration
      * @see java.util.Vector#elements()
      */
-    public Enumeration<MilliTimer> runningTimers() {
+    public Enumeration<NamedMilliTimer> runningTimers() {
         return runningTimers.elements();
     }
 
@@ -132,7 +134,7 @@ public final class NestedTimers {
      * @return the enumeration
      * @see java.util.Vector#elements()
      */
-    public Enumeration<MilliTimer> stoppedTimers() {
+    public Enumeration<NamedMilliTimer> stoppedTimers() {
         return stoppedTimers.elements();
     }
 
@@ -143,7 +145,7 @@ public final class NestedTimers {
      */
     public String runningTimersAsString() {
         final StringBuffer stringBuffer = new StringBuffer();
-        final Enumeration<MilliTimer> running = runningTimers.elements();
+        final Enumeration<NamedMilliTimer> running = runningTimers.elements();
         while (running.hasMoreElements()) {
             final String string = String.format("\n", running.nextElement());
             stringBuffer.append(string);
@@ -158,7 +160,7 @@ public final class NestedTimers {
      */
     public String stoppedTimersAsString() {
         final StringBuffer stringBuffer = new StringBuffer();
-        final Enumeration<MilliTimer> stopped = stoppedTimers.elements();
+        final Enumeration<NamedMilliTimer> stopped = stoppedTimers.elements();
         while (stopped.hasMoreElements()) {
             stringBuffer.append(stopped.nextElement().toString() + "\n");
         }
@@ -183,6 +185,8 @@ public final class NestedTimers {
      * The TimersExhausted Class.
      */
     public class TimersExhausted extends Atf4jException {
+
+        /** The Constant serialVersionUID. */
         private static final long serialVersionUID = 1L;
     }
 

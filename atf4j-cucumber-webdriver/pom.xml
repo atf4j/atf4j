@@ -9,6 +9,13 @@
 	<description>Java Automation Test Framework for Cucumber with WebDriver.</description>
 	<url>http://atf4j.net/atf4j-cucumber-webdriver</url>
 
+	<distributionManagement>
+		<site>
+			<id>atf4j-website</id>
+			<url>scp://atf4j.net/atf4j-cucumber-webdriver</url>
+		</site>
+	</distributionManagement>
+
 	<parent>
 		<groupId>net.atf4j</groupId>
 		<artifactId>atf4j</artifactId>

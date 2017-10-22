@@ -21,7 +21,7 @@ package net.atf4j.core.timers;
  * A split timer Timer.
  *
  */
-public class SplitTimer extends MilliTimer {
+public class SplitTimer extends NamedMilliTimer {
 
     /**
      * Gets the split time.

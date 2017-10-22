@@ -18,14 +18,14 @@
 package net.atf4j.data.management;
 
 /**
- * RestfulData Class.
+ * The Class MockRestfulData.
  */
-public class RestfulData extends SetUpData {
+public class MockRestfulData extends AbstractSetUpData {
 
     /**
      * Instantiates a new restful data.
      */
-    public RestfulData() {
+    public MockRestfulData() {
         super();
     }
 

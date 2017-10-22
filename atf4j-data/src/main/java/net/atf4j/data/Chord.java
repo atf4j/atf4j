@@ -20,10 +20,12 @@ package net.atf4j.data;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * Chord Class.
  */
-public class Chord {
+public class Chord extends TestResultsReporting {
 
     /** the stem part. */
     private CharSequence stem;
@@ -41,7 +43,7 @@ public class Chord {
     /**
      * Instantiates a new chord.
      *
-     * @param stem the stem
+     * @param stem the new stem as any CharSequence.
      */
     public Chord(CharSequence stem) {
         super();
@@ -51,7 +53,8 @@ public class Chord {
     /**
      * Sets the stem.
      *
-     * @param stem the new stem
+     * @param stem the new stem as any CharSequence.
+     * @return this for a fluent interface.
      */
     public Chord setStem(final CharSequence stem) {
         this.stem = stem;
@@ -61,14 +64,14 @@ public class Chord {
     /**
      * Gets the stem.
      *
-     * @return the stem
+     * @return the stem as a CharSequence.
      */
     public CharSequence getStem() {
         return stem;
     }
 
     /**
-     * Adds the.
+     * Adds the a new Chord as a leaf.
      *
      * @param e the e
      * @return true, if successful, otherwise false.

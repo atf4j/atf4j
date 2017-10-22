@@ -15,48 +15,30 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.data.management;
+package net.atf4j.fdd;
+
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Ignore;
+import org.junit.Test;
+
+import net.atf4j.core.TestResultsReporting;
 
 /**
- * JdbcData Class.
+ * Scenario Fail test class.
  */
-public class JdbcData extends SetUpData {
+public final class ScenarioFailTest extends TestResultsReporting {
 
     /**
-     * Instantiates a new jdbc data.
+     * Test scenario runner.
      */
-    public JdbcData() {
-        super();
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see net.atf4j.data.SetUpData#setUp()
-     */
-    @Override
-    public boolean setUp() {
-        return true;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see net.atf4j.data.SetUpData#reset()
-     */
-    @Override
-    public boolean reset() {
-        return true;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see net.atf4j.data.SetUpData#tearDown()
-     */
-    @Override
-    public boolean tearDown() {
-        return true;
+    @Ignore
+    @Test
+    public void testScenarioRunner() {
+        log.debug("testScenarioRunner", this.getClass().getSimpleName());
+        final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
+        assertNotNull(UNEXPECTED_NULL, scenarioRunner);
+        assertNotNull(UNEXPECTED_NULL, scenarioRunner.execute());
     }
 
 }

@@ -32,13 +32,27 @@
 			<item name="About" href="about.html" />
 			<item name="Usage" href="usage.html" />
 			<item name="Issue Tracking" href="issue-tracking.html" />
-			<item name="Report" href="poject-report.html" />
+			<item name="Report" href="project-report.html" />
 			<item name="Release Notes" href="release-notes.html" />
 			<item name="Roadmap" href="roadmap.html" />
 			<item name="Download" href="download.html" />
 			<item name="FAQ" href="faq.html" />
 			<item name="ATF4J API" href="apidocs/index.html" />
 			<item name="Test API" href="testapidocs/index.html" />
+		</menu>
+
+		<menu name="ATF4J API">
+			<item name="ATF4J AMQ" href="atf4j-amq/index.html" />
+			<item name="ATF4J Annotations" href="atf4j-annotations/index.html" />
+			<item name="ATF4J Core" href="atf4j-core/index.html" />
+			<item name="ATF4J Cucumber WebDriver" href="atf4j-cucumber-webdriver/index.html" />
+			<item name="ATF4J CSV" href="atf4j-csv/index.html" />
+			<item name="ATF4J Data" href="atf4j-data/index.html" />
+			<item name="ATF4J FDD" href="atf4j-fdd/index.html" />
+			<item name="ATF4J JUnit" href="atf4j-junit/index.html" />
+			<item name="ATF4J PageObject Generator" href="atf4j-pog/index.html" />
+			<item name="ATF4J SOAPUI" href="atf4j-soapui/index.html" />
+			<item name="ATF4J WebDriver" href="atf4j-webdriver/index.html" />
 		</menu>
 
 	</body>

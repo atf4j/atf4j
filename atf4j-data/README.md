@@ -1,6 +1,6 @@
 # Automated Test Framework for Java
 
-## Automation Test Framework for Data Driven Testing
+## Automation Test Framework for Java - Data
 
 Java Automation Test Framework for Data Driven Testing.
 

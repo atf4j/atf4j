@@ -24,16 +24,14 @@ import java.net.URL;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * AbstractWalker Class.
  */
-public abstract class AbstractWalker {
+public abstract class AbstractWalker extends TestResultsReporting {
 
     private String basePath = ".";
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Instantiates a new abstract walker.

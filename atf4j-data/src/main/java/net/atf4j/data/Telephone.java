@@ -22,10 +22,12 @@ import static org.junit.Assert.assertNotNull;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * Telephone Number.
  */
-public class Telephone {
+public class Telephone extends TestResultsReporting {
 
     /** Regular Expression pattern used for verification. */
     private static final Pattern PATTERN = Pattern.compile("^(\\d){2}-(\\d){2}-(\\d){2}$");

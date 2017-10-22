@@ -18,7 +18,7 @@
 package net.atf4j.fdd;
 
 /**
- * BDD Story Narrative.
+ * Story Narrative for FDD.
  */
 public final class Story extends AbstractStory {
 

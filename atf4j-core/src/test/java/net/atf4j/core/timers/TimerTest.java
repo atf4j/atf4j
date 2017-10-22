@@ -37,7 +37,7 @@ public class TimerTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        final MilliTimer timer = new MilliTimer();
+        final NamedMilliTimer timer = new NamedMilliTimer();
         assertNotNull(UNEXPECTED_NULL, timer);
     }
 
@@ -46,7 +46,7 @@ public class TimerTest extends TestResultsReporting {
      */
     @Test
     public void testTimer() {
-        final TimerInterface timer = new MilliTimer(this.getClass().getSimpleName());
+        final TimerInterface timer = new NamedMilliTimer(this.getClass().getSimpleName());
         assertNotNull(timer);
         assertNotNull(timer.start());
         assertNotNull(timer.stop());
@@ -63,7 +63,7 @@ public class TimerTest extends TestResultsReporting {
      */
     @Test
     public void testTimerOneSec() {
-        final TimerInterface timer = new MilliTimer(this.getClass().getSimpleName());
+        final TimerInterface timer = new NamedMilliTimer(this.getClass().getSimpleName());
         assertNotNull(timer);
         assertNotNull(timer.start());
         waitDefaultInterval();

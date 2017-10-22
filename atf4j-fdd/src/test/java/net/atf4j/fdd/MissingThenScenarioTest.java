@@ -15,7 +15,7 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.bdd;
+package net.atf4j.fdd;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -28,10 +28,10 @@ import net.atf4j.fdd.ScenarioRunner;
 import net.atf4j.fdd.Feature.Scenario;
 
 /**
- * Scenario Missing When class.
+ * The Class ScenarioMissingThen.
  */
 @Scenario("Scenario")
-public final class MissingWhenScenarioTest extends TestResultsReporting {
+public final class MissingThenScenarioTest extends TestResultsReporting {
 
     /**
      * Test scenario runner.
@@ -39,7 +39,7 @@ public final class MissingWhenScenarioTest extends TestResultsReporting {
     @Ignore
     @Test
     public void testScenarioRunner() {
-        log.debug("{}.testScenarioRunner", this.getClass().getSimpleName());
+        log.debug("testScenarioRunner", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         assertNotNull(UNEXPECTED_NULL, scenarioRunner);
         assertNotNull(UNEXPECTED_NULL, scenarioRunner.execute());
@@ -53,17 +53,17 @@ public final class MissingWhenScenarioTest extends TestResultsReporting {
         log.debug("{}", super.toString());
     }
 
-    // Deliberately missing.
-    // @Atf4j.When("When")
-    // public void testPassWhen() {
-    // }
-
     /**
-     * Test pass then.
+     * Test pass when.
      */
-    @Feature.Then("Skip Then")
-    public void skipThen() {
-        log.debug("{}", super.toString());
+    @Feature.When("Pass When")
+    public void passWhen() {
+        log.info("{}", super.toString());
     }
+
+    // Deliberately missing.
+    // @Atf4j.Then("Then")
+    // public void testPassThen() {
+    // }
 
 }

@@ -17,10 +17,12 @@
 
 package net.atf4j.data.management;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * The DataManager Class.
  */
-public final class DataManager {
+public final class DataManager extends TestResultsReporting {
 
     /**
      * Instantiates a new data manager.

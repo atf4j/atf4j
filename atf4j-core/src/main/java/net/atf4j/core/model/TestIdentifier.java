@@ -19,10 +19,12 @@ package net.atf4j.core.model;
 
 import java.util.UUID;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * Unique TestIdentifier TODO : Make serializable?.
  */
-public class TestIdentifier {
+public class TestIdentifier extends TestResultsReporting {
 
     private UUID uuid;
 
@@ -30,7 +32,7 @@ public class TestIdentifier {
      * Instantiates a new test identifier.
      */
     public TestIdentifier() {
-        this.uuid = UUID.randomUUID();
+        uuid = UUID.randomUUID();
     }
 
     /**
@@ -49,7 +51,7 @@ public class TestIdentifier {
      * @return the test identifier
      */
     public TestIdentifier setUuid(final UUID uuidIn) {
-        this.uuid = uuidIn;
+        uuid = uuidIn;
         return this;
     }
 
@@ -59,7 +61,7 @@ public class TestIdentifier {
      * @return the UUID
      */
     public UUID getUuid() {
-        return this.uuid;
+        return uuid;
     }
 
     /**
@@ -70,7 +72,7 @@ public class TestIdentifier {
      */
     @Override
     public String toString() {
-        return this.uuid.toString();
+        return uuid.toString();
     }
 
 }

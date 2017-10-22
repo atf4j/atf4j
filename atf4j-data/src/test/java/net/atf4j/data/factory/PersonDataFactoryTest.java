@@ -53,8 +53,6 @@ public final class PersonDataFactoryTest extends TestResultsReporting {
 
     /**
      * Test default constructor.
-     *
-     * @throws Exception the exception
      */
     @Test
     public void testDefaultConstructor() {

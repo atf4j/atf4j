@@ -18,42 +18,45 @@
 package net.atf4j.data.management;
 
 /**
- * SetUpData Class.
+ * JmsData Class.
  */
-public abstract class SetUpData {
+public class MockJmsData extends AbstractSetUpData {
 
     /**
-     * Instantiates a new sets the up data.
+     * Instantiates a new jms data.
      */
-    public SetUpData() {
+    public MockJmsData() {
         super();
     }
 
-    /**
-     * Sets the up.
+    /*
+     * (non-Javadoc)
      *
-     * \* @return true, if successful, otherwise false.
-     *
-     * @return true, if successful, otherwise false.
+     * @see net.atf4j.data.SetUpData#setUp()
      */
-    public abstract boolean setUp();
+    @Override
+    public boolean setUp() {
+        return true;
+    }
 
-    /**
-     * Reset.
+    /*
+     * (non-Javadoc)
      *
-     * \* @return true, if successful, otherwise false.
-     *
-     * @return true, if successful, otherwise false.
+     * @see net.atf4j.data.SetUpData#reset()
      */
-    public abstract boolean reset();
+    @Override
+    public boolean reset() {
+        return true;
+    }
 
-    /**
-     * Tear down.
+    /*
+     * (non-Javadoc)
      *
-     * \* @return true, if successful, otherwise false.
-     *
-     * @return true, if successful, otherwise false.
+     * @see net.atf4j.data.SetUpData#tearDown()
      */
-    public abstract boolean tearDown();
+    @Override
+    public boolean tearDown() {
+        return true;
+    }
 
 }

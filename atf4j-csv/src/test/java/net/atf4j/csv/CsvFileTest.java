@@ -43,8 +43,6 @@ public class CsvFileTest extends TestResultsReporting {
 
         /**
          * Instantiates a new test data.
-         *
-         * @throws Exception the exception
          */
         public TestData() {
             super();

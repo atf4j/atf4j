@@ -34,7 +34,7 @@ public class NanoTimerTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        final NanoTimer nanoTimer = new NanoTimer();
+        final NamedNanoTimer nanoTimer = new NamedNanoTimer();
         log.debug("nanoTimer = {}", nanoTimer);
         assertNotNull(UNEXPECTED_NULL, nanoTimer);
     }
@@ -45,7 +45,7 @@ public class NanoTimerTest extends TestResultsReporting {
     @Test
     public void testNanoTimerString() {
         final String actual = "Named NanoTimer";
-        final NanoTimer nanoTimer = new NanoTimer(actual);
+        final NamedNanoTimer nanoTimer = new NamedNanoTimer(actual);
         log.debug("nanoTimer = {}", nanoTimer);
         assertNotNull(UNEXPECTED_NULL, nanoTimer);
         assertEquals(actual, nanoTimer.getTimerName());
@@ -56,7 +56,7 @@ public class NanoTimerTest extends TestResultsReporting {
      */
     @Test
     public void testStart() {
-        final NanoTimer nanoTimer = new NanoTimer();
+        final NamedNanoTimer nanoTimer = new NamedNanoTimer();
         log.debug("nanoTimer = {}", nanoTimer);
         assertNotNull(UNEXPECTED_NULL, nanoTimer.start());
     }
@@ -66,7 +66,7 @@ public class NanoTimerTest extends TestResultsReporting {
      */
     @Test
     public void testStop() {
-        final NanoTimer nanoTimer = new NanoTimer();
+        final NamedNanoTimer nanoTimer = new NamedNanoTimer();
         log.debug("nanoTimer = {}", nanoTimer);
         assertNotNull(UNEXPECTED_NULL, nanoTimer.stop());
     }
@@ -76,7 +76,7 @@ public class NanoTimerTest extends TestResultsReporting {
      */
     @Test
     public void testGetStartTime() {
-        final NanoTimer nanoTimer = new NanoTimer();
+        final NamedNanoTimer nanoTimer = new NamedNanoTimer();
         log.debug("nanoTimer = {}", nanoTimer);
         assertNotNull(UNEXPECTED_NULL, nanoTimer.getStartTime());
     }
@@ -86,7 +86,7 @@ public class NanoTimerTest extends TestResultsReporting {
      */
     @Test
     public void testGetElapsedTime() {
-        final NanoTimer nanoTimer = new NanoTimer();
+        final NamedNanoTimer nanoTimer = new NamedNanoTimer();
         log.debug("nanoTimer = {}", nanoTimer);
         assertNotNull(UNEXPECTED_NULL, nanoTimer.getElapsedTime());
     }
@@ -96,7 +96,7 @@ public class NanoTimerTest extends TestResultsReporting {
      */
     @Test
     public void testToString() {
-        final NanoTimer nanoTimer = new NanoTimer();
+        final NamedNanoTimer nanoTimer = new NamedNanoTimer();
         log.debug("nanoTimer = {}", nanoTimer);
         assertNotNull(UNEXPECTED_NULL, nanoTimer.toString());
     }

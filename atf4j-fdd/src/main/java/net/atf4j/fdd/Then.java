@@ -20,7 +20,7 @@ package net.atf4j.fdd;
 import java.util.UUID;
 
 /**
- * BDD Then class, Hoare post condition as Then.
+ * Then as a Hoare command for FDD.
  */
 public final class Then extends PostCondition {
 

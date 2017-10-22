@@ -22,21 +22,22 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import net.atf4j.core.Atf4jException;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * MappedTimers. [GOF] Singleton.
  *
  */
-public final class MappedTimers {
+public final class MappedTimers extends TestResultsReporting {
 
     /** Single INSTANCE of this Class. */
     private static final MappedTimers MAPPED_TIMERS = new MappedTimers();
 
     /** The running timers. */
-    private final Map<String, MilliTimer> runningTimers = new ConcurrentHashMap<String, MilliTimer>();
+    private final Map<String, NamedMilliTimer> runningTimers = new ConcurrentHashMap<String, NamedMilliTimer>();
 
     /** The stopped timers. */
-    private final Map<String, MilliTimer> stoppedTimers = new ConcurrentHashMap<String, MilliTimer>();
+    private final Map<String, NamedMilliTimer> stoppedTimers = new ConcurrentHashMap<String, NamedMilliTimer>();
 
     /**
      * Private constructor to prevent wild instantiation.
@@ -71,8 +72,8 @@ public final class MappedTimers {
      * @return the i timer
      */
     public TimerInterface startTimer(final String timerName) {
-        final MilliTimer timer = new MilliTimer(timerName);
-        this.runningTimers.put(timerName, timer);
+        final NamedMilliTimer timer = new NamedMilliTimer(timerName);
+        runningTimers.put(timerName, timer);
         timer.start();
         return timer;
     }
@@ -94,10 +95,10 @@ public final class MappedTimers {
      * @return Timer.
      */
     public TimerInterface stopTimer(final String timerName) {
-        final MilliTimer timer = this.runningTimers.get(timerName);
+        final NamedMilliTimer timer = runningTimers.get(timerName);
         if (timer != null) {
             timer.stop();
-            this.stoppedTimers.put(timerName, timer);
+            stoppedTimers.put(timerName, timer);
             return timer;
         }
         return timer;
@@ -118,7 +119,7 @@ public final class MappedTimers {
      * @return the mapped timers
      */
     public MappedTimers stopAllTimers() {
-        final Set<String> keys = this.runningTimers.keySet();
+        final Set<String> keys = runningTimers.keySet();
         for (final String key : keys) {
             stopTimer(key);
         }
@@ -143,8 +144,8 @@ public final class MappedTimers {
     public String toString() {
         return String.format("%s [runningTimers=%s,stoppedTimers=%s]",
                 this.getClass().getSimpleName(),
-                this.runningTimers,
-                this.stoppedTimers);
+                runningTimers,
+                stoppedTimers);
     }
 
     /**

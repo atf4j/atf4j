@@ -109,7 +109,7 @@ public class BehaviourModel extends AbstractBehaviourModel {
      * @param expectedCookieName the expected cookie name
      */
     public void theCookieHasValue(final String expectedCookieName) {
-        log.debug("{}.theCookieHasValue({})", this, expectedCookieName);
+        log.debug("theCookieHasValue({})", this, expectedCookieName);
         fail("Not yet implemented.");
 
     }

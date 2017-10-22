@@ -15,20 +15,21 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.bdd;
+package net.atf4j.fdd;
 
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Assert;
+import org.junit.Assume;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.fdd.ScenarioRunner;
 
 /**
- * Scenario Fail test class.
+ * Pass Scenario test class.
  */
-public final class ScenarioFailTest extends TestResultsReporting {
+public final class ScenarioPassTest extends TestResultsReporting {
 
     /**
      * Test scenario runner.
@@ -36,10 +37,37 @@ public final class ScenarioFailTest extends TestResultsReporting {
     @Ignore
     @Test
     public void testScenarioRunner() {
-        log.debug("{}.testScenarioRunner", this.getClass().getSimpleName());
+        log.debug("testScenarioRunner", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         assertNotNull(UNEXPECTED_NULL, scenarioRunner);
         assertNotNull(UNEXPECTED_NULL, scenarioRunner.execute());
+    }
+
+    /**
+     * Test pass given.
+     */
+    @Feature.Given("Given")
+    public void passGiven() {
+        log.debug("passGiven");
+        Assume.assumeTrue(true);
+    }
+
+    /**
+     * Test pass when.
+     */
+    @Feature.When("When")
+    public void passWhen() {
+        log.debug("passWhen");
+        Assert.assertTrue(true);
+    }
+
+    /**
+     * Test pass then.
+     */
+    @Feature.Then("Then")
+    public void passThen() {
+        log.debug("passThen");
+        Assert.assertTrue(true);
     }
 
 }

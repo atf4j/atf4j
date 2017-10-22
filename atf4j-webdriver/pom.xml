@@ -9,12 +9,18 @@
 	<description>Java Automation Testing Framework for functional testing with Selenium WebDriver.</description>
 	<url>http://atf4j.net/atf4j-webdriver</url>
 
+	<distributionManagement>
+		<site>
+			<id>atf4j-website</id>
+			<url>scp://atf4j.net/atf4j-webdriver</url>
+		</site>
+	</distributionManagement>
+
 	<parent>
 		<groupId>net.atf4j</groupId>
 		<artifactId>atf4j</artifactId>
 		<version>0.10.0-SNAPSHOT</version>
 	</parent>
-
 
 	<dependencies>
 		<dependency>

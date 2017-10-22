@@ -22,6 +22,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.data.factory.LoremIpsumFactory;
 
 /**
  * A Unit test class for LoremIpsum objects.
@@ -33,22 +34,22 @@ public final class LoremIpsumTest extends TestResultsReporting {
      */
     @Test
     public void testLoremIpsum() {
-        final String text = LoremIpsum.text();
+        final String text = LoremIpsumFactory.text();
         assertNotNull("unexpected null", text);
-        this.log.info("LoremIpsum.text() = {}", LoremIpsum.text());
+        this.log.info("LoremIpsum.text() = {}", LoremIpsumFactory.text());
 
-        this.log.info("LoremIpsum.word() = {}", LoremIpsum.word());
-        this.log.info("LoremIpsum.words(1) = {}", LoremIpsum.words(1));
-        this.log.info("LoremIpsum.words(14) = {}", LoremIpsum.words(4));
-        this.log.info("LoremIpsum.words(10) = {}", LoremIpsum.words(10));
+        this.log.info("LoremIpsum.word() = {}", LoremIpsumFactory.word());
+        this.log.info("LoremIpsum.words(1) = {}", LoremIpsumFactory.words(1));
+        this.log.info("LoremIpsum.words(14) = {}", LoremIpsumFactory.words(4));
+        this.log.info("LoremIpsum.words(10) = {}", LoremIpsumFactory.words(10));
 
-        this.log.info("LoremIpsum.sentence() = {}", LoremIpsum.sentence());
-        this.log.info("LoremIpsum.sentence(1) = {}", LoremIpsum.sentences(1));
-        this.log.info("LoremIpsum.sentence(6) = {}", LoremIpsum.sentences(6));
+        this.log.info("LoremIpsum.sentence() = {}", LoremIpsumFactory.sentence());
+        this.log.info("LoremIpsum.sentence(1) = {}", LoremIpsumFactory.sentences(1));
+        this.log.info("LoremIpsum.sentence(6) = {}", LoremIpsumFactory.sentences(6));
 
-        this.log.info("LoremIpsum.paragraph() = {} ", LoremIpsum.paragraph());
-        this.log.info("LoremIpsum.paragraphs(1) = {} ", LoremIpsum.paragraphs(1));
-        this.log.info("LoremIpsum.paragraphs(4) = {} ", LoremIpsum.paragraphs(4));
+        this.log.info("LoremIpsum.paragraph() = {} ", LoremIpsumFactory.paragraph());
+        this.log.info("LoremIpsum.paragraphs(1) = {} ", LoremIpsumFactory.paragraphs(1));
+        this.log.info("LoremIpsum.paragraphs(4) = {} ", LoremIpsumFactory.paragraphs(4));
     }
 
 }

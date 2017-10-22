@@ -1,6 +1,6 @@
 # atf4j-csv
 
-## CSV data files for Automated Test Framework
+## Automated Test Framework for Java - CSV
 
 Java Automated Test Framework for CSV data files.
 

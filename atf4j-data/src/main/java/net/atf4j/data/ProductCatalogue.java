@@ -20,10 +20,12 @@ package net.atf4j.data;
 import java.util.ArrayDeque;
 import java.util.Collection;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * ProductCatalog.
  */
-public class ProductCatalogue {
+public class ProductCatalogue extends TestResultsReporting {
 
     private final Collection<Product> catalogue = new ArrayDeque<Product>();
 

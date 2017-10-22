@@ -22,7 +22,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.data.management.JdbcData;
+import net.atf4j.data.management.MockJdbcData;
 
 /**
  * A UnitTest for JdbcData objects.
@@ -30,41 +30,46 @@ import net.atf4j.data.management.JdbcData;
 public final class JdbcDataTest extends TestResultsReporting {
 
     /**
-     * Test method for void.
+     * Test default constructor.
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(new JdbcData());
+        final MockJdbcData jdbcData = new MockJdbcData();
+        log.debug("new JdbcData() = {}", jdbcData);
+        assertNotNull(UNEXPECTED_NULL, jdbcData);
     }
 
     /**
-     * Test method for void.
+     * Test set up.
      */
     @Test
     public void testSetUp() {
-        final JdbcData jdbcData = new JdbcData();
+        final MockJdbcData jdbcData = new MockJdbcData();
+        log.debug("new JdbcData() = {}", jdbcData);
         assertNotNull(jdbcData);
-        jdbcData.setUp();
+        assertNotNull(UNEXPECTED_NULL, jdbcData);
     }
 
     /**
-     * Test method for void.
+     * Test reset.
      */
     @Test
     public void testReset() {
-        final JdbcData jdbcData = new JdbcData();
+        final MockJdbcData jdbcData = new MockJdbcData();
+        log.debug("new JdbcData() = {}", jdbcData);
         assertNotNull(jdbcData);
-        jdbcData.reset();
+        assertNotNull(UNEXPECTED_NULL, jdbcData);
     }
 
     /**
-     * Test method for void.
+     * Test tear down.
      */
     @Test
     public void testTearDown() {
-        final JdbcData jdbcData = new JdbcData();
+        final MockJdbcData jdbcData = new MockJdbcData();
+        log.debug("new JdbcData() = {}", jdbcData);
         assertNotNull(jdbcData);
-        jdbcData.tearDown();
+        assertNotNull(UNEXPECTED_NULL, jdbcData);
     }
 
 }

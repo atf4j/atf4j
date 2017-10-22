@@ -23,6 +23,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import net.atf4j.core.Atf4jException;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Provides UK Postcode. <code>
@@ -31,7 +32,8 @@ import net.atf4j.core.Atf4jException;
  *  Inward_Code  ::= Postcode_Sector Postcode_Unit
  * </code>
  */
-public final class Postcode {
+public final class Postcode extends TestResultsReporting {
+
     private static final String POSTCODE = "XX99 9XX";
     private static final String GIRO_BANK = "GIR 0AA";
 

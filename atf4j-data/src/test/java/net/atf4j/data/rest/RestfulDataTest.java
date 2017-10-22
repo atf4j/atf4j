@@ -18,11 +18,12 @@
 package net.atf4j.data.rest;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.data.management.RestfulData;
+import net.atf4j.data.management.MockRestfulData;
 
 /**
  * A UnitTest for RestfulData objects.
@@ -30,45 +31,46 @@ import net.atf4j.data.management.RestfulData;
 public final class RestfulDataTest extends TestResultsReporting {
 
     /**
-     * Test method for void.
+     * Test default constructor.
      */
     @Test
-    public void testRestfulData() {
-        final RestfulData restfulData = new RestfulData();
+    public void testDefaultConstructor() {
+        final MockRestfulData restfulData = new MockRestfulData();
+        log.debug("restfulData = {}", restfulData);
         assertNotNull(UNEXPECTED_NULL, restfulData);
     }
 
     /**
-     * Test method for void.
+     * Test set up.
      */
     @Test
     public void testSetUp() {
-        final RestfulData restfulData = new RestfulData();
+        final MockRestfulData restfulData = new MockRestfulData();
+        log.debug("restfulData = {}", restfulData);
         assertNotNull(UNEXPECTED_NULL, restfulData);
-        final boolean data = restfulData.setUp();
-        assertNotNull(UNEXPECTED_NULL, data);
+        assertTrue(restfulData.setUp());
     }
 
     /**
-     * Test method for void.
+     * Test reset.
      */
     @Test
     public void testReset() {
-        final RestfulData restfulData = new RestfulData();
+        final MockRestfulData restfulData = new MockRestfulData();
+        log.debug("restfulData = {}", restfulData);
         assertNotNull(UNEXPECTED_NULL, restfulData);
-        final boolean data = restfulData.reset();
-        assertNotNull(UNEXPECTED_NULL, data);
+        assertTrue(restfulData.reset());
     }
 
     /**
-     * Test method for void.
+     * Test tear down.
      */
     @Test
     public void testTearDown() {
-        final RestfulData restfulData = new RestfulData();
+        final MockRestfulData restfulData = new MockRestfulData();
+        log.debug("restfulData = {}", restfulData);
         assertNotNull(UNEXPECTED_NULL, restfulData);
-        final boolean data = restfulData.tearDown();
-        assertNotNull(UNEXPECTED_NULL, data);
+        assertTrue(restfulData.tearDown());
     }
 
 }
