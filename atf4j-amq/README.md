@@ -1,6 +1,6 @@
 # Automated Test Framework for Java
 
-## Automation Test Framework for Apache ActiveMQ
+## Automated Test Framework for Java - ATF4J-AMQ
 
 Automation Test Framework for Apache ActiveMQ
 

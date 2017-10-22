@@ -1,6 +1,6 @@
 # atf4j-annotations
 
-## Automation Test Framework for Java
+## Automation Test Framework for Java - Annotations
 
 Provides Annotations for enhanced reporting for automated unit tests for enhanced reporting.
 

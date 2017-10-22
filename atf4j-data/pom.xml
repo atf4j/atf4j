@@ -9,6 +9,13 @@
 	<description>Java Automation Testing Framework functional testing Data Factory.</description>
 	<url>http://atf4j.net/atf4j-data</url>
 
+	<distributionManagement>
+		<site>
+			<id>atf4j-website</id>
+			<url>scp://atf4j.net/atf4j-data</url>
+		</site>
+	</distributionManagement>
+
 	<parent>
 		<groupId>net.atf4j</groupId>
 		<artifactId>atf4j</artifactId>

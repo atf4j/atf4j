@@ -4,54 +4,58 @@
 	xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
 	<url>
-		<loc>http://atf4j.net/</loc>
-		<lastmod></lastmod>
+		<loc>http://atf4j.net/index.html</loc>
+		<lastmod>2017-10-22</lastmod>
 	</url>
 
 	<url>
-		<loc>http://atf4j.net/index.html</loc>
-		<lastmod>2017-01-18</lastmod>
-		<changefreq>always</changefreq>
+		<loc>http://atf4j.net/boilerplate/index.html</loc>
+		<lastmod>2017-10-22</lastmod>
+	</url>
+	
+	<url>
+		<loc>http://atf4j.net/bootstrap/index.html</loc>
+		<lastmod>2017-10-22</lastmod>
 	</url>
 
 	<url>
 		<loc>http://atf4j.net/about.html</loc>
-		<changefreq>always</changefreq>
+		<lastmod>2017-10-22</lastmod>
 	</url>
 
 	<url>
 		<loc>http://atf4j.net/usage.html</loc>
-		<changefreq>always</changefreq>
+		<lastmod>2017-10-22</lastmod>
 	</url>
+
 	<url>
 		<loc>http://atf4j.net/issue-tracking.html</loc>
-		<changefreq>always</changefreq>
+		<lastmod>2017-10-22</lastmod>
 	</url>
+
 	<url>
 		<loc>http://atf4j.net/release-notes.html</loc>
-		<changefreq>always</changefreq>
+		<lastmod>2017-10-22</lastmod>
 	</url>
+	
 	<url>
 		<loc>http://atf4j.net/roadmap.html</loc>
-		<changefreq>always</changefreq>
+		<lastmod>2017-10-22</lastmod>
 	</url>
+
 	<url>
 		<loc>http://atf4j.net/download.html</loc>
-		<changefreq>always</changefreq>
+		<lastmod>2017-10-22</lastmod>
 	</url>
-	<url>
-		<loc>http://atf4j.net/javadoc</loc>
-		<lastmod></lastmod>
-	</url>
+
 	<url>
 		<loc>http://atf4j.net/apidocs/index.html</loc>
-		<lastmod>2017-01-18</lastmod>
-		<changefreq>always</changefreq>
+		<lastmod>2017-10-22</lastmod>
 	</url>
+
 	<url>
 		<loc>http://atf4j.net/testapidocs/index.html</loc>
-		<lastmod>2017-01-18</lastmod>
-		<changefreq>always</changefreq>
+		<lastmod>2017-10-22</lastmod>
 	</url>
 	
 </urlset>

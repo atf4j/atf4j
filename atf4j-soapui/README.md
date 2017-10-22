@@ -1,8 +1,8 @@
 # atf4j-soapui
 
-## Automated Test Framework for SOAPUI
+## Automated Test Framework for Java - SOAPUI
 
-Automated Test Framework for SOAPUI
+Automated Test Framework for SOAPUI using Groovy and Java.
 
 ## Maven Dependency
 

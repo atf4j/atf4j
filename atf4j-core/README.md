@@ -1,6 +1,6 @@
 # atf4j-core
 
-## Core of Automation Test Framework for Java
+## Automation Test Framework for Java - Core
 
 Core for the Automation Test Framework for Java.
 
