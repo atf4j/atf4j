@@ -19,10 +19,12 @@ package net.atf4j.data;
 
 import java.util.Random;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * Text Class.
  */
-public final class Text {
+public final class Text extends TestResultsReporting {
 
     private static final Random RND = new Random(System.currentTimeMillis());
 

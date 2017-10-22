@@ -17,10 +17,12 @@
 
 package net.atf4j.data.management;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * SetUpData Class.
  */
-public abstract class SetUpData {
+public abstract class SetUpData extends TestResultsReporting {
 
     /**
      * Instantiates a new sets the up data.

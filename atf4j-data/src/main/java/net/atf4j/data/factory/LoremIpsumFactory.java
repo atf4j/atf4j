@@ -15,21 +15,21 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.data;
+package net.atf4j.data.factory;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import net.atf4j.data.factory.AbstractDataFactory;
+import net.atf4j.data.Text;
 
 /**
  * Lorem Ipsum text generator.
  */
-public final class LoremIpsum extends AbstractDataFactory {
+public final class LoremIpsumFactory extends AbstractDataFactory {
 
-    private static LoremIpsum instance = null;
+    private static LoremIpsumFactory instance = null;
     private String[] rows = null;
     private final List<String> words = new ArrayList<String>();
     private int bounds;
@@ -37,7 +37,7 @@ public final class LoremIpsum extends AbstractDataFactory {
     /**
      * Instantiates a new lorem ipsum.
      */
-    protected LoremIpsum() {
+    protected LoremIpsumFactory() {
         super();
         initialise();
     }
@@ -70,11 +70,11 @@ public final class LoremIpsum extends AbstractDataFactory {
      *
      * @return single INSTANCE of LoremIpsum
      */
-    public static LoremIpsum getInstance() {
-        if (LoremIpsum.instance == null) {
-            LoremIpsum.instance = new LoremIpsum();
+    public static LoremIpsumFactory getInstance() {
+        if (LoremIpsumFactory.instance == null) {
+            LoremIpsumFactory.instance = new LoremIpsumFactory();
         }
-        return LoremIpsum.instance;
+        return LoremIpsumFactory.instance;
     }
 
     /**

@@ -19,10 +19,12 @@ package net.atf4j.data;
 
 import java.util.UUID;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * Product.
  */
-public class Product {
+public class Product extends TestResultsReporting {
 
     private String id = UUID.randomUUID().toString();
     private String name = "";

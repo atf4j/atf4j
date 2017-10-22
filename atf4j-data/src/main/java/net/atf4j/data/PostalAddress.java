@@ -21,10 +21,12 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * Address data class.
  */
-public class PostalAddress {
+public class PostalAddress extends TestResultsReporting {
 
     private String[] addressLines = new String[8];
     private Postcode postcode = new Postcode();

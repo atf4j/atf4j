@@ -17,10 +17,12 @@
 
 package net.atf4j.data;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * Datum for providing field status.
  */
-public abstract class Datum {
+public abstract class Datum extends TestResultsReporting {
 
     private boolean isFresh = true;
     private boolean isChanged = false;

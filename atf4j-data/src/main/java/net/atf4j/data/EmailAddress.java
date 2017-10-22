@@ -20,10 +20,12 @@ package net.atf4j.data;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * EmailAddress.
  */
-public final class EmailAddress {
+public final class EmailAddress extends TestResultsReporting {
 
     private static final Pattern LOCAL_PART = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*$");
     private static final Pattern DOMAIN = Pattern.compile("^@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");

@@ -17,10 +17,12 @@
 
 package net.atf4j.data;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * Credentials Class.
  */
-public class Credentials {
+public class Credentials extends TestResultsReporting {
 
     private String username = "";
     private String password = "";

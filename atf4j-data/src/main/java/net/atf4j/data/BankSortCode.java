@@ -22,13 +22,13 @@ import static org.junit.Assert.assertNotNull;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * BankSortCode data class. UK Bank
  * SortCode @”^\d{6,6}$|^\d{2,2}\-\d{2,2}\-\d{2,2}$”;
  */
-public final class BankSortCode {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public final class BankSortCode extends TestResultsReporting {
 
     private static final Pattern PATTERN = Pattern.compile("^(\\d){2}-(\\d){2}-(\\d){2}$");
 

@@ -20,10 +20,12 @@ package net.atf4j.data;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * Chord Class.
  */
-public class Chord {
+public class Chord extends TestResultsReporting {
 
     /** the stem part. */
     private CharSequence stem;
