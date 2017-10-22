@@ -43,7 +43,7 @@ public class Chord extends TestResultsReporting {
     /**
      * Instantiates a new chord.
      *
-     * @param stem the stem
+     * @param stem the new stem as any CharSequence.
      */
     public Chord(CharSequence stem) {
         super();
@@ -53,7 +53,8 @@ public class Chord extends TestResultsReporting {
     /**
      * Sets the stem.
      *
-     * @param stem the new stem
+     * @param stem the new stem as any CharSequence.
+     * @return this for a fluent interface.
      */
     public Chord setStem(final CharSequence stem) {
         this.stem = stem;
@@ -63,14 +64,14 @@ public class Chord extends TestResultsReporting {
     /**
      * Gets the stem.
      *
-     * @return the stem
+     * @return the stem as a CharSequence.
      */
     public CharSequence getStem() {
         return stem;
     }
 
     /**
-     * Adds the.
+     * Adds the a new Chord as a leaf.
      *
      * @param e the e
      * @return true, if successful, otherwise false.
