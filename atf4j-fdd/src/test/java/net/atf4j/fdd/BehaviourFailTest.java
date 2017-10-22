@@ -22,10 +22,6 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.fdd.Feature;
-import net.atf4j.fdd.Given;
-import net.atf4j.fdd.Then;
-import net.atf4j.fdd.When;
 
 /**
  * Behaviour Fail Test Class.
@@ -38,10 +34,10 @@ public final class BehaviourFailTest extends TestResultsReporting {
     @Test
     @Feature.Given("testGiven")
     public void testGiven() {
-        log.debug("testGiven", this.getClass().getSimpleName());
+        this.log.debug("testGiven");
         final Given given = new Given();
         assertNotNull(UNEXPECTED_NULL, given);
-        given.execute();
+        assertNotNull(UNEXPECTED_NULL, given.execute());
     }
 
     /**
@@ -50,10 +46,10 @@ public final class BehaviourFailTest extends TestResultsReporting {
     @Test
     @Feature.When("testWhen")
     public void testWhen() {
-        log.debug("testGiven", this.getClass().getSimpleName());
+        this.log.debug("testGiven");
         final When when = new When();
         assertNotNull(UNEXPECTED_NULL, when);
-        when.execute();
+        assertNotNull(UNEXPECTED_NULL, when.execute());
     }
 
     /**
@@ -62,10 +58,10 @@ public final class BehaviourFailTest extends TestResultsReporting {
     @Test
     @Feature.Then("testThen")
     public void testThen() {
-        log.debug("testGiven", this.getClass().getSimpleName());
+        this.log.debug("testGiven");
         final Then then = new Then();
         assertNotNull(UNEXPECTED_NULL, then);
-        then.execute();
+        assertNotNull(UNEXPECTED_NULL, then.execute());
     }
 
 }

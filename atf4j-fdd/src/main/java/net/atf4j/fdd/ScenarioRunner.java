@@ -64,7 +64,7 @@ public final class ScenarioRunner extends TestResultsReporting {
      * @return the scenario runner
      */
     public ScenarioRunner execute(final AbstractScenario scenario) {
-        targetScenario = scenario;
+        this.targetScenario = scenario;
         return this;
     }
 
@@ -74,8 +74,8 @@ public final class ScenarioRunner extends TestResultsReporting {
      * @return the scenario runner
      */
     private ScenarioRunner executeGiven() {
-        if (targetScenario != null) {
-            return executeGiven(targetScenario);
+        if (this.targetScenario != null) {
+            return executeGiven(this.targetScenario);
         }
         return this;
     }
@@ -89,11 +89,11 @@ public final class ScenarioRunner extends TestResultsReporting {
     private ScenarioRunner executeGiven(final AbstractScenario scenario) {
         final Class<?> candidateClass = scenario.getClass();
         if (candidateClass.isAnnotationPresent(Feature.Scenario.class)) {
-            log.trace(candidateClass.toGenericString());
+            this.log.trace(candidateClass.toGenericString());
             final Method[] declaredMethods = candidateClass.getDeclaredMethods();
             for (final Method method : declaredMethods) {
                 if (method.isAnnotationPresent(Feature.Given.class)) {
-                    log.debug(method.toGenericString());
+                    this.log.debug(method.toGenericString());
                 }
             }
         }
@@ -106,7 +106,7 @@ public final class ScenarioRunner extends TestResultsReporting {
      * @return the scenario runner
      */
     private ScenarioRunner executeWhen() {
-        return executeWhen(targetScenario);
+        return executeWhen(this.targetScenario);
     }
 
     /**
@@ -118,11 +118,11 @@ public final class ScenarioRunner extends TestResultsReporting {
     private ScenarioRunner executeWhen(final AbstractScenario scenario) {
         final Class<?> candidateClass = scenario.getClass();
         if (candidateClass.isAnnotationPresent(Feature.Scenario.class)) {
-            log.trace(candidateClass.toGenericString());
+            this.log.trace(candidateClass.toGenericString());
             final Method[] declaredMethods = candidateClass.getDeclaredMethods();
             for (final Method method : declaredMethods) {
                 if (method.isAnnotationPresent(Feature.Given.class)) {
-                    log.debug(method.toGenericString());
+                    this.log.debug(method.toGenericString());
                 }
             }
         }
@@ -135,7 +135,7 @@ public final class ScenarioRunner extends TestResultsReporting {
      * @return the scenario runner
      */
     private ScenarioRunner executeThen() {
-        return executeThen(targetScenario);
+        return executeThen(this.targetScenario);
     }
 
     /**
@@ -147,11 +147,11 @@ public final class ScenarioRunner extends TestResultsReporting {
     private ScenarioRunner executeThen(final AbstractScenario scenario) {
         final Class<?> candidateClass = scenario.getClass();
         if (candidateClass.isAnnotationPresent(Feature.Scenario.class)) {
-            log.trace(candidateClass.toGenericString());
+            this.log.trace(candidateClass.toGenericString());
             final Method[] declaredMethods = candidateClass.getDeclaredMethods();
             for (final Method method : declaredMethods) {
                 if (method.isAnnotationPresent(Feature.Given.class)) {
-                    log.debug(method.toGenericString());
+                    this.log.debug(method.toGenericString());
                 }
             }
         }
