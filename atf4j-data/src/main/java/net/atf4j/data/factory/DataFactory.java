@@ -22,6 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.data.Bank;
 import net.atf4j.data.Business;
 import net.atf4j.data.Card;
@@ -33,7 +34,7 @@ import net.atf4j.data.PostalAddress;
 /**
  * Factory for random data. TODO: Add variants formated date string.
  */
-public final class DataFactory {
+public final class DataFactory extends TestResultsReporting {
 
     public static final String ISO_DATE_TIME = "yyyy-MM-dd'T'HH:mm'Z'";
     public static final String ISO_DATE = "yyyy-MM-dd";

@@ -17,14 +17,16 @@
 
 package net.atf4j.data;
 
+import java.util.UUID;
+
 /**
  * Product.
  */
 public class Product {
 
-    private String id;
-    private String name;
-    private String details;
+    private String id = UUID.randomUUID().toString();
+    private String name = "";
+    private String details = "";
 
     /**
      * Create new INSTANCE of create.
@@ -95,7 +97,7 @@ public class Product {
      * @return the id
      */
     public String getId() {
-        return this.id;
+        return id;
     }
 
     /**
@@ -104,7 +106,7 @@ public class Product {
      * @return the name
      */
     public String getName() {
-        return this.name;
+        return name;
     }
 
     /**
@@ -113,7 +115,7 @@ public class Product {
      * @return the details
      */
     public String getDetails() {
-        return this.details;
+        return details;
     }
 
     /*
@@ -123,7 +125,7 @@ public class Product {
      */
     @Override
     public String toString() {
-        return String.format("Product [id=%s, name=%s, details=%s]", this.id, this.name, this.details);
+        return String.format("Product [id=%s, name=%s, details=%s]", id, name, details);
     }
 
 }

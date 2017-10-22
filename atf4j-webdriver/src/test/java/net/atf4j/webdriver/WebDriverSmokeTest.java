@@ -28,7 +28,7 @@ import net.atf4j.core.TestResultsReporting;
  * Smoke Tests for WebDriver.
  */
 @Ignore
-public class WebDriverSmokeTest extends TestResultsReporting {
+public final class WebDriverSmokeTest extends TestResultsReporting {
 
     /**
      * Smoke test ChromeDriver.
@@ -39,7 +39,7 @@ public class WebDriverSmokeTest extends TestResultsReporting {
         final ChromeDriver chromeDriver = new ChromeDriver();
         chromeDriver.get("http://127.0.0.1:8080/");
         final String pageTitle = chromeDriver.getTitle();
-        this.log.info("pageTitle={}", pageTitle);
+        log.info("pageTitle={}", pageTitle);
     }
 
     /**
@@ -50,7 +50,7 @@ public class WebDriverSmokeTest extends TestResultsReporting {
         final FirefoxDriver firefoxDriver = new FirefoxDriver();
         firefoxDriver.get("http://127.0.0.1:8080/");
         final String pageTitle = firefoxDriver.getTitle();
-        this.log.info("pageTitle={}", pageTitle);
+        log.info("pageTitle={}", pageTitle);
     }
 
 }

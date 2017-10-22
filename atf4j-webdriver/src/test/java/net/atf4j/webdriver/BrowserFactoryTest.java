@@ -29,7 +29,7 @@ import net.atf4j.core.TestResultsReporting;
  * A UnitTest for BrowserFactory objects.
  */
 @Ignore
-public class BrowserFactoryTest extends TestResultsReporting {
+public final class BrowserFactoryTest extends TestResultsReporting {
 
     /**
      * test BrowserFactory returns Chrome.
@@ -82,9 +82,9 @@ public class BrowserFactoryTest extends TestResultsReporting {
     private void verifyPageLoaded(final WebDriver webDriver) {
         webDriver.get("http://127.0.0.1:8080");
         final String currentUrl = webDriver.getCurrentUrl();
-        this.log.info(currentUrl);
+        log.info(currentUrl);
         final String pageTitle = webDriver.getTitle();
-        this.log.info(pageTitle);
+        log.info(pageTitle);
     }
 
 }

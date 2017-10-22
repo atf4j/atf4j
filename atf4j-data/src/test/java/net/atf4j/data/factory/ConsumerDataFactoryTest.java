@@ -35,8 +35,8 @@ public final class ConsumerDataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final Consumer consumer = ConsumerDataFactory.create();
-        assertNotNull("unexpected null", consumer);
-        this.log.info("{}", consumer.toString());
+        log.debug("CardDataFactory.random() = {}", consumer);
+        assertNotNull(UNEXPECTED_NULL, consumer);
     }
 
 }

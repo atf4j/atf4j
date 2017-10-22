@@ -26,7 +26,7 @@ import java.util.UUID;
  */
 public class Field<T> {
 
-    private FieldStatus status = FieldStatus.PRISTINE;
+    private FieldStatus fieldStatus = FieldStatus.PRISTINE;
     private String key;
     private T value;
 
@@ -35,7 +35,7 @@ public class Field<T> {
      */
     public Field() {
         super();
-        this.status = FieldStatus.PRISTINE;
+        this.fieldStatus = FieldStatus.PRISTINE;
         set(UUID.randomUUID().toString(), null);
     }
 
@@ -47,7 +47,7 @@ public class Field<T> {
     public Field(final T value) {
         super();
         set(UUID.randomUUID().toString(), value);
-        this.status = FieldStatus.PRISTINE;
+        this.fieldStatus = FieldStatus.PRISTINE;
     }
 
     /**
@@ -59,7 +59,7 @@ public class Field<T> {
     public Field(final String key, final T value) {
         super();
         set(key, value);
-        this.status = FieldStatus.PRISTINE;
+        this.fieldStatus = FieldStatus.PRISTINE;
     }
 
     /**
@@ -83,7 +83,7 @@ public class Field<T> {
      */
     public Field setKey(final String key) {
         this.key = key;
-        this.status = FieldStatus.CHANGED;
+        this.fieldStatus = FieldStatus.CHANGED;
         return this;
     }
 
@@ -95,7 +95,7 @@ public class Field<T> {
      */
     public Field setValue(final T value) {
         this.value = value;
-        this.status = FieldStatus.CHANGED;
+        this.fieldStatus = FieldStatus.CHANGED;
         return this;
     }
 
@@ -106,7 +106,7 @@ public class Field<T> {
      * @return the field
      */
     public Field setStatus(final FieldStatus fieldStatus) {
-        this.status = fieldStatus;
+        this.fieldStatus = fieldStatus;
         return this;
     }
 
@@ -134,7 +134,7 @@ public class Field<T> {
      * @return the status
      */
     public FieldStatus getStatus() {
-        return this.status;
+        return this.fieldStatus;
     }
 
     /**
@@ -143,7 +143,7 @@ public class Field<T> {
      * @return the string
      */
     public String debugString() {
-        return String.format("Field [status=%s, key=%s, value=%s]", this.status, this.key, this.value);
+        return String.format("Field [status=%s, key=%s, value=%s]", this.fieldStatus, this.key, this.value);
     }
 
     /*

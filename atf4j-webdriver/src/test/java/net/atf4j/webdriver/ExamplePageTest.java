@@ -25,7 +25,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * A UnitTest for ExamplePage objects.
  */
-public class ExamplePageTest {
+public final class ExamplePageTest {
 
     /**
      * PageObject representing Home.
@@ -52,7 +52,7 @@ public class ExamplePageTest {
          * @param webDriver the web driver
          */
         MockPageObject(final WebDriver webDriver) {
-            this.driver = webDriver;
+            driver = webDriver;
         }
     }
 

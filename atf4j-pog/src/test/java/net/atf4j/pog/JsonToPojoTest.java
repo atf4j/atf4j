@@ -24,7 +24,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * A UnitTest for JsonToPojo objects.
  */
-public class JsonToPojoTest extends TestResultsReporting {
+public final class JsonToPojoTest extends TestResultsReporting {
 
     /**
      * Test method for void.
@@ -34,8 +34,8 @@ public class JsonToPojoTest extends TestResultsReporting {
         final String compactJson = "{\"id\":0123456789,\"name\":\"Test\",\"itemList\":[{\"itemId\":1,\"name\":\"Bread\",\"qty\":1,\"price\":1.00},{\"itemId\":2,\"name\":\"Eggs\",\"qty\":6,\"price\":2.00},{\"itemId\":3,\"name\":\"Meat\",\"qty\":1,\"price\":10}]}";
         final JsonToPojo jsonToPojo = new JsonToPojo();
         final String prettyJson = jsonToPojo.toJson(compactJson);
-        this.log.info("compactJson={}\n", compactJson);
-        this.log.info("prettyJson={}\n", prettyJson);
+        log.info("compactJson={}\n", compactJson);
+        log.info("prettyJson={}\n", prettyJson);
     }
 
 }

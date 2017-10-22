@@ -22,18 +22,18 @@ package net.atf4j.data;
  */
 public class Credentials {
 
-    private String username;
-    private String password;
-    private String email;
+    private String username = "";
+    private String password = "";
+    private String email = "";
 
     /**
      * Instantiates a new credentials.
      */
     public Credentials() {
         super();
-        this.username = "username";
-        this.password = "password";
-        this.email = "email@example.org";
+        username = "username";
+        password = "password";
+        email = "email@example.org";
     }
 
     /**
@@ -56,7 +56,7 @@ public class Credentials {
      * @return the username
      */
     public String getUsername() {
-        return this.username;
+        return username;
     }
 
     /**
@@ -98,7 +98,7 @@ public class Credentials {
      * @return the email
      */
     public String getEmail() {
-        return this.email;
+        return email;
     }
 
     /**
@@ -107,7 +107,7 @@ public class Credentials {
      * @return the password
      */
     public String getPassword() {
-        return this.password;
+        return password;
     }
 
     /*
@@ -118,9 +118,9 @@ public class Credentials {
     @Override
     public String toString() {
         return String.format("Credentials [username=%s, password=%s, email=%s]",
-                this.username,
-                this.password,
-                this.email);
+                username,
+                password,
+                email);
     }
 
 }

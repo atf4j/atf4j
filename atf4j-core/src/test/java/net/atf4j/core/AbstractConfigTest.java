@@ -59,9 +59,9 @@ public class AbstractConfigTest extends TestResultsReporting {
     @Ignore
     @Test
     public void testDefaultConfig() {
-        DefaultConfig config = new DefaultConfig();
+        final DefaultConfig config = new DefaultConfig();
+        log.debug("config = {}", config.toString());
         assertNotNull(UNEXPECTED_NULL, config);
-        this.log.info("{}", config.toString());
     }
 
     /**
@@ -71,9 +71,9 @@ public class AbstractConfigTest extends TestResultsReporting {
      */
     @Test
     public void testSimpleConfiguration() throws Exception {
-        SimpleConfiguration config = new SimpleConfiguration();
-        assertNotNull(config);
-        log.info("{}", config);
+        final SimpleConfiguration config = new SimpleConfiguration();
+        log.debug("config = {}", config.toString());
+        assertNotNull(UNEXPECTED_NULL, config);
     }
 
     /**
@@ -84,10 +84,10 @@ public class AbstractConfigTest extends TestResultsReporting {
     @Test
     public void testSuggestedUsage() throws Exception {
         final SimpleConfiguration config = new SimpleConfiguration();
-        assertNotNull(config);
-        log.info("{}", config);
+        log.debug("config = {}", config.toString());
+        assertNotNull(UNEXPECTED_NULL, config);
 
-        String defaultValue = "defaultValue";
+        final String defaultValue = "defaultValue";
         assertEquals(defaultValue, config.valueFor(MISSING_KEY, defaultValue));
         assertEquals(Integer.MAX_VALUE, config.valueFor(MISSING_KEY, Integer.MAX_VALUE));
         assertEquals(Long.MAX_VALUE, config.valueFor(MISSING_KEY, Long.MAX_VALUE));
@@ -104,9 +104,9 @@ public class AbstractConfigTest extends TestResultsReporting {
      */
     @Test
     public void testIntValueForKey() {
-        String value = Config.valueFor("keyForInt");
+        final String value = Config.valueFor("keyForInt");
+        log.debug("Config.valueFor(keyForInt) = {}", value);
         assertNotNull(UNEXPECTED_NULL, value);
-        log.info("{}", value);
     }
 
     /**
@@ -114,9 +114,9 @@ public class AbstractConfigTest extends TestResultsReporting {
      */
     @Test
     public void testLongValueForKey() {
-        String value = Config.valueFor("keyForLong");
+        final String value = Config.valueFor("keyForLong");
+        log.debug("Config.valueFor(keyForLong) = {}", value);
         assertNotNull(UNEXPECTED_NULL, value);
-        log.info("{}", value);
     }
 
     /**

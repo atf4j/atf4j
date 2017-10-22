@@ -26,7 +26,7 @@ import net.atf4j.data.Card;
  */
 public final class CardDataFactory extends AbstractDataFactory {
 
-    private static CardDataFactory INSTANCE = null;
+    private static CardDataFactory cardDataFactory = null;
     private String[] data;
 
     /**
@@ -54,10 +54,10 @@ public final class CardDataFactory extends AbstractDataFactory {
      * @return single INSTANCE of CardDataFactory
      */
     public static CardDataFactory getInstance() {
-        if (CardDataFactory.INSTANCE == null) {
-            CardDataFactory.INSTANCE = new CardDataFactory();
+        if (CardDataFactory.cardDataFactory == null) {
+            CardDataFactory.cardDataFactory = new CardDataFactory();
         }
-        return CardDataFactory.INSTANCE;
+        return CardDataFactory.cardDataFactory;
     }
 
     /**

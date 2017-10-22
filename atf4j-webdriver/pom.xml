@@ -3,15 +3,18 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<artifactId>atf4j-webdriver</artifactId>
+	<packaging>jar</packaging>
+	<name>ATF4J - Selenium WebDriver</name>
+	<description>Java Automation Testing Framework for functional testing with Selenium WebDriver.</description>
+	<url>http://atf4j.net/atf4j-webdriver</url>
+
 	<parent>
 		<groupId>net.atf4j</groupId>
 		<artifactId>atf4j</artifactId>
 		<version>0.10.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>atf4j-webdriver</artifactId>
-	<packaging>jar</packaging>
-	<name>ATF4J - Selenium WebDriver</name>
 
 	<dependencies>
 		<dependency>
@@ -43,6 +46,4 @@
 		</plugins>
 	</build>
 
-	<description>Java Automation Testing Framework for Selenium WebDriver.</description>
-	<url>http://atf4j.net</url>
 </project>

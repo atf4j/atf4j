@@ -25,17 +25,14 @@ import javax.jms.JMSException;
 
 import org.junit.Ignore;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * The ProducerTest Class.
  */
 @Ignore
-public class ProducerTest {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
-    private static final Logger LOG = LoggerFactory.getLogger(ProducerTest.class);
+public class ProducerTest extends TestResultsReporting {
 
     /**
      * Test producer.
@@ -44,10 +41,10 @@ public class ProducerTest {
      */
     @Test
     public void testProducer() throws JMSException {
-        LOG.info("testProducer");
+        log.debug("testProducer");
         final Producer producer = new Producer();
         assertNotNull(UNEXPECTED_NULL, producer);
-        LOG.info("{}", producer);
+        log.debug("{}", producer);
     }
 
     /**
@@ -57,13 +54,13 @@ public class ProducerTest {
      */
     @Test
     public void testExecute() throws JMSException {
-        LOG.info("testExecute");
+        log.debug("testExecute");
         final Producer producer = new Producer();
         assertNotNull(UNEXPECTED_NULL, producer);
-        LOG.info("{}", producer);
+        log.debug("{}", producer);
 
         final String[] messages = null;
-        LOG.info("{}", Arrays.toString(messages));
+        log.debug("{}", Arrays.toString(messages));
         producer.execute(messages);
     }
 }

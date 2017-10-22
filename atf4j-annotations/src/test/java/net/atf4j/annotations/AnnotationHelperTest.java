@@ -18,22 +18,20 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * An AnnotatedTest Class.
  */
 @Atf4j.TestScript
-public class AnnotationHelperTest {
+public class AnnotationHelperTest extends TestResultsReporting {
 
     private static final String TEST_FAIL_ID = "FAIL-0001";
     private static final String TEST_PASS_ID = "PASS-0001";
     private static final String TEST_FAIL_NAME = "testAnnotationsWithFail";
     private static final String TEST_PASS_NAME = "testAnnotationsWithPass";
     private static final String GIVEN_WHEN_THEN = "\n\tGiven...\n\tWhen...\n\tThen...\n";
-
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Test method atf4j Test Annotations with pass. Given a test is annotated

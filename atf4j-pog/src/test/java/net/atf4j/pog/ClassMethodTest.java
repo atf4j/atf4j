@@ -26,7 +26,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * A UnitTest for ClassMethod objects.
  */
-public class ClassMethodTest extends TestResultsReporting {
+public final class ClassMethodTest extends TestResultsReporting {
 
     /**
      * Test method for void.
@@ -45,7 +45,7 @@ public class ClassMethodTest extends TestResultsReporting {
         final ClassMethod classMethod = new ClassMethod();
         assertNotNull("unexpected null", classMethod);
         final String string = classMethod.toString();
-        this.log.info(string);
+        log.info(string);
     }
 
     /**
@@ -56,7 +56,7 @@ public class ClassMethodTest extends TestResultsReporting {
         final ClassMethod classMethod = new ClassMethod("String", "method");
         assertNotNull("unexpected null", classMethod);
         final String string = classMethod.toString();
-        this.log.info(string);
+        log.info(string);
     }
 
     /**
@@ -67,7 +67,7 @@ public class ClassMethodTest extends TestResultsReporting {
         final ClassMethod classMethod = new ClassMethod("Date", "date");
         assertNotNull("unexpected null", classMethod);
         final String string = classMethod.toString();
-        this.log.info(string);
+        log.info(string);
     }
 
 }

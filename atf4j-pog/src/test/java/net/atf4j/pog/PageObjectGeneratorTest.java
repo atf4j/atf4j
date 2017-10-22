@@ -27,9 +27,9 @@ import net.atf4j.pog.PageWebElement.Strategy;
 /**
  * A UnitTest for PageObjectGenerator objects.
  */
-public class PageObjectGeneratorTest extends TestResultsReporting {
+public final class PageObjectGeneratorTest extends TestResultsReporting {
 
-    /** The Constant 			HTTP_ATF4J_NET. */
+    /** The Constant HTTP_ATF4J_NET. */
     private static final String HTTP_ATF4J_NET = "http://atf4j.net";
 
     /**
@@ -70,7 +70,7 @@ public class PageObjectGeneratorTest extends TestResultsReporting {
         pog.setClassName("ExamplePageObject");
         pog.add(pageObjectData);
 
-        this.log.info("{}", pog.generate());
+        log.info("{}", pog.generate());
         pog.generate();
     }
 

@@ -24,7 +24,7 @@ import java.util.Random;
  */
 public final class Text {
 
-    private static Random rnd = new Random(System.currentTimeMillis());
+    private static final Random RND = new Random(System.currentTimeMillis());
 
     /**
      * Instantiates a new text.
@@ -39,7 +39,7 @@ public final class Text {
      * @return the char
      */
     public static char randomChar() {
-        return (char) ('a' + rnd.nextInt(26));
+        return (char) ('a' + RND.nextInt(26));
     }
 
     /**
@@ -62,7 +62,7 @@ public final class Text {
      * @return the char
      */
     public static char randomDigit() {
-        return (char) ('0' + rnd.nextInt(9));
+        return (char) ('0' + RND.nextInt(9));
     }
 
     /**

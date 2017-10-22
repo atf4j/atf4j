@@ -27,7 +27,7 @@ import net.atf4j.data.Bank;
 public final class BankDataFactory extends AbstractDataFactory {
 
     private static final String BANK_DATA = "sortcodesData.csv";
-    private static BankDataFactory INSTANCE = null;
+    private static BankDataFactory bankDataFactory = null;
 
     /**
      * Instantiates a new bank data factory.
@@ -45,10 +45,10 @@ public final class BankDataFactory extends AbstractDataFactory {
      * @throws FileNotFoundException the file not found exception
      */
     public static BankDataFactory getInstance() throws FileNotFoundException {
-        if (BankDataFactory.INSTANCE == null) {
-            BankDataFactory.INSTANCE = new BankDataFactory();
+        if (BankDataFactory.bankDataFactory == null) {
+            BankDataFactory.bankDataFactory = new BankDataFactory();
         }
-        return BankDataFactory.INSTANCE;
+        return BankDataFactory.bankDataFactory;
     }
 
     /**
@@ -68,7 +68,7 @@ public final class BankDataFactory extends AbstractDataFactory {
      */
     public Bank random() {
         final Bank bank = new Bank();
-        final String randomEntry = INSTANCE.randomEntry();
+        final String randomEntry = bankDataFactory.randomEntry();
         final String[] bankDetails = randomEntry.split(",");
         bank.setBankSortCode(bankDetails[0]);
         bank.setBankName(bankDetails[1]);

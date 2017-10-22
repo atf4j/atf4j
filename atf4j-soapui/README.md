@@ -9,7 +9,7 @@ Automated Test Framework for SOAPUI
 	<dependency>
 		<groupId>net.atf4j</groupId>
 		<artifactId>atf4j-soapui</artifactId>
-		<version>0.4.0-SNAPSHOT</version>
+		<version>0.10.0-SNAPSHOT</version>
 	</dependency>
 
 ## Usage

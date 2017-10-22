@@ -21,12 +21,13 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.data.management.JdbcData;
 
 /**
  * A UnitTest for JdbcData objects.
  */
-public final class JdbcDataTest {
+public final class JdbcDataTest extends TestResultsReporting {
 
     /**
      * Test method for void.

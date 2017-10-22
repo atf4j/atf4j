@@ -133,10 +133,10 @@ public class CsvFileTest extends TestResultsReporting {
         log.debug(csvFile.debugString());
         final HeaderLine header = csvFile.getHeaderLine();
         assertEquals(EXPECTED_HEADER, header.debugString());
-        log.info("{}", header);
+        log.debug("header = {}", header);
         for (int i = 1; i < csvFile.rowCount(); i++) {
             final CsvRow csvRow = csvFile.getRow(i);
-            log.info("{}", csvRow);
+            log.debug("{}", csvRow);
             for (int j = 1; j < csvRow.length(); j++) {
                 final String expected = String.format("data-%s-%s", i, j);
                 final String actual = csvRow.getField(j);

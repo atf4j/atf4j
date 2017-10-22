@@ -29,14 +29,14 @@ import net.atf4j.pog.PageWebElement.Strategy;
 /**
  * A UnitTest for PageObjectData objects.
  */
-public class PageObjectDataTest extends TestResultsReporting {
+public final class PageObjectDataTest extends TestResultsReporting {
 
     /**
      * Test method for void.
      */
     @Test
     public void testExpected() {
-        this.log.info("==============================================");
+        log.info("==============================================");
         final PageObjectData pageObjectData = new PageObjectData();
         assertNotNull(UNEXPECTED_NULL, pageObjectData);
 
@@ -50,7 +50,7 @@ public class PageObjectDataTest extends TestResultsReporting {
             .add(new PageWebElement("findByCss", Strategy.CSS, "."));
 
         logAttributes(pageObjectData);
-        this.log.info(pageObjectData.toString());
+        log.info(pageObjectData.toString());
     }
 
     /**
@@ -79,7 +79,7 @@ public class PageObjectDataTest extends TestResultsReporting {
     private void logAttributes(final PageObjectData pageObjectData) {
         final List<PageWebElement> attributes = pageObjectData.get();
         for (final PageWebElement pageWebElement : attributes) {
-            this.log.debug(pageWebElement.toString());
+            log.debug(pageWebElement.toString());
         }
     }
 }

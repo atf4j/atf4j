@@ -26,7 +26,7 @@ import net.atf4j.data.Business;
  */
 public final class BusinessDataFactory extends AbstractDataFactory {
 
-    private static BusinessDataFactory INSTANCE = null;
+    private static BusinessDataFactory businessDataFactory = null;
     private String[] data;
 
     /**
@@ -54,10 +54,10 @@ public final class BusinessDataFactory extends AbstractDataFactory {
      * @return single INSTANCE of BusinessDataFactory
      */
     public static BusinessDataFactory getInstance() {
-        if (BusinessDataFactory.INSTANCE == null) {
-            BusinessDataFactory.INSTANCE = new BusinessDataFactory();
+        if (BusinessDataFactory.businessDataFactory == null) {
+            BusinessDataFactory.businessDataFactory = new BusinessDataFactory();
         }
-        return BusinessDataFactory.INSTANCE;
+        return BusinessDataFactory.businessDataFactory;
     }
 
     /**

@@ -6,6 +6,8 @@
 	<artifactId>atf4j-junit</artifactId>
 	<packaging>jar</packaging>
 	<name>ATF4J - JUnit</name>
+	<description>Java Automation Test Framework for JUnit</description>
+	<url>http://atf4j.net/atf4j-junit</url>
 
 	<parent>
 		<groupId>net.atf4j</groupId>
@@ -21,6 +23,4 @@
 		</dependency>
 	</dependencies>
 
-	<url>http://atf4j.net</url>
-	<description>Java Automation Test Framework for JUnit</description>
 </project>

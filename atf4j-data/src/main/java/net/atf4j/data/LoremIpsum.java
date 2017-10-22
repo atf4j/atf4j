@@ -29,7 +29,7 @@ import net.atf4j.data.factory.AbstractDataFactory;
  */
 public final class LoremIpsum extends AbstractDataFactory {
 
-    private static LoremIpsum INSTANCE = null;
+    private static LoremIpsum instance = null;
     private String[] rows = null;
     private final List<String> words = new ArrayList<String>();
     private int bounds;
@@ -71,10 +71,10 @@ public final class LoremIpsum extends AbstractDataFactory {
      * @return single INSTANCE of LoremIpsum
      */
     public static LoremIpsum getInstance() {
-        if (LoremIpsum.INSTANCE == null) {
-            LoremIpsum.INSTANCE = new LoremIpsum();
+        if (LoremIpsum.instance == null) {
+            LoremIpsum.instance = new LoremIpsum();
         }
-        return LoremIpsum.INSTANCE;
+        return LoremIpsum.instance;
     }
 
     /**
@@ -130,7 +130,7 @@ public final class LoremIpsum extends AbstractDataFactory {
     private String getParagraphs(final int count) {
         final StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < count; i++) {
-            final int length = rnd.nextInt(12) + 4;
+            final int length = random.nextInt(12) + 4;
             final String sentences = getSentences(length);
             stringBuilder.append(sentences);
             stringBuilder.append("\n");
@@ -166,7 +166,7 @@ public final class LoremIpsum extends AbstractDataFactory {
     private String getSentences(final int count) {
         final StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < count; i++) {
-            final int length = rnd.nextInt(12) + 4;
+            final int length = random.nextInt(12) + 4;
             final String sentence = getInstance().getWords(length);
             stringBuilder.append(sentenceCase(sentence));
         }
@@ -201,7 +201,7 @@ public final class LoremIpsum extends AbstractDataFactory {
     private String getWords(final int count) {
         final StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < count; i++) {
-            final int nextInt = rnd.nextInt(bounds);
+            final int nextInt = random.nextInt(bounds);
             final String word = words.get(nextInt);
             stringBuilder.append(word);
             stringBuilder.append(' ');

@@ -29,12 +29,12 @@ import net.atf4j.data.factory.DataFactory;
  */
 public class Card {
 
-    private String provider;
-    private String cardNumber;
-    private String cardName;
+    private String provider = "";
+    private String cardNumber = "";
+    private String cardName = "";
     private Calendar startDate;
     private Calendar endDate;
-    private String ccv;
+    private String ccv = "";
 
     /**
      * Instantiates a new card.
@@ -107,7 +107,7 @@ public class Card {
      * @return the provider
      */
     public String getProvider() {
-        return this.provider;
+        return provider;
     }
 
     /**
@@ -127,7 +127,7 @@ public class Card {
      * @return the card number
      */
     public String getCardNumber() {
-        return this.cardNumber;
+        return cardNumber;
     }
 
     /**
@@ -147,7 +147,7 @@ public class Card {
      * @return the card name
      */
     public String getCardName() {
-        return this.cardName;
+        return cardName;
     }
 
     /**
@@ -167,7 +167,7 @@ public class Card {
      * @return the start date
      */
     public Calendar getStartDate() {
-        return this.startDate;
+        return startDate;
     }
 
     /**
@@ -176,7 +176,7 @@ public class Card {
      * @return the end date
      */
     public Calendar getEndDate() {
-        return this.endDate;
+        return endDate;
     }
 
     /**
@@ -185,7 +185,7 @@ public class Card {
      * @return the ccv
      */
     public String getCcv() {
-        return this.ccv;
+        return ccv;
     }
 
     /**
@@ -319,12 +319,12 @@ public class Card {
     @Override
     public String toString() {
         return String.format("Card [provider=%s, cardNumber=%s, cardName=%s, startDate=%s, endDate=%s, ccv=%s]",
-                this.provider,
-                this.cardNumber,
-                this.cardName,
-                this.startDate,
-                this.endDate,
-                this.ccv);
+                provider,
+                cardNumber,
+                cardName,
+                startDate,
+                endDate,
+                ccv);
     }
 
 }

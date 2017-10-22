@@ -34,7 +34,7 @@ public final class FieldStatusTest extends TestResultsReporting {
     @Test
     public void testInitialise() {
         final FieldStatus fieldStatus = FieldStatus.initialise();
-        log.info("FieldStatus.initialise() = {}", fieldStatus);
+        log.debug("FieldStatus.initialise() = {}", fieldStatus);
         assertNotNull("unexpected null", fieldStatus);
     }
 

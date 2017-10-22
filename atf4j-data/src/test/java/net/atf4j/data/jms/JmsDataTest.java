@@ -19,12 +19,13 @@ package net.atf4j.data.jms;
 
 import org.junit.Test;
 
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.data.management.JmsData;
 
 /**
  * A UnitTest for JmsData objects.
  */
-public final class JmsDataTest {
+public final class JmsDataTest extends TestResultsReporting {
 
     /**
      * Test method for void.

@@ -22,8 +22,8 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import net.atf4j.core.Atf4jException;
-import net.atf4j.core.TestResultsReporting;
 import net.atf4j.core.TestResult;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A UnitTest for TestStep objects.
@@ -56,10 +56,12 @@ public class TestStepTest extends TestResultsReporting {
     @Test
     public void testTestStep() {
         final TestStep testStep = new TestStep();
+        log.info("testStep={}", testStep);
         assertNotNull(UNEXPECTED_NULL, testStep);
+
         final TestResult result = testStep.result();
+        log.info("testResult={}", result);
         assertNotNull(UNEXPECTED_NULL, result);
-        this.log.info("testResult={}", result);
     }
 
     /**
@@ -70,8 +72,11 @@ public class TestStepTest extends TestResultsReporting {
     @Test
     public void testRegisterLogging() throws Atf4jException {
         final TestCase testCase = new TestCase();
-        final MockTestReport logging = new MockTestReport();
-        assertNotNull(UNEXPECTED_NULL, testCase.registerLogging(logging));
+        log.info("testCase ={}", testCase);
+
+        final MockTestReport report = new MockTestReport();
+        log.info("report = {}", report);
+        assertNotNull(UNEXPECTED_NULL, testCase.registerLogging(report));
     }
 
     /**
@@ -82,8 +87,11 @@ public class TestStepTest extends TestResultsReporting {
     @Test
     public void testExecuteTestContext() throws Atf4jException {
         final TestContext context = new TestContext();
+        log.info("context = {}", context);
         assertNotNull(UNEXPECTED_NULL, context);
+
         final TestStep testStep = new TestStep();
+        log.info("testStep = {}", testStep);
         assertNotNull(UNEXPECTED_NULL, testStep);
         assertNotNull(UNEXPECTED_NULL, testStep.execute(context));
     }
@@ -94,8 +102,15 @@ public class TestStepTest extends TestResultsReporting {
     @Test
     public void testPreCondition() {
         final TestStep testStep = new TestStep();
+        log.info("testStep = {}", testStep);
         assertNotNull(UNEXPECTED_NULL, testStep);
-        testStep.addPreCondition(new PassingCondition());
+
+        final PassingCondition preCondition = new PassingCondition();
+        log.info("preCondition = {}", preCondition);
+        assertNotNull(UNEXPECTED_NULL, preCondition);
+
+        assertNotNull(testStep.addPreCondition(preCondition));
+        log.info("testStep = {}", testStep);
     }
 
     /**
@@ -104,8 +119,15 @@ public class TestStepTest extends TestResultsReporting {
     @Test
     public void testPostCondition() {
         final TestStep testStep = new TestStep();
+        log.info("testStep = {}", testStep);
         assertNotNull(UNEXPECTED_NULL, testStep);
-        testStep.addPostCondition(new PassingCondition());
+
+        final PassingCondition postCondition = new PassingCondition();
+        log.info("postCondition = {}", postCondition);
+        assertNotNull(UNEXPECTED_NULL, postCondition);
+
+        assertNotNull(testStep.addPostCondition(postCondition));
+        log.info("testStep = {}", testStep);
     }
 
 }

@@ -27,7 +27,7 @@ import net.atf4j.pog.PageWebElement.Strategy;
 /**
  * A UnitTest for PageWebElement objects.
  */
-public class PageWebElementTest extends TestResultsReporting {
+public final class PageWebElementTest extends TestResultsReporting {
 
     /**
      * Test method for void.
@@ -37,7 +37,7 @@ public class PageWebElementTest extends TestResultsReporting {
         final PageWebElement pageWebElement = new PageWebElement("className", Strategy.CLASS_NAME, "class-name");
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
         final String string = pageWebElement.toString();
-        this.log.info(string);
+        log.info(string);
     }
 
     /**
@@ -48,7 +48,7 @@ public class PageWebElementTest extends TestResultsReporting {
         final PageWebElement pageWebElement = new PageWebElement("linkText", Strategy.LINK_TEXT, "link");
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
         final String string = pageWebElement.toString();
-        this.log.info(string);
+        log.info(string);
     }
 
     /**
@@ -59,7 +59,7 @@ public class PageWebElementTest extends TestResultsReporting {
         final PageWebElement pageWebElement = new PageWebElement("partialLinkText", Strategy.PARTIAL_LINK_TEXT, "Link");
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
         final String string = pageWebElement.toString();
-        this.log.info(string);
+        log.info(string);
     }
 
     /**
@@ -70,7 +70,7 @@ public class PageWebElementTest extends TestResultsReporting {
         final PageWebElement pageWebElement = new PageWebElement("byCss", Strategy.CSS, "#");
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
         final String string = pageWebElement.toString();
-        this.log.info(string);
+        log.info(string);
     }
 
     /**
@@ -81,7 +81,7 @@ public class PageWebElementTest extends TestResultsReporting {
         final PageWebElement pageWebElement = new PageWebElement("byXpath", Strategy.XPATH, "//A");
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
         final String string = pageWebElement.toString();
-        this.log.info(string);
+        log.info(string);
     }
 
     /**
@@ -92,7 +92,7 @@ public class PageWebElementTest extends TestResultsReporting {
         final PageWebElement pageWebElement = new PageWebElement("byId", Strategy.ID, "id");
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
         final String string = pageWebElement.toString();
-        this.log.info(string);
+        log.info(string);
     }
 
     /**
@@ -103,7 +103,7 @@ public class PageWebElementTest extends TestResultsReporting {
         final PageWebElement pageWebElement = new PageWebElement("byName", Strategy.NAME, "name");
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
         final String string = pageWebElement.toString();
-        this.log.info(string);
+        log.info(string);
     }
 
     /**
@@ -114,7 +114,7 @@ public class PageWebElementTest extends TestResultsReporting {
         final PageWebElement pageWebElement = new PageWebElement("byName", Strategy.UNKNOWN, "name");
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
         final String string = pageWebElement.toString();
-        this.log.info(string);
+        log.info(string);
     }
 
 }

@@ -28,18 +28,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A factory for creating AbstractData objects.
  */
-public abstract class AbstractDataFactory {
+public abstract class AbstractDataFactory extends TestResultsReporting {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
     private String[] lines;
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
-    protected static Random rnd = new Random(System.currentTimeMillis());
+    protected static Random random = new Random(System.currentTimeMillis());
 
     /**
      * Instantiates a new abstract data factory.
@@ -149,7 +147,7 @@ public abstract class AbstractDataFactory {
      */
     protected static String randomEntry(final String[] content) {
         final int bounds = content.length;
-        final int randomIndex = rnd.nextInt(bounds);
+        final int randomIndex = random.nextInt(bounds);
         return content[randomIndex];
     }
 

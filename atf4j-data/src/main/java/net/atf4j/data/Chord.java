@@ -25,10 +25,10 @@ import java.util.List;
  */
 public class Chord {
 
-    /** The stem. */
+    /** the stem part. */
     private CharSequence stem;
 
-    /** The chords. */
+    /** the following chords. */
     private final List<Chord> chords = new ArrayList<Chord>();
 
     /**

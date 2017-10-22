@@ -25,8 +25,8 @@ package net.atf4j.data;
  */
 public abstract class AbstractNode<L, R> {
 
-    private L left;
-    private R right;
+    private L left = null;
+    private R right = null;
 
     /**
      * Instantiates a new abstract node.

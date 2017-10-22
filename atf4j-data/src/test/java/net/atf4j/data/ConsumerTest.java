@@ -26,7 +26,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * The ConsumerTest Class.
  */
-public class ConsumerTest extends TestResultsReporting {
+public final class ConsumerTest extends TestResultsReporting {
 
     /**
      * Test consumer.

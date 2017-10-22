@@ -35,11 +35,11 @@ public final class NestedTimersTest extends TestResultsReporting {
         final NestedTimers multiTimers = NestedTimers.getInstance();
         assertNotNull(multiTimers);
         for (int i = 0; i < 10; i++) {
-            this.log.info(multiTimers.startTimer(String.format("Test case Timer %s", i)).toString());
+            log.debug(multiTimers.startTimer(String.format("Test case Timer %s", i)).toString());
         }
 
         for (int i = 0; i < 10; i++) {
-            this.log.info(multiTimers.stopTimer().toString());
+            log.debug(multiTimers.stopTimer().toString());
         }
     }
 
@@ -61,14 +61,14 @@ public final class NestedTimersTest extends TestResultsReporting {
         waitDefaultInterval();
         multiTimers.startTimer("Timer Instance : Test case 5");
         waitDefaultInterval();
-        this.log.info("runningTimersAsString\n" + multiTimers.runningTimersAsString());
-        this.log.info("stop : " + multiTimers.stopTimer().toString());
-        this.log.info("stop : " + multiTimers.stopTimer().toString());
-        this.log.info("stop : " + multiTimers.stopTimer().toString());
-        this.log.info("stop : " + multiTimers.stopTimer().toString());
-        this.log.info("stop : " + multiTimers.stopTimer().toString());
+        log.debug("runningTimersAsString\n" + multiTimers.runningTimersAsString());
+        log.debug("stop : " + multiTimers.stopTimer().toString());
+        log.debug("stop : " + multiTimers.stopTimer().toString());
+        log.debug("stop : " + multiTimers.stopTimer().toString());
+        log.debug("stop : " + multiTimers.stopTimer().toString());
+        log.debug("stop : " + multiTimers.stopTimer().toString());
         NestedTimers.stopAll();
-        this.log.info("stoppedTimersAsString()\n" + multiTimers.stoppedTimersAsString());
+        log.debug("stoppedTimersAsString()\n" + multiTimers.stoppedTimersAsString());
     }
 
     /**
@@ -99,7 +99,7 @@ public final class NestedTimersTest extends TestResultsReporting {
         } catch (final InterruptedException interruptedException) {
             final Thread currentThread = Thread.currentThread();
             currentThread.interrupt();
-            this.log.error(interruptedException.toString());
+            log.error(interruptedException.toString());
         }
     }
 }

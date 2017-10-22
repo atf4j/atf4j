@@ -31,7 +31,9 @@ import org.slf4j.LoggerFactory;
 public abstract class TestResultsReporting {
 
     private static final String MESSAGE = "actual(%s) == expected(%s) - %s";
-    protected static final String UNEXPECTED_NULL = "unexpected null";
+    protected static final String UNEXPECTED_NULL = "Unexpected null.";
+    protected static final String EXPECTED_EXCEPTION = "Expected exception but did not happen.";
+
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
@@ -157,7 +159,7 @@ public abstract class TestResultsReporting {
     @After
     public void after() {
         final String string = new String(new char[40]).replace("\0", "-");
-        this.log.trace(string);
+        log.trace(string);
     }
 
 }

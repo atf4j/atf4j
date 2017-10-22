@@ -26,9 +26,9 @@ public final class Bank extends Business {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
     private BankSortCode bankSortCode;
-    private String bankName;
-    private String sortCode;
-    private String iban;
+    private String bankName = "";
+    private String sortCode = "";
+    private String iban = "";
 
     /**
      * Create new INSTANCE of create.
