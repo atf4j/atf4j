@@ -19,6 +19,7 @@ package net.atf4j.fdd;
 
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
@@ -31,6 +32,7 @@ public final class ScenarioFailTest extends TestResultsReporting {
     /**
      * Test scenario runner.
      */
+    @Ignore
     @Test
     public void testScenarioRunner() {
         log.debug("testScenarioRunner", this.getClass().getSimpleName());
