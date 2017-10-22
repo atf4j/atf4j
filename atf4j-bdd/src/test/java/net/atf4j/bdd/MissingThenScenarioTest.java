@@ -21,8 +21,6 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Ignore;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import net.atf4j.bdd.Atf4j.Scenario;
 import net.atf4j.core.TestResultsReporting;
@@ -31,9 +29,7 @@ import net.atf4j.core.TestResultsReporting;
  * The Class ScenarioMissingThen.
  */
 @Scenario("Scenario")
-public class MissingThenScenarioTest extends TestResultsReporting {
-
-    private static final Logger LOG = LoggerFactory.getLogger(MissingThenScenarioTest.class);
+public final class MissingThenScenarioTest extends TestResultsReporting {
 
     /**
      * Test scenario runner.
@@ -41,7 +37,7 @@ public class MissingThenScenarioTest extends TestResultsReporting {
     @Ignore
     @Test
     public void testScenarioRunner() {
-        LOG.info("{}.testScenarioRunner", this.getClass().getSimpleName());
+        log.debug("{}.testScenarioRunner", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         assertNotNull(UNEXPECTED_NULL, scenarioRunner);
         assertNotNull(UNEXPECTED_NULL, scenarioRunner.execute());
@@ -52,7 +48,7 @@ public class MissingThenScenarioTest extends TestResultsReporting {
      */
     @Atf4j.Given("Pass Given")
     public void passGiven() {
-        this.log.info("{}", super.toString());
+        log.debug("{}", super.toString());
     }
 
     /**
@@ -60,7 +56,7 @@ public class MissingThenScenarioTest extends TestResultsReporting {
      */
     @Atf4j.When("Pass When")
     public void passWhen() {
-        this.log.info("{}", super.toString());
+        log.info("{}", super.toString());
     }
 
     // Deliberately missing.

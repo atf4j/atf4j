@@ -30,8 +30,8 @@ public final class EmailAddress {
     private static final Pattern PATTERN = Pattern.compile(LOCAL_PART + "@" + DOMAIN);
 
     private String domain = "example.com";
-    private String localPart = null;
-    private String email = null;
+    private String localPart = "email";
+    private String email = String.format("%s@%s", localPart, domain);
 
     /**
      * At.

@@ -27,14 +27,14 @@ import java.util.regex.Pattern;
  */
 public class Telephone {
 
-    /** RegExp for verification. */
+    /** Regular Expression pattern used for verification. */
     private static final Pattern PATTERN = Pattern.compile("^(\\d){2}-(\\d){2}-(\\d){2}$");
 
-    /** The number. */
-    private String number;
+    /** telephone number. */
+    private String number = "";
 
-    /** The type. */
-    private Type type;
+    /** The type of phone. */
+    private Type type = Type.Phone;
     // Country Code
     // Area Code
     // Number

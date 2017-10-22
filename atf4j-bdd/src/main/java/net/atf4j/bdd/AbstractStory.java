@@ -17,14 +17,11 @@
 
 package net.atf4j.bdd;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Abstract Story Class.
  */
-public abstract class AbstractStory {
-
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+public abstract class AbstractStory extends TestResultsReporting {
 
 }

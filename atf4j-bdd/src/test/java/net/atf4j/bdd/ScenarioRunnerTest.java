@@ -23,8 +23,6 @@ import org.junit.Assert;
 import org.junit.Assume;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import net.atf4j.core.TestResultsReporting;
 
@@ -32,9 +30,7 @@ import net.atf4j.core.TestResultsReporting;
  * Scenario Runner Test class.
  */
 @Ignore
-public class ScenarioRunnerTest extends TestResultsReporting {
-
-    private static final Logger LOG = LoggerFactory.getLogger(ScenarioRunnerTest.class);
+public final class ScenarioRunnerTest extends TestResultsReporting {
 
     /**
      * Scenario class.
@@ -46,7 +42,7 @@ public class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Atf4j.Given("Pass Given")
         public void passGiven() {
-            LOG.info("passGiven");
+            log.debug("passGiven");
             Assume.assumeTrue(true);
         }
 
@@ -55,7 +51,7 @@ public class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Atf4j.When("Pass When")
         public void passWhen() {
-            LOG.info("passWhen");
+            log.debug("passWhen");
             Assert.assertTrue(true);
         }
 
@@ -64,7 +60,7 @@ public class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Atf4j.Then("Pass Then")
         public void passThen() {
-            LOG.info("passThen");
+            log.debug("passThen");
             Assert.assertTrue(true);
         }
     }
@@ -79,7 +75,7 @@ public class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Atf4j.Given("Fail Given")
         public void failGiven() {
-            LOG.info("failGiven");
+            log.debug("failGiven");
             Assume.assumeTrue(false);
         }
 
@@ -88,7 +84,7 @@ public class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Atf4j.When("Pass When")
         public void passWhen() {
-            LOG.info("passWhen");
+            log.debug("passWhen");
             Assert.assertTrue(true);
         }
 
@@ -97,7 +93,7 @@ public class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Atf4j.Then("Pass Then")
         public void passThen() {
-            LOG.info("testPassThen");
+            log.debug("testPassThen");
             Assert.assertTrue(true);
         }
     }
@@ -112,7 +108,7 @@ public class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Atf4j.Given("Pass Given")
         public void passGiven() {
-            LOG.info("passGiven");
+            log.debug("passGiven");
             Assume.assumeTrue(true);
         }
 
@@ -121,7 +117,7 @@ public class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Atf4j.When("Fail When")
         public void failWhen() {
-            LOG.info("failWhen");
+            log.debug("failWhen");
             Assert.assertTrue(false);
         }
 
@@ -130,7 +126,7 @@ public class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Atf4j.Then("Skipped Then")
         public void skippedThen() {
-            LOG.info("skippedThen");
+            log.debug("skippedThen");
             Assert.assertTrue(true);
         }
     }
@@ -145,7 +141,7 @@ public class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Atf4j.Given("Pass Given")
         public void passGiven() {
-            LOG.info("passGiven");
+            log.debug("passGiven");
             Assume.assumeTrue(true);
         }
 
@@ -154,7 +150,7 @@ public class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Atf4j.When("Pass When")
         public void passWhen() {
-            LOG.info("passWhen");
+            log.debug("passWhen");
             Assert.assertTrue(true);
         }
 
@@ -163,7 +159,7 @@ public class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Atf4j.Then("Fail Then")
         public void failThen() {
-            LOG.info("failThen");
+            log.debug("failThen");
             Assert.assertTrue(false);
         }
     }
@@ -173,7 +169,7 @@ public class ScenarioRunnerTest extends TestResultsReporting {
      */
     @Test
     public void testScenarioExecution() {
-        LOG.info("{}.testScenarioExecution", this.getClass().getSimpleName());
+        log.debug("{}.testScenarioExecution", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         final Scenario scenario = new Scenario();
         assertNotNull(UNEXPECTED_NULL, scenarioRunner);
@@ -185,7 +181,7 @@ public class ScenarioRunnerTest extends TestResultsReporting {
      */
     @Test
     public void testFailGivenScenario() {
-        LOG.info("{}.testFailGivenScenario", this.getClass().getSimpleName());
+        log.debug("{}.testFailGivenScenario", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         final FailGivenScenario scenario = new FailGivenScenario();
         assertNotNull(UNEXPECTED_NULL, scenarioRunner);
@@ -197,7 +193,7 @@ public class ScenarioRunnerTest extends TestResultsReporting {
      */
     @Test
     public void testFailWhenScenario() {
-        LOG.info("{}.testFailWhenScenario", this.getClass().getSimpleName());
+        log.debug("{}.testFailWhenScenario", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         final FailWhenScenario scenario = new FailWhenScenario();
         assertNotNull(UNEXPECTED_NULL, scenarioRunner);
@@ -209,7 +205,7 @@ public class ScenarioRunnerTest extends TestResultsReporting {
      */
     @Test
     public void testFailThenScenario() {
-        LOG.info("{}.testFailThenScenario", this.getClass().getSimpleName());
+        log.debug("{}.testFailThenScenario", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         final FailThenScenario scenario = new FailThenScenario();
         assertNotNull(UNEXPECTED_NULL, scenarioRunner);
@@ -221,7 +217,7 @@ public class ScenarioRunnerTest extends TestResultsReporting {
      */
     @Test
     public void testScenarioRunner() {
-        LOG.info("{}.testScenarioRunner", this.getClass().getSimpleName());
+        log.debug("{}.testScenarioRunner", this.getClass().getSimpleName());
         final Scenario targetScenario = new Scenario();
         final ScenarioRunner scenarioRunner = new ScenarioRunner(targetScenario);
         assertNotNull(UNEXPECTED_NULL, scenarioRunner);

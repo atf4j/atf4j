@@ -20,17 +20,13 @@ package net.atf4j.bdd;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import net.atf4j.core.TestResultsReporting;
 
 /**
  * Behaviour Pass Test Class.
  */
-public class BehaviourPassTest extends TestResultsReporting {
-
-    private static final Logger LOG = LoggerFactory.getLogger(BehaviourPassTest.class);
+public final class BehaviourPassTest extends TestResultsReporting {
 
     /**
      * Test given.
@@ -38,7 +34,7 @@ public class BehaviourPassTest extends TestResultsReporting {
     @Test
     @Atf4j.Given("testGiven")
     public void testGiven() {
-        LOG.info("{}.testGiven", this.getClass().getSimpleName());
+        log.debug("{}.testGiven", this.getClass().getSimpleName());
         final Given given = new Given();
         assertNotNull(UNEXPECTED_NULL, given);
         given.execute();
@@ -50,7 +46,7 @@ public class BehaviourPassTest extends TestResultsReporting {
     @Test
     @Atf4j.When("testWhen")
     public void testWhen() {
-        LOG.info("{}.testGiven", this.getClass().getSimpleName());
+        log.debug("{}.testGiven", this.getClass().getSimpleName());
         final When when = new When();
         assertNotNull(UNEXPECTED_NULL, when);
         when.execute();
@@ -62,7 +58,7 @@ public class BehaviourPassTest extends TestResultsReporting {
     @Test
     @Atf4j.Then("testThen")
     public void testThen() {
-        LOG.info("{}.testGiven", this.getClass().getSimpleName());
+        log.debug("{}.testGiven", this.getClass().getSimpleName());
         final Then then = new Then();
         assertNotNull(UNEXPECTED_NULL, then);
         then.execute();

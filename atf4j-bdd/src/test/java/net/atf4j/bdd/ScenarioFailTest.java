@@ -21,17 +21,13 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Ignore;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import net.atf4j.core.TestResultsReporting;
 
 /**
  * Scenario Fail test class.
  */
-public class ScenarioFailTest extends TestResultsReporting {
-
-    private static final Logger LOG = LoggerFactory.getLogger(ScenarioFailTest.class);
+public final class ScenarioFailTest extends TestResultsReporting {
 
     /**
      * Test scenario runner.
@@ -39,7 +35,7 @@ public class ScenarioFailTest extends TestResultsReporting {
     @Ignore
     @Test
     public void testScenarioRunner() {
-        LOG.info("{}.testScenarioRunner", this.getClass().getSimpleName());
+        log.debug("{}.testScenarioRunner", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         assertNotNull(UNEXPECTED_NULL, scenarioRunner);
         assertNotNull(UNEXPECTED_NULL, scenarioRunner.execute());

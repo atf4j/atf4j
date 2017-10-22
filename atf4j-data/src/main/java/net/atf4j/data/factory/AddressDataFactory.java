@@ -32,7 +32,7 @@ public final class AddressDataFactory extends AbstractDataFactory {
 
     private static final String FILE_NOT_FOUND_MSG = "Expected file '%s' not found.";
 
-    private static AddressDataFactory INSTANCE = null;
+    private static AddressDataFactory instance = null;
 
     private String[] addressLineStems;
     private String[] addressLinePostfix;
@@ -45,10 +45,10 @@ public final class AddressDataFactory extends AbstractDataFactory {
      * @return single INSTANCE of AddressDataFactory
      */
     public static AddressDataFactory getInstance() {
-        if (AddressDataFactory.INSTANCE == null) {
-            AddressDataFactory.INSTANCE = new AddressDataFactory();
+        if (AddressDataFactory.instance == null) {
+            AddressDataFactory.instance = new AddressDataFactory();
         }
-        return AddressDataFactory.INSTANCE;
+        return AddressDataFactory.instance;
     }
 
     /**

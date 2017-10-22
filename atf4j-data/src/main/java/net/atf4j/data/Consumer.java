@@ -22,7 +22,7 @@ package net.atf4j.data;
  */
 public class Consumer extends Person {
 
-    private Credentials credentials;
+    private Credentials credentials = new Credentials();
 
     /**
      * Instantiates a new consumer.
@@ -70,7 +70,7 @@ public class Consumer extends Person {
      * @return the credentials
      */
     public Credentials setUsername(final String username) {
-        return this.credentials.setUsername(username);
+        return credentials.setUsername(username);
     }
 
     /**
@@ -80,7 +80,7 @@ public class Consumer extends Person {
      * @return the credentials
      */
     public Credentials setPassword(final String password) {
-        return this.credentials.setPassword(password);
+        return credentials.setPassword(password);
     }
 
     /**
@@ -90,7 +90,7 @@ public class Consumer extends Person {
      * @return the credentials
      */
     public Credentials setEmail(final String email) {
-        return this.credentials.setEmail(email);
+        return credentials.setEmail(email);
     }
 
     /**
@@ -99,7 +99,7 @@ public class Consumer extends Person {
      * @return the username
      */
     public String getUsername() {
-        return this.credentials.getUsername();
+        return credentials.getUsername();
     }
 
     /**
@@ -108,7 +108,7 @@ public class Consumer extends Person {
      * @return the password
      */
     public String getPassword() {
-        return this.credentials.getPassword();
+        return credentials.getPassword();
     }
 
     /**
@@ -117,7 +117,7 @@ public class Consumer extends Person {
      * @return the email
      */
     public String getEmail() {
-        return this.credentials.getEmail();
+        return credentials.getEmail();
     }
 
     /**
@@ -126,7 +126,7 @@ public class Consumer extends Person {
      * @return the credentials
      */
     public Credentials getCredentials() {
-        return this.credentials;
+        return credentials;
     }
 
     /*
@@ -136,7 +136,7 @@ public class Consumer extends Person {
      */
     @Override
     public String toString() {
-        return String.format("Consumer [credentials=%s]", this.credentials);
+        return String.format("Consumer [credentials=%s]", credentials);
     }
 
 }

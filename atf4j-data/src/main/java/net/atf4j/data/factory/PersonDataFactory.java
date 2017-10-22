@@ -29,7 +29,7 @@ import net.atf4j.data.Person.Title;
  */
 public final class PersonDataFactory extends AbstractDataFactory {
 
-    private static PersonDataFactory INSTANCE = null;
+    private static PersonDataFactory instance = null;
     private String[] maleForenames;
     private String[] femaleForenames;
     private String[] surnames;
@@ -71,10 +71,10 @@ public final class PersonDataFactory extends AbstractDataFactory {
      * @return single INSTANCE of PersonDataFactory
      */
     protected static PersonDataFactory getInstance() {
-        if (PersonDataFactory.INSTANCE == null) {
-            PersonDataFactory.INSTANCE = new PersonDataFactory();
+        if (PersonDataFactory.instance == null) {
+            PersonDataFactory.instance = new PersonDataFactory();
         }
-        return PersonDataFactory.INSTANCE;
+        return PersonDataFactory.instance;
     }
 
     /**

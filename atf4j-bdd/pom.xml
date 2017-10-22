@@ -6,6 +6,8 @@
 	<artifactId>atf4j-fdd</artifactId>
 	<packaging>jar</packaging>
 	<name>ATF4J - Feature Driven Development</name>
+	<description>Java Automated Testing Framework for Feature Driven Development.</description>
+	<url>http://atf4j.net/atf4j-fdd</url>
 
 	<parent>
 		<groupId>net.atf4j</groupId>
@@ -21,6 +23,4 @@
 		</dependency>
 	</dependencies>
 
-	<description>Java Automated Testing Framework for Feature Driven Development.</description>
-	<url>http://atf4j.net</url>
 </project>

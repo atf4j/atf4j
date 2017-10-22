@@ -25,7 +25,7 @@ import java.util.Collection;
  */
 public class ProductCatalog {
 
-    private Collection<Product> catalog = new ArrayDeque<Product>();
+    private final Collection<Product> catalog = new ArrayDeque<Product>();
 
     /**
      * Create new INSTANCE of create.
@@ -60,7 +60,7 @@ public class ProductCatalog {
      * @see java.util.Collection#add(java.lang.Object)
      */
     public boolean add(final Product e) {
-        return this.catalog.add(e);
+        return catalog.add(e);
     }
 
     /**
@@ -69,16 +69,7 @@ public class ProductCatalog {
      * @return the productList
      */
     public Collection<Product> getProductList() {
-        return this.catalog;
-    }
-
-    /**
-     * Sets the product list.
-     *
-     * @param productList the productList to set
-     */
-    public void setProductList(final Collection<Product> productList) {
-        this.catalog = productList;
+        return catalog;
     }
 
     /*
@@ -88,7 +79,7 @@ public class ProductCatalog {
      */
     @Override
     public String toString() {
-        return String.format("ProductCatalog [catalog=%s]", this.catalog);
+        return String.format("ProductCatalog [catalog=%s]", catalog);
     }
 
 }

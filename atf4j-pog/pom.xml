@@ -6,6 +6,8 @@
 	<artifactId>atf4j-pog</artifactId>
 	<packaging>jar</packaging>
 	<name>ATF4J - Page Object Generator for Selenium WebDriver</name>
+	<description>Java Automation Testing Framework for generating Page Pbject for use with Selenium WebDriver.</description>
+	<url>http://atf4j.net/atf4j-pog</url>
 
 	<parent>
 		<groupId>net.atf4j</groupId>
@@ -50,6 +52,5 @@
 			<version>1.7</version>
 		</dependency>
 	</dependencies>
-	<description>Java Automation Testing Framework for Selenium WebDriver.</description>
-	<url>http://atf4j.net</url>
+
 </project>

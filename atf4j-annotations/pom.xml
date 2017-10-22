@@ -6,6 +6,8 @@
 	<artifactId>atf4j-annotations</artifactId>
 	<packaging>jar</packaging>
 	<name>ATF4J - Test Annotations</name>
+	<description>Java Automated Testing Framework  Test Annotations.</description>
+	<url>http://atf4j.net/atf4j-annotations</url>
 
 	<parent>
 		<groupId>net.atf4j</groupId>
@@ -21,6 +23,4 @@
 		</dependency>
 	</dependencies>
 
-	<url>http://atf4j.net</url>
-	<description>Java Automated Testing Framework  Test Annotations.</description>
 </project>

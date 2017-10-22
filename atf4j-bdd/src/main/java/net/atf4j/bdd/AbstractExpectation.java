@@ -17,13 +17,11 @@
 
 package net.atf4j.bdd;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * AbstractExpectation Class.
  */
-public abstract class AbstractExpectation {
+public abstract class AbstractExpectation extends TestResultsReporting {
 
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 }

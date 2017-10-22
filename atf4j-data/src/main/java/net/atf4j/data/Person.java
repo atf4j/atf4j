@@ -24,26 +24,26 @@ import java.util.Calendar;
  */
 public class Person {
 
-    /** The title. */
-    private Title title;
+    /** The title of the person. */
+    private Title title = Title.BLANK;
 
-    /** The forename. */
-    private String forename;
+    /** The forename of the person. */
+    private String forename = "";
 
-    /** The middlename. */
-    private String middlename;
+    /** The middlename of the person. */
+    private String middlename = "";
 
-    /** The surname. */
-    private String surname;
+    /** The surname of the person. */
+    private String surname = "";
 
-    /** The dob. */
+    /** The date of birth for person. */
     private Calendar dob;
 
     /** The postal address. */
     private PostalAddress postalAddress;
 
     /** The email address. */
-    private String emailAddress;
+    private EmailAddress emailAddress;
 
     /** The gender. */
     private Gender gender;
@@ -55,8 +55,10 @@ public class Person {
 
         /** The male. */
         MALE("Male"),
+
         /** The female. */
         FEMALE("Male"),
+
         /** The unknown. */
         UNKNOWN("Unknown");
 
@@ -99,22 +101,32 @@ public class Person {
      */
     public enum Title {
 
-        /** The mr. */
+        /** Mr. */
         MR("Mr"),
-        /** The mrs. */
+
+        /** Mrs. */
         MRS("Mrs"),
-        /** The ms. */
+
+        /** Ms. */
         MS("Ms"),
-        /** The miss. */
+
+        /** Miss. */
         MISS("Miss"),
-        /** The sir. */
+
+        /** Sir. */
         SIR("Sir"),
-        /** The lady. */
+
+        /** Lady. */
         LADY("Lady"),
-        /** The lord. */
+
+        /** Lord. */
         LORD("Lord"),
-        /** The dr. */
-        DR("Dr");
+
+        /** DR */
+        DR("Dr"),
+
+        /** blank */
+        BLANK("");
 
         /** The value. */
         private final String titleString;
@@ -355,6 +367,17 @@ public class Person {
      * @return the person
      */
     public Person emailAddress(final String emailAddress) {
+        this.emailAddress = new EmailAddress(emailAddress);
+        return this;
+    }
+
+    /**
+     * Email address.
+     *
+     * @param emailAddress the email address
+     * @return the person
+     */
+    public Person emailAddress(final EmailAddress emailAddress) {
         this.emailAddress = emailAddress;
         return this;
     }
@@ -365,7 +388,7 @@ public class Person {
      * @return the email address
      */
     public String emailAddress() {
-        return emailAddress;
+        return emailAddress.toString();
     }
 
     /*

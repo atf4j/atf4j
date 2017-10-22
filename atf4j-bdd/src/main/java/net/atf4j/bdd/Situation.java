@@ -17,21 +17,18 @@
 
 package net.atf4j.bdd;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Situation.
  */
-public final class Situation {
-
-    private static final Logger LOG = LoggerFactory.getLogger(Situation.class);
+public final class Situation extends TestResultsReporting {
 
     /**
      * Situation.
      */
     public Situation() {
-        LOG.info("{}", this.getClass().getSimpleName());
+        log.info("{}", this.getClass().getSimpleName());
     }
 
     /**
@@ -40,7 +37,7 @@ public final class Situation {
      * @param given the given
      */
     public Situation(final Given given) {
-        LOG.info("{}.Situation({})", this.getClass().getSimpleName(), given);
+        log.info("{}.Situation({})", this.getClass().getSimpleName(), given);
     }
 
 }

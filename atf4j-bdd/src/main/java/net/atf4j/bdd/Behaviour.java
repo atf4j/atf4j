@@ -23,8 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Behaviour, this is essential a Hoare triple.
@@ -38,10 +37,7 @@ import org.slf4j.LoggerFactory;
  *  And Post-Conditions are confirmed.
  * </code>
  */
-public abstract class Behaviour {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+public abstract class Behaviour extends TestResultsReporting {
 
     /** The given situation. */
     private final List<Given> givenList = new ArrayList<Given>();

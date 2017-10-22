@@ -27,7 +27,7 @@ import java.util.Arrays;
 public class PostalAddress {
 
     private String[] addressLines = new String[8];
-    private Postcode postcode;
+    private Postcode postcode = new Postcode();
 
     /**
      * Instantiates a new address.

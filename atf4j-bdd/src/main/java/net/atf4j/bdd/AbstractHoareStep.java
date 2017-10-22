@@ -18,27 +18,29 @@
 package net.atf4j.bdd;
 
 import java.util.Properties;
+import java.util.UUID;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Abstract class for a Hoare step. c.f. Hoare Logic
  */
-public abstract class AbstractHoareStep implements HoareStepInterface {
+public abstract class AbstractHoareStep
+        extends TestResultsReporting
+        implements HoareStepInterface {
 
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
-    protected String string;
-    protected Properties properties;
+    protected String id = UUID.randomUUID().toString();
+    protected String stepName = "";
+    protected Properties properties = new Properties();
 
     /**
      * Instantiates a new Hoare step.
      *
-     * @param string the string
+     * @param stepName the string
      */
-    public AbstractHoareStep(final String string) {
-        this.log.info("AbstractHoareStep({})", string);
-        this.string = string;
+    public AbstractHoareStep(final String stepName) {
+        log.debug("AbstractHoareStep({})", stepName);
+        this.stepName = stepName;
     }
 
     /**
@@ -47,8 +49,8 @@ public abstract class AbstractHoareStep implements HoareStepInterface {
      * @return the properties
      */
     public Properties execute() {
-        this.log.info("AbstractHoareStep({})", this.string);
-        return this.properties;
+        log.debug("AbstractHoareStep({})", stepName);
+        return properties;
     }
 
     /*
@@ -58,7 +60,7 @@ public abstract class AbstractHoareStep implements HoareStepInterface {
      */
     @Override
     public Properties execute(final Properties properties) {
-        this.log.info("AbstractHoareStep({}", this.string);
+        log.debug("AbstractHoareStep({}", stepName);
         this.properties = properties;
         return properties;
     }

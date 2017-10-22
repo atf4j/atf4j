@@ -3,6 +3,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<groupId>net.atf4j</groupId>
+	<artifactId>atf4j</artifactId>
+	<version>0.10.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Automation Test Framework for Java</name>
+	<description>Automated Testing Framework for Java.</description>
+	<url>http://atf4j.net</url>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -30,14 +38,6 @@
 		<maven-pmd-plugin.version>3.7</maven-pmd-plugin.version>
 		<maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
 	</properties>
-
-	<groupId>net.atf4j</groupId>
-	<artifactId>atf4j</artifactId>
-	<version>0.10.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
-	<name>Automation Test Framework for Java</name>
-	<description>Automated Testing Framework for Java.</description>
-	<url>http://atf4j.net</url>
 
 	<licenses>
 		<license>

@@ -22,7 +22,7 @@ package net.atf4j.data;
  */
 public abstract class Name extends Datum {
 
-    private String name;
+    private String name = "";
 
     /**
      * Instantiates a new name.
@@ -59,7 +59,7 @@ public abstract class Name extends Datum {
      * @return the name
      */
     public String getName() {
-        return this.name;
+        return name;
     }
 
     /**
@@ -89,7 +89,7 @@ public abstract class Name extends Datum {
      */
     @Override
     public String debugString() {
-        return String.format("%s [name=%s]", this.getClass().getSimpleName(), this.name);
+        return String.format("%s [name=%s]", this.getClass().getSimpleName(), name);
     }
 
     /*
@@ -99,7 +99,7 @@ public abstract class Name extends Datum {
      */
     @Override
     public String toString() {
-        return capitalise(this.name);
+        return capitalise(name);
     }
 
 }

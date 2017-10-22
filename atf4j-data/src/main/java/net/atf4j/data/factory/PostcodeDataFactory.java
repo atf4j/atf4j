@@ -32,8 +32,8 @@ import net.atf4j.data.Text;
  */
 public final class PostcodeDataFactory {
 
-    private static PostcodeDataFactory INSTANCE = new PostcodeDataFactory();
-    private final static PostcodeData postCodeData = PostcodeData.getInstance();
+    private static final PostcodeDataFactory INSTANCE = new PostcodeDataFactory();
+    private static final PostcodeData postCodeData = PostcodeData.getInstance();
     protected static Random rnd = new Random(System.currentTimeMillis());
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 

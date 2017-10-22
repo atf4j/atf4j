@@ -19,9 +19,6 @@ package net.atf4j.bdd;
 
 import java.lang.reflect.Method;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import net.atf4j.core.TestResultsReporting;
 
 /**
@@ -29,7 +26,6 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class ScenarioRunner extends TestResultsReporting {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ScenarioRunner.class);
     private AbstractScenario targetScenario;
 
     /**
@@ -68,7 +64,7 @@ public final class ScenarioRunner extends TestResultsReporting {
      * @return the scenario runner
      */
     public ScenarioRunner execute(final AbstractScenario scenario) {
-        this.targetScenario = scenario;
+        targetScenario = scenario;
         return this;
     }
 
@@ -78,8 +74,8 @@ public final class ScenarioRunner extends TestResultsReporting {
      * @return the scenario runner
      */
     private ScenarioRunner executeGiven() {
-        if (this.targetScenario != null) {
-            return executeGiven(this.targetScenario);
+        if (targetScenario != null) {
+            return executeGiven(targetScenario);
         }
         return this;
     }
@@ -93,11 +89,11 @@ public final class ScenarioRunner extends TestResultsReporting {
     private ScenarioRunner executeGiven(final AbstractScenario scenario) {
         final Class<?> candidateClass = scenario.getClass();
         if (candidateClass.isAnnotationPresent(Atf4j.Scenario.class)) {
-            LOG.info(candidateClass.toGenericString());
+            log.trace(candidateClass.toGenericString());
             final Method[] declaredMethods = candidateClass.getDeclaredMethods();
             for (final Method method : declaredMethods) {
                 if (method.isAnnotationPresent(Atf4j.Given.class)) {
-                    LOG.info(method.toGenericString());
+                    log.debug(method.toGenericString());
                 }
             }
         }
@@ -110,7 +106,7 @@ public final class ScenarioRunner extends TestResultsReporting {
      * @return the scenario runner
      */
     private ScenarioRunner executeWhen() {
-        return executeWhen(this.targetScenario);
+        return executeWhen(targetScenario);
     }
 
     /**
@@ -122,11 +118,11 @@ public final class ScenarioRunner extends TestResultsReporting {
     private ScenarioRunner executeWhen(final AbstractScenario scenario) {
         final Class<?> candidateClass = scenario.getClass();
         if (candidateClass.isAnnotationPresent(Atf4j.Scenario.class)) {
-            LOG.info(candidateClass.toGenericString());
+            log.trace(candidateClass.toGenericString());
             final Method[] declaredMethods = candidateClass.getDeclaredMethods();
             for (final Method method : declaredMethods) {
                 if (method.isAnnotationPresent(Atf4j.Given.class)) {
-                    LOG.info(method.toGenericString());
+                    log.debug(method.toGenericString());
                 }
             }
         }
@@ -139,7 +135,7 @@ public final class ScenarioRunner extends TestResultsReporting {
      * @return the scenario runner
      */
     private ScenarioRunner executeThen() {
-        return executeThen(this.targetScenario);
+        return executeThen(targetScenario);
     }
 
     /**
@@ -151,11 +147,11 @@ public final class ScenarioRunner extends TestResultsReporting {
     private ScenarioRunner executeThen(final AbstractScenario scenario) {
         final Class<?> candidateClass = scenario.getClass();
         if (candidateClass.isAnnotationPresent(Atf4j.Scenario.class)) {
-            LOG.info(candidateClass.toGenericString());
+            log.trace(candidateClass.toGenericString());
             final Method[] declaredMethods = candidateClass.getDeclaredMethods();
             for (final Method method : declaredMethods) {
                 if (method.isAnnotationPresent(Atf4j.Given.class)) {
-                    LOG.info(method.toGenericString());
+                    log.debug(method.toGenericString());
                 }
             }
         }

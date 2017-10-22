@@ -23,8 +23,6 @@ import org.junit.Assert;
 import org.junit.Assume;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import net.atf4j.bdd.Atf4j.Scenario;
 import net.atf4j.core.TestResultsReporting;
@@ -33,9 +31,7 @@ import net.atf4j.core.TestResultsReporting;
  * Scenario Test class.
  */
 @Scenario("Scenario")
-public class ScenarioTest extends TestResultsReporting {
-
-    private static final Logger LOG = LoggerFactory.getLogger(ScenarioTest.class);
+public final class ScenarioTest extends TestResultsReporting {
 
     /**
      * Test scenario runner.
@@ -43,7 +39,7 @@ public class ScenarioTest extends TestResultsReporting {
     @Ignore
     @Test
     public void testScenarioRunner() {
-        LOG.info("{}.testScenarioRunner", this.getClass().getSimpleName());
+        log.debug("{}.testScenarioRunner", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         assertNotNull(UNEXPECTED_NULL, scenarioRunner);
         assertNotNull(UNEXPECTED_NULL, scenarioRunner.execute());
@@ -54,7 +50,7 @@ public class ScenarioTest extends TestResultsReporting {
      */
     @Atf4j.Given("Given")
     public void testPassGiven() {
-        LOG.info("{}.testPassGiven", this.getClass().getSimpleName());
+        log.debug("{}.testPassGiven", this.getClass().getSimpleName());
         Assume.assumeTrue(true);
     }
 
@@ -63,7 +59,7 @@ public class ScenarioTest extends TestResultsReporting {
      */
     @Atf4j.When("When")
     public void testPassWhen() {
-        LOG.info("{}.testPassWhen", this.getClass().getSimpleName());
+        log.debug("{}.testPassWhen", this.getClass().getSimpleName());
         Assert.assertTrue(true);
     }
 
@@ -72,7 +68,7 @@ public class ScenarioTest extends TestResultsReporting {
      */
     @Atf4j.Then("Then")
     public void testPassThen() {
-        LOG.info("{}.testPassThen", this.getClass().getSimpleName());
+        log.debug("{}.testPassThen", this.getClass().getSimpleName());
         Assert.assertTrue(true);
     }
 
