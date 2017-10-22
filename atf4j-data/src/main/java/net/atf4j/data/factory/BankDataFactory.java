@@ -56,9 +56,8 @@ public final class BankDataFactory extends AbstractDataFactory {
      *
      * @return the bank
      */
-    public Bank create() {
-        final Bank bank = Bank.create();
-        return bank;
+    public static Bank create() {
+        return new Bank();
     }
 
     /**
@@ -66,7 +65,7 @@ public final class BankDataFactory extends AbstractDataFactory {
      *
      * @return the string
      */
-    public Bank random() {
+    public static Bank random() {
         final Bank bank = new Bank();
         final String randomEntry = bankDataFactory.randomEntry();
         final String[] bankDetails = randomEntry.split(",");

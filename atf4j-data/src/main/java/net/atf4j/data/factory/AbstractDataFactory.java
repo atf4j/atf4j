@@ -35,7 +35,6 @@ import net.atf4j.core.TestResultsReporting;
  */
 public abstract class AbstractDataFactory extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
     private String[] lines;
     protected static Random random = new Random(System.currentTimeMillis());
 

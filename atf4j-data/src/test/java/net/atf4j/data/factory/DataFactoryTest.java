@@ -72,18 +72,6 @@ public final class DataFactoryTest extends TestResultsReporting {
     }
 
     /**
-     * Test default constructor.
-     *
-     * @throws Exception the exception
-     */
-    @Test
-    public void testDefaultConstructor() throws Exception {
-        final DataFactory dataFactory = new DataFactory();
-        assertNotNull(UNEXPECTED_NULL, dataFactory);
-        log.debug("DataFactory = {}", dataFactory);
-    }
-
-    /**
      * Test random string creation.
      *
      * @throws Exception the exception
