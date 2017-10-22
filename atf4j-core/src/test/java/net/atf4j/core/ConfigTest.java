@@ -18,6 +18,7 @@
 package net.atf4j.core;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
@@ -93,7 +94,7 @@ public final class ConfigTest extends TestResultsReporting {
     public void testValueForMissingKey() {
         final String value = Config.valueFor("missing");
         log.debug("Config.valueFor(missing) = {}", value);
-        assertNotNull(UNEXPECTED_NULL, value);
+        assertNull(UNEXPECTED_NULL, value);
     }
 
 }

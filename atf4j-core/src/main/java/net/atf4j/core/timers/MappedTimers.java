@@ -30,7 +30,7 @@ import net.atf4j.core.Atf4jException;
 public final class MappedTimers {
 
     /** Single INSTANCE of this Class. */
-    private static final MappedTimers INSTANCE = new MappedTimers();
+    private static final MappedTimers MAPPED_TIMERS = new MappedTimers();
 
     /** The running timers. */
     private final Map<String, MilliTimer> runningTimers = new ConcurrentHashMap<String, MilliTimer>();
@@ -51,7 +51,7 @@ public final class MappedTimers {
      * @return TimerStack
      */
     public static MappedTimers getInstance() {
-        return MappedTimers.INSTANCE;
+        return MappedTimers.MAPPED_TIMERS;
     }
 
     /**

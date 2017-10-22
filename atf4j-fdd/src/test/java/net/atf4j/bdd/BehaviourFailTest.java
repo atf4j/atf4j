@@ -22,6 +22,10 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.fdd.Feature;
+import net.atf4j.fdd.Given;
+import net.atf4j.fdd.Then;
+import net.atf4j.fdd.When;
 
 /**
  * Behaviour Fail Test Class.
@@ -32,7 +36,7 @@ public final class BehaviourFailTest extends TestResultsReporting {
      * Test Given.
      */
     @Test
-    @Atf4j.Given("testGiven")
+    @Feature.Given("testGiven")
     public void testGiven() {
         log.debug("{}.testGiven", this.getClass().getSimpleName());
         final Given given = new Given();
@@ -44,7 +48,7 @@ public final class BehaviourFailTest extends TestResultsReporting {
      * Test When.
      */
     @Test
-    @Atf4j.When("testWhen")
+    @Feature.When("testWhen")
     public void testWhen() {
         log.debug("{}.testGiven", this.getClass().getSimpleName());
         final When when = new When();
@@ -56,7 +60,7 @@ public final class BehaviourFailTest extends TestResultsReporting {
      * Test then.
      */
     @Test
-    @Atf4j.Then("testThen")
+    @Feature.Then("testThen")
     public void testThen() {
         log.debug("{}.testGiven", this.getClass().getSimpleName());
         final Then then = new Then();

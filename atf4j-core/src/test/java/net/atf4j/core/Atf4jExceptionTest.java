@@ -49,7 +49,7 @@ public final class Atf4jExceptionTest extends TestResultsReporting {
         try {
             throw new Atf4jException(EXCEPTION_MESSAGE);
         } catch (final Atf4jException e) {
-            log.debug(e.toString());
+            log.error(e.toString());
             assertEquals(EXCEPTION_MESSAGE, e.getMessage());
             assertEquals(EXCEPTION_MESSAGE, e.getLocalizedMessage());
             throw e;
@@ -66,7 +66,7 @@ public final class Atf4jExceptionTest extends TestResultsReporting {
         try {
             throw new Atf4jException(new AssertionError(EXCEPTION_MESSAGE));
         } catch (final Atf4jException e) {
-            log.debug(e.toString());
+            log.error(e.toString());
             assertTrue(e.getMessage().contains(EXCEPTION_MESSAGE));
             assertTrue(e.getMessage().contains("java.lang.AssertionError"));
             throw e;

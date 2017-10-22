@@ -69,9 +69,11 @@ public class TestSuiteTest extends TestResultsReporting {
      */
     @Test
     public void testTestSuiteTestContext() {
-        final TestSuite testSuite = new TestSuite(new TestContext());
+        final TestContext testContext = new TestContext();
+        log.debug("testContext = {}", testContext);
+        final TestSuite testSuite = new TestSuite(testContext);
         log.debug("testSuite = {}", testSuite);
-        log.debug("testResult={}", testSuite.result());
+        log.debug("testResult = {}", testSuite.result());
         assertNotNull(UNEXPECTED_NULL, testSuite);
     }
 

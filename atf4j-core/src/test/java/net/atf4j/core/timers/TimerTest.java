@@ -45,15 +45,15 @@ public class TimerTest extends TestResultsReporting {
      * Instrument the actual timer its self. Calculates the delta for tests.
      */
     @Test
-    public void testTimer0() {
+    public void testTimer() {
         final TimerInterface timer = new MilliTimer(this.getClass().getSimpleName());
         assertNotNull(timer);
         assertNotNull(timer.start());
         assertNotNull(timer.stop());
-        log.debug("testTimer0.Start Time = {}", timer.getStartTime());
+        log.debug("Start Time = {}", timer.getStartTime());
         final long elapsedTime = timer.getElapsedTime();
-        log.debug("testTimer0.Elapsed Time = {} ", elapsedTime);
-        log.debug("testTimer0.{} Elapsed time not within delta (%s)", timer.toString(), delta);
+        log.debug("Elapsed Time = {} ", elapsedTime);
+        log.debug("Elapsed time not within delta (%s)", timer.toString(), delta);
         final String message = String.format(" Elapsed time not within delta (%s)", timer, delta);
         assertTrue(message, timer.getElapsedTime() <= DEFAULT_INTERVAL + delta);
     }
@@ -68,8 +68,8 @@ public class TimerTest extends TestResultsReporting {
         assertNotNull(timer.start());
         waitDefaultInterval();
         assertNotNull(timer.stop());
-        log.debug("testTimerOneSec.Start Time = {}", timer.getStartTime());
-        log.debug("testTimerOneSec.Elapsed Time = {}", timer.getElapsedTime());
+        log.debug("Start Time = {}", timer.getStartTime());
+        log.debug("Elapsed Time = {}", timer.getElapsedTime());
         final String message = String.format(" Elapsed time not within delta (%s)", timer, delta);
         assertTrue(message, timer.getElapsedTime() <= DEFAULT_INTERVAL + delta);
     }

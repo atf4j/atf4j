@@ -144,7 +144,7 @@ public final class Postcode {
      * @return the out code
      */
     public String getOutwardCode() {
-        return this.outwardCode;
+        return outwardCode;
     }
 
     /**
@@ -153,7 +153,7 @@ public final class Postcode {
      * @return the in code
      */
     public String getInwardCode() {
-        return this.inwardCode;
+        return inwardCode;
     }
 
     /**
@@ -199,7 +199,7 @@ public final class Postcode {
     @Override
     public String toString() {
         // return String.format("%s %s", outwardCode, inwardCode);
-        return String.format("%s", this.postCode);
+        return String.format("%s", postCode);
     }
 
     /**

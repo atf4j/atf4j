@@ -33,7 +33,7 @@ public class BehaviourModelTest extends TestResultsReporting {
      */
     public class BehaviourModel extends AbstractBehaviourModel {
 
-        private BehaviourModel() {
+        public BehaviourModel() {
             super();
         }
     }

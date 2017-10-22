@@ -71,8 +71,7 @@ public final class NestedTimers {
      */
     public TimerInterface startTimer(final String timerName) {
         final MilliTimer timer = new MilliTimer(timerName);
-        timer.start();
-        this.runningTimers.push(timer);
+        runningTimers.push(timer.start());
         return timer;
     }
 
@@ -91,9 +90,8 @@ public final class NestedTimers {
      * @return Timer.
      */
     public TimerInterface stopTimer() {
-        final MilliTimer timer = this.runningTimers.pop();
-        timer.stop();
-        this.stoppedTimers.push(timer);
+        final MilliTimer timer = runningTimers.pop();
+        stoppedTimers.push(timer.stop());
         return timer;
     }
 
@@ -112,8 +110,8 @@ public final class NestedTimers {
      * @return NestedTimers
      */
     public NestedTimers stopAllTimers() {
-        for (final MilliTimer timer : this.runningTimers) {
-            this.stoppedTimers.push(timer.stop());
+        for (final MilliTimer timer : runningTimers) {
+            stoppedTimers.push(timer.stop());
         }
         return this;
     }
@@ -125,7 +123,7 @@ public final class NestedTimers {
      * @see java.util.Vector#elements()
      */
     public Enumeration<MilliTimer> runningTimers() {
-        return this.runningTimers.elements();
+        return runningTimers.elements();
     }
 
     /**
@@ -135,7 +133,7 @@ public final class NestedTimers {
      * @see java.util.Vector#elements()
      */
     public Enumeration<MilliTimer> stoppedTimers() {
-        return this.stoppedTimers.elements();
+        return stoppedTimers.elements();
     }
 
     /**
@@ -145,9 +143,10 @@ public final class NestedTimers {
      */
     public String runningTimersAsString() {
         final StringBuffer stringBuffer = new StringBuffer();
-        final Enumeration<MilliTimer> running = this.runningTimers.elements();
+        final Enumeration<MilliTimer> running = runningTimers.elements();
         while (running.hasMoreElements()) {
-            stringBuffer.append(running.nextElement().toString() + "\n");
+            final String string = String.format("\n", running.nextElement());
+            stringBuffer.append(string);
         }
         return stringBuffer.toString();
     }
@@ -159,7 +158,7 @@ public final class NestedTimers {
      */
     public String stoppedTimersAsString() {
         final StringBuffer stringBuffer = new StringBuffer();
-        final Enumeration<MilliTimer> stopped = this.stoppedTimers.elements();
+        final Enumeration<MilliTimer> stopped = stoppedTimers.elements();
         while (stopped.hasMoreElements()) {
             stringBuffer.append(stopped.nextElement().toString() + "\n");
         }
@@ -174,10 +173,10 @@ public final class NestedTimers {
      */
     @Override
     public String toString() {
-        return String.format("%s [runningTimers=%s,stoppedTimers=%s]",
+        return String.format("%s [runningTimers = %s, stoppedTimers = %s]",
                 this.getClass().getSimpleName(),
-                this.runningTimers,
-                this.stoppedTimers);
+                runningTimers,
+                stoppedTimers);
     }
 
     /**

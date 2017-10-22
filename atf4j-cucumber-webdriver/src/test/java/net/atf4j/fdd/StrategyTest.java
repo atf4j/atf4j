@@ -33,7 +33,7 @@ public class StrategyTest extends TestResultsReporting {
      */
     public class Strategy extends AbstractStrategy {
 
-        private Strategy() {
+        public Strategy() {
             super();
         }
     }

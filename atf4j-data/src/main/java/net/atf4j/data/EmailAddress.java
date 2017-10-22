@@ -137,6 +137,16 @@ public final class EmailAddress {
     /**
      * Verify.
      *
+     * @return true, if successful
+     */
+    public boolean verify() {
+        final Matcher matcher = PATTERN.matcher(email);
+        return matcher.find();
+    }
+
+    /**
+     * Verify.
+     *
      * @param email the email \* @return true, if successful, otherwise false.
      * @return true, if successful, otherwise false.
      */

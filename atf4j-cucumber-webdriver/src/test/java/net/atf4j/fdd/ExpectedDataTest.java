@@ -32,8 +32,7 @@ public class ExpectedDataTest extends TestResultsReporting {
      * The ExpectedData Class.
      */
     public class ExpectedData extends AbstractExpectedData {
-
-        private ExpectedData() {
+        public ExpectedData() {
             super();
         }
     }

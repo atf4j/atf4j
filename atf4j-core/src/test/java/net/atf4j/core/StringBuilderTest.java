@@ -83,7 +83,7 @@ public class StringBuilderTest extends TestResultsReporting {
     public void testNullClass() {
         final String reflectionToString = Narrator.reflectObjectToString(null);
         log.debug(reflectionToString);
-        assertTrue("|testNullClass|", reflectionToString.equals("[NULL]"));
+        assertTrue("|testNullClass|", reflectionToString.equals("object=[NULL]"));
     }
 
     /**

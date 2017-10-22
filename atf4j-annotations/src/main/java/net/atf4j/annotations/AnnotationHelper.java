@@ -48,7 +48,7 @@ public final class AnnotationHelper {
      * @return the test tag
      */
     public static String getTestTag() {
-        LOG.trace("AnnotationHelper.getTestTag");
+        LOG.debug("AnnotationHelper.getTestTag");
         final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         final Method testMethod = findTestMethod(stackTrace);
         if (testMethod == null) {
@@ -65,15 +65,14 @@ public final class AnnotationHelper {
      * @return the getTestId as String
      */
     public static String getTestId() {
-        LOG.trace("AnnotationHelper.getTestId");
+        LOG.debug("AnnotationHelper.getTestId");
         final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         final Method testMethod = findTestMethod(stackTrace);
         if (testMethod == null) {
             return EXPECTED_TEST_ID;
         } else {
             final Atf4j.TestId atf4jTestId = testMethod.getAnnotation(Atf4j.TestId.class);
-            final String resultString = atf4jTestId.value() == null ? EXPECTED_TEST_ID : atf4jTestId.value();
-            return resultString;
+            return atf4jTestId.value() == null ? EXPECTED_TEST_ID : atf4jTestId.value();
         }
     }
 
@@ -83,15 +82,14 @@ public final class AnnotationHelper {
      * @return the getTestName as String
      */
     public static String getTestName() {
-        LOG.info("AnnotationHelper.getTestName");
+        LOG.debug("AnnotationHelper.getTestName");
         final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         final Method testMethod = findTestMethod(stackTrace);
         if (testMethod == null) {
             return EXPECTED_TEST_NAME;
         } else {
             final Atf4j.TestName atf4jTestName = testMethod.getAnnotation(Atf4j.TestName.class);
-            final String resultString = atf4jTestName.value() == null ? EXPECTED_TEST_NAME : atf4jTestName.value();
-            return resultString;
+            return atf4jTestName.value() == null ? EXPECTED_TEST_NAME : atf4jTestName.value();
         }
     }
 
@@ -101,16 +99,15 @@ public final class AnnotationHelper {
      * @return the getTestDescriptions as String
      */
     public static String getTestDescription() {
-        LOG.info("AnnotationHelper.getTestDescription");
+        LOG.debug("AnnotationHelper.getTestDescription");
         final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         final Method testMethod = findTestMethod(stackTrace);
         if (testMethod == null) {
             return EXPECTED_TEST_DESCRIPTION;
         } else {
             final Atf4j.TestDescription atf4jTestDescription = testMethod.getAnnotation(Atf4j.TestDescription.class);
-            final String resultString = atf4jTestDescription.value() == null ? EXPECTED_TEST_DESCRIPTION
+            return atf4jTestDescription.value() == null ? EXPECTED_TEST_DESCRIPTION
                     : atf4jTestDescription.value();
-            return resultString;
         }
     }
 
@@ -121,7 +118,7 @@ public final class AnnotationHelper {
      * @return the method
      */
     private static Method findTestMethod(final StackTraceElement[] stackTrace) {
-        LOG.info("AbstractAtf4jAnnotatedTest.findTestMethod");
+        LOG.trace("AbstractAtf4jAnnotatedTest.findTestMethod");
         for (final StackTraceElement stackTraceElement : stackTrace) {
             final String candidateClassName = stackTraceElement.getClassName();
             try {

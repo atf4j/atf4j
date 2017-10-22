@@ -25,8 +25,9 @@ import org.junit.Test;
 public final class NarratorTest extends TestResultsReporting {
 
     private final Object object = new Object();
-    private final String string = "";
+    private final String className = this.getClass().getSimpleName();
     private final Boolean aBoolean = true;
+    private final long number = Long.MAX_VALUE;
 
     /**
      * Unit Test for test reflect object to string.
@@ -34,16 +35,6 @@ public final class NarratorTest extends TestResultsReporting {
     @Test
     public void testReflectObjectToString() {
         log.info(Narrator.reflectObjectToString(this));
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
-        return String.format("NarratorTest [object=%s, string=%s, aBoolean=%s]", object, string, aBoolean);
     }
 
 }

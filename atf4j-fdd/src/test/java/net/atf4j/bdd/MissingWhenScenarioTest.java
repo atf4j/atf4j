@@ -22,8 +22,10 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import net.atf4j.bdd.Atf4j.Scenario;
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.fdd.Feature;
+import net.atf4j.fdd.ScenarioRunner;
+import net.atf4j.fdd.Feature.Scenario;
 
 /**
  * Scenario Missing When class.
@@ -46,7 +48,7 @@ public final class MissingWhenScenarioTest extends TestResultsReporting {
     /**
      * Test pass given.
      */
-    @Atf4j.Given("Pass Given")
+    @Feature.Given("Pass Given")
     public void passGiven() {
         log.debug("{}", super.toString());
     }
@@ -59,7 +61,7 @@ public final class MissingWhenScenarioTest extends TestResultsReporting {
     /**
      * Test pass then.
      */
-    @Atf4j.Then("Skip Then")
+    @Feature.Then("Skip Then")
     public void skipThen() {
         log.debug("{}", super.toString());
     }

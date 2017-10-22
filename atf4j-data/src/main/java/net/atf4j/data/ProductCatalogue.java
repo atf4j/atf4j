@@ -78,7 +78,7 @@ public class ProductCatalogue {
      */
     public String debugString() {
         final String className = this.getClass().getSimpleName();
-        return String.format("%d [catalog=%s]", className, catalogue);
+        return String.format("%s [catalog=%s]", className, catalogue);
     }
 
     /*
