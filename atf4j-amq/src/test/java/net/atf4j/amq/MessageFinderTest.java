@@ -23,16 +23,13 @@ import java.io.File;
 import java.util.List;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Message Finder Test class.
  */
-public class MessageFinderTest {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
-    private static final Logger LOG = LoggerFactory.getLogger(MessageFinderExample.class);
+public class MessageFinderTest extends TestResultsReporting {
 
     /**
      * Test message finder.
@@ -40,13 +37,13 @@ public class MessageFinderTest {
     @Test
     public void testMessageFinder() {
         final MessageFinder folderWalker = new MessageFinder();
-        LOG.info("{}", folderWalker);
+        log.debug("{}", folderWalker);
         assertNotNull(UNEXPECTED_NULL, folderWalker);
 
         final List<File> messages = folderWalker.walk();
         assertNotNull(UNEXPECTED_NULL, messages);
         for (final File file : messages) {
-            LOG.info("{}", file.toString());
+            log.debug("{}", file.toString());
         }
     }
 }

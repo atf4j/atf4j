@@ -41,8 +41,6 @@ import net.atf4j.data.Text;
  */
 public final class DataFactoryTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
-
     /**
      * Test method for expected usage.
      */
@@ -50,27 +48,27 @@ public final class DataFactoryTest extends TestResultsReporting {
     public void testExpectedUsage() {
         final Calendar today = DataFactory.today();
         assertNotNull(UNEXPECTED_NULL, today);
-        this.log.info("DataFactory.today() = {}", DataFactory.format(today));
+        log.debug("DataFactory.today() = {}", DataFactory.format(today));
 
         final Calendar dateOfBirth = DataFactory.dateOfBirth();
         assertNotNull(UNEXPECTED_NULL, dateOfBirth);
-        this.log.info("DataFactory.dateOfBirth() = {}", DataFactory.format(dateOfBirth));
+        log.debug("DataFactory.dateOfBirth() = {}", DataFactory.format(dateOfBirth));
 
         final Calendar dobOver18 = DataFactory.dobOver18();
         assertNotNull(UNEXPECTED_NULL, dobOver18);
-        this.log.info("DataFactory.dobOver18() = {}", DataFactory.format(dobOver18));
+        log.debug("DataFactory.dobOver18() = {}", DataFactory.format(dobOver18));
 
         final Calendar dobUnder18 = DataFactory.dobUnder18();
         assertNotNull(UNEXPECTED_NULL, dobUnder18);
-        this.log.info("DataFactory.dobUnder18() = {}", DataFactory.format(dobUnder18));
+        log.debug("DataFactory.dobUnder18() = {}", DataFactory.format(dobUnder18));
 
         final Calendar futureDate = DataFactory.futureDate();
         assertNotNull(UNEXPECTED_NULL, futureDate);
-        this.log.info("DataFactory.futureDate() = {}", DataFactory.format(futureDate));
+        log.debug("DataFactory.futureDate() = {}", DataFactory.format(futureDate));
 
         final Calendar pastDate = DataFactory.pastDate();
         assertNotNull(UNEXPECTED_NULL, pastDate);
-        this.log.info("DataFactory.pastDate() = {}", DataFactory.format(pastDate));
+        log.debug("DataFactory.pastDate() = {}", DataFactory.format(pastDate));
     }
 
     /**
@@ -82,7 +80,7 @@ public final class DataFactoryTest extends TestResultsReporting {
     public void testDefaultConstructor() throws Exception {
         final DataFactory dataFactory = new DataFactory();
         assertNotNull(UNEXPECTED_NULL, dataFactory);
-        this.log.info("DataFactory = {}", dataFactory);
+        log.debug("DataFactory = {}", dataFactory);
     }
 
     /**
@@ -94,11 +92,11 @@ public final class DataFactoryTest extends TestResultsReporting {
     public void testString() throws Exception {
         final char randomChar = Text.randomChar();
         assertNotNull(UNEXPECTED_NULL, randomChar);
-        this.log.info("DataFactory.randomChar() = {}", randomChar);
+        log.debug("DataFactory.randomChar() = {}", randomChar);
 
         final String randomString = Text.randomString(10);
         assertNotNull(UNEXPECTED_NULL, randomString);
-        this.log.info("DataFactory.randomString(10) = {}", randomString);
+        log.debug("DataFactory.randomString(10) = {}", randomString);
     }
 
     /**
@@ -110,11 +108,11 @@ public final class DataFactoryTest extends TestResultsReporting {
     public void testDigits() throws Exception {
         final char randomDigit = Text.randomDigit();
         assertNotNull(UNEXPECTED_NULL, randomDigit);
-        this.log.info("DataFactory.randomDigit() = {}", randomDigit);
+        log.debug("DataFactory.randomDigit() = {}", randomDigit);
 
         final String randomDigits = Text.randomDigits(10);
         assertNotNull(UNEXPECTED_NULL, randomDigits);
-        this.log.info("DataFactory.randomDigits(10) = {}", randomDigits);
+        log.debug("DataFactory.randomDigits(10) = {}", randomDigits);
     }
 
     /**
@@ -223,7 +221,7 @@ public final class DataFactoryTest extends TestResultsReporting {
      */
     private void verifyDateData(final Calendar dateData) {
         assertNotNull(UNEXPECTED_NULL, dateData);
-        this.log.info("verifyDateData({})", dateData.toString());
+        log.debug("verifyDateData({})", dateData.toString());
 
         final String fromCalendar = DataFactory.format(dateData);
         assertNotNull(UNEXPECTED_NULL, fromCalendar);
@@ -243,7 +241,7 @@ public final class DataFactoryTest extends TestResultsReporting {
     public void testCreatePerson() {
         final Person person = DataFactory.createPerson();
         assertNotNull(UNEXPECTED_NULL, person);
-        this.log.info("{}", person.toString());
+        log.debug("{}", person.toString());
     }
 
     /**
@@ -253,7 +251,7 @@ public final class DataFactoryTest extends TestResultsReporting {
     public void testCreateCustomer() {
         final Customer customer = DataFactory.createCustomer();
         assertNotNull(UNEXPECTED_NULL, customer);
-        this.log.info("{}", customer.toString());
+        log.debug("{}", customer.toString());
     }
 
     /**
@@ -263,7 +261,7 @@ public final class DataFactoryTest extends TestResultsReporting {
     public void testCreateConsumer() {
         final Consumer consumer = DataFactory.createConsumer();
         assertNotNull(UNEXPECTED_NULL, consumer);
-        this.log.info("{}", consumer.toString());
+        log.debug("{}", consumer.toString());
     }
 
     /**
@@ -273,7 +271,7 @@ public final class DataFactoryTest extends TestResultsReporting {
     public void testCreateCard() {
         final Card card = DataFactory.createCard();
         assertNotNull(UNEXPECTED_NULL, card);
-        this.log.info("{}", card.toString());
+        log.debug("{}", card.toString());
     }
 
     /**
@@ -283,7 +281,7 @@ public final class DataFactoryTest extends TestResultsReporting {
     public void testCreateBusiness() {
         final Business business = DataFactory.createBusiness();
         assertNotNull(UNEXPECTED_NULL, business);
-        this.log.info("{}", business.toString());
+        log.debug("{}", business.toString());
     }
 
     /**
@@ -293,7 +291,7 @@ public final class DataFactoryTest extends TestResultsReporting {
     // public void testCreateBank() {
     // final Bank bank = DataFactory.createBank();
     // assertNotNull(UNEXPECTED_NULL, bank);
-    // this.log.info("{}", bank.toString());
+    // this.log.debug("{}", bank.toString());
     // }
 
     /**
@@ -303,7 +301,7 @@ public final class DataFactoryTest extends TestResultsReporting {
     public void testCreateAddress() {
         final PostalAddress address = DataFactory.createAddress();
         assertNotNull(UNEXPECTED_NULL, address);
-        this.log.info("{}", address.toString());
+        log.debug("{}", address.toString());
     }
 
 }

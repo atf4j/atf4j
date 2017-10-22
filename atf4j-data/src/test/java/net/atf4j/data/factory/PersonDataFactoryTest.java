@@ -29,28 +29,26 @@ import net.atf4j.data.Person;
  */
 public final class PersonDataFactoryTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
-
     /**
      * Test method for expected usage.
      */
     @Test
-    public void testExpectedUsage() {
+    public void testExampleUsage() {
         final Person person = PersonDataFactory.create();
         assertNotNull(UNEXPECTED_NULL, person);
 
-        this.log.info("{}", PersonDataFactory.randomForename());
-        this.log.info("{}", PersonDataFactory.randomFemaleForename());
-        this.log.info("{}", PersonDataFactory.randomMaleForename());
+        log.info("randomForename() = {}", PersonDataFactory.randomForename());
+        log.info("randomMaleForename() = {}", PersonDataFactory.randomMaleForename());
+        log.info("randomFemaleForename() = {}", PersonDataFactory.randomFemaleForename());
 
-        this.log.info("{}", PersonDataFactory.randomSurname());
-        this.log.info("{}", PersonDataFactory.randomSurname());
-        this.log.info("{}", PersonDataFactory.randomSurname());
+        log.info("randomSurname() = {}", PersonDataFactory.randomSurname());
+        log.info("randomSurname() = {}", PersonDataFactory.randomSurname());
 
-        this.log.info("{}", PersonDataFactory.randomFullname());
-        this.log.info("{}", PersonDataFactory.randomFullname());
+        log.info("randomFullname() = {}", PersonDataFactory.randomFullname());
+        log.info("randomFullname() = {}", PersonDataFactory.randomFullname());
 
-        this.log.info("{}", PersonDataFactory.randomEmail());
+        log.info("randomEmail() = {}", PersonDataFactory.randomEmail());
+        log.info("randomEmail() = {}", PersonDataFactory.randomEmail());
     }
 
     /**
@@ -59,11 +57,10 @@ public final class PersonDataFactoryTest extends TestResultsReporting {
      * @throws Exception the exception
      */
     @Test
-    public void testDefaultConstructor() throws Exception {
+    public void testDefaultConstructor() {
         final PersonDataFactory personDataFactory = new PersonDataFactory();
+        log.debug("new PersonDataFactory() = {}", personDataFactory);
         assertNotNull(UNEXPECTED_NULL, personDataFactory);
-        final String string = personDataFactory.toString();
-        this.log.debug("{}", string);
     }
 
     /**
@@ -72,6 +69,7 @@ public final class PersonDataFactoryTest extends TestResultsReporting {
     @Test
     public void testGetInstance() {
         final AbstractDataFactory personDataFactory = PersonDataFactory.getInstance();
+        log.debug("PersonDataFactory.getInstance() = {}", personDataFactory);
         assertNotNull(UNEXPECTED_NULL, personDataFactory);
         assertNotNull(UNEXPECTED_NULL, personDataFactory.toString());
     }
@@ -82,8 +80,8 @@ public final class PersonDataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final Person person = PersonDataFactory.create();
+        log.debug("PersonDataFactory.create() = {}", person);
         assertNotNull(UNEXPECTED_NULL, person);
-        this.log.info("{}", person.toString());
     }
 
 }

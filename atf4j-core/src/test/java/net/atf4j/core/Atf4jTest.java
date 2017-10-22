@@ -24,9 +24,7 @@ import org.junit.Test;
 /**
  * The Atf4jTest Class.
  */
-public class Atf4jTest {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public class Atf4jTest extends TestResultsReporting {
 
     /**
      * Test start end.

@@ -36,8 +36,8 @@ public final class PostalAddressTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final PostalAddress address = new PostalAddress();
+        log.debug("new PostalAddress() = {}", address);
         assertNotNull(UNEXPECTED_NULL, address);
-        log.info("{}", address);
     }
 
     /**
@@ -46,8 +46,8 @@ public final class PostalAddressTest extends TestResultsReporting {
     @Test
     public void testPostalAddressString() {
         final PostalAddress address = new PostalAddress(ADDRESS);
+        log.debug("new PostalAddress({}) = {}", ADDRESS, address);
         assertNotNull(UNEXPECTED_NULL, address);
-        log.info("{}", address);
     }
 
     /**
@@ -57,8 +57,8 @@ public final class PostalAddressTest extends TestResultsReporting {
     public void testPostalAddressStringArray() {
         final String[] addressLines = ADDRESS.split(",");
         final PostalAddress address = new PostalAddress(addressLines);
+        log.debug("new PostalAddress({}) = {}", addressLines, address);
         assertNotNull(UNEXPECTED_NULL, address);
-        log.info("{}", address);
     }
 
     /**
@@ -67,8 +67,8 @@ public final class PostalAddressTest extends TestResultsReporting {
     @Test
     public void testToString() {
         final String addressString = new PostalAddress().toString();
+        log.debug("new PostalAddress().toString() = {}", addressString);
         assertNotNull(UNEXPECTED_NULL, addressString);
-        log.info("{}", addressString);
     }
 
     /**
@@ -76,9 +76,9 @@ public final class PostalAddressTest extends TestResultsReporting {
      */
     @Test
     public void testDebugString() {
-        final String addressString = new PostalAddress().debugString();
-        assertNotNull(UNEXPECTED_NULL, addressString);
-        log.info("{}", addressString);
+        final String addressDebugString = new PostalAddress().debugString();
+        log.debug("new PostalAddress().debugString() = {}", addressDebugString);
+        assertNotNull(UNEXPECTED_NULL, addressDebugString);
     }
 
 }

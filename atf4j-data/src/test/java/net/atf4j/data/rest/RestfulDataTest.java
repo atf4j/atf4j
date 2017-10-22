@@ -21,14 +21,13 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.data.management.RestfulData;
 
 /**
  * A UnitTest for RestfulData objects.
  */
-public final class RestfulDataTest {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
+public final class RestfulDataTest extends TestResultsReporting {
 
     /**
      * Test method for void.

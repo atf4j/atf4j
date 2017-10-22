@@ -23,17 +23,17 @@ import java.util.Collection;
 /**
  * ProductCatalog.
  */
-public class ProductCatalog {
+public class ProductCatalogue {
 
-    private final Collection<Product> catalog = new ArrayDeque<Product>();
+    private final Collection<Product> catalogue = new ArrayDeque<Product>();
 
     /**
      * Create new INSTANCE of create.
      *
      * @return the product catalog
      */
-    public static ProductCatalog create() {
-        return new ProductCatalog();
+    public static ProductCatalogue create() {
+        return new ProductCatalogue();
     }
 
     /**
@@ -41,26 +41,25 @@ public class ProductCatalog {
      *
      * @return the product catalog
      */
-    public static ProductCatalog random() {
+    public static ProductCatalogue random() {
         return null;
     }
 
     /**
-     * Instantiates a new product catalog.
+     * Instantiates a new product Catalogue.
      */
-    public ProductCatalog() {
+    public ProductCatalogue() {
         super();
     }
 
     /**
-     * add a Product to catalog.
+     * Adds the.
      *
-     * @param e the e \* @return true, if successful, otherwise false.
+     * @param e the e
      * @return true, if successful, otherwise false.
-     * @see java.util.Collection#add(java.lang.Object)
      */
     public boolean add(final Product e) {
-        return catalog.add(e);
+        return catalogue.add(e);
     }
 
     /**
@@ -69,7 +68,17 @@ public class ProductCatalog {
      * @return the productList
      */
     public Collection<Product> getProductList() {
-        return catalog;
+        return catalogue;
+    }
+
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
+        final String className = this.getClass().getSimpleName();
+        return String.format("%d [catalog=%s]", className, catalogue);
     }
 
     /*
@@ -79,7 +88,6 @@ public class ProductCatalog {
      */
     @Override
     public String toString() {
-        return String.format("ProductCatalog [catalog=%s]", catalog);
+        return debugString();
     }
-
 }

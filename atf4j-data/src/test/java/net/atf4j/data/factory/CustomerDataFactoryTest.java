@@ -29,15 +29,14 @@ import net.atf4j.data.Customer;
  */
 public final class CustomerDataFactoryTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
-
     /**
      * Test method for expected usage.
      */
     @Test
     public void testExpectedUsage() {
         final Customer customer = CustomerDataFactory.random();
-        this.log.info("{}", customer);
+        log.debug("CustomerDataFactory.random() = {}", customer);
+        assertNotNull(UNEXPECTED_NULL, customer);
     }
 
     /**
@@ -48,8 +47,8 @@ public final class CustomerDataFactoryTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() throws Exception {
         final CustomerDataFactory customerDataFactory = new CustomerDataFactory();
+        log.debug("new CustomerDataFactory() = {}", customerDataFactory);
         assertNotNull(UNEXPECTED_NULL, customerDataFactory);
-        this.log.info("{}", customerDataFactory);
     }
 
     /**
@@ -58,8 +57,8 @@ public final class CustomerDataFactoryTest extends TestResultsReporting {
     @Test
     public void testGetInstance() {
         final CustomerDataFactory customerDataFactory = CustomerDataFactory.getInstance();
+        log.debug("new CustomerDataFactory() = {}", customerDataFactory);
         assertNotNull(UNEXPECTED_NULL, customerDataFactory);
-        this.log.info("{}", customerDataFactory);
     }
 
     /**
@@ -68,8 +67,8 @@ public final class CustomerDataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final Customer customer = CustomerDataFactory.create();
+        log.debug("CustomerDataFactory.create() = {}", customer);
         assertNotNull(UNEXPECTED_NULL, customer);
-        this.log.info("{}", customer);
     }
 
 }

@@ -25,17 +25,14 @@ import javax.jms.JMSException;
 
 import org.junit.Ignore;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * The ConsumerTest Class.
  */
 @Ignore
-public class ConsumerTest {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
-    private static final Logger LOG = LoggerFactory.getLogger(ConsumerTest.class);
+public final class ConsumerTest extends TestResultsReporting {
 
     /**
      * Test reader.
@@ -44,11 +41,11 @@ public class ConsumerTest {
      */
     @Test
     public void testReader() throws JMSException {
-        LOG.info("testReader");
+        log.debug("testReader");
 
         final Consumer consumer = new Consumer();
         assertNotNull(UNEXPECTED_NULL, consumer);
-        LOG.info("{}", consumer);
+        log.debug("{}", consumer);
     }
 
     /**
@@ -58,14 +55,14 @@ public class ConsumerTest {
      */
     @Test
     public void testExecute() throws JMSException {
-        LOG.info("testExecute");
+        log.debug("testExecute");
 
         final Consumer consumer = new Consumer();
         assertNotNull(UNEXPECTED_NULL, consumer);
-        LOG.info("{}", consumer);
+        log.debug("{}", consumer);
 
         final String[] messages = consumer.execute();
         assertNotNull(UNEXPECTED_NULL, messages);
-        LOG.info("{}", Arrays.toString(messages));
+        log.debug("{}", Arrays.toString(messages));
     }
 }

@@ -37,7 +37,7 @@ public class CsvRowTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultCsvRow() {
-        CsvRow csvRow = new CsvRow();
+        final CsvRow csvRow = new CsvRow();
         assertNotNull(csvRow);
     }
 
@@ -46,7 +46,7 @@ public class CsvRowTest extends TestResultsReporting {
      */
     @Test
     public void testEmptyCsvRow() {
-        CsvRow csvRow = new CsvRow("");
+        final CsvRow csvRow = new CsvRow("");
         assertNotNull(csvRow);
     }
 
@@ -75,7 +75,7 @@ public class CsvRowTest extends TestResultsReporting {
         assertNotNull(fields);
         assertEquals(4, fields.length);
         for (final String field : fields) {
-            this.log.info("field = {}", field);
+            log.debug("field = {}", field);
         }
     }
 
@@ -84,12 +84,13 @@ public class CsvRowTest extends TestResultsReporting {
      */
     @Test
     public void testToString() {
-        CsvRow csvRow = new CsvRow(TEST_ROW);
+        final CsvRow csvRow = new CsvRow(TEST_ROW);
+        log.debug("csvRow = {}", csvRow);
         assertNotNull(csvRow);
         final String actual = csvRow.toString();
+        log.debug("csvRow.toString() = {}", actual);
         assertNotNull(actual);
         assertEquals(TEST_ROW, actual);
-        this.log.info("ACTUAL = {}", actual);
     }
 
     /**
@@ -97,12 +98,13 @@ public class CsvRowTest extends TestResultsReporting {
      */
     @Test
     public void testDebugString() {
-        CsvRow csvRow = new CsvRow(TEST_ROW);
+        final CsvRow csvRow = new CsvRow(TEST_ROW);
+        log.debug("csvRow = {}", csvRow);
         assertNotNull(csvRow);
         final String actual = csvRow.debugString();
+        log.debug("csvRow.debugString() = {}", actual);
         assertNotNull(actual);
         assertEquals(EXPECTED, actual);
-        this.log.info("ACTUAL = {}", actual);
     }
 
 }

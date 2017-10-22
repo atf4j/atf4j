@@ -130,7 +130,7 @@ public final class LoremIpsum extends AbstractDataFactory {
     private String getParagraphs(final int count) {
         final StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < count; i++) {
-            final int length = rnd.nextInt(12) + 4;
+            final int length = random.nextInt(12) + 4;
             final String sentences = getSentences(length);
             stringBuilder.append(sentences);
             stringBuilder.append("\n");
@@ -166,7 +166,7 @@ public final class LoremIpsum extends AbstractDataFactory {
     private String getSentences(final int count) {
         final StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < count; i++) {
-            final int length = rnd.nextInt(12) + 4;
+            final int length = random.nextInt(12) + 4;
             final String sentence = getInstance().getWords(length);
             stringBuilder.append(sentenceCase(sentence));
         }
@@ -201,7 +201,7 @@ public final class LoremIpsum extends AbstractDataFactory {
     private String getWords(final int count) {
         final StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < count; i++) {
-            final int nextInt = rnd.nextInt(bounds);
+            final int nextInt = random.nextInt(bounds);
             final String word = words.get(nextInt);
             stringBuilder.append(word);
             stringBuilder.append(' ');

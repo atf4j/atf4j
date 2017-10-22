@@ -22,11 +22,13 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * The CustomRunnerTest Class.
  */
 @RunWith(value = CustomRunner.class)
-public class CustomRunnerTest {
+public final class CustomRunnerTest extends TestResultsReporting {
 
     /**
      * Test custom runner with pass.

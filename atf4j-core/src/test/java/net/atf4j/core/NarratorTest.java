@@ -33,9 +33,14 @@ public final class NarratorTest extends TestResultsReporting {
      */
     @Test
     public void testReflectObjectToString() {
-        this.log.info(Narrator.reflectObjectToString(this));
+        log.info(Narrator.reflectObjectToString(this));
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format("NarratorTest [object=%s, string=%s, aBoolean=%s]", object, string, aBoolean);

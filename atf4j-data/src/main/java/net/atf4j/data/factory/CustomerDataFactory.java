@@ -26,7 +26,7 @@ import net.atf4j.data.Customer;
  */
 public final class CustomerDataFactory extends AbstractDataFactory {
 
-    private static CustomerDataFactory instance = null;
+    private static CustomerDataFactory customerDataFactory = null;
     private String[] data;
 
     /**
@@ -54,10 +54,10 @@ public final class CustomerDataFactory extends AbstractDataFactory {
      * @return single INSTANCE of CustomerDataFactory
      */
     public static CustomerDataFactory getInstance() {
-        if (CustomerDataFactory.instance == null) {
-            CustomerDataFactory.instance = new CustomerDataFactory();
+        if (CustomerDataFactory.customerDataFactory == null) {
+            CustomerDataFactory.customerDataFactory = new CustomerDataFactory();
         }
-        return CustomerDataFactory.instance;
+        return CustomerDataFactory.customerDataFactory;
     }
 
     /**

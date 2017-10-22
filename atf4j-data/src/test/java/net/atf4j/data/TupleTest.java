@@ -27,7 +27,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * The TupleTest Class.
  */
-public class TupleTest extends TestResultsReporting {
+public final class TupleTest extends TestResultsReporting {
 
     /**
      * Test set get key.
@@ -35,11 +35,13 @@ public class TupleTest extends TestResultsReporting {
     @Test
     public void testSetGetKey() {
         final Tuple<String, String> tuple = new Tuple<String, String>();
-        assertNotNull(tuple);
+        log.debug("tuple = {}", tuple);
+        assertNotNull(UNEXPECTED_NULL, tuple);
+
         final String key = "key";
         tuple.setKey(key);
+        log.debug("tuple.setKey({}) = {}", key, tuple);
         assertEquals(key, tuple.key());
-        this.log.info("{}", tuple);
     }
 
     /**
@@ -48,11 +50,13 @@ public class TupleTest extends TestResultsReporting {
     @Test
     public void testSetGetValue() {
         final Tuple<String, String> tuple = new Tuple<String, String>();
-        assertNotNull(tuple);
+        log.debug("tuple = {}", tuple);
+        assertNotNull(UNEXPECTED_NULL, tuple);
+
         final String value = "value";
         tuple.setValue(value);
+        log.debug("tuple.setKey({}) = {}", value, tuple);
         assertEquals(value, tuple.value());
-        this.log.info("{}", tuple);
     }
 
 }

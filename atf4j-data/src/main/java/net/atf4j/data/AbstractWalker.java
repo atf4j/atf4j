@@ -40,7 +40,7 @@ public abstract class AbstractWalker {
      */
     public AbstractWalker() {
         super();
-        log.info("AbstractWalker()");
+        log.debug("AbstractWalker()");
     }
 
     /**
@@ -50,7 +50,7 @@ public abstract class AbstractWalker {
      */
     public AbstractWalker(final String basePath) {
         super();
-        log.info("AbstractWalker({})", basePath);
+        log.debug("AbstractWalker({})", basePath);
         setBasePath(basePath);
     }
 
@@ -164,7 +164,7 @@ public abstract class AbstractWalker {
      * @param file the file
      */
     protected void processFile(final File file) {
-        log.info("processFile({})", file.getName());
+        log.debug("processFile({})", file.getName());
     }
 
     /*

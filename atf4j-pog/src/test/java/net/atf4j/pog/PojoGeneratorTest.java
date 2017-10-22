@@ -26,7 +26,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * A UnitTest for PojoGenerator objects.
  */
-public class PojoGeneratorTest extends TestResultsReporting {
+public final class PojoGeneratorTest extends TestResultsReporting {
 
     /**
      * Test method for void.
@@ -35,7 +35,7 @@ public class PojoGeneratorTest extends TestResultsReporting {
      */
     @Test
     public void testExpected() throws Exception {
-        this.log.info("==============================================");
+        log.info("==============================================");
         final PojoGenerator pojoGenerator = new PojoGenerator();
         assertNotNull(UNEXPECTED_NULL, pojoGenerator);
         assertNotNull(UNEXPECTED_NULL, pojoGenerator.setClassName("FluentPojo"));
@@ -43,7 +43,7 @@ public class PojoGeneratorTest extends TestResultsReporting {
         pojoGenerator.addDateField("date");
         pojoGenerator.addBooleanField("bool");
 
-        this.log.info("{}", pojoGenerator.generate());
+        log.info("{}", pojoGenerator.generate());
         pojoGenerator.generate();
     }
 

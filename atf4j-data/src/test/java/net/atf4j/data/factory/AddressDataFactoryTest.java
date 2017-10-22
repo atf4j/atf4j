@@ -29,16 +29,14 @@ import net.atf4j.data.PostalAddress;
  */
 public final class AddressDataFactoryTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
-
     /**
      * Test method for expected usage.
      */
     @Test
     public void testExpectedUsage() {
         final PostalAddress address = AddressDataFactory.random();
+        log.debug("AddressDataFactory.random() = {}", address);
         assertNotNull(UNEXPECTED_NULL, address);
-        this.log.info("{}", address);
     }
 
     /**
@@ -49,6 +47,7 @@ public final class AddressDataFactoryTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() throws Exception {
         final AddressDataFactory addressFactory = new AddressDataFactory();
+        log.debug("new AddressDataFactory() = {}", addressFactory);
         assertNotNull(UNEXPECTED_NULL, addressFactory);
     }
 
@@ -58,8 +57,8 @@ public final class AddressDataFactoryTest extends TestResultsReporting {
     @Test
     public void testGetInstance() {
         final AddressDataFactory addressFactory = AddressDataFactory.getInstance();
+        log.debug("AddressDataFactory.getInstance() = {}", addressFactory);
         assertNotNull(UNEXPECTED_NULL, addressFactory);
-        this.log.info("{}", addressFactory.toString());
     }
 
     /**
@@ -68,8 +67,8 @@ public final class AddressDataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final PostalAddress address = AddressDataFactory.create();
+        log.debug("AddressDataFactory.create() = {}", address);
         assertNotNull(UNEXPECTED_NULL, address);
-        this.log.info("{}", address.toString());
     }
 
     /**
@@ -78,8 +77,8 @@ public final class AddressDataFactoryTest extends TestResultsReporting {
     @Test
     public void testRandom() {
         final PostalAddress address = AddressDataFactory.random();
+        log.debug("AddressDataFactory.random() = {}", address);
         assertNotNull(UNEXPECTED_NULL, address);
-        this.log.info("{}", address.toString());
     }
 
 }

@@ -32,7 +32,6 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class CardTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final String INVALID_NUMBER = "1111-1111-1111-1111";
     private static final String AMEX_1 = "0000 1234 5678 9999";
     private static final String AMEX_INVALID = "3714-4963-539-8431";

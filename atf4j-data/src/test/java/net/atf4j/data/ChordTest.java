@@ -27,7 +27,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * The ChordTest Class.
  */
-public class ChordTest extends TestResultsReporting {
+public final class ChordTest extends TestResultsReporting {
 
     /**
      * Test set stem.

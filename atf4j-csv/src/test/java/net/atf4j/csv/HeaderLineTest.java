@@ -29,7 +29,6 @@ import net.atf4j.core.TestResultsReporting;
  */
 public class HeaderLineTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
     private static final String HEADER_LINE = "ColumnOne, ColumnTwo";
     private static final String EXPECTED_HEADER = "HeaderLine [fields=[ColumnOne, ColumnTwo]]";
 
@@ -41,7 +40,7 @@ public class HeaderLineTest extends TestResultsReporting {
         final HeaderLine headerLine = new HeaderLine("");
         assertNotNull(UNEXPECTED_NULL, headerLine);
         assertEquals(1, headerLine.length());
-        this.log.info(headerLine.toString());
+        log.info(headerLine.toString());
     }
 
     /**
@@ -56,7 +55,7 @@ public class HeaderLineTest extends TestResultsReporting {
         assertEquals(EXPECTED_HEADER, headerLineString);
         assertEquals("ColumnOne", headerLine.getField(1));
         assertEquals("ColumnTwo", headerLine.getField(2));
-        this.log.info(headerLine.toString());
+        log.info(headerLine.toString());
     }
 
     /**
@@ -65,14 +64,14 @@ public class HeaderLineTest extends TestResultsReporting {
     @Test
     public void testHeaderLine() {
         final HeaderLine headerLine = new HeaderLine();
-        this.log.trace(headerLine.toString());
+        log.trace(headerLine.toString());
         assertNotNull(UNEXPECTED_NULL, headerLine);
         assertEquals(0, headerLine.length());
         headerLine.initialise(HEADER_LINE);
-        this.log.trace(headerLine.toString());
+        log.trace(headerLine.toString());
         assertEquals(2, headerLine.length());
         final String headerLineString = headerLine.debugString();
-        this.log.trace(headerLineString.toString());
+        log.trace(headerLineString.toString());
         assertEquals(EXPECTED_HEADER, headerLineString);
         assertEquals("ColumnOne", headerLine.getField(1));
         assertEquals("ColumnTwo", headerLine.getField(2));

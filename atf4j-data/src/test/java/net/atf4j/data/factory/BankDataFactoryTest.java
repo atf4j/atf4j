@@ -32,8 +32,6 @@ import net.atf4j.data.Bank;
  */
 public final class BankDataFactoryTest extends TestResultsReporting {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
-
     /**
      * Test method for expected usage.
      *
@@ -42,10 +40,11 @@ public final class BankDataFactoryTest extends TestResultsReporting {
     @Test
     @Ignore
     public void testExpectedUsage() throws FileNotFoundException {
-        final BankDataFactory INSTANCE = BankDataFactory.getInstance();
-        final Bank randomBank = INSTANCE.random();
+        final BankDataFactory bankDataFactory = BankDataFactory.getInstance();
+        log.debug("BankDataFactory.getInstance() = {}", bankDataFactory);
+        final Bank randomBank = bankDataFactory.random();
+        log.debug("randomBank = {}", randomBank);
         assertNotNull(UNEXPECTED_NULL, randomBank);
-        this.log.info("{}", randomBank);
     }
 
     /**
@@ -55,8 +54,9 @@ public final class BankDataFactoryTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() throws Exception {
-        final BankDataFactory banKDataFactory = new BankDataFactory();
-        assertNotNull(UNEXPECTED_NULL, banKDataFactory);
+        final BankDataFactory bankDataFactory = new BankDataFactory();
+        log.debug("BankDataFactory() = {}", bankDataFactory);
+        assertNotNull(UNEXPECTED_NULL, bankDataFactory);
     }
 
     /**
@@ -66,9 +66,9 @@ public final class BankDataFactoryTest extends TestResultsReporting {
      */
     @Test
     public void testGetInstance() throws FileNotFoundException {
-        final BankDataFactory INSTANCE = BankDataFactory.getInstance();
-        assertNotNull(UNEXPECTED_NULL, INSTANCE);
-        this.log.info("{}", INSTANCE.toString());
+        final BankDataFactory bankDataFactory = BankDataFactory.getInstance();
+        log.debug("BankDataFactory() = {}", bankDataFactory);
+        assertNotNull(UNEXPECTED_NULL, bankDataFactory);
     }
 
     /**
@@ -78,10 +78,13 @@ public final class BankDataFactoryTest extends TestResultsReporting {
      */
     @Test
     public void testCreate() throws FileNotFoundException {
-        final BankDataFactory INSTANCE = BankDataFactory.getInstance();
-        final Bank bank = INSTANCE.create();
+        final BankDataFactory bankDataFactory = BankDataFactory.getInstance();
+        log.debug("BankDataFactory() = {}", bankDataFactory);
+        assertNotNull(UNEXPECTED_NULL, bankDataFactory);
+
+        final Bank bank = bankDataFactory.create();
+        log.debug("bankDataFactory.create() = {}", bank);
         assertNotNull(UNEXPECTED_NULL, bank);
-        this.log.info("{}", bank.toString());
     }
 
 }

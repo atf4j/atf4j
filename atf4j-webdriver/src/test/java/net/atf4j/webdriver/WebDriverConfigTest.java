@@ -28,7 +28,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * WebDriverConfigTest Class.
  */
-public class WebDriverConfigTest extends TestResultsReporting {
+public final class WebDriverConfigTest extends TestResultsReporting {
 
     /**
      * Test method for {net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.

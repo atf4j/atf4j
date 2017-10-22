@@ -19,9 +19,7 @@ package net.atf4j.data.factory;
 
 import java.util.Random;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.csv.CsvRow;
 import net.atf4j.data.Postcode;
 import net.atf4j.data.PostcodeData;
@@ -30,12 +28,11 @@ import net.atf4j.data.Text;
 /**
  * A factory for creating PostcodeData objects.
  */
-public final class PostcodeDataFactory {
+public final class PostcodeDataFactory extends TestResultsReporting {
 
-    private static final PostcodeDataFactory INSTANCE = new PostcodeDataFactory();
-    private static final PostcodeData postCodeData = PostcodeData.getInstance();
-    protected static Random rnd = new Random(System.currentTimeMillis());
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+    private static final PostcodeDataFactory POSTCODE_DATA_FACTORY = new PostcodeDataFactory();
+    private static final PostcodeData POSTCODE_DATA = PostcodeData.getInstance();
+    protected static Random random = new Random(System.currentTimeMillis());
 
     /**
      * Instantiates a new postcode data factory.
@@ -50,7 +47,7 @@ public final class PostcodeDataFactory {
      * @return single instance of PostcodeDataFactory
      */
     public static PostcodeDataFactory getInstance() {
-        return PostcodeDataFactory.INSTANCE;
+        return PostcodeDataFactory.POSTCODE_DATA_FACTORY;
     }
 
     /**
@@ -69,9 +66,9 @@ public final class PostcodeDataFactory {
      */
     public static Postcode random() {
         final Postcode postcode = new Postcode();
-        final int rowCount = postCodeData.rowCount();
-        final int randomRow = rnd.nextInt(rowCount);
-        final CsvRow row = postCodeData.getRow(randomRow);
+        final int rowCount = POSTCODE_DATA.rowCount();
+        final int randomRow = random.nextInt(rowCount);
+        final CsvRow row = POSTCODE_DATA.getRow(randomRow);
         final String[] fields = row.getFields();
         postcode.setOutwardCode(fields[0]);
         final String inward = String.format("%c%C%C", Text.randomDigit(), Text.randomChar(), Text.randomChar());
@@ -86,7 +83,7 @@ public final class PostcodeDataFactory {
      */
     @Override
     public String toString() {
-        return String.format("PostcodeDataFactory [postCodeData=%s]", postCodeData);
+        return String.format("PostcodeDataFactory [postCodeData=%s]", POSTCODE_DATA);
     }
 
 }

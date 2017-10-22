@@ -33,7 +33,7 @@ import net.atf4j.core.TestResultsReporting;
  * A UnitTest for LogicalGuiMap objects.
  */
 @Ignore
-public class AbstractGuiMapTest extends TestResultsReporting {
+public final class AbstractGuiMapTest extends TestResultsReporting {
 
     /**
      * The LogicalGuiMap Class.
@@ -59,7 +59,7 @@ public class AbstractGuiMapTest extends TestResultsReporting {
             assertNotNull(UNEXPECTED_NULL, key);
             Assert.assertTrue(INSTANCE.containsKey(key));
             assertNotNull(UNEXPECTED_NULL, INSTANCE.getString(key));
-            this.log.info("{}={}", key, INSTANCE.getString(key));
+            log.info("{}={}", key, INSTANCE.getString(key));
         }
     }
 
@@ -108,9 +108,9 @@ public class AbstractGuiMapTest extends TestResultsReporting {
     public void testToString() throws Exception {
         final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
         assertNotNull(UNEXPECTED_NULL, abstractGuiMap);
-        this.log.info(abstractGuiMap.toString());
-        this.log.info(abstractGuiMap.getBaseBundleName());
-        this.log.info(abstractGuiMap.getLocale().toString());
+        log.info(abstractGuiMap.toString());
+        log.info(abstractGuiMap.getBaseBundleName());
+        log.info(abstractGuiMap.getLocale().toString());
     }
 
 }

@@ -35,8 +35,8 @@ public final class CardDataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final Card card = CardDataFactory.create();
-        assertNotNull("unexpected null", card);
-        this.log.info("{}", card.toString());
+        log.debug("CardDataFactory.create() = {}", card);
+        assertNotNull(UNEXPECTED_NULL, card);
     }
 
     /**
@@ -45,7 +45,8 @@ public final class CardDataFactoryTest extends TestResultsReporting {
     @Test
     public void testRandom() {
         final Card card = CardDataFactory.random();
-        assertNotNull("unexpected null", card);
-        this.log.info("{}", card.toString());
+        log.debug("CardDataFactory.random() = {}", card);
+        assertNotNull(UNEXPECTED_NULL, card);
     }
+
 }

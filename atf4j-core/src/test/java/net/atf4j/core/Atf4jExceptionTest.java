@@ -21,8 +21,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * A UnitTest for Atf4jException objects.
@@ -30,7 +28,6 @@ import org.slf4j.LoggerFactory;
 public final class Atf4jExceptionTest extends TestResultsReporting {
 
     private static final String EXCEPTION_MESSAGE = "Force a Atf4jException";
-    private static final Logger LOGGER = LoggerFactory.getLogger(Atf4jExceptionTest.class);
 
     /**
      * test Atf4jException object.
@@ -52,7 +49,7 @@ public final class Atf4jExceptionTest extends TestResultsReporting {
         try {
             throw new Atf4jException(EXCEPTION_MESSAGE);
         } catch (final Atf4jException e) {
-            LOGGER.debug(e.toString());
+            log.debug(e.toString());
             assertEquals(EXCEPTION_MESSAGE, e.getMessage());
             assertEquals(EXCEPTION_MESSAGE, e.getLocalizedMessage());
             throw e;
@@ -69,7 +66,7 @@ public final class Atf4jExceptionTest extends TestResultsReporting {
         try {
             throw new Atf4jException(new AssertionError(EXCEPTION_MESSAGE));
         } catch (final Atf4jException e) {
-            LOGGER.debug(e.toString());
+            log.debug(e.toString());
             assertTrue(e.getMessage().contains(EXCEPTION_MESSAGE));
             assertTrue(e.getMessage().contains("java.lang.AssertionError"));
             throw e;

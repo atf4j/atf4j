@@ -23,16 +23,13 @@ import java.io.File;
 import java.io.FilenameFilter;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * The FolderWalkerTest Class.
  */
-public class FolderWalkerTest {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
-    private static final Logger LOG = LoggerFactory.getLogger(FolderWalkerTest.class);
+public class FolderWalkerTest extends TestResultsReporting {
 
     /**
      * The FolderWalker Class.
@@ -62,7 +59,7 @@ public class FolderWalkerTest {
              */
             @Override
             public boolean accept(final File dir, final String filename) {
-                return filename.endsWith(this.extension);
+                return filename.endsWith(extension);
             }
         }
 
@@ -88,7 +85,7 @@ public class FolderWalkerTest {
      */
     @Test
     public void testFolderWalker() {
-        LOG.info("testFolderWalker");
+        log.debug("testFolderWalker");
         final FolderWalkerInterface folderWalker = new FolderWalker();
         assertNotNull(UNEXPECTED_NULL, folderWalker);
         folderWalker.walk();
@@ -99,7 +96,7 @@ public class FolderWalkerTest {
      */
     @Test
     public void testFolderWalkerNull() {
-        LOG.info("testFolderWalkerNull");
+        log.debug("testFolderWalkerNull");
         final FolderWalkerInterface folderWalker = new FolderWalker(null);
         assertNotNull(UNEXPECTED_NULL, folderWalker);
         folderWalker.walk();
@@ -110,7 +107,7 @@ public class FolderWalkerTest {
      */
     @Test
     public void testFolderWalkerEmpty() {
-        LOG.info("testFolderWalkerEmpty");
+        log.debug("testFolderWalkerEmpty");
         final FolderWalkerInterface folderWalker = new FolderWalker("");
         assertNotNull(UNEXPECTED_NULL, folderWalker);
         folderWalker.walk();
@@ -121,7 +118,7 @@ public class FolderWalkerTest {
      */
     @Test
     public void testFolderWalkerDot() {
-        LOG.info("testFolderWalkerDot");
+        log.debug("testFolderWalkerDot");
         final FolderWalkerInterface folderWalker = new FolderWalker(".");
         assertNotNull(UNEXPECTED_NULL, folderWalker);
         folderWalker.walk();
@@ -132,7 +129,7 @@ public class FolderWalkerTest {
      */
     @Test
     public void testFolderWalkerString() {
-        LOG.info("testFolderWalkerString");
+        log.debug("testFolderWalkerString");
         final FolderWalkerInterface folderWalker = new FolderWalker("messages");
         assertNotNull(UNEXPECTED_NULL, folderWalker);
         folderWalker.walk();
