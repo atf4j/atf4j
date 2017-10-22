@@ -25,7 +25,7 @@ import net.atf4j.core.Narrator;
  * A named nano second Timer. (In most cases this offers no advantage over the
  * millisecond timer).
  */
-public class NanoTimer implements TimerInterface {
+public class NamedNanoTimer implements TimerInterface {
 
     /** The start time. */
     private long startTime = -1L;
@@ -42,7 +42,7 @@ public class NanoTimer implements TimerInterface {
     /**
      * Instantiates a new timer.
      */
-    public NanoTimer() {
+    public NamedNanoTimer() {
         super();
         timerName = UUID.randomUUID().toString();
     }
@@ -52,7 +52,7 @@ public class NanoTimer implements TimerInterface {
      *
      * @param useName is a name for this Timer
      */
-    public NanoTimer(final String useName) {
+    public NamedNanoTimer(final String useName) {
         super();
         timerName = useName;
     }
@@ -63,7 +63,7 @@ public class NanoTimer implements TimerInterface {
      * @see net.atf4j.core.timers.ITimer#start()
      */
     @Override
-    public final NanoTimer start() {
+    public final NamedNanoTimer start() {
         startTime = System.nanoTime();
         return this;
     }
@@ -74,7 +74,7 @@ public class NanoTimer implements TimerInterface {
      * @see net.atf4j.core.timers.ITimer#stop()
      */
     @Override
-    public final NanoTimer stop() {
+    public final NamedNanoTimer stop() {
         stopTime = System.nanoTime();
         elapsedTime = stopTime - startTime;
         return this;

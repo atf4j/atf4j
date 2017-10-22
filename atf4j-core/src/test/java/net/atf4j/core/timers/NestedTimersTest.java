@@ -28,23 +28,121 @@ import net.atf4j.core.TestResultsReporting;
  */
 public class NestedTimersTest extends TestResultsReporting {
 
+    private static final int DEFAULT_INTERVAL = 100;
+
     /**
      * Test method for NestedTimers.
      */
     @Test
     public void testGetInstance() {
-        final NestedTimers timers = NestedTimers.getInstance();
-        log.debug("NestedTimers.getInstance() = {}", timers);
-        assertNotNull(UNEXPECTED_NULL, timers);
+        final NestedTimers nestedTimers = NestedTimers.getInstance();
+        log.debug("NestedTimers.getInstance() = {}", nestedTimers);
+        assertNotNull(UNEXPECTED_NULL, nestedTimers);
+    }
+
+    /**
+     * test NestedTimers.
+     */
+    @Test
+    public void testNestedTimers() {
+        final NestedTimers nestedTimers = NestedTimers.getInstance();
+        log.debug("NestedTimers.getInstance() = {}", nestedTimers);
+        assertNotNull(UNEXPECTED_NULL, nestedTimers);
+
+        for (int i = 0; i < 10; i++) {
+            final String message = String.format("Test case Timer %s", i);
+            final TimerInterface startTimer = nestedTimers.startTimer(message);
+            log.debug("startTimer = ", startTimer);
+        }
+
+        for (int i = 0; i < 10; i++) {
+            final TimerInterface stopTimer = nestedTimers.stopTimer();
+            log.debug("stopTimer = ", stopTimer);
+        }
+    }
+
+    /**
+     * Test method for
+     * {net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
+     */
+    @Test
+    public void testTimerInstance() {
+        final NestedTimers nestedTimers = NestedTimers.getInstance();
+        log.debug("NestedTimers.getInstance() = {}", nestedTimers);
+        assertNotNull(UNEXPECTED_NULL, nestedTimers);
+
+        nestedTimers.startTimer("Timer Instance : Test case 1");
+        waitDefaultInterval();
+
+        nestedTimers.startTimer("Timer Instance : Test case 2");
+        waitDefaultInterval();
+
+        nestedTimers.startTimer("Timer Instance : Test case 3");
+        waitDefaultInterval();
+
+        nestedTimers.startTimer("Timer Instance : Test case 4");
+        waitDefaultInterval();
+
+        nestedTimers.startTimer("Timer Instance : Test case 5");
+        waitDefaultInterval();
+
+        log.debug("runningTimersAsString = {}", nestedTimers.runningTimersAsString());
+
+        log.debug("stopping : {}", nestedTimers.stopTimer());
+        log.debug("stopping : {}", nestedTimers.stopTimer());
+        log.debug("stopping : {}", nestedTimers.stopTimer());
+        log.debug("stopping : {}", nestedTimers.stopTimer());
+        log.debug("stopping : {}", nestedTimers.stopTimer());
+
+        assertNotNull(NestedTimers.stopAll());
+
+        log.debug("stoppedTimersAsString()\n" + nestedTimers.stoppedTimersAsString());
+    }
+
+    /**
+     * Wait default interval.
+     */
+    private void waitDefaultInterval() {
+        try {
+            Thread.sleep(DEFAULT_INTERVAL);
+        } catch (final InterruptedException interruptedException) {
+            final Thread currentThread = Thread.currentThread();
+            currentThread.interrupt();
+            log.error(interruptedException.toString());
+        }
     }
 
     /**
      * Unit Test for test expected usage.
      */
     @Test
-    public void testExpectedUsage() {
+    public void testStaticExpectedUsage() {
         assertNotNull(UNEXPECTED_NULL, NestedTimers.start());
         assertNotNull(UNEXPECTED_NULL, NestedTimers.stop());
+    }
+
+    /**
+     * Test method for
+     * {net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
+     */
+    @Test
+    public void testStaticNamedTimers() {
+        assertNotNull(NestedTimers.start());
+        waitDefaultInterval();
+
+        assertNotNull(NestedTimers.start());
+        waitDefaultInterval();
+
+        assertNotNull(NestedTimers.start());
+        waitDefaultInterval();
+
+        assertNotNull(NestedTimers.start());
+        waitDefaultInterval();
+
+        assertNotNull(NestedTimers.start());
+        waitDefaultInterval();
+
+        assertNotNull(NestedTimers.stopAll());
     }
 
 }

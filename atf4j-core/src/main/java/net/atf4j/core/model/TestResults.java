@@ -21,11 +21,12 @@ import java.util.ArrayDeque;
 import java.util.Collection;
 
 import net.atf4j.core.TestResult;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * TestResults.
  */
-public class TestResults {
+public class TestResults extends TestResultsReporting {
 
     private final Collection<TestResult> testResults = new ArrayDeque<TestResult>();
 
@@ -37,7 +38,7 @@ public class TestResults {
      * @return true, if successful, otherwise false.
      */
     public boolean add(final TestResult testResult) {
-        return this.testResults.add(testResult);
+        return testResults.add(testResult);
     }
 
     /**
@@ -46,7 +47,7 @@ public class TestResults {
      * @return the test results
      */
     public Collection<TestResult> getTestResults() {
-        return this.testResults;
+        return testResults;
     }
 
     /*
@@ -56,7 +57,7 @@ public class TestResults {
      */
     @Override
     public String toString() {
-        return String.format("TestResults [testResults=%s]", this.testResults);
+        return String.format("TestResults [testResults=%s]", testResults);
     }
 
 }
