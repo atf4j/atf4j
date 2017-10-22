@@ -25,6 +25,9 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.fdd.AbstractScenario;
+import net.atf4j.fdd.Feature;
+import net.atf4j.fdd.ScenarioRunner;
 
 /**
  * Scenario Runner Test class.
@@ -40,7 +43,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
         /**
          * Test pass given.
          */
-        @Atf4j.Given("Pass Given")
+        @Feature.Given("Pass Given")
         public void passGiven() {
             log.debug("passGiven");
             Assume.assumeTrue(true);
@@ -49,7 +52,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
         /**
          * Test pass when.
          */
-        @Atf4j.When("Pass When")
+        @Feature.When("Pass When")
         public void passWhen() {
             log.debug("passWhen");
             Assert.assertTrue(true);
@@ -58,7 +61,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
         /**
          * Test pass then.
          */
-        @Atf4j.Then("Pass Then")
+        @Feature.Then("Pass Then")
         public void passThen() {
             log.debug("passThen");
             Assert.assertTrue(true);
@@ -73,7 +76,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
         /**
          * Test fail given.
          */
-        @Atf4j.Given("Fail Given")
+        @Feature.Given("Fail Given")
         public void failGiven() {
             log.debug("failGiven");
             Assume.assumeTrue(false);
@@ -82,7 +85,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
         /**
          * Test pass when.
          */
-        @Atf4j.When("Pass When")
+        @Feature.When("Pass When")
         public void passWhen() {
             log.debug("passWhen");
             Assert.assertTrue(true);
@@ -91,7 +94,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
         /**
          * Test pass then.
          */
-        @Atf4j.Then("Pass Then")
+        @Feature.Then("Pass Then")
         public void passThen() {
             log.debug("testPassThen");
             Assert.assertTrue(true);
@@ -106,7 +109,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
         /**
          * Test pass given.
          */
-        @Atf4j.Given("Pass Given")
+        @Feature.Given("Pass Given")
         public void passGiven() {
             log.debug("passGiven");
             Assume.assumeTrue(true);
@@ -115,7 +118,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
         /**
          * Test fail when.
          */
-        @Atf4j.When("Fail When")
+        @Feature.When("Fail When")
         public void failWhen() {
             log.debug("failWhen");
             Assert.assertTrue(false);
@@ -124,7 +127,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
         /**
          * Test pass then.
          */
-        @Atf4j.Then("Skipped Then")
+        @Feature.Then("Skipped Then")
         public void skippedThen() {
             log.debug("skippedThen");
             Assert.assertTrue(true);
@@ -139,7 +142,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
         /**
          * Test pass given.
          */
-        @Atf4j.Given("Pass Given")
+        @Feature.Given("Pass Given")
         public void passGiven() {
             log.debug("passGiven");
             Assume.assumeTrue(true);
@@ -148,7 +151,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
         /**
          * Test pass when.
          */
-        @Atf4j.When("Pass When")
+        @Feature.When("Pass When")
         public void passWhen() {
             log.debug("passWhen");
             Assert.assertTrue(true);
@@ -157,7 +160,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
         /**
          * Test fail then.
          */
-        @Atf4j.Then("Fail Then")
+        @Feature.Then("Fail Then")
         public void failThen() {
             log.debug("failThen");
             Assert.assertTrue(false);

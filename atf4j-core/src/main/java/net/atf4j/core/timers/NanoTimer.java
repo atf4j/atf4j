@@ -44,7 +44,7 @@ public class NanoTimer implements TimerInterface {
      */
     public NanoTimer() {
         super();
-        this.timerName = UUID.randomUUID().toString();
+        timerName = UUID.randomUUID().toString();
     }
 
     /**
@@ -54,7 +54,7 @@ public class NanoTimer implements TimerInterface {
      */
     public NanoTimer(final String useName) {
         super();
-        this.timerName = useName;
+        timerName = useName;
     }
 
     /*
@@ -64,7 +64,7 @@ public class NanoTimer implements TimerInterface {
      */
     @Override
     public final NanoTimer start() {
-        this.startTime = System.nanoTime();
+        startTime = System.nanoTime();
         return this;
     }
 
@@ -75,8 +75,8 @@ public class NanoTimer implements TimerInterface {
      */
     @Override
     public final NanoTimer stop() {
-        this.stopTime = System.nanoTime();
-        this.elapsedTime = this.stopTime - this.startTime;
+        stopTime = System.nanoTime();
+        elapsedTime = stopTime - startTime;
         return this;
     }
 
@@ -86,7 +86,7 @@ public class NanoTimer implements TimerInterface {
      * @return the timer name
      */
     public String getTimerName() {
-        return this.timerName;
+        return timerName;
     }
 
     /*
@@ -96,7 +96,7 @@ public class NanoTimer implements TimerInterface {
      */
     @Override
     public final long getStartTime() {
-        return this.startTime;
+        return startTime;
     }
 
     /*
@@ -106,7 +106,7 @@ public class NanoTimer implements TimerInterface {
      */
     @Override
     public long getStopTime() {
-        return this.stopTime;
+        return stopTime;
     }
 
     /*
@@ -116,7 +116,7 @@ public class NanoTimer implements TimerInterface {
      */
     @Override
     public long getElapsedTime() {
-        return this.elapsedTime;
+        return elapsedTime;
     }
 
     /*
@@ -128,4 +128,5 @@ public class NanoTimer implements TimerInterface {
     public final String toString() {
         return Narrator.reflectObjectToString(this);
     }
+
 }

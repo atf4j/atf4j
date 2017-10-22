@@ -37,7 +37,7 @@ public final class PostcodeDataFactoryTest extends TestResultsReporting {
     @Test
     public void testPostcodeGetInstance() {
         final PostcodeDataFactory postcodeDataFactory = PostcodeDataFactory.getInstance();
-        log.debug("PostcodeDataFactory = {}", postcodeDataFactory);
+        log.debug("PostcodeDataFactory.getInstance() = {}", postcodeDataFactory);
         assertNotNull(UNEXPECTED_NULL, postcodeDataFactory);
 
         final PostcodeDataFactory same = PostcodeDataFactory.getInstance();

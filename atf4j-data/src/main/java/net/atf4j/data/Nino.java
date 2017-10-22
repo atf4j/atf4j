@@ -51,32 +51,34 @@ public final class Nino {
     /**
      * Instantiates a new national insurance number.
      *
-     * @param code the code
+     * @param nino the code
      */
-    public Nino(final String code) {
+    public Nino(final String nino) {
         super();
-        this.nino = code;
+        set(nino);
     }
 
     /**
      * Sets the code.
      *
-     * @param code the code to set
+     * @param nino the code to set
      * @return the national insurance
      */
-    public Nino setCode(final String code) {
-        this.nino = code;
+    public Nino set(final String nino) {
+        if (Nino.verify(nino)) {
+            this.nino = nino;
+        }
         return this;
     }
 
     /**
      * Verify.
      *
-     * @param code the code \* @return true, if successful, otherwise false.
+     * @param nino the code \* @return true, if successful, otherwise false.
      * @return true, if successful, otherwise false.
      */
-    public static boolean verify(final String code) {
-        final Matcher matcher = PATTERN.matcher(code);
+    public static boolean verify(final String nino) {
+        final Matcher matcher = PATTERN.matcher(nino);
         return matcher.find();
     }
 
@@ -85,8 +87,8 @@ public final class Nino {
      *
      * @return the code
      */
-    public String getCode() {
-        return this.nino;
+    public String get() {
+        return nino;
     }
 
     /**
@@ -95,7 +97,7 @@ public final class Nino {
      * @return the string
      */
     public String debugString() {
-        return String.format("Nino [nino=%s]", this.nino);
+        return String.format("Nino [nino=%s]", nino);
     }
 
     /*
@@ -105,6 +107,6 @@ public final class Nino {
      */
     @Override
     public String toString() {
-        return this.nino;
+        return nino;
     }
 }

@@ -24,8 +24,10 @@ import org.junit.Assume;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import net.atf4j.bdd.Atf4j.Scenario;
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.fdd.Feature;
+import net.atf4j.fdd.ScenarioRunner;
+import net.atf4j.fdd.Feature.Scenario;
 
 /**
  * Scenario Test class.
@@ -48,7 +50,7 @@ public final class ScenarioTest extends TestResultsReporting {
     /**
      * Test pass given.
      */
-    @Atf4j.Given("Given")
+    @Feature.Given("Given")
     public void testPassGiven() {
         log.debug("{}.testPassGiven", this.getClass().getSimpleName());
         Assume.assumeTrue(true);
@@ -57,7 +59,7 @@ public final class ScenarioTest extends TestResultsReporting {
     /**
      * Test pass when.
      */
-    @Atf4j.When("When")
+    @Feature.When("When")
     public void testPassWhen() {
         log.debug("{}.testPassWhen", this.getClass().getSimpleName());
         Assert.assertTrue(true);
@@ -66,7 +68,7 @@ public final class ScenarioTest extends TestResultsReporting {
     /**
      * Test pass then.
      */
-    @Atf4j.Then("Then")
+    @Feature.Then("Then")
     public void testPassThen() {
         log.debug("{}.testPassThen", this.getClass().getSimpleName());
         Assert.assertTrue(true);
