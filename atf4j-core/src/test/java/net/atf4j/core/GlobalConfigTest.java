@@ -24,8 +24,23 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+/**
+ * Global Configuration Test.
+ */
 public class GlobalConfigTest extends TestResultsReporting {
 
+    /** The Constant 			KEY_FOR_INT. */
+    private static final String KEY_FOR_INT = "keyForInt";
+    
+    /** The Constant 			KEY_FOR_STRING. */
+    private static final String KEY_FOR_STRING = "keyForString";
+    
+    /** The Constant 			MISSING_KEY. */
+    private static final String MISSING_KEY = "missingKey";
+
+    /**
+     * Test get instance.
+     */
     @Test
     public void testGetInstance() {
         final GlobalConfig globalConfig = GlobalConfig.getInstance();
@@ -34,21 +49,36 @@ public class GlobalConfigTest extends TestResultsReporting {
     }
 
     /**
+     * Test static value for missing key.
+     */
+    @Test
+    public void testStaticValueForMissingKey() {
+        final String value = GlobalConfig.valueFor(MISSING_KEY);
+        log.debug("Config.valueFor(key='{}') = {}", MISSING_KEY, value);
+        assertNotNull(UNEXPECTED_NULL, value);
+        assertEquals("default", value);
+    }
+
+    /**
      * Unit Test for Static method valuefor(key).
      */
     @Test
     public void testStaticValueForKey() {
-        final String key = "keyForString";
-        final String value = GlobalConfig.valueFor(key);
-        log.debug("Config.valueFor(key='{}') = {}", key, value);
+        final String value = GlobalConfig.valueFor(KEY_FOR_STRING);
+        log.debug("Config.valueFor(key='{}') = {}", KEY_FOR_STRING, value);
         assertNotNull(UNEXPECTED_NULL, value);
         assertEquals("valueForString", value);
     }
 
+    /**
+     * Test static int value for missing key.
+     */
     @Test
-    public void testStaticValueForMissingKey() {
-        final String key = "missingKey";
-        GlobalConfig.valueFor(key);
+    public void testStaticIntValueForMissingKey() {
+        final int value = GlobalConfig.intValueFor(MISSING_KEY);
+        log.debug("Config.intValueFor(key='{}') = {}", MISSING_KEY, value);
+        assertNotNull(UNEXPECTED_NULL, value);
+        assertEquals(0, value);
     }
 
     /**
@@ -56,17 +86,21 @@ public class GlobalConfigTest extends TestResultsReporting {
      */
     @Test
     public void testStaticIntValueForKey() {
-        final String key = "keyForInt";
-        final long intValue = GlobalConfig.intValueFor(key);
-        log.debug("Config.intValueFor(key='{}') = {}", key, intValue);
+        final long intValue = GlobalConfig.intValueFor(KEY_FOR_INT);
+        log.debug("Config.intValueFor(key='{}') = {}", KEY_FOR_INT, intValue);
         assertNotNull(UNEXPECTED_NULL, intValue);
         assertEquals(1, intValue);
     }
 
+    /**
+     * Test static long value for.
+     */
     @Test
-    public void testStaticIntValueForMissingKey() {
-        final String key = "missingKey";
-        GlobalConfig.intValueFor(key);
+    public void testStaticLongValueFor() {
+        final long value = GlobalConfig.longValueFor(MISSING_KEY);
+        log.debug("Config.longValueFor(key='{}') = {}", MISSING_KEY, value);
+        assertNotNull(UNEXPECTED_NULL, value);
+        assertEquals(0L, value);
     }
 
     /**
@@ -81,10 +115,15 @@ public class GlobalConfigTest extends TestResultsReporting {
         assertEquals(1L, longValue);
     }
 
+    /**
+     * Test static boolean value for missing key.
+     */
     @Test
-    public void testStaticLongValueFor() {
-        final String key = "missingKey";
-        GlobalConfig.longValueFor(key);
+    public void testStaticBooleanValueForMissingKey() {
+        final boolean value = GlobalConfig.booleanValueFor(MISSING_KEY);
+        log.debug("Config.booleanValueFor(key='{}') = {}", MISSING_KEY, value);
+        assertNotNull(UNEXPECTED_NULL, value);
+        assertFalse(value);
     }
 
     /**
@@ -101,9 +140,4 @@ public class GlobalConfigTest extends TestResultsReporting {
         assertFalse(GlobalConfig.booleanValueFor("keyForFalse"));
     }
 
-    @Test
-    public void testStaticBooleanValueForMissingKey() {
-        final String key = "missingKey";
-        GlobalConfig.booleanValueFor(key);
-    }
 }

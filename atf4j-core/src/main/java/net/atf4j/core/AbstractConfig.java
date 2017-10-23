@@ -23,6 +23,7 @@ import java.util.Properties;
  */
 public abstract class AbstractConfig extends TestResultsReporting implements ConfigurationInterface {
 
+    /** The properties. */
     protected final Properties properties = new Properties();
 
     /**

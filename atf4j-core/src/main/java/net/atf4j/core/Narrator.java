@@ -27,7 +27,10 @@ import org.slf4j.LoggerFactory;
  */
 public final class Narrator {
 
+    /** The Constant 			LOG. */
     private static final Logger LOG = LoggerFactory.getLogger(Narrator.class);
+    
+    /** The Constant 			LAYOUT_STYLE. */
     private static final String LAYOUT_STYLE = "%s [%s]";
 
     /**

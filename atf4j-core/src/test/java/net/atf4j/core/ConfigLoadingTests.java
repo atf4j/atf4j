@@ -70,7 +70,7 @@ public final class ConfigLoadingTests extends TestResultsReporting {
     /**
      * Test method for MissingProperties.
      *
-     * @throws ConfigurationNotLoadedException
+     * @throws ConfigurationNotLoadedException the configuration not loaded exception
      */
     @Test(expected = ConfigurationNotLoadedException.class)
     public void testMissingConfig() throws ConfigurationNotLoadedException {
@@ -80,7 +80,7 @@ public final class ConfigLoadingTests extends TestResultsReporting {
     /**
      * Test method for value from file.
      *
-     * @throws Exception the exception
+     * @throws ConfigurationNotLoadedException the configuration not loaded exception
      */
     @Test
     public void testConfigFromFile() throws ConfigurationNotLoadedException {
@@ -94,7 +94,7 @@ public final class ConfigLoadingTests extends TestResultsReporting {
     /**
      * Test method for System overriding.
      *
-     * @throws Exception the exception
+     * @throws ConfigurationNotLoadedException the configuration not loaded exception
      */
     @Test
     public void testSystemOveridesConfig() throws ConfigurationNotLoadedException {
