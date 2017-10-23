@@ -15,7 +15,7 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.data.management;
+package net.atf4j.data.manager;
 
 import net.atf4j.core.TestResultsReporting;
 

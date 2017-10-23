@@ -17,58 +17,41 @@
 
 package net.atf4j.data.factory;
 
-import java.io.FileNotFoundException;
 import java.util.Arrays;
 
 import net.atf4j.data.EmailAddress;
 import net.atf4j.data.Person;
-import net.atf4j.data.Person.Title;
 
 /**
  * PersonFactory, a data factory to create data.
  */
 public final class PersonDataFactory extends AbstractDataFactory {
 
+    /** The Constant FEMALE_FORENAMES_TXT. */
+    private static final String FEMALE_FORENAMES_TXT = "femaleForenames.txt";
+
+    /** The Constant MALE_FORENAMES_TXT. */
+    private static final String MALE_FORENAMES_TXT = "maleForenames.txt";
+
+    /** The Constant SURNAMES_TXT. */
+    private static final String SURNAMES_TXT = "surnames.txt";
+
+    /** The person data factory. */
     private static PersonDataFactory personDataFactory = null;
-    private String[] maleForenames;
-    private String[] femaleForenames;
-    private String[] surnames;
+
+    /** The female forenames. */
+    private static String[] femaleForenames;
+
+    /** The male forenames. */
+    private static String[] maleForenames;
+
+    /** The surnames. */
+    private static String[] surnames;
 
     /**
-     * Instantiates a new person data factory.
-     */
-    protected PersonDataFactory() {
-        super();
-        initialise();
-    }
-
-    /**
-     * Initialise.
-     */
-    protected void initialise() {
-        try {
-            maleForenames = load("person-male-forenames.txt");
-        } catch (final FileNotFoundException e) {
-            log.error(e.toString());
-        }
-
-        try {
-            femaleForenames = load("person-female-forenames.txt");
-        } catch (final FileNotFoundException e) {
-            log.error(e.toString());
-        }
-
-        try {
-            surnames = load("person-surnames.txt");
-        } catch (final FileNotFoundException e) {
-            log.error(e.toString());
-        }
-    }
-
-    /**
-     * Gets the single INSTANCE of PersonDataFactory.
+     * Gets the instance.
      *
-     * @return single INSTANCE of PersonDataFactory
+     * @return the instance
      */
     protected static PersonDataFactory getInstance() {
         if (PersonDataFactory.personDataFactory == null) {
@@ -78,17 +61,43 @@ public final class PersonDataFactory extends AbstractDataFactory {
     }
 
     /**
+     * Private constructor prevents wild instantiation.
+     */
+    private PersonDataFactory() {
+        super();
+        initialise();
+    }
+
+    /**
+     * Initialise.
+     */
+    protected void initialise() {
+        femaleForenames = load(FEMALE_FORENAMES_TXT);
+        maleForenames = load(MALE_FORENAMES_TXT);
+        surnames = load(SURNAMES_TXT);
+    }
+
+    /**
      * Creates the Person object.
      *
      * @return the postal address
      */
     public static Person create() {
+        return new Person();
+    }
+
+    /**
+     * Random.
+     *
+     * @return the person
+     */
+    public static Person random() {
         final Person person = new Person();
-        person.forename(randomForename());
-        person.surname(randomSurname());
-        person.dateOfBirth(DataFactory.dateOfBirth());
-        person.emailAddress(EmailAddress.create().toString());
-        person.title(Title.DR);
+        // person.forename(randomForename());
+        // person.surname(randomSurname());
+        // person.dateOfBirth(DataFactory.dateOfBirth());
+        // person.emailAddress(EmailAddress.create().toString());
+        // person.title(Title.DR);
         return person;
     }
 
@@ -97,7 +106,7 @@ public final class PersonDataFactory extends AbstractDataFactory {
      *
      * @return the string
      */
-    public static String randomForename() {
+    protected static String randomForename() {
         if (random.nextBoolean()) {
             return randomMaleForename();
         } else {
@@ -110,8 +119,8 @@ public final class PersonDataFactory extends AbstractDataFactory {
      *
      * @return the string
      */
-    public static String randomMaleForename() {
-        return randomEntry(getInstance().maleForenames);
+    protected static String randomMaleForename() {
+        return randomEntry(maleForenames);
     }
 
     /**
@@ -119,8 +128,8 @@ public final class PersonDataFactory extends AbstractDataFactory {
      *
      * @return the string
      */
-    public static String randomFemaleForename() {
-        return randomEntry(getInstance().femaleForenames);
+    protected static String randomFemaleForename() {
+        return randomEntry(femaleForenames);
     }
 
     /**
@@ -128,8 +137,8 @@ public final class PersonDataFactory extends AbstractDataFactory {
      *
      * @return the string
      */
-    public static String randomSurname() {
-        return randomEntry(getInstance().surnames);
+    protected static String randomSurname() {
+        return randomEntry(surnames);
     }
 
     /**
@@ -138,7 +147,7 @@ public final class PersonDataFactory extends AbstractDataFactory {
      * @return the string
      */
     public static String randomFullname() {
-        return String.format("%s %s", randomForename(), randomSurname());
+        return String.format("%s %s %s", randomForename(), randomForename(), randomSurname());
     }
 
     /**

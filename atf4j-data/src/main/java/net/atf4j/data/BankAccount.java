@@ -24,8 +24,13 @@ import static org.junit.Assert.assertNotNull;
  */
 public final class BankAccount {
 
+    /** The Constant 			UNEXPECTED_NULL. */
     private static final String UNEXPECTED_NULL = "unexpected null";
+    
+    /** The bank. */
     private Bank bank = new Bank();
+    
+    /** The account no. */
     private String accountNo = "";
 
     /**

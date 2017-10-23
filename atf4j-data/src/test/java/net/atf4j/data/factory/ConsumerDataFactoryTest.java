@@ -35,8 +35,28 @@ public final class ConsumerDataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final Consumer consumer = ConsumerDataFactory.create();
-        log.debug("CardDataFactory.random() = {}", consumer);
+        log.debug("ConsumerDataFactory.create() = {}", consumer);
         assertNotNull(UNEXPECTED_NULL, consumer);
+    }
+
+    /**
+     * Test random.
+     */
+    @Test
+    public void testRandom() {
+        final Consumer consumer = ConsumerDataFactory.random();
+        log.debug("ConsumerDataFactory.random() = {}", consumer);
+        assertNotNull(UNEXPECTED_NULL, consumer);
+    }
+
+    /**
+     * Test get instance.
+     */
+    @Test
+    public void testGetInstance() {
+        final ConsumerDataFactory customerDataFactory = ConsumerDataFactory.getInstance();
+        log.debug("ConsumerDataFactory.getInstance() = {}", customerDataFactory);
+        assertNotNull(UNEXPECTED_NULL, customerDataFactory);
     }
 
 }

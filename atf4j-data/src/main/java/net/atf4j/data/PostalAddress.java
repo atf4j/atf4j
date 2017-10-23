@@ -28,7 +28,10 @@ import net.atf4j.core.TestResultsReporting;
  */
 public class PostalAddress extends TestResultsReporting {
 
+    /** The address lines. */
     private String[] addressLines = new String[8];
+    
+    /** The postcode. */
     private Postcode postcode = new Postcode();
 
     /**

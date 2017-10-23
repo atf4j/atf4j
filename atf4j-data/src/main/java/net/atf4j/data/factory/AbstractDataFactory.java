@@ -20,7 +20,6 @@ package net.atf4j.data.factory;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -35,7 +34,16 @@ import net.atf4j.core.TestResultsReporting;
  */
 public abstract class AbstractDataFactory extends TestResultsReporting {
 
-    private String[] lines;
+    /** The Constant FILE_NOT_FOUND_MSG. */
+    private static final String FILE_NOT_FOUND_MSG = "Expected file '%s' not found.";
+
+    /** Default file extension FILE_EXT. */
+    private static final String FILE_EXT = "csv";
+
+    /** lines from the data file. */
+    protected String[] lines;
+
+    /** random number generators. */
     protected static Random random = new Random(System.currentTimeMillis());
 
     /**
@@ -43,38 +51,34 @@ public abstract class AbstractDataFactory extends TestResultsReporting {
      */
     protected AbstractDataFactory() {
         super();
+        initialise();
+    }
+
+    /**
+     * Initialise.
+     */
+    private void initialise() {
+        lines = load(filename());
     }
 
     /**
      * Instantiates a new abstract data factory.
      *
      * @param dataFilename the data filename
-     * @throws FileNotFoundException the file not found exception
      */
-    protected AbstractDataFactory(final String dataFilename) throws FileNotFoundException {
+    protected AbstractDataFactory(final String dataFilename) {
         super();
-        load(dataFilename);
+        lines = load(dataFilename);
     }
 
     /**
-     * Load.
-     */
-    protected void load() {
-        try {
-            lines = load(filename());
-        } catch (final FileNotFoundException e) {
-            log.error("{} Using default values.", e.getMessage());
-        }
-    }
-
-    /**
-     * filename.
+     * filename from simple class name.
      *
      * @return the string
      */
-    private String filename() {
+    protected String filename() {
         final String simpleName = this.getClass().getSimpleName();
-        return String.format("%s.csv", simpleName);
+        return String.format("%s.%s", simpleName, FILE_EXT);
     }
 
     /**
@@ -82,16 +86,14 @@ public abstract class AbstractDataFactory extends TestResultsReporting {
      *
      * @param dataFilename the data filename
      * @return the string[]
-     * @throws FileNotFoundException the file not found exception
      */
-    public String[] load(final String dataFilename) throws FileNotFoundException {
+    protected String[] load(final String dataFilename) {
         assertNotNull(UNEXPECTED_NULL, dataFilename);
         final InputStream inputStream = resourceAsStream(dataFilename);
         if (inputStream != null) {
             return load(inputStream);
-        } else {
-            throw new FileNotFoundException(dataFilename);
         }
+        return null;
     }
 
     /**
@@ -100,7 +102,7 @@ public abstract class AbstractDataFactory extends TestResultsReporting {
      * @param resourceFilename the resource filename
      * @return the input stream
      */
-    private InputStream resourceAsStream(final String resourceFilename) {
+    protected InputStream resourceAsStream(final String resourceFilename) {
         final ClassLoader classLoader = this.getClass().getClassLoader();
         return classLoader.getResourceAsStream(resourceFilename);
     }
@@ -111,7 +113,7 @@ public abstract class AbstractDataFactory extends TestResultsReporting {
      * @param inputStream the input stream
      * @return the string[]
      */
-    public String[] load(final InputStream inputStream) {
+    protected String[] load(final InputStream inputStream) {
         assertNotNull(UNEXPECTED_NULL, inputStream);
         final InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         final BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -141,20 +143,20 @@ public abstract class AbstractDataFactory extends TestResultsReporting {
     /**
      * Random entry.
      *
-     * @param content the content
+     * @param lines the lines
      * @return the string
      */
-    protected static String randomEntry(final String[] content) {
-        final int bounds = content.length;
+    protected static String randomEntry(final String[] lines) {
+        final int bounds = lines.length;
         final int randomIndex = random.nextInt(bounds);
-        return content[randomIndex];
+        return lines[randomIndex];
     }
 
     /**
-     * Data for tag.
+     * Return the first line of data to match the tag.
      *
-     * @param tag the tag
-     * @return the string
+     * @param tag the tag.
+     * @return the data line as a String object.
      */
     public String dataForTag(final String tag) {
         if (tag.charAt(0) == '@') {
@@ -167,4 +169,5 @@ public abstract class AbstractDataFactory extends TestResultsReporting {
         }
         return null;
     }
+
 }

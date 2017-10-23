@@ -28,12 +28,14 @@ import java.util.Date;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.data.Bank;
 import net.atf4j.data.Business;
 import net.atf4j.data.Card;
 import net.atf4j.data.Consumer;
 import net.atf4j.data.Customer;
 import net.atf4j.data.Person;
 import net.atf4j.data.PostalAddress;
+import net.atf4j.data.Postcode;
 import net.atf4j.data.Text;
 
 /**
@@ -42,13 +44,93 @@ import net.atf4j.data.Text;
 public final class DataFactoryTest extends TestResultsReporting {
 
     /**
+     * Test create address.
+     */
+    @Test
+    public void testCreateAddress() {
+        final PostalAddress address = DataFactory.createAddress();
+        log.debug("DataFactory.createAddress() = {}", address);
+        assertNotNull(UNEXPECTED_NULL, address);
+    }
+
+    /**
+     * Test create bank.
+     */
+    @Test
+    public void testCreateBank() {
+        final Bank bank = DataFactory.createBank();
+        log.debug("DataFactory.createBank() = {}", bank);
+        assertNotNull(UNEXPECTED_NULL, bank);
+    }
+
+    /**
+     * Test create business.
+     */
+    @Test
+    public void testCreateBusiness() {
+        final Business business = DataFactory.createBusiness();
+        log.debug("DataFactory.createBusiness() = {}", business);
+        assertNotNull(UNEXPECTED_NULL, business);
+    }
+
+    /**
+     * Test create card.
+     */
+    @Test
+    public void testCreateCard() {
+        final Card card = DataFactory.createCard();
+        log.debug("DataFactory.createCard() = {}", card);
+        assertNotNull(UNEXPECTED_NULL, card);
+    }
+
+    /**
+     * Test create consumer.
+     */
+    @Test
+    public void testCreateConsumer() {
+        final Consumer consumer = DataFactory.createConsumer();
+        log.debug("DataFactory.createConsumer() = {}", consumer);
+        assertNotNull(UNEXPECTED_NULL, consumer);
+    }
+
+    /**
+     * Test create customer.
+     */
+    @Test
+    public void testCreateCustomer() {
+        final Customer customer = DataFactory.createCustomer();
+        log.debug("DataFactory.createCustomer() = {}", customer);
+        assertNotNull(UNEXPECTED_NULL, customer);
+    }
+
+    /**
+     * Unit Test for test create person.
+     */
+    @Test
+    public void testCreatePerson() {
+        final Person person = DataFactory.createPerson();
+        assertNotNull(UNEXPECTED_NULL, person);
+        log.debug("{}", person.toString());
+    }
+
+    /**
+     * Unit Test for test create person.
+     */
+    @Test
+    public void testCreatePostcode() {
+        final Postcode postcode = DataFactory.createPostcode();
+        log.debug("{}", postcode.toString());
+        assertNotNull(UNEXPECTED_NULL, postcode);
+    }
+
+    /**
      * Test method for expected usage.
      */
     @Test
     public void testExpectedUsage() {
         final Calendar today = DataFactory.today();
-        assertNotNull(UNEXPECTED_NULL, today);
         log.debug("DataFactory.today() = {}", DataFactory.format(today));
+        assertNotNull(UNEXPECTED_NULL, today);
 
         final Calendar dateOfBirth = DataFactory.dateOfBirth();
         assertNotNull(UNEXPECTED_NULL, dateOfBirth);
@@ -221,75 +303,4 @@ public final class DataFactoryTest extends TestResultsReporting {
         assertNotNull(UNEXPECTED_NULL, fromDate);
         assertEquals(fromCalendar, fromDate);
     }
-
-    /**
-     * Unit Test for test create person.
-     */
-    @Test
-    public void testCreatePerson() {
-        final Person person = DataFactory.createPerson();
-        assertNotNull(UNEXPECTED_NULL, person);
-        log.debug("{}", person.toString());
-    }
-
-    /**
-     * Test create customer.
-     */
-    @Test
-    public void testCreateCustomer() {
-        final Customer customer = DataFactory.createCustomer();
-        assertNotNull(UNEXPECTED_NULL, customer);
-        log.debug("{}", customer.toString());
-    }
-
-    /**
-     * Test create consumer.
-     */
-    @Test
-    public void testCreateConsumer() {
-        final Consumer consumer = DataFactory.createConsumer();
-        assertNotNull(UNEXPECTED_NULL, consumer);
-        log.debug("{}", consumer.toString());
-    }
-
-    /**
-     * Test create card.
-     */
-    @Test
-    public void testCreateCard() {
-        final Card card = DataFactory.createCard();
-        assertNotNull(UNEXPECTED_NULL, card);
-        log.debug("{}", card.toString());
-    }
-
-    /**
-     * Test create business.
-     */
-    @Test
-    public void testCreateBusiness() {
-        final Business business = DataFactory.createBusiness();
-        assertNotNull(UNEXPECTED_NULL, business);
-        log.debug("{}", business.toString());
-    }
-
-    /**
-     * Test create bank.
-     */
-    // @Test
-    // public void testCreateBank() {
-    // final Bank bank = DataFactory.createBank();
-    // assertNotNull(UNEXPECTED_NULL, bank);
-    // this.log.debug("{}", bank.toString());
-    // }
-
-    /**
-     * Test create address.
-     */
-    @Test
-    public void testCreateAddress() {
-        final PostalAddress address = DataFactory.createAddress();
-        assertNotNull(UNEXPECTED_NULL, address);
-        log.debug("{}", address.toString());
-    }
-
 }

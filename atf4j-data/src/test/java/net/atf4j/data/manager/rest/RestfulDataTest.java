@@ -15,28 +15,29 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.data.jdbc;
+package net.atf4j.data.manager.rest;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.data.management.MockJdbcData;
+import net.atf4j.data.manager.MockRestfulData;
 
 /**
- * A UnitTest for JdbcData objects.
+ * A UnitTest for RestfulData objects.
  */
-public final class JdbcDataTest extends TestResultsReporting {
+public final class RestfulDataTest extends TestResultsReporting {
 
     /**
      * Test default constructor.
      */
     @Test
     public void testDefaultConstructor() {
-        final MockJdbcData jdbcData = new MockJdbcData();
-        log.debug("new JdbcData() = {}", jdbcData);
-        assertNotNull(UNEXPECTED_NULL, jdbcData);
+        final MockRestfulData restfulData = new MockRestfulData();
+        log.debug("restfulData = {}", restfulData);
+        assertNotNull(UNEXPECTED_NULL, restfulData);
     }
 
     /**
@@ -44,10 +45,10 @@ public final class JdbcDataTest extends TestResultsReporting {
      */
     @Test
     public void testSetUp() {
-        final MockJdbcData jdbcData = new MockJdbcData();
-        log.debug("new JdbcData() = {}", jdbcData);
-        assertNotNull(jdbcData);
-        assertNotNull(UNEXPECTED_NULL, jdbcData);
+        final MockRestfulData restfulData = new MockRestfulData();
+        log.debug("restfulData = {}", restfulData);
+        assertNotNull(UNEXPECTED_NULL, restfulData);
+        assertTrue(restfulData.setUp());
     }
 
     /**
@@ -55,10 +56,10 @@ public final class JdbcDataTest extends TestResultsReporting {
      */
     @Test
     public void testReset() {
-        final MockJdbcData jdbcData = new MockJdbcData();
-        log.debug("new JdbcData() = {}", jdbcData);
-        assertNotNull(jdbcData);
-        assertNotNull(UNEXPECTED_NULL, jdbcData);
+        final MockRestfulData restfulData = new MockRestfulData();
+        log.debug("restfulData = {}", restfulData);
+        assertNotNull(UNEXPECTED_NULL, restfulData);
+        assertTrue(restfulData.reset());
     }
 
     /**
@@ -66,10 +67,10 @@ public final class JdbcDataTest extends TestResultsReporting {
      */
     @Test
     public void testTearDown() {
-        final MockJdbcData jdbcData = new MockJdbcData();
-        log.debug("new JdbcData() = {}", jdbcData);
-        assertNotNull(jdbcData);
-        assertNotNull(UNEXPECTED_NULL, jdbcData);
+        final MockRestfulData restfulData = new MockRestfulData();
+        log.debug("restfulData = {}", restfulData);
+        assertNotNull(UNEXPECTED_NULL, restfulData);
+        assertTrue(restfulData.tearDown());
     }
 
 }

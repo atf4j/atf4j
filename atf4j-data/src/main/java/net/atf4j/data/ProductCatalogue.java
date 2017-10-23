@@ -27,6 +27,7 @@ import net.atf4j.core.TestResultsReporting;
  */
 public class ProductCatalogue extends TestResultsReporting {
 
+    /** The catalogue. */
     private final Collection<Product> catalogue = new ArrayDeque<Product>();
 
     /**

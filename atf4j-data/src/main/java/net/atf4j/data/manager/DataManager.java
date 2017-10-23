@@ -15,48 +15,30 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.data.management;
+package net.atf4j.data.manager;
+
+import net.atf4j.core.TestResultsReporting;
 
 /**
- * JmsData Class.
+ * The DataManager Class.
  */
-public class MockJmsData extends AbstractSetUpData {
+public final class DataManager extends TestResultsReporting {
 
     /**
-     * Instantiates a new jms data.
+     * Instantiates a new data manager.
      */
-    public MockJmsData() {
+    private DataManager() {
         super();
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Data for tag.
      *
-     * @see net.atf4j.data.SetUpData#setUp()
+     * @param tag the tag
+     * @return the object
      */
-    @Override
-    public boolean setUp() {
-        return true;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see net.atf4j.data.SetUpData#reset()
-     */
-    @Override
-    public boolean reset() {
-        return true;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see net.atf4j.data.SetUpData#tearDown()
-     */
-    @Override
-    public boolean tearDown() {
-        return true;
+    public static String dataForTag(final String tag) {
+        return null;
     }
 
 }

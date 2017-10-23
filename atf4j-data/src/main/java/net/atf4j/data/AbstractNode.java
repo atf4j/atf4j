@@ -25,7 +25,10 @@ package net.atf4j.data;
  */
 public abstract class AbstractNode<L, R> {
 
+    /** The left. */
     private L left = null;
+    
+    /** The right. */
     private R right = null;
 
     /**

@@ -24,6 +24,7 @@ import net.atf4j.csv.CsvFile;
  */
 public final class PostcodeData extends CsvFile {
 
+    /** The Constant 			INSTANCE. */
     private static final PostcodeData INSTANCE = new PostcodeData();
 
     /**

@@ -17,7 +17,6 @@
 
 package net.atf4j.data.factory;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -29,15 +28,37 @@ import net.atf4j.data.Text;
  */
 public final class LoremIpsumFactory extends AbstractDataFactory {
 
+    /** The Constant 			LOREM_IPSUM_TXT. */
+    private static final String LOREM_IPSUM_TXT = "lorem-ipsum.txt";
+    
+    /** The instance. */
     private static LoremIpsumFactory instance = null;
+    
+    /** The rows. */
     private String[] rows = null;
+    
+    /** The words. */
     private final List<String> words = new ArrayList<String>();
+    
+    /** The bounds. */
     private int bounds;
 
     /**
-     * Instantiates a new lorem ipsum.
+     * Gets the instance.
+     *
+     * @return the instance
      */
-    protected LoremIpsumFactory() {
+    public static LoremIpsumFactory getInstance() {
+        if (LoremIpsumFactory.instance == null) {
+            LoremIpsumFactory.instance = new LoremIpsumFactory();
+        }
+        return LoremIpsumFactory.instance;
+    }
+
+    /**
+     * Private constructor prevents wild instantiation.
+     */
+    private LoremIpsumFactory() {
         super();
         initialise();
     }
@@ -46,35 +67,19 @@ public final class LoremIpsumFactory extends AbstractDataFactory {
      * Initialise.
      */
     protected void initialise() {
-        try {
-            rows = load("lorem-ipsum.txt");
-            for (final String row : rows) {
-                final String sanitised = row.replace(",", "").replace(".", "").replace("?", "");
-                if (sanitised.length() > 0) {
-                    final String[] words = sanitised.split("\\W");
-                    log.debug(Arrays.toString(words));
-                    for (final String word : words) {
-                        this.words.add(word.trim().toLowerCase());
-                    }
+        rows = load(LOREM_IPSUM_TXT);
+        for (final String row : rows) {
+            final String sanitised = row.replace(",", "").replace(".", "").replace("?", "");
+            if (sanitised.length() > 0) {
+                final String[] words = sanitised.split("\\W");
+                log.debug(Arrays.toString(words));
+                for (final String word : words) {
+                    this.words.add(word.trim().toLowerCase());
                 }
             }
-            bounds = words.size();
-            log.debug(Arrays.toString(words.toArray()));
-        } catch (final FileNotFoundException e) {
-            log.error(e.toString());
         }
-    }
-
-    /**
-     * Gets the single INSTANCE of LoremIpsum.
-     *
-     * @return single INSTANCE of LoremIpsum
-     */
-    public static LoremIpsumFactory getInstance() {
-        if (LoremIpsumFactory.instance == null) {
-            LoremIpsumFactory.instance = new LoremIpsumFactory();
-        }
-        return LoremIpsumFactory.instance;
+        bounds = words.size();
+        log.debug(Arrays.toString(words.toArray()));
     }
 
     /**

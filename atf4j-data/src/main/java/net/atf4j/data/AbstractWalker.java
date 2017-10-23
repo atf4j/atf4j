@@ -31,6 +31,7 @@ import net.atf4j.core.TestResultsReporting;
  */
 public abstract class AbstractWalker extends TestResultsReporting {
 
+    /** The base path. */
     private String basePath = ".";
 
     /**

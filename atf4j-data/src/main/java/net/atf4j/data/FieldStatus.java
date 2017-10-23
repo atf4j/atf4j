@@ -34,6 +34,7 @@ public enum FieldStatus {
     /** The field is unwanted. */
     UNWANTED("Unwanted");
 
+    /** The value. */
     private String value;
 
     /**

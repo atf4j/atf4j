@@ -24,10 +24,19 @@ import static org.junit.Assert.assertNotNull;
  */
 public final class Bank extends Business {
 
+    /** The Constant 			UNEXPECTED_NULL. */
     private static final String UNEXPECTED_NULL = "unexpected null";
+    
+    /** The bank sort code. */
     private BankSortCode bankSortCode;
+    
+    /** The bank name. */
     private String bankName = "";
+    
+    /** The sort code. */
     private String sortCode = "";
+    
+    /** The iban. */
     private String iban = "";
 
     /**

@@ -17,8 +17,6 @@
 
 package net.atf4j.data.factory;
 
-import java.io.FileNotFoundException;
-
 import net.atf4j.data.Card;
 
 /**
@@ -26,27 +24,11 @@ import net.atf4j.data.Card;
  */
 public final class CardDataFactory extends AbstractDataFactory {
 
+    /** The Constant 			CARD_DATA_TXT. */
+    private static final String CARD_DATA_TXT = "cardData.txt";
+
+    /** The card data factory. */
     private static CardDataFactory cardDataFactory = null;
-    private String[] data;
-
-    /**
-     * Instantiates a new card data factory.
-     */
-    protected CardDataFactory() {
-        super();
-        initialise();
-    }
-
-    /**
-     * Initialise.
-     */
-    protected void initialise() {
-        try {
-            data = load("data.txt");
-        } catch (final FileNotFoundException e) {
-            log.error(e.toString());
-        }
-    }
 
     /**
      * Gets the single INSTANCE of CardDataFactory.
@@ -58,6 +40,21 @@ public final class CardDataFactory extends AbstractDataFactory {
             CardDataFactory.cardDataFactory = new CardDataFactory();
         }
         return CardDataFactory.cardDataFactory;
+    }
+
+    /**
+     * Private constructor prevents wild instantiation.
+     */
+    private CardDataFactory() {
+        super();
+        initialise();
+    }
+
+    /**
+     * Initialise.
+     */
+    protected void initialise() {
+        lines = load(CARD_DATA_TXT);
     }
 
     /**

@@ -31,7 +31,10 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class EmailAddressTest extends TestResultsReporting {
 
+    /** The Constant 			TEST_EXAMPLE_COM. */
     private static final String TEST_EXAMPLE_COM = "test@example.com";
+    
+    /** The Constant 			NAME_EXAMPLE_COM. */
     private static final String NAME_EXAMPLE_COM = "name@example.com";
 
     /**

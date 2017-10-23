@@ -30,10 +30,20 @@ import net.atf4j.data.PostalAddress;
 public final class AddressDataFactoryTest extends TestResultsReporting {
 
     /**
-     * Test method for expected usage.
+     * Test method to create a postal address.
      */
     @Test
-    public void testExpectedUsage() {
+    public void testCreate() {
+        final PostalAddress address = AddressDataFactory.create();
+        log.debug("AddressDataFactory.create() = {}", address);
+        assertNotNull(UNEXPECTED_NULL, address);
+    }
+
+    /**
+     * Unit Test to create a random postal address.
+     */
+    @Test
+    public void testRandom() {
         final PostalAddress address = AddressDataFactory.random();
         log.debug("AddressDataFactory.random() = {}", address);
         assertNotNull(UNEXPECTED_NULL, address);
@@ -47,26 +57,6 @@ public final class AddressDataFactoryTest extends TestResultsReporting {
         final AddressDataFactory addressFactory = AddressDataFactory.getInstance();
         log.debug("AddressDataFactory.getInstance() = {}", addressFactory);
         assertNotNull(UNEXPECTED_NULL, addressFactory);
-    }
-
-    /**
-     * Test method for AddressDataFactory create.
-     */
-    @Test
-    public void testCreate() {
-        final PostalAddress address = AddressDataFactory.create();
-        log.debug("AddressDataFactory.create() = {}", address);
-        assertNotNull(UNEXPECTED_NULL, address);
-    }
-
-    /**
-     * Test random.
-     */
-    @Test
-    public void testRandom() {
-        final PostalAddress address = AddressDataFactory.random();
-        log.debug("AddressDataFactory.random() = {}", address);
-        assertNotNull(UNEXPECTED_NULL, address);
     }
 
 }

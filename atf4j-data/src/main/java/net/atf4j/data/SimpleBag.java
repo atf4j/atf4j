@@ -29,8 +29,13 @@ import net.atf4j.core.TestResultsReporting;
  */
 public class SimpleBag extends TestResultsReporting {
 
+    /** The values. */
     private String[] values;
+    
+    /** The bag. */
     private final List<String> bag = new ArrayList<String>();
+    
+    /** The random. */
     private final Random random = new Random();
 
     /**

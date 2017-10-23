@@ -30,11 +30,22 @@ import net.atf4j.data.factory.DataFactory;
  */
 public class Card extends TestResultsReporting {
 
+    /** The provider. */
     private String provider = "";
+    
+    /** The card number. */
     private String cardNumber = "";
+    
+    /** The card name. */
     private String cardName = "";
+    
+    /** The start date. */
     private Calendar startDate;
+    
+    /** The end date. */
     private Calendar endDate;
+    
+    /** The ccv. */
     private String ccv = "";
 
     /**

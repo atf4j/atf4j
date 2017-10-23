@@ -24,9 +24,16 @@ import net.atf4j.core.TestResultsReporting;
  */
 public abstract class Datum extends TestResultsReporting {
 
+    /** The is fresh. */
     private boolean isFresh = true;
+    
+    /** The is changed. */
     private boolean isChanged = false;
+    
+    /** The is deleted. */
     private boolean isDeleted = false;
+    
+    /** The is used. */
     private boolean isUsed = false;
 
     /**

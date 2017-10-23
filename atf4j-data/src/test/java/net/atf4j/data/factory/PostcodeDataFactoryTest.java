@@ -32,20 +32,6 @@ import net.atf4j.data.Postcode;
 public final class PostcodeDataFactoryTest extends TestResultsReporting {
 
     /**
-     * Test postcode get instance.
-     */
-    @Test
-    public void testPostcodeGetInstance() {
-        final PostcodeDataFactory postcodeDataFactory = PostcodeDataFactory.getInstance();
-        log.debug("PostcodeDataFactory.getInstance() = {}", postcodeDataFactory);
-        assertNotNull(UNEXPECTED_NULL, postcodeDataFactory);
-
-        final PostcodeDataFactory same = PostcodeDataFactory.getInstance();
-        assertNotNull(UNEXPECTED_NULL, same);
-        assertEquals(same, postcodeDataFactory);
-    }
-
-    /**
      * Test postcode random.
      */
     @Test
@@ -69,6 +55,20 @@ public final class PostcodeDataFactoryTest extends TestResultsReporting {
         final boolean valid = Postcode.verify(postcode.toString());
         log.info("Postcode.verify({}) = {}", postcode);
         assertTrue(valid);
+    }
+
+    /**
+     * Test postcode get instance.
+     */
+    @Test
+    public void testPostcodeGetInstance() {
+        final PostcodeDataFactory postcodeDataFactory = PostcodeDataFactory.getInstance();
+        log.debug("PostcodeDataFactory.getInstance() = {}", postcodeDataFactory);
+        assertNotNull(UNEXPECTED_NULL, postcodeDataFactory);
+
+        final PostcodeDataFactory same = PostcodeDataFactory.getInstance();
+        assertNotNull(UNEXPECTED_NULL, same);
+        assertEquals(same, postcodeDataFactory);
     }
 
 }

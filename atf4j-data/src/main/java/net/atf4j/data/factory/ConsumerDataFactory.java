@@ -17,8 +17,6 @@
 
 package net.atf4j.data.factory;
 
-import java.io.FileNotFoundException;
-
 import net.atf4j.data.Consumer;
 
 /**
@@ -26,32 +24,16 @@ import net.atf4j.data.Consumer;
  */
 public final class ConsumerDataFactory extends AbstractDataFactory {
 
+    /** The Constant 			CONSUMER_DATA_TXT. */
+    private static final String CONSUMER_DATA_TXT = "consumerData.txt";
+    
+    /** The consumer data factory. */
     private static ConsumerDataFactory consumerDataFactory = null;
-    private String[] data;
 
     /**
-     * Instantiates a new consumer data factory.
-     */
-    protected ConsumerDataFactory() {
-        super();
-        initialise();
-    }
-
-    /**
-     * Initialise.
-     */
-    protected void initialise() {
-        try {
-            data = load("data.txt");
-        } catch (final FileNotFoundException e) {
-            log.error(e.toString());
-        }
-    }
-
-    /**
-     * Gets the single INSTANCE of ConsumerDataFactory.
+     * Gets the instance.
      *
-     * @return single INSTANCE of ConsumerDataFactory
+     * @return the instance
      */
     public static ConsumerDataFactory getInstance() {
         if (ConsumerDataFactory.consumerDataFactory == null) {
@@ -61,11 +43,35 @@ public final class ConsumerDataFactory extends AbstractDataFactory {
     }
 
     /**
-     * Create new INSTANCE of create.
+     * Private constructor prevents wild instantiation.
+     */
+    private ConsumerDataFactory() {
+        super();
+        initialise();
+    }
+
+    /**
+     * Initialise.
+     */
+    protected void initialise() {
+        lines = load(CONSUMER_DATA_TXT);
+    }
+
+    /**
+     * Factory method to create new instance of ConsumerDataFactory.
+     *
+     * @return new instance of ConsumerDataFactory
+     */
+    public static Consumer create() {
+        return new Consumer();
+    }
+
+    /**
+     * Random.
      *
      * @return the consumer
      */
-    public static Consumer create() {
+    public static Consumer random() {
         return new Consumer();
     }
 

@@ -32,6 +32,7 @@ public final class Nino extends TestResultsReporting {
     private static final Pattern PATTERN = Pattern
         .compile("^[A-CEGHJ-PR-TW-Z]{1}[A-CEGHJ-NPR-TW-Z]{1}[- ]?[0-9]{2}[- ]?[0-9]{2}[- ]?[0-9]{2}[- ]?[A-D]?$");
 
+    /** The nino. */
     private String nino = "";
 
     /**

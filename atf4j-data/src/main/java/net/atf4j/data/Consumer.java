@@ -22,6 +22,7 @@ package net.atf4j.data;
  */
 public class Consumer extends Person {
 
+    /** The credentials. */
     private Credentials credentials = new Credentials();
 
     /**
