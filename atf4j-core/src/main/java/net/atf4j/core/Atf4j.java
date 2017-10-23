@@ -78,10 +78,28 @@ public final class Atf4j {
         for (final StackTraceElement stackTraceElement : stackTrace) {
             LOG.trace(stackTraceElement.toString());
             final String methodName = stackTraceElement.getMethodName();
-            LOG.debug(methodName);
+            LOG.debug(unrollName(methodName));
             return methodName;
         }
         return null;
+    }
+
+    private static String unrollName(final String input) {
+        final StringBuffer buffer = new StringBuffer(input.length() * 2);
+        if (input != null) {
+            if (input.length() > 0) {
+                for (int i = 0; i < input.length(); i++) {
+                    final char chr = input.charAt(i);
+                    if (Character.isUpperCase(chr)) {
+                        buffer.append(' ');
+                        buffer.append(Character.toLowerCase(chr));
+                    }
+                }
+                return buffer.toString();
+            }
+        }
+        buffer.setCharAt(0, Character.toUpperCase(input.charAt(0)));
+        return buffer.toString();
     }
 
 }

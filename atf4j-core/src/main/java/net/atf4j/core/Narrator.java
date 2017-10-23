@@ -103,13 +103,13 @@ public final class Narrator {
                         final String fieldName = field.getName();
                         final Object fieldType = field.get(object);
                         final String memberStr = String.format("%s = %s,", fieldName, fieldType);
-                        LOG.debug(memberStr);
                         stringBuilder.append(memberStr);
                     } catch (final Exception e) {
                         LOG.error(e.toString());
                     }
                 }
                 // stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+                LOG.debug(stringBuilder.toString());
 
                 return stringBuilder.toString();
             } else {

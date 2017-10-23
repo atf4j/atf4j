@@ -22,7 +22,6 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -33,99 +32,74 @@ public class AbstractConfigTest extends TestResultsReporting {
     private static final String MISSING_KEY = "missingKey";
 
     /**
-     * Default configuration class.
+     * Mock a Default configuration class.
      */
     private class DefaultConfig extends AbstractConfig {
     }
 
     /**
-     * The SimpleConfiguration Class.
+     * Mock a Simple Configuration Class.
      */
     private class SimpleConfiguration extends AbstractConfig {
 
         /**
          * Instantiates a new simple configuration.
-         *
-         * @throws ConfigurationNotLoadedException the configuration not loaded
          */
-        public SimpleConfiguration() throws ConfigurationNotLoadedException {
+        public SimpleConfiguration() {
             super();
         }
     }
 
     /**
-     * Test method for Default Configuration.
+     * Unit Test method for Default Configuration.
      */
-    @Ignore
     @Test
     public void testDefaultConfig() {
-        final DefaultConfig config = new DefaultConfig();
-        log.debug("config = {}", config.toString());
-        assertNotNull(UNEXPECTED_NULL, config);
+        final DefaultConfig defaultConfig = new DefaultConfig();
+        log.debug("defaultConfig.toString() = {}", defaultConfig.toString());
+        assertNotNull(UNEXPECTED_NULL, defaultConfig);
     }
 
     /**
-     * Test default constructor.
+     * Unit Test method for PrettyString method.
+     */
+    @Test
+    public void testPrettyString() {
+        final DefaultConfig defaultConfig = new DefaultConfig();
+        log.debug("defaultConfig.prettyString() = {}", defaultConfig.prettyString());
+        assertNotNull(UNEXPECTED_NULL, defaultConfig);
+    }
+
+    /**
+     * Unit Test Simple Configuration constructor.
      *
      * @throws Exception the exception
      */
     @Test
-    public void testSimpleConfiguration() throws Exception {
+    public void testSimpleConfiguration() {
         final SimpleConfiguration config = new SimpleConfiguration();
         log.debug("config = {}", config.toString());
         assertNotNull(UNEXPECTED_NULL, config);
     }
 
     /**
-     * Test suggested usage.
-     *
-     * @throws Exception the exception
+     * Unit Test typical usage.
      */
     @Test
-    public void testSuggestedUsage() throws Exception {
-        final SimpleConfiguration config = new SimpleConfiguration();
-        log.debug("config = {}", config.toString());
-        assertNotNull(UNEXPECTED_NULL, config);
+    public void testTypicalUsage() {
+        final SimpleConfiguration simpleConfig = new SimpleConfiguration();
+        log.debug("simpleConfig = {}", simpleConfig.toString());
+        assertNotNull(UNEXPECTED_NULL, simpleConfig);
 
         final String defaultValue = "defaultValue";
-        assertEquals(defaultValue, config.valueFor(MISSING_KEY, defaultValue));
-        assertEquals(Integer.MAX_VALUE, config.valueFor(MISSING_KEY, Integer.MAX_VALUE));
-        assertEquals(Long.MAX_VALUE, config.valueFor(MISSING_KEY, Long.MAX_VALUE));
-        assertEquals(true, config.valueFor(MISSING_KEY, true));
-        assertEquals("stringValue", config.valueFor("keyForString", defaultValue));
-        assertEquals(1, config.valueFor("keyForIntOne", Integer.MAX_VALUE));
-        assertEquals(1, config.valueFor("keyForLongOne", Long.MAX_VALUE));
-        assertTrue(config.valueFor("keyForTrue", false));
-        assertFalse(config.valueFor("keyForFalse", true));
+        assertEquals(defaultValue, simpleConfig.valueFor(MISSING_KEY, defaultValue));
+        assertEquals(Integer.MAX_VALUE, simpleConfig.valueFor(MISSING_KEY, Integer.MAX_VALUE));
+        assertEquals(Long.MAX_VALUE, simpleConfig.valueFor(MISSING_KEY, Long.MAX_VALUE));
+        assertEquals(true, simpleConfig.valueFor(MISSING_KEY, true));
+        assertEquals("stringValue", simpleConfig.valueFor("keyForString", defaultValue));
+        assertEquals(1, simpleConfig.valueFor("keyForIntOne", Integer.MAX_VALUE));
+        assertEquals(1, simpleConfig.valueFor("keyForLongOne", Long.MAX_VALUE));
+        assertTrue(simpleConfig.valueFor("keyForTrue", false));
+        assertFalse(simpleConfig.valueFor("keyForFalse", true));
     }
-
-    /**
-     * Test int value for key.
-     */
-    @Test
-    public void testIntValueForKey() {
-        final String value = Config.valueFor("keyForInt");
-        log.debug("Config.valueFor(keyForInt) = {}", value);
-        assertNotNull(UNEXPECTED_NULL, value);
-    }
-
-    /**
-     * Test long value for key.
-     */
-    @Test
-    public void testLongValueForKey() {
-        final String value = Config.valueFor("keyForLong");
-        log.debug("Config.valueFor(keyForLong) = {}", value);
-        assertNotNull(UNEXPECTED_NULL, value);
-    }
-
-    /**
-     * Test boolean value for key.
-     */
-    @Test
-    public void testBooleanValueForKey() {
-        assertTrue(Config.booleanValueFor("keyForTrue"));
-        assertFalse(Config.booleanValueFor("keyForFalse"));
-    }
-
 }

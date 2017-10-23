@@ -26,7 +26,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * A UnitTest for NestedTimers objects.
  */
-public class NestedTimersTest extends TestResultsReporting {
+public final class NestedTimersTest extends TestResultsReporting {
 
     private static final int DEFAULT_INTERVAL = 100;
 
@@ -87,12 +87,6 @@ public class NestedTimersTest extends TestResultsReporting {
         waitDefaultInterval();
 
         log.debug("runningTimersAsString = {}", nestedTimers.runningTimersAsString());
-
-        log.debug("stopping : {}", nestedTimers.stopTimer());
-        log.debug("stopping : {}", nestedTimers.stopTimer());
-        log.debug("stopping : {}", nestedTimers.stopTimer());
-        log.debug("stopping : {}", nestedTimers.stopTimer());
-        log.debug("stopping : {}", nestedTimers.stopTimer());
 
         assertNotNull(NestedTimers.stopAll());
 

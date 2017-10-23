@@ -55,13 +55,13 @@ public class Person extends TestResultsReporting {
      */
     public enum Gender {
 
-        /** The male. */
+        /** male. */
         MALE("Male"),
 
-        /** The female. */
+        /** female. */
         FEMALE("Male"),
 
-        /** The unknown. */
+        /** unknown. */
         UNKNOWN("Unknown");
 
         /** The gender string. */
@@ -79,11 +79,16 @@ public class Person extends TestResultsReporting {
         /**
          * From string.
          *
-         * @param gender the gender
+         * @param string the string
          * @return the gender
          */
-        public static Gender fromString(final String gender) {
-            return null;
+        public static Gender fromString(final String string) {
+            for (final Gender candidate : values()) {
+                if (candidate.genderString.equals(string)) {
+                    return candidate;
+                }
+            }
+            return Gender.UNKNOWN;
         }
 
         /*
@@ -124,10 +129,10 @@ public class Person extends TestResultsReporting {
         /** Lord. */
         LORD("Lord"),
 
-        /** DR */
+        /** DR. */
         DR("Dr"),
 
-        /** blank */
+        /** Blank. */
         BLANK("");
 
         /** The value. */
@@ -145,11 +150,16 @@ public class Person extends TestResultsReporting {
         /**
          * From string.
          *
-         * @param title the title
+         * @param string the string
          * @return the title
          */
-        public static Title fromString(final String title) {
-            return null;
+        public static Title fromString(final String string) {
+            for (final Title candidate : values()) {
+                if (candidate.titleString.equals(string)) {
+                    return candidate;
+                }
+            }
+            return Title.BLANK;
         }
 
         /*
@@ -161,6 +171,7 @@ public class Person extends TestResultsReporting {
         public String toString() {
             return titleString;
         }
+
     }
 
     /**

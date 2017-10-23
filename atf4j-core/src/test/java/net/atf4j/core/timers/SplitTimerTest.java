@@ -26,7 +26,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * A UnitTest for SplitTimer objects.
  */
-public class SplitTimerTest extends TestResultsReporting {
+public final class SplitTimerTest extends TestResultsReporting {
 
     /**
      * Test method for SplitTimer.

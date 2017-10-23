@@ -45,7 +45,9 @@ public final class NarratorTest extends TestResultsReporting {
      */
     @Test
     public void testReflectObjectToString() {
-        log.info(Narrator.reflectObjectToString(new ClassUnderTest()));
+        final ClassUnderTest object = new ClassUnderTest();
+        log.info(object.toString());
+        log.info(Narrator.reflectObjectToString(object));
     }
 
 }

@@ -17,23 +17,33 @@
 
 package net.atf4j.core;
 
-import static org.junit.Assert.assertNotNull;
-
-import org.junit.Test;
-
 /**
- * A UnitTest for Reporting Test Results.
+ * An Example Configuration class.
  */
-public final class ResultsReportingTest extends TestResultsReporting {
+public final class Configuration extends AbstractConfig {
 
     /**
-     * Test method for ResultsReporting.
+     * Instantiates a new configuration. Private default constructor prevents
+     * wild instantiation.
      */
-    @Test
-    public void testToDescription() {
-        final String description = super.toDescription();
-        log.debug(description);
-        assertNotNull(UNEXPECTED_NULL, description);
+    public Configuration() {
+        super();
+    }
+
+    public String myKey() {
+        return super.get("myKey", "myValue");
+    }
+
+    public int myIntValue() {
+        return super.get("myIntValue", 0);
+    }
+
+    public long myLongValue() {
+        return super.get("myLongValue", 0L);
+    }
+
+    public boolean myBoolValue() {
+        return super.get("myBoolValue", true);
     }
 
 }

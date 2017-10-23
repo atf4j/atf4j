@@ -25,6 +25,7 @@ import java.util.ArrayDeque;
 import java.util.Collection;
 
 import net.atf4j.core.Atf4jException;
+import net.atf4j.core.timers.MappedTimers;
 
 /**
  * TestSuite.
@@ -56,7 +57,7 @@ public class TestSuite extends AbstractTestBase {
      * @throws Atf4jException the atf4j exception
      */
     public TestSuite execute() throws Atf4jException {
-        return execute(this.testContext);
+        return execute(testContext);
     }
 
     /**
@@ -70,8 +71,8 @@ public class TestSuite extends AbstractTestBase {
     @Override
     public TestSuite execute(final TestContext context) throws Atf4jException {
         assumeNotNull(context);
-        assumeNotNull(this.testCases);
-        for (final TestCase testCase : this.testCases) {
+        assumeNotNull(testCases);
+        for (final TestCase testCase : testCases) {
             assertEquals(testCase, testCase.execute(context));
         }
         return this;
@@ -84,7 +85,7 @@ public class TestSuite extends AbstractTestBase {
      * @see java.util.Collection#size()
      */
     public int numberOfTestCases() {
-        return this.testCases == null ? 0 : this.testCases.size();
+        return testCases == null ? 0 : testCases.size();
     }
 
     /**
@@ -95,11 +96,11 @@ public class TestSuite extends AbstractTestBase {
      * @see java.util.Collection#add(java.lang.Object)
      */
     public TestSuite addTestCase(final TestCase newTestCase) {
-        if (this.testCases == null) {
-            this.testCases = new ArrayDeque<TestCase>();
+        if (testCases == null) {
+            testCases = new ArrayDeque<TestCase>();
         }
         assumeNotNull(newTestCase);
-        assumeTrue(this.testCases.add(newTestCase));
+        assumeTrue(testCases.add(newTestCase));
         return this;
     }
 
@@ -108,10 +109,9 @@ public class TestSuite extends AbstractTestBase {
      *
      * @return the test suite
      */
-    public TestSuite startTestSuite() {
-        this.log.info("startTestSuite {}", this.getName());
-
-        // TODO Start Timer
+    public TestSuite start() {
+        log.info("start test suite {}", this.getName());
+        log.info("start timer {}", MappedTimers.start("TestSuite"));
         return this;
     }
 
@@ -120,10 +120,9 @@ public class TestSuite extends AbstractTestBase {
      *
      * @return the test suite
      */
-    public TestSuite endTestSuite() {
-        // TODO Stop Timer
-
-        this.log.info("endTestSuite {}", this.getName());
+    public TestSuite end() {
+        log.info("end timer {}", MappedTimers.stop("TestSuite"));
+        log.info("end test suite {}", this.getName());
         return this;
     }
 

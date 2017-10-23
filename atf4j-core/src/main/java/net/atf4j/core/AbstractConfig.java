@@ -53,7 +53,7 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
         try {
             load(propertiesFilename());
         } catch (final ConfigurationNotLoadedException e) {
-            log.warn("Using default values; {}", e.getMessage());
+            log.warn("{}; using default values.", e.getMessage());
         }
         return this;
     }
@@ -63,7 +63,7 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
      *
      * @return the string
      */
-    private String propertiesFilename() {
+    protected String propertiesFilename() {
         final String simpleName = this.getClass().getSimpleName();
         return String.format("%s.properties", simpleName);
     }
@@ -92,7 +92,7 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
      * @param resourceFilename the resource filename
      * @return the input stream
      */
-    private InputStream resourceAsStream(final String resourceFilename) {
+    protected InputStream resourceAsStream(final String resourceFilename) {
         final ClassLoader classLoader = this.getClass().getClassLoader();
         return classLoader.getResourceAsStream(resourceFilename);
     }
@@ -116,15 +116,15 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
      * @return the string
      */
     protected String get(final String key, final String defaultValue) {
-        final String systemProperty = System.getProperty(key);
-        log.trace("Using system property for key {} = {}", key, systemProperty);
-        if (systemProperty == null) {
-            final String property = properties.getProperty(key, defaultValue);
-            log.trace("Using property file for key {} = {}", key, property);
-            return property;
+        String propertyValue = System.getProperty(key);
+        if (propertyValue == null) {
+            propertyValue = properties.getProperty(key, defaultValue);
+            log.trace("Using property file for key {} = {}", key, propertyValue);
         } else {
-            return systemProperty;
+            log.info("Using system property override for key {} = {}", key, propertyValue);
         }
+
+        return propertyValue;
     }
 
     /**
@@ -204,6 +204,16 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
         return get(key, defaultValue);
     }
 
+    /**
+     * Pretty string.
+     *
+     * @return the string
+     */
+    public String prettyString() {
+        final String className = this.getClass().getSimpleName();
+        return String.format("%s [properties=%s]", className, prettyProperties(properties));
+    }
+
     /*
      * (non-Javadoc)
      *
@@ -211,48 +221,68 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
      */
     @Override
     public String toString() {
-        return String.format("%s [properties=%s]", this.getClass().getSimpleName(), prettyProperties(properties));
+        final String className = this.getClass().getSimpleName();
+        return String.format("%s [properties=%s]", className, prettyProperties(properties));
     }
 
     /**
-     * Pretty properties.
+     * Pretty Format the properties.
      *
-     * @param properties the properties
-     * @return the string
+     * @param properties the properties as Properties object.
+     * @return the properties as a formated String object.
      */
-    private String prettyProperties(final Properties properties) {
-        return properties.toString().replace("{", "{\n\t").replace(", ", "\n\t").replace("}", "\n\t}");
+    protected String prettyProperties(final Properties properties) {
+        if (properties == null) {
+            return "null";
+        } else if (properties.isEmpty()) {
+            return "{empty}";
+        } else {
+            return prettyProperties(properties.toString());
+        }
+    }
+
+    /**
+     * Pretty Format the properties.
+     *
+     * @param properties the properties as String.
+     * @return the properties as a formated String.
+     */
+    protected String prettyProperties(final String properties) {
+        return properties
+            .replace("[", "[\n\t")
+            .replace("{", "{\n\t")
+            .replace(", ", "\n\t")
+            .replace("}", "\n\t}")
+            .replace("]", "\n\t]}");
     }
 
     /**
      * The property file was not found.
      */
+    @SuppressWarnings("serial")
     public class PropertyNotFoundException extends Atf4jException {
-        private static final long serialVersionUID = 1L;
-
         /**
          * Instantiates a new property not found.
          *
          * @param propertyKey the property key
          */
         public PropertyNotFoundException(final String propertyKey) {
-            super(String.format("Property not found for key %s", propertyKey));
+            super(String.format("Property value not found for key %s.", propertyKey));
         }
     }
 
     /**
      * Configuration Not Loaded.
      */
+    @SuppressWarnings("serial")
     public class ConfigurationNotLoadedException extends Atf4jException {
-        private static final long serialVersionUID = 1L;
-
         /**
          * Instantiates a missing configuration exception.
          *
          * @param propertyFilename the property filename
          */
         public ConfigurationNotLoadedException(final String propertyFilename) {
-            super(String.format("PropertyFile %s not found", propertyFilename));
+            super(String.format("Property file '%s' not found.", propertyFilename));
         }
     }
 }

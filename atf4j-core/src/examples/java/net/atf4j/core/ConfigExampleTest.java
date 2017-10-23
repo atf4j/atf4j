@@ -25,7 +25,7 @@ import org.junit.Test;
  * An Example Configuration loader. This will load the ExampleConfig.properties
  * file from the resources folder. It make the Configuration available by
  */
-public class ConfigExampleTest {
+public final class ConfigExampleTest {
 
     /**
      * Test Configuration example.

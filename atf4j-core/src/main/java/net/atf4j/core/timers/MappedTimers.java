@@ -34,10 +34,10 @@ public final class MappedTimers extends TestResultsReporting {
     private static final MappedTimers MAPPED_TIMERS = new MappedTimers();
 
     /** The running timers. */
-    private final Map<String, NamedMilliTimer> runningTimers = new ConcurrentHashMap<String, NamedMilliTimer>();
+    private final Map<String, NamedTimer> runningTimers = new ConcurrentHashMap<String, NamedTimer>();
 
     /** The stopped timers. */
-    private final Map<String, NamedMilliTimer> stoppedTimers = new ConcurrentHashMap<String, NamedMilliTimer>();
+    private final Map<String, NamedTimer> stoppedTimers = new ConcurrentHashMap<String, NamedTimer>();
 
     /**
      * Private constructor to prevent wild instantiation.
@@ -72,7 +72,7 @@ public final class MappedTimers extends TestResultsReporting {
      * @return the i timer
      */
     public TimerInterface startTimer(final String timerName) {
-        final NamedMilliTimer timer = new NamedMilliTimer(timerName);
+        final NamedTimer timer = new NamedTimer(timerName);
         runningTimers.put(timerName, timer);
         timer.start();
         return timer;
@@ -95,7 +95,7 @@ public final class MappedTimers extends TestResultsReporting {
      * @return Timer.
      */
     public TimerInterface stopTimer(final String timerName) {
-        final NamedMilliTimer timer = runningTimers.get(timerName);
+        final NamedTimer timer = runningTimers.get(timerName);
         if (timer != null) {
             timer.stop();
             stoppedTimers.put(timerName, timer);

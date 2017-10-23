@@ -34,7 +34,7 @@ public class AnnotatedTestTest extends AbstractAnnotatedTest {
     @Test
     public void testTestId() throws Exception {
         log.debug("testTestId", this.getClass().getSimpleName());
-        final String testId = super.testId();
+        final String testId = super.getTestId();
         assertNotNull(UNEXPECTED_NULL, testId);
         log.info("testId = {}", testId);
     }
@@ -45,7 +45,7 @@ public class AnnotatedTestTest extends AbstractAnnotatedTest {
     @Test
     public void testTestName() {
         log.debug("testTestName", this.getClass().getSimpleName());
-        final String testName = super.testName();
+        final String testName = super.getTestName();
         assertNotNull(UNEXPECTED_NULL, testName);
         log.info("testName = {}", testName);
     }
@@ -56,7 +56,7 @@ public class AnnotatedTestTest extends AbstractAnnotatedTest {
     @Test
     public void testTestDescription() {
         log.debug("testTestDescription", this.getClass().getSimpleName());
-        final String testDescription = super.testDescription();
+        final String testDescription = super.getTestDescription();
         assertNotNull(UNEXPECTED_NULL, testDescription);
         log.info("testDescription = {}", testDescription);
     }
