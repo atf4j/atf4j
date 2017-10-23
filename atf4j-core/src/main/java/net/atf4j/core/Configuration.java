@@ -30,20 +30,40 @@ public final class Configuration extends AbstractConfig {
         super();
     }
 
+    /**
+     * My key.
+     *
+     * @return the string
+     */
     public String myKey() {
         return super.get("myKey", "myValue");
     }
 
+    /**
+     * My int value.
+     *
+     * @return the int
+     */
     public int myIntValue() {
         return super.get("myIntValue", 0);
     }
 
+    /**
+     * My long value.
+     *
+     * @return the long
+     */
     public long myLongValue() {
         return super.get("myLongValue", 0L);
     }
 
-    public boolean myBoolValue() {
-        return super.get("myBoolValue", true);
+    /**
+     * My bool value.
+     *
+     * @return true, if successful
+     */
+    public boolean myBooleanValue() {
+        return super.get("myBooleanValue", true);
     }
 
 }

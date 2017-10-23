@@ -22,6 +22,7 @@ package net.atf4j.core;
  */
 public final class GlobalConfig extends AbstractConfig {
 
+    /** The Constant 			GLOBAL_CONFIG. */
     private static final GlobalConfig GLOBAL_CONFIG = new GlobalConfig();
 
     /**
@@ -48,7 +49,7 @@ public final class GlobalConfig extends AbstractConfig {
      * @return the string value.
      */
     public static String valueFor(final String key) {
-        return getInstance().get(key);
+        return getInstance().get(key, "default");
     }
 
     /**

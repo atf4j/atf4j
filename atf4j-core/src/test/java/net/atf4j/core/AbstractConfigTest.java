@@ -29,6 +29,7 @@ import org.junit.Test;
  */
 public class AbstractConfigTest extends TestResultsReporting {
 
+    /** The Constant MISSING_KEY. */
     private static final String MISSING_KEY = "missingKey";
 
     /**
@@ -72,8 +73,6 @@ public class AbstractConfigTest extends TestResultsReporting {
 
     /**
      * Unit Test Simple Configuration constructor.
-     *
-     * @throws Exception the exception
      */
     @Test
     public void testSimpleConfiguration() {

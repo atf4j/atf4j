@@ -24,12 +24,26 @@ import org.junit.Test;
  */
 public final class NarratorTest extends TestResultsReporting {
 
+    /**
+     * The Class ClassUnderTest.
+     */
     public final class ClassUnderTest {
+        
+        /** The object. */
         private final Object object = new Object();
+        
+        /** The class name. */
         private final String className = this.getClass().getSimpleName();
+        
+        /** The a boolean. */
         private final Boolean aBoolean = true;
+        
+        /** The number. */
         private final long number = Long.MAX_VALUE;
 
+        /* (non-Javadoc)
+         * @see java.lang.Object#toString()
+         */
         @Override
         public String toString() {
             return String.format("NarratorTest [object=%s, className=%s, aBoolean=%s, number=%s]",

@@ -25,17 +25,24 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Verification class provides a number of static helper methods.
- *
+ * <p>
  * These are similar to Assertion in operation, but include results logging as
  * evidence of success.
  */
 public final class Verify {
 
+    /** The Constant LOG. */
     private static final Logger LOG = LoggerFactory.getLogger(Verify.class);
-    private static final String MESSAGE = "verify(expected(%s) == actual(%s)) - %s";
-    private static final String UNEXPECTED_NULL = "Unexpected null.";
-    protected static final String EXPECTED_EXCEPTION = "Expected exception but did not happen.";
 
+    /** The Constant MESSAGE. */
+    private static final String MESSAGE = "verify(expected(%s) == actual(%s)) - %s";
+
+    /** The Constant UNEXPECTED_NULL. */
+    private static final String UNEXPECTED_NULL = "Unexpected null.";
+
+    /**
+     * Instantiates a new verify.
+     */
     private Verify() {
         super();
     }

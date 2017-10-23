@@ -73,7 +73,7 @@ public final class ConfigurationTest extends TestResultsReporting {
     public void testMyBoolValue() {
         final Configuration configuration = new Configuration();
         verifyNotNull(configuration);
-        final boolean actual = configuration.myBoolValue();
+        final boolean actual = configuration.myBooleanValue();
         Verify.verifyEqual(true, actual);
     }
 

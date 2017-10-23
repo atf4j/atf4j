@@ -27,6 +27,7 @@ import org.junit.Test;
  */
 public final class Atf4jExceptionTest extends TestResultsReporting {
 
+    /** The Constant 			EXCEPTION_MESSAGE. */
     private static final String EXCEPTION_MESSAGE = "Force a Atf4jException";
 
     /**
