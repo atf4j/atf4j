@@ -27,7 +27,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * A UnitTest for NanoTimer objects.
  */
-public class NanoTimerTest extends TestResultsReporting {
+public final class NanoTimerTest extends TestResultsReporting {
 
     /**
      * Test method for NanoTimer.

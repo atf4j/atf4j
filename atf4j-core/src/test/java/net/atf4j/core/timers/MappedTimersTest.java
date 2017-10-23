@@ -26,7 +26,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * A UnitTest for MappedTimers objects.
  */
-public class MappedTimersTest extends TestResultsReporting {
+public final class MappedTimersTest extends TestResultsReporting {
 
     /**
      * Test method for MappedTimers.

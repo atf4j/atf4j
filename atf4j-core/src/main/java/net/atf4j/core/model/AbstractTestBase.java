@@ -37,7 +37,7 @@ public abstract class AbstractTestBase extends TestResultsReporting {
     protected TestResult testResult;
     protected TestReport testReport;
 
-    private String tester; // Actor
+    private String tester; // test actor
     private String name; // short name of test
     private String taxonomy; // taxonomy of test
     private String description; // full description of test
@@ -50,8 +50,8 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      */
     public AbstractTestBase() {
         super();
-        this.testResult = TestResult.initialise();
-        this.uniqueIdentifier = new TestIdentifier();
+        testResult = TestResult.initialise();
+        uniqueIdentifier = new TestIdentifier();
     }
 
     /**
@@ -62,8 +62,8 @@ public abstract class AbstractTestBase extends TestResultsReporting {
     public AbstractTestBase(final String name) {
         super();
         this.name = name;
-        this.testResult = TestResult.initialise();
-        this.uniqueIdentifier = new TestIdentifier();
+        testResult = TestResult.initialise();
+        uniqueIdentifier = new TestIdentifier();
     }
 
     /**
@@ -107,10 +107,10 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @see java.util.Collection#add(java.lang.Object)
      */
     public AbstractTestBase addPreCondition(final Condition newPreCondition) {
-        if (this.preConditions == null) {
-            this.preConditions = new ArrayDeque<Condition>();
+        if (preConditions == null) {
+            preConditions = new ArrayDeque<Condition>();
         }
-        assumeTrue(this.preConditions.add(newPreCondition));
+        assumeTrue(preConditions.add(newPreCondition));
         return this;
     }
 
@@ -120,10 +120,10 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the abstract test base
      */
     public AbstractTestBase assumedPreConditions() {
-        if (this.preConditions == null) {
+        if (preConditions == null) {
             return this;
         } else {
-            for (final Condition condition : this.postConditions) {
+            for (final Condition condition : postConditions) {
                 assumeTrue(condition.isTrue());
             }
         }
@@ -138,10 +138,10 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @see java.util.Collection#add(java.lang.Object)
      */
     public AbstractTestBase addPostCondition(final Condition newPostCondition) {
-        if (this.postConditions == null) {
-            this.postConditions = new ArrayDeque<Condition>();
+        if (postConditions == null) {
+            postConditions = new ArrayDeque<Condition>();
         }
-        assumeTrue(this.postConditions.add(newPostCondition));
+        assumeTrue(postConditions.add(newPostCondition));
         return this;
     }
 
@@ -151,10 +151,10 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the abstract test base
      */
     public AbstractTestBase assertPostConditions() {
-        if (this.postConditions == null) {
+        if (postConditions == null) {
             return this;
         } else {
-            for (final Condition condition : this.postConditions) {
+            for (final Condition condition : postConditions) {
                 assertTrue(condition.isTrue());
             }
         }
@@ -167,7 +167,7 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the testStatus
      */
     protected TestResult getTestStatus() {
-        return this.testResult;
+        return testResult;
     }
 
     /**
@@ -177,7 +177,7 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the test base
      */
     protected AbstractTestBase setTestStatus(final TestResult testStatus) {
-        this.testResult = testStatus;
+        testResult = testStatus;
         return this;
     }
 
@@ -187,7 +187,7 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the uniqueIdentifier
      */
     protected TestIdentifier getUniqueIdentifier() {
-        return this.uniqueIdentifier;
+        return uniqueIdentifier;
     }
 
     /**
@@ -207,7 +207,7 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the testContext
      */
     protected TestContext getTestContext() {
-        return this.testContext;
+        return testContext;
     }
 
     /**
@@ -227,7 +227,7 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the tester
      */
     protected String getTester() {
-        return this.tester;
+        return tester;
     }
 
     /**
@@ -247,7 +247,7 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the name
      */
     protected String getName() {
-        return this.name;
+        return name;
     }
 
     /**
@@ -267,7 +267,7 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the taxonomy
      */
     protected String getTaxonomy() {
-        return this.taxonomy;
+        return taxonomy;
     }
 
     /**
@@ -287,7 +287,7 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the description
      */
     protected String getDescription() {
-        return this.description;
+        return description;
     }
 
     /**
@@ -307,7 +307,7 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the timestamp
      */
     protected String getTimestamp() {
-        return this.timestamp;
+        return timestamp;
     }
 
     /**
@@ -327,7 +327,7 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the preConditions
      */
     protected Collection<Condition> getPreConditions() {
-        return this.preConditions;
+        return preConditions;
     }
 
     /**
@@ -336,7 +336,7 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the postConditions
      */
     protected Collection<Condition> getPostConditions() {
-        return this.postConditions;
+        return postConditions;
     }
 
     /**
@@ -345,7 +345,7 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the logging
      */
     public TestReport getLogging() {
-        return this.testReport;
+        return testReport;
     }
 
     /**
@@ -355,7 +355,7 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the test base
      */
     public AbstractTestBase setLogging(final TestReport logging) {
-        this.testReport = logging;
+        testReport = logging;
         return this;
     }
 
@@ -365,7 +365,7 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the test result
      */
     public TestResult result() {
-        return this.testResult;
+        return testResult;
     }
 
     /**
@@ -377,16 +377,16 @@ public abstract class AbstractTestBase extends TestResultsReporting {
         return String.format(
                 "%s [testStatus=%s, uniqueIdentifier=%s, testContext=%s, tester=%s, name=%s, taxonomy=%s, description=%s, timestamp=%s, preConditions=%s, postConditions=%s]",
                 this.getClass().getSimpleName(),
-                this.testResult,
-                this.uniqueIdentifier,
-                this.testContext,
-                this.tester,
-                this.name,
-                this.taxonomy,
-                this.description,
-                this.timestamp,
-                this.preConditions,
-                this.postConditions);
+                testResult,
+                uniqueIdentifier,
+                testContext,
+                tester,
+                name,
+                taxonomy,
+                description,
+                timestamp,
+                preConditions,
+                postConditions);
     }
 
     /*

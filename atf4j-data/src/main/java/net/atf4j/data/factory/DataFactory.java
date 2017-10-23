@@ -38,6 +38,7 @@ import net.atf4j.data.PostalAddress;
 public final class DataFactory extends TestResultsReporting {
 
     private static Random random = new Random(System.currentTimeMillis());
+
     public static final String ISO_DATE_TIME = "yyyy-MM-dd'T'HH:mm'Z'";
     public static final String ISO_DATE = "yyyy-MM-dd";
     public static final String ISO_TIME = "HH:mm'Z'";
@@ -167,8 +168,8 @@ public final class DataFactory extends TestResultsReporting {
     /**
      * Date between.
      *
-     * @param pastDate the past date
-     * @param today the today
+     * @param startDate the start date
+     * @param endDate the end date
      * @return the calendar
      */
     public static Calendar dateBetween(final Calendar startDate, final Calendar endDate) {

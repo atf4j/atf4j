@@ -18,6 +18,7 @@
 package net.atf4j.core.model;
 
 import net.atf4j.core.Atf4jException;
+import net.atf4j.core.timers.MappedTimers;
 
 /**
  * TestStep.
@@ -39,6 +40,30 @@ public class TestStep extends AbstractTestBase {
      */
     @Override
     public AbstractTestBase execute(final TestContext context) throws Atf4jException {
+        return this;
+    }
+
+    /**
+     * Start test suite.
+     *
+     * @return the test case
+     */
+    public AbstractTestBase start() {
+        log.info("start test step {}", this.getName());
+        log.info("start timer {}", MappedTimers.start("TestStep"));
+        super.assumedPreConditions();
+        return this;
+    }
+
+    /**
+     * End test suite.
+     *
+     * @return the test case
+     */
+    public AbstractTestBase end() {
+        log.info("end timer {}", MappedTimers.stop("TestStep"));
+        log.info("end test step {}", this.getName());
+        super.assertPostConditions();
         return this;
     }
 

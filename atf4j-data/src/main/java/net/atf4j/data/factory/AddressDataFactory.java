@@ -83,7 +83,7 @@ public final class AddressDataFactory extends AbstractDataFactory {
     /**
      * Instantiates a new address data factory.
      */
-    protected AddressDataFactory() {
+    private AddressDataFactory() {
         super();
         initialise();
     }

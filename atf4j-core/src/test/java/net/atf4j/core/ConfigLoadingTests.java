@@ -22,6 +22,8 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
+
 /**
  * ConfigLoadingTests Class.
  */
@@ -38,7 +40,7 @@ public final class ConfigLoadingTests extends TestResultsReporting {
          * @throws ConfigurationNotLoadedException the configuration not loaded
          */
         public MissingProperties() throws ConfigurationNotLoadedException {
-            super();
+            super("Missing.properties");
         }
     }
 
@@ -68,13 +70,11 @@ public final class ConfigLoadingTests extends TestResultsReporting {
     /**
      * Test method for MissingProperties.
      *
-     * @throws Exception the exception
+     * @throws ConfigurationNotLoadedException
      */
-    @Test
-    public void testMissingConfig() throws Exception {
-        final ConfigurationInterface missingConfig = new MissingProperties();
-        log.debug("missingConfig = {}", missingConfig.toString());
-        assertNotNull(UNEXPECTED_NULL, missingConfig);
+    @Test(expected = ConfigurationNotLoadedException.class)
+    public void testMissingConfig() throws ConfigurationNotLoadedException {
+        new MissingProperties();
     }
 
     /**
@@ -83,7 +83,7 @@ public final class ConfigLoadingTests extends TestResultsReporting {
      * @throws Exception the exception
      */
     @Test
-    public void testConfigFromFile() throws Exception {
+    public void testConfigFromFile() throws ConfigurationNotLoadedException {
         final ConfigFromFile config = new ConfigFromFile();
         log.debug("config = {}", config.toString());
         assertNotNull(UNEXPECTED_NULL, config);
@@ -97,7 +97,7 @@ public final class ConfigLoadingTests extends TestResultsReporting {
      * @throws Exception the exception
      */
     @Test
-    public void testSystemOveridesConfig() throws Exception {
+    public void testSystemOveridesConfig() throws ConfigurationNotLoadedException {
         final ConfigFromFile config = new ConfigFromFile();
         log.debug("config = {}", config.toString());
         assertNotNull(UNEXPECTED_NULL, config);

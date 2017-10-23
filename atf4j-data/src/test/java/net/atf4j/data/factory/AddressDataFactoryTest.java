@@ -40,18 +40,6 @@ public final class AddressDataFactoryTest extends TestResultsReporting {
     }
 
     /**
-     * Test default constructor.
-     *
-     * @throws Exception the exception
-     */
-    @Test
-    public void testDefaultConstructor() throws Exception {
-        final AddressDataFactory addressFactory = new AddressDataFactory();
-        log.debug("new AddressDataFactory() = {}", addressFactory);
-        assertNotNull(UNEXPECTED_NULL, addressFactory);
-    }
-
-    /**
      * Test method get single INSTANCE of AddressDataFactory.
      */
     @Test

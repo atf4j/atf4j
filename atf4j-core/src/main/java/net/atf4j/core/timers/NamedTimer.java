@@ -24,7 +24,7 @@ import net.atf4j.core.Narrator;
 /**
  * A simple named Timer.
  */
-public class NamedMilliTimer implements TimerInterface {
+public class NamedTimer implements TimerInterface {
 
     /** The start time. */
     private long startTime = 0;
@@ -41,7 +41,7 @@ public class NamedMilliTimer implements TimerInterface {
     /**
      * Instantiates a new timer.
      */
-    public NamedMilliTimer() {
+    public NamedTimer() {
         super();
         this.timerName = UUID.randomUUID().toString();
     }
@@ -51,7 +51,7 @@ public class NamedMilliTimer implements TimerInterface {
      *
      * @param useName is a name for this Timer
      */
-    public NamedMilliTimer(final String useName) {
+    public NamedTimer(final String useName) {
         super();
         this.timerName = useName;
     }
@@ -62,7 +62,7 @@ public class NamedMilliTimer implements TimerInterface {
      * @see net.atf4j.core.timers.ITimer#start()
      */
     @Override
-    public final NamedMilliTimer start() {
+    public final NamedTimer start() {
         this.startTime = System.currentTimeMillis();
         return this;
     }
@@ -73,7 +73,7 @@ public class NamedMilliTimer implements TimerInterface {
      * @see net.atf4j.core.timers.ITimer#stop()
      */
     @Override
-    public final NamedMilliTimer stop() {
+    public final NamedTimer stop() {
         this.stopTime = System.currentTimeMillis();
         this.elapsedTime = this.stopTime - this.startTime;
         return this;

@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.core;
 
 import static net.atf4j.core.Atf4j.document;
@@ -28,7 +29,7 @@ import org.junit.Test;
 /**
  * A UnitTest for Atf4jSteps objects.
  */
-public class Atf4jStepsExample {
+public final class Atf4jStepsExample {
 
     private static final String UNEXPECTED_NULL = "unexpected null";
 
@@ -63,7 +64,7 @@ public class Atf4jStepsExample {
 
             start("step two");
             {
-                assertNotNull(UNEXPECTED_NULL,this);
+                assertNotNull(UNEXPECTED_NULL, this);
             }
             end();
         }

@@ -26,7 +26,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * IntervalTester Class.
  */
-public class IntervalTest extends TestResultsReporting {
+public final class IntervalTest extends TestResultsReporting {
 
     private static final long DEFAULT_INTERVAL = 1000L;
     private static final long DELTA = 0L;

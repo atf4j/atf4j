@@ -22,7 +22,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * Test Context.
  */
-public class TestContext extends TestResultsReporting {
+public final class TestContext extends TestResultsReporting {
 
     private String platform;
     private String context;

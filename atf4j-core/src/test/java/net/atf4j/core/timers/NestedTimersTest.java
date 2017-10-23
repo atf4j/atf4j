@@ -26,7 +26,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * A UnitTest for NestedTimers objects.
  */
-public class NestedTimersTest extends TestResultsReporting {
+public final class NestedTimersTest extends TestResultsReporting {
 
     private static final int DEFAULT_INTERVAL = 100;
 

@@ -39,23 +39,31 @@ public class TestContextTest extends TestResultsReporting {
     }
 
     /**
-     * Test method for TestContext.
+     * Unit Test Context.isLocal().
      */
     @Test
-    public void testIsSeleniumDefault() {
+    public void testisLocal() {
+        assumeFalse(TestContext.isLocal());
+    }
+
+    /**
+     * Test method for TestContext. Unit Test Context.isLocal().
+     */
+    @Test
+    public void testIsSeleniumGrid() {
         assumeFalse(TestContext.isGrid());
     }
 
     /**
-     * Test method for TestContext.
+     * Unit Test Context.isLocal(). Test method for TestContext.
      */
     @Test
-    public void testIsJenkinsDefault() {
+    public void testIsJenkins() {
         assumeFalse(TestContext.isJenkins());
     }
 
     /**
-     * Test method for TestContext.
+     * Unit Test Context.isLocal(). Test method for TestContext.
      */
     @Test
     public void testSetGetPlatform() {
@@ -64,7 +72,7 @@ public class TestContextTest extends TestResultsReporting {
     }
 
     /**
-     * Test method for TestContext.
+     * Unit Test Context.isLocal(). Test method for TestContext.
      */
     @Test
     public void testSetGetContext() {

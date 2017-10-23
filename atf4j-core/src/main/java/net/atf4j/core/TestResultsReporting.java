@@ -17,115 +17,32 @@
 
 package net.atf4j.core;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.After;
 import org.junit.BeforeClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * ResultsReporting Class.
+ * Results Reporting class.
  */
 public abstract class TestResultsReporting {
 
-    private static final String MESSAGE = "actual(%s) == expected(%s) - %s";
+    /** The Constant UNEXPECTED_NULL. */
     protected static final String UNEXPECTED_NULL = "Unexpected null.";
+
+    /** The Constant EXPECTED_EXCEPTION. */
     protected static final String EXPECTED_EXCEPTION = "Expected exception but did not happen.";
 
+    /** The log. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
-     * Result as string.
+     * Verify not null.
      *
-     * @param result the result
-     * @return the string
+     * @param object the object
      */
-    private static String resultString(final boolean result) {
-        return result ? "PASSED" : "FAILED";
-    }
-
-    /**
-     * Verify equals.
-     *
-     * @param expected the expected
-     * @param actual the actual
-     * @return the string
-     */
-    public static String verifyEquals(final byte expected, final byte actual) {
-        final boolean result = actual == expected;
-
-        final String resultString = resultString(result);
-        final String message = String.format(MESSAGE, actual, expected, resultString);
-        assertEquals(message, expected, actual);
-        return message;
-    }
-
-    /**
-     * Verify equals.
-     *
-     * @param expected the expected
-     * @param actual the actual
-     * @return the string
-     */
-    public static String verifyEquals(final char expected, final char actual) {
-        final boolean result = actual == expected;
-
-        final String resultString = resultString(result);
-        final String message = String.format(MESSAGE, actual, expected, resultString);
-        assertEquals(message, expected, actual);
-        return message;
-    }
-
-    /**
-     * Verify equals.
-     *
-     * @param expected the expected
-     * @param actual the actual
-     * @return the string
-     */
-    public static String verifyEquals(final int expected, final int actual) {
-        final boolean result = actual == expected;
-
-        final String resultString = resultString(result);
-        final String message = String.format(MESSAGE, actual, expected, resultString);
-        assertEquals(message, expected, actual);
-        return message;
-    }
-
-    /**
-     * Verify equals.
-     *
-     * @param expected the expected
-     * @param actual the actual
-     * @return the string
-     */
-    public static String verifyEquals(final long expected, final long actual) {
-        final boolean result = actual == expected;
-
-        final String resultString = resultString(result);
-        final String message = String.format(MESSAGE, actual, expected, resultString);
-        assertEquals(message, expected, actual);
-        return message;
-    }
-
-    /**
-     * Verify equals.
-     *
-     * @param expected the expected
-     * @param actual the actual
-     * @return the string
-     */
-    public static String verifyEquals(final Object expected, final Object actual) {
-        assertNotNull("Expected Value cannot be null", expected);
-        assertNotNull("Actual Value cannot be null", actual);
-        final boolean result = actual.equals(expected);
-
-        final String resultString = resultString(result);
-        final String message = String.format(MESSAGE, actual, expected, resultString);
-        assertEquals(message, expected, actual);
-        return message;
+    protected void verifyNotNull(Object object) {
+        Verify.verifyNotNull(object);
     }
 
     /**
@@ -149,8 +66,8 @@ public abstract class TestResultsReporting {
      */
     @BeforeClass
     public static void beforeClass() {
-        final String string = new String(new char[40]).replace("\0", "=");
-        LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME).trace(string);
+        final String ruleoff = fillString(40, '=');
+        LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME).trace(ruleoff);
     }
 
     /**
@@ -158,8 +75,35 @@ public abstract class TestResultsReporting {
      */
     @After
     public void after() {
-        final String string = new String(new char[40]).replace("\0", "-");
-        log.trace(string);
+        final String ruleoff = fillString(40, '-');
+        log.trace(ruleoff);
     }
 
+    /**
+     * Fill string.
+     *
+     * @param length the length
+     * @param chr the chr
+     * @return the string
+     */
+    protected static String fillString(final int length, final char chr) {
+        return fillString("", length, chr);
+    }
+
+    /**
+     * Fill string.
+     *
+     * @param stem the stem
+     * @param length the length
+     * @param chr the chr
+     * @return the string
+     */
+    protected static String fillString(final CharSequence stem, final int length, final char chr) {
+        final StringBuilder stringBuilder = new StringBuilder(length);
+        stringBuilder.append(stem);
+        while (stringBuilder.length() < length) {
+            stringBuilder.append(chr);
+        }
+        return stringBuilder.toString();
+    }
 }

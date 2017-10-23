@@ -18,17 +18,17 @@
 package net.atf4j.core;
 
 /**
- * Configuration Class.
+ * Globally accessible Configuration class, using static final instance.
  */
-public final class Config extends AbstractConfig {
+public final class GlobalConfig extends AbstractConfig {
 
-    private static Config INSTANCE = new Config();
+    private static final GlobalConfig GLOBAL_CONFIG = new GlobalConfig();
 
     /**
      * Instantiates a new configuration. Private default constructor prevents
      * wild instantiation.
      */
-    private Config() {
+    private GlobalConfig() {
         super();
     }
 
@@ -37,48 +37,59 @@ public final class Config extends AbstractConfig {
      *
      * @return single INSTANCE of configuration.
      */
-    public static Config getInstance() {
-        return INSTANCE;
+    public static GlobalConfig getInstance() {
+        return GLOBAL_CONFIG;
     }
 
     /**
-     * Value for key.
+     * A string value for key.
      *
-     * @param key the key
-     * @return the string
+     * @param key the key.
+     * @return the string value.
      */
     public static String valueFor(final String key) {
         return getInstance().get(key);
     }
 
     /**
-     * int value for.
+     * An int value for the key.
      *
-     * @param key the key
-     * @return the int
+     * @param key the key.
+     * @return the value as an int if found, otherwise 0.
      */
     public static int intValueFor(final String key) {
-        return getInstance().get(key, 1);
+        return getInstance().get(key, 0);
     }
 
     /**
-     * long value for.
+     * A long value for the key.
      *
-     * @param key the key
-     * @return the long
+     * @param key the key.
+     * @return the value as a long if found, otherwise 0L.
      */
     public static long longValueFor(final String key) {
-        return getInstance().get(key, 1);
+        return getInstance().get(key, 0L);
     }
 
     /**
-     * Boolean value for.
+     * A boolean value for the key (default to false).
      *
      * @param key the key
-     * @return true, if successful, otherwise false.
+     * @return the boolean value if found, otherwise false.
      */
     public static boolean booleanValueFor(final String key) {
         return getInstance().get(key, false);
+    }
+
+    /**
+     * A boolean value for the key, with default.
+     *
+     * @param key the key
+     * @param defaultValue the default value
+     * @return the boolean value if found, otherwise the default.
+     */
+    public static boolean booleanValueFor(final String key, boolean defaultValue) {
+        return getInstance().get(key, defaultValue);
     }
 
 }

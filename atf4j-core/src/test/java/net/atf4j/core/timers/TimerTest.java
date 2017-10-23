@@ -27,7 +27,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * Timer Test.
  */
-public class TimerTest extends TestResultsReporting {
+public final class TimerTest extends TestResultsReporting {
 
     private static final int DEFAULT_INTERVAL = 100;
     private final long delta = 1000;
@@ -37,7 +37,7 @@ public class TimerTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        final NamedMilliTimer timer = new NamedMilliTimer();
+        final NamedTimer timer = new NamedTimer();
         assertNotNull(UNEXPECTED_NULL, timer);
     }
 
@@ -46,7 +46,7 @@ public class TimerTest extends TestResultsReporting {
      */
     @Test
     public void testTimer() {
-        final TimerInterface timer = new NamedMilliTimer(this.getClass().getSimpleName());
+        final TimerInterface timer = new NamedTimer(this.getClass().getSimpleName());
         assertNotNull(timer);
         assertNotNull(timer.start());
         assertNotNull(timer.stop());
@@ -63,7 +63,7 @@ public class TimerTest extends TestResultsReporting {
      */
     @Test
     public void testTimerOneSec() {
-        final TimerInterface timer = new NamedMilliTimer(this.getClass().getSimpleName());
+        final TimerInterface timer = new NamedTimer(this.getClass().getSimpleName());
         assertNotNull(timer);
         assertNotNull(timer.start());
         waitDefaultInterval();

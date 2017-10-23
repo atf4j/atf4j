@@ -25,6 +25,7 @@ import java.util.ArrayDeque;
 import java.util.Collection;
 
 import net.atf4j.core.Atf4jException;
+import net.atf4j.core.timers.MappedTimers;
 
 /**
  * TestCase.
@@ -65,7 +66,7 @@ public class TestCase extends AbstractTestBase {
      * @throws Atf4jException the Atf4jException
      */
     public TestCase execute() throws Atf4jException {
-        return execute(this.testContext);
+        return execute(testContext);
     }
 
     /**
@@ -79,8 +80,8 @@ public class TestCase extends AbstractTestBase {
     @Override
     public TestCase execute(final TestContext context) throws Atf4jException {
         assumeNotNull(context);
-        assumeNotNull(this.testSteps);
-        for (final TestStep testStep : this.testSteps) {
+        assumeNotNull(testSteps);
+        for (final TestStep testStep : testSteps) {
             final AbstractTestBase execute = testStep.execute(context);
             assumeNotNull(execute);
             assertEquals(testStep, execute);
@@ -95,7 +96,7 @@ public class TestCase extends AbstractTestBase {
      * @see java.util.Collection#size()
      */
     public int numberOfTestSteps() {
-        return this.testSteps == null ? 0 : this.testSteps.size();
+        return testSteps == null ? 0 : testSteps.size();
     }
 
     /**
@@ -106,7 +107,7 @@ public class TestCase extends AbstractTestBase {
      * @see java.util.Collection#add(java.lang.Object)
      */
     public TestCase addTestStep(final TestStep newTestStep) {
-        final boolean result = this.testSteps.add(newTestStep);
+        final boolean result = testSteps.add(newTestStep);
         assumeTrue(result);
         return this;
     }
@@ -116,8 +117,9 @@ public class TestCase extends AbstractTestBase {
      *
      * @return the test case
      */
-    public TestCase startTestSuite() {
-        this.log.info("startTestSuite {}", this.getName());
+    public TestCase start() {
+        log.info("start test case {}", this.getName());
+        log.info("start timer {}", MappedTimers.start("TestCase"));
         super.assumedPreConditions();
         return this;
     }
@@ -127,8 +129,9 @@ public class TestCase extends AbstractTestBase {
      *
      * @return the test case
      */
-    public TestCase endTestSuite() {
-        this.log.info("startTestSuite {}", this.getName());
+    public TestCase end() {
+        log.info("end timer {}", MappedTimers.stop("TestCase"));
+        log.info("end test case {}", this.getName());
         super.assertPostConditions();
         return this;
     }

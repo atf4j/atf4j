@@ -33,10 +33,10 @@ public final class NestedTimers extends TestResultsReporting {
     private static final NestedTimers INSTANCE = new NestedTimers();
 
     /** A FIFO stack of running timers. */
-    private final Stack<NamedMilliTimer> runningTimers = new Stack<NamedMilliTimer>();
+    private final Stack<NamedTimer> runningTimers = new Stack<NamedTimer>();
 
     /** A FIFO stack of stopped timers. */
-    private final Stack<NamedMilliTimer> stoppedTimers = new Stack<NamedMilliTimer>();
+    private final Stack<NamedTimer> stoppedTimers = new Stack<NamedTimer>();
 
     /**
      * Instantiates a new nested timers collection.
@@ -71,7 +71,7 @@ public final class NestedTimers extends TestResultsReporting {
      * @return Timer.
      */
     public TimerInterface startTimer(final String timerName) {
-        final NamedMilliTimer timer = new NamedMilliTimer(timerName);
+        final NamedTimer timer = new NamedTimer(timerName);
         log.info(timer.toString());
         runningTimers.push(timer.start());
         return timer;
@@ -92,7 +92,7 @@ public final class NestedTimers extends TestResultsReporting {
      * @return Timer.
      */
     public TimerInterface stopTimer() {
-        final NamedMilliTimer timer = runningTimers.pop();
+        final NamedTimer timer = runningTimers.pop();
         stoppedTimers.push(timer.stop());
         return timer;
     }
@@ -112,7 +112,7 @@ public final class NestedTimers extends TestResultsReporting {
      * @return NestedTimers
      */
     public NestedTimers stopAllTimers() {
-        for (final NamedMilliTimer timer : runningTimers) {
+        for (final NamedTimer timer : runningTimers) {
             stoppedTimers.push(timer.stop());
         }
         return this;
@@ -124,7 +124,7 @@ public final class NestedTimers extends TestResultsReporting {
      * @return the enumeration
      * @see java.util.Vector#elements()
      */
-    public Enumeration<NamedMilliTimer> runningTimers() {
+    public Enumeration<NamedTimer> runningTimers() {
         return runningTimers.elements();
     }
 
@@ -134,7 +134,7 @@ public final class NestedTimers extends TestResultsReporting {
      * @return the enumeration
      * @see java.util.Vector#elements()
      */
-    public Enumeration<NamedMilliTimer> stoppedTimers() {
+    public Enumeration<NamedTimer> stoppedTimers() {
         return stoppedTimers.elements();
     }
 
@@ -145,7 +145,7 @@ public final class NestedTimers extends TestResultsReporting {
      */
     public String runningTimersAsString() {
         final StringBuffer stringBuffer = new StringBuffer();
-        final Enumeration<NamedMilliTimer> running = runningTimers.elements();
+        final Enumeration<NamedTimer> running = runningTimers.elements();
         while (running.hasMoreElements()) {
             final String string = String.format("\n", running.nextElement());
             stringBuffer.append(string);
@@ -160,7 +160,7 @@ public final class NestedTimers extends TestResultsReporting {
      */
     public String stoppedTimersAsString() {
         final StringBuffer stringBuffer = new StringBuffer();
-        final Enumeration<NamedMilliTimer> stopped = stoppedTimers.elements();
+        final Enumeration<NamedTimer> stopped = stoppedTimers.elements();
         while (stopped.hasMoreElements()) {
             stringBuffer.append(stopped.nextElement().toString() + "\n");
         }

@@ -17,6 +17,7 @@
 
 package net.atf4j.core;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
@@ -32,59 +33,9 @@ public final class ConfigTest extends TestResultsReporting {
      */
     @Test
     public void testGetInstance() {
-        final Config config = Config.getInstance();
+        final GlobalConfig config = GlobalConfig.getInstance();
         log.debug("Config.getInstance() = {}", config.toString());
         assertNotNull(UNEXPECTED_NULL, config);
-    }
-
-    /**
-     * Test string value for key.
-     */
-    @Test
-    public void testStringValueForKey() {
-        final String value = Config.valueFor("keyForString");
-        log.debug("Config.valueFor(keyForString) = {}", value);
-        assertNotNull(UNEXPECTED_NULL, value);
-    }
-
-    /**
-     * Test int value for key.
-     */
-    @Test
-    public void testIntValueForKey() {
-        final int value = Config.intValueFor("keyForInt");
-        log.debug("Config.valueFor(keyForInt) = {}", value);
-        assertNotNull(UNEXPECTED_NULL, value);
-    }
-
-    /**
-     * Test long value for key.
-     */
-    @Test
-    public void testLongValueForKey() {
-        final long value = Config.longValueFor("keyForLong");
-        log.debug("Config.valueFor(keyForLong) = {}", value);
-        assertNotNull(UNEXPECTED_NULL, value);
-    }
-
-    /**
-     * Test true value for key.
-     */
-    @Test
-    public void testTrueValueForKey() {
-        final boolean value = Config.booleanValueFor("keyForTrue");
-        log.debug("Config.valueFor(keyForTrue) = {}", value);
-        assertNotNull(UNEXPECTED_NULL, value);
-    }
-
-    /**
-     * Test false value for key.
-     */
-    @Test
-    public void testFalseValueForKey() {
-        final boolean value = Config.booleanValueFor("keyForFalse");
-        log.debug("Config.valueFor(keyForFalse) = {}", value);
-        assertNotNull(UNEXPECTED_NULL, value);
     }
 
     /**
@@ -92,9 +43,64 @@ public final class ConfigTest extends TestResultsReporting {
      */
     @Test
     public void testValueForMissingKey() {
-        final String value = Config.valueFor("missing");
+        final String value = GlobalConfig.valueFor("missing");
         log.debug("Config.valueFor(missing) = {}", value);
         assertNull(UNEXPECTED_NULL, value);
+    }
+
+    /**
+     * Test string value for key.
+     */
+    @Test
+    public void testStringValueForKey() {
+        final String value = GlobalConfig.valueFor("keyForString");
+        log.debug("Config.valueFor(keyForString) = {}", value);
+        assertNotNull(UNEXPECTED_NULL, value);
+        assertEquals("valueForString", value);
+    }
+
+    /**
+     * Test int value for key.
+     */
+    @Test
+    public void testIntValueForKey() {
+        final int value = GlobalConfig.intValueFor("keyForInt");
+        log.debug("Config.valueFor(keyForInt) = {}", value);
+        assertNotNull(UNEXPECTED_NULL, value);
+        assertEquals(1, value);
+    }
+
+    /**
+     * Test long value for key.
+     */
+    @Test
+    public void testLongValueForKey() {
+        final long value = GlobalConfig.longValueFor("keyForLong");
+        log.debug("Config.valueFor(keyForLong) = {}", value);
+        assertNotNull(UNEXPECTED_NULL, value);
+        assertEquals(1L, value);
+    }
+
+    /**
+     * Test true value for key.
+     */
+    @Test
+    public void testTrueValueForKey() {
+        final boolean value = GlobalConfig.booleanValueFor("keyForTrue");
+        log.debug("Config.valueFor(keyForTrue) = {}", value);
+        assertNotNull(UNEXPECTED_NULL, value);
+        assertEquals(true, value);
+    }
+
+    /**
+     * Test false value for key.
+     */
+    @Test
+    public void testFalseValueForKey() {
+        final boolean value = GlobalConfig.booleanValueFor("keyForFalse");
+        log.debug("Config.valueFor(keyForFalse) = {}", value);
+        assertNotNull(UNEXPECTED_NULL, value);
+        assertEquals(false, value);
     }
 
 }
