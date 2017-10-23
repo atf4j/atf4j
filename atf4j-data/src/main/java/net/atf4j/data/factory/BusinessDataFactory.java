@@ -17,8 +17,6 @@
 
 package net.atf4j.data.factory;
 
-import java.io.FileNotFoundException;
-
 import net.atf4j.data.Business;
 
 /**
@@ -26,13 +24,28 @@ import net.atf4j.data.Business;
  */
 public final class BusinessDataFactory extends AbstractDataFactory {
 
+    /** The Constant 			BUSINESS_DATA_TXT. */
+    private static final String BUSINESS_DATA_TXT = "businessData.txt";
+
+    /** The business data factory. */
     private static BusinessDataFactory businessDataFactory = null;
-    private String[] data;
 
     /**
-     * Instantiates a new business data factory.
+     * Gets the instance.
+     *
+     * @return the instance
      */
-    protected BusinessDataFactory() {
+    public static BusinessDataFactory getInstance() {
+        if (BusinessDataFactory.businessDataFactory == null) {
+            BusinessDataFactory.businessDataFactory = new BusinessDataFactory();
+        }
+        return BusinessDataFactory.businessDataFactory;
+    }
+
+    /**
+     * Private constructor prevents wild instantiation.
+     */
+    private BusinessDataFactory() {
         super();
         initialise();
     }
@@ -41,23 +54,7 @@ public final class BusinessDataFactory extends AbstractDataFactory {
      * Initialise.
      */
     protected void initialise() {
-        try {
-            data = load("data.txt");
-        } catch (final FileNotFoundException e) {
-            log.error(e.toString());
-        }
-    }
-
-    /**
-     * Gets the single INSTANCE of BusinessDataFactory.
-     *
-     * @return single INSTANCE of BusinessDataFactory
-     */
-    public static BusinessDataFactory getInstance() {
-        if (BusinessDataFactory.businessDataFactory == null) {
-            BusinessDataFactory.businessDataFactory = new BusinessDataFactory();
-        }
-        return BusinessDataFactory.businessDataFactory;
+        lines = load(BUSINESS_DATA_TXT);
     }
 
     /**

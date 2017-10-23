@@ -29,26 +29,22 @@ import net.atf4j.core.TestResultsReporting;
 public final class MockDataFactoryTest extends TestResultsReporting {
 
     /**
-     * Mock Test Data.
+     * Mock Data Factory.
      */
     public final class MockDataFactory extends AbstractDataFactory {
         /**
          * Instantiates a new test data.
-         *
-         * @throws Exception the exception
          */
-        public MockDataFactory() throws Exception {
+        public MockDataFactory() {
             super();
         }
     }
 
     /**
      * Test default constructor.
-     *
-     * @throws Exception the exception
      */
     @Test
-    public void testDefaultConstructor() throws Exception {
+    public void testDefaultConstructor() {
         final MockDataFactory testDataFactory = new MockDataFactory();
         log.debug("new MockDataFactory() = {}", testDataFactory);
         assertNotNull(UNEXPECTED_NULL, testDataFactory);
@@ -56,11 +52,9 @@ public final class MockDataFactoryTest extends TestResultsReporting {
 
     /**
      * Test static data for tag.
-     *
-     * @throws Exception the exception
      */
     @Test
-    public void testStaticDataForTag() throws Exception {
+    public void testStaticDataForTag() {
         final MockDataFactory testDataFactory = new MockDataFactory();
         log.debug("new MockDataFactory() = {}", testDataFactory);
         assertNotNull(UNEXPECTED_NULL, testDataFactory);

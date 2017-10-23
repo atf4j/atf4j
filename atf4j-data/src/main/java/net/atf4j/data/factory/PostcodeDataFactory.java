@@ -30,16 +30,14 @@ import net.atf4j.data.Text;
  */
 public final class PostcodeDataFactory extends TestResultsReporting {
 
+    /** The Constant 			POSTCODE_DATA_FACTORY. */
     private static final PostcodeDataFactory POSTCODE_DATA_FACTORY = new PostcodeDataFactory();
+    
+    /** The Constant 			POSTCODE_DATA. */
     private static final PostcodeData POSTCODE_DATA = PostcodeData.getInstance();
+    
+    /** The random. */
     protected static Random random = new Random(System.currentTimeMillis());
-
-    /**
-     * Instantiates a new postcode data factory.
-     */
-    private PostcodeDataFactory() {
-        super();
-    }
 
     /**
      * Gets the single instance of PostcodeDataFactory.
@@ -48,6 +46,13 @@ public final class PostcodeDataFactory extends TestResultsReporting {
      */
     public static PostcodeDataFactory getInstance() {
         return PostcodeDataFactory.POSTCODE_DATA_FACTORY;
+    }
+
+    /**
+     * Private constructor prevents wild instantiation.
+     */
+    private PostcodeDataFactory() {
+        super();
     }
 
     /**

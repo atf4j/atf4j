@@ -22,17 +22,17 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 /**
- * The Class MessageWalkerExample.
+ * Example class for walker folders looking for message files.
  */
 public class MessageWalkerExample {
 
     /**
-     * The Class MessageWalker.
+     * Message Walker class that knows the message files location.
      */
-    public class MessageWalker extends AbstractWalker {
+    public final class MessageWalker extends AbstractWalker {
 
         /**
-         * Instantiates a new message walker.
+         * Instantiates a new message walker with folder name.
          */
         private MessageWalker() {
             super("/messages");
@@ -41,14 +41,12 @@ public class MessageWalkerExample {
 
     /**
      * Test abstract walker.
-     *
-     * @throws Exception the exception
      */
     @Test
-    public void testAbstractWalker() throws Exception {
+    public void testAbstractWalker() {
         final MessageWalker exampleWalker = new MessageWalker();
-        assertNotNull("unexpected null", exampleWalker);
-        assertNotNull("unexpected null", exampleWalker.walk());
+        assertNotNull(exampleWalker);
+        exampleWalker.walk();
     }
 
 }

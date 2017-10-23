@@ -39,4 +39,24 @@ public final class BusinessDataFactoryTest extends TestResultsReporting {
         assertNotNull(UNEXPECTED_NULL, business);
     }
 
+    /**
+     * Test random.
+     */
+    @Test
+    public void testRandom() {
+        final Business business = BusinessDataFactory.random();
+        log.debug("BusinessDataFactory.random() = {}", business);
+        assertNotNull(UNEXPECTED_NULL, business);
+    }
+
+    /**
+     * Test get instance.
+     */
+    @Test
+    public void testGetInstance() {
+        final BusinessDataFactory businessDataFactory = BusinessDataFactory.getInstance();
+        log.debug("BusinessDataFactory.getInstance() = {}", businessDataFactory);
+        assertNotNull(UNEXPECTED_NULL, businessDataFactory);
+    }
+
 }

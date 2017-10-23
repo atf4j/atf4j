@@ -28,6 +28,7 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class PostalAddressTest extends TestResultsReporting {
 
+    /** The Constant 			ADDRESS. */
     private static final String ADDRESS = "LineOne,LineTwo,LineThree,LineFour,LineFive,LineSix,LineSeven,LineEight";
 
     /**

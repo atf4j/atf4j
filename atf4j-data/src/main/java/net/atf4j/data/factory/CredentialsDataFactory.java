@@ -17,35 +17,35 @@
 
 package net.atf4j.data.factory;
 
-import net.atf4j.data.Bank;
+import net.atf4j.data.Credentials;
 
 /**
- * BankAccountFactory.
+ * PersonFactory, a data factory to create data.
  */
-public final class BankDataFactory extends AbstractDataFactory {
+public final class CredentialsDataFactory extends AbstractDataFactory {
 
-    /** The Constant BANK_DATA_CSV. */
-    private static final String BANK_DATA_CSV = "sortcodesData.csv";
+    /** The Constant 			CREDENTIALS_TXT. */
+    private static final String CREDENTIALS_TXT = "credentials.txt";
 
-    /** The bank data factory. */
-    private static BankDataFactory bankDataFactory = null;
+    /** The credentials data factory. */
+    private static CredentialsDataFactory credentialsDataFactory = null;
 
     /**
      * Gets the instance.
      *
      * @return the instance
      */
-    public static BankDataFactory getInstance() {
-        if (BankDataFactory.bankDataFactory == null) {
-            BankDataFactory.bankDataFactory = new BankDataFactory();
+    protected static CredentialsDataFactory getInstance() {
+        if (CredentialsDataFactory.credentialsDataFactory == null) {
+            CredentialsDataFactory.credentialsDataFactory = new CredentialsDataFactory();
         }
-        return BankDataFactory.bankDataFactory;
+        return CredentialsDataFactory.credentialsDataFactory;
     }
 
     /**
      * Private constructor prevents wild instantiation.
      */
-    private BankDataFactory() {
+    private CredentialsDataFactory() {
         super();
         initialise();
     }
@@ -54,26 +54,26 @@ public final class BankDataFactory extends AbstractDataFactory {
      * Initialise.
      */
     protected void initialise() {
-        lines = load(BANK_DATA_CSV);
+        lines = load(CREDENTIALS_TXT);
     }
 
     /**
-     * Create new INSTANCE of create.
+     * Factory method to create new instance of CredentialsDataFactory.
      *
-     * @return the bank
+     * @return new instance of CredentialsDataFactory
      */
-    public static Bank create() {
-        return new Bank();
+    public static Credentials create() {
+        return new Credentials();
     }
 
     /**
      * Random.
      *
-     * @return the string
+     * @return the credentials
      */
-    public static Bank random() {
-        final Bank bank = new Bank();
-        return bank;
+    public static Credentials random() {
+        final Credentials credentials = new Credentials();
+        return credentials;
     }
 
 }

@@ -19,6 +19,7 @@ package net.atf4j.data.factory;
 
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
@@ -30,35 +31,23 @@ import net.atf4j.data.Person;
 public final class PersonDataFactoryTest extends TestResultsReporting {
 
     /**
-     * Test method for expected usage.
+     * Test create.
      */
     @Test
-    public void testExampleUsage() {
+    public void testCreate() {
         final Person person = PersonDataFactory.create();
+        log.debug("PersonDataFactory.create() = {}", person);
         assertNotNull(UNEXPECTED_NULL, person);
-
-        log.info("randomForename() = {}", PersonDataFactory.randomForename());
-        log.info("randomMaleForename() = {}", PersonDataFactory.randomMaleForename());
-        log.info("randomFemaleForename() = {}", PersonDataFactory.randomFemaleForename());
-
-        log.info("randomSurname() = {}", PersonDataFactory.randomSurname());
-        log.info("randomSurname() = {}", PersonDataFactory.randomSurname());
-
-        log.info("randomFullname() = {}", PersonDataFactory.randomFullname());
-        log.info("randomFullname() = {}", PersonDataFactory.randomFullname());
-
-        log.info("randomEmail() = {}", PersonDataFactory.randomEmail());
-        log.info("randomEmail() = {}", PersonDataFactory.randomEmail());
     }
 
     /**
-     * Test default constructor.
+     * Test random.
      */
     @Test
-    public void testDefaultConstructor() {
-        final PersonDataFactory personDataFactory = new PersonDataFactory();
-        log.debug("new PersonDataFactory() = {}", personDataFactory);
-        assertNotNull(UNEXPECTED_NULL, personDataFactory);
+    public void testRandom() {
+        final Person person = PersonDataFactory.random();
+        log.debug("PersonDataFactory.create() = {}", person);
+        assertNotNull(UNEXPECTED_NULL, person);
     }
 
     /**
@@ -73,13 +62,22 @@ public final class PersonDataFactoryTest extends TestResultsReporting {
     }
 
     /**
-     * Test method for void.
+     * Test example usage.
      */
+    @Ignore
     @Test
-    public void testCreate() {
-        final Person person = PersonDataFactory.create();
-        log.debug("PersonDataFactory.create() = {}", person);
-        assertNotNull(UNEXPECTED_NULL, person);
-    }
+    public void testExampleUsage() {
+        log.info("randomForename() = {}", PersonDataFactory.randomForename());
+        log.info("randomMaleForename() = {}", PersonDataFactory.randomMaleForename());
+        log.info("randomFemaleForename() = {}", PersonDataFactory.randomFemaleForename());
 
+        log.info("randomSurname() = {}", PersonDataFactory.randomSurname());
+        log.info("randomSurname() = {}", PersonDataFactory.randomSurname());
+
+        log.info("randomFullname() = {}", PersonDataFactory.randomFullname());
+        log.info("randomFullname() = {}", PersonDataFactory.randomFullname());
+
+        log.info("randomEmail() = {}", PersonDataFactory.randomEmail());
+        log.info("randomEmail() = {}", PersonDataFactory.randomEmail());
+    }
 }

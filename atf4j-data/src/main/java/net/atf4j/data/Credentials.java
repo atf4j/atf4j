@@ -24,8 +24,13 @@ import net.atf4j.core.TestResultsReporting;
  */
 public class Credentials extends TestResultsReporting {
 
+    /** The username. */
     private String username = "";
+    
+    /** The password. */
     private String password = "";
+    
+    /** The email. */
     private String email = "";
 
     /**

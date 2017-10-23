@@ -32,12 +32,25 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class CardTest extends TestResultsReporting {
 
+    /** The Constant 			INVALID_NUMBER. */
     private static final String INVALID_NUMBER = "1111-1111-1111-1111";
+    
+    /** The Constant 			AMEX_1. */
     private static final String AMEX_1 = "0000 1234 5678 9999";
+    
+    /** The Constant 			AMEX_INVALID. */
     private static final String AMEX_INVALID = "3714-4963-539-8431";
+    
+    /** The Constant 			MASTERCARD_1. */
     private static final String MASTERCARD_1 = "5500-0055-5555-5559";
+    
+    /** The Constant 			MASTERCARD_2. */
     private static final String MASTERCARD_2 = "5555 5555 5555 4444";
+    
+    /** The Constant 			VISA_CARD_1. */
     private static final String VISA_CARD_1 = "4444-4444-4444-4448";
+    
+    /** The Constant 			VISA_CARD_2. */
     private static final String VISA_CARD_2 = "4111 1111 1111 1111"; // 4012888888881881
 
     /**

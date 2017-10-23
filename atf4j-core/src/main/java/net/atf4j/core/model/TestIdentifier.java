@@ -32,6 +32,7 @@ public class TestIdentifier extends TestResultsReporting {
      * Instantiates a new test identifier.
      */
     public TestIdentifier() {
+        super();
         uuid = UUID.randomUUID();
     }
 

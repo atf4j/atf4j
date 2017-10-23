@@ -26,6 +26,7 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class Text extends TestResultsReporting {
 
+    /** The Constant 			RND. */
     private static final Random RND = new Random(System.currentTimeMillis());
 
     /**

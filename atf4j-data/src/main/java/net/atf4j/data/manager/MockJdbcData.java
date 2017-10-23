@@ -15,30 +15,48 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.data.management;
-
-import net.atf4j.core.TestResultsReporting;
+package net.atf4j.data.manager;
 
 /**
- * The DataManager Class.
+ * JdbcData Class.
  */
-public final class DataManager extends TestResultsReporting {
+public class MockJdbcData extends AbstractSetUpData {
 
     /**
-     * Instantiates a new data manager.
+     * Instantiates a new jdbc data.
      */
-    private DataManager() {
+    public MockJdbcData() {
         super();
     }
 
-    /**
-     * Data for tag.
+    /*
+     * (non-Javadoc)
      *
-     * @param tag the tag
-     * @return the object
+     * @see net.atf4j.data.SetUpData#setUp()
      */
-    public static String dataForTag(final String tag) {
-        return null;
+    @Override
+    public boolean setUp() {
+        return true;
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see net.atf4j.data.SetUpData#reset()
+     */
+    @Override
+    public boolean reset() {
+        return true;
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see net.atf4j.data.SetUpData#tearDown()
+     */
+    @Override
+    public boolean tearDown() {
+        return true;
     }
 
 }

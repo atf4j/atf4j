@@ -34,7 +34,10 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class Postcode extends TestResultsReporting {
 
+    /** The Constant 			POSTCODE. */
     private static final String POSTCODE = "XX99 9XX";
+    
+    /** The Constant 			GIRO_BANK. */
     private static final String GIRO_BANK = "GIR 0AA";
 
     // old format verification pattern.
@@ -43,11 +46,17 @@ public final class Postcode extends TestResultsReporting {
     /** format verification pattern. */
     private static final Pattern PATTERN = Pattern.compile(
             "^([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z])))) [0-9][A-Za-z]{2})$");
+    
+    /** The pass on blank. */
     private static boolean passOnBlank = true;
 
     /** The post code. */
     private String postCode = "";
+    
+    /** The outward code. */
     private String outwardCode = "";
+    
+    /** The inward code. */
     private String inwardCode = "";
 
     /**

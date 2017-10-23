@@ -22,6 +22,7 @@ package net.atf4j.data;
  */
 public abstract class Name extends Datum {
 
+    /** The name. */
     private String name = "";
 
     /**

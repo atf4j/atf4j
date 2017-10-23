@@ -27,12 +27,22 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class EmailAddress extends TestResultsReporting {
 
+    /** The Constant 			LOCAL_PART. */
     private static final Pattern LOCAL_PART = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*$");
+    
+    /** The Constant 			DOMAIN. */
     private static final Pattern DOMAIN = Pattern.compile("^@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+    
+    /** The Constant 			PATTERN. */
     private static final Pattern PATTERN = Pattern.compile(LOCAL_PART + "@" + DOMAIN);
 
+    /** The domain. */
     private String domain = "example.com";
+    
+    /** The local part. */
     private String localPart = "email";
+    
+    /** The email. */
     private String email = String.format("%s@%s", localPart, domain);
 
     /**

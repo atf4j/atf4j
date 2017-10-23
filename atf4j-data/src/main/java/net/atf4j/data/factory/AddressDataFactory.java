@@ -19,7 +19,6 @@ package net.atf4j.data.factory;
 
 import static org.junit.Assert.assertNotNull;
 
-import java.io.FileNotFoundException;
 import java.util.Arrays;
 
 import net.atf4j.data.PostalAddress;
@@ -30,13 +29,31 @@ import net.atf4j.data.Postcode;
  */
 public final class AddressDataFactory extends AbstractDataFactory {
 
-    private static final String FILE_NOT_FOUND_MSG = "Expected file '%s' not found.";
+    /** The Constant 			ADDRESS_LINE_STEMS_TXT. */
+    private static final String ADDRESS_LINE_STEMS_TXT = "addressLineStems.txt";
+    
+    /** The Constant 			ADDRESS_LINE_POSTFIX_TXT. */
+    private static final String ADDRESS_LINE_POSTFIX_TXT = "addressLinePostfix.txt";
+    
+    /** The Constant 			ADDRESS_STEMS_TXT. */
+    private static final String ADDRESS_STEMS_TXT = "addressStems.txt";
+    
+    /** The Constant 			ADDRESS_LOCALS_TXT. */
+    private static final String ADDRESS_LOCALS_TXT = "addressLocals.txt";
 
+    /** The address data factory. */
     private static AddressDataFactory addressDataFactory = null;
 
+    /** The address line stems. */
     private String[] addressLineStems;
+    
+    /** The address line postfix. */
     private String[] addressLinePostfix;
+    
+    /** The address locals. */
     private String[] addressLocals;
+    
+    /** The address stems. */
     private String[] addressStems;
 
     /**
@@ -49,6 +66,24 @@ public final class AddressDataFactory extends AbstractDataFactory {
             AddressDataFactory.addressDataFactory = new AddressDataFactory();
         }
         return AddressDataFactory.addressDataFactory;
+    }
+
+    /**
+     * Private constructor prevents wild instantiation.
+     */
+    private AddressDataFactory() {
+        super();
+        initialise();
+    }
+
+    /**
+     * Initialise.
+     */
+    protected void initialise() {
+        addressLineStems = load(ADDRESS_LINE_STEMS_TXT);
+        addressLinePostfix = load(ADDRESS_LINE_POSTFIX_TXT);
+        addressStems = load(ADDRESS_STEMS_TXT);
+        addressLocals = load(ADDRESS_LOCALS_TXT);
     }
 
     /**
@@ -78,48 +113,6 @@ public final class AddressDataFactory extends AbstractDataFactory {
      */
     public void toLog() {
         log.info(toString());
-    }
-
-    /**
-     * Instantiates a new address data factory.
-     */
-    private AddressDataFactory() {
-        super();
-        initialise();
-    }
-
-    /**
-     * Initialise.
-     */
-    protected void initialise() {
-        try {
-            addressLineStems = load("addressLineStems.txt");
-        } catch (final FileNotFoundException e) {
-            final String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
-            log.error(errorMessage);
-        }
-
-        try {
-            addressLinePostfix = load("addressLinePostfix.txt");
-        } catch (final FileNotFoundException e) {
-            final String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
-            log.error(errorMessage);
-        }
-
-        try {
-            addressStems = load("addressStems.txt");
-        } catch (final FileNotFoundException e) {
-            final String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
-            log.error(errorMessage);
-        }
-
-        try {
-            addressLocals = load("addressLocals.txt");
-        } catch (final FileNotFoundException e) {
-            final String errorMessage = String.format(FILE_NOT_FOUND_MSG, e.getLocalizedMessage());
-            log.error(errorMessage);
-        }
-
     }
 
     /**

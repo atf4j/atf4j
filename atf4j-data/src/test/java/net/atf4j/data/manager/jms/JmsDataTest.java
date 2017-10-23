@@ -15,7 +15,7 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.data.rest;
+package net.atf4j.data.manager.jms;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -23,21 +23,21 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.data.management.MockRestfulData;
+import net.atf4j.data.manager.MockJmsData;
 
 /**
- * A UnitTest for RestfulData objects.
+ * A UnitTest for JmsData objects.
  */
-public final class RestfulDataTest extends TestResultsReporting {
+public final class JmsDataTest extends TestResultsReporting {
 
     /**
      * Test default constructor.
      */
     @Test
     public void testDefaultConstructor() {
-        final MockRestfulData restfulData = new MockRestfulData();
-        log.debug("restfulData = {}", restfulData);
-        assertNotNull(UNEXPECTED_NULL, restfulData);
+        final MockJmsData jmsData = new MockJmsData();
+        log.debug("new JmsData() = {}", jmsData);
+        assertNotNull(UNEXPECTED_NULL, jmsData);
     }
 
     /**
@@ -45,10 +45,10 @@ public final class RestfulDataTest extends TestResultsReporting {
      */
     @Test
     public void testSetUp() {
-        final MockRestfulData restfulData = new MockRestfulData();
-        log.debug("restfulData = {}", restfulData);
-        assertNotNull(UNEXPECTED_NULL, restfulData);
-        assertTrue(restfulData.setUp());
+        final MockJmsData jmsData = new MockJmsData();
+        log.debug("new JmsData() = {}", jmsData);
+        assertNotNull(UNEXPECTED_NULL, jmsData);
+        assertTrue(jmsData.setUp());
     }
 
     /**
@@ -56,10 +56,10 @@ public final class RestfulDataTest extends TestResultsReporting {
      */
     @Test
     public void testReset() {
-        final MockRestfulData restfulData = new MockRestfulData();
-        log.debug("restfulData = {}", restfulData);
-        assertNotNull(UNEXPECTED_NULL, restfulData);
-        assertTrue(restfulData.reset());
+        final MockJmsData jmsData = new MockJmsData();
+        log.debug("new JmsData() = {}", jmsData);
+        assertNotNull(UNEXPECTED_NULL, jmsData);
+        assertTrue(jmsData.reset());
     }
 
     /**
@@ -67,10 +67,10 @@ public final class RestfulDataTest extends TestResultsReporting {
      */
     @Test
     public void testTearDown() {
-        final MockRestfulData restfulData = new MockRestfulData();
-        log.debug("restfulData = {}", restfulData);
-        assertNotNull(UNEXPECTED_NULL, restfulData);
-        assertTrue(restfulData.tearDown());
+        final MockJmsData jmsData = new MockJmsData();
+        log.debug("new JmsData() = {}", jmsData);
+        assertNotNull(UNEXPECTED_NULL, jmsData);
+        assertTrue(jmsData.tearDown());
     }
 
 }

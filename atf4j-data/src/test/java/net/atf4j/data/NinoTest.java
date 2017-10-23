@@ -32,8 +32,13 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class NinoTest extends TestResultsReporting {
 
+    /** The Constant 			BLANK. */
     private static final String BLANK = "";
+    
+    /** The Constant 			INVALID. */
     private static final String INVALID = "XX-99-99-99X";
+    
+    /** The Constant 			VALID. */
     private static final String VALID = "AA-99-99-99A";
 
     /**

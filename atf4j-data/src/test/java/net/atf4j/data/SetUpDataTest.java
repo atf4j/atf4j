@@ -21,18 +21,23 @@ import org.junit.Before;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.data.management.MockJdbcData;
-import net.atf4j.data.management.MockJmsData;
-import net.atf4j.data.management.MockRestfulData;
-import net.atf4j.data.management.AbstractSetUpData;
+import net.atf4j.data.manager.AbstractSetUpData;
+import net.atf4j.data.manager.MockJdbcData;
+import net.atf4j.data.manager.MockJmsData;
+import net.atf4j.data.manager.MockRestfulData;
 
 /**
  * A Unit test class for SetUpData objects.
  */
 public final class SetUpDataTest extends TestResultsReporting {
 
+    /** The jdbc data. */
     protected AbstractSetUpData jdbcData = new MockJdbcData();
+    
+    /** The jms data. */
     protected AbstractSetUpData jmsData = new MockJmsData();
+    
+    /** The restful data. */
     protected AbstractSetUpData restfulData = new MockRestfulData();
 
     /**

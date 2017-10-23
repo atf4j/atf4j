@@ -26,8 +26,13 @@ import net.atf4j.core.TestResultsReporting;
  */
 public class Product extends TestResultsReporting {
 
+    /** The id. */
     private String id = UUID.randomUUID().toString();
+    
+    /** The name. */
     private String name = "";
+    
+    /** The details. */
     private String details = "";
 
     /**

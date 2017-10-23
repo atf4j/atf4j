@@ -104,7 +104,7 @@ public final class Narrator {
                         final Object fieldType = field.get(object);
                         final String memberStr = String.format("%s = %s,", fieldName, fieldType);
                         stringBuilder.append(memberStr);
-                    } catch (final Exception e) {
+                    } catch (IllegalArgumentException | IllegalAccessException e) {
                         LOG.error(e.toString());
                     }
                 }

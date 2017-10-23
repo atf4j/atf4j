@@ -20,9 +20,7 @@ package net.atf4j.data.factory;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Random;
 
-import net.atf4j.core.TestResultsReporting;
 import net.atf4j.data.Bank;
 import net.atf4j.data.Business;
 import net.atf4j.data.Card;
@@ -30,24 +28,102 @@ import net.atf4j.data.Consumer;
 import net.atf4j.data.Customer;
 import net.atf4j.data.Person;
 import net.atf4j.data.PostalAddress;
+import net.atf4j.data.Postcode;
 
 /**
  * Factory for random data.
  */
-public final class DataFactory extends TestResultsReporting {
+public final class DataFactory extends AbstractDataFactory {
 
-    private static Random random = new Random(System.currentTimeMillis());
-
+    /** The Constant ISO_DATE_TIME. */
     public static final String ISO_DATE_TIME = "yyyy-MM-dd'T'HH:mm'Z'";
+
+    /** The Constant ISO_DATE. */
     public static final String ISO_DATE = "yyyy-MM-dd";
+
+    /** The Constant ISO_TIME. */
     public static final String ISO_TIME = "HH:mm'Z'";
+
+    /** The Constant UK_DATE. */
     public static final String UK_DATE = "dd:MM-yyyy";
 
     /**
-     * Instantiates a new data factory.
+     * Private constructor prevents wild instantiation.
      */
     private DataFactory() {
         super();
+    }
+
+    /**
+     * Create a new Data instances.
+     *
+     * @return the postal address
+     */
+    public static PostalAddress createAddress() {
+        return AddressDataFactory.create();
+    }
+
+    /**
+     * Create a new Data instances.
+     *
+     * @return the bank
+     */
+    public static Bank createBank() {
+        return BankDataFactory.create();
+    }
+
+    /**
+     * Create a new Data instances.
+     *
+     * @return the business
+     */
+    public static Business createBusiness() {
+        return BusinessDataFactory.create();
+    }
+
+    /**
+     * Create a new Data instances.
+     *
+     * @return the card
+     */
+    public static Card createCard() {
+        return CardDataFactory.create();
+    }
+
+    /**
+     * Create a new Data instances.
+     *
+     * @return the consumer
+     */
+    public static Consumer createConsumer() {
+        return ConsumerDataFactory.create();
+    }
+
+    /**
+     * Create a new Data instances.
+     *
+     * @return the customer
+     */
+    public static Customer createCustomer() {
+        return CustomerDataFactory.create();
+    }
+
+    /**
+     * Create a new Data instances.
+     *
+     * @return the person
+     */
+    public static Person createPerson() {
+        return PersonDataFactory.create();
+    }
+
+    /**
+     * Create a new Data instances.
+     *
+     * @return the postcode
+     */
+    public static Postcode createPostcode() {
+        return PostcodeDataFactory.create();
     }
 
     /**
@@ -223,69 +299,6 @@ public final class DataFactory extends TestResultsReporting {
      */
     public static String format(final Date date) {
         return new SimpleDateFormat(ISO_DATE_TIME).format(date);
-    }
-
-    /**
-     * Create a new INSTANCEs of Data.
-     *
-     * @return the person
-     */
-    public static Person createPerson() {
-        return PersonDataFactory.create();
-    }
-
-    /**
-     * Create a new INSTANCEs of Data.
-     *
-     * @return the consumer
-     */
-    public static Consumer createConsumer() {
-        return ConsumerDataFactory.create();
-    }
-
-    /**
-     * Create a new INSTANCEs of Data.
-     *
-     * @return the customer
-     */
-    public static Customer createCustomer() {
-        return CustomerDataFactory.create();
-    }
-
-    /**
-     * Create a new INSTANCEs of Data.
-     *
-     * @return the card
-     */
-    public static Card createCard() {
-        return CardDataFactory.create();
-    }
-
-    /**
-     * Create a new INSTANCEs of Data.
-     *
-     * @return the business
-     */
-    public static Business createBusiness() {
-        return BusinessDataFactory.create();
-    }
-
-    /**
-     * Create a new INSTANCEs of Data.
-     *
-     * @return the bank
-     */
-    public static Bank createBank() {
-        return BankDataFactory.create();
-    }
-
-    /**
-     * Create a new INSTANCEs of Data.
-     *
-     * @return the postal address
-     */
-    public static PostalAddress createAddress() {
-        return AddressDataFactory.create();
     }
 
 }

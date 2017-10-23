@@ -49,4 +49,14 @@ public final class CardDataFactoryTest extends TestResultsReporting {
         assertNotNull(UNEXPECTED_NULL, card);
     }
 
+    /**
+     * Test get instance.
+     */
+    @Test
+    public void testGetInstance() {
+        final CardDataFactory cardDataFactory = CardDataFactory.getInstance();
+        log.debug("CardDataFactory.getInstance() = {}", cardDataFactory);
+        assertNotNull(UNEXPECTED_NULL, cardDataFactory);
+    }
+
 }

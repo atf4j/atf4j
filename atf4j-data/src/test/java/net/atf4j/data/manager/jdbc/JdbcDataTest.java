@@ -15,53 +15,61 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.data.jms;
+package net.atf4j.data.manager.jdbc;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.data.management.MockJmsData;
+import net.atf4j.data.manager.MockJdbcData;
 
 /**
- * A UnitTest for JmsData objects.
+ * A UnitTest for JdbcData objects.
  */
-public final class JmsDataTest extends TestResultsReporting {
+public final class JdbcDataTest extends TestResultsReporting {
 
     /**
      * Test default constructor.
      */
     @Test
     public void testDefaultConstructor() {
-        final MockJmsData jmsData = new MockJmsData();
-        log.debug("new JmsData() = {}", jmsData);
-        assertNotNull(UNEXPECTED_NULL, jmsData);
+        final MockJdbcData jdbcData = new MockJdbcData();
+        log.debug("new JdbcData() = {}", jdbcData);
+        assertNotNull(UNEXPECTED_NULL, jdbcData);
     }
 
+    /**
+     * Test set up.
+     */
     @Test
     public void testSetUp() {
-        final MockJmsData jmsData = new MockJmsData();
-        log.debug("new JmsData() = {}", jmsData);
-        assertNotNull(UNEXPECTED_NULL, jmsData);
-        assertTrue(jmsData.setUp());
+        final MockJdbcData jdbcData = new MockJdbcData();
+        log.debug("new JdbcData() = {}", jdbcData);
+        assertNotNull(jdbcData);
+        assertNotNull(UNEXPECTED_NULL, jdbcData);
     }
 
+    /**
+     * Test reset.
+     */
     @Test
     public void testReset() {
-        final MockJmsData jmsData = new MockJmsData();
-        log.debug("new JmsData() = {}", jmsData);
-        assertNotNull(UNEXPECTED_NULL, jmsData);
-        assertTrue(jmsData.reset());
+        final MockJdbcData jdbcData = new MockJdbcData();
+        log.debug("new JdbcData() = {}", jdbcData);
+        assertNotNull(jdbcData);
+        assertNotNull(UNEXPECTED_NULL, jdbcData);
     }
 
+    /**
+     * Test tear down.
+     */
     @Test
     public void testTearDown() {
-        final MockJmsData jmsData = new MockJmsData();
-        log.debug("new JmsData() = {}", jmsData);
-        assertNotNull(UNEXPECTED_NULL, jmsData);
-        assertTrue(jmsData.tearDown());
+        final MockJdbcData jdbcData = new MockJdbcData();
+        log.debug("new JdbcData() = {}", jdbcData);
+        assertNotNull(jdbcData);
+        assertNotNull(UNEXPECTED_NULL, jdbcData);
     }
 
 }

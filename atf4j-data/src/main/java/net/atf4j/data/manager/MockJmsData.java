@@ -15,17 +15,17 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.data.management;
+package net.atf4j.data.manager;
 
 /**
- * JdbcData Class.
+ * JmsData Class.
  */
-public class MockJdbcData extends AbstractSetUpData {
+public class MockJmsData extends AbstractSetUpData {
 
     /**
-     * Instantiates a new jdbc data.
+     * Instantiates a new jms data.
      */
-    public MockJdbcData() {
+    public MockJmsData() {
         super();
     }
 

@@ -17,8 +17,6 @@
 
 package net.atf4j.data.factory;
 
-import java.io.FileNotFoundException;
-
 import net.atf4j.data.Customer;
 
 /**
@@ -26,13 +24,28 @@ import net.atf4j.data.Customer;
  */
 public final class CustomerDataFactory extends AbstractDataFactory {
 
+    /** The Constant 			CUSTOMER_DATA_TXT. */
+    private static final String CUSTOMER_DATA_TXT = "consumerData.txt";
+    
+    /** The customer data factory. */
     private static CustomerDataFactory customerDataFactory = null;
-    private String[] data;
 
     /**
-     * Instantiates a new customer data factory.
+     * Gets the instance.
+     *
+     * @return the instance
      */
-    protected CustomerDataFactory() {
+    public static CustomerDataFactory getInstance() {
+        if (CustomerDataFactory.customerDataFactory == null) {
+            CustomerDataFactory.customerDataFactory = new CustomerDataFactory();
+        }
+        return CustomerDataFactory.customerDataFactory;
+    }
+
+    /**
+     * Private constructor prevents wild instantiation.
+     */
+    private CustomerDataFactory() {
         super();
         initialise();
     }
@@ -41,23 +54,7 @@ public final class CustomerDataFactory extends AbstractDataFactory {
      * Initialise.
      */
     protected void initialise() {
-        try {
-            data = load("data.txt");
-        } catch (final FileNotFoundException e) {
-            log.error(e.toString());
-        }
-    }
-
-    /**
-     * Gets the single INSTANCE of CustomerDataFactory.
-     *
-     * @return single INSTANCE of CustomerDataFactory
-     */
-    public static CustomerDataFactory getInstance() {
-        if (CustomerDataFactory.customerDataFactory == null) {
-            CustomerDataFactory.customerDataFactory = new CustomerDataFactory();
-        }
-        return CustomerDataFactory.customerDataFactory;
+        lines = load(CUSTOMER_DATA_TXT);
     }
 
     /**

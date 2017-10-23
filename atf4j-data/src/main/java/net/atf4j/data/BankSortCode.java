@@ -30,9 +30,13 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class BankSortCode extends TestResultsReporting {
 
+    /** The Constant 			PATTERN. */
     private static final Pattern PATTERN = Pattern.compile("^(\\d){2}-(\\d){2}-(\\d){2}$");
 
+    /** The bank name. */
     private final String bankName = "";
+    
+    /** The sortcode. */
     private String sortcode = "00:00:00";
 
     /**

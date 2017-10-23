@@ -30,7 +30,7 @@ public final class Atf4j {
     private static final NestedTimers nestedTimers = NestedTimers.getInstance();
 
     /**
-     * Instantiates a new atf 4 j.
+     * Instantiates a new atf4j.
      */
     private Atf4j() {
         super();
@@ -75,31 +75,32 @@ public final class Atf4j {
      * @return the string
      */
     public static String document(final StackTraceElement[] stackTrace) {
+        final StringBuffer document = new StringBuffer();
         for (final StackTraceElement stackTraceElement : stackTrace) {
-            LOG.trace(stackTraceElement.toString());
             final String methodName = stackTraceElement.getMethodName();
-            LOG.debug(unrollName(methodName));
-            return methodName;
+            final String phrase = unroll(methodName);
+            document.append(phrase);
+            LOG.debug(phrase);
         }
-        return null;
+        return document.toString();
     }
 
-    private static String unrollName(final String input) {
-        final StringBuffer buffer = new StringBuffer(input.length() * 2);
+    private static String unroll(final String input) {
+        final StringBuffer phrase = new StringBuffer(input.length() * 2);
         if (input != null) {
             if (input.length() > 0) {
                 for (int i = 0; i < input.length(); i++) {
                     final char chr = input.charAt(i);
                     if (Character.isUpperCase(chr)) {
-                        buffer.append(' ');
-                        buffer.append(Character.toLowerCase(chr));
+                        phrase.append(' ');
+                        phrase.append(Character.toLowerCase(chr));
                     }
                 }
-                return buffer.toString();
+                return phrase.toString();
             }
         }
-        buffer.setCharAt(0, Character.toUpperCase(input.charAt(0)));
-        return buffer.toString();
+        phrase.setCharAt(0, Character.toUpperCase(input.charAt(0)));
+        return phrase.toString();
     }
 
 }
