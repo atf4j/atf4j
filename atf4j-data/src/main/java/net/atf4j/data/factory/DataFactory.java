@@ -17,7 +17,6 @@
 
 package net.atf4j.data.factory;
 
-import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -275,7 +274,6 @@ public final class DataFactory extends TestResultsReporting {
      * Create a new INSTANCEs of Data.
      *
      * @return the bank
-     * @throws FileNotFoundException the file not found exception
      */
     public static Bank createBank() {
         return BankDataFactory.create();

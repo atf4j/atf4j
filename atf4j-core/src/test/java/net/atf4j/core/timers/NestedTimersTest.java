@@ -88,12 +88,6 @@ public final class NestedTimersTest extends TestResultsReporting {
 
         log.debug("runningTimersAsString = {}", nestedTimers.runningTimersAsString());
 
-        log.debug("stopping : {}", nestedTimers.stopTimer());
-        log.debug("stopping : {}", nestedTimers.stopTimer());
-        log.debug("stopping : {}", nestedTimers.stopTimer());
-        log.debug("stopping : {}", nestedTimers.stopTimer());
-        log.debug("stopping : {}", nestedTimers.stopTimer());
-
         assertNotNull(NestedTimers.stopAll());
 
         log.debug("stoppedTimersAsString()\n" + nestedTimers.stoppedTimersAsString());

@@ -32,8 +32,7 @@ public abstract class AbstractAnnotatedTest extends TestResultsReporting {
     /**
      * Test tag.
      *
-     * @return the string
-     * @throws Exception the exception
+     * @return the test tag as a String object.
      */
     public String getTestTag() {
         return AnnotationHelper.getTestTag();
@@ -42,8 +41,7 @@ public abstract class AbstractAnnotatedTest extends TestResultsReporting {
     /**
      * Retrieve the Test Id from the annotation.
      *
-     * @return the test id as a String.
-     * @throws Exception the exception
+     * @return the test id as a String object.
      */
     public String getTestId() {
         return AnnotationHelper.getTestId();
