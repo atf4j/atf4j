@@ -36,8 +36,8 @@ public final class PageWebElementTest extends TestResultsReporting {
         pageWebElement.setName("className");
         pageWebElement.setStrategy(Strategy.CLASS_NAME);
         pageWebElement.setLocator("class-name");
-        log.info(pageWebElement.toString());
-        log.info(pageWebElement.toCode());
+        log.info("pageWebElement.toString() = {}", pageWebElement.toString());
+        log.info("pageWebElement.toCode() = {}", pageWebElement.toCode());
     }
 
     /**
@@ -46,8 +46,8 @@ public final class PageWebElementTest extends TestResultsReporting {
     @Test
     public void testClassNameStrategy() {
         final PageWebElement pageWebElement = new PageWebElement("className", Strategy.CLASS_NAME, "class-name");
-        log.info(pageWebElement.toString());
-        log.info(pageWebElement.toCode());
+        log.info("pageWebElement.toString() = {}", pageWebElement.toString());
+        log.info("pageWebElement.toCode() = {}", pageWebElement.toCode());
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
     }
 
@@ -57,8 +57,8 @@ public final class PageWebElementTest extends TestResultsReporting {
     @Test
     public void testLinkTextStrategy() {
         final PageWebElement pageWebElement = new PageWebElement("linkText", Strategy.LINK_TEXT, "link");
-        log.info(pageWebElement.toString());
-        log.info(pageWebElement.toCode());
+        log.info("pageWebElement.toString() = {}", pageWebElement.toString());
+        log.info("pageWebElement.toCode() = {}", pageWebElement.toCode());
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
     }
 
@@ -68,8 +68,8 @@ public final class PageWebElementTest extends TestResultsReporting {
     @Test
     public void testPartialLinkText() {
         final PageWebElement pageWebElement = new PageWebElement("partialLinkText", Strategy.PARTIAL_LINK_TEXT, "Link");
-        log.info(pageWebElement.toString());
-        log.info(pageWebElement.toCode());
+        log.info("pageWebElement.toString() = {}", pageWebElement.toString());
+        log.info("pageWebElement.toCode() = {}", pageWebElement.toCode());
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
     }
 
@@ -79,8 +79,8 @@ public final class PageWebElementTest extends TestResultsReporting {
     @Test
     public void testCssStrategy() {
         final PageWebElement pageWebElement = new PageWebElement("byCss", Strategy.CSS, "#");
-        log.info(pageWebElement.toString());
-        log.info(pageWebElement.toCode());
+        log.info("pageWebElement.toString() = {}", pageWebElement.toString());
+        log.info("pageWebElement.toCode() = {}", pageWebElement.toCode());
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
     }
 
@@ -90,8 +90,8 @@ public final class PageWebElementTest extends TestResultsReporting {
     @Test
     public void testXpathStrategy() {
         final PageWebElement pageWebElement = new PageWebElement("byXpath", Strategy.XPATH, "//A");
-        log.info(pageWebElement.toString());
-        log.info(pageWebElement.toCode());
+        log.info("pageWebElement.toString() = {}", pageWebElement.toString());
+        log.info("pageWebElement.toCode() = {}", pageWebElement.toCode());
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
     }
 
@@ -101,8 +101,8 @@ public final class PageWebElementTest extends TestResultsReporting {
     @Test
     public void testIdStrategy() {
         final PageWebElement pageWebElement = new PageWebElement("byId", Strategy.ID, "id");
-        log.info(pageWebElement.toString());
-        log.info(pageWebElement.toCode());
+        log.info("pageWebElement.toString() = {}", pageWebElement.toString());
+        log.info("pageWebElement.toCode() = {}", pageWebElement.toCode());
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
     }
 
@@ -112,8 +112,8 @@ public final class PageWebElementTest extends TestResultsReporting {
     @Test
     public void testNameStrategy() {
         final PageWebElement pageWebElement = new PageWebElement("byName", Strategy.NAME, "name");
-        log.info(pageWebElement.toString());
-        log.info(pageWebElement.toCode());
+        log.info("pageWebElement.toString() = {}", pageWebElement.toString());
+        log.info("pageWebElement.toCode() = {}", pageWebElement.toCode());
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
     }
 
@@ -123,8 +123,8 @@ public final class PageWebElementTest extends TestResultsReporting {
     @Test
     public void testPageWebElementStringStrategyString() {
         final PageWebElement pageWebElement = new PageWebElement("byName", Strategy.UNKNOWN, "name");
-        log.info(pageWebElement.toString());
-        log.info(pageWebElement.toCode());
+        log.info("pageWebElement.toString() = {}", pageWebElement.toString());
+        log.info("pageWebElement.toCode() = {}", pageWebElement.toCode());
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
     }
 

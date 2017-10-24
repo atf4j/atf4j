@@ -22,8 +22,6 @@ import java.io.StringWriter;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import net.atf4j.core.TestResultsReporting;
 
@@ -32,18 +30,32 @@ import net.atf4j.core.TestResultsReporting;
  */
 public abstract class AbstractTemplateEngine extends TestResultsReporting {
 
-    /** The template filename. */
-    protected String templateFilename = "template.vm";
-
-    /** The log. */
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+    /** Default template filename. */
+    protected String templateFilename = "templates/Class.vm";
 
     /**
-     * Execue.
-     *
-     * @return the template engine
+     * Instantiates a new abstract template engine.
      */
-    public AbstractTemplateEngine execue() {
+    public AbstractTemplateEngine() {
+        super();
+    }
+
+    /**
+     * Instantiates a new abstract template engine.
+     *
+     * @param templateFilename the template filename
+     */
+    public AbstractTemplateEngine(String templateFilename) {
+        super();
+        setTemplateFilename(templateFilename);
+    }
+
+    /**
+     * Execute.
+     *
+     * @return this for a fluent interface.
+     */
+    public AbstractTemplateEngine execute() {
         final VelocityEngine velocityEngine = new VelocityEngine();
         velocityEngine.init();
 
@@ -58,4 +70,23 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
 
         return this;
     }
+
+    /**
+     * Sets the template filename.
+     *
+     * @param templateFilename the new template filename
+     */
+    public void setTemplateFilename(String templateFilename) {
+        this.templateFilename = templateFilename;
+    }
+
+    /**
+     * Gets the template filename.
+     *
+     * @return the template filename
+     */
+    public String getTemplateFilename() {
+        return templateFilename;
+    }
+
 }

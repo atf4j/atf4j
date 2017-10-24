@@ -20,6 +20,8 @@ package net.atf4j.pog;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * PageObject data class. <code>
  * &#64;FindBy(id = "")
@@ -31,7 +33,7 @@ import java.util.List;
  * &#64;FindBy(css = "")
  * </code>
  */
-public class PageObjectData {
+public class PageObjectData extends TestResultsReporting {
 
     /** The page elements. */
     private final List<PageWebElement> pageElements = new ArrayList<PageWebElement>();

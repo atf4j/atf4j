@@ -26,14 +26,19 @@ import net.atf4j.core.TestResultsReporting;
 public class TemplateEngineTest extends TestResultsReporting {
 
     public class TemplateEngine extends AbstractTemplateEngine {
+
+        public Object toCode() {
+            // TODO Auto-generated method stub
+            return null;
+        }
     }
 
     @Test
     public void testExecue() {
         final TemplateEngine templateEngine = new TemplateEngine();
-        log.debug(templateEngine.toString());
+        log.debug("templateEngine.toString() = {}", templateEngine.toString());
+        log.debug("templateEngine.toCode() = {}", templateEngine.toCode());
         assertNotNull(UNEXPECTED_NULL, templateEngine);
-        assertNotNull(templateEngine.execue());
+        assertNotNull(templateEngine.execute());
     }
-
 }

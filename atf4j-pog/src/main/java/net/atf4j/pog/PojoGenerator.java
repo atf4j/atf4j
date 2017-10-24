@@ -41,7 +41,7 @@ public class PojoGenerator extends AbstractCodeGenerator {
      */
     public AbstractCodeGenerator addDateField(final String fieldName) {
         final ClassField classField = new ClassField(FieldType.DATE, fieldName);
-        this.fields.add(classField);
+        fields.add(classField);
         return this;
     }
 
@@ -53,7 +53,7 @@ public class PojoGenerator extends AbstractCodeGenerator {
      */
     public AbstractCodeGenerator addBooleanField(final String fieldName) {
         final ClassField classField = new ClassField(FieldType.BOOLEAN, fieldName);
-        this.fields.add(classField);
+        fields.add(classField);
         return this;
     }
 
@@ -65,7 +65,7 @@ public class PojoGenerator extends AbstractCodeGenerator {
      */
     public AbstractCodeGenerator addStringField(final String fieldName) {
         final ClassField classField = new ClassField(FieldType.STRING, fieldName);
-        this.fields.add(classField);
+        fields.add(classField);
         return this;
     }
 
@@ -78,7 +78,7 @@ public class PojoGenerator extends AbstractCodeGenerator {
      */
     public AbstractCodeGenerator addField(final FieldType fieldType, final String fieldName) {
         final ClassField classField = new ClassField(fieldType, fieldName);
-        this.fields.add(classField);
+        fields.add(classField);
         return this;
     }
 
@@ -91,8 +91,13 @@ public class PojoGenerator extends AbstractCodeGenerator {
      */
     public AbstractCodeGenerator addField(final String fieldType, final String fieldName) {
         final ClassField classField = new ClassField(fieldType, fieldName);
-        this.fields.add(classField);
+        fields.add(classField);
         return this;
+    }
+
+    public Object toCode() {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }

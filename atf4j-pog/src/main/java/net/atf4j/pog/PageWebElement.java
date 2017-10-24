@@ -26,9 +26,6 @@ public class PageWebElement extends ClassField {
 
     private static final String WEB_ELEMENT_TYPE = "WebElement";
 
-    /** The UNEXPECTED_NULL Constant. */
-    private static final String UNEXPECTED_NULL = "unexpected null";
-
     /**
      * The Strategy Enum.
      */
