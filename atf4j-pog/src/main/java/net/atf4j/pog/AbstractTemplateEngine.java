@@ -100,7 +100,7 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override

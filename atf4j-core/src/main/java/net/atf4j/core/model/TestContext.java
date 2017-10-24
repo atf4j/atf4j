@@ -28,18 +28,22 @@ public final class TestContext extends TestResultsReporting {
     private String context;
 
     /**
-     * Checks if is local.
+     * Checks if running on a local machine.
      *
-     * @return true, if is local
+     * -DisLocal=true
+     *
+     * @return true, if local, otherwise false.
      */
     public static boolean isLocal() {
         return Boolean.getBoolean("isLocal");
     }
 
     /**
-     * Checks if is selenium.
+     * Checks if selenium grid is available.
      *
-     * @return true, if is selenium
+     * -DisGrid=true
+     *
+     * @return true, if grid is available, otherwise false.
      */
     public static boolean isGrid() {
         return Boolean.getBoolean("isSelenium");
@@ -48,10 +52,23 @@ public final class TestContext extends TestResultsReporting {
     /**
      * Checks if is jenkins.
      *
-     * @return true, if is jenkins
+     * -DisJenkins=true
+     *
+     * @return true, if jenkins is available, otherwise false.
      */
     public static boolean isJenkins() {
         return Boolean.getBoolean("isJenkins");
+    }
+
+    /**
+     * Checks if a local server is available on http://127.0.0.1:8080/
+     *
+     * -DlocalServer=true
+     *
+     * @return true, if local server is available, otherwise false.
+     */
+    public static boolean localServer() {
+        return Boolean.getBoolean("localServer");
     }
 
     /**

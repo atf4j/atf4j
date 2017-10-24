@@ -28,7 +28,8 @@ public final class Situation extends TestResultsReporting {
      * Situation.
      */
     public Situation() {
-        this.log.info("{}", this.getClass().getSimpleName());
+        super();
+        log.info("{}", this.getClass().getSimpleName());
     }
 
     /**
@@ -37,7 +38,8 @@ public final class Situation extends TestResultsReporting {
      * @param given the given
      */
     public Situation(final Given given) {
-        this.log.info("{}.Situation({})", this.getClass().getSimpleName(), given);
+        super();
+        log.info("{}.Situation({})", this.getClass().getSimpleName(), given);
     }
 
 }

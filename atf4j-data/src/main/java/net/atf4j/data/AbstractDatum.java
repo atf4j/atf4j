@@ -22,7 +22,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * Datum for providing field status.
  */
-public abstract class Datum extends TestResultsReporting {
+public abstract class AbstractDatum extends TestResultsReporting {
 
     /** The is fresh. */
     private boolean isFresh = true;
@@ -42,7 +42,7 @@ public abstract class Datum extends TestResultsReporting {
      * @param isNew the is new
      * @return the datum
      */
-    protected Datum fresh(final boolean isNew) {
+    protected AbstractDatum fresh(final boolean isNew) {
         isChanged = !(isFresh = isNew);
         return this;
     }
@@ -53,7 +53,7 @@ public abstract class Datum extends TestResultsReporting {
      * @param isDirty the is dirty
      * @return the datum
      */
-    protected Datum changed(final boolean isDirty) {
+    protected AbstractDatum changed(final boolean isDirty) {
         isFresh = !(isChanged = isDirty);
         return this;
     }
@@ -64,7 +64,7 @@ public abstract class Datum extends TestResultsReporting {
      * @param isDeleted the is deleted
      * @return the datum
      */
-    protected Datum deleted(final boolean isDeleted) {
+    protected AbstractDatum deleted(final boolean isDeleted) {
         this.isDeleted = isDeleted;
         return this;
     }
@@ -75,7 +75,7 @@ public abstract class Datum extends TestResultsReporting {
      * @param isUsed the is used
      * @return the datum
      */
-    protected Datum used(final boolean isUsed) {
+    protected AbstractDatum used(final boolean isUsed) {
         this.isUsed = isUsed;
         return this;
     }
