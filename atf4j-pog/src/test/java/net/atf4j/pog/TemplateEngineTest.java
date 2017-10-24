@@ -17,24 +17,23 @@
 
 package net.atf4j.pog;
 
-import java.util.UUID;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
 
-/**
- * A UnitTest for Unit objects.
- */
-public final class UnitTest extends TestResultsReporting {
+public class TemplateEngineTest extends TestResultsReporting {
 
-    /**
-     * Test method for void.
-     */
-    @Test
-    public void testEntropy() {
-        for (int i = 0; i < 10; i++) {
-            log.info("UUID = {}", UUID.randomUUID().toString());
-        }
+    public class TemplateEngine extends AbstractTemplateEngine {
     }
+
+    @Test
+    public void testExecue() {
+        final TemplateEngine templateEngine = new TemplateEngine();
+        log.debug(templateEngine.toString());
+        assertNotNull(UNEXPECTED_NULL, templateEngine);
+        assertNotNull(templateEngine.execue());
+    }
+
 }

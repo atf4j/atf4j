@@ -1,5 +1,7 @@
 ## Class.vm
 // from main/resources/Class.vm
+// $timeStamp
+
 package $packageName;
 
 public class $className {

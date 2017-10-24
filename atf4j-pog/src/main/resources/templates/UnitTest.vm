@@ -1,5 +1,7 @@
 ## UnitTest.vm
 // from main/resources/UnitTest.vm
+// $timeStamp
+
 package $packageName;
 
 public class $className {

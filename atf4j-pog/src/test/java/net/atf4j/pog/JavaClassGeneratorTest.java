@@ -17,6 +17,10 @@
 
 package net.atf4j.pog;
 
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Test;
+
 import net.atf4j.core.TestResultsReporting;
 
 /**
@@ -45,5 +49,15 @@ public final class JavaClassGeneratorTest extends TestResultsReporting {
         public JavaClassGenerator(final String templateFilename) throws TemplateNotLoadedException {
             super(templateFilename);
         }
+    }
+
+    /**
+     * Test java class generator test.
+     */
+    @Test
+    public void testJavaClassGeneratorTest() {
+        final JavaClassGenerator javaClassGenerator = new JavaClassGenerator();
+        log.info(javaClassGenerator.toString());
+        assertNotNull(javaClassGenerator);
     }
 }

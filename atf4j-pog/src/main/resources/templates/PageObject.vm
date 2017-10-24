@@ -1,5 +1,7 @@
 ## PageObject.vm
 // generated from main/resources/PageObject.vm
+// $timeStamp
+
 package $packageName;
 
 import static org.junit.Assert.*;

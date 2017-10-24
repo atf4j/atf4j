@@ -18,7 +18,9 @@
 package net.atf4j.core;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -28,6 +30,8 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
  * Unit test class configuration with Defaults.
  */
 public final class ConfigWithDefaultTests extends TestResultsReporting {
+
+    private static final String MISSING_KEY = "missing";
 
     /**
      * A Mock Configuration with default values.
@@ -113,7 +117,7 @@ public final class ConfigWithDefaultTests extends TestResultsReporting {
     public void testDefaultString() throws ConfigurationNotLoadedException {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
         assertNotNull(UNEXPECTED_NULL, mockConfig);
-        assertEquals("DEFAULT_STRING", mockConfig.getFooAsString("missing"));
+        assertEquals("DEFAULT_STRING", mockConfig.getFooAsString(MISSING_KEY));
     }
 
     /**
@@ -125,8 +129,8 @@ public final class ConfigWithDefaultTests extends TestResultsReporting {
     public void testDefaultBoolean() throws ConfigurationNotLoadedException {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
         assertNotNull(UNEXPECTED_NULL, mockConfig);
-        assertEquals(true, mockConfig.getTrueAsBoolean("missing"));
-        assertEquals(false, mockConfig.getFalseAsBoolean("missing"));
+        assertTrue(mockConfig.getTrueAsBoolean(MISSING_KEY));
+        assertFalse(mockConfig.getFalseAsBoolean(MISSING_KEY));
     }
 
     /**
@@ -138,8 +142,8 @@ public final class ConfigWithDefaultTests extends TestResultsReporting {
     public void testDefaultInt() throws ConfigurationNotLoadedException {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
         assertNotNull(UNEXPECTED_NULL, mockConfig);
-        assertEquals(Integer.MAX_VALUE, mockConfig.getMax("missing"));
-        assertEquals(Integer.MIN_VALUE, mockConfig.getMin("missing"));
+        assertEquals(Integer.MAX_VALUE, mockConfig.getMax(MISSING_KEY));
+        assertEquals(Integer.MIN_VALUE, mockConfig.getMin(MISSING_KEY));
     }
 
 }

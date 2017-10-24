@@ -17,6 +17,8 @@
 
 package net.atf4j.pog;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
@@ -36,6 +38,8 @@ public final class JsonToPojoTest extends TestResultsReporting {
         final String prettyJson = jsonToPojo.toJson(compactJson);
         log.info("compactJson={}\n", compactJson);
         log.info("prettyJson={}\n", prettyJson);
+        assertNotNull(compactJson);
+        assertNotNull(prettyJson);
     }
 
 }
