@@ -19,15 +19,14 @@ package net.atf4j.pog;
 
 import java.util.UUID;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A Class to represent a field of the class to be Generated.
  */
-public class ClassField {
+public class ClassField extends TestResultsReporting {
 
-    /** The Constant FIELD_CODE. */
+    /** Code Template for a field. */
     private static final String FIELD_CODE = "%s %s %s;";
 
     /** The access. */
@@ -38,9 +37,6 @@ public class ClassField {
 
     /** The name. */
     private String name;
-
-    /** The log. */
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * The FieldType Enum.

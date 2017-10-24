@@ -28,14 +28,13 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class ClassMethodTest extends TestResultsReporting {
 
-    /**
-     * Test method for void.
-     */
     @Test
-    public void testDefaultConstructor() {
-        final ClassMethod classMethod = new ClassMethod();
-        log.info(classMethod.toString());
-        assertNotNull(UNEXPECTED_NULL, classMethod);
+    public void testExpected() {
+        log.debug(new ClassField("Boolean", "getBoolean").toCode());
+        log.debug(new ClassField("Date", "getDate").toCode());
+        log.debug(new ClassField("Number", "getNumber").toCode());
+        log.debug(new ClassField("String", "getString()").toCode());
+        log.debug(new ClassField("Value", "getValue").toCode());
     }
 
     /**
@@ -44,7 +43,7 @@ public final class ClassMethodTest extends TestResultsReporting {
     @Test
     public void testClassMethod() {
         final ClassMethod classMethod = new ClassMethod();
-        log.info(classMethod.toString());
+        log.debug("new ClassMethod() = {}", classMethod.toString());
         assertNotNull(UNEXPECTED_NULL, classMethod);
     }
 
@@ -54,7 +53,7 @@ public final class ClassMethodTest extends TestResultsReporting {
     @Test
     public void testClassMethodString() {
         final ClassMethod classMethod = new ClassMethod("String", "method");
-        log.info(classMethod.toString());
+        log.debug("new ClassMethod('String', 'method') = {}", classMethod.toString());
         assertNotNull(UNEXPECTED_NULL, classMethod);
     }
 
@@ -64,7 +63,7 @@ public final class ClassMethodTest extends TestResultsReporting {
     @Test
     public void testClassMethodDate() {
         final ClassMethod classMethod = new ClassMethod("Date", "date");
-        log.info(classMethod.toString());
+        log.debug("new ClassMethod('Date', 'date') = {}", classMethod.toString());
         assertNotNull(UNEXPECTED_NULL, classMethod);
     }
 

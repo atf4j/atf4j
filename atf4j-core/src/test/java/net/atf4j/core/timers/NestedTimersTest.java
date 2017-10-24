@@ -90,7 +90,7 @@ public final class NestedTimersTest extends TestResultsReporting {
 
         assertNotNull(NestedTimers.stopAll());
 
-        log.debug("stoppedTimersAsString()\n" + nestedTimers.stoppedTimersAsString());
+        log.debug("stoppedTimersAsString() = {}", nestedTimers.stoppedTimersAsString());
     }
 
     /**

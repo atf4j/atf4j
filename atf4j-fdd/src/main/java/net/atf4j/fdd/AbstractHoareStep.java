@@ -39,7 +39,8 @@ public abstract class AbstractHoareStep
      * @param stepName the string
      */
     public AbstractHoareStep(final String stepName) {
-        this.log.debug("AbstractHoareStep({})", stepName);
+        super();
+        log.debug("AbstractHoareStep({})", stepName);
         this.stepName = stepName;
     }
 
@@ -49,8 +50,8 @@ public abstract class AbstractHoareStep
      * @return the properties
      */
     public Properties execute() {
-        this.log.debug("AbstractHoareStep({})", this.stepName);
-        return this.properties;
+        log.debug("AbstractHoareStep({})", stepName);
+        return properties;
     }
 
     /*
@@ -60,7 +61,7 @@ public abstract class AbstractHoareStep
      */
     @Override
     public Properties execute(final Properties properties) {
-        this.log.debug("AbstractHoareStep({}", this.stepName);
+        log.debug("AbstractHoareStep({}", stepName);
         this.properties = properties;
         return properties;
     }

@@ -17,12 +17,16 @@
 
 package net.atf4j.webdriver;
 
+import static org.junit.Assume.assumeTrue;
+
 import org.junit.Ignore;
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.core.model.TestContext;
 
 /**
  * Smoke Tests for WebDriver.
@@ -35,10 +39,15 @@ public final class WebDriverSmokeTest extends TestResultsReporting {
      */
     @Test
     public void testChromeTomcat() {
+        assumeTrue(TestContext.isLocal());
         System.setProperty("webdriver.chrome.driver", "");
-        final ChromeDriver chromeDriver = new ChromeDriver();
-        chromeDriver.get("http://127.0.0.1:8080/");
-        final String pageTitle = chromeDriver.getTitle();
+        final WebDriver webDriver = new ChromeDriver();
+        verifyNotNull(webDriver);
+
+        assumeTrue(TestContext.localServer());
+        webDriver.get("http://127.0.0.1:8080/");
+        final String pageTitle = webDriver.getTitle();
+        verifyNotNull(webDriver);
         log.info("pageTitle={}", pageTitle);
     }
 
@@ -47,9 +56,13 @@ public final class WebDriverSmokeTest extends TestResultsReporting {
      */
     @Test
     public void testFirefoxTomcat() {
-        final FirefoxDriver firefoxDriver = new FirefoxDriver();
-        firefoxDriver.get("http://127.0.0.1:8080/");
-        final String pageTitle = firefoxDriver.getTitle();
+        assumeTrue(TestContext.isLocal());
+        final WebDriver webDriver = new FirefoxDriver();
+        verifyNotNull(webDriver);
+
+        assumeTrue(TestContext.localServer());
+        webDriver.get("http://127.0.0.1:8080/");
+        final String pageTitle = webDriver.getTitle();
         log.info("pageTitle={}", pageTitle);
     }
 

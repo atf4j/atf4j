@@ -27,21 +27,28 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class TestResultsReporting {
 
-    /** The Constant UNEXPECTED_NULL. */
+    /** Unexpected null message. */
     protected static final String UNEXPECTED_NULL = "Unexpected null.";
 
-    /** The Constant EXPECTED_EXCEPTION. */
-    protected static final String EXPECTED_EXCEPTION = "Expected exception but did not happen.";
+    /** Expected exception message. */
+    protected static final String EXPECTED_EXCEPTION = "Expected exception but did not occur.";
 
-    /** The log. */
+    /** logging */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
-     * Verify not null.
+     * Instantiates a new test results reporting.
+     */
+    protected TestResultsReporting() {
+        super();
+    }
+
+    /**
+     * Verify object is not null.
      *
      * @param object the object
      */
-    protected void verifyNotNull(Object object) {
+    protected void verifyNotNull(final Object object) {
         Verify.verifyNotNull(object);
     }
 
@@ -106,4 +113,5 @@ public abstract class TestResultsReporting {
         }
         return stringBuilder.toString();
     }
+
 }

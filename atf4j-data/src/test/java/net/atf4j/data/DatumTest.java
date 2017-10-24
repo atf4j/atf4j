@@ -34,7 +34,7 @@ public final class DatumTest extends TestResultsReporting {
     /**
      * The MockDatum Class.
      */
-    class MockDatum extends Datum {
+    class MockDatum extends AbstractDatum {
     }
 
     /**

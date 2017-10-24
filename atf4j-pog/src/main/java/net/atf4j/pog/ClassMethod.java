@@ -21,13 +21,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A Class to represent a method of the class to be Generated.
  */
-public final class ClassMethod {
+public final class ClassMethod extends TestResultsReporting {
 
     /** Template for code for method. */
     private static final String METHOD_CODE = "public %s %s() { return new %s(); }";
@@ -43,9 +42,6 @@ public final class ClassMethod {
 
     /** The parameters. */
     private final List<ClassField> parameters = new ArrayList<ClassField>();
-
-    /** The log. */
-    private final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Instantiates a new class method.

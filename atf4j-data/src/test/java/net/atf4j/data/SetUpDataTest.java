@@ -32,22 +32,22 @@ import net.atf4j.data.manager.MockRestfulData;
 public final class SetUpDataTest extends TestResultsReporting {
 
     /** The jdbc data. */
-    protected AbstractSetUpData jdbcData = new MockJdbcData();
-    
+    private final AbstractSetUpData jdbcData = new MockJdbcData();
+
     /** The jms data. */
-    protected AbstractSetUpData jmsData = new MockJmsData();
-    
+    private final AbstractSetUpData jmsData = new MockJmsData();
+
     /** The restful data. */
-    protected AbstractSetUpData restfulData = new MockRestfulData();
+    private final AbstractSetUpData restfulData = new MockRestfulData();
 
     /**
      * Before.
      */
     @Before
     public void before() {
-        assertTrue(this.jdbcData.setUp());
-        assertTrue(this.jmsData.setUp());
-        assertTrue(this.restfulData.setUp());
+        assertTrue(jdbcData.setUp());
+        assertTrue(jmsData.setUp());
+        assertTrue(restfulData.setUp());
     }
 
     /**
@@ -56,9 +56,9 @@ public final class SetUpDataTest extends TestResultsReporting {
     @Override
     @After
     public void after() {
-        assertTrue(this.jdbcData.tearDown());
-        assertTrue(this.jmsData.tearDown());
-        assertTrue(this.restfulData.tearDown());
+        assertTrue(jdbcData.tearDown());
+        assertTrue(jmsData.tearDown());
+        assertTrue(restfulData.tearDown());
     }
 
     /**
@@ -66,9 +66,9 @@ public final class SetUpDataTest extends TestResultsReporting {
      */
     @Test
     public void test() {
-        assertTrue(this.jdbcData.reset());
-        assertTrue(this.jmsData.reset());
-        assertTrue(this.restfulData.reset());
+        assertTrue(jdbcData.reset());
+        assertTrue(jmsData.reset());
+        assertTrue(restfulData.reset());
     }
 
 }

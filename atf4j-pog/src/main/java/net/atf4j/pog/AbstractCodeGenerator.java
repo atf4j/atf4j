@@ -34,8 +34,6 @@ import java.util.List;
 
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import net.atf4j.core.Atf4jException;
 import net.atf4j.core.TestResultsReporting;
@@ -45,14 +43,17 @@ import net.atf4j.core.TestResultsReporting;
  */
 public abstract class AbstractCodeGenerator extends TestResultsReporting {
 
-    /** The Constant TARGET_FOLDER. */
-    private static final String TARGET_FOLDER = "src/generated/java";
+    /** Default template folder. */
+    private static final String DEFAULT_CLASS_TEMPLATE = "templates/Class.vm";
 
-    /** The Constant CLASS_TEMPLATE. */
-    private static final String CLASS_TEMPLATE = "/templates/Class.vm";
+    /** Default package name-space. */
+    private static final String DEFAULT_PACKAGE_NAME = "net.atf4j.generated";
 
-    /** The Constant UNEXPECTED_NULL. */
-    protected static final String UNEXPECTED_NULL = "unexpected null";
+    /** Default class name. */
+    private static final String DEFAULT_CLASS_NAME = "ExampleClass";
+
+    /** Default target folder. */
+    private static final String DEFAULT_TARGET_FOLDER = "src/generated/java";
 
     /** The velocity engine. */
     private final VelocityEngine velocityEngine = new VelocityEngine();
@@ -66,20 +67,17 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
     /** The methods. */
     protected final List<ClassMethod> methods = new ArrayList<ClassMethod>();
 
-    /** The log. */
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
-
     /** The template filename. */
-    private String templateFilename = CLASS_TEMPLATE;
+    private String templateFilename = DEFAULT_CLASS_TEMPLATE;
 
     /** The package name. */
-    private String packageName = "net.atf4j.generated";
+    private String packageName = DEFAULT_PACKAGE_NAME;
 
     /** The class name. */
-    private String className = "ExampleClass";
+    private String className = DEFAULT_CLASS_NAME;
 
     /** The target home folder. */
-    private final String targetHomeFolder = TARGET_FOLDER;
+    private String targetHomeFolder = DEFAULT_TARGET_FOLDER;
 
     /**
      * Instantiates a new code generator.
@@ -97,7 +95,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      */
     public AbstractCodeGenerator(final String templateFilename) throws TemplateNotLoadedException {
         super();
-        setTemplate(templateFilename);
+        setTemplateFilename(templateFilename);
         initialise();
     }
 
@@ -131,7 +129,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * @return the code generator
      * @throws TemplateNotLoadedException the template not loaded
      */
-    public AbstractCodeGenerator setTemplate(final String templateFilename) throws TemplateNotLoadedException {
+    public AbstractCodeGenerator setTemplateFilename(final String templateFilename) throws TemplateNotLoadedException {
         this.templateFilename = templateFilename;
         return this;
     }
@@ -155,6 +153,17 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      */
     public AbstractCodeGenerator setClassName(final String className) {
         this.className = classCase(className);
+        return this;
+    }
+
+    /**
+     * Sets the target home folder.
+     *
+     * @param targetHomeFolder the target home folder
+     * @return the abstract code generator
+     */
+    public AbstractCodeGenerator setTargetHomeFolder(String targetHomeFolder) {
+        this.targetHomeFolder = targetHomeFolder;
         return this;
     }
 

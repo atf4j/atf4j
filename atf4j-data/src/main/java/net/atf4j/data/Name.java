@@ -20,7 +20,7 @@ package net.atf4j.data;
 /**
  * Name for Entity.
  */
-public abstract class Name extends Datum {
+public abstract class Name extends AbstractDatum {
 
     /** The name. */
     private String name = "";

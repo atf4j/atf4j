@@ -31,6 +31,7 @@ import org.junit.Test;
  */
 public final class Atf4jStepsExample {
 
+    /** The Constant 			UNEXPECTED_NULL. */
     private static final String UNEXPECTED_NULL = "unexpected null";
 
     /**
