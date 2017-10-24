@@ -48,6 +48,8 @@ public final class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final ClassField classField = new ClassField();
+        log.debug("new ClassMethod() = {}", classField.toString());
+        log.info(classField.toCode());
         assertNotNull(UNEXPECTED_NULL, classField);
     }
 
@@ -57,7 +59,7 @@ public final class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testClassField() {
         final ClassField classField = new ClassField();
-        log.info(classField.toString());
+        log.debug("new ClassMethod() = {}", classField.toString());
         log.info(classField.toCode());
         assertNotNull(UNEXPECTED_NULL, classField);
     }
@@ -68,11 +70,13 @@ public final class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testBooleanField() {
         final ClassField classField = new ClassField(FieldType.BOOLEAN, "bool");
+        log.debug("new ClassMethod() = {}", classField.toString());
         log.info(classField.toCode());
         assertNotNull(UNEXPECTED_NULL, classField);
 
         final ClassField booleanField = new ClassField("Boolean", "bool");
-        log.info(booleanField.toString());
+        log.debug("new ClassMethod() = {}", classField.toString());
+        log.info(classField.toCode());
         assertNotNull(UNEXPECTED_NULL, booleanField);
     }
 
@@ -82,11 +86,13 @@ public final class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testDateField() {
         final ClassField classField = new ClassField(FieldType.DATE, "date");
+        log.debug("new ClassMethod() = {}", classField.toString());
         log.info(classField.toCode());
         assertNotNull(UNEXPECTED_NULL, classField);
 
         final ClassField dateField = new ClassField("Date", "date");
-        log.info(dateField.toString());
+        log.debug("new ClassMethod() = {}", classField.toString());
+        log.info(classField.toCode());
         assertNotNull(UNEXPECTED_NULL, dateField);
     }
 
@@ -96,11 +102,13 @@ public final class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testNumberField() {
         final ClassField classField = new ClassField(FieldType.NUMBER, "number");
+        log.debug("new ClassMethod() = {}", classField.toString());
         log.info(classField.toCode());
         assertNotNull(UNEXPECTED_NULL, classField);
 
         final ClassField numberField = new ClassField("Number", "number");
-        log.info(classField.toString());
+        log.debug("new ClassMethod() = {}", classField.toString());
+        log.info(classField.toCode());
         assertNotNull(UNEXPECTED_NULL, numberField);
     }
 
@@ -110,11 +118,13 @@ public final class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testStringField() {
         final ClassField classField = new ClassField(FieldType.STRING, "string");
+        log.debug("new ClassMethod() = {}", classField.toString());
         log.info(classField.toCode());
         assertNotNull(UNEXPECTED_NULL, classField);
 
         final ClassField stringField = new ClassField("String", "string");
-        log.info(stringField.toString());
+        log.debug("new ClassMethod() = {}", classField.toString());
+        log.info(classField.toCode());
         assertNotNull(UNEXPECTED_NULL, stringField);
     }
 
@@ -124,11 +134,13 @@ public final class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testValueField() {
         final ClassField classField = new ClassField(FieldType.VALUE, "value");
+        log.debug("new ClassMethod() = {}", classField.toString());
         log.info(classField.toCode());
         assertNotNull(UNEXPECTED_NULL, classField);
 
         final ClassField stringField = new ClassField("Object", "value");
-        log.info(stringField.toString());
+        log.debug("new ClassMethod() = {}", classField.toString());
+        log.info(classField.toCode());
         assertNotNull(UNEXPECTED_NULL, stringField);
     }
 
@@ -138,11 +150,13 @@ public final class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testObject() {
         final ClassField classField = new ClassField(FieldType.OBJECT, "object");
+        log.debug("new ClassMethod() = {}", classField.toString());
         log.info(classField.toCode());
         assertNotNull(UNEXPECTED_NULL, classField);
 
         final ClassField stringField = new ClassField("Object", "object");
-        log.info(stringField.toString());
+        log.debug("new ClassMethod() = {}", classField.toString());
+        log.info(classField.toCode());
         assertNotNull(UNEXPECTED_NULL, stringField);
     }
 
