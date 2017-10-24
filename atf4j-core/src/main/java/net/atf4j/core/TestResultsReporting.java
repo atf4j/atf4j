@@ -37,11 +37,18 @@ public abstract class TestResultsReporting {
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
-     * Verify not null.
+     * Instantiates a new test results reporting.
+     */
+    protected TestResultsReporting() {
+        super();
+    }
+
+    /**
+     * Verify object is not null.
      *
      * @param object the object
      */
-    protected void verifyNotNull(Object object) {
+    protected void verifyNotNull(final Object object) {
         Verify.verifyNotNull(object);
     }
 
@@ -106,4 +113,5 @@ public abstract class TestResultsReporting {
         }
         return stringBuilder.toString();
     }
+
 }

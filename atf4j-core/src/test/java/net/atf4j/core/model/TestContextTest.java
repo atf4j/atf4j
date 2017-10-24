@@ -18,8 +18,8 @@
 package net.atf4j.core.model;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assume.assumeFalse;
 
 import org.junit.Test;
 
@@ -43,7 +43,7 @@ public class TestContextTest extends TestResultsReporting {
      */
     @Test
     public void testisLocal() {
-        assumeFalse(TestContext.isLocal());
+        assertFalse(TestContext.isLocal());
     }
 
     /**
@@ -51,7 +51,7 @@ public class TestContextTest extends TestResultsReporting {
      */
     @Test
     public void testIsSeleniumGrid() {
-        assumeFalse(TestContext.isGrid());
+        assertFalse(TestContext.isGrid());
     }
 
     /**
@@ -59,7 +59,7 @@ public class TestContextTest extends TestResultsReporting {
      */
     @Test
     public void testIsJenkins() {
-        assumeFalse(TestContext.isJenkins());
+        assertFalse(TestContext.isJenkins());
     }
 
     /**

@@ -26,11 +26,6 @@ import net.atf4j.core.TestResultsReporting;
 public class TemplateEngineTest extends TestResultsReporting {
 
     public class TemplateEngine extends AbstractTemplateEngine {
-
-        public Object toCode() {
-            // TODO Auto-generated method stub
-            return null;
-        }
     }
 
     @Test

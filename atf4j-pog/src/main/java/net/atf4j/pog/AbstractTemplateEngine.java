@@ -26,7 +26,7 @@ import org.apache.velocity.app.VelocityEngine;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * The TemplateEngine Class.
+ * Template Engine Class.
  */
 public abstract class AbstractTemplateEngine extends TestResultsReporting {
 
@@ -87,6 +87,25 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
      */
     public String getTemplateFilename() {
         return templateFilename;
+    }
+
+    /**
+     * To code.
+     *
+     * @return the string
+     */
+    public String toCode() {
+        return null;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return String.format("AbstractTemplateEngine [templateFilename=%s]", templateFilename);
     }
 
 }
