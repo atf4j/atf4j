@@ -1,5 +1,7 @@
 ## PojoClass.vm
 // from main/resources/PojoClass.vm
+// $timeStamp
+
 package $packageName;
 import java.util.Date;
 public class $className {

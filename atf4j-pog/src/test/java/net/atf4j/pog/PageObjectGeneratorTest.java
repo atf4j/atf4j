@@ -31,6 +31,8 @@ public final class PageObjectGeneratorTest extends TestResultsReporting {
 
     /** The Constant HTTP_ATF4J_NET. */
     private static final String HTTP_ATF4J_NET = "http://atf4j.net";
+    private static final String BOILERPLATE_PAGE = "http://atf4j.net/boilerplate";
+    private static final String BOOTSTRAP_PAGE = "http://atf4j.net/bootstrap";
 
     /**
      * Test method for void.
@@ -40,7 +42,7 @@ public final class PageObjectGeneratorTest extends TestResultsReporting {
     @Test
     public void testExpected() throws Exception {
         final PageObjectData pageObjectData = new PageObjectData();
-        assertNotNull("unexpected null", pageObjectData);
+        assertNotNull(UNEXPECTED_NULL, pageObjectData);
 
         final PageWebElement idElement = new PageWebElement("findById", Strategy.ID, "id");
         final PageWebElement nameElement = new PageWebElement("findByName", Strategy.NAME, "name");
@@ -69,8 +71,6 @@ public final class PageObjectGeneratorTest extends TestResultsReporting {
         pog.addPageTitle("Example Page");
         pog.setClassName("ExamplePageObject");
         pog.add(pageObjectData);
-
-        log.info("{}", pog.generate());
         pog.generate();
     }
 
@@ -82,6 +82,7 @@ public final class PageObjectGeneratorTest extends TestResultsReporting {
     @Test
     public void testPageObjectTargetSurvey() throws Exception {
         final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
+        assertNotNull(UNEXPECTED_NULL, pageObjectGenerator);
         pageObjectGenerator.target(HTTP_ATF4J_NET).survey();
     }
 
@@ -93,6 +94,7 @@ public final class PageObjectGeneratorTest extends TestResultsReporting {
     @Test
     public void testPageObjectSurvey() throws Exception {
         final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
+        assertNotNull(UNEXPECTED_NULL, pageObjectGenerator);
         pageObjectGenerator.survey(HTTP_ATF4J_NET);
     }
 
@@ -104,9 +106,31 @@ public final class PageObjectGeneratorTest extends TestResultsReporting {
     @Test
     public void testPageObjectGenerator() throws Exception {
         final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
+        assertNotNull(UNEXPECTED_NULL, pageObjectGenerator);
         pageObjectGenerator.target(HTTP_ATF4J_NET).survey().generate();
-
-        pageObjectGenerator.generate();
     }
 
+    /**
+     * Test method for void.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void testBoilerPlatePageObjectGenerator() throws Exception {
+        final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
+        assertNotNull(UNEXPECTED_NULL, pageObjectGenerator);
+        pageObjectGenerator.target(BOILERPLATE_PAGE).survey().generate();
+    }
+
+    /**
+     * Test method for void.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void testBootstrapPageObjectGenerator() throws Exception {
+        final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
+        assertNotNull(UNEXPECTED_NULL, pageObjectGenerator);
+        pageObjectGenerator.target(BOOTSTRAP_PAGE).survey().generate();
+    }
 }

@@ -28,22 +28,22 @@ import org.slf4j.LoggerFactory;
  * A Class to represent a method of the class to be Generated.
  */
 public final class ClassMethod {
-    
-    /** The Constant 			METHOD_CODE. */
+
+    /** Template for code for method. */
     private static final String METHOD_CODE = "public %s %s() { return new %s(); }";
-    
+
     /** The access. */
     private String access;
-    
+
     /** The return type. */
     private String returnType;
-    
+
     /** The method name. */
     private String methodName;
-    
+
     /** The parameters. */
     private final List<ClassField> parameters = new ArrayList<ClassField>();
-    
+
     /** The log. */
     private final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
@@ -87,7 +87,7 @@ public final class ClassMethod {
      * @return the class method
      */
     public ClassMethod setName(final String name) {
-        this.methodName = methodCase(name);
+        methodName = methodCase(name);
         return this;
     }
 
@@ -98,18 +98,18 @@ public final class ClassMethod {
      * @return the class method
      */
     public ClassMethod setType(final String type) {
-        this.returnType = type;
+        returnType = type;
         return this;
     }
 
     /**
      * Adds the.
      *
-     * @param e the e \* @return true, if successful, otherwise false.
+     * @param classField the e \* @return true, if successful, otherwise false.
      * @return true, if successful, otherwise false.
      */
-    public boolean add(final ClassField e) {
-        return this.parameters.add(e);
+    public boolean add(final ClassField classField) {
+        return parameters.add(classField);
     }
 
     /**
@@ -118,7 +118,7 @@ public final class ClassMethod {
      * @return the access
      */
     public String getAccess() {
-        return this.access;
+        return access;
     }
 
     /**
@@ -127,7 +127,7 @@ public final class ClassMethod {
      * @return the type
      */
     public String getType() {
-        return this.returnType;
+        return returnType;
     }
 
     /**
@@ -136,7 +136,7 @@ public final class ClassMethod {
      * @return the name
      */
     public String getName() {
-        return this.methodName;
+        return methodName;
     }
 
     /**
@@ -157,12 +157,12 @@ public final class ClassMethod {
      * @return the string
      */
     public String toCode() {
-        if (this.parameters.size() > 0) {
-            final String string = this.parameters.toString();
-            this.log.info(string);
-            return String.format(METHOD_CODE, this.returnType, this.methodName, this.returnType);
+        if (parameters.size() > 0) {
+            final String string = parameters.toString();
+            log.info(string);
+            return String.format(METHOD_CODE, returnType, methodName, returnType);
         } else {
-            return String.format(METHOD_CODE, this.returnType, this.methodName, this.returnType);
+            return String.format(METHOD_CODE, returnType, methodName, returnType);
         }
     }
 
@@ -174,57 +174,59 @@ public final class ClassMethod {
     @Override
     public String toString() {
         return String.format("ClassMethod [access=%s, returnType=%s, methodName=%s]",
-                this.access,
-                this.returnType,
-                this.methodName);
+                access,
+                returnType,
+                methodName);
     }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#hashCode()
-     */
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + (this.methodName == null ? 0 : this.methodName.hashCode());
-        result = prime * result + (this.returnType == null ? 0 : this.returnType.hashCode());
-        return result;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    @Override
-    public boolean equals(final Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final ClassMethod other = (ClassMethod) obj;
-        if (this.methodName == null) {
-            if (other.methodName != null) {
-                return false;
-            }
-        } else if (!this.methodName.equals(other.methodName)) {
-            return false;
-        }
-        if (this.returnType == null) {
-            if (other.returnType != null) {
-                return false;
-            }
-        } else if (!this.returnType.equals(other.returnType)) {
-            return false;
-        }
-        return true;
-    }
-
+    //
+    // /*
+    // * (non-Javadoc)
+    // *
+    // * @see java.lang.Object#hashCode()
+    // */
+    // @Override
+    // public int hashCode() {
+    // final int prime = 31;
+    // int result = 1;
+    // result = prime * result + (methodName == null ? 0 :
+    // methodName.hashCode());
+    // result = prime * result + (returnType == null ? 0 :
+    // returnType.hashCode());
+    // return result;
+    // }
+    //
+    // /*
+    // * (non-Javadoc)
+    // *
+    // * @see java.lang.Object#equals(java.lang.Object)
+    // */
+    // @Override
+    // public boolean equals(final Object obj) {
+    // if (this == obj) {
+    // return true;
+    // }
+    // if (obj == null) {
+    // return false;
+    // }
+    // if (getClass() != obj.getClass()) {
+    // return false;
+    // }
+    // final ClassMethod other = (ClassMethod) obj;
+    // if (methodName == null) {
+    // if (other.methodName != null) {
+    // return false;
+    // }
+    // } else if (!methodName.equals(other.methodName)) {
+    // return false;
+    // }
+    // if (returnType == null) {
+    // if (other.returnType != null) {
+    // return false;
+    // }
+    // } else if (!returnType.equals(other.returnType)) {
+    // return false;
+    // }
+    // return true;
+    // }
+    //
 }

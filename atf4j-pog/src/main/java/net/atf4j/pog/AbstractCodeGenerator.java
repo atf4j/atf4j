@@ -38,11 +38,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.atf4j.core.Atf4jException;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Abstract Code Generator class.
  */
-public abstract class AbstractCodeGenerator {
+public abstract class AbstractCodeGenerator extends TestResultsReporting {
 
     /** The Constant TARGET_FOLDER. */
     private static final String TARGET_FOLDER = "src/generated/java";

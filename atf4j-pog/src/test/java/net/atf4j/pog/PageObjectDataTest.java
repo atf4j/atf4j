@@ -36,7 +36,6 @@ public final class PageObjectDataTest extends TestResultsReporting {
      */
     @Test
     public void testExpected() {
-        log.info("==============================================");
         final PageObjectData pageObjectData = new PageObjectData();
         assertNotNull(UNEXPECTED_NULL, pageObjectData);
 

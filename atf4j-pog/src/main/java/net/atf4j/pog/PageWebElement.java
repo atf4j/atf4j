@@ -24,36 +24,37 @@ import static org.junit.Assert.assertNotNull;
  */
 public class PageWebElement extends ClassField {
 
-    /** The Constant 			UNEXPECTED_NULL. */
+    private static final String WEB_ELEMENT_TYPE = "WebElement";
+
+    /** The UNEXPECTED_NULL Constant. */
     private static final String UNEXPECTED_NULL = "unexpected null";
 
     /**
      * The Strategy Enum.
      */
     public enum Strategy {
-        
+
         /** The unknown. */
         UNKNOWN("Unknown"),
-        
+
         /** The id. */
         ID("id"),
-        
+
         /** The name. */
         NAME("name"),
-        
+
         /** The class name. */
         CLASS_NAME("className"),
-        
+
         /** The xpath. */
         XPATH("xpath"),
-        
+
         /** The css. */
         CSS("css"),
-        
+
         /** The link text. */
-        LINK_TEXT(
-                "linkText"),
-        
+        LINK_TEXT("linkText"),
+
         /** The partial link text. */
         PARTIAL_LINK_TEXT("partialLinkText");
 
@@ -66,7 +67,7 @@ public class PageWebElement extends ClassField {
          * @param asText the as text
          */
         Strategy(final String asText) {
-            this.strategy = asText;
+            strategy = asText;
         }
 
         /**
@@ -100,15 +101,22 @@ public class PageWebElement extends ClassField {
          */
         @Override
         public String toString() {
-            return this.strategy;
+            return strategy;
         }
     }
 
     /** The strategy. */
     private Strategy strategy = null;
-    
+
     /** The locator. */
     private String locator = null;
+
+    /**
+     * Instantiates a new page web element.
+     */
+    public PageWebElement() {
+        super();
+    }
 
     /**
      * Instantiates a new page web element.
@@ -118,8 +126,8 @@ public class PageWebElement extends ClassField {
      * @param locator the locator
      */
     public PageWebElement(final String name, final String strategy, final String locator) {
-        super("WebElement", name);
-        setLocatorStrategy(Strategy.fromString(strategy));
+        super(WEB_ELEMENT_TYPE, name);
+        setStrategy(Strategy.fromString(strategy));
         setLocator(locator);
     }
 
@@ -131,8 +139,8 @@ public class PageWebElement extends ClassField {
      * @param locator the locator
      */
     public PageWebElement(final String name, final Strategy strategy, final String locator) {
-        super("WebElement", name);
-        setLocatorStrategy(strategy);
+        super(WEB_ELEMENT_TYPE, name);
+        setStrategy(strategy);
         setLocator(locator);
     }
 
@@ -142,7 +150,7 @@ public class PageWebElement extends ClassField {
      * @param strategy the strategy
      * @return the page web element
      */
-    public PageWebElement setLocatorStrategy(final String strategy) {
+    public PageWebElement setStrategy(final String strategy) {
         assertNotNull(UNEXPECTED_NULL, strategy);
         this.strategy = Strategy.fromString(strategy);
         return this;
@@ -154,7 +162,7 @@ public class PageWebElement extends ClassField {
      * @param strategy the strategy
      * @return the page web element
      */
-    public PageWebElement setLocatorStrategy(final Strategy strategy) {
+    public PageWebElement setStrategy(final Strategy strategy) {
         assertNotNull(UNEXPECTED_NULL, strategy);
         this.strategy = strategy;
         return this;
@@ -178,7 +186,7 @@ public class PageWebElement extends ClassField {
      * @return the locator type
      */
     public Strategy getLocatorType() {
-        return this.strategy;
+        return strategy;
     }
 
     /**
@@ -187,7 +195,7 @@ public class PageWebElement extends ClassField {
      * @return the locator
      */
     public String getLocator() {
-        return this.locator;
+        return locator;
     }
 
     /*
@@ -197,7 +205,7 @@ public class PageWebElement extends ClassField {
      */
     @Override
     public String toString() {
-        final String locatorLine = String.format("@FindBy(%s=\"%s\")", this.strategy, this.locator);
+        final String locatorLine = String.format("@FindBy(%s=\"%s\")", strategy, locator);
         final String webElementLine = String.format("private %s %s;", super.getType(), super.getName());
         return String.format("\n\t%s\n\t%s\n", locatorLine, webElementLine);
     }

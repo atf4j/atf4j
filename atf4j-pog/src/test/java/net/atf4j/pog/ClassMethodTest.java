@@ -34,7 +34,8 @@ public final class ClassMethodTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final ClassMethod classMethod = new ClassMethod();
-        assertNotNull("unexpected null", classMethod);
+        log.info(classMethod.toString());
+        assertNotNull(UNEXPECTED_NULL, classMethod);
     }
 
     /**
@@ -43,9 +44,8 @@ public final class ClassMethodTest extends TestResultsReporting {
     @Test
     public void testClassMethod() {
         final ClassMethod classMethod = new ClassMethod();
-        assertNotNull("unexpected null", classMethod);
-        final String string = classMethod.toString();
-        log.info(string);
+        log.info(classMethod.toString());
+        assertNotNull(UNEXPECTED_NULL, classMethod);
     }
 
     /**
@@ -54,9 +54,8 @@ public final class ClassMethodTest extends TestResultsReporting {
     @Test
     public void testClassMethodString() {
         final ClassMethod classMethod = new ClassMethod("String", "method");
-        assertNotNull("unexpected null", classMethod);
-        final String string = classMethod.toString();
-        log.info(string);
+        log.info(classMethod.toString());
+        assertNotNull(UNEXPECTED_NULL, classMethod);
     }
 
     /**
@@ -65,9 +64,8 @@ public final class ClassMethodTest extends TestResultsReporting {
     @Test
     public void testClassMethodDate() {
         final ClassMethod classMethod = new ClassMethod("Date", "date");
-        assertNotNull("unexpected null", classMethod);
-        final String string = classMethod.toString();
-        log.info(string);
+        log.info(classMethod.toString());
+        assertNotNull(UNEXPECTED_NULL, classMethod);
     }
 
 }

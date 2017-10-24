@@ -27,6 +27,21 @@ import org.slf4j.LoggerFactory;
  */
 public class ClassField {
 
+    /** The Constant FIELD_CODE. */
+    private static final String FIELD_CODE = "%s %s %s;";
+
+    /** The access. */
+    private String access;
+
+    /** The type. */
+    private String type;
+
+    /** The name. */
+    private String name;
+
+    /** The log. */
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+
     /**
      * The FieldType Enum.
      */
@@ -91,21 +106,6 @@ public class ClassField {
             return type;
         }
     }
-
-    /** The log. */
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
-
-    /** The Constant FIELD_CODE. */
-    private static final String FIELD_CODE = "%s %s %s;";
-
-    /** The access. */
-    private String access;
-
-    /** The type. */
-    private String type;
-
-    /** The name. */
-    private String name;
 
     /**
      * Instantiates a new class field.

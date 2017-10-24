@@ -25,14 +25,16 @@ import org.apache.velocity.app.VelocityEngine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import net.atf4j.core.TestResultsReporting;
+
 /**
  * The TemplateEngine Class.
  */
-public abstract class TemplateEngine {
-    
+public abstract class AbstractTemplateEngine extends TestResultsReporting {
+
     /** The template filename. */
     protected String templateFilename = "template.vm";
-    
+
     /** The log. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
@@ -41,18 +43,18 @@ public abstract class TemplateEngine {
      *
      * @return the template engine
      */
-    public TemplateEngine execue() {
+    public AbstractTemplateEngine execue() {
         final VelocityEngine velocityEngine = new VelocityEngine();
         velocityEngine.init();
 
-        final Template template = velocityEngine.getTemplate(this.templateFilename);
+        final Template template = velocityEngine.getTemplate(templateFilename);
         final VelocityContext context = new VelocityContext();
         context.put("name", this);
 
         final StringWriter writer = new StringWriter();
         template.merge(context, writer);
 
-        this.log.info(writer.toString());
+        log.info(writer.toString());
 
         return this;
     }
