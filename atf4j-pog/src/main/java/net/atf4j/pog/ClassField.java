@@ -33,10 +33,10 @@ public class ClassField extends TestResultsReporting {
     private String access;
 
     /** The type. */
-    private String type;
+    private String fieldType;
 
     /** The name. */
-    private String name;
+    private String FieldName;
 
     /**
      * The FieldType Enum.
@@ -169,7 +169,7 @@ public class ClassField extends TestResultsReporting {
      * @return the class field
      */
     public ClassField setType(final String type) {
-        this.type = type;
+        this.fieldType = type;
         return this;
     }
 
@@ -191,7 +191,7 @@ public class ClassField extends TestResultsReporting {
      * @return the class field
      */
     public ClassField setName(final String name) {
-        this.name = fieldCase(name);
+        this.FieldName = fieldCase(name);
         return this;
     }
 
@@ -210,7 +210,7 @@ public class ClassField extends TestResultsReporting {
      * @return the type
      */
     public String getType() {
-        return type;
+        return fieldType;
     }
 
     /**
@@ -219,7 +219,7 @@ public class ClassField extends TestResultsReporting {
      * @return the name
      */
     public String getName() {
-        return name;
+        return FieldName;
     }
 
     /**
@@ -240,7 +240,7 @@ public class ClassField extends TestResultsReporting {
      * @return the string
      */
     public String toCode() {
-        final String string = String.format(FIELD_CODE, access, type, name);
+        final String string = String.format(FIELD_CODE, access, fieldType, FieldName);
         return string;
     }
 
@@ -251,7 +251,7 @@ public class ClassField extends TestResultsReporting {
      */
     @Override
     public String toString() {
-        return String.format("ClassField [access=%s, type=%s, name=%s]", access, type, name);
+        return String.format("ClassField [access=%s, type=%s, name=%s]", access, fieldType, FieldName);
     }
 
 }

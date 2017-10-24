@@ -28,6 +28,9 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class ClassMethodTest extends TestResultsReporting {
 
+    /**
+     * Test expected.
+     */
     @Test
     public void testExpected() {
         log.debug(new ClassField("Boolean", "getBoolean").toCode());

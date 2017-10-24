@@ -29,6 +29,9 @@ import net.atf4j.pog.PageWebElement.Strategy;
  */
 public final class PageWebElementTest extends TestResultsReporting {
 
+    /**
+     * Test fluent interface.
+     */
     @Test
     public void testFluentInterface() {
         final PageWebElement pageWebElement = new PageWebElement();

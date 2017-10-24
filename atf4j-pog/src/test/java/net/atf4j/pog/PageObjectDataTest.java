@@ -53,32 +53,24 @@ public final class PageObjectDataTest extends TestResultsReporting {
     }
 
     /**
-     * test PageObjectData class.
-     */
-    @Test
-    public void testDefaultConstructor() {
-        final PageObjectData pageObjectData = new PageObjectData();
-        assertNotNull(UNEXPECTED_NULL, pageObjectData);
-    }
-
-    /**
-     * Test method for void.
+     * Test page object data.
      */
     @Test
     public void testPageObjectData() {
         final PageObjectData pageObjectData = new PageObjectData();
+        log.debug("new PageObjectData() = {}", pageObjectData);
         assertNotNull(UNEXPECTED_NULL, pageObjectData);
     }
 
     /**
      * Log attributes.
      *
-     * @param pageObjectData the page object data
+     * @param pageObjectData the page object data.
      */
     private void logAttributes(final PageObjectData pageObjectData) {
         final List<PageWebElement> attributes = pageObjectData.get();
         for (final PageWebElement pageWebElement : attributes) {
-            log.debug(pageWebElement.toString());
+            log.debug("pageWebElement.toString() = {}", pageWebElement.toString());
         }
     }
 }

@@ -32,8 +32,7 @@ public final class PojoGeneratorTest extends TestResultsReporting {
     /**
      * Test method for void.
      *
-     * @throws Atf4jException
-     * @throws Exception the exception
+     * @throws Atf4jException the atf4j exception
      */
     @Test
     public void testExpected() throws Atf4jException {

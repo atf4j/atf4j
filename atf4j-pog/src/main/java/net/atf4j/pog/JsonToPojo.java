@@ -28,12 +28,12 @@ import com.google.gson.JsonParser;
 public final class JsonToPojo extends AbstractCodeGenerator {
 
     /**
-     * Json.
+     * To pretty json.
      *
      * @param jsonString the json string
      * @return the string
      */
-    public String toJson(final String jsonString) {
+    public String toPrettyJson(final String jsonString) {
         final JsonParser parser = new JsonParser();
         final JsonObject json = parser.parse(jsonString).getAsJsonObject();
         final Gson gson = new GsonBuilder().setPrettyPrinting().create();
