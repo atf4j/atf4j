@@ -29,9 +29,13 @@ import net.atf4j.pog.PageWebElement.Strategy;
  */
 public final class PageObjectGeneratorTest extends TestResultsReporting {
 
-    /** The Constant HTTP_ATF4J_NET. */
+    /** HTTP_ATF4J_NET. */
     private static final String HTTP_ATF4J_NET = "http://atf4j.net";
+
+    /** BOILERPLATE_PAGE. */
     private static final String BOILERPLATE_PAGE = "http://atf4j.net/boilerplate";
+
+    /** BOOTSTRAP_PAGE. */
     private static final String BOOTSTRAP_PAGE = "http://atf4j.net/bootstrap";
 
     /**

@@ -34,10 +34,10 @@ public final class TemplateEngineTest extends TestResultsReporting {
     }
 
     /**
-     * Test execute.
+     * Unit Test TemplateEngine.
      */
     @Test(expected = ResourceNotFoundException.class)
-    public void testExecute() {
+    public void testTemplateEngine() {
         final TemplateEngine templateEngine = new TemplateEngine();
         verifyNotNull(templateEngine);
         templateEngine.execute();
@@ -47,11 +47,23 @@ public final class TemplateEngineTest extends TestResultsReporting {
      * Test execute.
      */
     @Test(expected = ResourceNotFoundException.class)
-    public void testFluentExecute() {
+    public void testMissingTemplate() {
         final TemplateEngine templateEngine = new TemplateEngine();
         verifyNotNull(templateEngine);
         templateEngine.setBaseFolder("./");
-        templateEngine.setTemplateFilename("Template.vm");
+        templateEngine.setTemplateFilename("Missing.vm");
+        templateEngine.execute();
+    }
+
+    /**
+     * Test fluent execute.
+     */
+    @Test
+    public void testFluentExecute() {
+        final TemplateEngine templateEngine = new TemplateEngine();
+        verifyNotNull(templateEngine);
+        templateEngine.setBaseFolder("./src/test/resources/");
+        templateEngine.setTemplateFilename("templates/Class.vm");
         templateEngine.execute();
     }
 

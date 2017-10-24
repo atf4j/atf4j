@@ -35,7 +35,7 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
     private static final String DEFAULT_CLASS_TEMPLATE = "template.vm";
 
     /** Default base folder. */
-    private String baseFolder = "./";
+    private String basePath = "./";
 
     /** Default template filename. */
     protected String templateFilename = DEFAULT_CLASS_TEMPLATE;
@@ -63,7 +63,7 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
      * @param baseFolder the new base folder
      */
     public void setBaseFolder(final String baseFolder) {
-        this.baseFolder = baseFolder;
+        this.basePath = baseFolder;
     }
 
     /**
@@ -102,10 +102,11 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
      * @return the code as a string.
      */
     protected String toCode(final String templateFilename) {
+        log.info("templateFilename = {}", templateFilename);
+
         final VelocityEngine velocityEngine = new VelocityEngine();
         velocityEngine.init();
-
-        log.info("templateFilename = {}", templateFilename);
+        velocityEngine.setProperty("file.resource.loader.path", basePath);
 
         final Template template = velocityEngine.getTemplate(templateFilename);
         final VelocityContext context = new VelocityContext();
@@ -143,7 +144,7 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
     @Override
     public String toString() {
         return String.format("AbstractTemplateEngine [baseFolder=%s, templateFilename=%s]",
-                baseFolder,
+                basePath,
                 templateFilename);
     }
 
