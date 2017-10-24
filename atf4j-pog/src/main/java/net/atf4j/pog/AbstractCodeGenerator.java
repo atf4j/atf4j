@@ -58,7 +58,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
     /** The velocity engine. */
     private final VelocityEngine velocityEngine = new VelocityEngine();
 
-    /** The context. */
+    /** The velocity context. */
     private final VelocityContext context = new VelocityContext();
 
     /** The fields. */
@@ -95,6 +95,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      */
     public AbstractCodeGenerator(final String templateFilename) throws TemplateNotLoadedException {
         super();
+        log.debug("templateFilename - {}", templateFilename);
         setTemplateFilename(templateFilename);
         initialise();
     }
@@ -454,4 +455,5 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
             super(String.format("TemplateNotLoaded [expectedCodeFilename=%s]", expectedCodeFilename));
         }
     }
+
 }

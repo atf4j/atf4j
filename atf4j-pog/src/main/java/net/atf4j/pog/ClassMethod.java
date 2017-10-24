@@ -28,7 +28,7 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class ClassMethod extends TestResultsReporting {
 
-    /** Template for code for method. */
+    /** Code Template for method. */
     private static final String METHOD_CODE = "public %s %s() { return new %s(); }";
 
     /** The access. */

@@ -23,15 +23,22 @@ import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 
+import net.atf4j.core.Atf4jException;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * Template Engine Class.
+ * Abstract Template Engine Class.
  */
 public abstract class AbstractTemplateEngine extends TestResultsReporting {
 
+    /** Default template folder. */
+    private static final String DEFAULT_CLASS_TEMPLATE = "template.vm";
+
+    /** Default base folder. */
+    private String baseFolder = "./";
+
     /** Default template filename. */
-    protected String templateFilename = "templates/Class.vm";
+    protected String templateFilename = DEFAULT_CLASS_TEMPLATE;
 
     /**
      * Instantiates a new abstract template engine.
@@ -45,9 +52,18 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
      *
      * @param templateFilename the template filename
      */
-    public AbstractTemplateEngine(String templateFilename) {
+    public AbstractTemplateEngine(final String templateFilename) {
         super();
         setTemplateFilename(templateFilename);
+    }
+
+    /**
+     * Sets the base folder.
+     *
+     * @param baseFolder the new base folder
+     */
+    public void setBaseFolder(final String baseFolder) {
+        this.baseFolder = baseFolder;
     }
 
     /**
@@ -55,9 +71,41 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
      *
      * @return this for a fluent interface.
      */
-    public AbstractTemplateEngine execute() {
+    protected AbstractTemplateEngine execute() {
+        return execute(getTemplateFilename());
+    }
+
+    /**
+     * Execute.
+     *
+     * @param templateFilename the template filename
+     * @return this for a fluent interface.
+     */
+    protected AbstractTemplateEngine execute(final String templateFilename) {
+        log.info(toCode(templateFilename));
+        return this;
+    }
+
+    /**
+     * To code.
+     *
+     * @return the code as a string.
+     */
+    public String toCode() {
+        return toCode(getTemplateFilename());
+    }
+
+    /**
+     * To code.
+     *
+     * @param templateFilename the template filename
+     * @return the code as a string.
+     */
+    protected String toCode(final String templateFilename) {
         final VelocityEngine velocityEngine = new VelocityEngine();
         velocityEngine.init();
+
+        log.info("templateFilename = {}", templateFilename);
 
         final Template template = velocityEngine.getTemplate(templateFilename);
         final VelocityContext context = new VelocityContext();
@@ -66,9 +114,7 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
         final StringWriter writer = new StringWriter();
         template.merge(context, writer);
 
-        log.info(writer.toString());
-
-        return this;
+        return writer.toString();
     }
 
     /**
@@ -89,15 +135,6 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
         return templateFilename;
     }
 
-    /**
-     * To code.
-     *
-     * @return the string
-     */
-    public String toCode() {
-        return null;
-    }
-
     /*
      * (non-Javadoc)
      *
@@ -105,7 +142,40 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
      */
     @Override
     public String toString() {
-        return String.format("AbstractTemplateEngine [templateFilename=%s]", templateFilename);
+        return String.format("AbstractTemplateEngine [baseFolder=%s, templateFilename=%s]",
+                baseFolder,
+                templateFilename);
+    }
+
+    /**
+     * Exception to indicate that no Template was not loaded.
+     */
+    @SuppressWarnings("serial")
+    public class TemplateNotLoadedException extends Atf4jException {
+        /**
+         * Instantiates a new template not loaded.
+         *
+         * @param expectedTemplateFilename the expected template filename
+         */
+        public TemplateNotLoadedException(final String expectedTemplateFilename) {
+            super(String.format("TemplateNotLoaded [expectedTemplateFilename=%s]", expectedTemplateFilename));
+        }
+    }
+
+    /**
+     * Exception to indicate that no Code was Generated.
+     */
+    @SuppressWarnings("serial")
+    public class CodeNotGeneratedException extends Atf4jException {
+
+        /**
+         * Instantiates a new template not loaded.
+         *
+         * @param expectedCodeFilename the expected code filename
+         */
+        public CodeNotGeneratedException(final String expectedCodeFilename) {
+            super(String.format("TemplateNotLoaded [expectedCodeFilename=%s]", expectedCodeFilename));
+        }
     }
 
 }

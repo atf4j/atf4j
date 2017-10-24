@@ -24,13 +24,15 @@ import net.atf4j.pog.ClassField.FieldType;
  */
 public class PojoGenerator extends AbstractCodeGenerator {
 
+    private static final String POJO_TEMPLATES = "templates/PojoClass.vm";
+
     /**
      * Instantiates a new pojo generator.
      *
      * @throws TemplateNotLoadedException the template not loaded
      */
     public PojoGenerator() throws TemplateNotLoadedException {
-        super("templates/PojoClass.vm");
+        super(POJO_TEMPLATES);
     }
 
     /**
@@ -95,8 +97,7 @@ public class PojoGenerator extends AbstractCodeGenerator {
         return this;
     }
 
-    public Object toCode() {
-        // TODO Auto-generated method stub
+    public String toCode() {
         return null;
     }
 

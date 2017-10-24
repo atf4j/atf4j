@@ -17,8 +17,7 @@
 
 package net.atf4j.pog;
 
-import static org.junit.Assert.assertNotNull;
-
+import org.apache.velocity.exception.ResourceNotFoundException;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
@@ -31,18 +30,29 @@ public final class TemplateEngineTest extends TestResultsReporting {
     /**
      * Mock the Abstract Template Engine.
      */
-    public class TemplateEngine extends AbstractTemplateEngine {
+    public final class TemplateEngine extends AbstractTemplateEngine {
     }
 
     /**
-     * Test execue.
+     * Test execute.
      */
-    @Test
-    public void testExecue() {
+    @Test(expected = ResourceNotFoundException.class)
+    public void testExecute() {
         final TemplateEngine templateEngine = new TemplateEngine();
-        log.debug("templateEngine.toString() = {}", templateEngine.toString());
-        log.debug(templateEngine.toCode());
-        assertNotNull(UNEXPECTED_NULL, templateEngine);
-        assertNotNull(templateEngine.execute());
+        verifyNotNull(templateEngine);
+        templateEngine.execute();
     }
+
+    /**
+     * Test execute.
+     */
+    @Test(expected = ResourceNotFoundException.class)
+    public void testFluentExecute() {
+        final TemplateEngine templateEngine = new TemplateEngine();
+        verifyNotNull(templateEngine);
+        templateEngine.setBaseFolder("./");
+        templateEngine.setTemplateFilename("Template.vm");
+        templateEngine.execute();
+    }
+
 }

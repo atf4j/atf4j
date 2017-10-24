@@ -35,17 +35,17 @@ import net.atf4j.core.TestResultsReporting;
  */
 public class PageObjectData extends TestResultsReporting {
 
-    /** The page elements. */
+    /** page elements. */
     private final List<PageWebElement> pageElements = new ArrayList<PageWebElement>();
 
-    /** The nav elements. */
-    private final List<PageWebElement> navElements = new ArrayList<PageWebElement>();
+    /** content elements. */
+    private final List<PageWebElement> contentElements = new ArrayList<PageWebElement>();
 
-    /** The input elements. */
+    /** input elements. */
     private final List<PageWebElement> inputElements = new ArrayList<PageWebElement>();
 
-    /** The content elements. */
-    private final List<PageWebElement> contentElements = new ArrayList<PageWebElement>();
+    /** navigation elements. */
+    private final List<PageWebElement> navElements = new ArrayList<PageWebElement>();
 
     /**
      * Instantiates a new page object data.
@@ -55,10 +55,10 @@ public class PageObjectData extends TestResultsReporting {
     }
 
     /**
-     * Adds the.
+     * Add the web page element.
      *
      * @param pageWebElement the page web element
-     * @return the page object data
+     * @return this for a fluent interface.
      */
     public PageObjectData add(final PageWebElement pageWebElement) {
         pageElements.add(pageWebElement);
@@ -66,21 +66,10 @@ public class PageObjectData extends TestResultsReporting {
     }
 
     /**
-     * Adds the nav.
-     *
-     * @param navElement the nav element
-     * @return the page object data
-     */
-    public PageObjectData addNav(final PageWebElement navElement) {
-        navElements.add(navElement);
-        return this;
-    }
-
-    /**
-     * Adds the content.
+     * Adds a content element.
      *
      * @param contentMethod the content method
-     * @return the page object data
+     * @return this for a fluent interface.
      */
     public PageObjectData addContent(final PageWebElement contentMethod) {
         contentElements.add(contentMethod);
@@ -88,10 +77,10 @@ public class PageObjectData extends TestResultsReporting {
     }
 
     /**
-     * Adds the input.
+     * Adds the input element.
      *
      * @param inputMethod the input method
-     * @return the page object data
+     * @return this for a fluent interface.
      */
     public PageObjectData addInput(final PageWebElement inputMethod) {
         inputElements.add(inputMethod);
@@ -99,36 +88,47 @@ public class PageObjectData extends TestResultsReporting {
     }
 
     /**
-     * Gets the.
+     * Add the navigation element.
      *
-     * @return the array list
+     * @param navElement the nav element.
+     * @return this for a fluent interface.
+     */
+    public PageObjectData addNav(final PageWebElement navElement) {
+        navElements.add(navElement);
+        return this;
+    }
+
+    /**
+     * Get the page element.
+     *
+     * @return the list of page-elements.
      */
     public List<PageWebElement> get() {
         return pageElements;
     }
 
     /**
-     * Gets the content.
+     * Get the content elements.
      *
-     * @return the content
+     * @return the list of content elements.
      */
     public List<PageWebElement> getContent() {
         return contentElements;
     }
 
     /**
-     * Gets the input.
+     * Get the input elements.
      *
-     * @return the input
+     * @return the list of input elements.
      */
     public List<PageWebElement> getInput() {
         return inputElements;
     }
 
     /**
-     * Gets the nav.
+     * Get the navigation elements.
      *
-     * @return the nav
+     * @return the list of navigation elements.-
      */
     public List<PageWebElement> getNav() {
         return navElements;
@@ -156,4 +156,5 @@ public class PageObjectData extends TestResultsReporting {
         }
         return stringBuilder.toString();
     }
+
 }
