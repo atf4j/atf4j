@@ -30,23 +30,13 @@ import net.atf4j.core.TestResultsReporting;
 public final class BankAccountTest extends TestResultsReporting {
 
     /**
-     * Unit Test for BankAccount.
-     */
-    @Test
-    public void testExpected() {
-        final BankAccount bankAccount = BankAccount.random();
-        log.debug("BankAccount.random() = {}", bankAccount);
-        assertNotNull(UNEXPECTED_NULL, bankAccount);
-    }
-
-    /**
      * Unit Test for BankAccount constructor with null string.
      */
     @Test
-    public void testBankAccountNull() {
+    public void testBankAccountNullString() {
         final String nullString = null;
         final BankAccount bankAccount = new BankAccount(nullString);
-        log.debug("new BankAccount(null) = {}", bankAccount);
+        log.debug("new BankAccount(nullString) = {}", bankAccount);
         assertNotNull(UNEXPECTED_NULL, bankAccount);
     }
 
@@ -54,10 +44,10 @@ public final class BankAccountTest extends TestResultsReporting {
      * Unit Test for BankAccount constructor with null object.
      */
     @Test
-    public void testBankAccountNullObject() {
+    public void testBankAccountNullBank() {
         final Bank nullBank = null;
         final BankAccount bankAccount = new BankAccount(nullBank);
-        log.debug("new BankAccount(null) = {}", bankAccount);
+        log.debug("new BankAccount(nullBank) = {}", bankAccount);
         assertNotNull(UNEXPECTED_NULL, bankAccount);
     }
 
@@ -78,6 +68,16 @@ public final class BankAccountTest extends TestResultsReporting {
     public void testCreate() {
         final BankAccount bankAccount = BankAccount.create();
         log.debug("BankAccount.create() = {}", bankAccount);
+        assertNotNull(UNEXPECTED_NULL, bankAccount);
+    }
+
+    /**
+     * Unit Test for BankAccount.
+     */
+    @Test
+    public void testExpected() {
+        final BankAccount bankAccount = BankAccount.random();
+        log.debug("BankAccount.random() = {}", bankAccount);
         assertNotNull(UNEXPECTED_NULL, bankAccount);
     }
 
@@ -107,13 +107,13 @@ public final class BankAccountTest extends TestResultsReporting {
     }
 
     /**
-     * Testdebug string.
+     * Test debug string.
      */
     @Test
     public void testdebugString() {
         final BankAccount bankAccount = BankAccount.create();
         final String string = bankAccount.debugString();
-        log.error("bankAccount.debugString() = {}", string);
+        log.debug("bankAccount.debugString() = {}", string);
         assertNotNull(UNEXPECTED_NULL, string);
     }
 

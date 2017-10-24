@@ -24,6 +24,7 @@ import net.atf4j.pog.ClassField.FieldType;
  */
 public class PojoGenerator extends AbstractCodeGenerator {
 
+    /** The Constant POJO_TEMPLATES. */
     private static final String POJO_TEMPLATES = "templates/PojoClass.vm";
 
     /**
@@ -97,7 +98,8 @@ public class PojoGenerator extends AbstractCodeGenerator {
         return this;
     }
 
-    public String toCode() {
+    public Object toCode() {
+        // TODO Auto-generated method stub
         return null;
     }
 

@@ -1,5 +1,5 @@
 ## PojoClass.vm
-// from main/resources/PojoClass.vm
+// from main/resources/templates/PojoClass.vm
 // $timeStamp
 
 package $packageName;

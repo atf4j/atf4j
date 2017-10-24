@@ -22,7 +22,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.pog.PageWebElement.Strategy;
+import net.atf4j.pog.WebElementField.Strategy;
 
 /**
  * A UnitTest for PageObjectGenerator objects.
@@ -48,15 +48,15 @@ public final class PageObjectGeneratorTest extends TestResultsReporting {
         final PageObjectData pageObjectData = new PageObjectData();
         assertNotNull(UNEXPECTED_NULL, pageObjectData);
 
-        final PageWebElement idElement = new PageWebElement("findById", Strategy.ID, "id");
-        final PageWebElement nameElement = new PageWebElement("findByName", Strategy.NAME, "name");
-        final PageWebElement classNameElement = new PageWebElement("findByClassName", Strategy.CLASS_NAME, "className");
-        final PageWebElement linkTextElement = new PageWebElement("findByLinkText", Strategy.LINK_TEXT, "linkText");
-        final PageWebElement partialLinkTextElement = new PageWebElement("findByPartialLinkText",
+        final WebElementField idElement = new WebElementField("findById", Strategy.ID, "id");
+        final WebElementField nameElement = new WebElementField("findByName", Strategy.NAME, "name");
+        final WebElementField classNameElement = new WebElementField("findByClassName", Strategy.CLASS_NAME, "className");
+        final WebElementField linkTextElement = new WebElementField("findByLinkText", Strategy.LINK_TEXT, "linkText");
+        final WebElementField partialLinkTextElement = new WebElementField("findByPartialLinkText",
                 Strategy.PARTIAL_LINK_TEXT, "partialLinkText");
-        final PageWebElement xpathElement = new PageWebElement("findByXpath", Strategy.XPATH,
+        final WebElementField xpathElement = new WebElementField("findByXpath", Strategy.XPATH,
                 "//a[contains(text(), 'ATF4J')]");
-        final PageWebElement cssElement = new PageWebElement("findByCss", Strategy.CSS, ".");
+        final WebElementField cssElement = new WebElementField("findByCss", Strategy.CSS, ".");
 
         pageObjectData
             .add(idElement)

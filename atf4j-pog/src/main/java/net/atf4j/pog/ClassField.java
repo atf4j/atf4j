@@ -169,7 +169,7 @@ public class ClassField extends TestResultsReporting {
      * @return the class field
      */
     public ClassField setType(final String type) {
-        this.fieldType = type;
+        fieldType = type;
         return this;
     }
 
@@ -191,7 +191,7 @@ public class ClassField extends TestResultsReporting {
      * @return the class field
      */
     public ClassField setName(final String name) {
-        this.FieldName = fieldCase(name);
+        FieldName = fieldCase(name);
         return this;
     }
 
@@ -234,24 +234,18 @@ public class ClassField extends TestResultsReporting {
         return new String(charArray);
     }
 
-    /**
-     * To code.
-     *
-     * @return the string
-     */
-    public String toCode() {
-        final String string = String.format(FIELD_CODE, access, fieldType, FieldName);
-        return string;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
+    public String debugString() {
         return String.format("ClassField [access=%s, type=%s, name=%s]", access, fieldType, FieldName);
     }
 
+    /**
+     * Class field as code.
+     *
+     * @return the string
+     */
+    @Override
+    public String toString() {
+        final String string = String.format(FIELD_CODE, access, fieldType, FieldName);
+        return string;
+    }
 }

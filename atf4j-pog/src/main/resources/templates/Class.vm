@@ -1,5 +1,5 @@
 ## Class.vm
-// from main/resources/Class.vm
+// from main/resources/templates/Class.vm
 // $timeStamp
 
 package $packageName;

@@ -24,7 +24,7 @@ import java.util.List;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.pog.PageWebElement.Strategy;
+import net.atf4j.pog.WebElementField.Strategy;
 
 /**
  * A UnitTest for PageObjectData objects.
@@ -40,16 +40,15 @@ public final class PageObjectDataTest extends TestResultsReporting {
         assertNotNull(UNEXPECTED_NULL, pageObjectData);
 
         pageObjectData
-            .add(new PageWebElement("findById", Strategy.ID, "id"))
-            .add(new PageWebElement("findByName", Strategy.NAME, "name"))
-            .add(new PageWebElement("findByLinkText", Strategy.LINK_TEXT, "linkText"))
-            .add(new PageWebElement("findByPartialLinkText", Strategy.PARTIAL_LINK_TEXT, "partialLinkText"))
-            .add(new PageWebElement("findByName", Strategy.NAME, "name"))
-            .add(new PageWebElement("findByXpath", Strategy.XPATH, "//A"))
-            .add(new PageWebElement("findByCss", Strategy.CSS, "."));
+            .add(new WebElementField("findById", Strategy.ID, "id"))
+            .add(new WebElementField("findByClassName", Strategy.CLASS_NAME, "class-name"))
+            .add(new WebElementField("findByLinkText", Strategy.LINK_TEXT, "linkText"))
+            .add(new WebElementField("findByPartialLinkText", Strategy.PARTIAL_LINK_TEXT, "partialLinkText"))
+            .add(new WebElementField("findByName", Strategy.NAME, "name"))
+            .add(new WebElementField("findByXpath", Strategy.XPATH, "//A"))
+            .add(new WebElementField("findByCss", Strategy.CSS, "."));
 
         logAttributes(pageObjectData);
-        log.info(pageObjectData.toString());
     }
 
     /**
@@ -68,9 +67,9 @@ public final class PageObjectDataTest extends TestResultsReporting {
      * @param pageObjectData the page object data.
      */
     private void logAttributes(final PageObjectData pageObjectData) {
-        final List<PageWebElement> attributes = pageObjectData.get();
-        for (final PageWebElement pageWebElement : attributes) {
-            log.debug("pageWebElement.toString() = {}", pageWebElement.toString());
+        final List<WebElementField> attributes = pageObjectData.get();
+        for (final WebElementField pageWebElement : attributes) {
+            log.info("\n{}", pageWebElement.toString());
         }
     }
 }

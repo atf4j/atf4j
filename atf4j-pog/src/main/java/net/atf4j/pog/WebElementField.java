@@ -20,10 +20,20 @@ package net.atf4j.pog;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * The PageWebElement Class.
+ * A class to represent a WebElement decorated by FindBy annotation.
  */
-public class PageWebElement extends ClassField {
+public class WebElementField extends ClassField {
 
+    /** The Constant FIND_BY_FORMAT. */
+    private static final String FIND_BY_FORMAT = "\t@FindBy(%s = \"%s\")\n";
+
+    /** The Constant FIELD_FORMAT. */
+    private static final String FIELD_FORMAT = "\tprivate %s %s;\n";
+
+    /** The Constant FULL_FORMAT. */
+    private static final String FULL_FORMAT = "%s%s\n";
+
+    /** The Constant WEB_ELEMENT_TYPE. */
     private static final String WEB_ELEMENT_TYPE = "WebElement";
 
     /**
@@ -111,7 +121,7 @@ public class PageWebElement extends ClassField {
     /**
      * Instantiates a new page web element.
      */
-    public PageWebElement() {
+    public WebElementField() {
         super();
     }
 
@@ -122,7 +132,7 @@ public class PageWebElement extends ClassField {
      * @param strategy the strategy
      * @param locator the locator
      */
-    public PageWebElement(final String name, final String strategy, final String locator) {
+    public WebElementField(final String name, final String strategy, final String locator) {
         super(WEB_ELEMENT_TYPE, name);
         setStrategy(Strategy.fromString(strategy));
         setLocator(locator);
@@ -135,7 +145,7 @@ public class PageWebElement extends ClassField {
      * @param strategy the strategy
      * @param locator the locator
      */
-    public PageWebElement(final String name, final Strategy strategy, final String locator) {
+    public WebElementField(final String name, final Strategy strategy, final String locator) {
         super(WEB_ELEMENT_TYPE, name);
         setStrategy(strategy);
         setLocator(locator);
@@ -147,7 +157,7 @@ public class PageWebElement extends ClassField {
      * @param strategy the strategy
      * @return the page web element
      */
-    public PageWebElement setStrategy(final String strategy) {
+    public WebElementField setStrategy(final String strategy) {
         assertNotNull(UNEXPECTED_NULL, strategy);
         this.strategy = Strategy.fromString(strategy);
         return this;
@@ -159,7 +169,7 @@ public class PageWebElement extends ClassField {
      * @param strategy the strategy
      * @return the page web element
      */
-    public PageWebElement setStrategy(final Strategy strategy) {
+    public WebElementField setStrategy(final Strategy strategy) {
         assertNotNull(UNEXPECTED_NULL, strategy);
         this.strategy = strategy;
         return this;
@@ -171,7 +181,7 @@ public class PageWebElement extends ClassField {
      * @param locator the locator
      * @return the page web element
      */
-    public PageWebElement setLocator(final String locator) {
+    public WebElementField setLocator(final String locator) {
         assertNotNull(UNEXPECTED_NULL, locator);
         this.locator = locator;
         return this;
@@ -202,9 +212,9 @@ public class PageWebElement extends ClassField {
      */
     @Override
     public String toString() {
-        final String locatorLine = String.format("@FindBy(%s=\"%s\")", strategy, locator);
-        final String webElementLine = String.format("private %s %s;", super.getType(), super.getName());
-        return String.format("\n\t%s\n\t%s\n", locatorLine, webElementLine);
+        final String locatorLine = String.format(FIND_BY_FORMAT, strategy, locator);
+        final String webElementLine = String.format(FIELD_FORMAT, super.getType(), super.getName());
+        return String.format(FULL_FORMAT, locatorLine, webElementLine);
     }
 
 }

@@ -95,7 +95,6 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      */
     public AbstractCodeGenerator(final String templateFilename) throws TemplateNotLoadedException {
         super();
-        log.debug("templateFilename - {}", templateFilename);
         setTemplateFilename(templateFilename);
         initialise();
     }
@@ -377,7 +376,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      */
     private String targetFilename(final String targetPath, final String className) {
         final String targetFile = String.format("%s/%s.java", targetPath, className);
-        log.info("generatedFile={}", targetFile);
+        log.debug("generatedFile = {}", targetFile);
         return targetFile;
     }
 
@@ -392,7 +391,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
         assertNotNull(UNEXPECTED_NULL, homeFolder);
         assertNotNull(UNEXPECTED_NULL, packageFolder);
         final String targetPath = String.format("%s/%s", homeFolder, packageFolder);
-        log.info("targetPath={}", targetPath);
+        log.debug("targetPath = {}", targetPath);
         new File(targetPath).mkdirs();
         return targetPath;
     }
@@ -405,24 +404,28 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      */
     private String packageFolder(final String packageName) {
         final String packageFolder = packageName.replace('.', File.separatorChar);
-        log.info("packageFolder={}", packageFolder);
+        log.debug("packageFolder = {}", packageFolder);
         return packageFolder;
     }
 
     /*
      * (non-Javadoc)
-     *
+     * 
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
         return String.format(
-                "JavaClassGenerator [templateFilename=%s, packageName=%s, className=%s, fields=%s, methods=%s]",
+                "%s [velocityEngine=%s, context=%s, fields=%s, methods=%s, templateFilename=%s, packageName=%s, className=%s, targetHomeFolder=%s]",
+                this.getClass().getSimpleName(),
+                velocityEngine,
+                context,
+                fields,
+                methods,
                 templateFilename,
                 packageName,
                 className,
-                fields,
-                methods);
+                targetHomeFolder);
     }
 
     /**

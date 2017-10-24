@@ -1,5 +1,5 @@
 ## UnitTest.vm
-// from main/resources/UnitTest.vm
+// from main/resources/templates/UnitTest.vm
 // $timeStamp
 
 package $packageName;

@@ -36,16 +36,16 @@ import net.atf4j.core.TestResultsReporting;
 public class PageObjectData extends TestResultsReporting {
 
     /** page elements. */
-    private final List<PageWebElement> pageElements = new ArrayList<PageWebElement>();
+    private final List<WebElementField> pageElements = new ArrayList<WebElementField>();
 
     /** content elements. */
-    private final List<PageWebElement> contentElements = new ArrayList<PageWebElement>();
+    private final List<WebElementField> contentElements = new ArrayList<WebElementField>();
 
     /** input elements. */
-    private final List<PageWebElement> inputElements = new ArrayList<PageWebElement>();
+    private final List<WebElementField> inputElements = new ArrayList<WebElementField>();
 
     /** navigation elements. */
-    private final List<PageWebElement> navElements = new ArrayList<PageWebElement>();
+    private final List<WebElementField> navElements = new ArrayList<WebElementField>();
 
     /**
      * Instantiates a new page object data.
@@ -60,7 +60,7 @@ public class PageObjectData extends TestResultsReporting {
      * @param pageWebElement the page web element
      * @return this for a fluent interface.
      */
-    public PageObjectData add(final PageWebElement pageWebElement) {
+    public PageObjectData add(final WebElementField pageWebElement) {
         pageElements.add(pageWebElement);
         return this;
     }
@@ -71,7 +71,7 @@ public class PageObjectData extends TestResultsReporting {
      * @param contentMethod the content method
      * @return this for a fluent interface.
      */
-    public PageObjectData addContent(final PageWebElement contentMethod) {
+    public PageObjectData addContent(final WebElementField contentMethod) {
         contentElements.add(contentMethod);
         return this;
     }
@@ -82,7 +82,7 @@ public class PageObjectData extends TestResultsReporting {
      * @param inputMethod the input method
      * @return this for a fluent interface.
      */
-    public PageObjectData addInput(final PageWebElement inputMethod) {
+    public PageObjectData addInput(final WebElementField inputMethod) {
         inputElements.add(inputMethod);
         return this;
     }
@@ -93,7 +93,7 @@ public class PageObjectData extends TestResultsReporting {
      * @param navElement the nav element.
      * @return this for a fluent interface.
      */
-    public PageObjectData addNav(final PageWebElement navElement) {
+    public PageObjectData addNav(final WebElementField navElement) {
         navElements.add(navElement);
         return this;
     }
@@ -103,7 +103,7 @@ public class PageObjectData extends TestResultsReporting {
      *
      * @return the list of page-elements.
      */
-    public List<PageWebElement> get() {
+    public List<WebElementField> get() {
         return pageElements;
     }
 
@@ -112,7 +112,7 @@ public class PageObjectData extends TestResultsReporting {
      *
      * @return the list of content elements.
      */
-    public List<PageWebElement> getContent() {
+    public List<WebElementField> getContent() {
         return contentElements;
     }
 
@@ -121,7 +121,7 @@ public class PageObjectData extends TestResultsReporting {
      *
      * @return the list of input elements.
      */
-    public List<PageWebElement> getInput() {
+    public List<WebElementField> getInput() {
         return inputElements;
     }
 
@@ -130,7 +130,7 @@ public class PageObjectData extends TestResultsReporting {
      *
      * @return the list of navigation elements.-
      */
-    public List<PageWebElement> getNav() {
+    public List<WebElementField> getNav() {
         return navElements;
     }
 
@@ -142,16 +142,16 @@ public class PageObjectData extends TestResultsReporting {
     @Override
     public String toString() {
         final StringBuilder stringBuilder = new StringBuilder();
-        for (final PageWebElement pageWebElement : pageElements) {
+        for (final WebElementField pageWebElement : pageElements) {
             stringBuilder.append(pageWebElement);
         }
-        for (final PageWebElement pageWebElement : navElements) {
+        for (final WebElementField pageWebElement : navElements) {
             stringBuilder.append(pageWebElement);
         }
-        for (final PageWebElement pageWebElement : inputElements) {
+        for (final WebElementField pageWebElement : inputElements) {
             stringBuilder.append(pageWebElement);
         }
-        for (final PageWebElement pageWebElement : contentElements) {
+        for (final WebElementField pageWebElement : contentElements) {
             stringBuilder.append(pageWebElement);
         }
         return stringBuilder.toString();

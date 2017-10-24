@@ -112,7 +112,7 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @param pageWebElement the page web element
      * @return the page object generator
      */
-    public PageObjectGenerator add(final PageWebElement pageWebElement) {
+    public PageObjectGenerator add(final WebElementField pageWebElement) {
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
         assertNotNull(UNEXPECTED_NULL, pageObjectData);
         pageObjectData.add(pageWebElement);
@@ -125,7 +125,7 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @param pageWebElement the page web element
      * @return the page object generator
      */
-    public PageObjectGenerator addNavigation(final PageWebElement pageWebElement) {
+    public PageObjectGenerator addNavigation(final WebElementField pageWebElement) {
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
         assertNotNull(UNEXPECTED_NULL, pageObjectData);
         pageObjectData.addNav(pageWebElement);
@@ -138,7 +138,7 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @param pageWebElement the page web element
      * @return the page object generator
      */
-    public PageObjectGenerator addContent(final PageWebElement pageWebElement) {
+    public PageObjectGenerator addContent(final WebElementField pageWebElement) {
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
         assertNotNull(UNEXPECTED_NULL, pageObjectData);
         pageObjectData.addContent(pageWebElement);
@@ -151,7 +151,7 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @param pageWebElement the page web element
      * @return the page object generator
      */
-    public PageObjectGenerator addInput(final PageWebElement pageWebElement) {
+    public PageObjectGenerator addInput(final WebElementField pageWebElement) {
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
         assertNotNull(UNEXPECTED_NULL, pageObjectData);
         pageObjectData.addInput(pageWebElement);

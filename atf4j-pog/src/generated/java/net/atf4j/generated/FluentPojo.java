@@ -1,14 +1,14 @@
-// from main/resources/PojoClass.vm
+// from main/resources/templates/PojoClass.vm
 // $timeStamp
 
 package net.atf4j.generated;
 import java.util.Date;
 public class FluentPojo {
-	// ClassField [access=private, type=String, name=string]
+	// private String string;
 	private String string;
-	// ClassField [access=private, type=Date, name=date]
+	// private Date date;
 	private Date date;
-	// ClassField [access=private, type=boolean, name=bool]
+	// private boolean bool;
 	private boolean bool;
 	public FluentPojo string(final String string) {
 		this.string = string;

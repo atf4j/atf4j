@@ -1,4 +1,4 @@
-// generated from main/resources/PageObject.vm
+// generated from main/resources/templates/PageObject.vm
 // $timeStamp
 
 package net.atf4j.generated;
@@ -12,33 +12,34 @@ import org.openqa.selenium.support.FindBy;
 import net.atf4j.webdriver.page.AbstractPageObject;
 
 public class ExamplePageObject extends AbstractPageObject {
-	
-	@FindBy(id="id")
+
+		@FindBy(id = "id")
 	private WebElement findById;
 
-	
-	@FindBy(name="name")
+
+		@FindBy(name = "name")
 	private WebElement findByName;
 
-	
-	@FindBy(className="className")
+
+		@FindBy(className = "className")
 	private WebElement findByClassName;
 
-	
-	@FindBy(linkText="linkText")
+
+		@FindBy(linkText = "linkText")
 	private WebElement findByLinkText;
 
-	
-	@FindBy(partialLinkText="partialLinkText")
+
+		@FindBy(partialLinkText = "partialLinkText")
 	private WebElement findByPartialLinkText;
 
-	
-	@FindBy(xpath="//a[contains(text(), 'ATF4J')]")
+
+		@FindBy(xpath = "//a[contains(text(), 'ATF4J')]")
 	private WebElement findByXpath;
 
-	
-	@FindBy(css=".")
+
+		@FindBy(css = ".")
 	private WebElement findByCss;
+
 
 
 	public ExamplePageObject(WebDriver webDriver) {
@@ -55,21 +56,21 @@ public class ExamplePageObject extends AbstractPageObject {
 		return this;
 	}
 
-// Nav
-// findByLinkText
+	// Navigation Elements.
+	// findByLinkText
 	public ExamplePageObject navToFindByLinkText() {
 		assertNotNull(findByLinkText);
 		findByLinkText.click();
 		return this;
 	}
-// findByPartialLinkText
+	// findByPartialLinkText
 	public ExamplePageObject navToFindByPartialLinkText() {
 		assertNotNull(findByPartialLinkText);
 		findByPartialLinkText.click();
 		return this;
 	}
 
-// Input
+	// Input Elements
 
-// Content
+	// Content Elements
 }
