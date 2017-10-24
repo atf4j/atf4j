@@ -20,7 +20,7 @@ package net.atf4j.core;
 import org.junit.Test;
 
 /**
- * The Class VerifyTest.
+ * Unit test for the Verify class.
  */
 public final class VerifyTest {
 

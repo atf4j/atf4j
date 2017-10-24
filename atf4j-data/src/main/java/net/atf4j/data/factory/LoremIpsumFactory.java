@@ -28,18 +28,18 @@ import net.atf4j.data.Text;
  */
 public final class LoremIpsumFactory extends AbstractDataFactory {
 
-    /** The Constant 			LOREM_IPSUM_TXT. */
+    /** LOREM_IPSUM_TXT. */
     private static final String LOREM_IPSUM_TXT = "lorem-ipsum.txt";
-    
+
     /** The instance. */
-    private static LoremIpsumFactory instance = null;
-    
+    private static LoremIpsumFactory factory = null;
+
     /** The rows. */
     private String[] rows = null;
-    
+
     /** The words. */
     private final List<String> words = new ArrayList<String>();
-    
+
     /** The bounds. */
     private int bounds;
 
@@ -49,10 +49,10 @@ public final class LoremIpsumFactory extends AbstractDataFactory {
      * @return the instance
      */
     public static LoremIpsumFactory getInstance() {
-        if (LoremIpsumFactory.instance == null) {
-            LoremIpsumFactory.instance = new LoremIpsumFactory();
+        if (LoremIpsumFactory.factory == null) {
+            LoremIpsumFactory.factory = new LoremIpsumFactory();
         }
-        return LoremIpsumFactory.instance;
+        return LoremIpsumFactory.factory;
     }
 
     /**

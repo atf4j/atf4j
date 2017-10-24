@@ -22,7 +22,8 @@ package net.atf4j.core;
  */
 public final class ConfigExample extends AbstractConfig {
 
-    private static ConfigExample INSTANCE = new ConfigExample();
+    /** The instance. */
+    private static ConfigExample config = new ConfigExample();
 
     /**
      * private constructor to prevent wild instantiation.
@@ -37,7 +38,7 @@ public final class ConfigExample extends AbstractConfig {
      * @return single INSTANCE of AbstractConfig
      */
     public static ConfigExample getInstance() {
-        return ConfigExample.INSTANCE;
+        return ConfigExample.config;
     }
 
 }

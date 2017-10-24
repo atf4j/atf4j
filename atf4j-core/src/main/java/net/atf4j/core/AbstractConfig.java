@@ -79,10 +79,14 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
     protected ConfigurationInterface load(final String propertyFilename) throws ConfigurationNotLoadedException {
         try {
             final InputStream resourceAsStream = resourceAsStream(propertyFilename);
-            properties.load(resourceAsStream);
-            properties.setProperty("propertiesFilename", propertyFilename);
-        } catch (IOException | NullPointerException e) {
-            throw new ConfigurationNotLoadedException(propertyFilename);
+            if (resourceAsStream != null) {
+                properties.load(resourceAsStream);
+                properties.setProperty("propertiesFilename", propertyFilename);
+            } else {
+                throw new ConfigurationNotLoadedException(propertyFilename);
+            }
+        } catch (final IOException e) {
+            throw new ConfigurationNotLoadedException(e.getLocalizedMessage());
         }
         return this;
     }

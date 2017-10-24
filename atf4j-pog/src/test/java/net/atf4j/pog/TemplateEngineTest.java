@@ -23,16 +23,25 @@ import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
 
-public class TemplateEngineTest extends TestResultsReporting {
+/**
+ * Unit Tests for Abstract Template Engine class.
+ */
+public final class TemplateEngineTest extends TestResultsReporting {
 
+    /**
+     * Mock the Abstract Template Engine.
+     */
     public class TemplateEngine extends AbstractTemplateEngine {
     }
 
+    /**
+     * Test execue.
+     */
     @Test
     public void testExecue() {
         final TemplateEngine templateEngine = new TemplateEngine();
         log.debug("templateEngine.toString() = {}", templateEngine.toString());
-        log.debug("templateEngine.toCode() = {}", templateEngine.toCode());
+        log.debug(templateEngine.toCode());
         assertNotNull(UNEXPECTED_NULL, templateEngine);
         assertNotNull(templateEngine.execute());
     }

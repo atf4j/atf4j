@@ -30,7 +30,7 @@ import net.atf4j.core.TestResultsReporting;
 public final class NestedTimers extends TestResultsReporting {
 
     /** Singleton INSTANCE of this Class. */
-    private static final NestedTimers INSTANCE = new NestedTimers();
+    private static final NestedTimers TIMERS = new NestedTimers();
 
     /** A FIFO stack of running timers. */
     private final Stack<NamedTimer> runningTimers = new Stack<NamedTimer>();
@@ -51,7 +51,7 @@ public final class NestedTimers extends TestResultsReporting {
      * @return NestedTimers
      */
     public static NestedTimers getInstance() {
-        return NestedTimers.INSTANCE;
+        return NestedTimers.TIMERS;
     }
 
     /**
