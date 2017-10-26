@@ -25,11 +25,19 @@ import org.junit.Test;
 public class TimestampTest extends TestResultsReporting {
 
     /**
-     * Test timestamp.
+     * Unit tests for the TimeStamp object.
      */
     @Test
-    public void testTimestamp() {
-        verifyNotNull(Timestamp.dateTime());
+    public void testTimeStamp() {
+        verifyNotNull(TimeStamp.getDateTime());
+    }
+
+    /**
+     * Unit tests for the TimeStamp object.
+     */
+    @Test
+    public void testTimeStampFormat() {
+        verifyNotNull(TimeStamp.getDateTime(TimeStamp.ISO_DATE_TIME));
     }
 
 }

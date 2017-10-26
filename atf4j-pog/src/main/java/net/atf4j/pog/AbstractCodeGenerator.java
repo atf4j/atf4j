@@ -36,7 +36,7 @@ import org.apache.velocity.app.VelocityEngine;
 
 import net.atf4j.core.Atf4jException;
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.core.Timestamp;
+import net.atf4j.core.TimeStamp;
 
 /**
  * Abstract Code Generator class.
@@ -302,7 +302,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
     private void initialise() {
         velocityEngine.init();
         contextBinding("util", this);
-        contextBinding("timeStamp", Timestamp.dateTime());
+        contextBinding("timeStamp", TimeStamp.getDateTime());
         contextBinding("packageName", packageName);
         contextBinding("className", className);
         contextBinding("fields", fields);

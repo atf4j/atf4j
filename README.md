@@ -13,4 +13,18 @@ An automated test framework for Java
 		<version>0.11.0-SNAPSHOT</version>
 	</dependency>
 
-## Example Code
+## Maven usage
+
+	mvn test
+
+### Maven usage on local machine
+
+	mvn test -DisLocal=true
+
+### Maven usage on Jenkins 
+
+	mvn test -DisJenkins=true
+
+### Maven usage with Selenium Grid
+
+	mvn test -DisGrid=true

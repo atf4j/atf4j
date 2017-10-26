@@ -25,7 +25,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * The Class AbstractCodeGeneratorTest.
  */
-public class AbstractCodeGeneratorTest extends TestResultsReporting {
+public class CodeGeneratorTest extends TestResultsReporting {
 
     /**
      * The Class JavaClassGenerator.

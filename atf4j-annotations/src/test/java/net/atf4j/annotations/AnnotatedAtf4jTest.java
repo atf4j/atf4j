@@ -24,7 +24,7 @@ import org.junit.Test;
 /**
  * A UnitTest for AnnotatedTest objects.
  */
-public class AnnotatedTestTest extends AbstractAnnotatedTest {
+public class AnnotatedAtf4jTest extends AbstractAtf4jAnnotation {
 
     /**
      * Test method for AnnotatedTest.

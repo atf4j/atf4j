@@ -26,7 +26,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * Unit Tests for Abstract Template Engine class.
  */
-public final class AbstractTemplateEngineTest extends TestResultsReporting {
+public final class TemplateEngineTest extends TestResultsReporting {
 
     /**
      * Mock the Abstract Template Engine.

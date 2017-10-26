@@ -33,7 +33,7 @@ import net.atf4j.core.TestResultsReporting;
  * A UnitTest for LogicalGuiMap objects.
  */
 @Ignore
-public final class AbstractGuiMapTest extends TestResultsReporting {
+public final class GuiMapTest extends TestResultsReporting {
 
     /**
      * The LogicalGuiMap Class.

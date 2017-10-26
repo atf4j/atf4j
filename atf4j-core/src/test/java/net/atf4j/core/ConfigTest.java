@@ -27,7 +27,7 @@ import org.junit.Test;
 /**
  * Unit tests for configuration class.
  */
-public class AbstractConfigTest extends TestResultsReporting {
+public class ConfigTest extends TestResultsReporting {
 
     /** The Constant MISSING_KEY. */
     private static final String MISSING_KEY = "missingKey";
