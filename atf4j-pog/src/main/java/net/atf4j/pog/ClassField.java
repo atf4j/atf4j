@@ -27,7 +27,10 @@ import net.atf4j.core.TestResultsReporting;
 public class ClassField extends TestResultsReporting {
 
     /** Code Template for a field. */
-    private static final String FIELD_CODE = "%s %s %s = %s;";
+    private static final String ASSIGN_FIELD = "\t%s %s %s = %s;\n";
+
+    /** FIELD_CODE constant. */
+    private static final String FIELD_CODE = "\t%s %s %s;\n";
 
     /** access modifier for field. */
     private AccessModifier accessModifier = AccessModifier.DEFAULT;
@@ -42,10 +45,10 @@ public class ClassField extends TestResultsReporting {
     private String fieldTypeString = fieldType.value;
 
     /** name of field. */
-    private String fieldName;
+    private String fieldName = null;
 
     /** The initial value. */
-    private String initialValue = "null";
+    private String initialValue = null;
 
     /**
      * AccessModifiers Enum.
@@ -169,7 +172,7 @@ public class ClassField extends TestResultsReporting {
                     return candidate;
                 }
             }
-            return null;
+            return FieldType.Other;
         }
 
         /*
@@ -224,7 +227,7 @@ public class ClassField extends TestResultsReporting {
      */
     public ClassField setAccessModifier(final AccessModifier accessModifier) {
         this.accessModifier = accessModifier;
-        accessModifierString = accessModifier.value;
+        accessModifierString = this.accessModifier.toString();
         return this;
     }
 
@@ -349,11 +352,20 @@ public class ClassField extends TestResultsReporting {
      * @return the string
      */
     public String toCode() {
-        return String.format(FIELD_CODE,
-                accessModifier,
-                fieldType,
-                fieldName,
-                initialValue);
+        final String code;
+        if (initialValue == null) {
+            code = String.format(FIELD_CODE,
+                    accessModifier,
+                    fieldTypeString,
+                    fieldName);
+        } else {
+            code = String.format(ASSIGN_FIELD,
+                    accessModifier,
+                    fieldType,
+                    fieldTypeString,
+                    initialValue);
+        }
+        return code;
     }
 
     /**
@@ -361,8 +373,8 @@ public class ClassField extends TestResultsReporting {
      *
      * @return the string
      */
-    public String debugString() {
-        return String.format(
+    protected String debugString() {
+        final String debugString = String.format(
                 "%s [accessModifier=%s, accessModifierValue=%s, fieldType=%s, fieldTypeString=%s, fieldName=%s, initialValue=%s]",
                 this.getClass().getSimpleName(),
                 accessModifier,
@@ -371,6 +383,7 @@ public class ClassField extends TestResultsReporting {
                 fieldTypeString,
                 fieldName,
                 initialValue);
+        return debugString;
     }
 
     /*
@@ -380,7 +393,10 @@ public class ClassField extends TestResultsReporting {
      */
     @Override
     public String toString() {
-        return toCode();
+        if (log.isDebugEnabled()) {
+            return debugString();
+        } else {
+            return toCode();
+        }
     }
-
 }

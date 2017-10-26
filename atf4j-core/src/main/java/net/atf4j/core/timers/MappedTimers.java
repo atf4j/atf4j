@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-import net.atf4j.core.Atf4jException;
+import net.atf4j.core.VerificationError;
 import net.atf4j.core.TestResultsReporting;
 
 /**
@@ -152,7 +152,7 @@ public final class MappedTimers extends TestResultsReporting {
      * The TimerNotFound Class.
      */
     @SuppressWarnings("serial")
-    public class TimerNotFound extends Atf4jException {
+    public class TimerNotFound extends VerificationError {
     }
 
 }

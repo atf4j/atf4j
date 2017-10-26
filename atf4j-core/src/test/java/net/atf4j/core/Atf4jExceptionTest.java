@@ -33,23 +33,23 @@ public final class Atf4jExceptionTest extends TestResultsReporting {
     /**
      * test Atf4jException object.
      *
-     * @throws Atf4jException the atf4j exception
+     * @throws VerificationError the atf4j exception
      */
-    @Test(expected = Atf4jException.class)
-    public void testAtf4jException() throws Atf4jException {
-        throw new Atf4jException();
+    @Test(expected = VerificationError.class)
+    public void testAtf4jException() throws VerificationError {
+        throw new VerificationError();
     }
 
     /**
      * Test method for Atf4jException.
      *
-     * @throws Atf4jException the Atf4j exception
+     * @throws VerificationError the Atf4j exception
      */
-    @Test(expected = Atf4jException.class)
-    public void testAtf4jExceptionString() throws Atf4jException {
+    @Test(expected = VerificationError.class)
+    public void testAtf4jExceptionString() throws VerificationError {
         try {
-            throw new Atf4jException(EXCEPTION_MESSAGE);
-        } catch (final Atf4jException e) {
+            throw new VerificationError(EXCEPTION_MESSAGE);
+        } catch (final VerificationError e) {
             log.error(e.toString());
             assertEquals(EXCEPTION_MESSAGE, e.getMessage());
             assertEquals(EXCEPTION_MESSAGE, e.getLocalizedMessage());
@@ -60,13 +60,13 @@ public final class Atf4jExceptionTest extends TestResultsReporting {
     /**
      * Test method for Atf4jException.
      *
-     * @throws Atf4jException the Atf4j exception
+     * @throws VerificationError the Atf4j exception
      */
-    @Test(expected = Atf4jException.class)
-    public void testAtf4jExceptionAssertion() throws Atf4jException {
+    @Test(expected = VerificationError.class)
+    public void testAtf4jExceptionAssertion() throws VerificationError {
         try {
-            throw new Atf4jException(new AssertionError(EXCEPTION_MESSAGE));
-        } catch (final Atf4jException e) {
+            throw new VerificationError(new AssertionError(EXCEPTION_MESSAGE));
+        } catch (final VerificationError e) {
             log.error(e.toString());
             assertTrue(e.getMessage().contains(EXCEPTION_MESSAGE));
             assertTrue(e.getMessage().contains("java.lang.AssertionError"));

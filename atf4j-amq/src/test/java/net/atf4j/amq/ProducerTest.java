@@ -41,10 +41,10 @@ public class ProducerTest extends TestResultsReporting {
      */
     @Test
     public void testProducer() throws JMSException {
-        log.debug("testProducer");
+        this.log.debug("testProducer");
         final Producer producer = new Producer();
         assertNotNull(UNEXPECTED_NULL, producer);
-        log.debug("{}", producer);
+        this.log.debug("{}", producer);
     }
 
     /**
@@ -54,13 +54,13 @@ public class ProducerTest extends TestResultsReporting {
      */
     @Test
     public void testExecute() throws JMSException {
-        log.debug("testExecute");
+        this.log.debug("testExecute");
         final Producer producer = new Producer();
         assertNotNull(UNEXPECTED_NULL, producer);
-        log.debug("{}", producer);
+        this.log.debug("{}", producer);
 
         final String[] messages = null;
-        log.debug("{}", Arrays.toString(messages));
+        this.log.debug("{}", Arrays.toString(messages));
         producer.execute(messages);
     }
 }

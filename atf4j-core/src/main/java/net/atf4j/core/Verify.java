@@ -52,6 +52,15 @@ public final class Verify {
      *
      * @param object the object
      */
+    public static void verifyNotNull(final String message, Object object) {
+        if (object == null) {
+            throw new VerificationError(message);
+        }
+        final String objectName = object.getClass().getSimpleName();
+        assertNotNull(UNEXPECTED_NULL, objectName);
+        LOG.debug("verify({}) = {}", objectName, object);
+    }
+
     public static void verifyNotNull(Object object) {
         assertNotNull(UNEXPECTED_NULL, object);
         final String objectName = object.getClass().getSimpleName();
@@ -69,7 +78,7 @@ public final class Verify {
     public static String verifyEqual(final byte expected, final byte actual) {
         final boolean result = (actual == expected);
         final String message = resultMessage(expected, actual, result);
-        LOG.debug(message);
+        LOG.debug("message = {}", message);
         assertEquals(message, expected, actual);
         return message;
     }
@@ -84,7 +93,7 @@ public final class Verify {
     public static String verifyEqual(final char expected, final char actual) {
         final boolean result = (actual == expected);
         final String message = resultMessage(expected, actual, result);
-        LOG.debug(message);
+        LOG.debug("message = {}", message);
         assertEquals(message, expected, actual);
         return message;
     }
@@ -99,7 +108,7 @@ public final class Verify {
     public static String verifyEqual(final int expected, final int actual) {
         final boolean result = (actual == expected);
         final String message = resultMessage(expected, actual, result);
-        LOG.debug(message);
+        LOG.debug("message = {}", message);
         assertEquals(message, expected, actual);
         return message;
     }
@@ -114,7 +123,7 @@ public final class Verify {
     public static String verifyEqual(final long expected, final long actual) {
         final boolean result = (actual == expected);
         final String message = resultMessage(expected, actual, result);
-        LOG.debug(message);
+        LOG.debug("message = {}", message);
         assertEquals(message, expected, actual);
         return message;
     }
@@ -131,7 +140,7 @@ public final class Verify {
         assertNotNull("Actual Value cannot be null", actual);
         final boolean result = actual.equals(expected);
         final String message = resultMessage(expected, actual, result);
-        LOG.debug(message);
+        LOG.debug("message = {}", message);
         assertEquals(message, expected, actual);
         return message;
     }

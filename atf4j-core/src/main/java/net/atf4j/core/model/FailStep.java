@@ -17,12 +17,12 @@
 
 package net.atf4j.core.model;
 
-import net.atf4j.core.Atf4jException;
+import net.atf4j.core.VerificationError;
 
 /**
  * FailTestStep.
  */
-public class FailStep extends Atf4jException {
+public class FailStep extends VerificationError {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 373193371915440744L;

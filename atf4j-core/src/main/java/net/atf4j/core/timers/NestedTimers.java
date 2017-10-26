@@ -21,7 +21,7 @@ import java.util.Enumeration;
 import java.util.Stack;
 import java.util.UUID;
 
-import net.atf4j.core.Atf4jException;
+import net.atf4j.core.VerificationError;
 import net.atf4j.core.TestResultsReporting;
 
 /**
@@ -184,7 +184,7 @@ public final class NestedTimers extends TestResultsReporting {
     /**
      * The TimersExhausted Class.
      */
-    public class TimersExhausted extends Atf4jException {
+    public class TimersExhausted extends VerificationError {
 
         /** The Constant serialVersionUID. */
         private static final long serialVersionUID = 1L;

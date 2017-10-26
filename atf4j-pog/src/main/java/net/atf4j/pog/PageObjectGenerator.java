@@ -76,8 +76,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @return the page object generator
      */
     public PageObjectGenerator target(final URL targetUrl) {
-        pageUrl = targetUrl.toString();
-        super.contextBinding("pageUrl", pageUrl);
+        this.pageUrl = targetUrl.toString();
+        super.contextBinding("pageUrl", this.pageUrl);
         return this;
     }
 
@@ -114,8 +114,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      */
     public PageObjectGenerator add(final WebElementField pageWebElement) {
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
-        assertNotNull(UNEXPECTED_NULL, pageObjectData);
-        pageObjectData.add(pageWebElement);
+        assertNotNull(UNEXPECTED_NULL, this.pageObjectData);
+        this.pageObjectData.add(pageWebElement);
         return this;
     }
 
@@ -127,8 +127,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      */
     public PageObjectGenerator addNavigation(final WebElementField pageWebElement) {
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
-        assertNotNull(UNEXPECTED_NULL, pageObjectData);
-        pageObjectData.addNav(pageWebElement);
+        assertNotNull(UNEXPECTED_NULL, this.pageObjectData);
+        this.pageObjectData.addNav(pageWebElement);
         return this;
     }
 
@@ -140,8 +140,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      */
     public PageObjectGenerator addContent(final WebElementField pageWebElement) {
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
-        assertNotNull(UNEXPECTED_NULL, pageObjectData);
-        pageObjectData.addContent(pageWebElement);
+        assertNotNull(UNEXPECTED_NULL, this.pageObjectData);
+        this.pageObjectData.addContent(pageWebElement);
         return this;
     }
 
@@ -153,8 +153,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      */
     public PageObjectGenerator addInput(final WebElementField pageWebElement) {
         assertNotNull(UNEXPECTED_NULL, pageWebElement);
-        assertNotNull(UNEXPECTED_NULL, pageObjectData);
-        pageObjectData.addInput(pageWebElement);
+        assertNotNull(UNEXPECTED_NULL, this.pageObjectData);
+        this.pageObjectData.addInput(pageWebElement);
         return this;
     }
 
@@ -164,9 +164,9 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @return the page object generator
      */
     public PageObjectGenerator survey() {
-        log.info("survey");
-        log.info("this.pageUrl={}", pageUrl);
-        return survey(pageUrl);
+        this.log.info("survey");
+        this.log.info("this.pageUrl={}", this.pageUrl);
+        return survey(this.pageUrl);
     }
 
     /**
@@ -176,7 +176,7 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @return the page object generator
      */
     public PageObjectGenerator survey(final String pageUrl) {
-        log.info("survey(pageUrl={})", pageUrl);
+        this.log.info("survey(pageUrl={})", pageUrl);
         addPageTitle("Landing Page");
         setClassName("LandingPage");
         return this;
@@ -189,8 +189,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      */
     @Override
     public String toString() {
-        assertNotNull(UNEXPECTED_NULL, pageObjectData);
-        return pageObjectData.toString();
+        assertNotNull(UNEXPECTED_NULL, this.pageObjectData);
+        return this.pageObjectData.toString();
     }
 
 }

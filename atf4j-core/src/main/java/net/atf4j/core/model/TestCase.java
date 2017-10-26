@@ -24,7 +24,7 @@ import static org.junit.Assume.assumeTrue;
 import java.util.ArrayDeque;
 import java.util.Collection;
 
-import net.atf4j.core.Atf4jException;
+import net.atf4j.core.VerificationError;
 import net.atf4j.core.timers.MappedTimers;
 
 /**
@@ -55,11 +55,11 @@ public class TestCase extends AbstractTestBase {
      *
      * @param context the context
      * @return the abstract test result
-     * @throws Atf4jException the atf4j exception
+     * @throws VerificationError the atf4j exception
      * @see net.atf4j.core.model.AbstractTestBase#execute(net.atf4j.core.model.TestContext)
      */
     @Override
-    public TestCase execute(final TestContext context) throws Atf4jException {
+    public TestCase execute(final TestContext context) throws VerificationError {
         assumeNotNull(context);
         assumeNotNull(testSteps);
         for (final TestStep testStep : testSteps) {

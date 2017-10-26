@@ -19,7 +19,7 @@ package net.atf4j.pog;
 
 import org.junit.Test;
 
-import net.atf4j.core.Atf4jException;
+import net.atf4j.core.VerificationError;
 import net.atf4j.core.TestResultsReporting;
 
 /**
@@ -53,10 +53,10 @@ public class CodeGeneratorTest extends TestResultsReporting {
     /**
      * Test abstract code generator.
      *
-     * @throws Atf4jException the atf 4 j exception
+     * @throws VerificationError the atf 4 j exception
      */
     @Test
-    public void testAbstractCodeGenerator() throws Atf4jException {
+    public void testAbstractCodeGenerator() throws VerificationError {
         final JavaClassGenerator javaClassGenerator = new JavaClassGenerator();
         verifyNotNull(javaClassGenerator);
         verifyNotNull(javaClassGenerator.generate());
@@ -65,10 +65,10 @@ public class CodeGeneratorTest extends TestResultsReporting {
     /**
      * Test abstract code generator string.
      *
-     * @throws Atf4jException the atf 4 j exception
+     * @throws VerificationError the atf 4 j exception
      */
     @Test
-    public void testAbstractCodeGeneratorString() throws Atf4jException {
+    public void testAbstractCodeGeneratorString() throws VerificationError {
         final JavaClassGenerator javaClassGenerator = new JavaClassGenerator("templates/Class.vm");
         verifyNotNull(javaClassGenerator);
         verifyNotNull(javaClassGenerator.generate());

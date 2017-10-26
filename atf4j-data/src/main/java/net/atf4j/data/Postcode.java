@@ -22,7 +22,7 @@ import static org.junit.Assert.assertNotNull;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import net.atf4j.core.Atf4jException;
+import net.atf4j.core.VerificationError;
 import net.atf4j.core.TestResultsReporting;
 
 /**
@@ -217,7 +217,7 @@ public final class Postcode extends TestResultsReporting {
      * The property file was not found.
      */
     @SuppressWarnings("serial")
-    public class InvalidPostcodeException extends Atf4jException {
+    public class InvalidPostcodeException extends VerificationError {
         /**
          * Instantiates a new property not found.
          *

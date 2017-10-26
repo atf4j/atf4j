@@ -29,41 +29,54 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Abstract Common class.
+ * The Class AbstractConnectionWrapper.
  */
 public abstract class AbstractConnectionWrapper implements ConnectionWrapperInterface {
 
+    /** URL. */
     protected static String url = ActiveMQConnection.DEFAULT_BROKER_URL;
+
+    /** connection factory. */
     protected ConnectionFactory connectionFactory;
+
+    /** connection. */
     protected Connection connection;
+
+    /** session. */
     protected Session session;
+
+    /** topic name. */
     protected String topicName = "testQueue";
+
+    /** topic. */
     protected Topic topic;
+
+    /** logging. */
     protected static final Logger log = LoggerFactory.getLogger(AbstractConnectionWrapper.class);
 
     /**
-     * Instantiates a new common.
+     * Instantiates a new abstract connection wrapper.
      *
-     * @throws JMSException the JMS exception
+     * @throws JMSException the JMS exception exception.
      */
     protected AbstractConnectionWrapper() throws JMSException {
         super();
-        this.connection = initialise();
-        this.session = newSession(this.connection);
-        this.topic = this.session.createTopic(this.topicName);
+        connection = initialise();
+        session = newSession(connection);
+        topic = session.createTopic(topicName);
     }
 
     /**
      * Initialise.
      *
      * @return the connection
-     * @throws JMSException the JMS exception
+     * @throws JMSException the JMS exception exception.
      */
     protected Connection initialise() throws JMSException {
-        this.connectionFactory = new ActiveMQConnectionFactory(url);
-        this.connection = this.connectionFactory.createConnection();
-        this.connection.start();
-        return this.connection;
+        connectionFactory = new ActiveMQConnectionFactory(url);
+        connection = connectionFactory.createConnection();
+        connection.start();
+        return connection;
     }
 
     /**
@@ -71,7 +84,7 @@ public abstract class AbstractConnectionWrapper implements ConnectionWrapperInte
      *
      * @param connection the connection
      * @return the session
-     * @throws JMSException the JMS exception
+     * @throws JMSException the JMS exception exception.
      */
     protected Session newSession(final Connection connection) throws JMSException {
         return connection.createSession(false, Session.AUTO_ACKNOWLEDGE);

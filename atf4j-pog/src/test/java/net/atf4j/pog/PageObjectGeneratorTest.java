@@ -17,8 +17,6 @@
 
 package net.atf4j.pog;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
@@ -46,17 +44,22 @@ public final class PageObjectGeneratorTest extends TestResultsReporting {
     @Test
     public void testExpected() throws Exception {
         final PageObjectData pageObjectData = new PageObjectData();
-        assertNotNull(UNEXPECTED_NULL, pageObjectData);
+        verifyNotNull(pageObjectData);
 
         final WebElementField idElement = new WebElementField(Strategy.ID, "id", "findById");
+
         final WebElementField nameElement = new WebElementField(Strategy.NAME, "name", "findByName");
+
         final WebElementField classNameElement = new WebElementField(Strategy.CLASS_NAME, "className",
                 "findByClassName");
         final WebElementField linkTextElement = new WebElementField(Strategy.LINK_TEXT, "linkText", "findByLinkText");
+
         final WebElementField partialLinkTextElement = new WebElementField(
                 Strategy.PARTIAL_LINK_TEXT, "partialLinkText", "findByPartialLinkText");
+
         final WebElementField xpathElement = new WebElementField(Strategy.XPATH,
                 "//a[contains(text(), 'ATF4J')]", "findByXpath");
+
         final WebElementField cssElement = new WebElementField(Strategy.CSS, ".", "findByCss");
 
         pageObjectData
@@ -71,12 +74,23 @@ public final class PageObjectGeneratorTest extends TestResultsReporting {
         pageObjectData.addNav(linkTextElement);
         pageObjectData.addNav(partialLinkTextElement);
 
-        final PageObjectGenerator pog = new PageObjectGenerator();
-        pog.target(HTTP_ATF4J_NET);
-        pog.addPageTitle("Example Page");
-        pog.setClassName("ExamplePageObject");
-        pog.add(pageObjectData);
-        pog.generate();
+        final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
+        pageObjectGenerator.target(HTTP_ATF4J_NET);
+        pageObjectGenerator.addPageTitle("Example Page");
+        pageObjectGenerator.setClassName("ExamplePageObject");
+        pageObjectGenerator.add(pageObjectData);
+        pageObjectGenerator.generate();
+    }
+
+    /**
+     * Unit tests for the PageObjectGenerator object.
+     */
+    @Test
+    public void testPageObjectSurvey() {
+        final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
+        verifyNotNull(pageObjectGenerator);
+        pageObjectGenerator.setClassName("SurveyPageObject");
+        pageObjectGenerator.survey(HTTP_ATF4J_NET);
     }
 
     /**
@@ -87,20 +101,9 @@ public final class PageObjectGeneratorTest extends TestResultsReporting {
     @Test
     public void testPageObjectTargetSurvey() throws Exception {
         final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
-        assertNotNull(UNEXPECTED_NULL, pageObjectGenerator);
+        verifyNotNull(pageObjectGenerator);
+        pageObjectGenerator.setClassName("TargetSurveyPageObject");
         pageObjectGenerator.target(HTTP_ATF4J_NET).survey();
-    }
-
-    /**
-     * Test method for void.
-     *
-     * @throws Exception the exception
-     */
-    @Test
-    public void testPageObjectSurvey() throws Exception {
-        final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
-        assertNotNull(UNEXPECTED_NULL, pageObjectGenerator);
-        pageObjectGenerator.survey(HTTP_ATF4J_NET);
     }
 
     /**
@@ -111,7 +114,8 @@ public final class PageObjectGeneratorTest extends TestResultsReporting {
     @Test
     public void testPageObjectGenerator() throws Exception {
         final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
-        assertNotNull(UNEXPECTED_NULL, pageObjectGenerator);
+        verifyNotNull(pageObjectGenerator);
+        pageObjectGenerator.setClassName("GeneratePageObject");
         pageObjectGenerator.target(HTTP_ATF4J_NET).survey().generate();
     }
 
@@ -121,9 +125,10 @@ public final class PageObjectGeneratorTest extends TestResultsReporting {
      * @throws Exception the exception
      */
     @Test
-    public void testBoilerPlatePageObjectGenerator() throws Exception {
+    public void testBoilerPlatePage() throws Exception {
         final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
-        assertNotNull(UNEXPECTED_NULL, pageObjectGenerator);
+        verifyNotNull(pageObjectGenerator);
+        pageObjectGenerator.setClassName("BoilerPlatePageObject");
         pageObjectGenerator.target(BOILERPLATE_PAGE).survey().generate();
     }
 
@@ -133,9 +138,10 @@ public final class PageObjectGeneratorTest extends TestResultsReporting {
      * @throws Exception the exception
      */
     @Test
-    public void testBootstrapPageObjectGenerator() throws Exception {
+    public void testBootstrapPage() throws Exception {
         final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
-        assertNotNull(UNEXPECTED_NULL, pageObjectGenerator);
+        verifyNotNull(pageObjectGenerator);
+        pageObjectGenerator.setClassName("BootstrapPageObject");
         pageObjectGenerator.target(BOOTSTRAP_PAGE).survey().generate();
     }
 }

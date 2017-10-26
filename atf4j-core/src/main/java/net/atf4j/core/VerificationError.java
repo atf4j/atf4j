@@ -18,17 +18,17 @@
 package net.atf4j.core;
 
 /**
- * Atf4jException.
+ * VerificationError.
  */
-public class Atf4jException extends Exception {
+public class VerificationError extends AssertionError {
 
-    /** The Constant 			serialVersionUID. */
+    /** serialVersionUID. */
     private static final long serialVersionUID = 4462112926382796692L;
 
     /**
      * Instantiates a new atf4j exception.
      */
-    public Atf4jException() {
+    public VerificationError() {
         super();
     }
 
@@ -37,7 +37,7 @@ public class Atf4jException extends Exception {
      *
      * @param message the message
      */
-    public Atf4jException(final String message) {
+    public VerificationError(final String message) {
         super(message);
     }
 
@@ -46,7 +46,7 @@ public class Atf4jException extends Exception {
      *
      * @param cause the cause
      */
-    public Atf4jException(final Throwable cause) {
+    public VerificationError(final Throwable cause) {
         super(cause);
     }
 

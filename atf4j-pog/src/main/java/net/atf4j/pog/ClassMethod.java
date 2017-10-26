@@ -83,7 +83,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the class method
      */
     public ClassMethod setName(final String name) {
-        methodName = methodCase(name);
+        this.methodName = methodCase(name);
         return this;
     }
 
@@ -94,7 +94,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the class method
      */
     public ClassMethod setType(final String type) {
-        returnType = type;
+        this.returnType = type;
         return this;
     }
 
@@ -105,7 +105,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return true, if successful, otherwise false.
      */
     public boolean add(final ClassField classField) {
-        return parameters.add(classField);
+        return this.parameters.add(classField);
     }
 
     /**
@@ -114,7 +114,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the access
      */
     public String getAccess() {
-        return access;
+        return this.access;
     }
 
     /**
@@ -123,7 +123,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the type
      */
     public String getType() {
-        return returnType;
+        return this.returnType;
     }
 
     /**
@@ -132,7 +132,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the name
      */
     public String getName() {
-        return methodName;
+        return this.methodName;
     }
 
     /**
@@ -153,13 +153,23 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the string
      */
     public String toCode() {
-        if (parameters.size() > 0) {
-            final String string = parameters.toString();
-            log.info(string);
-            return String.format(METHOD_CODE, returnType, methodName, returnType);
+        if (this.parameters.size() > 0) {
+            return String.format(METHOD_CODE, this.returnType, this.methodName, this.returnType);
         } else {
-            return String.format(METHOD_CODE, returnType, methodName, returnType);
+            return String.format(METHOD_CODE, this.returnType, this.methodName, this.returnType);
         }
+    }
+
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
+        return String.format("ClassMethod [access=%s, returnType=%s, methodName=%s]",
+                this.access,
+                this.returnType,
+                this.methodName);
     }
 
     /*
@@ -169,60 +179,11 @@ public final class ClassMethod extends TestResultsReporting {
      */
     @Override
     public String toString() {
-        return String.format("ClassMethod [access=%s, returnType=%s, methodName=%s]",
-                access,
-                returnType,
-                methodName);
+        if (this.log.isDebugEnabled()) {
+            return debugString();
+        } else {
+            return toCode();
+        }
     }
-    //
-    // /*
-    // * (non-Javadoc)
-    // *
-    // * @see java.lang.Object#hashCode()
-    // */
-    // @Override
-    // public int hashCode() {
-    // final int prime = 31;
-    // int result = 1;
-    // result = prime * result + (methodName == null ? 0 :
-    // methodName.hashCode());
-    // result = prime * result + (returnType == null ? 0 :
-    // returnType.hashCode());
-    // return result;
-    // }
-    //
-    // /*
-    // * (non-Javadoc)
-    // *
-    // * @see java.lang.Object#equals(java.lang.Object)
-    // */
-    // @Override
-    // public boolean equals(final Object obj) {
-    // if (this == obj) {
-    // return true;
-    // }
-    // if (obj == null) {
-    // return false;
-    // }
-    // if (getClass() != obj.getClass()) {
-    // return false;
-    // }
-    // final ClassMethod other = (ClassMethod) obj;
-    // if (methodName == null) {
-    // if (other.methodName != null) {
-    // return false;
-    // }
-    // } else if (!methodName.equals(other.methodName)) {
-    // return false;
-    // }
-    // if (returnType == null) {
-    // if (other.returnType != null) {
-    // return false;
-    // }
-    // } else if (!returnType.equals(other.returnType)) {
-    // return false;
-    // }
-    // return true;
-    // }
-    //
+
 }

@@ -22,7 +22,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.Atf4jException;
+import net.atf4j.core.VerificationError;
 import net.atf4j.core.TestResultsReporting;
 
 /**
@@ -61,10 +61,10 @@ public class TestCaseTest extends TestResultsReporting {
     /**
      * Test method for TestCase.
      *
-     * @throws Atf4jException the Atf4jException
+     * @throws VerificationError the Atf4jException
      */
     @Test
-    public void testRegisterLogging() throws Atf4jException {
+    public void testRegisterLogging() throws VerificationError {
         assertNotNull(UNEXPECTED_NULL, new TestCase().registerLogging(new MockTestReport()));
     }
 

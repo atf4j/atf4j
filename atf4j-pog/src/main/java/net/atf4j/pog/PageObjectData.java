@@ -61,7 +61,7 @@ public class PageObjectData extends TestResultsReporting {
      * @return this for a fluent interface.
      */
     public PageObjectData add(final WebElementField pageWebElement) {
-        pageElements.add(pageWebElement);
+        this.pageElements.add(pageWebElement);
         return this;
     }
 
@@ -72,7 +72,7 @@ public class PageObjectData extends TestResultsReporting {
      * @return this for a fluent interface.
      */
     public PageObjectData addContent(final WebElementField contentMethod) {
-        contentElements.add(contentMethod);
+        this.contentElements.add(contentMethod);
         return this;
     }
 
@@ -83,7 +83,7 @@ public class PageObjectData extends TestResultsReporting {
      * @return this for a fluent interface.
      */
     public PageObjectData addInput(final WebElementField inputMethod) {
-        inputElements.add(inputMethod);
+        this.inputElements.add(inputMethod);
         return this;
     }
 
@@ -94,7 +94,7 @@ public class PageObjectData extends TestResultsReporting {
      * @return this for a fluent interface.
      */
     public PageObjectData addNav(final WebElementField navElement) {
-        navElements.add(navElement);
+        this.navElements.add(navElement);
         return this;
     }
 
@@ -104,7 +104,7 @@ public class PageObjectData extends TestResultsReporting {
      * @return the list of page-elements.
      */
     public List<WebElementField> get() {
-        return pageElements;
+        return this.pageElements;
     }
 
     /**
@@ -113,7 +113,7 @@ public class PageObjectData extends TestResultsReporting {
      * @return the list of content elements.
      */
     public List<WebElementField> getContent() {
-        return contentElements;
+        return this.contentElements;
     }
 
     /**
@@ -122,7 +122,7 @@ public class PageObjectData extends TestResultsReporting {
      * @return the list of input elements.
      */
     public List<WebElementField> getInput() {
-        return inputElements;
+        return this.inputElements;
     }
 
     /**
@@ -131,7 +131,7 @@ public class PageObjectData extends TestResultsReporting {
      * @return the list of navigation elements.-
      */
     public List<WebElementField> getNav() {
-        return navElements;
+        return this.navElements;
     }
 
     /*
@@ -142,16 +142,16 @@ public class PageObjectData extends TestResultsReporting {
     @Override
     public String toString() {
         final StringBuilder stringBuilder = new StringBuilder();
-        for (final WebElementField pageWebElement : pageElements) {
+        for (final WebElementField pageWebElement : this.pageElements) {
             stringBuilder.append(pageWebElement);
         }
-        for (final WebElementField pageWebElement : navElements) {
+        for (final WebElementField pageWebElement : this.navElements) {
             stringBuilder.append(pageWebElement);
         }
-        for (final WebElementField pageWebElement : inputElements) {
+        for (final WebElementField pageWebElement : this.inputElements) {
             stringBuilder.append(pageWebElement);
         }
-        for (final WebElementField pageWebElement : contentElements) {
+        for (final WebElementField pageWebElement : this.contentElements) {
             stringBuilder.append(pageWebElement);
         }
         return stringBuilder.toString();

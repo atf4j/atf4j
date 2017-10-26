@@ -33,9 +33,16 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class AbstractFolderWalker implements FolderWalkerInterface {
 
+    /** The path. */
     private String path;
+    
+    /** The filter. */
     private FilenameFilter filter = new Unfiltered();
+    
+    /** The found files. */
     private final List<File> foundFiles = new ArrayList<File>();
+    
+    /** The log. */
     protected final Logger log = LoggerFactory.getLogger(AbstractFolderWalker.class);
 
     /**

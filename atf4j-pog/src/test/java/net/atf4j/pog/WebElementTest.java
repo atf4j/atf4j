@@ -25,16 +25,17 @@ import net.atf4j.pog.WebElementField.Strategy;
 /**
  * A UnitTest for PageWebElement objects.
  */
-public final class PageWebElementTest extends TestResultsReporting {
+public final class WebElementTest extends TestResultsReporting {
 
     /**
      * Unit tests for the PageWebElement object.
      */
     @Test
     public void testWebElementField() {
-        final WebElementField pageWebElement = new WebElementField(Strategy.NAME, "locator", "fieldName");
+        final WebElementField pageWebElement = new WebElementField(Strategy.NAME, "locator", "byName");
         verifyNotNull(pageWebElement);
-        log.debug("pageWebElement = {}", pageWebElement);
+        log.debug("pageWebElement.debugString() = {}", pageWebElement.debugString());
+        log.debug("pageWebElement.toCode() =\n{}", pageWebElement.toCode());
     }
 
     /**
@@ -44,9 +45,10 @@ public final class PageWebElementTest extends TestResultsReporting {
     public void testClassNameStrategy() {
         final WebElementField pageWebElement = new WebElementField(Strategy.CLASS_NAME,
                 "class-name",
-                "fieldName");
+                "byClassName");
         verifyNotNull(pageWebElement);
-        log.debug("pageWebElement = {}", pageWebElement);
+        log.debug("pageWebElement.debugString() = {}", pageWebElement.debugString());
+        log.debug("pageWebElement.toCode() =\n{}", pageWebElement.toCode());
     }
 
     /**
@@ -55,10 +57,11 @@ public final class PageWebElementTest extends TestResultsReporting {
     @Test
     public void testLinkTextStrategy() {
         final WebElementField pageWebElement = new WebElementField(Strategy.LINK_TEXT,
-                "link",
-                "linkText");
+                "linkText",
+                "byLinkText");
         verifyNotNull(pageWebElement);
-        log.debug("pageWebElement = {}", pageWebElement);
+        log.debug("pageWebElement.debugString() = {}", pageWebElement.debugString());
+        log.debug("pageWebElement.toCode() =\n{}", pageWebElement.toCode());
     }
 
     /**
@@ -68,9 +71,10 @@ public final class PageWebElementTest extends TestResultsReporting {
     public void testPartialLinkText() {
         final WebElementField pageWebElement = new WebElementField(Strategy.PARTIAL_LINK_TEXT,
                 "partialLinkText",
-                "Link");
+                "byPartialLinkText");
         verifyNotNull(pageWebElement);
-        log.debug("pageWebElement = {}", pageWebElement);
+        log.debug("pageWebElement.debugString() = {}", pageWebElement.debugString());
+        log.debug("pageWebElement.toCode() =\n{}", pageWebElement.toCode());
     }
 
     /**
@@ -80,7 +84,8 @@ public final class PageWebElementTest extends TestResultsReporting {
     public void testCssStrategy() {
         final WebElementField pageWebElement = new WebElementField(Strategy.CSS, "#", "byCss");
         verifyNotNull(pageWebElement);
-        log.debug("pageWebElement = {}", pageWebElement);
+        log.debug("pageWebElement.debugString() = {}", pageWebElement.debugString());
+        log.debug("pageWebElement.toCode() =\n{}", pageWebElement.toCode());
     }
 
     /**
@@ -90,7 +95,8 @@ public final class PageWebElementTest extends TestResultsReporting {
     public void testXpathStrategy() {
         final WebElementField pageWebElement = new WebElementField(Strategy.XPATH, "//A", "byXpath");
         verifyNotNull(pageWebElement);
-        log.debug("pageWebElement = {}", pageWebElement);
+        log.debug("pageWebElement.debugString() = {}", pageWebElement.debugString());
+        log.debug("pageWebElement.toCode() =\n{}", pageWebElement.toCode());
     }
 
     /**
@@ -100,7 +106,8 @@ public final class PageWebElementTest extends TestResultsReporting {
     public void testIdStrategy() {
         final WebElementField pageWebElement = new WebElementField(Strategy.ID, "id", "byId");
         verifyNotNull(pageWebElement);
-        log.debug("pageWebElement = {}", pageWebElement);
+        log.debug("pageWebElement.debugString() = {}", pageWebElement.debugString());
+        log.debug("pageWebElement.toCode() =\n{}", pageWebElement.toCode());
     }
 
     /**
@@ -110,7 +117,8 @@ public final class PageWebElementTest extends TestResultsReporting {
     public void testNameStrategy() {
         final WebElementField pageWebElement = new WebElementField(Strategy.NAME, "name", "byName");
         verifyNotNull(pageWebElement);
-        log.debug("pageWebElement = {}", pageWebElement);
+        log.debug("pageWebElement.debugString() = {}", pageWebElement.debugString());
+        log.debug("pageWebElement.toCode() =\n{}", pageWebElement.toCode());
     }
 
     /**
@@ -118,9 +126,10 @@ public final class PageWebElementTest extends TestResultsReporting {
      */
     @Test
     public void testPageWebElementStringStrategyString() {
-        final WebElementField pageWebElement = new WebElementField(Strategy.UNKNOWN, "name", "byName");
+        final WebElementField pageWebElement = new WebElementField(Strategy.UNKNOWN, "unknown", "byUnknown");
         verifyNotNull(pageWebElement);
-        log.debug("pageWebElement = {}", pageWebElement);
+        log.debug("pageWebElement.debugString() = {}", pageWebElement.debugString());
+        log.debug("pageWebElement.toCode() =\n{}", pageWebElement.toCode());
     }
 
     /**
@@ -133,7 +142,8 @@ public final class PageWebElementTest extends TestResultsReporting {
         pageWebElement.setStrategy(Strategy.CLASS_NAME);
         pageWebElement.setLocator("class-name");
         pageWebElement.setFieldName("fieldName");
-        log.debug("pageWebElement = {}", pageWebElement);
+        log.debug("pageWebElement.debugString() = {}", pageWebElement.debugString());
+        log.debug("pageWebElement.toCode() =\n{}", pageWebElement.toCode());
     }
 
 }

@@ -1,5 +1,5 @@
 // generated from main/resources/templates/PageObject.vm
-// 2017-10-26 01:09.56
+// 2017-10-26 20:16.18
 
 package net.atf4j.generated;
 
@@ -23,7 +23,7 @@ public class LandingPage extends AbstractPageObject {
 	}
 
 	public LandingPage open() {
-		super.open("http://atf4j.net/bootstrap");
+		super.open("http://atf4j.net");
 		return this;
 	}
 

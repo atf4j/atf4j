@@ -41,11 +41,11 @@ public final class ConsumerTest extends TestResultsReporting {
      */
     @Test
     public void testReader() throws JMSException {
-        log.debug("testReader");
+        this.log.debug("testReader");
 
         final Consumer consumer = new Consumer();
         assertNotNull(UNEXPECTED_NULL, consumer);
-        log.debug("{}", consumer);
+        this.log.debug("{}", consumer);
     }
 
     /**
@@ -55,14 +55,14 @@ public final class ConsumerTest extends TestResultsReporting {
      */
     @Test
     public void testExecute() throws JMSException {
-        log.debug("testExecute");
+        this.log.debug("testExecute");
 
         final Consumer consumer = new Consumer();
         assertNotNull(UNEXPECTED_NULL, consumer);
-        log.debug("{}", consumer);
+        this.log.debug("{}", consumer);
 
         final String[] messages = consumer.execute();
         assertNotNull(UNEXPECTED_NULL, messages);
-        log.debug("{}", Arrays.toString(messages));
+        this.log.debug("{}", Arrays.toString(messages));
     }
 }

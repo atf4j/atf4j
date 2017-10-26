@@ -39,16 +39,16 @@ public final class CardTest extends TestResultsReporting {
     /** INVALID_NUMBER. */
     private static final String INVALID_NUMBER = "1111-1111-1111-1111";
 
-    /** INVALID_AMEX */
+    /** INVALID_AMEX. */
     private static final String INVALID_AMEX = "0000 1234 5678 9999";
 
-    /** AMEX */
+    /** AMEX. */
     private static final String AMEX_1 = "0000 1234 5678 9999";
 
-    /** AMEX */
+    /** AMEX. */
     private static final String AMEX_2 = "3714-4963-539-8431";
 
-    /** INVALID MASTERCARD */
+    /** INVALID MASTERCARD. */
     private static final String INVALID_MASTERCARD = "1111-1111-1111-1111";
 
     /** MASTERCARD_1. */
@@ -57,7 +57,7 @@ public final class CardTest extends TestResultsReporting {
     /** MASTERCARD_2. */
     private static final String MASTERCARD_2 = "5555 5555 5555 4444";
 
-    /** INVALID VISA CARD NUMBER */
+    /** INVALID VISA CARD NUMBER. */
     private static final String INVALID_VISA = "1111-1111-1111-1111";
 
     /** VISA_CARD_1. */
