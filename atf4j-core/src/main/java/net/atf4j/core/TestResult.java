@@ -21,30 +21,34 @@ package net.atf4j.core;
  * Result of a Test.
  */
 public enum TestResult {
+
     /**
-     * The test has not yet been run.
+     * Test has not yet been run.
      */
     PENDING("Pending"),
+
     /**
-     * The test was skipped because of an assumption was false, a pre-condition
-     * was false.
+     * Test was skipped because of a pre-condition was false.
      **/
     SKIPPED("Skipped"),
+
     /**
-     * The test has been run and passed.
+     * Test has been run and passed.
      */
     PASSED("Passed"),
+
     /**
-     * The test has been run and the SUT failed.
+     * Test has been run and the SUT failed.
      */
     FAILED("Failed"),
+
     /**
-     * The test failed with an exception.
+     * Test failed with an exception.
      */
     EXCEPTION("Exception");
 
-    /** The value. */
-    private final String statusDescription;
+    /** value. */
+    private final String value;
 
     /**
      * Constructor for Test Status from string.
@@ -52,7 +56,7 @@ public enum TestResult {
      * @param asText the as text
      */
     private TestResult(final String asText) {
-        statusDescription = asText;
+        value = asText;
     }
 
     /**
@@ -65,15 +69,15 @@ public enum TestResult {
     }
 
     /**
-     * Status forString.
+     * TestResult from String value.
      *
-     * @param asText the as text
+     * @param string the as text
      * @return Status value
      */
-    public static TestResult forString(final String asText) {
-        for (final TestResult value : values()) {
-            if (value.statusDescription.equals(asText)) {
-                return value;
+    public static TestResult fromString(final String string) {
+        for (final TestResult candidate : values()) {
+            if (candidate.value.equals(string)) {
+                return candidate;
             }
         }
         return null;
@@ -86,7 +90,7 @@ public enum TestResult {
      */
     @Override
     public String toString() {
-        return statusDescription;
+        return value;
     }
 
     /**

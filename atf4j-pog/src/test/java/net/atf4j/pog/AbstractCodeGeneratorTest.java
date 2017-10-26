@@ -17,19 +17,18 @@
 
 package net.atf4j.pog;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 
+import net.atf4j.core.Atf4jException;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * A UnitTest for JavaClassGenerator objects.
+ * The Class AbstractCodeGeneratorTest.
  */
-public final class JavaClassGeneratorTest extends TestResultsReporting {
+public class AbstractCodeGeneratorTest extends TestResultsReporting {
 
     /**
-     * The JavaClassGenerator Class.
+     * The Class JavaClassGenerator.
      */
     public class JavaClassGenerator extends AbstractCodeGenerator {
 
@@ -44,7 +43,7 @@ public final class JavaClassGeneratorTest extends TestResultsReporting {
          * Instantiates a new java class generator.
          *
          * @param templateFilename the template filename
-         * @throws TemplateNotLoadedException the template not loaded
+         * @throws TemplateNotLoadedException the template not loaded exception
          */
         public JavaClassGenerator(final String templateFilename) throws TemplateNotLoadedException {
             super(templateFilename);
@@ -52,13 +51,27 @@ public final class JavaClassGeneratorTest extends TestResultsReporting {
     }
 
     /**
-     * Test java class generator test.
+     * Test abstract code generator.
+     *
+     * @throws Atf4jException the atf 4 j exception
      */
     @Test
-    public void testJavaClassGeneratorTest() {
+    public void testAbstractCodeGenerator() throws Atf4jException {
         final JavaClassGenerator javaClassGenerator = new JavaClassGenerator();
-        log.debug(javaClassGenerator.toString());
-        assertNotNull(javaClassGenerator);
-        // javaClassGenerator.
+        verifyNotNull(javaClassGenerator);
+        verifyNotNull(javaClassGenerator.generate());
     }
+
+    /**
+     * Test abstract code generator string.
+     *
+     * @throws Atf4jException the atf 4 j exception
+     */
+    @Test
+    public void testAbstractCodeGeneratorString() throws Atf4jException {
+        final JavaClassGenerator javaClassGenerator = new JavaClassGenerator("templates/Class.vm");
+        verifyNotNull(javaClassGenerator);
+        verifyNotNull(javaClassGenerator.generate());
+    }
+
 }

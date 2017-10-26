@@ -56,7 +56,7 @@ public final class AbstractWalkerTest extends TestResultsReporting {
     @Test
     public void testAbstractWalker() {
         final MockWalker mockWalker = new MockWalker();
-        log.debug("mockWalker = {}", mockWalker);
+        log.debug("new MockWalker() = {}", mockWalker);
         assertNotNull(UNEXPECTED_NULL, mockWalker);
         assertNotNull(UNEXPECTED_NULL, mockWalker.walk());
     }

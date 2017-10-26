@@ -18,7 +18,7 @@
 package net.atf4j.data;
 
 /**
- * Name for Entity.
+ * Name is an abstract datum.
  */
 public abstract class Name extends AbstractDatum {
 
@@ -69,7 +69,6 @@ public abstract class Name extends AbstractDatum {
      * @param input as String.
      * @return string input as capitalised String.
      */
-    @Deprecated
     public static String capitalise(final String input) {
         if (input != null) {
             if (input.length() > 0) {

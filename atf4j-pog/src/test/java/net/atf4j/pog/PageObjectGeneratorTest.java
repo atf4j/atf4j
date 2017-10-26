@@ -22,7 +22,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.pog.PageWebElement.Strategy;
+import net.atf4j.pog.WebElementField.Strategy;
 
 /**
  * A UnitTest for PageObjectGenerator objects.
@@ -48,15 +48,16 @@ public final class PageObjectGeneratorTest extends TestResultsReporting {
         final PageObjectData pageObjectData = new PageObjectData();
         assertNotNull(UNEXPECTED_NULL, pageObjectData);
 
-        final PageWebElement idElement = new PageWebElement("findById", Strategy.ID, "id");
-        final PageWebElement nameElement = new PageWebElement("findByName", Strategy.NAME, "name");
-        final PageWebElement classNameElement = new PageWebElement("findByClassName", Strategy.CLASS_NAME, "className");
-        final PageWebElement linkTextElement = new PageWebElement("findByLinkText", Strategy.LINK_TEXT, "linkText");
-        final PageWebElement partialLinkTextElement = new PageWebElement("findByPartialLinkText",
-                Strategy.PARTIAL_LINK_TEXT, "partialLinkText");
-        final PageWebElement xpathElement = new PageWebElement("findByXpath", Strategy.XPATH,
-                "//a[contains(text(), 'ATF4J')]");
-        final PageWebElement cssElement = new PageWebElement("findByCss", Strategy.CSS, ".");
+        final WebElementField idElement = new WebElementField(Strategy.ID, "id", "findById");
+        final WebElementField nameElement = new WebElementField(Strategy.NAME, "name", "findByName");
+        final WebElementField classNameElement = new WebElementField(Strategy.CLASS_NAME, "className",
+                "findByClassName");
+        final WebElementField linkTextElement = new WebElementField(Strategy.LINK_TEXT, "linkText", "findByLinkText");
+        final WebElementField partialLinkTextElement = new WebElementField(
+                Strategy.PARTIAL_LINK_TEXT, "partialLinkText", "findByPartialLinkText");
+        final WebElementField xpathElement = new WebElementField(Strategy.XPATH,
+                "//a[contains(text(), 'ATF4J')]", "findByXpath");
+        final WebElementField cssElement = new WebElementField(Strategy.CSS, ".", "findByCss");
 
         pageObjectData
             .add(idElement)

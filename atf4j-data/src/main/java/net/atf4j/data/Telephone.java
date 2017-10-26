@@ -64,6 +64,9 @@ public class Telephone extends TestResultsReporting {
         /** Other. */
         Other("Other"),
 
+        /** Blank. */
+        BLANK(""),
+
         /** Unknown. */
         Unknown("Unknown");
 
@@ -95,9 +98,9 @@ public class Telephone extends TestResultsReporting {
          * @return the type
          */
         public static Type forString(final String asText) {
-            for (final Type value : values()) {
-                if (value.typeName.equals(asText)) {
-                    return value;
+            for (final Type candidate : values()) {
+                if (candidate.typeName.equals(asText)) {
+                    return candidate;
                 }
             }
             return null;

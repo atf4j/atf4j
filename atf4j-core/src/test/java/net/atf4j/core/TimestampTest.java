@@ -15,36 +15,21 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.fdd;
-
-import static org.junit.Assert.assertNotNull;
+package net.atf4j.core;
 
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
-
 /**
- * Unit Test class for Behaviour Model.
+ * Unit test class for Timestamp.
  */
-public class BehaviourModelTest extends TestResultsReporting {
+public class TimestampTest extends TestResultsReporting {
 
     /**
-     * Behaviour Model class.
-     */
-    public class BehaviourModel extends AbstractBehaviourModel {
-        public BehaviourModel() {
-            super();
-        }
-    }
-
-    /**
-     * Test default constructor.
+     * Test timestamp.
      */
     @Test
-    public void testDefaultConstructor() {
-        final BehaviourModel behaviour = new BehaviourModel();
-        log.debug("behaviour = {}", behaviour);
-        assertNotNull(UNEXPECTED_NULL, behaviour);
+    public void testTimestamp() {
+        verifyNotNull(Timestamp.dateTime());
     }
 
 }

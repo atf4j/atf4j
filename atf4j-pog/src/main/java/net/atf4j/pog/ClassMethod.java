@@ -31,16 +31,16 @@ public final class ClassMethod extends TestResultsReporting {
     /** Code Template for method. */
     private static final String METHOD_CODE = "public %s %s() { return new %s(); }";
 
-    /** The access. */
+    /** access modifiers. */
     private String access;
 
-    /** The return type. */
+    /** return type. */
     private String returnType;
 
-    /** The method name. */
+    /** method name. */
     private String methodName;
 
-    /** The parameters. */
+    /** parameters. */
     private final List<ClassField> parameters = new ArrayList<ClassField>();
 
     /**

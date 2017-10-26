@@ -29,7 +29,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * A Unit test class for Datum.
  */
-public final class DatumTest extends TestResultsReporting {
+public final class AbstractDatumTest extends TestResultsReporting {
 
     /**
      * The MockDatum Class.

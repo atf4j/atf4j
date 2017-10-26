@@ -17,6 +17,7 @@
 
 package net.atf4j.data;
 
+import static net.atf4j.core.Verify.verifyEqual;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -32,31 +33,21 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class NinoTest extends TestResultsReporting {
 
-    /** The Constant 			BLANK. */
+    /** Blank National Insurance No. */
     private static final String BLANK = "";
-    
-    /** The Constant 			INVALID. */
-    private static final String INVALID = "XX-99-99-99X";
-    
-    /** The Constant 			VALID. */
-    private static final String VALID = "AA-99-99-99A";
 
-    /**
-     * Test method for NationalInsurance.
-     */
-    @Test
-    public void testDefaultConstructor() {
-        final Nino nino = new Nino();
-        assertNotNull(UNEXPECTED_NULL, nino);
-    }
+    /** Invalid National Insurance No. */
+    private static final String INVALID = "XX-99-99-99X";
+
+    /** Valid National Insurance No. */
+    private static final String VALID = "AA-99-99-99A";
 
     /**
      * test NationalInsurance object.
      */
     @Test
     public void testNationalInsurance() {
-        final Nino nino = new Nino();
-        assertNotNull(UNEXPECTED_NULL, nino);
+        verifyNotNull(new Nino());
     }
 
     /**
@@ -66,9 +57,8 @@ public final class NinoTest extends TestResultsReporting {
     @Test
     public void testInvalidNino() {
         final Nino nino = new Nino(INVALID);
-        log.debug("{}", nino);
-        assertNotNull(UNEXPECTED_NULL, nino);
-        assertEquals(INVALID, nino.toString());
+        verifyNotNull(nino);
+        verifyEqual(INVALID, nino);
     }
 
     /**

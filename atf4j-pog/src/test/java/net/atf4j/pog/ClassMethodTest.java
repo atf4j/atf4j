@@ -29,24 +29,12 @@ import net.atf4j.core.TestResultsReporting;
 public final class ClassMethodTest extends TestResultsReporting {
 
     /**
-     * Test expected.
-     */
-    @Test
-    public void testExpected() {
-        log.debug(new ClassField("Boolean", "getBoolean").toCode());
-        log.debug(new ClassField("Date", "getDate").toCode());
-        log.debug(new ClassField("Number", "getNumber").toCode());
-        log.debug(new ClassField("String", "getString()").toCode());
-        log.debug(new ClassField("Value", "getValue").toCode());
-    }
-
-    /**
      * Test method for void.
      */
     @Test
     public void testClassMethod() {
         final ClassMethod classMethod = new ClassMethod();
-        log.debug("new ClassMethod() = {}", classMethod.toString());
+        log.debug(classMethod.toString());
         assertNotNull(UNEXPECTED_NULL, classMethod);
     }
 
@@ -56,7 +44,7 @@ public final class ClassMethodTest extends TestResultsReporting {
     @Test
     public void testClassMethodString() {
         final ClassMethod classMethod = new ClassMethod("String", "method");
-        log.debug("new ClassMethod('String', 'method') = {}", classMethod.toString());
+        log.debug(classMethod.toString());
         assertNotNull(UNEXPECTED_NULL, classMethod);
     }
 
@@ -66,7 +54,7 @@ public final class ClassMethodTest extends TestResultsReporting {
     @Test
     public void testClassMethodDate() {
         final ClassMethod classMethod = new ClassMethod("Date", "date");
-        log.debug("new ClassMethod('Date', 'date') = {}", classMethod.toString());
+        log.debug(classMethod.toString());
         assertNotNull(UNEXPECTED_NULL, classMethod);
     }
 

@@ -28,6 +28,7 @@ import java.util.Date;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.core.Text;
 import net.atf4j.data.Bank;
 import net.atf4j.data.Business;
 import net.atf4j.data.Card;
@@ -36,7 +37,6 @@ import net.atf4j.data.Customer;
 import net.atf4j.data.Person;
 import net.atf4j.data.PostalAddress;
 import net.atf4j.data.Postcode;
-import net.atf4j.data.Text;
 
 /**
  * A UnitTest for DataFactory objects.

@@ -1,5 +1,5 @@
-// generated from main/resources/PageObject.vm
-// $timeStamp
+// generated from main/resources/templates/PageObject.vm
+// 2017-10-26 01:09.56
 
 package net.atf4j.generated;
 
@@ -12,6 +12,11 @@ import org.openqa.selenium.support.FindBy;
 import net.atf4j.webdriver.page.AbstractPageObject;
 
 public class LandingPage extends AbstractPageObject {
+
+
+	public LandingPage() {
+		super();
+	}
 
 	public LandingPage(WebDriver webDriver) {
 		super(webDriver);
@@ -27,9 +32,9 @@ public class LandingPage extends AbstractPageObject {
 		return this;
 	}
 
-// Nav
+	// Navigation Elements.
 
-// Input
+	// Input Elements
 
-// Content
+	// Content Elements
 }

@@ -33,8 +33,7 @@ public final class ConsumerTest extends TestResultsReporting {
      */
     @Test
     public void testConsumer() {
-        final Consumer consumer = new Consumer();
-        assertNotNull(consumer);
+        verifyNotNull(new Consumer());
     }
 
     /**

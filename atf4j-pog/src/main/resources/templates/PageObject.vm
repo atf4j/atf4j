@@ -1,5 +1,5 @@
 ## PageObject.vm
-// generated from main/resources/PageObject.vm
+// generated from main/resources/templates/PageObject.vm
 // $timeStamp
 
 package $packageName;
@@ -13,9 +13,14 @@ import org.openqa.selenium.support.FindBy;
 import net.atf4j.webdriver.page.AbstractPageObject;
 
 public class ${className} extends AbstractPageObject {
+
 #foreach($element in $pageElements)
 	${element}
 #end
+
+	public $className() {
+		super();
+	}
 
 	public ${className}(WebDriver webDriver) {
 		super(webDriver);
@@ -31,32 +36,32 @@ public class ${className} extends AbstractPageObject {
 		return this;
 	}
 
-// Nav
+	// Navigation Elements.
 #foreach($element in $navigation)
-// ${element.Name}
-	public ${className} navTo$util.firstUpper(${element.Name})() {
-		assertNotNull($element.Name);
-		${element.Name}.click();
+	// ${element.fieldName}
+	public ${className} navTo$util.firstUpper(${element.fieldName})() {
+		assertNotNull($element.fieldName);
+		${element.fieldName}.click();
 		return this;
 	}
 #end
 
-// Input
+	// Input Elements
 #foreach($element in $inputs)
-// ${element.Name}
-	public ${className} inputTo${element.Name}(String inputText) {
-		assertNotNull(${element.Name});
-		${element.Name}.sendKeys(inputText);
+	// ${element.fieldName}
+	public ${className} inputTo${element.fieldName}(String inputText) {
+		assertNotNull(${element.fieldName});
+		${element.fieldName}.sendKeys(inputText);
 		return this;
 	}
 #end
 
-// Content
+	// Content Elements
 #foreach($element in $content)
-// ${element.Name}
-	public ${className} verify${element.Name}(String inputText) {
-		assertNotNull(${element.Name});
-		verify(${element.Name});
+	// ${element.fieldName}
+	public ${className} verify${element.fieldName}(String inputText) {
+		assertNotNull(${element.fieldName});
+		verify(${element.fieldName});
 		return this;
 	}
 #end

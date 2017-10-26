@@ -31,13 +31,16 @@ import net.atf4j.core.TestResultsReporting;
  */
 public abstract class AbstractTemplateEngine extends TestResultsReporting {
 
-    /** Default template folder. */
+    /** Default base path. */
+    private static final String DEFAULT_PATH = ".";
+
+    /** Default template folder, under the path. */
     private static final String DEFAULT_CLASS_TEMPLATE = "template.vm";
 
-    /** Default base folder. */
-    private String basePath = "./";
+    /** actual base folder. */
+    protected String basePath = DEFAULT_PATH;
 
-    /** Default template filename. */
+    /** actual template filename. */
     protected String templateFilename = DEFAULT_CLASS_TEMPLATE;
 
     /**
@@ -50,20 +53,43 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
     /**
      * Instantiates a new abstract template engine.
      *
+     * @param basePath the base path
+     */
+    public AbstractTemplateEngine(final String basePath) {
+        super();
+        setBasePath(basePath);
+    }
+
+    /**
+     * Instantiates a new abstract template engine.
+     *
+     * @param basePath the base path
      * @param templateFilename the template filename
      */
-    public AbstractTemplateEngine(final String templateFilename) {
+    public AbstractTemplateEngine(final String basePath, final String templateFilename) {
         super();
+        setBasePath(basePath);
         setTemplateFilename(templateFilename);
     }
 
     /**
-     * Sets the base folder.
+     * Sets the base path.
      *
-     * @param baseFolder the new base folder
+     * @param basePath the base path
+     * @return the abstract template engine
      */
-    public void setBaseFolder(final String baseFolder) {
-        this.basePath = baseFolder;
+    public AbstractTemplateEngine setBasePath(String basePath) {
+        this.basePath = basePath;
+        return this;
+    }
+
+    /**
+     * Sets the template filename.
+     *
+     * @param templateFilename the new template filename
+     */
+    public void setTemplateFilename(String templateFilename) {
+        this.templateFilename = templateFilename;
     }
 
     /**
@@ -72,7 +98,7 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
      * @return this for a fluent interface.
      */
     protected AbstractTemplateEngine execute() {
-        return execute(getTemplateFilename());
+        return prototype(getFullFilename());
     }
 
     /**
@@ -81,7 +107,7 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
      * @param templateFilename the template filename
      * @return this for a fluent interface.
      */
-    protected AbstractTemplateEngine execute(final String templateFilename) {
+    protected AbstractTemplateEngine prototype(final String templateFilename) {
         log.info(toCode(templateFilename));
         return this;
     }
@@ -119,12 +145,12 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
     }
 
     /**
-     * Sets the template filename.
+     * Gets the base path.
      *
-     * @param templateFilename the new template filename
+     * @return the base path
      */
-    public void setTemplateFilename(String templateFilename) {
-        this.templateFilename = templateFilename;
+    public String getBasePath() {
+        return basePath;
     }
 
     /**
@@ -136,6 +162,15 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
         return templateFilename;
     }
 
+    /**
+     * Gets the full filename.
+     *
+     * @return the full filename
+     */
+    public String getFullFilename() {
+        return String.format("%s%s", getBasePath(), getTemplateFilename());
+    }
+
     /*
      * (non-Javadoc)
      *
@@ -143,7 +178,8 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
      */
     @Override
     public String toString() {
-        return String.format("AbstractTemplateEngine [baseFolder=%s, templateFilename=%s]",
+        return String.format("%s [baseFolder=%s, templateFilename=%s]",
+                this.getClass().getSimpleName(),
                 basePath,
                 templateFilename);
     }

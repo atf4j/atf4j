@@ -1,18 +1,29 @@
 ## UnitTest.vm
-// from main/resources/UnitTest.vm
+// from main/resources/templates/UnitTest.vm
 // $timeStamp
 
 package $packageName;
 
 public class $className {
+
 	public $className() {
 		super();
 	}
 	
 	@Test
 	public void testDefaultConstructor() {
-	 assertNotNull(new $testTarget());
+		assertNotNull(new $testTarget());
 	}
 
-// Generate unit test forEachMethod 
+	// Generate unit test forEachMethod 
+#foreach($element in $content)
+	// ${element.Name}
+	public ${className} test${element.Name}() {
+		${element.Type} ${element.Name} = new ${element.Type};
+		assertNotNull(${element.Name});
+		verify(${element.Name});
+		return this;
+	}
+#end
+	
 }

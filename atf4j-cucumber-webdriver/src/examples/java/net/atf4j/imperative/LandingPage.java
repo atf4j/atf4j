@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
+
 package net.atf4j.imperative;
 
 import org.openqa.selenium.WebDriver;
@@ -29,8 +30,7 @@ public class LandingPage extends AbstractPageObject {
     /**
      * Instantiates a new landing page.
      *
-     * @throws ConfigurationNotLoadedException
-     *             the configuration not loaded
+     * @throws ConfigurationNotLoadedException the configuration not loaded.
      */
     public LandingPage() throws ConfigurationNotLoadedException {
         super();
@@ -39,10 +39,8 @@ public class LandingPage extends AbstractPageObject {
     /**
      * Instantiates a new landing page.
      *
-     * @param targetUrl
-     *            the target url
-     * @throws ConfigurationNotLoadedException
-     *             the configuration not loaded
+     * @param targetUrl the target url
+     * @throws ConfigurationNotLoadedException the configuration not loaded.
      */
     public LandingPage(final String targetUrl) throws ConfigurationNotLoadedException {
         super(targetUrl);
@@ -51,8 +49,7 @@ public class LandingPage extends AbstractPageObject {
     /**
      * Instantiates a new landing page.
      *
-     * @param webDriver
-     *            the web driver
+     * @param webDriver the web driver
      */
     public LandingPage(final WebDriver webDriver) {
         super(webDriver);

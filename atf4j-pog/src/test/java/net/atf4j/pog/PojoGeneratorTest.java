@@ -35,10 +35,8 @@ public final class PojoGeneratorTest extends TestResultsReporting {
      * @throws Atf4jException the atf4j exception
      */
     @Test
-    public void testExpected() throws Atf4jException {
-        final PojoGenerator pojoGenerator = new PojoGenerator();
-        log.info("pojoGenerator.toString() = {}", pojoGenerator.toString());
-        log.info("pojoGenerator.toCode() = {}", pojoGenerator.toCode());
+    public void testExpectedUsage() throws Atf4jException {
+        final FluentPojoGenerator pojoGenerator = new FluentPojoGenerator();
         assertNotNull(UNEXPECTED_NULL, pojoGenerator);
         assertNotNull(UNEXPECTED_NULL, pojoGenerator.setClassName("FluentPojo"));
         pojoGenerator.addStringField("string");

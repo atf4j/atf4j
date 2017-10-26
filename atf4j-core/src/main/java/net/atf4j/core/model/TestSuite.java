@@ -42,25 +42,6 @@ public class TestSuite extends AbstractTestBase {
     }
 
     /**
-     * Instantiates a new test suite.
-     *
-     * @param testContext the test context
-     */
-    public TestSuite(final TestContext testContext) {
-        super(testContext);
-    }
-
-    /**
-     * Execute.
-     *
-     * @return the test suite
-     * @throws Atf4jException the atf4j exception
-     */
-    public TestSuite execute() throws Atf4jException {
-        return execute(testContext);
-    }
-
-    /**
      * Execute.
      *
      * @param context the context

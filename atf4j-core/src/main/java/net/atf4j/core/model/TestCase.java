@@ -51,25 +51,6 @@ public class TestCase extends AbstractTestBase {
     }
 
     /**
-     * Instantiates a new test case.
-     *
-     * @param testContext the test context
-     */
-    public TestCase(final TestContext testContext) {
-        super(testContext);
-    }
-
-    /**
-     * Execute.
-     *
-     * @return the test case
-     * @throws Atf4jException the Atf4jException
-     */
-    public TestCase execute() throws Atf4jException {
-        return execute(testContext);
-    }
-
-    /**
      * Execute.
      *
      * @param context the context

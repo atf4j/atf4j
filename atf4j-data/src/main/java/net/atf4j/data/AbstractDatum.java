@@ -26,13 +26,13 @@ public abstract class AbstractDatum extends TestResultsReporting {
 
     /** The is fresh. */
     private boolean isFresh = true;
-    
+
     /** The is changed. */
     private boolean isChanged = false;
-    
+
     /** The is deleted. */
     private boolean isDeleted = false;
-    
+
     /** The is used. */
     private boolean isUsed = false;
 
@@ -43,7 +43,8 @@ public abstract class AbstractDatum extends TestResultsReporting {
      * @return the datum
      */
     protected AbstractDatum fresh(final boolean isNew) {
-        isChanged = !(isFresh = isNew);
+        isFresh = isNew;
+        isChanged = !isFresh;
         return this;
     }
 
@@ -54,7 +55,8 @@ public abstract class AbstractDatum extends TestResultsReporting {
      * @return the datum
      */
     protected AbstractDatum changed(final boolean isDirty) {
-        isFresh = !(isChanged = isDirty);
+        isChanged = isDirty;
+        isFresh = !isChanged;
         return this;
     }
 

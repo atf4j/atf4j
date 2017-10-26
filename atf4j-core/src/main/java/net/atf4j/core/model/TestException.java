@@ -15,36 +15,11 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.fdd;
+package net.atf4j.core.model;
 
-import static org.junit.Assert.assertNotNull;
+import net.atf4j.core.Atf4jException;
 
-import org.junit.Test;
-
-import net.atf4j.core.TestResultsReporting;
-
-/**
- * Unit Test class for Behaviour Model.
- */
-public class BehaviourModelTest extends TestResultsReporting {
-
-    /**
-     * Behaviour Model class.
-     */
-    public class BehaviourModel extends AbstractBehaviourModel {
-        public BehaviourModel() {
-            super();
-        }
-    }
-
-    /**
-     * Test default constructor.
-     */
-    @Test
-    public void testDefaultConstructor() {
-        final BehaviourModel behaviour = new BehaviourModel();
-        log.debug("behaviour = {}", behaviour);
-        assertNotNull(UNEXPECTED_NULL, behaviour);
-    }
+@SuppressWarnings("serial")
+public class TestException extends Atf4jException {
 
 }

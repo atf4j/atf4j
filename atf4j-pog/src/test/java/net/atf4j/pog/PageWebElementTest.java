@@ -17,12 +17,10 @@
 
 package net.atf4j.pog;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.pog.PageWebElement.Strategy;
+import net.atf4j.pog.WebElementField.Strategy;
 
 /**
  * A UnitTest for PageWebElement objects.
@@ -30,105 +28,112 @@ import net.atf4j.pog.PageWebElement.Strategy;
 public final class PageWebElementTest extends TestResultsReporting {
 
     /**
+     * Unit tests for the PageWebElement object.
+     */
+    @Test
+    public void testWebElementField() {
+        final WebElementField pageWebElement = new WebElementField(Strategy.NAME, "locator", "fieldName");
+        verifyNotNull(pageWebElement);
+        log.debug("pageWebElement = {}", pageWebElement);
+    }
+
+    /**
+     * Unit tests for the PageWebElement object.
+     */
+    @Test
+    public void testClassNameStrategy() {
+        final WebElementField pageWebElement = new WebElementField(Strategy.CLASS_NAME,
+                "class-name",
+                "fieldName");
+        verifyNotNull(pageWebElement);
+        log.debug("pageWebElement = {}", pageWebElement);
+    }
+
+    /**
+     * Unit tests for the PageWebElement object.
+     */
+    @Test
+    public void testLinkTextStrategy() {
+        final WebElementField pageWebElement = new WebElementField(Strategy.LINK_TEXT,
+                "link",
+                "linkText");
+        verifyNotNull(pageWebElement);
+        log.debug("pageWebElement = {}", pageWebElement);
+    }
+
+    /**
+     * Unit tests for the PageWebElement object.
+     */
+    @Test
+    public void testPartialLinkText() {
+        final WebElementField pageWebElement = new WebElementField(Strategy.PARTIAL_LINK_TEXT,
+                "partialLinkText",
+                "Link");
+        verifyNotNull(pageWebElement);
+        log.debug("pageWebElement = {}", pageWebElement);
+    }
+
+    /**
+     * Unit tests for the PageWebElement object.
+     */
+    @Test
+    public void testCssStrategy() {
+        final WebElementField pageWebElement = new WebElementField(Strategy.CSS, "#", "byCss");
+        verifyNotNull(pageWebElement);
+        log.debug("pageWebElement = {}", pageWebElement);
+    }
+
+    /**
+     * Unit tests for the PageWebElement object.
+     */
+    @Test
+    public void testXpathStrategy() {
+        final WebElementField pageWebElement = new WebElementField(Strategy.XPATH, "//A", "byXpath");
+        verifyNotNull(pageWebElement);
+        log.debug("pageWebElement = {}", pageWebElement);
+    }
+
+    /**
+     * Unit tests for the PageWebElement object.
+     */
+    @Test
+    public void testIdStrategy() {
+        final WebElementField pageWebElement = new WebElementField(Strategy.ID, "id", "byId");
+        verifyNotNull(pageWebElement);
+        log.debug("pageWebElement = {}", pageWebElement);
+    }
+
+    /**
+     * Unit tests for the PageWebElement object.
+     */
+    @Test
+    public void testNameStrategy() {
+        final WebElementField pageWebElement = new WebElementField(Strategy.NAME, "name", "byName");
+        verifyNotNull(pageWebElement);
+        log.debug("pageWebElement = {}", pageWebElement);
+    }
+
+    /**
+     * Unit tests for the PageWebElement object.
+     */
+    @Test
+    public void testPageWebElementStringStrategyString() {
+        final WebElementField pageWebElement = new WebElementField(Strategy.UNKNOWN, "name", "byName");
+        verifyNotNull(pageWebElement);
+        log.debug("pageWebElement = {}", pageWebElement);
+    }
+
+    /**
      * Test fluent interface.
      */
     @Test
     public void testFluentInterface() {
-        final PageWebElement pageWebElement = new PageWebElement();
-        assertNotNull(UNEXPECTED_NULL, pageWebElement);
-        pageWebElement.setName("className");
+        final WebElementField pageWebElement = new WebElementField();
+        verifyNotNull(pageWebElement);
         pageWebElement.setStrategy(Strategy.CLASS_NAME);
         pageWebElement.setLocator("class-name");
-        log.info("pageWebElement.toString() = {}", pageWebElement.toString());
-        log.info("pageWebElement.toCode() = {}", pageWebElement.toCode());
-    }
-
-    /**
-     * Test method for void.
-     */
-    @Test
-    public void testClassNameStrategy() {
-        final PageWebElement pageWebElement = new PageWebElement("className", Strategy.CLASS_NAME, "class-name");
-        log.info("pageWebElement.toString() = {}", pageWebElement.toString());
-        log.info("pageWebElement.toCode() = {}", pageWebElement.toCode());
-        assertNotNull(UNEXPECTED_NULL, pageWebElement);
-    }
-
-    /**
-     * Test method for void.
-     */
-    @Test
-    public void testLinkTextStrategy() {
-        final PageWebElement pageWebElement = new PageWebElement("linkText", Strategy.LINK_TEXT, "link");
-        log.info("pageWebElement.toString() = {}", pageWebElement.toString());
-        log.info("pageWebElement.toCode() = {}", pageWebElement.toCode());
-        assertNotNull(UNEXPECTED_NULL, pageWebElement);
-    }
-
-    /**
-     * Test method for void.
-     */
-    @Test
-    public void testPartialLinkText() {
-        final PageWebElement pageWebElement = new PageWebElement("partialLinkText", Strategy.PARTIAL_LINK_TEXT, "Link");
-        log.info("pageWebElement.toString() = {}", pageWebElement.toString());
-        log.info("pageWebElement.toCode() = {}", pageWebElement.toCode());
-        assertNotNull(UNEXPECTED_NULL, pageWebElement);
-    }
-
-    /**
-     * Test method for void.
-     */
-    @Test
-    public void testCssStrategy() {
-        final PageWebElement pageWebElement = new PageWebElement("byCss", Strategy.CSS, "#");
-        log.info("pageWebElement.toString() = {}", pageWebElement.toString());
-        log.info("pageWebElement.toCode() = {}", pageWebElement.toCode());
-        assertNotNull(UNEXPECTED_NULL, pageWebElement);
-    }
-
-    /**
-     * Test method for void.
-     */
-    @Test
-    public void testXpathStrategy() {
-        final PageWebElement pageWebElement = new PageWebElement("byXpath", Strategy.XPATH, "//A");
-        log.info("pageWebElement.toString() = {}", pageWebElement.toString());
-        log.info("pageWebElement.toCode() = {}", pageWebElement.toCode());
-        assertNotNull(UNEXPECTED_NULL, pageWebElement);
-    }
-
-    /**
-     * Test method for void.
-     */
-    @Test
-    public void testIdStrategy() {
-        final PageWebElement pageWebElement = new PageWebElement("byId", Strategy.ID, "id");
-        log.info("pageWebElement.toString() = {}", pageWebElement.toString());
-        log.info("pageWebElement.toCode() = {}", pageWebElement.toCode());
-        assertNotNull(UNEXPECTED_NULL, pageWebElement);
-    }
-
-    /**
-     * Test method for void.
-     */
-    @Test
-    public void testNameStrategy() {
-        final PageWebElement pageWebElement = new PageWebElement("byName", Strategy.NAME, "name");
-        log.info("pageWebElement.toString() = {}", pageWebElement.toString());
-        log.info("pageWebElement.toCode() = {}", pageWebElement.toCode());
-        assertNotNull(UNEXPECTED_NULL, pageWebElement);
-    }
-
-    /**
-     * Test method for void.
-     */
-    @Test
-    public void testPageWebElementStringStrategyString() {
-        final PageWebElement pageWebElement = new PageWebElement("byName", Strategy.UNKNOWN, "name");
-        log.info("pageWebElement.toString() = {}", pageWebElement.toString());
-        log.info("pageWebElement.toCode() = {}", pageWebElement.toCode());
-        assertNotNull(UNEXPECTED_NULL, pageWebElement);
+        pageWebElement.setFieldName("fieldName");
+        log.debug("pageWebElement = {}", pageWebElement);
     }
 
 }

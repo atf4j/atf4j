@@ -17,7 +17,8 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -34,8 +35,54 @@ public final class FieldStatusTest extends TestResultsReporting {
     @Test
     public void testInitialise() {
         final FieldStatus fieldStatus = FieldStatus.initialise();
-        log.debug("FieldStatus.initialise() = {}", fieldStatus);
-        assertNotNull("unexpected null", fieldStatus);
+        verifyNotNull(fieldStatus);
+        assertTrue(fieldStatus.equals(FieldStatus.PRISTINE));
+    }
+
+    /**
+     * Test value of.
+     */
+    @Test
+    public void testValueOf() {
+        assertEquals(FieldStatus.PRISTINE, FieldStatus.fromString(FieldStatus.PRISTINE.toString()));
+        assertEquals(FieldStatus.CHANGED, FieldStatus.fromString(FieldStatus.CHANGED.toString()));
+        assertEquals(FieldStatus.PERSISTED, FieldStatus.fromString(FieldStatus.PERSISTED.toString()));
+        assertEquals(FieldStatus.UNWANTED, FieldStatus.fromString(FieldStatus.UNWANTED.toString()));
+    }
+
+    /**
+     * Test value of Pristine.
+     */
+    @Test
+    public void testValueOfPristine() {
+        final FieldStatus expected = FieldStatus.PRISTINE;
+        final String string = expected.toString();
+        final FieldStatus actual = FieldStatus.fromString(string);
+        assertEquals(expected, actual);
+    }
+
+    /**
+     * Test value of.
+     */
+    @Test
+    public void testValueOfChanged() {
+        assertEquals(FieldStatus.CHANGED, FieldStatus.fromString(FieldStatus.CHANGED.toString()));
+    }
+
+    /**
+     * Test value of.
+     */
+    @Test
+    public void testValueOfPersisted() {
+        assertEquals(FieldStatus.PERSISTED, FieldStatus.fromString(FieldStatus.PERSISTED.toString()));
+    }
+
+    /**
+     * Test value of.
+     */
+    @Test
+    public void testValueOfUnwanted() {
+        assertEquals(FieldStatus.UNWANTED, FieldStatus.fromString(FieldStatus.UNWANTED.toString()));
     }
 
 }

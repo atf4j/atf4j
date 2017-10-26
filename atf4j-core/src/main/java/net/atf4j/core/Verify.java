@@ -53,9 +53,10 @@ public final class Verify {
      * @param object the object
      */
     public static void verifyNotNull(Object object) {
-        final String objectName = object.getClass().getSimpleName();
-        LOG.debug("verify({}) = {}", objectName, object);
         assertNotNull(UNEXPECTED_NULL, object);
+        final String objectName = object.getClass().getSimpleName();
+        assertNotNull(UNEXPECTED_NULL, objectName);
+        LOG.debug("verify({}) = {}", objectName, object);
     }
 
     /**

@@ -15,36 +15,39 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.fdd;
+package net.atf4j.core;
 
-import static org.junit.Assert.assertNotNull;
-
-import org.junit.Test;
-
-import net.atf4j.core.TestResultsReporting;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
- * Unit Test class for Behaviour Model.
+ * The Class Timestamp.
  */
-public class BehaviourModelTest extends TestResultsReporting {
+public class Timestamp {
+
+    /** ISO_DATE_TIME constant. */
+    public static final String ISO_DATE_TIME = "yyyy-MM-dd'T'HH:mm'Z'";
+
+    /** DATE_TIME_FORMAT constant. */
+    public static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm.ss";
 
     /**
-     * Behaviour Model class.
+     * Date time.
+     *
+     * @return the string
      */
-    public class BehaviourModel extends AbstractBehaviourModel {
-        public BehaviourModel() {
-            super();
-        }
+    public static String dateTime() {
+        return new SimpleDateFormat(DATE_TIME_FORMAT).format(new Date());
     }
 
     /**
-     * Test default constructor.
+     * Date time.
+     *
+     * @param format the format
+     * @return the string
      */
-    @Test
-    public void testDefaultConstructor() {
-        final BehaviourModel behaviour = new BehaviourModel();
-        log.debug("behaviour = {}", behaviour);
-        assertNotNull(UNEXPECTED_NULL, behaviour);
+    public static String dateTime(final String format) {
+        return new SimpleDateFormat(format).format(new Date());
     }
 
 }

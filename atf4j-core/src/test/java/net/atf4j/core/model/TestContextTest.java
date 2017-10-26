@@ -17,9 +17,7 @@
 
 package net.atf4j.core.model;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
@@ -29,14 +27,6 @@ import net.atf4j.core.TestResultsReporting;
  * A UnitTest for TestContext objects.
  */
 public class TestContextTest extends TestResultsReporting {
-
-    /**
-     * Test method for TestContext.
-     */
-    @Test
-    public void testDefaultConstructor() {
-        assertNotNull(UNEXPECTED_NULL, new TestContext());
-    }
 
     /**
      * Unit Test Context.isLocal().
@@ -60,24 +50,6 @@ public class TestContextTest extends TestResultsReporting {
     @Test
     public void testIsJenkins() {
         assertFalse(TestContext.isJenkins());
-    }
-
-    /**
-     * Unit Test Context.isLocal(). Test method for TestContext.
-     */
-    @Test
-    public void testSetGetPlatform() {
-        final String platform = "PLATFORM";
-        assertEquals(platform, new TestContext().setPlatform(platform).getPlatform());
-    }
-
-    /**
-     * Unit Test Context.isLocal(). Test method for TestContext.
-     */
-    @Test
-    public void testSetGetContext() {
-        final String context = "CONTEXT";
-        assertEquals(context, new TestContext().setContext(context).getContext());
     }
 
 }

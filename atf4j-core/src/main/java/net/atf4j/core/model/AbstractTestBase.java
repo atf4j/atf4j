@@ -32,9 +32,8 @@ import net.atf4j.core.TestResultsReporting;
  */
 public abstract class AbstractTestBase extends TestResultsReporting {
 
-    protected TestIdentifier uniqueIdentifier;
-    protected TestContext testContext;
-    protected TestResult testResult;
+    protected TestIdentifier uniqueIdentifier = new TestIdentifier();
+    protected TestResult testResult = TestResult.PENDING;
     protected TestReport testReport;
 
     private String tester; // test actor
@@ -64,16 +63,6 @@ public abstract class AbstractTestBase extends TestResultsReporting {
         this.name = name;
         testResult = TestResult.initialise();
         uniqueIdentifier = new TestIdentifier();
-    }
-
-    /**
-     * Instantiates a new test base.
-     *
-     * @param testContext the test context
-     */
-    public AbstractTestBase(final TestContext testContext) {
-        super();
-        this.testContext = testContext;
     }
 
     /**
@@ -198,26 +187,6 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      */
     protected AbstractTestBase setUniqueIdentifier(final TestIdentifier uniqueIdentifier) {
         this.uniqueIdentifier = uniqueIdentifier;
-        return this;
-    }
-
-    /**
-     * Gets the test context.
-     *
-     * @return the testContext
-     */
-    protected TestContext getTestContext() {
-        return testContext;
-    }
-
-    /**
-     * Sets the test context.
-     *
-     * @param testContext the testContext to set
-     * @return the test base
-     */
-    protected AbstractTestBase setTestContext(final TestContext testContext) {
-        this.testContext = testContext;
         return this;
     }
 
@@ -375,11 +344,10 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      */
     public String debugString() {
         return String.format(
-                "%s [testStatus=%s, uniqueIdentifier=%s, testContext=%s, tester=%s, name=%s, taxonomy=%s, description=%s, timestamp=%s, preConditions=%s, postConditions=%s]",
+                "%s [testStatus=%s, uniqueIdentifier=%s, tester=%s, name=%s, taxonomy=%s, description=%s, timestamp=%s, preConditions=%s, postConditions=%s]",
                 this.getClass().getSimpleName(),
                 testResult,
                 uniqueIdentifier,
-                testContext,
                 tester,
                 name,
                 taxonomy,
