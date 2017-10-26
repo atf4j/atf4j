@@ -43,9 +43,8 @@ public class FluentPojoGenerator extends AbstractCodeGenerator {
      * @return the code generator
      */
     public AbstractCodeGenerator addDateField(final String fieldName) {
-        // final ClassField classField = new ClassField(FieldType.DATE,
-        // fieldName);
-        // fields.add(classField);
+        final ClassField classField = new ClassField(FieldType.DATE, fieldName);
+        fields.add(classField);
         return this;
     }
 
@@ -56,9 +55,8 @@ public class FluentPojoGenerator extends AbstractCodeGenerator {
      * @return the code generator
      */
     public AbstractCodeGenerator addBooleanField(final String fieldName) {
-        // final ClassField classField = new ClassField(FieldType.BOOLEAN,
-        // fieldName);
-        // fields.add(classField);
+        final ClassField classField = new ClassField(FieldType.BOOLEAN, fieldName);
+        fields.add(classField);
         return this;
     }
 
@@ -69,9 +67,8 @@ public class FluentPojoGenerator extends AbstractCodeGenerator {
      * @return the code generator
      */
     public AbstractCodeGenerator addStringField(final String fieldName) {
-        // final ClassField classField = new ClassField(FieldType.STRING,
-        // fieldName);
-        // fields.add(classField);
+        final ClassField classField = new ClassField(FieldType.STRING, fieldName);
+        fields.add(classField);
         return this;
     }
 
@@ -83,8 +80,8 @@ public class FluentPojoGenerator extends AbstractCodeGenerator {
      * @return the code generator
      */
     public AbstractCodeGenerator addField(final FieldType fieldType, final String fieldName) {
-        // final ClassField classField = new ClassField(fieldType, fieldName);
-        // fields.add(classField);
+        final ClassField classField = new ClassField(fieldType, fieldName);
+        fields.add(classField);
         return this;
     }
 
@@ -96,8 +93,8 @@ public class FluentPojoGenerator extends AbstractCodeGenerator {
      * @return the code generator
      */
     public AbstractCodeGenerator addField(final String fieldType, final String fieldName) {
-        // final ClassField classField = new ClassField(fieldType, fieldName);
-        // fields.add(classField);
+        final ClassField classField = new ClassField(fieldType, fieldName);
+        fields.add(classField);
         return this;
     }
 

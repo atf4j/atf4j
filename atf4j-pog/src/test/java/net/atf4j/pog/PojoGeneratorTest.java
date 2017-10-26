@@ -21,7 +21,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.Atf4jException;
+import net.atf4j.core.VerificationError;
 import net.atf4j.core.TestResultsReporting;
 
 /**
@@ -32,10 +32,10 @@ public final class PojoGeneratorTest extends TestResultsReporting {
     /**
      * Test method for void.
      *
-     * @throws Atf4jException the atf4j exception
+     * @throws VerificationError the atf4j exception
      */
     @Test
-    public void testExpectedUsage() throws Atf4jException {
+    public void testExpectedUsage() throws VerificationError {
         final FluentPojoGenerator pojoGenerator = new FluentPojoGenerator();
         assertNotNull(UNEXPECTED_NULL, pojoGenerator);
         assertNotNull(UNEXPECTED_NULL, pojoGenerator.setClassName("FluentPojo"));

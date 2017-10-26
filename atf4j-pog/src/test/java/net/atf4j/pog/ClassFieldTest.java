@@ -37,6 +37,7 @@ public final class ClassFieldTest extends TestResultsReporting {
         final ClassField classField = new ClassField();
         assertNotNull(UNEXPECTED_NULL, classField);
         log.debug("classField = {}", classField);
+        log.debug("classField.toCode() = {}", classField.toCode());
     }
 
     /**
@@ -47,10 +48,12 @@ public final class ClassFieldTest extends TestResultsReporting {
         final ClassField classField = new ClassField(FieldType.BOOLEAN, "aBoolean");
         assertNotNull(UNEXPECTED_NULL, classField);
         log.debug("classField = {}", classField);
+        log.debug("classField.toCode() = {}", classField.toCode());
 
         final ClassField booleanField = new ClassField("boolean", "aBoolean");
         assertNotNull(UNEXPECTED_NULL, booleanField);
         log.debug("booleanField = {}", booleanField);
+        log.debug("booleanField.toCode() = {}", booleanField.toCode());
     }
 
     /**
@@ -61,10 +64,12 @@ public final class ClassFieldTest extends TestResultsReporting {
         final ClassField classField = new ClassField(FieldType.DATE, "date");
         assertNotNull(UNEXPECTED_NULL, classField);
         log.debug("classField = {}", classField);
+        log.debug("classField.toCode() = {}", classField.toCode());
 
         final ClassField dateField = new ClassField("Date", "date");
         assertNotNull(UNEXPECTED_NULL, dateField);
         log.debug("dateField = {}", dateField);
+        log.debug("dateField.toCode() = {}", dateField.toCode());
     }
 
     /**
@@ -75,10 +80,12 @@ public final class ClassFieldTest extends TestResultsReporting {
         final ClassField classField = new ClassField(FieldType.NUMBER, "number");
         assertNotNull(UNEXPECTED_NULL, classField);
         log.debug("classField = {}", classField);
+        log.debug("classField.toCode() = {}", classField.toCode());
 
         final ClassField numberField = new ClassField("Number", "number");
         assertNotNull(UNEXPECTED_NULL, numberField);
         log.debug("numberField = {}", numberField);
+        log.debug("numberField.toCode() = {}", numberField.toCode());
     }
 
     /**
@@ -89,10 +96,12 @@ public final class ClassFieldTest extends TestResultsReporting {
         final ClassField classField = new ClassField(FieldType.OBJECT, "object");
         assertNotNull(UNEXPECTED_NULL, classField);
         log.debug("classField = {}", classField);
+        log.debug("classField.toCode() = {}", classField.toCode());
 
         final ClassField objectField = new ClassField("Object", "object");
         assertNotNull(UNEXPECTED_NULL, objectField);
         log.debug("objectField = {}", objectField);
+        log.debug("objectField.toCode() = {}", objectField.toCode());
     }
 
     /**
@@ -103,20 +112,34 @@ public final class ClassFieldTest extends TestResultsReporting {
         final ClassField classField = new ClassField(FieldType.STRING, "string");
         assertNotNull(UNEXPECTED_NULL, classField);
         log.debug("classField = {}", classField);
+        log.debug("classField.toCode() = {}", classField.toCode());
 
         final ClassField stringField = new ClassField("String", "string");
         assertNotNull(UNEXPECTED_NULL, stringField);
         log.debug("stringField = {}", stringField);
+        log.debug("stringField.toCode() =\n{}", stringField.toCode());
     }
 
     /**
      * Unit tests for the ClassField object.
      */
     @Test
-    public void testWebElementField() {
+    public void testWebElement() {
         final ClassField webElement = new ClassField("WebElement", "webElement");
-        assertNotNull(UNEXPECTED_NULL, webElement);
-        log.debug("webElement = {}", webElement);
+        verifyNotNull(webElement);
+        log.debug("webElement.debugString() = {}", webElement.debugString());
+        log.debug("webElement.toCode() =\n{}", webElement.toCode());
+    }
+
+    /**
+     * Unit tests for the ClassField object.
+     */
+    @Test
+    public void testCustomClass() {
+        final ClassField customClass = new ClassField("CustomClass", "customClass");
+        verifyNotNull(customClass);
+        log.debug("customClass.debugString() = {}", customClass.debugString());
+        log.debug("customClass.toCode() =\n{}", customClass.toCode());
     }
 
 }

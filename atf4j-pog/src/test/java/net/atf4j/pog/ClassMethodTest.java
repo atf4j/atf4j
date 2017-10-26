@@ -34,8 +34,9 @@ public final class ClassMethodTest extends TestResultsReporting {
     @Test
     public void testClassMethod() {
         final ClassMethod classMethod = new ClassMethod();
-        log.debug(classMethod.toString());
         assertNotNull(UNEXPECTED_NULL, classMethod);
+        log.debug("classMethod.debugString() = {}", classMethod.debugString());
+        log.debug("classMethod.toCode() =\n{}", classMethod.toCode());
     }
 
     /**
@@ -44,8 +45,9 @@ public final class ClassMethodTest extends TestResultsReporting {
     @Test
     public void testClassMethodString() {
         final ClassMethod classMethod = new ClassMethod("String", "method");
-        log.debug(classMethod.toString());
         assertNotNull(UNEXPECTED_NULL, classMethod);
+        log.debug("classMethod.debugString() = {}", classMethod.debugString());
+        log.debug("classMethod.toCode() =\n{}", classMethod.toCode());
     }
 
     /**
@@ -54,8 +56,9 @@ public final class ClassMethodTest extends TestResultsReporting {
     @Test
     public void testClassMethodDate() {
         final ClassMethod classMethod = new ClassMethod("Date", "date");
-        log.debug(classMethod.toString());
         assertNotNull(UNEXPECTED_NULL, classMethod);
+        log.debug("classMethod.debugString() = {}", classMethod.debugString());
+        log.debug("classMethod.toCode() =\n{}", classMethod.toCode());
     }
 
 }

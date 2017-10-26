@@ -24,9 +24,6 @@ import static org.junit.Assert.assertNotNull;
  */
 public class Business extends Name {
 
-    /** The Constant 			UNEXPECTED_NULL. */
-    private static final String UNEXPECTED_NULL = "unexpected null";
-    
     /** The address. */
     private PostalAddress address = new PostalAddress();
 

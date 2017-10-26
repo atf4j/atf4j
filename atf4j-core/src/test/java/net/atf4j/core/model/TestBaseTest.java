@@ -21,7 +21,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.Atf4jException;
+import net.atf4j.core.VerificationError;
 import net.atf4j.core.TestResultsReporting;
 
 /**
@@ -41,7 +41,7 @@ public class TestBaseTest extends TestResultsReporting {
          * TestContext)
          */
         @Override
-        public AbstractTestBase execute(final TestContext context) throws Atf4jException {
+        public AbstractTestBase execute(final TestContext context) throws VerificationError {
             return this;
         }
     }
@@ -75,10 +75,10 @@ public class TestBaseTest extends TestResultsReporting {
     /**
      * Test method for TestBase.
      *
-     * @throws Atf4jException the Atf4jException
+     * @throws VerificationError the Atf4jException
      */
     @Test
-    public void testRegisterLogging() throws Atf4jException {
+    public void testRegisterLogging() throws VerificationError {
         assertNotNull(UNEXPECTED_NULL, new MockTestBase().registerLogging(new MockTestReport()));
     }
 

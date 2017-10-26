@@ -37,13 +37,13 @@ public class MessageFinderTest extends TestResultsReporting {
     @Test
     public void testMessageFinder() {
         final MessageFinder folderWalker = new MessageFinder();
-        log.debug("{}", folderWalker);
+        this.log.debug("{}", folderWalker);
         assertNotNull(UNEXPECTED_NULL, folderWalker);
 
         final List<File> messages = folderWalker.walk();
         assertNotNull(UNEXPECTED_NULL, messages);
         for (final File file : messages) {
-            log.debug("{}", file.toString());
+            this.log.debug("{}", file.toString());
         }
     }
 }

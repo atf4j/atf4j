@@ -23,8 +23,8 @@ import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 
-import net.atf4j.core.Atf4jException;
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.core.VerificationError;
 
 /**
  * Abstract Template Engine Class.
@@ -78,7 +78,7 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
      * @param basePath the base path
      * @return the abstract template engine
      */
-    public AbstractTemplateEngine setBasePath(String basePath) {
+    public AbstractTemplateEngine setBasePath(final String basePath) {
         this.basePath = basePath;
         return this;
     }
@@ -88,7 +88,7 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
      *
      * @param templateFilename the new template filename
      */
-    public void setTemplateFilename(String templateFilename) {
+    public void setTemplateFilename(final String templateFilename) {
         this.templateFilename = templateFilename;
     }
 
@@ -110,15 +110,6 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
     protected AbstractTemplateEngine prototype(final String templateFilename) {
         log.info(toCode(templateFilename));
         return this;
-    }
-
-    /**
-     * To code.
-     *
-     * @return the code as a string.
-     */
-    public String toCode() {
-        return toCode(getTemplateFilename());
     }
 
     /**
@@ -171,13 +162,12 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
         return String.format("%s%s", getBasePath(), getTemplateFilename());
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Debug string.
      *
-     * @see java.lang.Object#toString()
+     * @return the string
      */
-    @Override
-    public String toString() {
+    protected String debugString() {
         return String.format("%s [baseFolder=%s, templateFilename=%s]",
                 this.getClass().getSimpleName(),
                 basePath,
@@ -185,10 +175,33 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
     }
 
     /**
+     * To code.
+     *
+     * @return the code as a string.
+     */
+    public String toCode() {
+        return toCode(getTemplateFilename());
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        if (log.isDebugEnabled()) {
+            return debugString();
+        } else {
+            return toCode();
+        }
+    }
+
+    /**
      * Exception to indicate that no Template was not loaded.
      */
     @SuppressWarnings("serial")
-    public class TemplateNotLoadedException extends Atf4jException {
+    public class TemplateNotLoadedException extends VerificationError {
         /**
          * Instantiates a new template not loaded.
          *
@@ -203,7 +216,7 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
      * Exception to indicate that no Code was Generated.
      */
     @SuppressWarnings("serial")
-    public class CodeNotGeneratedException extends Atf4jException {
+    public class CodeNotGeneratedException extends VerificationError {
 
         /**
          * Instantiates a new template not loaded.
@@ -214,5 +227,4 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
             super(String.format("TemplateNotLoaded [expectedCodeFilename=%s]", expectedCodeFilename));
         }
     }
-
 }

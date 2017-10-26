@@ -24,38 +24,19 @@ import static org.junit.Assert.assertNotNull;
  */
 public final class Bank extends Business {
 
-    /** The Constant 			UNEXPECTED_NULL. */
-    private static final String UNEXPECTED_NULL = "unexpected null";
-    
     /** The bank sort code. */
     private BankSortCode bankSortCode;
-    
+
     /** The bank name. */
     private String bankName = "";
-    
-    /** The sort code. */
-    private String sortCode = "";
-    
-    /** The iban. */
+
+    /** IBAN. */
     private String iban = "";
 
-    /**
-     * Create new INSTANCE of create.
-     *
-     * @return the bank
-     */
     public static Bank create() {
-        final Bank bank = new Bank();
-        final BankSortCode bankSortCode = BankSortCode.create();
-        bank.setBankSortCode(bankSortCode);
-        return bank;
+        return new Bank();
     }
 
-    /**
-     * Random.
-     *
-     * @return the bank
-     */
     public static Bank random() {
         return create();
     }
@@ -129,18 +110,6 @@ public final class Bank extends Business {
     }
 
     /**
-     * Sets the sort code.
-     *
-     * @param sortCode the sort code
-     * @return the bank
-     */
-    public Bank setSortCode(final String sortCode) {
-        assertNotNull(UNEXPECTED_NULL, sortCode);
-        this.sortCode = sortCode;
-        return this;
-    }
-
-    /**
      * Sets the iban.
      *
      * @param iban the iban
@@ -171,15 +140,6 @@ public final class Bank extends Business {
     }
 
     /**
-     * Gets the sort code.
-     *
-     * @return the sort code
-     */
-    public String getSortCode() {
-        return sortCode;
-    }
-
-    /**
      * Gets the iban.
      *
      * @return the iban
@@ -188,18 +148,9 @@ public final class Bank extends Business {
         return iban;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see net.atf4j.data.Business#toString()
-     */
     @Override
     public String toString() {
-        return String.format("Bank [bankSortCode=%s, bankName=%s, sortCode=%s, iban=%s]",
-                bankSortCode,
-                bankName,
-                sortCode,
-                iban);
+        return String.format("Bank [bankName=%s, bankSortCode=%s, iban=%s]", bankName, bankSortCode, iban);
     }
 
 }

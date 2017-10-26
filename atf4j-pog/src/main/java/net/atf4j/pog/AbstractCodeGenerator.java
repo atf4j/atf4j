@@ -34,9 +34,9 @@ import java.util.List;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 
-import net.atf4j.core.Atf4jException;
 import net.atf4j.core.TestResultsReporting;
 import net.atf4j.core.TimeStamp;
+import net.atf4j.core.VerificationError;
 
 /**
  * Abstract Code Generator class.
@@ -152,7 +152,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * @param targetHomeFolder the target home folder
      * @return the abstract code generator
      */
-    public AbstractCodeGenerator setTargetHomeFolder(String targetHomeFolder) {
+    public AbstractCodeGenerator setTargetHomeFolder(final String targetHomeFolder) {
         this.targetHomeFolder = targetHomeFolder;
         return this;
     }
@@ -257,9 +257,9 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * Generate.
      *
      * @return this for a fluent interface.
-     * @throws Atf4jException the Atf4jException
+     * @throws VerificationError the Atf4jException
      */
-    public AbstractCodeGenerator generate() throws Atf4jException {
+    public AbstractCodeGenerator generate() throws VerificationError {
         assumeNotNull(templateFilename);
         assumeTrue(templateFilename.length() > 0);
         return generate(templateFilename);
@@ -270,9 +270,9 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      *
      * @param templateFilename the template filename
      * @return this for a fluent interface.
-     * @throws Atf4jException the Atf4jException
+     * @throws VerificationError the Atf4jException
      */
-    public AbstractCodeGenerator generate(final String templateFilename) throws Atf4jException {
+    public AbstractCodeGenerator generate(final String templateFilename) throws VerificationError {
         return generate(templateReader(templateFilename));
     }
 
@@ -281,9 +281,9 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      *
      * @param templateReader the template reader
      * @return this for a fluent interface.
-     * @throws Atf4jException the Atf4jException
+     * @throws VerificationError the Atf4jException
      */
-    private AbstractCodeGenerator generate(final InputStreamReader templateReader) throws Atf4jException {
+    private AbstractCodeGenerator generate(final InputStreamReader templateReader) throws VerificationError {
 
         initialise();
 
@@ -313,7 +313,8 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * Destination writer.
      *
      * @return the buffered writer
-     * @throws IOException Signals that an I/O exception has occurred.
+     * @throws CodeNotGeneratedException the code not generated exception
+     *             exception.
      */
     private BufferedWriter destinationWriter() throws CodeNotGeneratedException {
         final String packageFolder = packageFolder(packageName);
@@ -445,7 +446,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * Exception to indicate that no Template was not loaded.
      */
     @SuppressWarnings("serial")
-    public class TemplateNotLoadedException extends Atf4jException {
+    public class TemplateNotLoadedException extends VerificationError {
         /**
          * Instantiates a new template not loaded.
          *
@@ -460,7 +461,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * Exception to indicate that no Code was Generated.
      */
     @SuppressWarnings("serial")
-    public class CodeNotGeneratedException extends Atf4jException {
+    public class CodeNotGeneratedException extends VerificationError {
 
         /**
          * Instantiates a new template not loaded.

@@ -265,7 +265,7 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
      * The property file was not found.
      */
     @SuppressWarnings("serial")
-    public class PropertyNotFoundException extends Atf4jException {
+    public class PropertyNotFoundException extends VerificationError {
         /**
          * Instantiates a new property not found.
          *
@@ -280,7 +280,7 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
      * Configuration Not Loaded.
      */
     @SuppressWarnings("serial")
-    public class ConfigurationNotLoadedException extends Atf4jException {
+    public class ConfigurationNotLoadedException extends VerificationError {
         /**
          * Instantiates a missing configuration exception.
          *

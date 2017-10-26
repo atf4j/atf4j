@@ -17,8 +17,6 @@
 
 package net.atf4j.pog;
 
-import static org.junit.Assert.assertNotNull;
-
 /**
  * A class to represent a WebElement decorated by FindBy annotation.
  */
@@ -28,7 +26,7 @@ public class WebElementField extends ClassField {
     private static final String FIND_BY_FORMAT = "\t@FindBy(%s = \"%s\")\n";
 
     /** FULL_FORMAT. */
-    private static final String FULL_FORMAT = "\n%s%s";
+    private static final String FULL_FORMAT = "%s%s";
 
     /** WEB_ELEMENT_TYPE. */
     private static final String WEB_ELEMENT_TYPE = "WebElement";
@@ -125,12 +123,13 @@ public class WebElementField extends ClassField {
     /**
      * Instantiates a new page web element.
      *
-     * @param name the name
      * @param strategy the strategy
      * @param locator the locator
+     * @param fieldName the field name
      */
     public WebElementField(final Strategy strategy, final String locator, final String fieldName) {
         super(WEB_ELEMENT_TYPE, fieldName);
+        setAccessModifier(AccessModifier.PROTECTED);
         setStrategy(strategy);
         setLocator(locator);
     }
@@ -142,7 +141,7 @@ public class WebElementField extends ClassField {
      * @return the page web element
      */
     public WebElementField setStrategy(final Strategy strategy) {
-        assertNotNull(UNEXPECTED_NULL, strategy);
+        verifyNotNull(strategy);
         this.strategy = strategy;
         return this;
     }
@@ -154,7 +153,7 @@ public class WebElementField extends ClassField {
      * @return the page web element
      */
     public WebElementField setStrategy(final String strategy) {
-        assertNotNull(UNEXPECTED_NULL, strategy);
+        verifyNotNull(strategy);
         this.strategy = Strategy.fromString(strategy);
         return this;
     }
@@ -166,7 +165,7 @@ public class WebElementField extends ClassField {
      * @return the page web element
      */
     public WebElementField setLocator(final String locator) {
-        assertNotNull(UNEXPECTED_NULL, locator);
+        verifyNotNull(locator);
         this.locator = locator;
         return this;
     }
@@ -220,7 +219,9 @@ public class WebElementField extends ClassField {
      */
     @Override
     public String toString() {
+        if (log.isDebugEnabled()) {
+            log.debug(debugString());
+        }
         return toCode();
     }
-
 }

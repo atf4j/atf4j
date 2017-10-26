@@ -23,7 +23,7 @@ import static org.junit.Assume.assumeTrue;
 import java.util.ArrayDeque;
 import java.util.Collection;
 
-import net.atf4j.core.Atf4jException;
+import net.atf4j.core.VerificationError;
 import net.atf4j.core.TestResult;
 import net.atf4j.core.TestResultsReporting;
 
@@ -70,9 +70,9 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      *
      * @param logging the logging
      * @return the test base
-     * @throws Atf4jException the atf4j exception
+     * @throws VerificationError the atf4j exception
      */
-    public AbstractTestBase registerLogging(final TestReport logging) throws Atf4jException {
+    public AbstractTestBase registerLogging(final TestReport logging) throws VerificationError {
         setLogging(logging);
         return this;
     }
@@ -82,10 +82,10 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      *
      * @param context the context
      * @return the test result
-     * @throws Atf4jException the atf4j exception
+     * @throws VerificationError the atf4j exception
      */
-    public AbstractTestBase execute(final TestContext context) throws Atf4jException {
-        throw new Atf4jException("execute Must be overridden.");
+    public AbstractTestBase execute(final TestContext context) throws VerificationError {
+        throw new VerificationError("execute Must be overridden.");
     }
 
     /**

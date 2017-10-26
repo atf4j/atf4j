@@ -17,9 +17,12 @@
 
 package net.atf4j.core.model;
 
-import net.atf4j.core.Atf4jException;
+import net.atf4j.core.VerificationError;
 
+/**
+ * TestException class.
+ */
 @SuppressWarnings("serial")
-public class TestException extends Atf4jException {
+public class TestException extends VerificationError {
 
 }

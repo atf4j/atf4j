@@ -49,7 +49,23 @@ public abstract class TestResultsReporting {
      * @param object the object
      */
     protected void verifyNotNull(final Object object) {
-        Verify.verifyNotNull(object);
+        if (object == null) {
+            throw new VerificationError(UNEXPECTED_NULL);
+        }
+        log.trace("verifyNotNull({})", object);
+    }
+
+    /**
+     * Verify not null.
+     *
+     * @param message the message
+     * @param object the object
+     */
+    protected void verifyNotNull(final String message, final Object object) {
+        if (object == null) {
+            throw new VerificationError(message);
+        }
+        log.trace("verifyNotNull({})", object);
     }
 
     /**

@@ -28,13 +28,10 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * Behaviour, this is essential a Hoare triple.
  *
- * <p>
  * <code>
- * Given Predicate
- *  And Predicates...
+ * Given Predicates...
  * When Event(s) occur
- * Then Post-Condition is confirmed
- *  And Post-Conditions are confirmed.
+ * Then Post-Conditions...
  * </code>
  */
 public abstract class Behaviour extends TestResultsReporting {
@@ -55,8 +52,8 @@ public abstract class Behaviour extends TestResultsReporting {
      * @return the behaviour
      */
     protected Behaviour given(final Given given) {
-        this.log.info("{}.given", this.getClass().getSimpleName());
-        this.givenList.add(given);
+        log.info("{}.given", this.getClass().getSimpleName());
+        givenList.add(given);
         return this;
     }
 
@@ -67,8 +64,8 @@ public abstract class Behaviour extends TestResultsReporting {
      * @return the behaviour
      */
     protected Behaviour when(final When when) {
-        this.log.info("{}.given", this.getClass().getSimpleName());
-        this.whenList.add(when);
+        log.info("{}.given", this.getClass().getSimpleName());
+        whenList.add(when);
         return this;
     }
 
@@ -79,8 +76,8 @@ public abstract class Behaviour extends TestResultsReporting {
      * @return the behaviour
      */
     protected Behaviour then(final Then then) {
-        this.log.info("{}.given", this.getClass().getSimpleName());
-        this.thenList.add(then);
+        log.info("{}.given", this.getClass().getSimpleName());
+        thenList.add(then);
         return this;
     }
 
@@ -91,23 +88,22 @@ public abstract class Behaviour extends TestResultsReporting {
      * @return the properties
      */
     public Properties execute(final Properties properties) {
-        this.log.info("{}.execute", this.getClass().getSimpleName());
-        for (final Given given : this.givenList) {
+        log.info("{}.execute", this.getClass().getSimpleName());
+        for (final Given given : givenList) {
             final Properties execute = given.execute(properties);
             assertNotNull(UNEXPECTED_NULL, execute);
         }
 
-        for (final When when : this.whenList) {
+        for (final When when : whenList) {
             final Properties execute = when.execute(properties);
             assertNotNull(UNEXPECTED_NULL, execute);
         }
 
-        for (final Then then : this.thenList) {
+        for (final Then then : thenList) {
             final Properties execute = then.execute(properties);
             assertNotNull(UNEXPECTED_NULL, execute);
         }
 
         return properties;
     }
-
 }
