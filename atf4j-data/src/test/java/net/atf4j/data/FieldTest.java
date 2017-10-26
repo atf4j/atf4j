@@ -18,7 +18,6 @@
 package net.atf4j.data;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
@@ -34,35 +33,45 @@ public final class FieldTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        final Field field = new Field();
-        assertNotNull(UNEXPECTED_NULL, field);
+        final Field<Object> field = new Field<Object>();
+        verifyNotNull(field);
+        assertEquals(FieldStatus.PRISTINE, field.getStatus());
     }
 
     /**
-     * Test method for void.
+     * Test field string.
      */
     @Test
     public void testFieldString() {
-        final Field field = new Field("");
-        assertNotNull(UNEXPECTED_NULL, field);
+        final Field<String> field = new Field<String>("");
+        verifyNotNull(field);
+        assertEquals(FieldStatus.PRISTINE, field.getStatus());
     }
 
     /**
-     * Test method for void.
+     * Test method for Setting & Getting key.
      */
     @Test
     public void testFieldSetGetKey() {
+        final Field<Object> field = new Field<Object>();
+        verifyNotNull(field);
+        assertEquals(FieldStatus.PRISTINE, field.getStatus());
         final String key = "key";
-        assertEquals(key, new Field().setKey(key).getKey());
+        assertEquals(key, field.setKey(key).getKey());
+        assertEquals(FieldStatus.CHANGED, field.getStatus());
     }
 
     /**
-     * Test method for void.
+     * Test method for Setting & Getting Value.
      */
     @Test
     public void testFieldSetGetValue() {
+        final Field<Object> field = new Field<Object>();
+        verifyNotNull(field);
+        assertEquals(FieldStatus.PRISTINE, field.getStatus());
         final String value = "Value";
-        assertEquals(value, new Field().setValue(value).getValue());
+        assertEquals(value, field.setValue(value).getValue());
+        assertEquals(FieldStatus.CHANGED, field.getStatus());
     }
 
     /**
@@ -70,8 +79,10 @@ public final class FieldTest extends TestResultsReporting {
      */
     @Test
     public void testFieldSetGetStatus() {
+        final Field<Object> field = new Field<Object>();
+        verifyNotNull(field);
         final FieldStatus status = FieldStatus.initialise();
-        assertEquals(status, new Field().setStatus(status).getStatus());
+        assertEquals(status, field.setStatus(status).getStatus());
     }
 
 }

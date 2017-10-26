@@ -20,20 +20,20 @@ package net.atf4j.pog;
 import net.atf4j.pog.ClassField.FieldType;
 
 /**
- * The PojoGenerator Class.
+ * Fluent Pojo Generator class.
  */
-public class PojoGenerator extends AbstractCodeGenerator {
+public class FluentPojoGenerator extends AbstractCodeGenerator {
 
-    /** The Constant POJO_TEMPLATES. */
-    private static final String POJO_TEMPLATES = "templates/PojoClass.vm";
+    /** POJO_TEMPLATE. */
+    private static final String FLUENT_POJO_TEMPLATE = "templates/FluentPojoClass.vm";
 
     /**
      * Instantiates a new pojo generator.
      *
      * @throws TemplateNotLoadedException the template not loaded
      */
-    public PojoGenerator() throws TemplateNotLoadedException {
-        super(POJO_TEMPLATES);
+    public FluentPojoGenerator() throws TemplateNotLoadedException {
+        super(FLUENT_POJO_TEMPLATE);
     }
 
     /**
@@ -43,8 +43,9 @@ public class PojoGenerator extends AbstractCodeGenerator {
      * @return the code generator
      */
     public AbstractCodeGenerator addDateField(final String fieldName) {
-        final ClassField classField = new ClassField(FieldType.DATE, fieldName);
-        fields.add(classField);
+        // final ClassField classField = new ClassField(FieldType.DATE,
+        // fieldName);
+        // fields.add(classField);
         return this;
     }
 
@@ -55,8 +56,9 @@ public class PojoGenerator extends AbstractCodeGenerator {
      * @return the code generator
      */
     public AbstractCodeGenerator addBooleanField(final String fieldName) {
-        final ClassField classField = new ClassField(FieldType.BOOLEAN, fieldName);
-        fields.add(classField);
+        // final ClassField classField = new ClassField(FieldType.BOOLEAN,
+        // fieldName);
+        // fields.add(classField);
         return this;
     }
 
@@ -67,8 +69,9 @@ public class PojoGenerator extends AbstractCodeGenerator {
      * @return the code generator
      */
     public AbstractCodeGenerator addStringField(final String fieldName) {
-        final ClassField classField = new ClassField(FieldType.STRING, fieldName);
-        fields.add(classField);
+        // final ClassField classField = new ClassField(FieldType.STRING,
+        // fieldName);
+        // fields.add(classField);
         return this;
     }
 
@@ -80,8 +83,8 @@ public class PojoGenerator extends AbstractCodeGenerator {
      * @return the code generator
      */
     public AbstractCodeGenerator addField(final FieldType fieldType, final String fieldName) {
-        final ClassField classField = new ClassField(fieldType, fieldName);
-        fields.add(classField);
+        // final ClassField classField = new ClassField(fieldType, fieldName);
+        // fields.add(classField);
         return this;
     }
 
@@ -93,14 +96,9 @@ public class PojoGenerator extends AbstractCodeGenerator {
      * @return the code generator
      */
     public AbstractCodeGenerator addField(final String fieldType, final String fieldName) {
-        final ClassField classField = new ClassField(fieldType, fieldName);
-        fields.add(classField);
+        // final ClassField classField = new ClassField(fieldType, fieldName);
+        // fields.add(classField);
         return this;
-    }
-
-    public Object toCode() {
-        // TODO Auto-generated method stub
-        return null;
     }
 
 }

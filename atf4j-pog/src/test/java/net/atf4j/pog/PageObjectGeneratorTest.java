@@ -48,15 +48,16 @@ public final class PageObjectGeneratorTest extends TestResultsReporting {
         final PageObjectData pageObjectData = new PageObjectData();
         assertNotNull(UNEXPECTED_NULL, pageObjectData);
 
-        final WebElementField idElement = new WebElementField("findById", Strategy.ID, "id");
-        final WebElementField nameElement = new WebElementField("findByName", Strategy.NAME, "name");
-        final WebElementField classNameElement = new WebElementField("findByClassName", Strategy.CLASS_NAME, "className");
-        final WebElementField linkTextElement = new WebElementField("findByLinkText", Strategy.LINK_TEXT, "linkText");
-        final WebElementField partialLinkTextElement = new WebElementField("findByPartialLinkText",
-                Strategy.PARTIAL_LINK_TEXT, "partialLinkText");
-        final WebElementField xpathElement = new WebElementField("findByXpath", Strategy.XPATH,
-                "//a[contains(text(), 'ATF4J')]");
-        final WebElementField cssElement = new WebElementField("findByCss", Strategy.CSS, ".");
+        final WebElementField idElement = new WebElementField(Strategy.ID, "id", "findById");
+        final WebElementField nameElement = new WebElementField(Strategy.NAME, "name", "findByName");
+        final WebElementField classNameElement = new WebElementField(Strategy.CLASS_NAME, "className",
+                "findByClassName");
+        final WebElementField linkTextElement = new WebElementField(Strategy.LINK_TEXT, "linkText", "findByLinkText");
+        final WebElementField partialLinkTextElement = new WebElementField(
+                Strategy.PARTIAL_LINK_TEXT, "partialLinkText", "findByPartialLinkText");
+        final WebElementField xpathElement = new WebElementField(Strategy.XPATH,
+                "//a[contains(text(), 'ATF4J')]", "findByXpath");
+        final WebElementField cssElement = new WebElementField(Strategy.CSS, ".", "findByCss");
 
         pageObjectData
             .add(idElement)

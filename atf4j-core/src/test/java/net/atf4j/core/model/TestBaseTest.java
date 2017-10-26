@@ -101,33 +101,6 @@ public class TestBaseTest extends TestResultsReporting {
 
     /**
      * Test method for TestBase.
-     *
-     * @throws Atf4jException the Atf4jException
-     */
-    @Test
-    public void testExecute() throws Atf4jException {
-        final TestContext context = new TestContext();
-        final MockTestBase mockTestBase = new MockTestBase();
-        mockTestBase.assumedPreConditions();
-        mockTestBase.execute(context);
-        mockTestBase.assertPostConditions();
-        log.trace(mockTestBase.debugString());
-    }
-
-    /**
-     * Test method for TestBase.
-     *
-     * @throws Atf4jException the Atf4jException
-     */
-    @Test(expected = Atf4jException.class)
-    public void testMissingExecute() throws Atf4jException {
-        final TestContext context = new TestContext();
-        final IncompleteTestBase incompleteTestBase = new IncompleteTestBase();
-        incompleteTestBase.execute(context);
-    }
-
-    /**
-     * Test method for TestBase.
      */
     @Test
     public void testAddPreCondition() {

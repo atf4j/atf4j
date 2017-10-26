@@ -17,7 +17,6 @@
 
 package net.atf4j.pog;
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assume.assumeNotNull;
 import static org.junit.Assume.assumeTrue;
@@ -37,6 +36,7 @@ import org.apache.velocity.app.VelocityEngine;
 
 import net.atf4j.core.Atf4jException;
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.core.Timestamp;
 
 /**
  * Abstract Code Generator class.
@@ -84,7 +84,6 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      */
     public AbstractCodeGenerator() {
         super();
-        initialise();
     }
 
     /**
@@ -96,23 +95,14 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
     public AbstractCodeGenerator(final String templateFilename) throws TemplateNotLoadedException {
         super();
         setTemplateFilename(templateFilename);
-        initialise();
     }
 
     /**
-     * Initialise.
-     */
-    private void initialise() {
-        velocityEngine.init();
-        contextBinding("util", this);
-    }
-
-    /**
-     * Context binding.
+     * Context binding, make the objects available to velocity by key.
      *
      * @param key the key
      * @param value the value
-     * @return the code generator
+     * @return this for a fluent interface.
      */
     public AbstractCodeGenerator contextBinding(final String key, final Object value) {
         assumeNotNull(key);
@@ -126,7 +116,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * Sets the template.
      *
      * @param templateFilename the template filename
-     * @return the code generator
+     * @return this for a fluent interface.
      * @throws TemplateNotLoadedException the template not loaded
      */
     public AbstractCodeGenerator setTemplateFilename(final String templateFilename) throws TemplateNotLoadedException {
@@ -138,7 +128,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * Sets the package name.
      *
      * @param packageName the package name
-     * @return the code generator
+     * @return this for a fluent interface.
      */
     public AbstractCodeGenerator setPackageName(final String packageName) {
         this.packageName = packageName;
@@ -149,7 +139,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * Sets the class name.
      *
      * @param className the class name
-     * @return the code generator
+     * @return this for a fluent interface.
      */
     public AbstractCodeGenerator setClassName(final String className) {
         this.className = classCase(className);
@@ -172,7 +162,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      *
      * @return the string
      */
-    public String templateFilename() {
+    public String getTemplateFilename() {
         return templateFilename;
     }
 
@@ -181,7 +171,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      *
      * @return the string
      */
-    public String packageName() {
+    public String getPackageName() {
         return packageName;
     }
 
@@ -232,7 +222,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * Adds the field.
      *
      * @param classField the class field
-     * @return the code generator
+     * @return this for a fluent interface.
      */
     public AbstractCodeGenerator addField(final ClassField classField) {
         fields.add(classField);
@@ -244,7 +234,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      *
      * @param returnType the return type
      * @param methodName the method name
-     * @return the code generator
+     * @return this for a fluent interface.
      */
     public AbstractCodeGenerator addMethod(final String returnType, final String methodName) {
         final ClassMethod classField = new ClassMethod(returnType, methodName);
@@ -256,7 +246,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * Adds the method.
      *
      * @param classMethod the class method
-     * @return the code generator
+     * @return this for a fluent interface.
      */
     public AbstractCodeGenerator addMethod(final ClassMethod classMethod) {
         methods.add(classMethod);
@@ -266,7 +256,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
     /**
      * Generate.
      *
-     * @return the code generator
+     * @return this for a fluent interface.
      * @throws Atf4jException the Atf4jException
      */
     public AbstractCodeGenerator generate() throws Atf4jException {
@@ -279,7 +269,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * Generate from template.
      *
      * @param templateFilename the template filename
-     * @return the code generator
+     * @return this for a fluent interface.
      * @throws Atf4jException the Atf4jException
      */
     public AbstractCodeGenerator generate(final String templateFilename) throws Atf4jException {
@@ -290,29 +280,62 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * Generate from input steam reader to output stream.
      *
      * @param templateReader the template reader
-     * @return the code generator
+     * @return this for a fluent interface.
      * @throws Atf4jException the Atf4jException
      */
     private AbstractCodeGenerator generate(final InputStreamReader templateReader) throws Atf4jException {
-        final Writer writer;
 
-        try {
-            writer = destinationWriter();
-        } catch (final IOException e) {
-            log.error(e.toString());
-            throw new CodeNotGeneratedException(className);
-        }
+        initialise();
 
-        assertNotNull(UNEXPECTED_NULL, writer);
-
+        final Writer writer = destinationWriter();
         final String logTag = this.getClass().getSimpleName();
+        assertTrue(velocityEngine.evaluate(context, writer, logTag, templateReader));
+
+        cleanup(writer);
+
+        return this;
+    }
+
+    /**
+     * Initialise.
+     */
+    private void initialise() {
+        velocityEngine.init();
+        contextBinding("util", this);
+        contextBinding("timeStamp", Timestamp.dateTime());
         contextBinding("packageName", packageName);
         contextBinding("className", className);
         contextBinding("fields", fields);
         contextBinding("methods", methods);
+    }
 
-        assertTrue(velocityEngine.evaluate(context, writer, logTag, templateReader));
+    /**
+     * Destination writer.
+     *
+     * @return the buffered writer
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
+    private BufferedWriter destinationWriter() throws CodeNotGeneratedException {
+        final String packageFolder = packageFolder(packageName);
+        final String targetPath = targetPath(targetHomeFolder, packageFolder);
+        final String targetFile = targetFilename(targetPath, className);
+        final File file = new File(targetFile);
+        try {
+            final FileWriter fileWriter = new FileWriter(file);
+            return new BufferedWriter(fileWriter);
+        } catch (final IOException e) {
+            throw new CodeNotGeneratedException(e.toString());
+        }
+    }
 
+    /**
+     * Flush and close the writer.
+     *
+     * @param writer the writer
+     * @throws CodeNotGeneratedException the code not generated exception
+     *             exception.
+     */
+    private void cleanup(final Writer writer) throws CodeNotGeneratedException {
         try {
             writer.flush();
             writer.close();
@@ -320,8 +343,6 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
             log.error(e.toString());
             throw new CodeNotGeneratedException(className);
         }
-
-        return this;
     }
 
     /**
@@ -353,21 +374,6 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
     }
 
     /**
-     * Destination writer.
-     *
-     * @return the buffered writer
-     * @throws IOException Signals that an I/O exception has occurred.
-     */
-    private BufferedWriter destinationWriter() throws IOException {
-        final String packageFolder = packageFolder(packageName);
-        final String targetPath = targetPath(targetHomeFolder, packageFolder);
-        final String targetFile = targetFilename(targetPath, className);
-        final File file = new File(targetFile);
-        final FileWriter fileWriter = new FileWriter(file);
-        return new BufferedWriter(fileWriter);
-    }
-
-    /**
      * Target filename.
      *
      * @param targetPath the target path
@@ -388,8 +394,8 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * @return the string
      */
     private String targetPath(final String homeFolder, final String packageFolder) {
-        assertNotNull(UNEXPECTED_NULL, homeFolder);
-        assertNotNull(UNEXPECTED_NULL, packageFolder);
+        verifyNotNull(homeFolder);
+        verifyNotNull(packageFolder);
         final String targetPath = String.format("%s/%s", homeFolder, packageFolder);
         log.debug("targetPath = {}", targetPath);
         new File(targetPath).mkdirs();
@@ -408,24 +414,31 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
         return packageFolder;
     }
 
+    /**
+     * Debug string.
+     *
+     * @return the string
+     */
+    public String debugString() {
+        return String.format(
+                "%s [templateFilename=%s, packageName=%s, className=%s, fields=%s, methods=%s, targetHomeFolder=%s]",
+                this.getClass().getSimpleName(),
+                templateFilename,
+                packageName,
+                className,
+                fields,
+                methods,
+                targetHomeFolder);
+    }
+
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return String.format(
-                "%s [velocityEngine=%s, context=%s, fields=%s, methods=%s, templateFilename=%s, packageName=%s, className=%s, targetHomeFolder=%s]",
-                this.getClass().getSimpleName(),
-                velocityEngine,
-                context,
-                fields,
-                methods,
-                templateFilename,
-                packageName,
-                className,
-                targetHomeFolder);
+        return debugString();
     }
 
     /**

@@ -19,17 +19,19 @@ package net.atf4j.data;
 
 import static org.junit.Assert.assertNotNull;
 
+import net.atf4j.core.Text;
+
 /**
  * Bank Account Data. UK Bank Account Number @”^\d{8,8}$”;
  */
 public final class BankAccount {
 
-    /** The Constant 			UNEXPECTED_NULL. */
+    /** The Constant UNEXPECTED_NULL. */
     private static final String UNEXPECTED_NULL = "unexpected null";
-    
+
     /** The bank. */
     private Bank bank = new Bank();
-    
+
     /** The account no. */
     private String accountNo = "";
 

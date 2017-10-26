@@ -1,5 +1,5 @@
 // from main/resources/templates/Class.vm
-// $timeStamp
+// 2017-10-26 01:09.56
 
 package net.atf4j.generated;
 

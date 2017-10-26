@@ -31,10 +31,10 @@ public class SimpleBag extends TestResultsReporting {
 
     /** The values. */
     private String[] values;
-    
+
     /** The bag. */
     private final List<String> bag = new ArrayList<String>();
-    
+
     /** The random. */
     private final Random random = new Random();
 
@@ -71,6 +71,17 @@ public class SimpleBag extends TestResultsReporting {
     }
 
     /**
+     * Put an item into the bag.
+     *
+     * @param item the item
+     * @return the simple bag
+     */
+    public SimpleBag put(final String item) {
+        bag.add(item);
+        return this;
+    }
+
+    /**
      * Pick an item from the bag.
      *
      * @return the string
@@ -86,17 +97,6 @@ public class SimpleBag extends TestResultsReporting {
      */
     public String take() {
         return pick();
-    }
-
-    /**
-     * Put an item into the bag.
-     *
-     * @param item the item
-     * @return the simple bag
-     */
-    public SimpleBag put(final String item) {
-        bag.add(item);
-        return this;
     }
 
     /**

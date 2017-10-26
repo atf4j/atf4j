@@ -334,7 +334,8 @@
 		<example>simpleParameter</example>
 		<text>/**
 			* @param ${e} the ${e.rsfl()}
-			*/</text>
+			*/
+			</text>
 	</template>
 	<template kind="5" name="Exception.IOException" default="false"
 		signature="false">

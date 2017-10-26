@@ -1,34 +1,14 @@
-// from main/resources/templates/PojoClass.vm
-// $timeStamp
+// from main/resources/templates/FluentPojoClass.vm
+// 2017-10-26 01:09.56
 
 package net.atf4j.generated;
+
 import java.util.Date;
+
 public class FluentPojo {
-	// private String string;
-	private String string;
-	// private Date date;
-	private Date date;
-	// private boolean bool;
-	private boolean bool;
-	public FluentPojo string(final String string) {
-		this.string = string;
-		return this;
+
+	public FluentPojo() {
+		super();
 	}
-	public String string() {
-		return this.string;
- 	}
-	public FluentPojo date(final Date date) {
-		this.date = date;
-		return this;
-	}
-	public Date date() {
-		return this.date;
- 	}
-	public FluentPojo bool(final boolean bool) {
-		this.bool = bool;
-		return this;
-	}
-	public boolean bool() {
-		return this.bool;
- 	}
+
 }

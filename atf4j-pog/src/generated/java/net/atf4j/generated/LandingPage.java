@@ -1,5 +1,5 @@
 // generated from main/resources/templates/PageObject.vm
-// $timeStamp
+// 2017-10-26 01:09.56
 
 package net.atf4j.generated;
 
@@ -13,6 +13,10 @@ import net.atf4j.webdriver.page.AbstractPageObject;
 
 public class LandingPage extends AbstractPageObject {
 
+
+	public LandingPage() {
+		super();
+	}
 
 	public LandingPage(WebDriver webDriver) {
 		super(webDriver);

@@ -34,10 +34,10 @@ import net.atf4j.core.TestResultsReporting;
  */
 public abstract class AbstractDataFactory extends TestResultsReporting {
 
-    /** The Constant FILE_NOT_FOUND_MSG. */
+    /** FILE_NOT_FOUND_MSG. */
     private static final String FILE_NOT_FOUND_MSG = "Expected file '%s' not found.";
 
-    /** Default file extension FILE_EXT. */
+    /** FILE_EXT. */
     private static final String FILE_EXT = "csv";
 
     /** lines from the data file. */

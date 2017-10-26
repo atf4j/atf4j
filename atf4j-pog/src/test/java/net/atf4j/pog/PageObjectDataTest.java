@@ -17,8 +17,6 @@
 
 package net.atf4j.pog;
 
-import static org.junit.Assert.assertNotNull;
-
 import java.util.List;
 
 import org.junit.Test;
@@ -37,16 +35,16 @@ public final class PageObjectDataTest extends TestResultsReporting {
     @Test
     public void testExpected() {
         final PageObjectData pageObjectData = new PageObjectData();
-        assertNotNull(UNEXPECTED_NULL, pageObjectData);
+        verifyNotNull(pageObjectData);
 
         pageObjectData
-            .add(new WebElementField("findById", Strategy.ID, "id"))
-            .add(new WebElementField("findByClassName", Strategy.CLASS_NAME, "class-name"))
-            .add(new WebElementField("findByLinkText", Strategy.LINK_TEXT, "linkText"))
-            .add(new WebElementField("findByPartialLinkText", Strategy.PARTIAL_LINK_TEXT, "partialLinkText"))
-            .add(new WebElementField("findByName", Strategy.NAME, "name"))
-            .add(new WebElementField("findByXpath", Strategy.XPATH, "//A"))
-            .add(new WebElementField("findByCss", Strategy.CSS, "."));
+            .add(new WebElementField(Strategy.ID, "id", "findById"))
+            .add(new WebElementField(Strategy.CLASS_NAME, "class-name", "findByClassName"))
+            .add(new WebElementField(Strategy.LINK_TEXT, "linkText", "findByLinkText"))
+            .add(new WebElementField(Strategy.PARTIAL_LINK_TEXT, "partialLinkText", "findByPartialLinkText"))
+            .add(new WebElementField(Strategy.NAME, "name", "findByName"))
+            .add(new WebElementField(Strategy.XPATH, "//A", "findByXpath"))
+            .add(new WebElementField(Strategy.CSS, ".", "findByCss"));
 
         logAttributes(pageObjectData);
     }
@@ -57,8 +55,7 @@ public final class PageObjectDataTest extends TestResultsReporting {
     @Test
     public void testPageObjectData() {
         final PageObjectData pageObjectData = new PageObjectData();
-        log.debug("new PageObjectData() = {}", pageObjectData);
-        assertNotNull(UNEXPECTED_NULL, pageObjectData);
+        verifyNotNull(pageObjectData);
     }
 
     /**
@@ -69,7 +66,7 @@ public final class PageObjectDataTest extends TestResultsReporting {
     private void logAttributes(final PageObjectData pageObjectData) {
         final List<WebElementField> attributes = pageObjectData.get();
         for (final WebElementField pageWebElement : attributes) {
-            log.info("\n{}", pageWebElement.toString());
+            verifyNotNull(pageWebElement);
         }
     }
 }

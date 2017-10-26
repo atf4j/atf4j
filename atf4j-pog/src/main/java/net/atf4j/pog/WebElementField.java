@@ -24,49 +24,52 @@ import static org.junit.Assert.assertNotNull;
  */
 public class WebElementField extends ClassField {
 
-    /** The Constant FIND_BY_FORMAT. */
+    /** FIND_BY_FORMAT Annotation. */
     private static final String FIND_BY_FORMAT = "\t@FindBy(%s = \"%s\")\n";
 
-    /** The Constant FIELD_FORMAT. */
-    private static final String FIELD_FORMAT = "\tprivate %s %s;\n";
+    /** FULL_FORMAT. */
+    private static final String FULL_FORMAT = "\n%s%s";
 
-    /** The Constant FULL_FORMAT. */
-    private static final String FULL_FORMAT = "%s%s\n";
-
-    /** The Constant WEB_ELEMENT_TYPE. */
+    /** WEB_ELEMENT_TYPE. */
     private static final String WEB_ELEMENT_TYPE = "WebElement";
 
+    /** Strategy. */
+    private Strategy strategy = null;
+
+    /** Locator. */
+    private String locator = null;
+
     /**
-     * The Strategy Enum.
+     * Strategy Enum.
      */
     public enum Strategy {
 
-        /** The unknown. */
+        /** unknown. */
         UNKNOWN("Unknown"),
 
-        /** The id. */
+        /** id. */
         ID("id"),
 
-        /** The name. */
+        /** name. */
         NAME("name"),
 
-        /** The class name. */
+        /** class name. */
         CLASS_NAME("className"),
 
-        /** The xpath. */
+        /** xpath. */
         XPATH("xpath"),
 
-        /** The css. */
+        /** css. */
         CSS("css"),
 
-        /** The link text. */
+        /** link text. */
         LINK_TEXT("linkText"),
 
-        /** The partial link text. */
+        /** partial link text. */
         PARTIAL_LINK_TEXT("partialLinkText");
 
-        /** The value. */
-        private final String strategy;
+        /** value. */
+        private final String value;
 
         /**
          * Instantiates a new strategy.
@@ -74,7 +77,7 @@ public class WebElementField extends ClassField {
          * @param asText the as text
          */
         Strategy(final String asText) {
-            strategy = asText;
+            value = asText;
         }
 
         /**
@@ -87,15 +90,15 @@ public class WebElementField extends ClassField {
         }
 
         /**
-         * Status forString.
+         * Strategy from String value.
          *
          * @param asText the as text
          * @return Status value
          */
         public static Strategy fromString(final String asText) {
-            for (final Strategy value : values()) {
-                if (value.strategy.equals(asText)) {
-                    return value;
+            for (final Strategy candidate : values()) {
+                if (candidate.equals(asText)) {
+                    return candidate;
                 }
             }
             return null;
@@ -108,21 +111,15 @@ public class WebElementField extends ClassField {
          */
         @Override
         public String toString() {
-            return strategy;
+            return value;
         }
     }
 
-    /** The strategy. */
-    private Strategy strategy = null;
-
-    /** The locator. */
-    private String locator = null;
-
     /**
-     * Instantiates a new page web element.
+     * Instantiates a new web element field.
      */
     public WebElementField() {
-        super();
+        super(WEB_ELEMENT_TYPE, "webElement");
     }
 
     /**
@@ -132,35 +129,10 @@ public class WebElementField extends ClassField {
      * @param strategy the strategy
      * @param locator the locator
      */
-    public WebElementField(final String name, final String strategy, final String locator) {
-        super(WEB_ELEMENT_TYPE, name);
-        setStrategy(Strategy.fromString(strategy));
-        setLocator(locator);
-    }
-
-    /**
-     * Instantiates a new page web element.
-     *
-     * @param name the name
-     * @param strategy the strategy
-     * @param locator the locator
-     */
-    public WebElementField(final String name, final Strategy strategy, final String locator) {
-        super(WEB_ELEMENT_TYPE, name);
+    public WebElementField(final Strategy strategy, final String locator, final String fieldName) {
+        super(WEB_ELEMENT_TYPE, fieldName);
         setStrategy(strategy);
         setLocator(locator);
-    }
-
-    /**
-     * Sets the locator strategy.
-     *
-     * @param strategy the strategy
-     * @return the page web element
-     */
-    public WebElementField setStrategy(final String strategy) {
-        assertNotNull(UNEXPECTED_NULL, strategy);
-        this.strategy = Strategy.fromString(strategy);
-        return this;
     }
 
     /**
@@ -172,6 +144,18 @@ public class WebElementField extends ClassField {
     public WebElementField setStrategy(final Strategy strategy) {
         assertNotNull(UNEXPECTED_NULL, strategy);
         this.strategy = strategy;
+        return this;
+    }
+
+    /**
+     * Sets the locator strategy.
+     *
+     * @param strategy the strategy
+     * @return the page web element
+     */
+    public WebElementField setStrategy(final String strategy) {
+        assertNotNull(UNEXPECTED_NULL, strategy);
+        this.strategy = Strategy.fromString(strategy);
         return this;
     }
 
@@ -208,13 +192,35 @@ public class WebElementField extends ClassField {
     /*
      * (non-Javadoc)
      *
+     * @see net.atf4j.pog.ClassField#toCode()
+     */
+    @Override
+    public String toCode() {
+        final String locatorLine = String.format(FIND_BY_FORMAT, strategy, locator);
+        return String.format(FULL_FORMAT, locatorLine, super.toCode());
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see net.atf4j.pog.ClassField#debugString()
+     */
+    @Override
+    public String debugString() {
+        return String.format("%s [strategy=%s, locator=%s]",
+                this.getClass().getSimpleName(),
+                strategy,
+                locator);
+    }
+
+    /*
+     * (non-Javadoc)
+     *
      * @see net.atf4j.pog.ClassField#toString()
      */
     @Override
     public String toString() {
-        final String locatorLine = String.format(FIND_BY_FORMAT, strategy, locator);
-        final String webElementLine = String.format(FIELD_FORMAT, super.getType(), super.getName());
-        return String.format(FULL_FORMAT, locatorLine, webElementLine);
+        return toCode();
     }
 
 }

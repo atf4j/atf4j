@@ -5,23 +5,8 @@
     <regex>(.+)Test</regex>
     <example>ExampleUnitTest</example>
     <text>/**
- * Unit test for ${e.g(1)} class.
+ * Unit test class for ${e.g(1)}.
  */</text>
-    <template kind="3" name="Type.Unit Test.Method.verify" default="false" signature="false">
-            <regex>verify(.+)</regex>
-            <example>verifyExample</example>
-            <text>/**
-	* Verification test for the ${e.p().g(1)} object.
-	* 
-	*/</text>
-    </template>
-    <template kind="3" name="Type.Unit Test.Method.testCase" default="false" signature="false">
-            <regex>test(.+)</regex>
-            <example>testCase</example>
-            <text>/**
-	* Unit tests for the ${e.p().g(1)} object.
-	*/</text>
-    </template>
 </template>
 <template kind="1" name="Type.PageObject" default="false" signature="false">
     <regex>(.+)Page</regex>
@@ -33,49 +18,76 @@
             <regex>verify</regex>
             <example>verify</example>
             <text>/**
-	* Verify that ${type_name}.
-	* ${e.s()}
-	* ${e.getType()}
-	* ${e.getDeclaringType()}
-	*/</text>
+				* Verify that ${type_name}.
+				* ${e.s()}
+				* ${e.getType()}
+				*
+				${e.getDeclaringType()}
+				*/</text>
     </template>
     <template kind="3" name="Type.PageObject.Method.openPage" default="false" signature="false">
             <regex>open</regex>
             <example>open</example>
             <text>/**
-	* Open the ${type_name}.
-	* ${e.s()}
-	* ${e.getType()}
-	* ${e.getDeclaringType()}
-	*/</text>
+				* Open the ${type_name}.
+				* ${e.s()}
+				* ${e.getType()}
+				*
+				${e.getDeclaringType()}
+				*/</text>
+    </template>
+</template>
+<template kind="1" name="Type.Example" default="false" signature="false">
+    <regex>(.+)Example</regex>
+    <example>CodeExample</example>
+    <text>/**
+			* A UnitTest for ${e.g(1)} objects.
+			*/</text>
+    <template kind="3" name="Type.Test.Method.verify" default="false" signature="false">
+            <regex>verify(.+)</regex>
+            <example>verifySomething</example>
+            <text>/**
+				* Verify ${e.p().g(1)} object.
+				*/</text>
+    </template>
+    <template kind="3" name="Type.Example.Method.afoo" default="false" signature="false">
+            <regex>foo(.+)</regex>
+            <example>fooBar</example>
+            <text>/**
+				* Verify the ${type_name}.
+				* ${e.s()}
+				* ${e.getType()}
+				* ${e.getDeclaringType()}
+				*
+				*/</text>
+    </template>
+    <template kind="3" name="Type.Example.Method.test" default="false" signature="false">
+            <regex>test(.+)</regex>
+            <example>testSomething</example>
+            <text>/**
+				* Unit tests for the ${e.p().g(1)} object.
+				*/</text>
     </template>
 </template>
 <template kind="1" name="Type.Builder" default="false" signature="false">
     <regex>(.+)Builder</regex>
     <example>ObjectBuilder</example>
     <text>/**
-	* A Builder for creating ${e.g(1)} objects.
-	*/</text>
-    <template kind="3" name="Type.Builder.Method.build" default="false" signature="false">
-            <regex>build(.+)</regex>
-            <example>buildExample</example>
-            <text>/**
-	* Build a new instance of ${e.p().g(1)}.
-	*/</text>
-    </template>
+			* A builder for creating ${e.g(1)} objects.
+			*/</text>
 </template>
 <template kind="1" name="Type.Factory" default="false" signature="false">
     <regex>(.+)Factory</regex>
     <example>MessageFactory</example>
     <text>/**
-	* A Factory class for creating ${e.g(1)} objects.
-	*/</text>
+			* A Factory class for creating ${e.g(1)} objects.
+			*/</text>
     <template kind="3" name="Type.Factory.Method.create" default="false" signature="false">
             <regex>create(.+)</regex>
             <example>createMessage</example>
             <text>/**
-	* Factory Class to create a new ${e.p().g(1)} instance.
-	*/</text>
+				* Factory Class to create a new ${e.p().g(1)} instance.
+				*/</text>
     </template>
 </template>
 <template kind="1" name="Type.Observer" default="false" signature="false">
@@ -294,21 +306,24 @@
     <example>simpleParameter</example>
     <text>/**
 			* @param ${e} the ${e.rsfl()}
-			*/</text>
-</template>
-<template kind="5" name="Exception.IOException" default="false" signature="false">
-    <regex>IOException</regex>
-    <example>IOException</example>
-    <text>/**
+			*/
+			</text>
+	</template>
+	<template kind="5" name="Exception.IOException" default="false"
+		signature="false">
+		<regex>IOException</regex>
+		<example>IOException</example>
+		<text>/**
 			* @throws ${e} Signals that an I/O exception has occurred.
 			*/</text>
-</template>
-<template kind="5" name="Exception.Default" default="true" signature="false">
-    <regex>.+</regex>
-    <example>ExampleException</example>
-    <text>/**
-			* @throws ${e} the ${e.sfl()} exception.
+	</template>
+	<template kind="5" name="Exception.Default" default="true"
+		signature="false">
+		<regex>.+</regex>
+		<example>ExampleException</example>
+		<text>/**
+			* @throws ${e} the ${e.sfl()}
 			*/</text>
-</template>
+	</template>
 </templates>
 

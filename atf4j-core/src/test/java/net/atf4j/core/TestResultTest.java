@@ -55,11 +55,11 @@ public final class TestResultTest extends TestResultsReporting {
      */
     @Test
     public void testTestStatusFromString() {
-        assertEquals(TestResult.PENDING, TestResult.forString("Pending"));
-        assertEquals(TestResult.SKIPPED, TestResult.forString("Skipped"));
-        assertEquals(TestResult.PASSED, TestResult.forString("Passed"));
-        assertEquals(TestResult.FAILED, TestResult.forString("Failed"));
-        assertEquals(TestResult.EXCEPTION, TestResult.forString("Exception"));
+        assertEquals(TestResult.PENDING, TestResult.fromString("Pending"));
+        assertEquals(TestResult.SKIPPED, TestResult.fromString("Skipped"));
+        assertEquals(TestResult.PASSED, TestResult.fromString("Passed"));
+        assertEquals(TestResult.FAILED, TestResult.fromString("Failed"));
+        assertEquals(TestResult.EXCEPTION, TestResult.fromString("Exception"));
     }
 
     /**

@@ -67,7 +67,8 @@ public class BehaviourModel extends AbstractBehaviourModel {
      * Open the target page.
      *
      * @param targetUrl the target url
-     * @throws ConfigurationNotLoadedException
+     * @throws ConfigurationNotLoadedException the configuration not loaded
+     *             exception
      */
     public void open(final String targetUrl) throws ConfigurationNotLoadedException {
         log.debug("open({})", targetUrl);

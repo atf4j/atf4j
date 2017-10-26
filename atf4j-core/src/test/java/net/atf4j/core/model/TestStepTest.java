@@ -80,23 +80,6 @@ public class TestStepTest extends TestResultsReporting {
     }
 
     /**
-     * Test method for TestCase.
-     *
-     * @throws Atf4jException the Atf4jException
-     */
-    @Test
-    public void testExecuteTestContext() throws Atf4jException {
-        final TestContext context = new TestContext();
-        log.info("context = {}", context);
-        assertNotNull(UNEXPECTED_NULL, context);
-
-        final TestStep testStep = new TestStep();
-        log.info("testStep = {}", testStep);
-        assertNotNull(UNEXPECTED_NULL, testStep);
-        assertNotNull(UNEXPECTED_NULL, testStep.execute(context));
-    }
-
-    /**
      * Unit Test for test pre condition.
      */
     @Test

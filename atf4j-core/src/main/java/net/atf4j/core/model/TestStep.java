@@ -17,7 +17,6 @@
 
 package net.atf4j.core.model;
 
-import net.atf4j.core.Atf4jException;
 import net.atf4j.core.timers.MappedTimers;
 
 /**
@@ -30,17 +29,6 @@ public class TestStep extends AbstractTestBase {
      */
     public TestStep() {
         super();
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see net.atf4j.core.model.AbstractTestBase#execute(net.atf4j.core.model.
-     * TestContext)
-     */
-    @Override
-    public AbstractTestBase execute(final TestContext context) throws Atf4jException {
-        return this;
     }
 
     /**

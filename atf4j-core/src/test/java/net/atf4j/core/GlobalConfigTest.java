@@ -29,13 +29,13 @@ import org.junit.Test;
  */
 public class GlobalConfigTest extends TestResultsReporting {
 
-    /** The Constant 			KEY_FOR_INT. */
+    /** KEY_FOR_INT. */
     private static final String KEY_FOR_INT = "keyForInt";
     
-    /** The Constant 			KEY_FOR_STRING. */
+    /** KEY_FOR_STRING. */
     private static final String KEY_FOR_STRING = "keyForString";
     
-    /** The Constant 			MISSING_KEY. */
+    /** MISSING_KEY. */
     private static final String MISSING_KEY = "missingKey";
 
     /**

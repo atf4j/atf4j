@@ -22,7 +22,6 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.Atf4jException;
 import net.atf4j.core.TestResult;
 import net.atf4j.core.TestResultsReporting;
 
@@ -62,45 +61,6 @@ public class TestSuiteTest extends TestResultsReporting {
         final TestResult result = testSuite.result();
         log.debug("result = {}", result);
         assertNotNull(UNEXPECTED_NULL, result);
-    }
-
-    /**
-     * Unit Test for test test suite test context.
-     */
-    @Test
-    public void testTestSuiteTestContext() {
-        final TestContext testContext = new TestContext();
-        log.debug("testContext = {}", testContext);
-        final TestSuite testSuite = new TestSuite(testContext);
-        log.debug("testSuite = {}", testSuite);
-        log.debug("testResult = {}", testSuite.result());
-        assertNotNull(UNEXPECTED_NULL, testSuite);
-    }
-
-    /**
-     * Unit Test for test test suite execute.
-     *
-     * @throws Atf4jException the Atf4jException
-     */
-    @Test
-    public void testTestSuiteExecute() throws Atf4jException {
-        final TestSuite testSuite = new TestSuite();
-        log.debug("testSuite = {}", testSuite);
-        log.debug("testResult={}", testSuite.result());
-        assertNotNull(UNEXPECTED_NULL, testSuite.execute());
-    }
-
-    /**
-     * Unit Test for test test suite execute test context.
-     *
-     * @throws Atf4jException the Atf4jException
-     */
-    @Test
-    public void testTestSuiteExecuteTestContext() throws Atf4jException {
-        final TestSuite testSuite = new TestSuite();
-        log.debug("testSuite = {}", testSuite);
-        log.debug("testResult={}", testSuite.result());
-        assertNotNull(UNEXPECTED_NULL, testSuite.execute(new TestContext()));
     }
 
     /**

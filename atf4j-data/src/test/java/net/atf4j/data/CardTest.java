@@ -64,7 +64,10 @@ public final class CardTest extends TestResultsReporting {
     private static final String VISA_CARD_1 = "4444-4444-4444-4448";
 
     /** VISA_CARD_2. */
-    private static final String VISA_CARD_2 = "4111 1111 1111 1111"; // 4012888888881881
+    private static final String VISA_CARD_2 = "4111 1111 1111 1111";
+
+    /** VISA_CARD_3. */
+    private static final String VISA_CARD_3 = "4012888888881881";
 
     /**
      * Test for Card Factory.
@@ -138,6 +141,7 @@ public final class CardTest extends TestResultsReporting {
         assertFalse(Card.verifyVisa(INVALID_VISA));
         assertTrue(Card.verifyVisa(VISA_CARD_1));
         assertTrue(Card.verifyVisa(VISA_CARD_2));
+        assertTrue(Card.verifyVisa(VISA_CARD_3));
     }
 
     /**
@@ -151,7 +155,7 @@ public final class CardTest extends TestResultsReporting {
     }
 
     /**
-     * Test method for Card.
+     * Test to string.
      */
     @Test
     public void testToString() {

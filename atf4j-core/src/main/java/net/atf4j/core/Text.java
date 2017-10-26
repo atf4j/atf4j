@@ -15,18 +15,18 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.data;
+package net.atf4j.core;
 
 import java.util.Random;
 
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * Text Class.
+ * Text utilities class.
  */
 public final class Text extends TestResultsReporting {
 
-    /** The Constant 			RND. */
+    /** The Constant RND. */
     private static final Random RND = new Random(System.currentTimeMillis());
 
     /**

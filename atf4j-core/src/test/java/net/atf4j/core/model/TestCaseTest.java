@@ -70,19 +70,6 @@ public class TestCaseTest extends TestResultsReporting {
 
     /**
      * Test method for TestCase.
-     *
-     * @throws Atf4jException the Atf4jException
-     */
-    @Test
-    public void testExecuteTestContext() throws Atf4jException {
-        final TestContext context = new TestContext();
-        assertNotNull(UNEXPECTED_NULL, context);
-        final TestCase testCase = new TestCase();
-        assertNotNull(UNEXPECTED_NULL, testCase.execute(context));
-    }
-
-    /**
-     * Test method for TestCase.
      */
     @Test
     public void testNumberOfTestSteps() {

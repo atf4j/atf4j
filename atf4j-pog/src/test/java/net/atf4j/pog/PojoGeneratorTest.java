@@ -35,15 +35,14 @@ public final class PojoGeneratorTest extends TestResultsReporting {
      * @throws Atf4jException the atf4j exception
      */
     @Test
-    public void testExpected() throws Atf4jException {
-        final PojoGenerator pojoGenerator = new PojoGenerator();
+    public void testExpectedUsage() throws Atf4jException {
+        final FluentPojoGenerator pojoGenerator = new FluentPojoGenerator();
         assertNotNull(UNEXPECTED_NULL, pojoGenerator);
         assertNotNull(UNEXPECTED_NULL, pojoGenerator.setClassName("FluentPojo"));
         pojoGenerator.addStringField("string");
         pojoGenerator.addDateField("date");
         pojoGenerator.addBooleanField("bool");
         pojoGenerator.generate();
-        pojoGenerator.toCode();
     }
 
 }

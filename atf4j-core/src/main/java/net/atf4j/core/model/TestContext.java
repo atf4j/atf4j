@@ -24,8 +24,12 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class TestContext extends TestResultsReporting {
 
-    private String platform;
-    private String context;
+    /**
+     * Instantiates a new test context.
+     */
+    private TestContext() {
+        super();
+    }
 
     /**
      * Checks if running on a local machine.
@@ -50,7 +54,7 @@ public final class TestContext extends TestResultsReporting {
     }
 
     /**
-     * Checks if is jenkins.
+     * Checks if is jenkins is available.
      *
      * -DisJenkins=true
      *
@@ -69,46 +73,6 @@ public final class TestContext extends TestResultsReporting {
      */
     public static boolean localServer() {
         return Boolean.getBoolean("localServer");
-    }
-
-    /**
-     * Sets the platform.
-     *
-     * @param platform the platform to set
-     * @return the test context
-     */
-    public TestContext setPlatform(final String platform) {
-        this.platform = platform;
-        return this;
-    }
-
-    /**
-     * Sets the context.
-     *
-     * @param context the context
-     * @return the test context
-     */
-    public TestContext setContext(final String context) {
-        this.context = context;
-        return this;
-    }
-
-    /**
-     * Gets the platform.
-     *
-     * @return the platform
-     */
-    public String getPlatform() {
-        return platform;
-    }
-
-    /**
-     * Gets the context.
-     *
-     * @return the context
-     */
-    public String getContext() {
-        return context;
     }
 
 }

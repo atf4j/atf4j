@@ -62,10 +62,13 @@ public class Person extends TestResultsReporting {
         FEMALE("Male"),
 
         /** unknown. */
-        UNKNOWN("Unknown");
+        UNKNOWN("Unknown"),
+
+        /** Blank. */
+        BLANK("");
 
         /** The gender string. */
-        private final String genderString;
+        private final String value;
 
         /**
          * Instantiates a new gender.
@@ -73,7 +76,7 @@ public class Person extends TestResultsReporting {
          * @param asText the as text
          */
         private Gender(final String asText) {
-            genderString = asText;
+            value = asText;
         }
 
         /**
@@ -84,7 +87,7 @@ public class Person extends TestResultsReporting {
          */
         public static Gender fromString(final String string) {
             for (final Gender candidate : values()) {
-                if (candidate.genderString.equals(string)) {
+                if (candidate.value.equals(string)) {
                     return candidate;
                 }
             }
@@ -98,7 +101,7 @@ public class Person extends TestResultsReporting {
          */
         @Override
         public String toString() {
-            return genderString;
+            return value;
         }
 
     };
@@ -136,7 +139,7 @@ public class Person extends TestResultsReporting {
         BLANK("");
 
         /** The value. */
-        private final String titleString;
+        private final String value;
 
         /**
          * Instantiates a new title.
@@ -144,7 +147,7 @@ public class Person extends TestResultsReporting {
          * @param asText the as text
          */
         private Title(final String asText) {
-            titleString = asText;
+            value = asText;
         }
 
         /**
@@ -155,7 +158,7 @@ public class Person extends TestResultsReporting {
          */
         public static Title fromString(final String string) {
             for (final Title candidate : values()) {
-                if (candidate.titleString.equals(string)) {
+                if (candidate.value.equals(string)) {
                     return candidate;
                 }
             }
@@ -169,7 +172,7 @@ public class Person extends TestResultsReporting {
          */
         @Override
         public String toString() {
-            return titleString;
+            return value;
         }
 
     }

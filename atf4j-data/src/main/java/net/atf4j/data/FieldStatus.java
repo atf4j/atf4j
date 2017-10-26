@@ -32,7 +32,10 @@ public enum FieldStatus {
     PERSISTED("Persisted"),
 
     /** The field is unwanted. */
-    UNWANTED("Unwanted");
+    UNWANTED("Unwanted"),
+
+    /** The field is unwanted. */
+    UNKNOWN("Unknown");
 
     /** The value. */
     private String value;
@@ -55,6 +58,30 @@ public enum FieldStatus {
         return FieldStatus.PRISTINE;
     }
 
+    /**
+     * FieldStatus From string value.
+     *
+     * @param asText the as text
+     * @return the field type
+     */
+    public static FieldStatus fromString(final String asText) {
+        for (final FieldStatus candidate : values()) {
+            if (candidate.value.equals(asText)) {
+                return candidate;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * To debug string.
+     *
+     * @return the string
+     */
+    public String toDebugString() {
+        return String.format("FieldStatus [value=%s]", value);
+    }
+
     /*
      * (non-Javadoc)
      *
@@ -62,7 +89,7 @@ public enum FieldStatus {
      */
     @Override
     public String toString() {
-        return String.format("FieldStatus [value=%s]", value);
+        return value;
     }
 
 }
