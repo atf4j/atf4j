@@ -18,7 +18,6 @@
 package net.atf4j.data;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -30,17 +29,17 @@ import net.atf4j.core.TestResultsReporting;
 public final class FieldStatusTest extends TestResultsReporting {
 
     /**
-     * Test method for void.
+     * Unit tests for the FieldStatus object.
      */
     @Test
     public void testInitialise() {
         final FieldStatus fieldStatus = FieldStatus.initialise();
         verifyNotNull(fieldStatus);
-        assertTrue(fieldStatus.equals(FieldStatus.PRISTINE));
+        assertEquals(FieldStatus.PRISTINE, fieldStatus);
     }
 
     /**
-     * Test value of.
+     * Unit tests for the FieldStatus object.
      */
     @Test
     public void testValueOf() {
@@ -62,7 +61,7 @@ public final class FieldStatusTest extends TestResultsReporting {
     }
 
     /**
-     * Test value of.
+     * Unit tests for the FieldStatus object.
      */
     @Test
     public void testValueOfChanged() {
@@ -70,7 +69,7 @@ public final class FieldStatusTest extends TestResultsReporting {
     }
 
     /**
-     * Test value of.
+     * Unit tests for the FieldStatus object.
      */
     @Test
     public void testValueOfPersisted() {
@@ -78,7 +77,7 @@ public final class FieldStatusTest extends TestResultsReporting {
     }
 
     /**
-     * Test value of.
+     * Unit tests for the FieldStatus object.
      */
     @Test
     public void testValueOfUnwanted() {

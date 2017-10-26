@@ -20,12 +20,12 @@ import net.atf4j.core.TestResultsReporting;
  * Abstract Annotated Test class.
  */
 @Atf4j.TestScript
-public abstract class AbstractAnnotatedTest extends TestResultsReporting {
+public abstract class AbstractAtf4jAnnotation extends TestResultsReporting {
 
     /**
      * Instantiates a new abstract annotated test.
      */
-    protected AbstractAnnotatedTest() {
+    protected AbstractAtf4jAnnotation() {
         super();
     }
 

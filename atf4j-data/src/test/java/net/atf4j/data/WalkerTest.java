@@ -26,7 +26,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * A Unit test class for AbstractWalker objects.
  */
-public final class AbstractWalkerTest extends TestResultsReporting {
+public final class WalkerTest extends TestResultsReporting {
 
     /**
      * MockWalker Class.

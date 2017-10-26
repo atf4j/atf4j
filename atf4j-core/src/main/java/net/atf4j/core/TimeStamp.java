@@ -21,9 +21,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * The Class Timestamp.
+ * TimeStamp class.
  */
-public class Timestamp {
+public final class TimeStamp {
 
     /** ISO_DATE_TIME constant. */
     public static final String ISO_DATE_TIME = "yyyy-MM-dd'T'HH:mm'Z'";
@@ -32,11 +32,18 @@ public class Timestamp {
     public static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm.ss";
 
     /**
+     * private constructor to prevent wild instantiation.
+     */
+    private TimeStamp() {
+        super();
+    }
+
+    /**
      * Date time.
      *
      * @return the string
      */
-    public static String dateTime() {
+    public static String getDateTime() {
         return new SimpleDateFormat(DATE_TIME_FORMAT).format(new Date());
     }
 
@@ -46,7 +53,7 @@ public class Timestamp {
      * @param format the format
      * @return the string
      */
-    public static String dateTime(final String format) {
+    public static String getDateTime(final String format) {
         return new SimpleDateFormat(format).format(new Date());
     }
 
