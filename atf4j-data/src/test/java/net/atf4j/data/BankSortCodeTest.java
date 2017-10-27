@@ -39,7 +39,7 @@ public final class BankSortCodeTest extends TestResultsReporting {
     public void testCreate() {
         final BankSortCode sortCode = BankSortCode.create();
         log.debug("sortCode = {}", sortCode);
-        assertNotNull(UNEXPECTED_NULL, sortCode);
+        verifyNotNull(sortCode);
     }
 
     /**
@@ -50,7 +50,7 @@ public final class BankSortCodeTest extends TestResultsReporting {
     public void testRandom() {
         final BankSortCode sortCode = BankSortCode.random();
         log.debug("sortCode ={}", sortCode);
-        assertNotNull(UNEXPECTED_NULL, sortCode);
+        verifyNotNull(sortCode);
     }
 
     /**
@@ -60,7 +60,7 @@ public final class BankSortCodeTest extends TestResultsReporting {
     public void testDefaultConstructor() {
         final BankSortCode bankSortCode = BankSortCode.create();
         log.debug("sortCode ={}", bankSortCode);
-        assertNotNull(UNEXPECTED_NULL, bankSortCode);
+        verifyNotNull(bankSortCode);
     }
 
     /**
@@ -71,7 +71,7 @@ public final class BankSortCodeTest extends TestResultsReporting {
         final String actual = "99:99:99";
         final BankSortCode sortCode = new BankSortCode(actual);
         log.debug("sortCode ={}", sortCode);
-        assertNotNull(UNEXPECTED_NULL, sortCode);
+        verifyNotNull(sortCode);
     }
 
     /**
@@ -124,7 +124,7 @@ public final class BankSortCodeTest extends TestResultsReporting {
         final BankSortCode bankSortCode = BankSortCode.create();
         final String string = bankSortCode.debugString();
         log.debug("BankSortCode().toString() = {}", string);
-        assertNotNull(UNEXPECTED_NULL, string);
+        verifyNotNull(string);
     }
 
     /**
@@ -135,7 +135,7 @@ public final class BankSortCodeTest extends TestResultsReporting {
         final BankSortCode bankSortCode = BankSortCode.create();
         final String string = bankSortCode.toString();
         log.debug("BankSortCode().toString() = {}", string);
-        assertNotNull(UNEXPECTED_NULL, string);
+        verifyNotNull(string);
     }
 
 }

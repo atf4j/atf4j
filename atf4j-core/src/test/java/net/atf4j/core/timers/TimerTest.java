@@ -38,7 +38,7 @@ public final class TimerTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final NamedTimer timer = new NamedTimer();
-        assertNotNull(UNEXPECTED_NULL, timer);
+        verifyNotNull(timer);
     }
 
     /**

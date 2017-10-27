@@ -39,9 +39,10 @@ public final class Producer extends AbstractConnectionWrapper {
      * Execute.
      *
      * @param messages the messages
+     * @return
      * @throws JMSException the JMS exception
      */
-    public void execute(final String[] messages) throws JMSException {
+    public Producer execute(final String[] messages) throws JMSException {
 
         final MessageProducer messageProducer = this.session.createProducer(this.topic);
 
@@ -53,5 +54,6 @@ public final class Producer extends AbstractConnectionWrapper {
             log.info("Sent {}", messageString);
         }
         this.connection.close();
+        return this;
     }
 }

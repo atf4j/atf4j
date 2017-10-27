@@ -36,7 +36,7 @@ public final class CredentialsTest extends TestResultsReporting {
     public void testCredentials() {
         final Credentials credentials = new Credentials();
         log.debug("new Credentials() = {}", credentials);
-        assertNotNull(UNEXPECTED_NULL, credentials);
+        verifyNotNull(credentials);
     }
 
     /**
@@ -46,7 +46,7 @@ public final class CredentialsTest extends TestResultsReporting {
     public void testCredentialsUsernamePasswordEmail() {
         final Credentials credentials = new Credentials("Username", "Password", "email@example.org");
         log.debug("new Credentials() = {}", credentials);
-        assertNotNull(UNEXPECTED_NULL, credentials);
+        verifyNotNull(credentials);
     }
 
     /**
@@ -56,7 +56,7 @@ public final class CredentialsTest extends TestResultsReporting {
     public void testSetGetUsername() {
         final Credentials credentials = new Credentials();
         log.debug("new Credentials() = {}", credentials);
-        assertNotNull(UNEXPECTED_NULL, credentials);
+        verifyNotNull(credentials);
 
         credentials.setUsername("username");
         log.debug("credentials = {}", credentials);
@@ -70,7 +70,7 @@ public final class CredentialsTest extends TestResultsReporting {
     public void testSetGetPassword() {
         final Credentials credentials = new Credentials();
         log.debug("new Credentials() = {}", credentials);
-        assertNotNull(UNEXPECTED_NULL, credentials);
+        verifyNotNull(credentials);
 
         credentials.setPassword("username");
         log.debug("credentials = {}", credentials);
@@ -84,7 +84,7 @@ public final class CredentialsTest extends TestResultsReporting {
     public void testSetGetEmail() {
         final Credentials credentials = new Credentials();
         log.debug("new Credentials() = {}", credentials);
-        assertNotNull(UNEXPECTED_NULL, credentials);
+        verifyNotNull(credentials);
 
         credentials.setEmail("email@example.org");
         log.debug("credentials = {}", credentials);

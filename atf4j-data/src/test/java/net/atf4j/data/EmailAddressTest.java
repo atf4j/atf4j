@@ -44,7 +44,7 @@ public final class EmailAddressTest extends TestResultsReporting {
     public void testExpected() {
         final EmailAddress emailAddress = new EmailAddress();
         log.debug("new EmailAddress() = {}", emailAddress);
-        assertNotNull(UNEXPECTED_NULL, emailAddress);
+        verifyNotNull(emailAddress);
 
         final EmailAddress atExample = EmailAddress.at("example.com");
         log.debug(atExample.toString());
@@ -57,7 +57,7 @@ public final class EmailAddressTest extends TestResultsReporting {
     public void testDefaultConstructor() {
         final EmailAddress emailAddress = new EmailAddress();
         log.debug("new EmailAddress() = {}", emailAddress);
-        assertNotNull(UNEXPECTED_NULL, emailAddress);
+        verifyNotNull(emailAddress);
     }
 
     /**
@@ -67,7 +67,7 @@ public final class EmailAddressTest extends TestResultsReporting {
     public void testCreate() {
         final EmailAddress emailAddress = EmailAddress.create();
         log.debug("EmailAddress.create() = {}", emailAddress);
-        assertNotNull(UNEXPECTED_NULL, emailAddress);
+        verifyNotNull(emailAddress);
     }
 
     /**
@@ -78,7 +78,7 @@ public final class EmailAddressTest extends TestResultsReporting {
     public void testEmailAddressString() {
         final EmailAddress emailAddress = new EmailAddress(TEST_EXAMPLE_COM);
         log.debug("new EmailAddress({}) = {}", TEST_EXAMPLE_COM, emailAddress);
-        assertNotNull(UNEXPECTED_NULL, emailAddress);
+        verifyNotNull(emailAddress);
         assertEquals(TEST_EXAMPLE_COM, emailAddress);
     }
 
@@ -101,11 +101,11 @@ public final class EmailAddressTest extends TestResultsReporting {
     public void testDebugString() {
         final EmailAddress emailAddress = new EmailAddress();
         log.debug("new EmailAddress() = {}", emailAddress);
-        assertNotNull(UNEXPECTED_NULL, emailAddress);
+        verifyNotNull(emailAddress);
 
         final String string = emailAddress.debugString();
         log.debug("emailAddress.debugString() = {}", emailAddress);
-        assertNotNull(UNEXPECTED_NULL, string);
+        verifyNotNull(string);
     }
 
     /**
@@ -115,10 +115,10 @@ public final class EmailAddressTest extends TestResultsReporting {
     public void testToString() {
         final EmailAddress emailAddress = new EmailAddress();
         log.debug("new EmailAddress() = {}", emailAddress);
-        assertNotNull(UNEXPECTED_NULL, emailAddress);
+        verifyNotNull(emailAddress);
 
         final String string = emailAddress.debugString();
         log.debug("emailAddress.debugString() = {}", emailAddress);
-        assertNotNull(UNEXPECTED_NULL, string);
+        verifyNotNull(string);
     }
 }

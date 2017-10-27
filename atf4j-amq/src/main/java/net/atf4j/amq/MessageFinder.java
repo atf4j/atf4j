@@ -27,9 +27,9 @@ public class MessageFinder extends AbstractFolderWalker {
 
     /** XML_FILE constant. */
     private static final String XML_FILE = ".xml";
-    
+
     /** PATH constant. */
-    private static final String PATH = "messages";
+    private static final String PATH = "./messages";
 
     /**
      * Xml Filter class.

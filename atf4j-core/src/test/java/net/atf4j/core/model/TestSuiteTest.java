@@ -47,7 +47,7 @@ public class TestSuiteTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(UNEXPECTED_NULL, new TestSuite());
+        verifyNotNull(new TestSuite());
     }
 
     /**
@@ -57,10 +57,10 @@ public class TestSuiteTest extends TestResultsReporting {
     public void testTestSuite() {
         final TestSuite testSuite = new TestSuite();
         log.debug("testSuite = {}", testSuite);
-        assertNotNull(UNEXPECTED_NULL, testSuite);
+        verifyNotNull(testSuite);
         final TestResult result = testSuite.result();
         log.debug("result = {}", result);
-        assertNotNull(UNEXPECTED_NULL, result);
+        verifyNotNull(result);
     }
 
     /**

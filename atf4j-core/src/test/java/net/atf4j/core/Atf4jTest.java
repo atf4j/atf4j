@@ -32,7 +32,7 @@ public class Atf4jTest extends TestResultsReporting {
     @Test
     public void testStartEnd() {
         Atf4j.start();
-        assertNotNull(UNEXPECTED_NULL, this);
+        verifyNotNull(this);
         Atf4j.end();
     }
 

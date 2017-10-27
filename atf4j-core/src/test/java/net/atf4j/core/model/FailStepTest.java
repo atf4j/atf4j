@@ -33,7 +33,7 @@ public class FailStepTest extends TestResultsReporting {
      */
     @Test
     public void testFailStep() {
-        assertNotNull(UNEXPECTED_NULL, new FailStep());
+        verifyNotNull(new FailStep());
     }
 
     /**
@@ -41,7 +41,7 @@ public class FailStepTest extends TestResultsReporting {
      */
     @Test
     public void testFailStepNull() {
-        assertNotNull(UNEXPECTED_NULL, new FailStep(null));
+        verifyNotNull(new FailStep(null));
     }
 
     /**
@@ -49,7 +49,7 @@ public class FailStepTest extends TestResultsReporting {
      */
     @Test
     public void testFailStepString() {
-        assertNotNull(UNEXPECTED_NULL, new FailStep("FailStep"));
+        verifyNotNull(new FailStep("FailStep"));
     }
 
 }

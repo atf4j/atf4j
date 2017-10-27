@@ -1,6 +1,6 @@
 ## JsonPojo.vm
 // from main/resources/templates/JsonPojo.vm
-// $timeStamp
+// Generated $timeStamp
 
 package $packageName;
 

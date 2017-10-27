@@ -1,6 +1,6 @@
 ## UnitTest.vm
 // from main/resources/templates/UnitTest.vm
-// $timeStamp
+// Generated $timeStamp
 
 package $packageName;
 
@@ -17,11 +17,11 @@ public class $className {
 
 	// Generate unit test forEachMethod 
 #foreach($element in $content)
-	// ${element.Name}
-	public ${className} test${element.Name}() {
-		${element.Type} ${element.Name} = new ${element.Type};
-		assertNotNull(${element.Name});
-		verify(${element.Name});
+	// $element
+	public $className test$element.name() {
+		$element.type $element.name = new ${element.type};
+		assertNotNull($element.name);
+		verify($element.name);
 		return this;
 	}
 #end

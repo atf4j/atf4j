@@ -34,7 +34,7 @@ public final class ProductTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(UNEXPECTED_NULL, new Product());
+        verifyNotNull(new Product());
     }
 
     /**
@@ -42,7 +42,7 @@ public final class ProductTest extends TestResultsReporting {
      */
     @Test
     public void testProduct() {
-        assertNotNull(UNEXPECTED_NULL, new Product());
+        verifyNotNull(new Product());
     }
 
     /**
@@ -92,7 +92,7 @@ public final class ProductTest extends TestResultsReporting {
     @Test
     public void testToString() {
         final String string = new Product().toString();
-        assertNotNull(UNEXPECTED_NULL, string);
+        verifyNotNull(string);
     }
 
 }

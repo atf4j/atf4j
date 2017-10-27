@@ -33,7 +33,7 @@ public final class ResultsReportingTest extends TestResultsReporting {
     public void testToDescription() {
         final String description = super.toDescription();
         log.debug(description);
-        assertNotNull(UNEXPECTED_NULL, description);
+        verifyNotNull(description);
     }
 
 }

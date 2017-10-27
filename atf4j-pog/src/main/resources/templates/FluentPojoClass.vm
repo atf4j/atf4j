@@ -1,16 +1,16 @@
 ## FluentPojoClass.vm.vm
 // from main/resources/templates/FluentPojoClass.vm
-// $timeStamp
+// Generated $timeStamp
 
 package $packageName;
 
 import java.util.Date;
 
 public class $className {
-#foreach($field in $fields)
-	// $field
-	private $field.Type $field.Name = null;
 
+#foreach($field in $fields)
+	// $field.toCode()
+	private $field.type $field.name;
 #end
 
 	public $className() {
@@ -18,13 +18,15 @@ public class $className {
 	}
 
 #foreach($field in $fields)
-	public $className $util.methodCase($field.Name)(final $field.Type $field.Name) {
-		this.$field.Name = $field.Name;
+	// $field
+	public $className set$field.getName()(final $field.type $field.name) {
+		this.$field.name = $field.name;
 		return this;
 	}
 
-	public $field.Type $util.methodCase($field.Name)() {
-		return this.$field.Name;
+	public $field.type get$field.getName()() {	
+		return this.$field.name;
  	}
 #end
+
 }

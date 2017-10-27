@@ -17,12 +17,10 @@
 
 package net.atf4j.pog;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 
-import net.atf4j.core.VerificationError;
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.core.VerificationError;
 
 /**
  * A UnitTest for PojoGenerator objects.
@@ -37,8 +35,8 @@ public final class PojoGeneratorTest extends TestResultsReporting {
     @Test
     public void testExpectedUsage() throws VerificationError {
         final FluentPojoGenerator pojoGenerator = new FluentPojoGenerator();
-        assertNotNull(UNEXPECTED_NULL, pojoGenerator);
-        assertNotNull(UNEXPECTED_NULL, pojoGenerator.setClassName("FluentPojo"));
+        verifyNotNull(pojoGenerator);
+        pojoGenerator.setClassName("FluentPojo");
         pojoGenerator.addStringField("string");
         pojoGenerator.addDateField("date");
         pojoGenerator.addBooleanField("bool");

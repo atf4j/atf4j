@@ -36,8 +36,8 @@ public final class BehaviourFailTest extends TestResultsReporting {
     public void testGiven() {
         this.log.debug("testGiven");
         final Given given = new Given();
-        assertNotNull(UNEXPECTED_NULL, given);
-        assertNotNull(UNEXPECTED_NULL, given.execute());
+        verifyNotNull(given);
+        verifyNotNull(given.execute());
     }
 
     /**
@@ -48,8 +48,8 @@ public final class BehaviourFailTest extends TestResultsReporting {
     public void testWhen() {
         this.log.debug("testGiven");
         final When when = new When();
-        assertNotNull(UNEXPECTED_NULL, when);
-        assertNotNull(UNEXPECTED_NULL, when.execute());
+        verifyNotNull(when);
+        verifyNotNull(when.execute());
     }
 
     /**
@@ -60,8 +60,8 @@ public final class BehaviourFailTest extends TestResultsReporting {
     public void testThen() {
         this.log.debug("testGiven");
         final Then then = new Then();
-        assertNotNull(UNEXPECTED_NULL, then);
-        assertNotNull(UNEXPECTED_NULL, then.execute());
+        verifyNotNull(then);
+        verifyNotNull(then.execute());
     }
 
 }

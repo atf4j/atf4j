@@ -36,7 +36,7 @@ public final class BankTest extends TestResultsReporting {
     public void testCreate() {
         final Bank bank = Bank.create();
         log.debug("Bank.create() = {}", bank);
-        assertNotNull(UNEXPECTED_NULL, bank);
+        verifyNotNull(bank);
     }
 
     /**
@@ -46,7 +46,7 @@ public final class BankTest extends TestResultsReporting {
     public void testRandom() {
         final Bank bank = Bank.random();
         log.debug("Bank.random() = {}", bank);
-        assertNotNull(UNEXPECTED_NULL, bank);
+        verifyNotNull(bank);
     }
 
     /**
@@ -56,7 +56,7 @@ public final class BankTest extends TestResultsReporting {
     public void testDefaultConstructor() {
         final Bank bank = new Bank();
         log.debug("new Bank() = {}", bank);
-        assertNotNull(UNEXPECTED_NULL, bank);
+        verifyNotNull(bank);
     }
 
     /**
@@ -66,7 +66,7 @@ public final class BankTest extends TestResultsReporting {
     public void testBank() {
         final Bank bank = new Bank("");
         log.debug("new Bank('') = {}", bank);
-        assertNotNull(UNEXPECTED_NULL, bank);
+        verifyNotNull(bank);
     }
 
     /**
@@ -87,7 +87,7 @@ public final class BankTest extends TestResultsReporting {
     public void testDebugString() {
         final String string = new Bank().debugString();
         log.debug("Bank().debugString() = {}", string);
-        assertNotNull(UNEXPECTED_NULL, string);
+        verifyNotNull(string);
     }
 
     /**
@@ -97,7 +97,7 @@ public final class BankTest extends TestResultsReporting {
     public void testToString() {
         final String string = new Bank().toString();
         log.debug("Bank().toString() = {}", string);
-        assertNotNull(UNEXPECTED_NULL, string);
+        verifyNotNull(string);
     }
 
 }

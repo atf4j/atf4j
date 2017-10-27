@@ -32,7 +32,7 @@ public final class NamedTimerTest extends TestResultsReporting {
     public void testMilliTimer() {
         final NamedTimer namedTimer = new NamedTimer();
         log.debug("new MilliTimer() = {}", namedTimer);
-        assertNotNull(UNEXPECTED_NULL, namedTimer);
+        verifyNotNull(namedTimer);
     }
 
     /**
@@ -42,7 +42,7 @@ public final class NamedTimerTest extends TestResultsReporting {
     public void testMilliTimerString() {
         final NamedTimer namedTimer = new NamedTimer("MilliTimer");
         log.debug("new MilliTimer() = {}", namedTimer);
-        assertNotNull(UNEXPECTED_NULL, namedTimer);
+        verifyNotNull(namedTimer);
     }
 
     /**
@@ -52,7 +52,7 @@ public final class NamedTimerTest extends TestResultsReporting {
     public void testStart() {
         final NamedTimer namedTimer = new NamedTimer();
         log.debug("new MilliTimer() = {}", namedTimer);
-        assertNotNull(UNEXPECTED_NULL, namedTimer.start());
+        verifyNotNull(namedTimer.start());
     }
 
     /**
@@ -62,7 +62,7 @@ public final class NamedTimerTest extends TestResultsReporting {
     public void testStop() {
         final NamedTimer namedTimer = new NamedTimer();
         log.debug("new MilliTimer() = {}", namedTimer);
-        assertNotNull(UNEXPECTED_NULL, namedTimer.stop());
+        verifyNotNull(namedTimer.stop());
     }
 
     /**
@@ -72,7 +72,7 @@ public final class NamedTimerTest extends TestResultsReporting {
     public void testGetStartTime() {
         final NamedTimer milliTimer = new NamedTimer();
         log.debug("new MilliTimer() = {}", milliTimer);
-        assertNotNull(UNEXPECTED_NULL, milliTimer.getStartTime());
+        verifyNotNull(milliTimer.getStartTime());
     }
 
     /**
@@ -82,7 +82,7 @@ public final class NamedTimerTest extends TestResultsReporting {
     public void testGetElapsedTime() {
         final NamedTimer namedTimer = new NamedTimer();
         log.debug("new MilliTimer() = {}", namedTimer);
-        assertNotNull(UNEXPECTED_NULL, namedTimer.getElapsedTime());
+        verifyNotNull(namedTimer.getElapsedTime());
     }
 
     /**
@@ -92,7 +92,7 @@ public final class NamedTimerTest extends TestResultsReporting {
     public void testToString() {
         final NamedTimer namedTimer = new NamedTimer();
         log.debug("new MilliTimer() = {}", namedTimer);
-        assertNotNull(UNEXPECTED_NULL, namedTimer.toString());
+        verifyNotNull(namedTimer.toString());
     }
 
     /**
@@ -102,7 +102,7 @@ public final class NamedTimerTest extends TestResultsReporting {
     public void testGetTimerName() {
         final NamedTimer namedTimer = new NamedTimer();
         log.debug("new MilliTimer() = {}", namedTimer);
-        assertNotNull(UNEXPECTED_NULL, namedTimer.getTimerName());
+        verifyNotNull(namedTimer.getTimerName());
     }
 
 }

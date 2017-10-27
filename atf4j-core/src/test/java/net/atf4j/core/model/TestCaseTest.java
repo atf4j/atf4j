@@ -47,7 +47,7 @@ public class TestCaseTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(UNEXPECTED_NULL, new TestCase());
+        verifyNotNull(new TestCase());
     }
 
     /**
@@ -55,7 +55,7 @@ public class TestCaseTest extends TestResultsReporting {
      */
     @Test
     public void testTestCaseString() {
-        assertNotNull(UNEXPECTED_NULL, new TestCase("TestCase"));
+        verifyNotNull(new TestCase("TestCase"));
     }
 
     /**
@@ -65,7 +65,7 @@ public class TestCaseTest extends TestResultsReporting {
      */
     @Test
     public void testRegisterLogging() throws VerificationError {
-        assertNotNull(UNEXPECTED_NULL, new TestCase().registerLogging(new MockTestReport()));
+        verifyNotNull(new TestCase().registerLogging(new MockTestReport()));
     }
 
     /**
@@ -83,13 +83,13 @@ public class TestCaseTest extends TestResultsReporting {
     @Test
     public void testAddTestStep() {
         final TestStep testStep = new TestStep();
-        assertNotNull(UNEXPECTED_NULL, testStep);
+        verifyNotNull(testStep);
 
         final TestCase testCase = new TestCase();
-        assertNotNull(UNEXPECTED_NULL, testCase);
+        verifyNotNull(testCase);
 
         final TestCase addTestStep = testCase.addTestStep(testStep);
-        assertNotNull(UNEXPECTED_NULL, testStep);
+        verifyNotNull(testStep);
 
         assertEquals(1, addTestStep.numberOfTestSteps());
     }
@@ -100,7 +100,7 @@ public class TestCaseTest extends TestResultsReporting {
     @Test
     public void testPreCondition() {
         final TestCase testCase = new TestCase();
-        assertNotNull(UNEXPECTED_NULL, testCase.addPreCondition(new PassingCondition()));
+        verifyNotNull(testCase.addPreCondition(new PassingCondition()));
     }
 
     /**
@@ -109,7 +109,7 @@ public class TestCaseTest extends TestResultsReporting {
     @Test
     public void testPostCondition() {
         final TestCase testCase = new TestCase();
-        assertNotNull(UNEXPECTED_NULL, testCase.addPostCondition(new PassingCondition()));
+        verifyNotNull(testCase.addPostCondition(new PassingCondition()));
     }
 
 }

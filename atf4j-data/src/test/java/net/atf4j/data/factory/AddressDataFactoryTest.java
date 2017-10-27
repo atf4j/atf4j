@@ -36,7 +36,7 @@ public final class AddressDataFactoryTest extends TestResultsReporting {
     public void testCreate() {
         final PostalAddress address = AddressDataFactory.create();
         log.debug("AddressDataFactory.create() = {}", address);
-        assertNotNull(UNEXPECTED_NULL, address);
+        verifyNotNull(address);
     }
 
     /**
@@ -46,7 +46,7 @@ public final class AddressDataFactoryTest extends TestResultsReporting {
     public void testRandom() {
         final PostalAddress address = AddressDataFactory.random();
         log.debug("AddressDataFactory.random() = {}", address);
-        assertNotNull(UNEXPECTED_NULL, address);
+        verifyNotNull(address);
     }
 
     /**
@@ -56,7 +56,7 @@ public final class AddressDataFactoryTest extends TestResultsReporting {
     public void testGetInstance() {
         final AddressDataFactory addressFactory = AddressDataFactory.getInstance();
         log.debug("AddressDataFactory.getInstance() = {}", addressFactory);
-        assertNotNull(UNEXPECTED_NULL, addressFactory);
+        verifyNotNull(addressFactory);
     }
 
 }

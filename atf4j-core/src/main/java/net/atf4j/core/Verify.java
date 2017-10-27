@@ -57,14 +57,14 @@ public final class Verify {
             throw new VerificationError(message);
         }
         final String objectName = object.getClass().getSimpleName();
-        assertNotNull(UNEXPECTED_NULL, objectName);
+        verifyNotNull(objectName);
         LOG.debug("verify({}) = {}", objectName, object);
     }
 
     public static void verifyNotNull(Object object) {
-        assertNotNull(UNEXPECTED_NULL, object);
+        assertNotNull(object);
         final String objectName = object.getClass().getSimpleName();
-        assertNotNull(UNEXPECTED_NULL, objectName);
+        assertNotNull(objectName);
         LOG.debug("verify({}) = {}", objectName, object);
     }
 

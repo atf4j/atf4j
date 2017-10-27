@@ -17,21 +17,20 @@
 
 package net.atf4j.amq;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assume.assumeTrue;
 
 import java.util.Arrays;
 
 import javax.jms.JMSException;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.core.model.TestContext;
 
 /**
  * The ProducerTest Class.
  */
-@Ignore
 public class ProducerTest extends TestResultsReporting {
 
     /**
@@ -41,10 +40,8 @@ public class ProducerTest extends TestResultsReporting {
      */
     @Test
     public void testProducer() throws JMSException {
-        this.log.debug("testProducer");
-        final Producer producer = new Producer();
-        assertNotNull(UNEXPECTED_NULL, producer);
-        this.log.debug("{}", producer);
+        assumeTrue(TestContext.isActiveMQ());
+        verifyNotNull(new Producer());
     }
 
     /**
@@ -54,13 +51,12 @@ public class ProducerTest extends TestResultsReporting {
      */
     @Test
     public void testExecute() throws JMSException {
-        this.log.debug("testExecute");
+        assumeTrue(TestContext.isActiveMQ());
         final Producer producer = new Producer();
-        assertNotNull(UNEXPECTED_NULL, producer);
-        this.log.debug("{}", producer);
+        verifyNotNull(producer);
 
         final String[] messages = null;
         this.log.debug("{}", Arrays.toString(messages));
-        producer.execute(messages);
+        verifyNotNull(producer.execute(messages));
     }
 }

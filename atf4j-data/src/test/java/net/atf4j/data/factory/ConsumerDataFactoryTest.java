@@ -36,7 +36,7 @@ public final class ConsumerDataFactoryTest extends TestResultsReporting {
     public void testCreate() {
         final Consumer consumer = ConsumerDataFactory.create();
         log.debug("ConsumerDataFactory.create() = {}", consumer);
-        assertNotNull(UNEXPECTED_NULL, consumer);
+        verifyNotNull(consumer);
     }
 
     /**
@@ -46,7 +46,7 @@ public final class ConsumerDataFactoryTest extends TestResultsReporting {
     public void testRandom() {
         final Consumer consumer = ConsumerDataFactory.random();
         log.debug("ConsumerDataFactory.random() = {}", consumer);
-        assertNotNull(UNEXPECTED_NULL, consumer);
+        verifyNotNull(consumer);
     }
 
     /**
@@ -56,7 +56,7 @@ public final class ConsumerDataFactoryTest extends TestResultsReporting {
     public void testGetInstance() {
         final ConsumerDataFactory customerDataFactory = ConsumerDataFactory.getInstance();
         log.debug("ConsumerDataFactory.getInstance() = {}", customerDataFactory);
-        assertNotNull(UNEXPECTED_NULL, customerDataFactory);
+        verifyNotNull(customerDataFactory);
     }
 
 }

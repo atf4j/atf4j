@@ -29,7 +29,9 @@ import net.atf4j.core.TestResultsReporting;
 public final class ClassMethod extends TestResultsReporting {
 
     /** Code Template for method. */
-    private static final String METHOD_CODE = "public %s %s() { return new %s(); }";
+    private static final String CREATE_CODE = "public %s create() { return new %s(); }";
+    private static final String SET_CODE = "public %s set%s(%s %s) { this.%s = %s; return this.%s; }";
+    private static final String GET_CODE = "public %s get%s() { return this.%s; }";
 
     /** access modifiers. */
     private String access;
@@ -46,7 +48,7 @@ public final class ClassMethod extends TestResultsReporting {
     /**
      * Instantiates a new class method.
      */
-    public ClassMethod() {
+    protected ClassMethod() {
         super();
         setType("void");
         final String uniqueness = UUID.randomUUID().toString().substring(0, 8);
@@ -59,10 +61,14 @@ public final class ClassMethod extends TestResultsReporting {
      * @param type the type
      * @param methodName the method name
      */
-    public ClassMethod(final String type, final String methodName) {
+    protected ClassMethod(final String type, final String methodName) {
         super();
         setType(type);
         setName(methodName);
+    }
+
+    public static ClassMethod addFactory(String string) {
+        return new ClassMethod();
     }
 
     /**
@@ -77,24 +83,24 @@ public final class ClassMethod extends TestResultsReporting {
     }
 
     /**
-     * Sets the name.
-     *
-     * @param name the name
-     * @return the class method
-     */
-    public ClassMethod setName(final String name) {
-        this.methodName = methodCase(name);
-        return this;
-    }
-
-    /**
      * Sets the type.
      *
      * @param type the type
      * @return the class method
      */
     public ClassMethod setType(final String type) {
-        this.returnType = type;
+        returnType = type;
+        return this;
+    }
+
+    /**
+     * Sets the name.
+     *
+     * @param name the name
+     * @return the class method
+     */
+    public ClassMethod setName(final String name) {
+        methodName = methodCase(name);
         return this;
     }
 
@@ -105,7 +111,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return true, if successful, otherwise false.
      */
     public boolean add(final ClassField classField) {
-        return this.parameters.add(classField);
+        return parameters.add(classField);
     }
 
     /**
@@ -114,7 +120,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the access
      */
     public String getAccess() {
-        return this.access;
+        return access;
     }
 
     /**
@@ -123,7 +129,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the type
      */
     public String getType() {
-        return this.returnType;
+        return returnType;
     }
 
     /**
@@ -132,7 +138,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the name
      */
     public String getName() {
-        return this.methodName;
+        return methodName;
     }
 
     /**
@@ -141,7 +147,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @param string the string
      * @return the string
      */
-    public String methodCase(final String string) {
+    protected String methodCase(final String string) {
         final char[] charArray = string.toCharArray();
         charArray[0] = Character.toLowerCase(charArray[0]);
         return new String(charArray);
@@ -153,10 +159,10 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the string
      */
     public String toCode() {
-        if (this.parameters.size() > 0) {
-            return String.format(METHOD_CODE, this.returnType, this.methodName, this.returnType);
+        if (parameters.size() > 0) {
+            return String.format(CREATE_CODE, returnType, methodName, returnType);
         } else {
-            return String.format(METHOD_CODE, this.returnType, this.methodName, this.returnType);
+            return String.format(CREATE_CODE, returnType, methodName, returnType);
         }
     }
 
@@ -167,9 +173,9 @@ public final class ClassMethod extends TestResultsReporting {
      */
     public String debugString() {
         return String.format("ClassMethod [access=%s, returnType=%s, methodName=%s]",
-                this.access,
-                this.returnType,
-                this.methodName);
+                access,
+                returnType,
+                methodName);
     }
 
     /*
@@ -179,7 +185,7 @@ public final class ClassMethod extends TestResultsReporting {
      */
     @Override
     public String toString() {
-        if (this.log.isDebugEnabled()) {
+        if (log.isDebugEnabled()) {
             return debugString();
         } else {
             return toCode();

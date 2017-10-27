@@ -79,7 +79,7 @@ public class Business extends Name {
      * @return the business
      */
     public Business setAddress(final PostalAddress address) {
-        assertNotNull(UNEXPECTED_NULL, address);
+        verifyNotNull(address);
         this.address = address;
         return this;
     }
@@ -91,7 +91,7 @@ public class Business extends Name {
      * @return the business
      */
     public Business setAddress(final String[] address) {
-        assertNotNull(UNEXPECTED_NULL, address);
+        verifyNotNull(address);
         this.address.setAddressLines(address);
         return this;
     }
@@ -103,8 +103,8 @@ public class Business extends Name {
      * @param addressLine the address line
      */
     public void setAddressRow(final int lineNo, final String addressLine) {
-        assertNotNull(UNEXPECTED_NULL, lineNo);
-        assertNotNull(UNEXPECTED_NULL, addressLine);
+        verifyNotNull(lineNo);
+        verifyNotNull(addressLine);
         address.setAddressRow(lineNo, addressLine);
     }
 
@@ -115,7 +115,7 @@ public class Business extends Name {
      * @return the postal address
      */
     public PostalAddress setPostcode(final Postcode postcode) {
-        assertNotNull(UNEXPECTED_NULL, postcode);
+        verifyNotNull(postcode);
         return address.setPostcode(postcode);
     }
 

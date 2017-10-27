@@ -1,5 +1,5 @@
 // generated from main/resources/templates/PageObject.vm
-// 2017-10-26 20:24.55
+// Generated 2017-10-27 23:10.59
 
 package net.atf4j.generated;
 
@@ -14,26 +14,19 @@ import net.atf4j.webdriver.page.AbstractPageObject;
 public class ExamplePageObject extends AbstractPageObject {
 
 		@FindBy(id = "id")
-	protected WebElement findById;
-
+protected WebElement findById;
 		@FindBy(name = "name")
-	protected WebElement findByName;
-
+protected WebElement findByName;
 		@FindBy(className = "className")
-	protected WebElement findByClassName;
-
+protected WebElement findByClassName;
 		@FindBy(linkText = "linkText")
-	protected WebElement findByLinkText;
-
+protected WebElement findByLinkText;
 		@FindBy(partialLinkText = "partialLinkText")
-	protected WebElement findByPartialLinkText;
-
+protected WebElement findByPartialLinkText;
 		@FindBy(xpath = "//a[contains(text(), 'ATF4J')]")
-	protected WebElement findByXpath;
-
+protected WebElement findByXpath;
 		@FindBy(css = ".")
-	protected WebElement findByCss;
-
+protected WebElement findByCss;
 
 	public ExamplePageObject() {
 		super();
@@ -54,20 +47,23 @@ public class ExamplePageObject extends AbstractPageObject {
 	}
 
 	// Navigation Elements.
-	// findByLinkText
-	public ExamplePageObject navToFindByLinkText() {
+	public ExamplePageObject navTofindByLinkText() {
 		assertNotNull(findByLinkText);
 		findByLinkText.click();
 		return this;
 	}
-	// findByPartialLinkText
-	public ExamplePageObject navToFindByPartialLinkText() {
+	public ExamplePageObject navTofindByPartialLinkText() {
 		assertNotNull(findByPartialLinkText);
 		findByPartialLinkText.click();
 		return this;
 	}
 
 	// Input Elements
+	public ExamplePageObject inputTofindById(CharSequence inputText) {
+		assertNotNull(findById);
+		findById.sendKeys(inputText);
+		return this;
+	}
 
 	// Content Elements
 }

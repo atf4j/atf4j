@@ -18,10 +18,13 @@
 package net.atf4j.amq;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assume.assumeTrue;
 
 import javax.jms.JMSException;
 
 import org.junit.Test;
+
+import net.atf4j.core.model.TestContext;
 
 /**
  * Unit test for ConnectionWrapper class.
@@ -50,6 +53,7 @@ public class ConnectionWrapperTest {
      */
     @Test
     public void testAbstractConnectionWrapper() throws JMSException {
+        assumeTrue(TestContext.isActiveMQ());
         final ConnectionWrapper connectionWrapper = new ConnectionWrapper();
         assertNotNull(connectionWrapper);
     }

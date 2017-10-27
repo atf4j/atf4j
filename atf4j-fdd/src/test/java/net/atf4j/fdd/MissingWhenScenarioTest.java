@@ -39,8 +39,8 @@ public final class MissingWhenScenarioTest extends TestResultsReporting {
     public void testScenarioRunner() {
         this.log.debug("testScenarioRunner", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
-        assertNotNull(UNEXPECTED_NULL, scenarioRunner);
-        assertNotNull(UNEXPECTED_NULL, scenarioRunner.execute());
+        verifyNotNull(scenarioRunner);
+        verifyNotNull(scenarioRunner.execute());
     }
 
     /**

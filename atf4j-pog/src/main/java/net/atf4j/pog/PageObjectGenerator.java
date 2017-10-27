@@ -97,7 +97,7 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @return the page object generator
      */
     public PageObjectGenerator add(final PageObjectData pageObjectData) {
-        assertNotNull(UNEXPECTED_NULL, pageObjectData);
+        verifyNotNull(pageObjectData);
         this.pageObjectData = pageObjectData;
         super.contextBinding("pageElements", this.pageObjectData.get());
         super.contextBinding("navigation", this.pageObjectData.getNav());
@@ -113,8 +113,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @return the page object generator
      */
     public PageObjectGenerator add(final WebElementField pageWebElement) {
-        assertNotNull(UNEXPECTED_NULL, pageWebElement);
-        assertNotNull(UNEXPECTED_NULL, this.pageObjectData);
+        verifyNotNull(pageWebElement);
+        verifyNotNull(this.pageObjectData);
         this.pageObjectData.add(pageWebElement);
         return this;
     }
@@ -126,8 +126,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @return the page object generator
      */
     public PageObjectGenerator addNavigation(final WebElementField pageWebElement) {
-        assertNotNull(UNEXPECTED_NULL, pageWebElement);
-        assertNotNull(UNEXPECTED_NULL, this.pageObjectData);
+        verifyNotNull(pageWebElement);
+        verifyNotNull(this.pageObjectData);
         this.pageObjectData.addNav(pageWebElement);
         return this;
     }
@@ -139,8 +139,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @return the page object generator
      */
     public PageObjectGenerator addContent(final WebElementField pageWebElement) {
-        assertNotNull(UNEXPECTED_NULL, pageWebElement);
-        assertNotNull(UNEXPECTED_NULL, this.pageObjectData);
+        verifyNotNull(pageWebElement);
+        verifyNotNull(this.pageObjectData);
         this.pageObjectData.addContent(pageWebElement);
         return this;
     }
@@ -152,8 +152,8 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      * @return the page object generator
      */
     public PageObjectGenerator addInput(final WebElementField pageWebElement) {
-        assertNotNull(UNEXPECTED_NULL, pageWebElement);
-        assertNotNull(UNEXPECTED_NULL, this.pageObjectData);
+        verifyNotNull(pageWebElement);
+        verifyNotNull(this.pageObjectData);
         this.pageObjectData.addInput(pageWebElement);
         return this;
     }
@@ -189,7 +189,7 @@ public class PageObjectGenerator extends AbstractCodeGenerator {
      */
     @Override
     public String toString() {
-        assertNotNull(UNEXPECTED_NULL, this.pageObjectData);
+        verifyNotNull(this.pageObjectData);
         return this.pageObjectData.toString();
     }
 

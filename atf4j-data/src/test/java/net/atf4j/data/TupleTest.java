@@ -36,7 +36,7 @@ public final class TupleTest extends TestResultsReporting {
     public void testSetGetKey() {
         final Tuple<String, String> tuple = new Tuple<String, String>();
         log.debug("tuple = {}", tuple);
-        assertNotNull(UNEXPECTED_NULL, tuple);
+        verifyNotNull(tuple);
 
         final String key = "key";
         tuple.setKey(key);
@@ -51,7 +51,7 @@ public final class TupleTest extends TestResultsReporting {
     public void testSetGetValue() {
         final Tuple<String, String> tuple = new Tuple<String, String>();
         log.debug("tuple = {}", tuple);
-        assertNotNull(UNEXPECTED_NULL, tuple);
+        verifyNotNull(tuple);
 
         final String value = "value";
         tuple.setValue(value);

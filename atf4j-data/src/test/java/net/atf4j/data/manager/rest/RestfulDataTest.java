@@ -37,7 +37,7 @@ public final class RestfulDataTest extends TestResultsReporting {
     public void testDefaultConstructor() {
         final MockRestfulData restfulData = new MockRestfulData();
         log.debug("restfulData = {}", restfulData);
-        assertNotNull(UNEXPECTED_NULL, restfulData);
+        verifyNotNull(restfulData);
     }
 
     /**
@@ -47,7 +47,7 @@ public final class RestfulDataTest extends TestResultsReporting {
     public void testSetUp() {
         final MockRestfulData restfulData = new MockRestfulData();
         log.debug("restfulData = {}", restfulData);
-        assertNotNull(UNEXPECTED_NULL, restfulData);
+        verifyNotNull(restfulData);
         assertTrue(restfulData.setUp());
     }
 
@@ -58,7 +58,7 @@ public final class RestfulDataTest extends TestResultsReporting {
     public void testReset() {
         final MockRestfulData restfulData = new MockRestfulData();
         log.debug("restfulData = {}", restfulData);
-        assertNotNull(UNEXPECTED_NULL, restfulData);
+        verifyNotNull(restfulData);
         assertTrue(restfulData.reset());
     }
 
@@ -69,7 +69,7 @@ public final class RestfulDataTest extends TestResultsReporting {
     public void testTearDown() {
         final MockRestfulData restfulData = new MockRestfulData();
         log.debug("restfulData = {}", restfulData);
-        assertNotNull(UNEXPECTED_NULL, restfulData);
+        verifyNotNull(restfulData);
         assertTrue(restfulData.tearDown());
     }
 

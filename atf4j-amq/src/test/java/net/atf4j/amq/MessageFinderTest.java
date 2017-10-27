@@ -17,8 +17,6 @@
 
 package net.atf4j.amq;
 
-import static org.junit.Assert.assertNotNull;
-
 import java.io.File;
 import java.util.List;
 
@@ -37,13 +35,30 @@ public class MessageFinderTest extends TestResultsReporting {
     @Test
     public void testMessageFinder() {
         final MessageFinder folderWalker = new MessageFinder();
-        this.log.debug("{}", folderWalker);
-        assertNotNull(UNEXPECTED_NULL, folderWalker);
+        verifyNotNull(folderWalker);
+    }
+
+    @Test
+    public void testMessageFinderWalk() {
+        final MessageFinder folderWalker = new MessageFinder();
+        verifyNotNull(folderWalker);
 
         final List<File> messages = folderWalker.walk();
-        assertNotNull(UNEXPECTED_NULL, messages);
+        verifyNotNull(messages);
         for (final File file : messages) {
-            this.log.debug("{}", file.toString());
+            this.log.info("{} = {}", file.getName(), file.toString());
+        }
+    }
+
+    @Test
+    public void testMessageFinderScan() {
+        final MessageFinder folderWalker = new MessageFinder();
+        verifyNotNull(folderWalker);
+
+        final List<File> messages = folderWalker.scan(".");
+        verifyNotNull(messages);
+        for (final File file : messages) {
+            this.log.info("{} = {}", file.getName(), file.toString());
         }
     }
 }

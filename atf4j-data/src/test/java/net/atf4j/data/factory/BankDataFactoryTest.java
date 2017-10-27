@@ -36,7 +36,7 @@ public final class BankDataFactoryTest extends TestResultsReporting {
     public void testCreate() {
         final Bank bank = BankDataFactory.create();
         log.debug("bankDataFactory.create() = {}", bank);
-        assertNotNull(UNEXPECTED_NULL, bank);
+        verifyNotNull(bank);
     }
 
     /**
@@ -46,7 +46,7 @@ public final class BankDataFactoryTest extends TestResultsReporting {
     public void testRandom() {
         final Bank randomBank = BankDataFactory.random();
         log.debug("BankDataFactory.random() = {}", randomBank);
-        assertNotNull(UNEXPECTED_NULL, randomBank);
+        verifyNotNull(randomBank);
     }
 
     /**
@@ -56,7 +56,7 @@ public final class BankDataFactoryTest extends TestResultsReporting {
     public void testGetInstance() {
         final BankDataFactory bankDataFactory = BankDataFactory.getInstance();
         log.debug("BankDataFactory.getInstance() = {}", bankDataFactory);
-        assertNotNull(UNEXPECTED_NULL, bankDataFactory);
+        verifyNotNull(bankDataFactory);
     }
 
 }

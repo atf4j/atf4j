@@ -91,17 +91,17 @@ public abstract class Behaviour extends TestResultsReporting {
         log.info("{}.execute", this.getClass().getSimpleName());
         for (final Given given : givenList) {
             final Properties execute = given.execute(properties);
-            assertNotNull(UNEXPECTED_NULL, execute);
+            verifyNotNull(execute);
         }
 
         for (final When when : whenList) {
             final Properties execute = when.execute(properties);
-            assertNotNull(UNEXPECTED_NULL, execute);
+            verifyNotNull(execute);
         }
 
         for (final Then then : thenList) {
             final Properties execute = then.execute(properties);
-            assertNotNull(UNEXPECTED_NULL, execute);
+            verifyNotNull(execute);
         }
 
         return properties;

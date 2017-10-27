@@ -20,8 +20,9 @@ package net.atf4j.core;
 import static net.atf4j.core.Atf4j.document;
 import static net.atf4j.core.Atf4j.end;
 import static net.atf4j.core.Atf4j.start;
-import static org.junit.Assert.assertNotNull;
+import static net.atf4j.core.Verify.verifyNotNull;
 import static org.junit.Assert.fail;
+import static org.junit.Assume.assumeNotNull;
 import static org.junit.Assume.assumeTrue;
 
 import org.junit.Test;
@@ -30,9 +31,6 @@ import org.junit.Test;
  * A UnitTest for Atf4jSteps objects.
  */
 public final class Atf4jStepsExample {
-
-    /** The Constant 			UNEXPECTED_NULL. */
-    private static final String UNEXPECTED_NULL = "unexpected null";
 
     /**
      * test Atf4jSteps object.
@@ -43,6 +41,7 @@ public final class Atf4jStepsExample {
         {
             start("step one");
             {
+                assumeNotNull(Thread.currentThread());
                 document(Thread.currentThread().getStackTrace());
             }
             end();
@@ -65,7 +64,7 @@ public final class Atf4jStepsExample {
 
             start("step two");
             {
-                assertNotNull(UNEXPECTED_NULL, this);
+                verifyNotNull(this);
             }
             end();
         }
@@ -77,6 +76,12 @@ public final class Atf4jStepsExample {
      */
     @Test(expected = AssertionError.class)
     public void testStepFail() {
+        start("step one");
+        {
+            assumeTrue(true);
+        }
+        end();
+
         start("start fail test step");
         {
             start("step one");

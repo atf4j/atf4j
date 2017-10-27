@@ -37,7 +37,7 @@ public final class PostcodeDataFactoryTest extends TestResultsReporting {
     @Test
     public void testPostcodeCreate() {
         final Postcode postcode = PostcodeDataFactory.create();
-        assertNotNull(UNEXPECTED_NULL, postcode);
+        verifyNotNull(postcode);
         final String string = postcode.toString();
         final boolean verify = Postcode.verify(string);
         assertTrue(verify);
@@ -50,7 +50,7 @@ public final class PostcodeDataFactoryTest extends TestResultsReporting {
     public void testPostcodeRandom() {
         final Postcode postcode = PostcodeDataFactory.random();
         log.info("postcode = {}", postcode);
-        assertNotNull(UNEXPECTED_NULL, postcode);
+        verifyNotNull(postcode);
 
         final boolean valid = Postcode.verify(postcode.toString());
         log.info("Postcode.verify({}) = {}", postcode);
@@ -64,10 +64,10 @@ public final class PostcodeDataFactoryTest extends TestResultsReporting {
     public void testPostcodeGetInstance() {
         final PostcodeDataFactory postcodeDataFactory = PostcodeDataFactory.getInstance();
         log.debug("PostcodeDataFactory.getInstance() = {}", postcodeDataFactory);
-        assertNotNull(UNEXPECTED_NULL, postcodeDataFactory);
+        verifyNotNull(postcodeDataFactory);
 
         final PostcodeDataFactory same = PostcodeDataFactory.getInstance();
-        assertNotNull(UNEXPECTED_NULL, same);
+        verifyNotNull(same);
         assertEquals(same, postcodeDataFactory);
     }
 

@@ -17,6 +17,8 @@
 
 package net.atf4j.core;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
 
 /**
@@ -30,7 +32,7 @@ public final class VerifyTest {
     @Test
     public void verifyNotNull() {
         final byte actual = Byte.MAX_VALUE;
-        Verify.verifyNotNull(actual);
+        assertNotNull(actual);
     }
 
     /**

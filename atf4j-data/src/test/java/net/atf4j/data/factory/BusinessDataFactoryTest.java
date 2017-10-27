@@ -36,7 +36,7 @@ public final class BusinessDataFactoryTest extends TestResultsReporting {
     public void testCreate() {
         final Business business = BusinessDataFactory.create();
         log.debug("BusinessDataFactory.create() = {}", business);
-        assertNotNull(UNEXPECTED_NULL, business);
+        verifyNotNull(business);
     }
 
     /**
@@ -46,7 +46,7 @@ public final class BusinessDataFactoryTest extends TestResultsReporting {
     public void testRandom() {
         final Business business = BusinessDataFactory.random();
         log.debug("BusinessDataFactory.random() = {}", business);
-        assertNotNull(UNEXPECTED_NULL, business);
+        verifyNotNull(business);
     }
 
     /**
@@ -56,7 +56,7 @@ public final class BusinessDataFactoryTest extends TestResultsReporting {
     public void testGetInstance() {
         final BusinessDataFactory businessDataFactory = BusinessDataFactory.getInstance();
         log.debug("BusinessDataFactory.getInstance() = {}", businessDataFactory);
-        assertNotNull(UNEXPECTED_NULL, businessDataFactory);
+        verifyNotNull(businessDataFactory);
     }
 
 }

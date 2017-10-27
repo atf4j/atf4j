@@ -17,21 +17,20 @@
 
 package net.atf4j.amq;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assume.assumeTrue;
 
 import java.util.Arrays;
 
 import javax.jms.JMSException;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.core.model.TestContext;
 
 /**
  * The ConsumerTest Class.
  */
-@Ignore
 public final class ConsumerTest extends TestResultsReporting {
 
     /**
@@ -41,11 +40,8 @@ public final class ConsumerTest extends TestResultsReporting {
      */
     @Test
     public void testReader() throws JMSException {
-        this.log.debug("testReader");
-
-        final Consumer consumer = new Consumer();
-        assertNotNull(UNEXPECTED_NULL, consumer);
-        this.log.debug("{}", consumer);
+        assumeTrue(TestContext.isActiveMQ());
+        verifyNotNull(new Consumer());
     }
 
     /**
@@ -55,14 +51,12 @@ public final class ConsumerTest extends TestResultsReporting {
      */
     @Test
     public void testExecute() throws JMSException {
-        this.log.debug("testExecute");
-
+        assumeTrue(TestContext.isActiveMQ());
         final Consumer consumer = new Consumer();
-        assertNotNull(UNEXPECTED_NULL, consumer);
-        this.log.debug("{}", consumer);
+        verifyNotNull(consumer.execute());
 
         final String[] messages = consumer.execute();
-        assertNotNull(UNEXPECTED_NULL, messages);
-        this.log.debug("{}", Arrays.toString(messages));
+        verifyNotNull(messages);
+        this.log.debug("messages = {}", Arrays.toString(messages));
     }
 }

@@ -56,9 +56,9 @@ public final class GuiMapTest extends TestResultsReporting {
         final Enumeration<String> bundleKeys = instance.getKeys();
         while (bundleKeys.hasMoreElements()) {
             final String key = bundleKeys.nextElement();
-            assertNotNull(UNEXPECTED_NULL, key);
+            verifyNotNull(key);
             Assert.assertTrue(instance.containsKey(key));
-            assertNotNull(UNEXPECTED_NULL, instance.getString(key));
+            verifyNotNull(instance.getString(key));
             log.info("{}={}", key, instance.getString(key));
         }
     }
@@ -71,11 +71,11 @@ public final class GuiMapTest extends TestResultsReporting {
     @Test
     public void testKeySet() throws Exception {
         final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
-        assertNotNull(UNEXPECTED_NULL, abstractGuiMap);
+        verifyNotNull(abstractGuiMap);
         final Set<String> keySet = abstractGuiMap.keySet();
         for (final String key : keySet) {
             final String value = abstractGuiMap.getString(key);
-            assertNotNull(UNEXPECTED_NULL, value);
+            verifyNotNull(value);
         }
     }
 
@@ -95,7 +95,7 @@ public final class GuiMapTest extends TestResultsReporting {
     @Test
     public void testName() throws Exception {
         final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
-        assertNotNull(UNEXPECTED_NULL, abstractGuiMap);
+        verifyNotNull(abstractGuiMap);
         abstractGuiMap.dumpTo(System.out);
     }
 
@@ -107,7 +107,7 @@ public final class GuiMapTest extends TestResultsReporting {
     @Test
     public void testToString() throws Exception {
         final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
-        assertNotNull(UNEXPECTED_NULL, abstractGuiMap);
+        verifyNotNull(abstractGuiMap);
         log.info(abstractGuiMap.toString());
         log.info(abstractGuiMap.getBaseBundleName());
         log.info(abstractGuiMap.getLocale().toString());

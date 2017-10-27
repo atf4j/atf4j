@@ -55,7 +55,7 @@ public final class PostcodeTest extends TestResultsReporting {
     public void testDefaultConstructor() {
         final Postcode postcode = new Postcode();
         log.debug("new Postcode() = {}", postcode);
-        assertNotNull(UNEXPECTED_NULL, postcode);
+        verifyNotNull(postcode);
     }
 
     /**
@@ -65,7 +65,7 @@ public final class PostcodeTest extends TestResultsReporting {
     public void testPostcodeCreate() {
         final Postcode postcode = Postcode.create();
         log.debug("Postcode.create() = {}", postcode);
-        assertNotNull(UNEXPECTED_NULL, postcode);
+        verifyNotNull(postcode);
     }
 
     /**
@@ -78,7 +78,7 @@ public final class PostcodeTest extends TestResultsReporting {
     public void testPostcodeEmpty() throws InvalidPostcodeException {
         final Postcode invalidPostcode = new Postcode(BLANK_POSTCODE);
         log.debug("new Postcode(BLANK_POSTCODE) = {}", invalidPostcode);
-        assertNotNull(UNEXPECTED_NULL, invalidPostcode);
+        verifyNotNull(invalidPostcode);
     }
 
     /**
@@ -90,7 +90,7 @@ public final class PostcodeTest extends TestResultsReporting {
     public void testInvalidPostcode() throws InvalidPostcodeException {
         final Postcode invalidPostcode = new Postcode(INVALID_POSTCODE);
         log.debug("new Postcode({}) = {}", INVALID_POSTCODE, invalidPostcode);
-        assertNotNull(UNEXPECTED_NULL, invalidPostcode);
+        verifyNotNull(invalidPostcode);
     }
 
     /**
@@ -103,7 +103,7 @@ public final class PostcodeTest extends TestResultsReporting {
     public void testValidPostcode() throws InvalidPostcodeException {
         final Postcode validPostcode = new Postcode(VALID_POSTCODE);
         log.debug("new Postcode({}) = {}", VALID_POSTCODE, validPostcode);
-        assertNotNull(UNEXPECTED_NULL, validPostcode);
+        verifyNotNull(validPostcode);
     }
 
     /**
@@ -115,7 +115,7 @@ public final class PostcodeTest extends TestResultsReporting {
     public void testSetInvalidPostcode() throws InvalidPostcodeException {
         final Postcode postcode = new Postcode();
         log.debug("new Postcode() = {}", postcode);
-        assertNotNull(UNEXPECTED_NULL, postcode);
+        verifyNotNull(postcode);
         postcode.setPostCode(INVALID_POSTCODE);
         fail(EXPECTED_EXCEPTION);
     }
@@ -142,9 +142,9 @@ public final class PostcodeTest extends TestResultsReporting {
     public void testOutwardPart() throws InvalidPostcodeException {
         final Postcode postcode = new Postcode(VALID_POSTCODE);
         log.debug("postcode = {}", postcode);
-        assertNotNull(UNEXPECTED_NULL, postcode);
+        verifyNotNull(postcode);
         final String outwardCode = postcode.getOutwardCode();
-        assertNotNull(UNEXPECTED_NULL, outwardCode);
+        verifyNotNull(outwardCode);
         assertEquals(EXPECTED_OUTWARD, outwardCode);
         log.debug("outwardCode = {}", outwardCode);
     }
@@ -159,7 +159,7 @@ public final class PostcodeTest extends TestResultsReporting {
         final Postcode postcode = new Postcode(VALID_POSTCODE);
         log.debug("postcode = {}", postcode);
         final String inwardCode = postcode.getInwardCode();
-        assertNotNull(UNEXPECTED_NULL, inwardCode);
+        verifyNotNull(inwardCode);
         assertEquals(EXPECTED_INWARD, inwardCode);
         log.debug("inwardCode = {}", inwardCode);
     }
@@ -181,9 +181,9 @@ public final class PostcodeTest extends TestResultsReporting {
     public void testToString() throws InvalidPostcodeException {
         final Postcode postcode = new Postcode(VALID_POSTCODE);
         log.debug("postcode = {}", postcode);
-        assertNotNull(UNEXPECTED_NULL, postcode);
+        verifyNotNull(postcode);
         final String string = postcode.toString();
-        assertNotNull(UNEXPECTED_NULL, string);
+        verifyNotNull(string);
         assertEquals(VALID_POSTCODE, string);
         log.debug("postcode = {}", postcode);
     }

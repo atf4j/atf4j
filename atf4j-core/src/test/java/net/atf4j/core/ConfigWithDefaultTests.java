@@ -105,7 +105,7 @@ public final class ConfigWithDefaultTests extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() throws ConfigurationNotLoadedException {
-        assertNotNull(UNEXPECTED_NULL, new ConfigWithDefaults());
+        verifyNotNull(new ConfigWithDefaults());
     }
 
     /**
@@ -116,7 +116,7 @@ public final class ConfigWithDefaultTests extends TestResultsReporting {
     @Test
     public void testDefaultString() throws ConfigurationNotLoadedException {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
-        assertNotNull(UNEXPECTED_NULL, mockConfig);
+        verifyNotNull(mockConfig);
         assertEquals("DEFAULT_STRING", mockConfig.getFooAsString(MISSING_KEY));
     }
 
@@ -128,7 +128,7 @@ public final class ConfigWithDefaultTests extends TestResultsReporting {
     @Test
     public void testDefaultBoolean() throws ConfigurationNotLoadedException {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
-        assertNotNull(UNEXPECTED_NULL, mockConfig);
+        verifyNotNull(mockConfig);
         assertTrue(mockConfig.getTrueAsBoolean(MISSING_KEY));
         assertFalse(mockConfig.getFalseAsBoolean(MISSING_KEY));
     }
@@ -141,7 +141,7 @@ public final class ConfigWithDefaultTests extends TestResultsReporting {
     @Test
     public void testDefaultInt() throws ConfigurationNotLoadedException {
         final ConfigWithDefaults mockConfig = new ConfigWithDefaults();
-        assertNotNull(UNEXPECTED_NULL, mockConfig);
+        verifyNotNull(mockConfig);
         assertEquals(Integer.MAX_VALUE, mockConfig.getMax(MISSING_KEY));
         assertEquals(Integer.MIN_VALUE, mockConfig.getMin(MISSING_KEY));
     }

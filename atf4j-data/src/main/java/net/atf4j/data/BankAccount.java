@@ -102,7 +102,7 @@ public final class BankAccount extends TestResultsReporting {
      * @return the bank account
      */
     public BankAccount setBank(final Bank bank) {
-        assertNotNull(UNEXPECTED_NULL, bank);
+        verifyNotNull(bank);
         this.bank = bank;
         return this;
     }
@@ -114,7 +114,7 @@ public final class BankAccount extends TestResultsReporting {
      * @return the bank account
      */
     public BankAccount setAccountNo(final String accountNo) {
-        assertNotNull(UNEXPECTED_NULL, accountNo);
+        verifyNotNull(accountNo);
         this.accountNo = accountNo;
         return this;
     }

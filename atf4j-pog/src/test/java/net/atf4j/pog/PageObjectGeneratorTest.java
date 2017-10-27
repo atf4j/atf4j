@@ -52,6 +52,7 @@ public final class PageObjectGeneratorTest extends TestResultsReporting {
 
         final WebElementField classNameElement = new WebElementField(Strategy.CLASS_NAME, "className",
                 "findByClassName");
+
         final WebElementField linkTextElement = new WebElementField(Strategy.LINK_TEXT, "linkText", "findByLinkText");
 
         final WebElementField partialLinkTextElement = new WebElementField(
@@ -73,6 +74,8 @@ public final class PageObjectGeneratorTest extends TestResultsReporting {
 
         pageObjectData.addNav(linkTextElement);
         pageObjectData.addNav(partialLinkTextElement);
+        pageObjectData.addInput(idElement);
+        pageObjectData.addContent(nameElement);
 
         final PageObjectGenerator pageObjectGenerator = new PageObjectGenerator();
         pageObjectGenerator.target(HTTP_ATF4J_NET);

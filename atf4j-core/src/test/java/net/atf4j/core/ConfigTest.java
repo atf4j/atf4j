@@ -58,7 +58,7 @@ public class ConfigTest extends TestResultsReporting {
     public void testDefaultConfig() {
         final DefaultConfig defaultConfig = new DefaultConfig();
         log.debug("defaultConfig.toString() = {}", defaultConfig.toString());
-        assertNotNull(UNEXPECTED_NULL, defaultConfig);
+        verifyNotNull(defaultConfig);
     }
 
     /**
@@ -68,7 +68,7 @@ public class ConfigTest extends TestResultsReporting {
     public void testPrettyString() {
         final DefaultConfig defaultConfig = new DefaultConfig();
         log.debug("defaultConfig.prettyString() = {}", defaultConfig.prettyString());
-        assertNotNull(UNEXPECTED_NULL, defaultConfig);
+        verifyNotNull(defaultConfig);
     }
 
     /**
@@ -78,7 +78,7 @@ public class ConfigTest extends TestResultsReporting {
     public void testSimpleConfiguration() {
         final SimpleConfiguration config = new SimpleConfiguration();
         log.debug("config = {}", config.toString());
-        assertNotNull(UNEXPECTED_NULL, config);
+        verifyNotNull(config);
     }
 
     /**
@@ -88,7 +88,7 @@ public class ConfigTest extends TestResultsReporting {
     public void testTypicalUsage() {
         final SimpleConfiguration simpleConfig = new SimpleConfiguration();
         log.debug("simpleConfig = {}", simpleConfig.toString());
-        assertNotNull(UNEXPECTED_NULL, simpleConfig);
+        verifyNotNull(simpleConfig);
 
         final String defaultValue = "defaultValue";
         assertEquals(defaultValue, simpleConfig.valueFor(MISSING_KEY, defaultValue));

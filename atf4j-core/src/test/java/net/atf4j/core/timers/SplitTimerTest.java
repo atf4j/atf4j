@@ -34,8 +34,8 @@ public final class SplitTimerTest extends TestResultsReporting {
     @Test
     public void testGetSplitTime() {
         final SplitTimer splitTimer = new SplitTimer();
-        assertNotNull(UNEXPECTED_NULL, splitTimer);
-        assertNotNull(UNEXPECTED_NULL, splitTimer.getSplitTime());
+        verifyNotNull(splitTimer);
+        verifyNotNull(splitTimer.getSplitTime());
         log.debug("splitTimer = {}", splitTimer);
     }
 

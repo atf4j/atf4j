@@ -17,8 +17,6 @@
 
 package net.atf4j.pog;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
@@ -29,34 +27,42 @@ import net.atf4j.core.TestResultsReporting;
 public final class ClassMethodTest extends TestResultsReporting {
 
     /**
-     * Test method for void.
+     * Unit tests for the ClassMethod object.
+     */
+    @Test
+    public void testExpected() {
+        verifyNotNull(ClassMethod.addFactory("String"));
+    }
+
+    /**
+     * Unit tests for the ClassMethod object.
      */
     @Test
     public void testClassMethod() {
         final ClassMethod classMethod = new ClassMethod();
-        assertNotNull(UNEXPECTED_NULL, classMethod);
+        verifyNotNull(classMethod);
         log.debug("classMethod.debugString() = {}", classMethod.debugString());
         log.debug("classMethod.toCode() =\n{}", classMethod.toCode());
     }
 
     /**
-     * Test method for void.
+     * Unit tests for the ClassMethod object.
      */
     @Test
     public void testClassMethodString() {
         final ClassMethod classMethod = new ClassMethod("String", "method");
-        assertNotNull(UNEXPECTED_NULL, classMethod);
+        verifyNotNull(classMethod);
         log.debug("classMethod.debugString() = {}", classMethod.debugString());
         log.debug("classMethod.toCode() =\n{}", classMethod.toCode());
     }
 
     /**
-     * Test method for void.
+     * Unit tests for the ClassMethod object.
      */
     @Test
     public void testClassMethodDate() {
         final ClassMethod classMethod = new ClassMethod("Date", "date");
-        assertNotNull(UNEXPECTED_NULL, classMethod);
+        verifyNotNull(classMethod);
         log.debug("classMethod.debugString() = {}", classMethod.debugString());
         log.debug("classMethod.toCode() =\n{}", classMethod.toCode());
     }
