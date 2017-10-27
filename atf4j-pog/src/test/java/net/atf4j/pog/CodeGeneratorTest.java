@@ -19,8 +19,8 @@ package net.atf4j.pog;
 
 import org.junit.Test;
 
-import net.atf4j.core.VerificationError;
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.core.VerificationError;
 
 /**
  * The Class AbstractCodeGeneratorTest.
@@ -59,6 +59,13 @@ public class CodeGeneratorTest extends TestResultsReporting {
     public void testAbstractCodeGenerator() throws VerificationError {
         final JavaClassGenerator javaClassGenerator = new JavaClassGenerator();
         verifyNotNull(javaClassGenerator);
+        javaClassGenerator.setClassName("PojoClassOne");
+        javaClassGenerator.addField(ClassField.makeString("aString"));
+        javaClassGenerator.addField(ClassField.makeBoolean("aBoolean"));
+        javaClassGenerator.addField(ClassField.makeObject("aObject"));
+
+        // javaClassGenerator.addField(ClassField.addNumber("aNumber"));
+        // javaClassGenerator.addField(ClassField.addDate("aDate"));
         verifyNotNull(javaClassGenerator.generate());
     }
 
@@ -71,6 +78,13 @@ public class CodeGeneratorTest extends TestResultsReporting {
     public void testAbstractCodeGeneratorString() throws VerificationError {
         final JavaClassGenerator javaClassGenerator = new JavaClassGenerator("templates/Class.vm");
         verifyNotNull(javaClassGenerator);
+        javaClassGenerator.setClassName("PojoClassOne");
+        javaClassGenerator.addField(ClassField.makeString("aString"));
+        javaClassGenerator.addField(ClassField.makeBoolean("aBoolean"));
+        javaClassGenerator.addField(ClassField.makeObject("aObject"));
+
+        // javaClassGenerator.addField(ClassField.addNumber("aNumber"));
+        // javaClassGenerator.addField(ClassField.addDate("aDate"));
         verifyNotNull(javaClassGenerator.generate());
     }
 

@@ -68,7 +68,7 @@ public final class NinoTest extends TestResultsReporting {
     public void testValidNino() {
         final Nino nino = new Nino(VALID);
         log.debug("{}", nino);
-        assertNotNull(UNEXPECTED_NULL, nino);
+        verifyNotNull(nino);
         assertEquals(VALID, nino.toString());
     }
 
@@ -78,7 +78,7 @@ public final class NinoTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final Nino nino = Nino.create();
-        assertNotNull(UNEXPECTED_NULL, nino);
+        verifyNotNull(nino);
     }
 
     /**
@@ -97,7 +97,7 @@ public final class NinoTest extends TestResultsReporting {
     @Test
     public void testSetGetNino() {
         final Nino nino = new Nino();
-        assertNotNull(UNEXPECTED_NULL, nino);
+        verifyNotNull(nino);
         assertEquals(VALID, nino.set(VALID).get());
         // assertEquals(INVALID, nino.set(INVALID).get());
     }
@@ -108,6 +108,6 @@ public final class NinoTest extends TestResultsReporting {
     @Test
     public void testToString() {
         final String string = new Nino().toString();
-        assertNotNull(UNEXPECTED_NULL, string);
+        verifyNotNull(string);
     }
 }

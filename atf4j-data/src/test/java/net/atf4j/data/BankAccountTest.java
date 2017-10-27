@@ -37,7 +37,7 @@ public final class BankAccountTest extends TestResultsReporting {
         final String nullString = null;
         final BankAccount bankAccount = new BankAccount(nullString);
         log.debug("new BankAccount(nullString) = {}", bankAccount);
-        assertNotNull(UNEXPECTED_NULL, bankAccount);
+        verifyNotNull(bankAccount);
     }
 
     /**
@@ -48,7 +48,7 @@ public final class BankAccountTest extends TestResultsReporting {
         final Bank nullBank = null;
         final BankAccount bankAccount = new BankAccount(nullBank);
         log.debug("new BankAccount(nullBank) = {}", bankAccount);
-        assertNotNull(UNEXPECTED_NULL, bankAccount);
+        verifyNotNull(bankAccount);
     }
 
     /**
@@ -58,7 +58,7 @@ public final class BankAccountTest extends TestResultsReporting {
     public void testBankAccountString() {
         final BankAccount bankAccount = new BankAccount("");
         log.debug("new BankAccount('') = {}", bankAccount);
-        assertNotNull(UNEXPECTED_NULL, bankAccount);
+        verifyNotNull(bankAccount);
     }
 
     /**
@@ -68,7 +68,7 @@ public final class BankAccountTest extends TestResultsReporting {
     public void testCreate() {
         final BankAccount bankAccount = BankAccount.create();
         log.debug("BankAccount.create() = {}", bankAccount);
-        assertNotNull(UNEXPECTED_NULL, bankAccount);
+        verifyNotNull(bankAccount);
     }
 
     /**
@@ -78,7 +78,7 @@ public final class BankAccountTest extends TestResultsReporting {
     public void testExpected() {
         final BankAccount bankAccount = BankAccount.random();
         log.debug("BankAccount.random() = {}", bankAccount);
-        assertNotNull(UNEXPECTED_NULL, bankAccount);
+        verifyNotNull(bankAccount);
     }
 
     /**
@@ -87,9 +87,9 @@ public final class BankAccountTest extends TestResultsReporting {
     @Test
     public void testSetGetAccountNo() {
         final BankAccount bankAccount = BankAccount.create();
-        assertNotNull(UNEXPECTED_NULL, bankAccount);
+        verifyNotNull(bankAccount);
         final String accountNo = "00001234";
-        assertNotNull(UNEXPECTED_NULL, bankAccount.setAccountNo(accountNo));
+        verifyNotNull(bankAccount.setAccountNo(accountNo));
         assertEquals(accountNo, bankAccount.getAccountNo());
     }
 
@@ -99,10 +99,10 @@ public final class BankAccountTest extends TestResultsReporting {
     @Test
     public void testSetGetBank() {
         final Bank testBank = new Bank("Test Bank");
-        assertNotNull(UNEXPECTED_NULL, testBank);
+        verifyNotNull(testBank);
         final BankAccount bankAccount = new BankAccount(testBank);
         assertEquals(testBank, bankAccount.getBank());
-        assertNotNull(UNEXPECTED_NULL, bankAccount.setBank(testBank));
+        verifyNotNull(bankAccount.setBank(testBank));
         assertEquals(testBank, bankAccount.getBank());
     }
 
@@ -114,7 +114,7 @@ public final class BankAccountTest extends TestResultsReporting {
         final BankAccount bankAccount = BankAccount.create();
         final String string = bankAccount.debugString();
         log.debug("bankAccount.debugString() = {}", string);
-        assertNotNull(UNEXPECTED_NULL, string);
+        verifyNotNull(string);
     }
 
     /**
@@ -125,7 +125,7 @@ public final class BankAccountTest extends TestResultsReporting {
         final BankAccount bankAccount = BankAccount.create();
         final String string = bankAccount.toString();
         log.error("bankAccount.toString() = {}", string);
-        assertNotNull(UNEXPECTED_NULL, string);
+        verifyNotNull(string);
     }
 
 }

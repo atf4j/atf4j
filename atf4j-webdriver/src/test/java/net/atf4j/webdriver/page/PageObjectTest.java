@@ -79,7 +79,7 @@ public final class PageObjectTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() throws ConfigurationNotLoadedException {
-        assertNotNull(UNEXPECTED_NULL, new MockPage());
+        verifyNotNull(new MockPage());
     }
 
     /**
@@ -92,7 +92,7 @@ public final class PageObjectTest extends TestResultsReporting {
     public void testDefaultOpen() throws ConfigurationNotLoadedException {
         final MockPage mockPage = new MockPage();
         assumeNotNull(mockPage);
-        assertNotNull(UNEXPECTED_NULL, mockPage.open());
+        verifyNotNull(mockPage.open());
     }
 
     /**
@@ -105,7 +105,7 @@ public final class PageObjectTest extends TestResultsReporting {
     public void testOpen() throws ConfigurationNotLoadedException {
         final MockPage mockPage = new MockPage(MockPage.TARGET_URL);
         assumeNotNull(mockPage);
-        assertNotNull(UNEXPECTED_NULL, mockPage.open());
+        verifyNotNull(mockPage.open());
     }
 
     /**
@@ -118,7 +118,7 @@ public final class PageObjectTest extends TestResultsReporting {
     public void testOpenString() throws ConfigurationNotLoadedException {
         final MockPage mockPage = new MockPage();
         assumeNotNull(mockPage);
-        assertNotNull(UNEXPECTED_NULL, mockPage.open());
+        verifyNotNull(mockPage.open());
     }
 
     /**
@@ -131,8 +131,8 @@ public final class PageObjectTest extends TestResultsReporting {
     public void testVerify() throws ConfigurationNotLoadedException {
         final MockPage mockPage = new MockPage();
         assumeNotNull(mockPage);
-        assertNotNull(UNEXPECTED_NULL, mockPage.open());
-        assertNotNull(UNEXPECTED_NULL, mockPage.verify());
+        verifyNotNull(mockPage.open());
+        verifyNotNull(mockPage.verify());
     }
 
     /**
@@ -144,8 +144,8 @@ public final class PageObjectTest extends TestResultsReporting {
     public void testWebDriverConstructor() throws ConfigurationNotLoadedException {
         final MockPage mockPage = new MockPage(new HtmlUnitDriver());
         assumeNotNull(mockPage);
-        assertNotNull(UNEXPECTED_NULL, mockPage.open());
-        assertNotNull(UNEXPECTED_NULL, mockPage.verify());
+        verifyNotNull(mockPage.open());
+        verifyNotNull(mockPage.verify());
     }
 
 }

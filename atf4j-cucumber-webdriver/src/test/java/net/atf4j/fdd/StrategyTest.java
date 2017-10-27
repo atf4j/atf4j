@@ -45,7 +45,7 @@ public class StrategyTest extends TestResultsReporting {
     public void testDefaultConstructor() {
         final Strategy strategy = new Strategy();
         log.debug("strategy = {}", strategy);
-        assertNotNull(UNEXPECTED_NULL, strategy);
+        verifyNotNull(strategy);
     }
 
 }

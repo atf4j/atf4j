@@ -43,7 +43,7 @@ public final class TestContext extends TestResultsReporting {
     }
 
     /**
-     * Checks if selenium grid is available.
+     * Checks if Selenium grid is available.
      *
      * -DisGrid=true
      *
@@ -73,6 +73,10 @@ public final class TestContext extends TestResultsReporting {
      */
     public static boolean localServer() {
         return Boolean.getBoolean("localServer");
+    }
+
+    public static boolean isActiveMQ() {
+        return Boolean.getBoolean("isActiveMQ");
     }
 
 }

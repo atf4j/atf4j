@@ -17,8 +17,6 @@
 
 package net.atf4j.pog;
 
-import net.atf4j.pog.ClassField.FieldType;
-
 /**
  * Fluent Pojo Generator class.
  */

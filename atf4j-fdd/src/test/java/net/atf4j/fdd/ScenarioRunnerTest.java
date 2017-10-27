@@ -172,7 +172,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
         log.debug("testScenarioExecution", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         final Scenario scenario = new Scenario();
-        assertNotNull(UNEXPECTED_NULL, scenarioRunner);
+        verifyNotNull(scenarioRunner);
         scenarioRunner.execute(scenario);
     }
 
@@ -184,7 +184,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
         log.debug("testFailGivenScenario", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         final FailGivenScenario scenario = new FailGivenScenario();
-        assertNotNull(UNEXPECTED_NULL, scenarioRunner);
+        verifyNotNull(scenarioRunner);
         scenarioRunner.execute(scenario);
     }
 
@@ -196,7 +196,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
         log.debug("testFailWhenScenario", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         final FailWhenScenario scenario = new FailWhenScenario();
-        assertNotNull(UNEXPECTED_NULL, scenarioRunner);
+        verifyNotNull(scenarioRunner);
         scenarioRunner.execute(scenario);
     }
 
@@ -208,7 +208,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
         log.debug("testFailThenScenario", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         final FailThenScenario scenario = new FailThenScenario();
-        assertNotNull(UNEXPECTED_NULL, scenarioRunner);
+        verifyNotNull(scenarioRunner);
         scenarioRunner.execute(scenario);
     }
 
@@ -220,7 +220,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
         log.debug("testScenarioRunner", this.getClass().getSimpleName());
         final Scenario targetScenario = new Scenario();
         final ScenarioRunner scenarioRunner = new ScenarioRunner(targetScenario);
-        assertNotNull(UNEXPECTED_NULL, scenarioRunner);
+        verifyNotNull(scenarioRunner);
         scenarioRunner.execute();
     }
 

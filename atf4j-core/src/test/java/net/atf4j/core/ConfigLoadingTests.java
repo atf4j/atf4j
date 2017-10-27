@@ -86,7 +86,7 @@ public final class ConfigLoadingTests extends TestResultsReporting {
     public void testConfigFromFile() throws ConfigurationNotLoadedException {
         final ConfigFromFile config = new ConfigFromFile();
         log.debug("config = {}", config.toString());
-        assertNotNull(UNEXPECTED_NULL, config);
+        verifyNotNull(config);
         final String propertyFilename = config.getPropertyFilename();
         assertEquals("ConfigFromFile.properties", propertyFilename);
     }
@@ -100,7 +100,7 @@ public final class ConfigLoadingTests extends TestResultsReporting {
     public void testSystemOveridesConfig() throws ConfigurationNotLoadedException {
         final ConfigFromFile config = new ConfigFromFile();
         log.debug("config = {}", config.toString());
-        assertNotNull(UNEXPECTED_NULL, config);
+        verifyNotNull(config);
         final String key = "property";
         final String value = "FromSystem";
         System.setProperty(key, value);

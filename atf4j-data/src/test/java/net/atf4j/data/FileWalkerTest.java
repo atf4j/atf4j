@@ -36,7 +36,7 @@ public final class FileWalkerTest extends TestResultsReporting {
     @Test
     public void testWalk() throws Exception {
         final FileWalker fileWalker = new FileWalker();
-        assertNotNull(UNEXPECTED_NULL, fileWalker);
+        verifyNotNull(fileWalker);
         fileWalker.walk("/messages");
     }
 
@@ -48,7 +48,7 @@ public final class FileWalkerTest extends TestResultsReporting {
     @Test
     public void testFileWalker() throws Exception {
         final FileWalker fileWalker = new FileWalker("/messages");
-        assertNotNull(UNEXPECTED_NULL, fileWalker);
+        verifyNotNull(fileWalker);
     }
 
     /**
@@ -59,7 +59,7 @@ public final class FileWalkerTest extends TestResultsReporting {
     @Test
     public void testFileWalkerWalk() throws Exception {
         final FileWalker fileWalker = new FileWalker();
-        assertNotNull(UNEXPECTED_NULL, fileWalker);
+        verifyNotNull(fileWalker);
         fileWalker.walk("/messages");
     }
 }

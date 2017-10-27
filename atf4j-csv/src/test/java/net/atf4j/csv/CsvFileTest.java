@@ -56,7 +56,7 @@ public class CsvFileTest extends TestResultsReporting {
      */
     @Test(expected = FileNotFoundException.class)
     public void testConstructorWithMissingFile() throws FileNotFoundException {
-        assertNotNull(UNEXPECTED_NULL, new CsvFile(MISSING_CSV));
+        verifyNotNull(new CsvFile(MISSING_CSV));
         fail("expected FileNotFoundException");
     }
 
@@ -67,7 +67,7 @@ public class CsvFileTest extends TestResultsReporting {
      */
     @Test(expected = FileNotFoundException.class)
     public void testReadMissingFile() throws FileNotFoundException {
-        assertNotNull(UNEXPECTED_NULL, CsvFile.read(MISSING_CSV));
+        verifyNotNull(CsvFile.read(MISSING_CSV));
         fail("expected FileNotFoundException");
     }
 
@@ -79,7 +79,7 @@ public class CsvFileTest extends TestResultsReporting {
     @Test(expected = FileNotFoundException.class)
     public void testLoadMissingFile() throws FileNotFoundException {
         final CsvFile csvFile = new CsvFile();
-        assertNotNull(UNEXPECTED_NULL, csvFile);
+        verifyNotNull(csvFile);
         csvFile.load(MISSING_CSV);
         fail("expected FileNotFoundException");
     }
@@ -105,7 +105,7 @@ public class CsvFileTest extends TestResultsReporting {
     public void testConstructorWithDataPresent() throws Exception {
         final CsvFile csvFile = new CsvFile(TEST_DATA_CSV);
         log.debug(csvFile.debugString());
-        assertNotNull(UNEXPECTED_NULL, csvFile);
+        verifyNotNull(csvFile);
     }
 
     /**
@@ -117,7 +117,7 @@ public class CsvFileTest extends TestResultsReporting {
     public void testReadPresentData() throws Exception {
         final CsvFile csvFile = CsvFile.read(TEST_DATA_CSV);
         log.debug(csvFile.debugString());
-        assertNotNull(UNEXPECTED_NULL, csvFile);
+        verifyNotNull(csvFile);
         verifyContent(csvFile);
     }
 
@@ -127,7 +127,7 @@ public class CsvFileTest extends TestResultsReporting {
      * @param csvFile the csv file
      */
     private void verifyContent(final CsvFile csvFile) {
-        assertNotNull(UNEXPECTED_NULL, csvFile);
+        verifyNotNull(csvFile);
         log.debug(csvFile.debugString());
         final HeaderLine header = csvFile.getHeaderLine();
         assertEquals(EXPECTED_HEADER, header.debugString());
@@ -152,6 +152,6 @@ public class CsvFileTest extends TestResultsReporting {
     public void testScan() throws Exception {
         final CsvFile data = CsvFile.read(TEST_DATA_CSV);
         final Object[] array = data.toArray();
-        assertNotNull(UNEXPECTED_NULL, array);
+        verifyNotNull(array);
     }
 }

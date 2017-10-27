@@ -41,7 +41,7 @@ public final class PersonTest extends TestResultsReporting {
     public void testPerson() {
         final Person person = new Person();
         log.debug("new Person() = {}", person);
-        assertNotNull(UNEXPECTED_NULL, person);
+        verifyNotNull(person);
         person.forename("Forname").middlename("MiddleName").surname("Surname");
     }
 
@@ -52,7 +52,7 @@ public final class PersonTest extends TestResultsReporting {
     public void testPersonFornameMiddleSurname() {
         final Person person = new Person("Forname", "MiddleName", "Surname");
         log.debug("new Person() = {}", person);
-        assertNotNull(UNEXPECTED_NULL, person);
+        verifyNotNull(person);
     }
 
     /**
@@ -62,7 +62,7 @@ public final class PersonTest extends TestResultsReporting {
     public void testSetGetTitle() {
         final Person person = new Person();
         log.debug("new Person() = {}", person);
-        assertNotNull(UNEXPECTED_NULL, person);
+        verifyNotNull(person);
         assertEquals(Title.SIR, person.title(Title.SIR).title());
     }
 
@@ -74,7 +74,7 @@ public final class PersonTest extends TestResultsReporting {
     public void testSetGetForenameString() {
         final Person person = new Person();
         log.debug("new Person() = {}", person);
-        assertNotNull(UNEXPECTED_NULL, person);
+        verifyNotNull(person);
 
         final String forename = "Forename";
         person.forename(forename).forename();
@@ -89,7 +89,7 @@ public final class PersonTest extends TestResultsReporting {
     public void testSetGetMiddlenameString() {
         final Person person = new Person();
         log.debug("new Person() = {}", person);
-        assertNotNull(UNEXPECTED_NULL, person);
+        verifyNotNull(person);
 
         final String middlename = "Middlename";
         person.middlename(middlename).middlename();

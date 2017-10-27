@@ -69,7 +69,7 @@ public class TestBaseTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(UNEXPECTED_NULL, new MockTestBase());
+        verifyNotNull(new MockTestBase());
     }
 
     /**
@@ -79,7 +79,7 @@ public class TestBaseTest extends TestResultsReporting {
      */
     @Test
     public void testRegisterLogging() throws VerificationError {
-        assertNotNull(UNEXPECTED_NULL, new MockTestBase().registerLogging(new MockTestReport()));
+        verifyNotNull(new MockTestBase().registerLogging(new MockTestReport()));
     }
 
     /**
@@ -88,7 +88,7 @@ public class TestBaseTest extends TestResultsReporting {
     @Test
     public void testUniqueIdentifier() {
         final MockTestBase mockTestBase = new MockTestBase();
-        assertNotNull(UNEXPECTED_NULL, mockTestBase.getUniqueIdentifier());
+        verifyNotNull(mockTestBase.getUniqueIdentifier());
     }
 
     /**
@@ -96,7 +96,7 @@ public class TestBaseTest extends TestResultsReporting {
      */
     @Test
     public void testTestStatus() {
-        assertNotNull(UNEXPECTED_NULL, new MockTestBase().getTestStatus());
+        verifyNotNull(new MockTestBase().getTestStatus());
     }
 
     /**
@@ -105,10 +105,10 @@ public class TestBaseTest extends TestResultsReporting {
     @Test
     public void testAddPreCondition() {
         final Condition newPreCondition = new PassingCondition();
-        assertNotNull(UNEXPECTED_NULL, newPreCondition);
+        verifyNotNull(newPreCondition);
         final MockTestBase mockTestBase = new MockTestBase();
-        assertNotNull(UNEXPECTED_NULL, mockTestBase);
-        assertNotNull(UNEXPECTED_NULL, mockTestBase.addPreCondition(newPreCondition));
+        verifyNotNull(mockTestBase);
+        verifyNotNull(mockTestBase.addPreCondition(newPreCondition));
     }
 
     /**
@@ -117,10 +117,10 @@ public class TestBaseTest extends TestResultsReporting {
     @Test
     public void testAddPostCondition() {
         final Condition newPostCondition = new PassingCondition();
-        assertNotNull(UNEXPECTED_NULL, newPostCondition);
+        verifyNotNull(newPostCondition);
         final MockTestBase mockTestBase = new MockTestBase();
-        assertNotNull(UNEXPECTED_NULL, mockTestBase);
-        assertNotNull(UNEXPECTED_NULL, mockTestBase.addPostCondition(newPostCondition));
+        verifyNotNull(mockTestBase);
+        verifyNotNull(mockTestBase.addPostCondition(newPostCondition));
     }
 
     /**
@@ -128,7 +128,7 @@ public class TestBaseTest extends TestResultsReporting {
      */
     @Test
     public void testToString() {
-        assertNotNull(UNEXPECTED_NULL, new MockTestBase().toString());
+        verifyNotNull(new MockTestBase().toString());
     }
 
     /**
@@ -136,7 +136,7 @@ public class TestBaseTest extends TestResultsReporting {
      */
     @Test
     public void testDebugString() {
-        assertNotNull(UNEXPECTED_NULL, new MockTestBase().debugString());
+        verifyNotNull(new MockTestBase().debugString());
     }
 
 }

@@ -37,7 +37,7 @@ public final class TelephoneTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(UNEXPECTED_NULL, new Telephone());
+        verifyNotNull(new Telephone());
     }
 
     /**
@@ -46,7 +46,7 @@ public final class TelephoneTest extends TestResultsReporting {
     @Test
     public void testTelephone() {
         final Telephone telephone = new Telephone();
-        assertNotNull(UNEXPECTED_NULL, telephone);
+        verifyNotNull(telephone);
     }
 
     /**
@@ -55,7 +55,7 @@ public final class TelephoneTest extends TestResultsReporting {
     @Test
     public void testTelephoneString() {
         final Telephone telephone = new Telephone(_0123456789);
-        assertNotNull(UNEXPECTED_NULL, telephone);
+        verifyNotNull(telephone);
         assertEquals("Phone : 0123456789", telephone.toString());
     }
 
@@ -65,7 +65,7 @@ public final class TelephoneTest extends TestResultsReporting {
     @Test
     public void testTelephoneTypeString() {
         final Telephone telephone = new Telephone("Telephone", _0123456789);
-        assertNotNull(UNEXPECTED_NULL, telephone);
+        verifyNotNull(telephone);
         assertEquals("Telephone : 0123456789", telephone.toString());
     }
 
@@ -75,7 +75,7 @@ public final class TelephoneTest extends TestResultsReporting {
     @Test
     public void testSetGetNumber() {
         final Telephone telephone = new Telephone();
-        assertNotNull(UNEXPECTED_NULL, telephone);
+        verifyNotNull(telephone);
         assertEquals(_0123456789, telephone.setNumber(_0123456789).getNumber());
     }
 
@@ -85,7 +85,7 @@ public final class TelephoneTest extends TestResultsReporting {
     @Test
     public void testToString() {
         final String string = new Telephone().toString();
-        assertNotNull(UNEXPECTED_NULL, string);
+        verifyNotNull(string);
     }
 
 }

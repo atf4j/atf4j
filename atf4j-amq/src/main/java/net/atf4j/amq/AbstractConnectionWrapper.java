@@ -61,9 +61,9 @@ public abstract class AbstractConnectionWrapper implements ConnectionWrapperInte
      */
     protected AbstractConnectionWrapper() throws JMSException {
         super();
-        connection = initialise();
-        session = newSession(connection);
-        topic = session.createTopic(topicName);
+        this.connection = initialise();
+        this.session = newSession(this.connection);
+        this.topic = this.session.createTopic(this.topicName);
     }
 
     /**
@@ -73,10 +73,10 @@ public abstract class AbstractConnectionWrapper implements ConnectionWrapperInte
      * @throws JMSException the JMS exception exception.
      */
     protected Connection initialise() throws JMSException {
-        connectionFactory = new ActiveMQConnectionFactory(url);
-        connection = connectionFactory.createConnection();
-        connection.start();
-        return connection;
+        this.connectionFactory = new ActiveMQConnectionFactory(url);
+        this.connection = this.connectionFactory.createConnection();
+        this.connection.start();
+        return this.connection;
     }
 
     /**

@@ -17,12 +17,11 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertNotNull;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.core.Verify;
 
 /**
  * BankSortCode data class. UK Bank
@@ -30,12 +29,12 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class BankSortCode extends TestResultsReporting {
 
-    /** The Constant 			PATTERN. */
+    /** The Constant PATTERN. */
     private static final Pattern PATTERN = Pattern.compile("^(\\d){2}-(\\d){2}-(\\d){2}$");
 
     /** The bank name. */
     private final String bankName = "";
-    
+
     /** The sortcode. */
     private String sortcode = "00:00:00";
 
@@ -82,7 +81,7 @@ public final class BankSortCode extends TestResultsReporting {
      * @return the bank sort code
      */
     public BankSortCode setBankSortCode(final String bankSortCode) {
-        assertNotNull(UNEXPECTED_NULL, bankSortCode);
+        verifyNotNull(bankSortCode);
         sortcode = bankSortCode;
         return this;
     }
@@ -103,7 +102,7 @@ public final class BankSortCode extends TestResultsReporting {
      * @return true, if successful, otherwise false.
      */
     public static boolean verify(final String sortcode) {
-        assertNotNull(UNEXPECTED_NULL, sortcode);
+        Verify.verifyNotNull(sortcode);
         final Matcher matcher = PATTERN.matcher(sortcode);
         return matcher.find();
     }

@@ -47,7 +47,7 @@ public final class MockDataFactoryTest extends TestResultsReporting {
     public void testDefaultConstructor() {
         final MockDataFactory testDataFactory = new MockDataFactory();
         log.debug("new MockDataFactory() = {}", testDataFactory);
-        assertNotNull(UNEXPECTED_NULL, testDataFactory);
+        verifyNotNull(testDataFactory);
     }
 
     /**
@@ -57,7 +57,7 @@ public final class MockDataFactoryTest extends TestResultsReporting {
     public void testStaticDataForTag() {
         final MockDataFactory testDataFactory = new MockDataFactory();
         log.debug("new MockDataFactory() = {}", testDataFactory);
-        assertNotNull(UNEXPECTED_NULL, testDataFactory);
+        verifyNotNull(testDataFactory);
 
         final String dataForTag = testDataFactory.dataForTag("#Data");
         log.debug("dataFactory.dataForTag('#Data') = {}", dataForTag);

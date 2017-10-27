@@ -88,7 +88,7 @@ public abstract class AbstractDataFactory extends TestResultsReporting {
      * @return the string[]
      */
     protected String[] load(final String dataFilename) {
-        assertNotNull(UNEXPECTED_NULL, dataFilename);
+        verifyNotNull(dataFilename);
         final InputStream inputStream = resourceAsStream(dataFilename);
         if (inputStream != null) {
             return load(inputStream);
@@ -114,7 +114,7 @@ public abstract class AbstractDataFactory extends TestResultsReporting {
      * @return the string[]
      */
     protected String[] load(final InputStream inputStream) {
-        assertNotNull(UNEXPECTED_NULL, inputStream);
+        verifyNotNull(inputStream);
         final InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         final BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         final List<String> lines = new ArrayList<String>();

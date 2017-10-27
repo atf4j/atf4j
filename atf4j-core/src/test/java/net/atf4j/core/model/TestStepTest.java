@@ -47,7 +47,7 @@ public class TestStepTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(UNEXPECTED_NULL, new TestStep());
+        verifyNotNull(new TestStep());
     }
 
     /**
@@ -57,11 +57,11 @@ public class TestStepTest extends TestResultsReporting {
     public void testTestStep() {
         final TestStep testStep = new TestStep();
         log.info("testStep={}", testStep);
-        assertNotNull(UNEXPECTED_NULL, testStep);
+        verifyNotNull(testStep);
 
         final TestResult result = testStep.result();
         log.info("testResult={}", result);
-        assertNotNull(UNEXPECTED_NULL, result);
+        verifyNotNull(result);
     }
 
     /**
@@ -76,7 +76,7 @@ public class TestStepTest extends TestResultsReporting {
 
         final MockTestReport report = new MockTestReport();
         log.info("report = {}", report);
-        assertNotNull(UNEXPECTED_NULL, testCase.registerLogging(report));
+        verifyNotNull(testCase.registerLogging(report));
     }
 
     /**
@@ -86,11 +86,11 @@ public class TestStepTest extends TestResultsReporting {
     public void testPreCondition() {
         final TestStep testStep = new TestStep();
         log.info("testStep = {}", testStep);
-        assertNotNull(UNEXPECTED_NULL, testStep);
+        verifyNotNull(testStep);
 
         final PassingCondition preCondition = new PassingCondition();
         log.info("preCondition = {}", preCondition);
-        assertNotNull(UNEXPECTED_NULL, preCondition);
+        verifyNotNull(preCondition);
 
         assertNotNull(testStep.addPreCondition(preCondition));
         log.info("testStep = {}", testStep);
@@ -103,11 +103,11 @@ public class TestStepTest extends TestResultsReporting {
     public void testPostCondition() {
         final TestStep testStep = new TestStep();
         log.info("testStep = {}", testStep);
-        assertNotNull(UNEXPECTED_NULL, testStep);
+        verifyNotNull(testStep);
 
         final PassingCondition postCondition = new PassingCondition();
         log.info("postCondition = {}", postCondition);
-        assertNotNull(UNEXPECTED_NULL, postCondition);
+        verifyNotNull(postCondition);
 
         assertNotNull(testStep.addPostCondition(postCondition));
         log.info("testStep = {}", testStep);

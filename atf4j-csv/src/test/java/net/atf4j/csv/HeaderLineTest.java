@@ -38,7 +38,7 @@ public class HeaderLineTest extends TestResultsReporting {
     @Test
     public void testBlankHeaderLine() {
         final HeaderLine headerLine = new HeaderLine("");
-        assertNotNull(UNEXPECTED_NULL, headerLine);
+        verifyNotNull(headerLine);
         assertEquals(1, headerLine.length());
         log.info(headerLine.toString());
     }
@@ -49,7 +49,7 @@ public class HeaderLineTest extends TestResultsReporting {
     @Test
     public void testHeaderConstructor() {
         final HeaderLine headerLine = new HeaderLine(HEADER_LINE);
-        assertNotNull(UNEXPECTED_NULL, headerLine);
+        verifyNotNull(headerLine);
         assertEquals(2, headerLine.length());
         final String headerLineString = headerLine.debugString();
         assertEquals(EXPECTED_HEADER, headerLineString);
@@ -65,7 +65,7 @@ public class HeaderLineTest extends TestResultsReporting {
     public void testHeaderLine() {
         final HeaderLine headerLine = new HeaderLine();
         log.trace(headerLine.toString());
-        assertNotNull(UNEXPECTED_NULL, headerLine);
+        verifyNotNull(headerLine);
         assertEquals(0, headerLine.length());
         headerLine.initialise(HEADER_LINE);
         log.trace(headerLine.toString());

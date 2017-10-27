@@ -1,26 +1,18 @@
 ## Class.vm
 // from main/resources/templates/Class.vm
-// $timeStamp
+// Generated $timeStamp
 
 package $packageName;
 
 public class $className {
 
 #foreach($field in $fields)
-	$field.toCode()
+	// $field.toCode()
+	private $field.type $field.name;
 #end
-
 	public $className() {
 		super();
 	}
-
-#foreach($field in $fields)
-	public $className set$util.firstUpper($field.Name)(final $field.Type $field.Name) {
-		this.$field.Name = $field.Name;
-		return this;
-	}
-	public $field.Type get$util.firstUpper($field.Name)() { return this.$field.Name; }
-#end
 
 #foreach($method in $methods)
 	$method.toCode()

@@ -17,22 +17,17 @@
 
 package net.atf4j.amq;
 
-import static org.junit.Assert.assertNotNull;
-
 import java.io.File;
 import java.util.List;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Message Finder Test class.
  */
-public class MessageFinderExample {
-
-    private static final String UNEXPECTED_NULL = "unexpected null";
-    private static final Logger LOG = LoggerFactory.getLogger(MessageFinderTest.class);
+public final class MessageFinderExample extends TestResultsReporting {
 
     /**
      * Test message finder.
@@ -40,13 +35,12 @@ public class MessageFinderExample {
     @Test
     public void testMessageFinder() {
         final MessageFinder folderWalker = new MessageFinder();
-        LOG.info("{}", folderWalker);
-        assertNotNull(UNEXPECTED_NULL, folderWalker);
+        verifyNotNull(folderWalker);
 
-        List<File> messages = folderWalker.walk();
-        assertNotNull(UNEXPECTED_NULL, messages);
-        for (File file : messages) {
-            LOG.info("{}", file.toString());
+        final List<File> messages = folderWalker.walk();
+        verifyNotNull(messages);
+        for (final File file : messages) {
+            log.info("{} = {}", file.getName(), file.toString());
         }
     }
 }

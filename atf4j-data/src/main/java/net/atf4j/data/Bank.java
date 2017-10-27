@@ -80,7 +80,7 @@ public final class Bank extends Business {
      * @return the bank
      */
     public Bank setBankSortCode(final String bankSortCode) {
-        assertNotNull(UNEXPECTED_NULL, bankSortCode);
+        verifyNotNull(bankSortCode);
         this.bankSortCode.setBankSortCode(bankSortCode);
         return this;
     }
@@ -92,7 +92,7 @@ public final class Bank extends Business {
      * @return the bank
      */
     public Bank setBankSortCode(final BankSortCode bankSortCode) {
-        assertNotNull(UNEXPECTED_NULL, bankSortCode);
+        verifyNotNull(bankSortCode);
         this.bankSortCode = bankSortCode;
         return this;
     }
@@ -104,7 +104,7 @@ public final class Bank extends Business {
      * @return the bank
      */
     public Bank setBankName(final String bankName) {
-        assertNotNull(UNEXPECTED_NULL, bankName);
+        verifyNotNull(bankName);
         this.bankName = bankName;
         return this;
     }
@@ -116,7 +116,7 @@ public final class Bank extends Business {
      * @return the bank
      */
     public Bank setIban(final String iban) {
-        assertNotNull(UNEXPECTED_NULL, iban);
+        verifyNotNull(iban);
         this.iban = iban;
         return this;
     }

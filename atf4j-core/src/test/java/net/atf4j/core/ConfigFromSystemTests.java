@@ -71,7 +71,7 @@ public final class ConfigFromSystemTests extends TestResultsReporting {
     public void testDefaultConstructor() throws Exception {
         final ConfigFromSystem configFromSystem = new ConfigFromSystem();
         log.debug("configFromSystem = {}", configFromSystem);
-        assertNotNull(UNEXPECTED_NULL, configFromSystem);
+        verifyNotNull(configFromSystem);
     }
 
     /**
@@ -88,7 +88,7 @@ public final class ConfigFromSystemTests extends TestResultsReporting {
         // When
         final ConfigFromSystem configFromSystem = new ConfigFromSystem();
         log.debug("configFromSystem = {}", configFromSystem);
-        assertNotNull(UNEXPECTED_NULL, configFromSystem);
+        verifyNotNull(configFromSystem);
         final String systemPropertyAsString = configFromSystem.getSystemPropertyAsString(systemPropertyKey);
         assertEquals(systemPropertyValue, systemPropertyAsString);
     }
@@ -108,7 +108,7 @@ public final class ConfigFromSystemTests extends TestResultsReporting {
         // When
         final ConfigFromSystem configFromSystem = new ConfigFromSystem();
         log.debug("configFromSystem = {}", configFromSystem);
-        assertNotNull(UNEXPECTED_NULL, configFromSystem);
+        verifyNotNull(configFromSystem);
         final boolean booleanFromSystem = configFromSystem.getSystemPropertyAsBoolean(systemPropertyKey);
         assertEquals(true, booleanFromSystem);
     }

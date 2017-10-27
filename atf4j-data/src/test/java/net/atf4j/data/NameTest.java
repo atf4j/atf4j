@@ -56,14 +56,14 @@ public final class NameTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        assertNotNull(UNEXPECTED_NULL, new MockName());
+        verifyNotNull(new MockName());
     }
 
     /**
      * Test method for Name.
      */
     public void testName() {
-        assertNotNull(UNEXPECTED_NULL, new MockName());
+        verifyNotNull(new MockName());
     }
 
     /**
@@ -73,7 +73,7 @@ public final class NameTest extends TestResultsReporting {
     public void testNameString() {
         final String expected = "Mock Name";
         final Name mockName = new MockName(expected);
-        assertNotNull(UNEXPECTED_NULL, mockName);
+        verifyNotNull(mockName);
         assertEquals(expected, mockName.getName());
     }
 

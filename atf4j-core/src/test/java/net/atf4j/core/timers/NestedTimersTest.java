@@ -37,7 +37,7 @@ public final class NestedTimersTest extends TestResultsReporting {
     public void testGetInstance() {
         final NestedTimers nestedTimers = NestedTimers.getInstance();
         log.debug("NestedTimers.getInstance() = {}", nestedTimers);
-        assertNotNull(UNEXPECTED_NULL, nestedTimers);
+        verifyNotNull(nestedTimers);
     }
 
     /**
@@ -47,7 +47,7 @@ public final class NestedTimersTest extends TestResultsReporting {
     public void testNestedTimers() {
         final NestedTimers nestedTimers = NestedTimers.getInstance();
         log.debug("NestedTimers.getInstance() = {}", nestedTimers);
-        assertNotNull(UNEXPECTED_NULL, nestedTimers);
+        verifyNotNull(nestedTimers);
 
         for (int i = 0; i < 10; i++) {
             final String message = String.format("Test case Timer %s", i);
@@ -69,7 +69,7 @@ public final class NestedTimersTest extends TestResultsReporting {
     public void testTimerInstance() {
         final NestedTimers nestedTimers = NestedTimers.getInstance();
         log.debug("NestedTimers.getInstance() = {}", nestedTimers);
-        assertNotNull(UNEXPECTED_NULL, nestedTimers);
+        verifyNotNull(nestedTimers);
 
         nestedTimers.startTimer("Timer Instance : Test case 1");
         waitDefaultInterval();
@@ -111,8 +111,8 @@ public final class NestedTimersTest extends TestResultsReporting {
      */
     @Test
     public void testStaticExpectedUsage() {
-        assertNotNull(UNEXPECTED_NULL, NestedTimers.start());
-        assertNotNull(UNEXPECTED_NULL, NestedTimers.stop());
+        verifyNotNull(NestedTimers.start());
+        verifyNotNull(NestedTimers.stop());
     }
 
     /**

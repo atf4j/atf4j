@@ -35,7 +35,7 @@ public final class ProductCatalogTest extends TestResultsReporting {
     public void testDefaultConstructor() {
         final ProductCatalogue catalog = new ProductCatalogue();
         log.debug("new ProductCatalogue() = {}", catalog);
-        assertNotNull(UNEXPECTED_NULL, catalog);
+        verifyNotNull(catalog);
     }
 
     /**
@@ -45,7 +45,7 @@ public final class ProductCatalogTest extends TestResultsReporting {
     public void testProductCatalog() {
         final ProductCatalogue productCatalog = new ProductCatalogue();
         log.debug("new ProductCatalogue() = {}", productCatalog);
-        assertNotNull(UNEXPECTED_NULL, productCatalog);
+        verifyNotNull(productCatalog);
         final Product product = new Product();
         productCatalog.add(product);
         log.info("productCatalog = {}", productCatalog);
@@ -58,7 +58,7 @@ public final class ProductCatalogTest extends TestResultsReporting {
     public void testDebugString() {
         final ProductCatalogue productCatalog = new ProductCatalogue();
         log.debug("productCatalog = {}", productCatalog.debugString());
-        assertNotNull(UNEXPECTED_NULL, productCatalog.debugString());
+        verifyNotNull(productCatalog.debugString());
     }
 
 }

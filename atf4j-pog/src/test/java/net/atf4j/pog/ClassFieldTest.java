@@ -22,7 +22,6 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.pog.ClassField.FieldType;
 
 /**
  * A UnitTest for ClassField objects.
@@ -33,9 +32,21 @@ public final class ClassFieldTest extends TestResultsReporting {
      * Unit tests for the ClassField object.
      */
     @Test
+    public void testExpected() {
+        verifyNotNull(ClassField.makeString("aString"));
+        verifyNotNull(ClassField.makeDate("aDate"));
+        verifyNotNull(ClassField.makeBoolean("aBoolean"));
+        verifyNotNull(ClassField.makeNumber("aNumber"));
+        verifyNotNull(ClassField.makeNumber("aObject"));
+    }
+
+    /**
+     * Unit tests for the ClassField object.
+     */
+    @Test
     public void testClassField() {
         final ClassField classField = new ClassField();
-        assertNotNull(UNEXPECTED_NULL, classField);
+        verifyNotNull(classField);
         log.debug("classField = {}", classField);
         log.debug("classField.toCode() = {}", classField.toCode());
     }
@@ -46,12 +57,12 @@ public final class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testBooleanField() {
         final ClassField classField = new ClassField(FieldType.BOOLEAN, "aBoolean");
-        assertNotNull(UNEXPECTED_NULL, classField);
+        verifyNotNull(classField);
         log.debug("classField = {}", classField);
         log.debug("classField.toCode() = {}", classField.toCode());
 
         final ClassField booleanField = new ClassField("boolean", "aBoolean");
-        assertNotNull(UNEXPECTED_NULL, booleanField);
+        verifyNotNull(booleanField);
         log.debug("booleanField = {}", booleanField);
         log.debug("booleanField.toCode() = {}", booleanField.toCode());
     }
@@ -62,12 +73,12 @@ public final class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testDateField() {
         final ClassField classField = new ClassField(FieldType.DATE, "date");
-        assertNotNull(UNEXPECTED_NULL, classField);
+        verifyNotNull(classField);
         log.debug("classField = {}", classField);
         log.debug("classField.toCode() = {}", classField.toCode());
 
         final ClassField dateField = new ClassField("Date", "date");
-        assertNotNull(UNEXPECTED_NULL, dateField);
+        verifyNotNull(dateField);
         log.debug("dateField = {}", dateField);
         log.debug("dateField.toCode() = {}", dateField.toCode());
     }
@@ -78,12 +89,12 @@ public final class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testNumberField() {
         final ClassField classField = new ClassField(FieldType.NUMBER, "number");
-        assertNotNull(UNEXPECTED_NULL, classField);
+        verifyNotNull(classField);
         log.debug("classField = {}", classField);
         log.debug("classField.toCode() = {}", classField.toCode());
 
         final ClassField numberField = new ClassField("Number", "number");
-        assertNotNull(UNEXPECTED_NULL, numberField);
+        verifyNotNull(numberField);
         log.debug("numberField = {}", numberField);
         log.debug("numberField.toCode() = {}", numberField.toCode());
     }
@@ -94,12 +105,12 @@ public final class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testObjectField() {
         final ClassField classField = new ClassField(FieldType.OBJECT, "object");
-        assertNotNull(UNEXPECTED_NULL, classField);
+        verifyNotNull(classField);
         log.debug("classField = {}", classField);
         log.debug("classField.toCode() = {}", classField.toCode());
 
         final ClassField objectField = new ClassField("Object", "object");
-        assertNotNull(UNEXPECTED_NULL, objectField);
+        verifyNotNull(objectField);
         log.debug("objectField = {}", objectField);
         log.debug("objectField.toCode() = {}", objectField.toCode());
     }
@@ -110,12 +121,12 @@ public final class ClassFieldTest extends TestResultsReporting {
     @Test
     public void testStringField() {
         final ClassField classField = new ClassField(FieldType.STRING, "string");
-        assertNotNull(UNEXPECTED_NULL, classField);
+        verifyNotNull(classField);
         log.debug("classField = {}", classField);
         log.debug("classField.toCode() = {}", classField.toCode());
 
         final ClassField stringField = new ClassField("String", "string");
-        assertNotNull(UNEXPECTED_NULL, stringField);
+        verifyNotNull(stringField);
         log.debug("stringField = {}", stringField);
         log.debug("stringField.toCode() =\n{}", stringField.toCode());
     }

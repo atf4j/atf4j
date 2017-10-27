@@ -35,7 +35,7 @@ public class AnnotatedAtf4jTest extends AbstractAtf4jAnnotation {
     public void testTestId() throws Exception {
         log.debug("testTestId", this.getClass().getSimpleName());
         final String testId = super.getTestId();
-        assertNotNull(UNEXPECTED_NULL, testId);
+        verifyNotNull(testId);
         log.info("testId = {}", testId);
     }
 
@@ -46,7 +46,7 @@ public class AnnotatedAtf4jTest extends AbstractAtf4jAnnotation {
     public void testTestName() {
         log.debug("testTestName", this.getClass().getSimpleName());
         final String testName = super.getTestName();
-        assertNotNull(UNEXPECTED_NULL, testName);
+        verifyNotNull(testName);
         log.info("testName = {}", testName);
     }
 
@@ -57,7 +57,7 @@ public class AnnotatedAtf4jTest extends AbstractAtf4jAnnotation {
     public void testTestDescription() {
         log.debug("testTestDescription", this.getClass().getSimpleName());
         final String testDescription = super.getTestDescription();
-        assertNotNull(UNEXPECTED_NULL, testDescription);
+        verifyNotNull(testDescription);
         log.info("testDescription = {}", testDescription);
     }
 

@@ -34,7 +34,7 @@ public final class SimpleBagTest extends TestResultsReporting {
      */
     @Test
     public void testNullBag() {
-        assertNotNull(UNEXPECTED_NULL, new SimpleBag(null));
+        verifyNotNull(new SimpleBag(null));
     }
 
     /**
@@ -43,7 +43,7 @@ public final class SimpleBagTest extends TestResultsReporting {
     @Test
     public void testEmptyBag() {
         final SimpleBag bag = new SimpleBag(new String[0]);
-        assertNotNull(UNEXPECTED_NULL, bag);
+        verifyNotNull(bag);
         assertEquals(0, bag.count());
         assertEquals(0, bag.clear().count());
         assertEquals(0, bag.reset().count());
@@ -56,12 +56,12 @@ public final class SimpleBagTest extends TestResultsReporting {
     public void testBag() {
         final String[] pets = { "Fish", "Cat", "Dog", "Rabbit", "Bird" };
         final SimpleBag bag = new SimpleBag(pets);
-        assertNotNull(UNEXPECTED_NULL, bag);
+        verifyNotNull(bag);
         assertEquals(5, bag.count());
         assertEquals(0, bag.clear().count());
         assertEquals(5, bag.reset().count());
         while (!bag.isEmpty()) {
-            assertNotNull(UNEXPECTED_NULL, bag.pick());
+            verifyNotNull(bag.pick());
         }
         bag.clear().reset();
     }
@@ -72,7 +72,7 @@ public final class SimpleBagTest extends TestResultsReporting {
     @Test
     public void testDebugString() {
         final String string = new SimpleBag().debugString();
-        assertNotNull(UNEXPECTED_NULL, string);
+        verifyNotNull(string);
     }
 
     /**
@@ -81,7 +81,7 @@ public final class SimpleBagTest extends TestResultsReporting {
     @Test
     public void testToString() {
         final String string = new SimpleBag().toString();
-        assertNotNull(UNEXPECTED_NULL, string);
+        verifyNotNull(string);
     }
 
 }

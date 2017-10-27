@@ -33,7 +33,7 @@ public class FailCaseTest extends TestResultsReporting {
      */
     @Test
     public void testFailCase() {
-        assertNotNull(UNEXPECTED_NULL, new FailCase());
+        verifyNotNull(new FailCase());
     }
 
     /**
@@ -41,7 +41,7 @@ public class FailCaseTest extends TestResultsReporting {
      */
     @Test
     public void testFailCaseNull() {
-        assertNotNull(UNEXPECTED_NULL, new FailCase(null));
+        verifyNotNull(new FailCase(null));
     }
 
     /**
@@ -49,7 +49,7 @@ public class FailCaseTest extends TestResultsReporting {
      */
     @Test
     public void testFailCaseString() {
-        assertNotNull(UNEXPECTED_NULL, new FailCase("FailCase"));
+        verifyNotNull(new FailCase("FailCase"));
     }
 
 }

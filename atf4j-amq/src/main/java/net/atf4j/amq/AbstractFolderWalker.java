@@ -25,25 +25,23 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * Abstract Folder Walker class.
  */
-public abstract class AbstractFolderWalker implements FolderWalkerInterface {
+public abstract class AbstractFolderWalker
+        extends TestResultsReporting
+        implements FolderWalkerInterface {
 
     /** The path. */
-    private String path;
-    
+    private String path = ".";
+
     /** The filter. */
     private FilenameFilter filter = new Unfiltered();
-    
+
     /** The found files. */
     private final List<File> foundFiles = new ArrayList<File>();
-    
-    /** The log. */
-    protected final Logger log = LoggerFactory.getLogger(AbstractFolderWalker.class);
 
     /**
      * Unfiltered filename class.
@@ -67,7 +65,6 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
      */
     public AbstractFolderWalker() {
         super();
-        setPath("./");
     }
 
     /**
@@ -130,6 +127,8 @@ public abstract class AbstractFolderWalker implements FolderWalkerInterface {
     public List<File> walk(final String path) {
         if (path != null) {
             final File dir = new File(path);
+            this.log.debug("dir = {}", dir.getAbsolutePath());
+            this.log.debug("file = {}", dir.getAbsoluteFile());
             final File[] files = dir.listFiles(this.filter);
             if (files != null) {
                 for (final File file : files) {

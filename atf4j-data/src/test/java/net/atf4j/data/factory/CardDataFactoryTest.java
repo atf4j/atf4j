@@ -36,7 +36,7 @@ public final class CardDataFactoryTest extends TestResultsReporting {
     public void testCreate() {
         final Card card = CardDataFactory.create();
         log.debug("CardDataFactory.create() = {}", card);
-        assertNotNull(UNEXPECTED_NULL, card);
+        verifyNotNull(card);
     }
 
     /**
@@ -46,7 +46,7 @@ public final class CardDataFactoryTest extends TestResultsReporting {
     public void testRandom() {
         final Card card = CardDataFactory.random();
         log.debug("CardDataFactory.random() = {}", card);
-        assertNotNull(UNEXPECTED_NULL, card);
+        verifyNotNull(card);
     }
 
     /**
@@ -56,7 +56,7 @@ public final class CardDataFactoryTest extends TestResultsReporting {
     public void testGetInstance() {
         final CardDataFactory cardDataFactory = CardDataFactory.getInstance();
         log.debug("CardDataFactory.getInstance() = {}", cardDataFactory);
-        assertNotNull(UNEXPECTED_NULL, cardDataFactory);
+        verifyNotNull(cardDataFactory);
     }
 
 }

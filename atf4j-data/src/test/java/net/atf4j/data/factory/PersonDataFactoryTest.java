@@ -37,7 +37,7 @@ public final class PersonDataFactoryTest extends TestResultsReporting {
     public void testCreate() {
         final Person person = PersonDataFactory.create();
         log.debug("PersonDataFactory.create() = {}", person);
-        assertNotNull(UNEXPECTED_NULL, person);
+        verifyNotNull(person);
     }
 
     /**
@@ -47,7 +47,7 @@ public final class PersonDataFactoryTest extends TestResultsReporting {
     public void testRandom() {
         final Person person = PersonDataFactory.random();
         log.debug("PersonDataFactory.create() = {}", person);
-        assertNotNull(UNEXPECTED_NULL, person);
+        verifyNotNull(person);
     }
 
     /**
@@ -57,8 +57,8 @@ public final class PersonDataFactoryTest extends TestResultsReporting {
     public void testGetInstance() {
         final AbstractDataFactory personDataFactory = PersonDataFactory.getInstance();
         log.debug("PersonDataFactory.getInstance() = {}", personDataFactory);
-        assertNotNull(UNEXPECTED_NULL, personDataFactory);
-        assertNotNull(UNEXPECTED_NULL, personDataFactory.toString());
+        verifyNotNull(personDataFactory);
+        verifyNotNull(personDataFactory.toString());
     }
 
     /**

@@ -38,7 +38,7 @@ public final class PostalAddressTest extends TestResultsReporting {
     public void testDefaultConstructor() {
         final PostalAddress address = new PostalAddress();
         log.debug("new PostalAddress() = {}", address);
-        assertNotNull(UNEXPECTED_NULL, address);
+        verifyNotNull(address);
     }
 
     /**
@@ -48,7 +48,7 @@ public final class PostalAddressTest extends TestResultsReporting {
     public void testPostalAddressString() {
         final PostalAddress address = new PostalAddress(ADDRESS);
         log.debug("new PostalAddress({}) = {}", ADDRESS, address);
-        assertNotNull(UNEXPECTED_NULL, address);
+        verifyNotNull(address);
     }
 
     /**
@@ -59,7 +59,7 @@ public final class PostalAddressTest extends TestResultsReporting {
         final String[] addressLines = ADDRESS.split(",");
         final PostalAddress address = new PostalAddress(addressLines);
         log.debug("new PostalAddress({}) = {}", addressLines, address);
-        assertNotNull(UNEXPECTED_NULL, address);
+        verifyNotNull(address);
     }
 
     /**
@@ -69,7 +69,7 @@ public final class PostalAddressTest extends TestResultsReporting {
     public void testToString() {
         final String addressString = new PostalAddress().toString();
         log.debug("new PostalAddress().toString() = {}", addressString);
-        assertNotNull(UNEXPECTED_NULL, addressString);
+        verifyNotNull(addressString);
     }
 
     /**
@@ -79,7 +79,7 @@ public final class PostalAddressTest extends TestResultsReporting {
     public void testDebugString() {
         final String addressDebugString = new PostalAddress().debugString();
         log.debug("new PostalAddress().debugString() = {}", addressDebugString);
-        assertNotNull(UNEXPECTED_NULL, addressDebugString);
+        verifyNotNull(addressDebugString);
     }
 
 }

@@ -57,8 +57,8 @@ public final class WalkerTest extends TestResultsReporting {
     public void testAbstractWalker() {
         final MockWalker mockWalker = new MockWalker();
         log.debug("new MockWalker() = {}", mockWalker);
-        assertNotNull(UNEXPECTED_NULL, mockWalker);
-        assertNotNull(UNEXPECTED_NULL, mockWalker.walk());
+        verifyNotNull(mockWalker);
+        verifyNotNull(mockWalker.walk());
     }
 
     /**
@@ -68,8 +68,8 @@ public final class WalkerTest extends TestResultsReporting {
     public void testAbstractWalkerDot() {
         final MockWalker mockWalker = new MockWalker(".");
         log.debug("new MockWalker('.') = {}", mockWalker);
-        assertNotNull(UNEXPECTED_NULL, mockWalker);
-        assertNotNull(UNEXPECTED_NULL, mockWalker.walk());
+        verifyNotNull(mockWalker);
+        verifyNotNull(mockWalker.walk());
     }
 
     /**
@@ -79,8 +79,8 @@ public final class WalkerTest extends TestResultsReporting {
     public void testAbstractWalkerFolder() {
         final MockWalker mockWalker = new MockWalker("/messages");
         log.debug("new MockWalker('/messages') = {}", mockWalker);
-        assertNotNull(UNEXPECTED_NULL, mockWalker);
-        assertNotNull(UNEXPECTED_NULL, mockWalker.walk());
+        verifyNotNull(mockWalker);
+        verifyNotNull(mockWalker.walk());
     }
 
     /**
@@ -90,8 +90,8 @@ public final class WalkerTest extends TestResultsReporting {
     public void testAbstractWalkerMissingFolder() {
         final MockWalker mockWalker = new MockWalker("/missing");
         log.debug("new MockWalker('/missing') ={}", mockWalker);
-        assertNotNull(UNEXPECTED_NULL, mockWalker);
-        assertNotNull(UNEXPECTED_NULL, mockWalker.walk());
+        verifyNotNull(mockWalker);
+        verifyNotNull(mockWalker.walk());
     }
 
 }

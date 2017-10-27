@@ -33,7 +33,7 @@ public class FailSuiteTest extends TestResultsReporting {
      */
     @Test
     public void testFailCase() {
-        assertNotNull(UNEXPECTED_NULL, new FailCase());
+        verifyNotNull(new FailCase());
     }
 
 }

@@ -17,8 +17,8 @@
 
 package net.atf4j.webdriver.page;
 
+import static net.atf4j.core.Verify.verifyNotNull;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -44,7 +44,6 @@ import net.atf4j.webdriver.TargetUrl;
  */
 public abstract class AbstractPageObject {
 
-    private static final String UNEXPECTED_NULL = "unexpected null";
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getName());
     protected PageConfig config;
     protected WebDriver webDriver;
@@ -92,7 +91,7 @@ public abstract class AbstractPageObject {
      * Configure time out.
      */
     private void initialiseWebDriverTimeOut() {
-        assertNotNull(UNEXPECTED_NULL, webDriver);
+        verifyNotNull(webDriver);
         final Options manage = webDriver.manage();
         final Timeouts timeouts = manage.timeouts();
         timeouts.implicitlyWait(config.implicitWait(), TimeUnit.SECONDS);
@@ -106,7 +105,7 @@ public abstract class AbstractPageObject {
      * @return the current url.
      */
     protected String currentUrl() {
-        assertNotNull(UNEXPECTED_NULL, webDriver);
+        verifyNotNull(webDriver);
         return webDriver.getCurrentUrl();
     }
 
@@ -138,7 +137,7 @@ public abstract class AbstractPageObject {
      * @return the page title as a String object.
      */
     protected String getTitle() {
-        assertNotNull(UNEXPECTED_NULL, webDriver);
+        verifyNotNull(webDriver);
         return webDriver.getTitle();
     }
 
@@ -168,7 +167,7 @@ public abstract class AbstractPageObject {
      * @see net.atf4j.webdriver.page.PageInterface#open()
      */
     public AbstractPageObject open(final String pageUrl) {
-        assertNotNull(UNEXPECTED_NULL, webDriver);
+        verifyNotNull(webDriver);
         webDriver.get(pageUrl);
         PageFactory.initElements(webDriver, this);
         return this;
@@ -192,7 +191,7 @@ public abstract class AbstractPageObject {
      * @return this for a fluent interface.
      */
     public AbstractPageObject urlShouldBeUnchanged() {
-        assertNotNull(UNEXPECTED_NULL, webDriver);
+        verifyNotNull(webDriver);
         final String currentUrl = webDriver.getCurrentUrl();
         currentUrl.equals(this.targetUrl());
         return this;
@@ -205,7 +204,7 @@ public abstract class AbstractPageObject {
      * @see net.atf4j.webdriver.page.PageInterface#verify()
      */
     public AbstractPageObject verify() {
-        assertNotNull(UNEXPECTED_NULL, webDriver);
+        verifyNotNull(webDriver);
         webDriver.getTitle();
         return this;
     }
@@ -218,10 +217,10 @@ public abstract class AbstractPageObject {
      * @return true, if successful, otherwise false.
      */
     protected boolean verifyElement(final WebElement webElement) {
-        assertNotNull(UNEXPECTED_NULL, webElement);
+        verifyNotNull(webElement);
         final boolean testStatus = true;
-        assertNotNull(UNEXPECTED_NULL, webElement);
-        assertNotNull(UNEXPECTED_NULL, webElement.toString());
+        verifyNotNull(webElement);
+        verifyNotNull(webElement.toString());
         assertTrue(webElement.isDisplayed());
         assertTrue(webElement.isEnabled());
         return testStatus;
@@ -233,7 +232,7 @@ public abstract class AbstractPageObject {
      * @param webElement the web element
      */
     public void clickWhenReady(final WebElement webElement) {
-        assertNotNull(UNEXPECTED_NULL, webElement);
+        verifyNotNull(webElement);
         webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
         webElement.click();
     }
@@ -245,7 +244,7 @@ public abstract class AbstractPageObject {
      * @return the webElement when visible, otherwise TimeoutException.
      */
     public WebElement waitUntilVisible(final WebElement webElement) {
-        assertNotNull(UNEXPECTED_NULL, webElement);
+        verifyNotNull(webElement);
         return webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
     }
 
@@ -256,7 +255,7 @@ public abstract class AbstractPageObject {
      * @return the web element when clickable, otherwise TimeoutException.
      */
     public WebElement waitUntilClickable(final WebElement webElement) {
-        assertNotNull(UNEXPECTED_NULL, webElement);
+        verifyNotNull(webElement);
         return webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
@@ -277,7 +276,7 @@ public abstract class AbstractPageObject {
      * @return this for a fluent interface.
      */
     public AbstractPageObject verifyPageTitle(final String expectedPageTitle) {
-        assertNotNull(UNEXPECTED_NULL, webDriver);
+        verifyNotNull(webDriver);
         final String actualPageTitle = webDriver.getTitle();
         assertEquals(expectedPageTitle, actualPageTitle);
         return this;
@@ -361,7 +360,7 @@ public abstract class AbstractPageObject {
      * @return the abstract page object
      */
     protected AbstractPageObject close() {
-        assertNotNull(UNEXPECTED_NULL, webDriver);
+        verifyNotNull(webDriver);
         if (webDriver != null) {
             webDriver.close();
         }
@@ -374,7 +373,7 @@ public abstract class AbstractPageObject {
      * @return the abstract page object
      */
     protected AbstractPageObject quit() {
-        assertNotNull(UNEXPECTED_NULL, webDriver);
+        verifyNotNull(webDriver);
         if (webDriver != null) {
             webDriver.quit();
         }

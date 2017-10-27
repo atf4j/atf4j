@@ -27,169 +27,33 @@ import net.atf4j.core.TestResultsReporting;
 public class ClassField extends TestResultsReporting {
 
     /** Code Template for a field. */
-    private static final String ASSIGN_FIELD = "\t%s %s %s = %s;\n";
+    private static final String ASSIGN_FIELD = "%s %s %s = %s;";
 
     /** FIELD_CODE constant. */
-    private static final String FIELD_CODE = "\t%s %s %s;\n";
+    private static final String FIELD_CODE = "%s %s %s;";
 
     /** access modifier for field. */
     private AccessModifier accessModifier = AccessModifier.DEFAULT;
 
     /** access modifier as String. */
-    private String accessModifierString = accessModifier.value;
+    private String visibility = accessModifier.toString();
 
     /** type of field . */
     private FieldType fieldType = FieldType.OBJECT;
 
     /** type of field as String. */
-    private String fieldTypeString = fieldType.value;
+    private String type = fieldType.toString();
 
     /** name of field. */
-    private String fieldName = null;
+    private String name = null;
 
     /** The initial value. */
     private String initialValue = null;
 
     /**
-     * AccessModifiers Enum.
-     * <p>
-     * Default, public, protected, and private
-     */
-    public enum AccessModifier {
-
-        /** Default. */
-        DEFAULT(""),
-
-        /** Date. */
-        PUBLIC("public"),
-
-        /** Number. */
-        PROTECTED("protected"),
-
-        /** String. */
-        PRIVATE("private");
-
-        /** the value of the access modifier. */
-        private final String value;
-
-        /**
-         * Instantiates a new field type.
-         *
-         * @param asText the as text
-         */
-        AccessModifier(final String asText) {
-            value = asText;
-        }
-
-        /**
-         * Initialise.
-         *
-         * @return the field type
-         */
-        public static AccessModifier initialise() {
-            return AccessModifier.DEFAULT;
-        }
-
-        /**
-         * FieldType From string value.
-         *
-         * @param asText the as text
-         * @return the field type
-         */
-        public static AccessModifier fromString(final String asText) {
-            for (final AccessModifier candidate : values()) {
-                if (candidate.value.equals(asText)) {
-                    return candidate;
-                }
-            }
-            return AccessModifier.DEFAULT;
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see java.lang.Enum#toString()
-         */
-        @Override
-        public String toString() {
-            return value;
-        }
-    }
-
-    /**
-     * The FieldType Enum.
-     */
-    public enum FieldType {
-
-        /** Boolean. */
-        BOOLEAN("Boolean"),
-
-        /** Date. */
-        DATE("Date"),
-
-        /** Number. */
-        NUMBER("BigDecimal"),
-
-        /** Object. */
-        OBJECT("Object"),
-
-        /** String. */
-        STRING("String"),
-
-        /** The Other. */
-        Other("Other");
-
-        /** The value. */
-        private final String value;
-
-        /**
-         * Instantiates a new field type.
-         *
-         * @param asText the as text
-         */
-        FieldType(final String asText) {
-            value = asText;
-        }
-
-        /**
-         * Initialise.
-         *
-         * @return the field type
-         */
-        public static FieldType initialise() {
-            return FieldType.OBJECT;
-        }
-
-        /**
-         * FieldType From string value.
-         *
-         * @param asText the as text
-         * @return the field type
-         */
-        public static FieldType fromString(final String asText) {
-            for (final FieldType candidate : values()) {
-                if (candidate.value.equals(asText)) {
-                    return candidate;
-                }
-            }
-            return FieldType.Other;
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see java.lang.Enum#toString()
-         */
-        @Override
-        public String toString() {
-            return value;
-        }
-    }
-
-    /**
      * Instantiates a new class field.
      */
-    public ClassField() {
+    protected ClassField() {
         setAccessModifier(AccessModifier.DEFAULT);
         final String uniqueness = UUID.randomUUID().toString().substring(0, 8);
         setFieldName(String.format("object%s", uniqueness));
@@ -201,7 +65,7 @@ public class ClassField extends TestResultsReporting {
      * @param fieldType the type
      * @param fieldName the name
      */
-    public ClassField(final FieldType fieldType, final String fieldName) {
+    protected ClassField(final FieldType fieldType, final String fieldName) {
         setAccessModifier(AccessModifier.DEFAULT);
         setFieldType(fieldType);
         setFieldName(fieldName);
@@ -213,10 +77,42 @@ public class ClassField extends TestResultsReporting {
      * @param fieldType the field type
      * @param fieldName the field name
      */
-    public ClassField(final String fieldType, final String fieldName) {
+    protected ClassField(final String fieldType, final String fieldName) {
         setAccessModifier(AccessModifier.DEFAULT);
         setFieldType(fieldType);
         setFieldName(fieldName);
+    }
+
+    public static ClassField create() {
+        return new ClassField();
+    }
+
+    public static ClassField makeBoolean(final String fieldName) {
+        return new ClassField(FieldType.BOOLEAN, fieldName);
+    }
+
+    public static ClassField makeByte(final String fieldName) {
+        return new ClassField(FieldType.BYTE, fieldName);
+    }
+
+    public static ClassField makeDate(final String fieldName) {
+        return new ClassField(FieldType.DATE, fieldName);
+    }
+
+    public static ClassField makeNumber(final String fieldName) {
+        return new ClassField(FieldType.NUMBER, fieldName);
+    }
+
+    public static ClassField makeObject(final String fieldName) {
+        return new ClassField(FieldType.OBJECT, fieldName);
+    }
+
+    public static ClassField makeString(final String fieldName) {
+        return new ClassField(FieldType.STRING, fieldName);
+    }
+
+    public static ClassField makeOther(final String type, final String fieldName) {
+        return new ClassField(type, fieldName);
     }
 
     /**
@@ -225,9 +121,9 @@ public class ClassField extends TestResultsReporting {
      * @param accessModifier the access modifier
      * @return the class field
      */
-    public ClassField setAccessModifier(final AccessModifier accessModifier) {
+    protected ClassField setAccessModifier(final AccessModifier accessModifier) {
         this.accessModifier = accessModifier;
-        accessModifierString = this.accessModifier.toString();
+        visibility = this.accessModifier.toString();
         return this;
     }
 
@@ -238,7 +134,7 @@ public class ClassField extends TestResultsReporting {
      * @return the class field
      */
     protected ClassField setAccessModifier(final String accessModifier) {
-        accessModifierString = accessModifier;
+        visibility = accessModifier;
         this.accessModifier = AccessModifier.fromString(accessModifier);
         return this;
     }
@@ -249,9 +145,9 @@ public class ClassField extends TestResultsReporting {
      * @param fieldType the field type
      * @return the class field
      */
-    public ClassField setFieldType(final FieldType fieldType) {
+    protected ClassField setFieldType(final FieldType fieldType) {
         this.fieldType = fieldType;
-        fieldTypeString = fieldType.value;
+        type = fieldType.toString();
         return this;
     }
 
@@ -261,9 +157,13 @@ public class ClassField extends TestResultsReporting {
      * @param fieldTypeString the field type string
      * @return the class field
      */
-    public ClassField setFieldType(final String fieldTypeString) {
-        this.fieldTypeString = fieldTypeString;
+    protected ClassField setFieldType(final String fieldTypeString) {
         fieldType = FieldType.fromString(fieldTypeString);
+        if (fieldType == FieldType.Other) {
+            type = fieldTypeString;
+        } else {
+            type = fieldType.toString();
+        }
         return this;
     }
 
@@ -273,8 +173,8 @@ public class ClassField extends TestResultsReporting {
      * @param fieldName the field name
      * @return the class field
      */
-    public ClassField setFieldName(final String fieldName) {
-        this.fieldName = fieldCase(fieldName);
+    protected ClassField setFieldName(final String fieldName) {
+        name = fieldCase(fieldName);
         return this;
     }
 
@@ -284,7 +184,7 @@ public class ClassField extends TestResultsReporting {
      * @param initialValue the initial value
      * @return the class field
      */
-    public ClassField setInitialValue(final String initialValue) {
+    protected ClassField setInitialValue(final String initialValue) {
         this.initialValue = initialValue;
         return this;
     }
@@ -303,8 +203,8 @@ public class ClassField extends TestResultsReporting {
      *
      * @return the access modifier value
      */
-    public String getAccessModifierValue() {
-        return accessModifierString;
+    public String getVisibility() {
+        return visibility;
     }
 
     /**
@@ -312,8 +212,8 @@ public class ClassField extends TestResultsReporting {
      *
      * @return the field type string
      */
-    public String getFieldTypeString() {
-        return fieldTypeString;
+    public String getType() {
+        return type;
     }
 
     /**
@@ -321,8 +221,8 @@ public class ClassField extends TestResultsReporting {
      *
      * @return the field name
      */
-    public String getFieldName() {
-        return fieldName;
+    public String getName() {
+        return name;
     }
 
     /**
@@ -340,7 +240,7 @@ public class ClassField extends TestResultsReporting {
      * @param string the string
      * @return the string
      */
-    private String fieldCase(final String string) {
+    protected String fieldCase(final String string) {
         final char[] charArray = string.toCharArray();
         charArray[0] = Character.toLowerCase(charArray[0]);
         return new String(charArray);
@@ -356,13 +256,13 @@ public class ClassField extends TestResultsReporting {
         if (initialValue == null) {
             code = String.format(FIELD_CODE,
                     accessModifier,
-                    fieldTypeString,
-                    fieldName);
+                    type,
+                    name);
         } else {
             code = String.format(ASSIGN_FIELD,
                     accessModifier,
                     fieldType,
-                    fieldTypeString,
+                    type,
                     initialValue);
         }
         return code;
@@ -375,13 +275,13 @@ public class ClassField extends TestResultsReporting {
      */
     protected String debugString() {
         final String debugString = String.format(
-                "%s [accessModifier=%s, accessModifierValue=%s, fieldType=%s, fieldTypeString=%s, fieldName=%s, initialValue=%s]",
+                "%s [accessModifier=%s, visibility=%s, fieldType=%s, type=%s, name=%s, initialValue=%s]",
                 this.getClass().getSimpleName(),
-                accessModifier,
-                accessModifierString,
-                fieldType,
-                fieldTypeString,
-                fieldName,
+                accessModifier.name(),
+                visibility,
+                fieldType.name(),
+                type,
+                name,
                 initialValue);
         return debugString;
     }
