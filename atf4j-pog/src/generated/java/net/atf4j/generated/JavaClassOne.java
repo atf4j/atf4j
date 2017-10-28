@@ -1,9 +1,9 @@
 // from main/resources/templates/Class.vm
-// Generated 2017-10-28 10:11.30
+// Generated 2017-10-28 10:54.22
 
 package net.atf4j.generated;
 
-public class PojoClassOne {
+public class JavaClassOne {
 
 	//  String aString;
 	private String aString;
@@ -11,7 +11,7 @@ public class PojoClassOne {
 	private Boolean aBoolean;
 	//  Object aObject;
 	private Object aObject;
-	public PojoClassOne() {
+	public JavaClassOne() {
 		super();
 	}
 

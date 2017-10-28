@@ -1,5 +1,5 @@
 // from main/resources/templates/Class.vm
-// Generated 2017-10-27 02:11.58
+// Generated 2017-10-28 10:54.22
 
 package net.atf4j.generated;
 

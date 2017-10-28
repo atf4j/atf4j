@@ -17,8 +17,6 @@
 
 package net.atf4j.pog;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
@@ -31,7 +29,7 @@ public final class JavaClassGeneratorTest extends TestResultsReporting {
     /**
      * The JavaClassGenerator Class.
      */
-    public class JavaClassGenerator extends AbstractCodeGenerator {
+    public class JavaClassGenerator extends AbstractJavaClassGenerator {
 
         /**
          * Instantiates a new java class generator.
@@ -57,8 +55,17 @@ public final class JavaClassGeneratorTest extends TestResultsReporting {
     @Test
     public void testJavaClassGeneratorTest() {
         final JavaClassGenerator javaClassGenerator = new JavaClassGenerator();
-        log.debug(javaClassGenerator.toString());
-        assertNotNull(javaClassGenerator);
-        // javaClassGenerator.
+        verifyNotNull(javaClassGenerator);
+        log.debug(javaClassGenerator.debugString());
+        javaClassGenerator.generate();
     }
+
+    @Test
+    public void testJavaClassGeneratorTestString() {
+        final JavaClassGenerator javaClassGenerator = new JavaClassGenerator();
+        verifyNotNull(javaClassGenerator);
+        log.debug(javaClassGenerator.debugString());
+        javaClassGenerator.generate();
+    }
+
 }

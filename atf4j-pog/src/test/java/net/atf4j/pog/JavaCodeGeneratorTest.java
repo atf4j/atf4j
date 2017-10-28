@@ -25,17 +25,17 @@ import net.atf4j.core.VerificationError;
 /**
  * The Class AbstractCodeGeneratorTest.
  */
-public class CodeGeneratorTest extends TestResultsReporting {
+public class JavaCodeGeneratorTest extends TestResultsReporting {
 
     /**
      * The Class JavaClassGenerator.
      */
-    public class JavaClassGenerator extends AbstractCodeGenerator {
+    public class JavaCodeGenerator extends AbstractJavaClassGenerator {
 
         /**
          * Instantiates a new java class generator.
          */
-        public JavaClassGenerator() {
+        public JavaCodeGenerator() {
             super();
         }
 
@@ -45,7 +45,7 @@ public class CodeGeneratorTest extends TestResultsReporting {
          * @param templateFilename the template filename
          * @throws TemplateNotLoadedException the template not loaded exception
          */
-        public JavaClassGenerator(final String templateFilename) throws TemplateNotLoadedException {
+        public JavaCodeGenerator(final String templateFilename) throws TemplateNotLoadedException {
             super(templateFilename);
         }
     }
@@ -53,38 +53,40 @@ public class CodeGeneratorTest extends TestResultsReporting {
     /**
      * Test abstract code generator.
      *
-     * @throws VerificationError the atf 4 j exception
+     * @throws VerificationError the Atf4jException.
      */
     @Test
     public void testAbstractCodeGenerator() throws VerificationError {
-        final JavaClassGenerator javaClassGenerator = new JavaClassGenerator();
+        final JavaCodeGenerator javaClassGenerator = new JavaCodeGenerator();
         verifyNotNull(javaClassGenerator);
-        javaClassGenerator.setClassName("PojoClassOne");
-        javaClassGenerator.addField(ClassField.makeString("aString"));
-        javaClassGenerator.addField(ClassField.makeBoolean("aBoolean"));
-        javaClassGenerator.addField(ClassField.makeObject("aObject"));
+        javaClassGenerator.setClassName("JavaClassOne");
+        javaClassGenerator.addStringField("aString");
+        javaClassGenerator.addBooleanField("aBoolean");
+        javaClassGenerator.addObjectField("aObject");
 
         // javaClassGenerator.addField(ClassField.addNumber("aNumber"));
         // javaClassGenerator.addField(ClassField.addDate("aDate"));
+
         verifyNotNull(javaClassGenerator.generate());
     }
 
     /**
      * Test abstract code generator string.
      *
-     * @throws VerificationError the atf 4 j exception
+     * @throws VerificationError the Atf4jException.
      */
     @Test
     public void testAbstractCodeGeneratorString() throws VerificationError {
-        final JavaClassGenerator javaClassGenerator = new JavaClassGenerator("templates/Class.vm");
+        final JavaCodeGenerator javaClassGenerator = new JavaCodeGenerator("templates/Class.vm");
         verifyNotNull(javaClassGenerator);
-        javaClassGenerator.setClassName("PojoClassOne");
-        javaClassGenerator.addField(ClassField.makeString("aString"));
-        javaClassGenerator.addField(ClassField.makeBoolean("aBoolean"));
-        javaClassGenerator.addField(ClassField.makeObject("aObject"));
+        javaClassGenerator.setClassName("JavaClassTwo");
+        javaClassGenerator.addStringField("aString");
+        javaClassGenerator.addBooleanField("aBoolean");
+        javaClassGenerator.addObjectField("aObject");
 
         // javaClassGenerator.addField(ClassField.addNumber("aNumber"));
         // javaClassGenerator.addField(ClassField.addDate("aDate"));
+
         verifyNotNull(javaClassGenerator.generate());
     }
 
