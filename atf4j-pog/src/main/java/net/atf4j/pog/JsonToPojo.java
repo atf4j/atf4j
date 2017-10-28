@@ -25,7 +25,7 @@ import com.google.gson.JsonParser;
 /**
  * The JsonToPojo Class.
  */
-public final class JsonToPojo extends AbstractCodeGenerator {
+public final class JsonToPojo extends AbstractJavaClassGenerator {
 
     /**
      * To pretty json.

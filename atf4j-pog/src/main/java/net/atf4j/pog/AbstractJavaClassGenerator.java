@@ -41,7 +41,7 @@ import net.atf4j.core.VerificationError;
 /**
  * Abstract Code Generator class.
  */
-public abstract class AbstractCodeGenerator extends TestResultsReporting {
+public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
 
     /** Default template folder. */
     private static final String DEFAULT_CLASS_TEMPLATE = "templates/Class.vm";
@@ -55,34 +55,34 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
     /** Default target folder. */
     private static final String DEFAULT_TARGET_FOLDER = "src/generated/java";
 
-    /** The velocity engine. */
+    /** velocity engine. */
     private final VelocityEngine velocityEngine = new VelocityEngine();
 
-    /** The velocity context. */
+    /** velocity context. */
     private final VelocityContext context = new VelocityContext();
 
-    /** The fields. */
+    /** fields. */
     protected final List<ClassField> fields = new ArrayList<ClassField>();
 
-    /** The methods. */
+    /** methods. */
     protected final List<ClassMethod> methods = new ArrayList<ClassMethod>();
 
-    /** The template filename. */
+    /** template filename. */
     private String templateFilename = DEFAULT_CLASS_TEMPLATE;
 
-    /** The package name. */
+    /** package name. */
     private String packageName = DEFAULT_PACKAGE_NAME;
 
-    /** The class name. */
+    /** class name. */
     private String className = DEFAULT_CLASS_NAME;
 
-    /** The target home folder. */
+    /** target home folder. */
     private String targetHomeFolder = DEFAULT_TARGET_FOLDER;
 
     /**
      * Instantiates a new code generator.
      */
-    public AbstractCodeGenerator() {
+    protected AbstractJavaClassGenerator() {
         super();
     }
 
@@ -92,9 +92,76 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * @param templateFilename the template filename
      * @throws TemplateNotLoadedException the template not loaded
      */
-    public AbstractCodeGenerator(final String templateFilename) throws TemplateNotLoadedException {
+    protected AbstractJavaClassGenerator(final String templateFilename) throws TemplateNotLoadedException {
         super();
         setTemplateFilename(templateFilename);
+    }
+
+    /**
+     * Adds the boolean field.
+     *
+     * @param string the string
+     */
+    public AbstractJavaClassGenerator addBooleanField(String fieldName) {
+        addField(ClassField.makeBoolean(fieldName));
+        return this;
+    }
+
+    /**
+     * Adds the date field.
+     *
+     * @param fieldName the field name
+     * @return the abstract java code generator
+     */
+    public AbstractJavaClassGenerator addDateField(String fieldName) {
+        addField(ClassField.makeDate(fieldName));
+        return this;
+    }
+
+    /**
+     * Adds the object field.
+     *
+     * @param string the string
+     */
+    public AbstractJavaClassGenerator addObjectField(String fieldName) {
+        addField(ClassField.makeObject(fieldName));
+        return this;
+    }
+
+    /**
+     * Adds the string field.
+     *
+     * @param string the string
+     */
+    public AbstractJavaClassGenerator addStringField(String fieldName) {
+        addField(ClassField.makeString(fieldName));
+        return this;
+    }
+
+    /**
+     * Adds the field.
+     *
+     * @param fieldType the field type
+     * @param fieldName the field name
+     * @return the code generator
+     */
+    public AbstractJavaClassGenerator addField(final FieldType fieldType, final String fieldName) {
+        final ClassField classField = new ClassField(fieldType, fieldName);
+        fields.add(classField);
+        return this;
+    }
+
+    /**
+     * Adds the field.
+     *
+     * @param fieldType the field type
+     * @param fieldName the field name
+     * @return the code generator
+     */
+    public AbstractJavaClassGenerator addField(final String fieldType, final String fieldName) {
+        final ClassField classField = new ClassField(fieldType, fieldName);
+        fields.add(classField);
+        return this;
     }
 
     /**
@@ -104,7 +171,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * @param value the value
      * @return this for a fluent interface.
      */
-    public AbstractCodeGenerator contextBinding(final String key, final Object value) {
+    public AbstractJavaClassGenerator contextBinding(final String key, final Object value) {
         assumeNotNull(key);
         assumeTrue(key.length() > 0);
         assumeNotNull(value);
@@ -119,7 +186,8 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * @return this for a fluent interface.
      * @throws TemplateNotLoadedException the template not loaded
      */
-    public AbstractCodeGenerator setTemplateFilename(final String templateFilename) throws TemplateNotLoadedException {
+    public AbstractJavaClassGenerator setTemplateFilename(final String templateFilename)
+            throws TemplateNotLoadedException {
         this.templateFilename = templateFilename;
         return this;
     }
@@ -130,7 +198,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * @param packageName the package name
      * @return this for a fluent interface.
      */
-    public AbstractCodeGenerator setPackageName(final String packageName) {
+    public AbstractJavaClassGenerator setPackageName(final String packageName) {
         this.packageName = packageName;
         return this;
     }
@@ -141,7 +209,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * @param className the class name
      * @return this for a fluent interface.
      */
-    public AbstractCodeGenerator setClassName(final String className) {
+    public AbstractJavaClassGenerator setClassName(final String className) {
         this.className = classCase(className);
         return this;
     }
@@ -152,7 +220,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * @param targetHomeFolder the target home folder
      * @return the abstract code generator
      */
-    public AbstractCodeGenerator setTargetHomeFolder(final String targetHomeFolder) {
+    public AbstractJavaClassGenerator setTargetHomeFolder(final String targetHomeFolder) {
         this.targetHomeFolder = targetHomeFolder;
         return this;
     }
@@ -224,7 +292,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * @param classField the class field
      * @return this for a fluent interface.
      */
-    public AbstractCodeGenerator addField(final ClassField classField) {
+    public AbstractJavaClassGenerator addField(final ClassField classField) {
         fields.add(classField);
         return this;
     }
@@ -236,7 +304,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * @param methodName the method name
      * @return this for a fluent interface.
      */
-    public AbstractCodeGenerator addMethod(final String returnType, final String methodName) {
+    public AbstractJavaClassGenerator addMethod(final String returnType, final String methodName) {
         final ClassMethod classField = new ClassMethod(returnType, methodName);
         methods.add(classField);
         return this;
@@ -248,7 +316,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * @param classMethod the class method
      * @return this for a fluent interface.
      */
-    public AbstractCodeGenerator addMethod(final ClassMethod classMethod) {
+    public AbstractJavaClassGenerator addMethod(final ClassMethod classMethod) {
         methods.add(classMethod);
         return this;
     }
@@ -259,7 +327,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * @return this for a fluent interface.
      * @throws VerificationError the Atf4jException
      */
-    public AbstractCodeGenerator generate() throws VerificationError {
+    public AbstractJavaClassGenerator generate() throws VerificationError {
         assumeNotNull(templateFilename);
         assumeTrue(templateFilename.length() > 0);
         return generate(templateFilename);
@@ -272,7 +340,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * @return this for a fluent interface.
      * @throws VerificationError the Atf4jException
      */
-    public AbstractCodeGenerator generate(final String templateFilename) throws VerificationError {
+    public AbstractJavaClassGenerator generate(final String templateFilename) throws VerificationError {
         return generate(templateReader(templateFilename));
     }
 
@@ -283,7 +351,7 @@ public abstract class AbstractCodeGenerator extends TestResultsReporting {
      * @return this for a fluent interface.
      * @throws VerificationError the Atf4jException
      */
-    private AbstractCodeGenerator generate(final InputStreamReader templateReader) throws VerificationError {
+    private AbstractJavaClassGenerator generate(final InputStreamReader templateReader) throws VerificationError {
 
         initialise();
 

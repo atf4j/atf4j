@@ -20,7 +20,7 @@ package net.atf4j.pog;
 /**
  * Fluent Pojo Generator class.
  */
-public class FluentPojoGenerator extends AbstractCodeGenerator {
+public class FluentPojoGenerator extends AbstractJavaClassGenerator {
 
     /** POJO_TEMPLATE. */
     private static final String FLUENT_POJO_TEMPLATE = "templates/FluentPojoClass.vm";
@@ -32,68 +32,6 @@ public class FluentPojoGenerator extends AbstractCodeGenerator {
      */
     public FluentPojoGenerator() throws TemplateNotLoadedException {
         super(FLUENT_POJO_TEMPLATE);
-    }
-
-    /**
-     * Adds the date field.
-     *
-     * @param fieldName the field name
-     * @return the code generator
-     */
-    public AbstractCodeGenerator addDateField(final String fieldName) {
-        final ClassField classField = new ClassField(FieldType.DATE, fieldName);
-        fields.add(classField);
-        return this;
-    }
-
-    /**
-     * Adds the boolean field.
-     *
-     * @param fieldName the field name
-     * @return the code generator
-     */
-    public AbstractCodeGenerator addBooleanField(final String fieldName) {
-        final ClassField classField = new ClassField(FieldType.BOOLEAN, fieldName);
-        fields.add(classField);
-        return this;
-    }
-
-    /**
-     * Adds the string field.
-     *
-     * @param fieldName the field name
-     * @return the code generator
-     */
-    public AbstractCodeGenerator addStringField(final String fieldName) {
-        final ClassField classField = new ClassField(FieldType.STRING, fieldName);
-        fields.add(classField);
-        return this;
-    }
-
-    /**
-     * Adds the field.
-     *
-     * @param fieldType the field type
-     * @param fieldName the field name
-     * @return the code generator
-     */
-    public AbstractCodeGenerator addField(final FieldType fieldType, final String fieldName) {
-        final ClassField classField = new ClassField(fieldType, fieldName);
-        fields.add(classField);
-        return this;
-    }
-
-    /**
-     * Adds the field.
-     *
-     * @param fieldType the field type
-     * @param fieldName the field name
-     * @return the code generator
-     */
-    public AbstractCodeGenerator addField(final String fieldType, final String fieldName) {
-        final ClassField classField = new ClassField(fieldType, fieldName);
-        fields.add(classField);
-        return this;
     }
 
 }
