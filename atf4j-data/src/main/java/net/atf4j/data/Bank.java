@@ -31,10 +31,20 @@ public final class Bank extends Business {
     /** IBAN. */
     private String iban = "";
 
+    /**
+     * Factory method to create a new instance of Bank.
+     *
+     * @return new instance of Bank
+     */
     public static Bank create() {
         return new Bank();
     }
 
+    /**
+     * Random.
+     *
+     * @return the bank
+     */
     public static Bank random() {
         return create();
     }
@@ -146,6 +156,9 @@ public final class Bank extends Business {
         return this.iban;
     }
 
+    /* (non-Javadoc)
+     * @see net.atf4j.data.Business#toString()
+     */
     @Override
     public String toString() {
         return String.format("Bank [bankName=%s, bankSortCode=%s, iban=%s]",

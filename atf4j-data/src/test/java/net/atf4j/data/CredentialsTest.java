@@ -34,7 +34,7 @@ public final class CredentialsTest extends TestResultsReporting {
     @Test
     public void testCredentials() {
         final Credentials credentials = new Credentials();
-        log.debug("new Credentials() = {}", credentials);
+        this.log.debug("new Credentials() = {}", credentials);
         verifyNotNull(credentials);
     }
 
@@ -44,7 +44,7 @@ public final class CredentialsTest extends TestResultsReporting {
     @Test
     public void testCredentialsUsernamePasswordEmail() {
         final Credentials credentials = new Credentials("Username", "Password", "email@example.org");
-        log.debug("new Credentials() = {}", credentials);
+        this.log.debug("new Credentials() = {}", credentials);
         verifyNotNull(credentials);
     }
 
@@ -54,11 +54,11 @@ public final class CredentialsTest extends TestResultsReporting {
     @Test
     public void testSetGetUsername() {
         final Credentials credentials = new Credentials();
-        log.debug("new Credentials() = {}", credentials);
+        this.log.debug("new Credentials() = {}", credentials);
         verifyNotNull(credentials);
 
         credentials.setUsername("username");
-        log.debug("credentials = {}", credentials);
+        this.log.debug("credentials = {}", credentials);
         assertEquals("username", credentials.getUsername());
     }
 
@@ -68,11 +68,11 @@ public final class CredentialsTest extends TestResultsReporting {
     @Test
     public void testSetGetPassword() {
         final Credentials credentials = new Credentials();
-        log.debug("new Credentials() = {}", credentials);
+        this.log.debug("new Credentials() = {}", credentials);
         verifyNotNull(credentials);
 
         credentials.setPassword("username");
-        log.debug("credentials = {}", credentials);
+        this.log.debug("credentials = {}", credentials);
         assertEquals("username", credentials.getPassword());
     }
 
@@ -82,11 +82,11 @@ public final class CredentialsTest extends TestResultsReporting {
     @Test
     public void testSetGetEmail() {
         final Credentials credentials = new Credentials();
-        log.debug("new Credentials() = {}", credentials);
+        this.log.debug("new Credentials() = {}", credentials);
         verifyNotNull(credentials);
 
         credentials.setEmail("email@example.org");
-        log.debug("credentials = {}", credentials);
+        this.log.debug("credentials = {}", credentials);
         assertEquals("email@example.org", credentials.getEmail());
     }
 

@@ -28,7 +28,7 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class TelephoneTest extends TestResultsReporting {
 
-    /** The Constant 			_0123456789. */
+    /** The Constant _0123456789. */
     private static final String _0123456789 = "0123456789";
 
     /**

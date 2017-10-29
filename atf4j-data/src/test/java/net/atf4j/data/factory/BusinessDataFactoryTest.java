@@ -33,7 +33,7 @@ public final class BusinessDataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final Business business = BusinessDataFactory.create();
-        log.debug("BusinessDataFactory.create() = {}", business);
+        this.log.debug("BusinessDataFactory.create() = {}", business);
         verifyNotNull(business);
     }
 
@@ -43,7 +43,7 @@ public final class BusinessDataFactoryTest extends TestResultsReporting {
     @Test
     public void testRandom() {
         final Business business = BusinessDataFactory.random();
-        log.debug("BusinessDataFactory.random() = {}", business);
+        this.log.debug("BusinessDataFactory.random() = {}", business);
         verifyNotNull(business);
     }
 
@@ -53,7 +53,7 @@ public final class BusinessDataFactoryTest extends TestResultsReporting {
     @Test
     public void testGetInstance() {
         final BusinessDataFactory businessDataFactory = BusinessDataFactory.getInstance();
-        log.debug("BusinessDataFactory.getInstance() = {}", businessDataFactory);
+        this.log.debug("BusinessDataFactory.getInstance() = {}", businessDataFactory);
         verifyNotNull(businessDataFactory);
     }
 

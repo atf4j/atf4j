@@ -34,7 +34,7 @@ public final class CustomerDataFactoryTest extends TestResultsReporting {
     public void testCreate() {
         final Customer customer = CustomerDataFactory.create();
         verifyNotNull(customer);
-        log.debug("CustomerDataFactory.create() = {}", customer);
+        this.log.debug("CustomerDataFactory.create() = {}", customer);
     }
 
     /**
@@ -44,7 +44,7 @@ public final class CustomerDataFactoryTest extends TestResultsReporting {
     public void testRandom() {
         final Customer customer = CustomerDataFactory.random();
         verifyNotNull(customer);
-        log.debug("CustomerDataFactory.random() = {}", customer);
+        this.log.debug("CustomerDataFactory.random() = {}", customer);
     }
 
     /**
@@ -54,6 +54,6 @@ public final class CustomerDataFactoryTest extends TestResultsReporting {
     public void testGetInstance() {
         final CustomerDataFactory customerDataFactory = CustomerDataFactory.getInstance();
         verifyNotNull(customerDataFactory);
-        log.debug("new CustomerDataFactory() = {}", customerDataFactory);
+        this.log.debug("new CustomerDataFactory() = {}", customerDataFactory);
     }
 }

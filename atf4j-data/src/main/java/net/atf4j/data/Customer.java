@@ -29,6 +29,11 @@ public class Customer extends Business {
         super();
     }
 
+    /**
+     * Factory method to create a new instance of Customer.
+     *
+     * @return new instance of Customer
+     */
     public static Customer create() {
         return new Customer();
     }

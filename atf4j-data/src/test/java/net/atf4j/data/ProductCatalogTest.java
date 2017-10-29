@@ -32,7 +32,7 @@ public final class ProductCatalogTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final ProductCatalogue catalog = new ProductCatalogue();
-        log.debug("new ProductCatalogue() = {}", catalog);
+        this.log.debug("new ProductCatalogue() = {}", catalog);
         verifyNotNull(catalog);
     }
 
@@ -42,11 +42,11 @@ public final class ProductCatalogTest extends TestResultsReporting {
     @Test
     public void testProductCatalog() {
         final ProductCatalogue productCatalog = new ProductCatalogue();
-        log.debug("new ProductCatalogue() = {}", productCatalog);
+        this.log.debug("new ProductCatalogue() = {}", productCatalog);
         verifyNotNull(productCatalog);
         final Product product = new Product();
         productCatalog.add(product);
-        log.info("productCatalog = {}", productCatalog);
+        this.log.info("productCatalog = {}", productCatalog);
     }
 
     /**
@@ -55,7 +55,7 @@ public final class ProductCatalogTest extends TestResultsReporting {
     @Test
     public void testDebugString() {
         final ProductCatalogue productCatalog = new ProductCatalogue();
-        log.debug("productCatalog = {}", productCatalog.debugString());
+        this.log.debug("productCatalog = {}", productCatalog.debugString());
         verifyNotNull(productCatalog.debugString());
     }
 

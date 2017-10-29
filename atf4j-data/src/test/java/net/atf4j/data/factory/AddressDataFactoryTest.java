@@ -33,7 +33,7 @@ public final class AddressDataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final PostalAddress address = AddressDataFactory.create();
-        log.debug("AddressDataFactory.create() = {}", address);
+        this.log.debug("AddressDataFactory.create() = {}", address);
         verifyNotNull(address);
     }
 
@@ -43,7 +43,7 @@ public final class AddressDataFactoryTest extends TestResultsReporting {
     @Test
     public void testRandom() {
         final PostalAddress address = AddressDataFactory.random();
-        log.debug("AddressDataFactory.random() = {}", address);
+        this.log.debug("AddressDataFactory.random() = {}", address);
         verifyNotNull(address);
     }
 
@@ -53,7 +53,7 @@ public final class AddressDataFactoryTest extends TestResultsReporting {
     @Test
     public void testGetInstance() {
         final AddressDataFactory addressFactory = AddressDataFactory.getInstance();
-        log.debug("AddressDataFactory.getInstance() = {}", addressFactory);
+        this.log.debug("AddressDataFactory.getInstance() = {}", addressFactory);
         verifyNotNull(addressFactory);
     }
 

@@ -66,7 +66,7 @@ public final class NinoTest extends TestResultsReporting {
     @Test
     public void testValidNino() {
         final Nino nino = new Nino(VALID);
-        log.debug("{}", nino);
+        this.log.debug("{}", nino);
         verifyNotNull(nino);
         assertEquals(VALID, nino.toString());
     }

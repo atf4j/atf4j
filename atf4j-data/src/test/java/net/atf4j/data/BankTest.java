@@ -35,7 +35,7 @@ public final class BankTest extends TestResultsReporting {
     public void testCreate() {
         final Bank bank = Bank.create();
         verifyNotNull(bank);
-        log.debug("Bank.create() = {}", bank);
+        this.log.debug("Bank.create() = {}", bank);
     }
 
     /**
@@ -45,7 +45,7 @@ public final class BankTest extends TestResultsReporting {
     public void testRandom() {
         final Bank bank = Bank.random();
         verifyNotNull(bank);
-        log.debug("Bank.random() = {}", bank);
+        this.log.debug("Bank.random() = {}", bank);
     }
 
     /**
@@ -55,7 +55,7 @@ public final class BankTest extends TestResultsReporting {
     public void testDefaultConstructor() {
         final Bank bank = new Bank();
         verifyNotNull(bank);
-        log.debug("new Bank() = {}", bank);
+        this.log.debug("new Bank() = {}", bank);
     }
 
     /**
@@ -65,7 +65,7 @@ public final class BankTest extends TestResultsReporting {
     public void testBank() {
         final Bank bank = new Bank("");
         verifyNotNull(bank);
-        log.debug("new Bank('') = {}", bank);
+        this.log.debug("new Bank('') = {}", bank);
     }
 
     /**
@@ -86,7 +86,7 @@ public final class BankTest extends TestResultsReporting {
     public void testDebugString() {
         final String string = new Bank().debugString();
         verifyNotNull(string);
-        log.debug("Bank().debugString() = {}", string);
+        this.log.debug("Bank().debugString() = {}", string);
     }
 
     /**
@@ -96,6 +96,6 @@ public final class BankTest extends TestResultsReporting {
     public void testToString() {
         final String string = new Bank().toString();
         verifyNotNull(string);
-        log.debug("Bank().toString() = {}", string);
+        this.log.debug("Bank().toString() = {}", string);
     }
 }

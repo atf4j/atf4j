@@ -35,7 +35,7 @@ public final class JmsDataTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final MockJmsData jmsData = new MockJmsData();
-        log.debug("new JmsData() = {}", jmsData);
+        this.log.debug("new JmsData() = {}", jmsData);
         verifyNotNull(jmsData);
     }
 
@@ -45,7 +45,7 @@ public final class JmsDataTest extends TestResultsReporting {
     @Test
     public void testSetUp() {
         final MockJmsData jmsData = new MockJmsData();
-        log.debug("new JmsData() = {}", jmsData);
+        this.log.debug("new JmsData() = {}", jmsData);
         verifyNotNull(jmsData);
         assertTrue(jmsData.setUp());
     }
@@ -56,7 +56,7 @@ public final class JmsDataTest extends TestResultsReporting {
     @Test
     public void testReset() {
         final MockJmsData jmsData = new MockJmsData();
-        log.debug("new JmsData() = {}", jmsData);
+        this.log.debug("new JmsData() = {}", jmsData);
         verifyNotNull(jmsData);
         assertTrue(jmsData.reset());
     }
@@ -67,7 +67,7 @@ public final class JmsDataTest extends TestResultsReporting {
     @Test
     public void testTearDown() {
         final MockJmsData jmsData = new MockJmsData();
-        log.debug("new JmsData() = {}", jmsData);
+        this.log.debug("new JmsData() = {}", jmsData);
         verifyNotNull(jmsData);
         assertTrue(jmsData.tearDown());
     }
