@@ -15,36 +15,31 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.fdd;
+package net.atf4j.bdd;
 
-import static org.junit.Assert.assertNotNull;
-
-import org.junit.Test;
-
-import net.atf4j.core.TestResultsReporting;
+import net.atf4j.core.AbstractConfig;
 
 /**
- * Unit Test class for Behaviour Model.
+ * Automation Configuration Class.
  */
-public class BehaviourModelTest extends TestResultsReporting {
+public final class AutomationConfig extends AbstractConfig {
 
     /**
-     * Behaviour Model class.
+     * Instantiates a new automation config.
      */
-    public class BehaviourModel extends AbstractBehaviourModel {
-        public BehaviourModel() {
-            super();
-        }
+    public AutomationConfig() {
+        super();
     }
 
     /**
-     * Test default constructor.
+     * Instantiates a new automation config.
+     *
+     * @param propertyFilename the property filename
+     * @throws ConfigurationNotLoadedException the configuration not loaded
+     *             exception
      */
-    @Test
-    public void testDefaultConstructor() {
-        final BehaviourModel behaviour = new BehaviourModel();
-        log.debug("behaviour = {}", behaviour);
-        verifyNotNull(behaviour);
+    public AutomationConfig(String propertyFilename) throws ConfigurationNotLoadedException {
+        super(propertyFilename);
     }
 
 }

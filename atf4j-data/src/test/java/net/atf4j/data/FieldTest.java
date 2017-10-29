@@ -24,12 +24,12 @@ import org.junit.Test;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * A Unit test class for Field objects.
+ * Unit test for Field class.
  */
 public final class FieldTest extends TestResultsReporting {
 
     /**
-     * Test method for void.
+     * Unit tests for the defaultConstructor() method of Field object.
      */
     @Test
     public void testDefaultConstructor() {
@@ -39,7 +39,7 @@ public final class FieldTest extends TestResultsReporting {
     }
 
     /**
-     * Test field string.
+     * Unit tests for the fieldString() method of Field object.
      */
     @Test
     public void testFieldString() {
@@ -49,10 +49,10 @@ public final class FieldTest extends TestResultsReporting {
     }
 
     /**
-     * Test method for Setting & Getting key.
+     * Unit tests for the setGetFieldKey() method of Field object.
      */
     @Test
-    public void testFieldSetGetKey() {
+    public void testSetGetFieldKey() {
         final Field<Object> field = new Field<Object>();
         verifyNotNull(field);
         assertEquals(FieldStatus.PRISTINE, field.getStatus());
@@ -62,10 +62,10 @@ public final class FieldTest extends TestResultsReporting {
     }
 
     /**
-     * Test method for Setting & Getting Value.
+     * Unit tests for the setGetFieldValue() method of Field object.
      */
     @Test
-    public void testFieldSetGetValue() {
+    public void testSetGetFieldValue() {
         final Field<Object> field = new Field<Object>();
         verifyNotNull(field);
         assertEquals(FieldStatus.PRISTINE, field.getStatus());
@@ -75,7 +75,7 @@ public final class FieldTest extends TestResultsReporting {
     }
 
     /**
-     * Test method for void.
+     * Unit Test method for void.
      */
     @Test
     public void testFieldSetGetStatus() {

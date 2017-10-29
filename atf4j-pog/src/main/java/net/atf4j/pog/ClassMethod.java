@@ -30,8 +30,14 @@ public final class ClassMethod extends TestResultsReporting {
 
     /** Code Template for method. */
     private static final String METHOD_CODE = "public %s %s() { return new %s(); }";
+    
+    /** SET_CODE constant. */
     private static final String SET_CODE = "public %s set%s(%s %s) { this.%s = %s; return this.%s; }";
+    
+    /** GET_CODE constant. */
     private static final String GET_CODE = "public %s get%s() { return this.%s; }";
+    
+    /** CREATE_CODE constant. */
     private static final String CREATE_CODE = "public %s create() { return new %s(); }";
 
     /** access modifiers. */
@@ -117,7 +123,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the class method
      */
     public ClassMethod setType(final String type) {
-        returnType = type;
+        this.returnType = type;
         return this;
     }
 
@@ -128,7 +134,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the class method
      */
     public ClassMethod setName(final String name) {
-        methodName = methodCase(name);
+        this.methodName = methodCase(name);
         return this;
     }
 
@@ -139,7 +145,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return true, if successful, otherwise false.
      */
     public boolean add(final ClassField classField) {
-        return parameters.add(classField);
+        return this.parameters.add(classField);
     }
 
     /**
@@ -148,7 +154,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the access
      */
     public String getAccess() {
-        return access;
+        return this.access;
     }
 
     /**
@@ -157,7 +163,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the type
      */
     public String getType() {
-        return returnType;
+        return this.returnType;
     }
 
     /**
@@ -166,7 +172,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the name
      */
     public String getName() {
-        return methodName;
+        return this.methodName;
     }
 
     /**
@@ -187,10 +193,10 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the string
      */
     public String toCode() {
-        if (parameters.isEmpty()) {
-            return String.format(CREATE_CODE, returnType, methodName, returnType);
+        if (this.parameters.isEmpty()) {
+            return String.format(CREATE_CODE, this.returnType, this.methodName, this.returnType);
         } else {
-            return String.format(CREATE_CODE, returnType, methodName, returnType);
+            return String.format(CREATE_CODE, this.returnType, this.methodName, this.returnType);
         }
     }
 
@@ -201,9 +207,9 @@ public final class ClassMethod extends TestResultsReporting {
      */
     public String debugString() {
         return String.format("ClassMethod [access=%s, returnType=%s, methodName=%s]",
-                access,
-                returnType,
-                methodName);
+                this.access,
+                this.returnType,
+                this.methodName);
     }
 
     /*
@@ -213,7 +219,7 @@ public final class ClassMethod extends TestResultsReporting {
      */
     @Override
     public String toString() {
-        if (log.isDebugEnabled()) {
+        if (this.log.isDebugEnabled()) {
             return debugString();
         } else {
             return toCode();

@@ -17,8 +17,6 @@
 
 package net.atf4j.data.factory;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Ignore;
 import org.junit.Test;
 

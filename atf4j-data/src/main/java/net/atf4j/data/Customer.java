@@ -29,4 +29,17 @@ public class Customer extends Business {
         super();
     }
 
+    public static Customer create() {
+        return new Customer();
+    }
+
+    /**
+     * Random.
+     *
+     * @return the business
+     */
+    public static Customer random() {
+        return new Customer();
+    }
+
 }

@@ -15,23 +15,30 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.fdd;
+package net.atf4j.bdd;
 
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Ignore;
+import org.junit.Test;
+
+import net.atf4j.bdd.AutomationConfig;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * Abstract Behaviour Model Class.
+ * The AutomationConfigTest Class.
  */
-public abstract class AbstractBehaviourModel extends TestResultsReporting {
-
-    /** The expected data. */
-    protected AbstractExpectedData expectedData;
+public class AutomationConfigTest extends TestResultsReporting {
 
     /**
-     * Instantiates a new abstract behaviour model.
+     * Test default constructor.
      */
-    protected AbstractBehaviourModel() {
-        super();
+    @Ignore
+    @Test
+    public void testDefaultConstructor() {
+        final AutomationConfig config = new AutomationConfig();
+        log.debug("config = {}", config);
+        verifyNotNull(config);
     }
 
 }

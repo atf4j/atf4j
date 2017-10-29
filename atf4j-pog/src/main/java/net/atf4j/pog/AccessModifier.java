@@ -45,7 +45,7 @@ public enum AccessModifier {
      * @param asText the as text
      */
     private AccessModifier(final String asText) {
-        value = asText;
+        this.value = asText;
     }
 
     /**
@@ -79,6 +79,6 @@ public enum AccessModifier {
      */
     @Override
     public String toString() {
-        return value;
+        return this.value;
     }
 }

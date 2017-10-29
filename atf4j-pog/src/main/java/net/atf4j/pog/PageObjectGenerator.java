@@ -74,8 +74,8 @@ public class PageObjectGenerator extends AbstractJavaClassGenerator {
      * @return the page object generator
      */
     public PageObjectGenerator target(final URL targetUrl) {
-        pageUrl = targetUrl.toString();
-        super.contextBinding("pageUrl", pageUrl);
+        this.pageUrl = targetUrl.toString();
+        super.contextBinding("pageUrl", this.pageUrl);
         return this;
     }
 
@@ -112,8 +112,8 @@ public class PageObjectGenerator extends AbstractJavaClassGenerator {
      */
     public PageObjectGenerator add(final WebElementField pageWebElement) {
         verifyNotNull(pageWebElement);
-        verifyNotNull(pageObjectData);
-        pageObjectData.add(pageWebElement);
+        verifyNotNull(this.pageObjectData);
+        this.pageObjectData.add(pageWebElement);
         return this;
     }
 
@@ -125,8 +125,8 @@ public class PageObjectGenerator extends AbstractJavaClassGenerator {
      */
     public PageObjectGenerator addNavigation(final WebElementField pageWebElement) {
         verifyNotNull(pageWebElement);
-        verifyNotNull(pageObjectData);
-        pageObjectData.addNav(pageWebElement);
+        verifyNotNull(this.pageObjectData);
+        this.pageObjectData.addNav(pageWebElement);
         return this;
     }
 
@@ -138,8 +138,8 @@ public class PageObjectGenerator extends AbstractJavaClassGenerator {
      */
     public PageObjectGenerator addContent(final WebElementField pageWebElement) {
         verifyNotNull(pageWebElement);
-        verifyNotNull(pageObjectData);
-        pageObjectData.addContent(pageWebElement);
+        verifyNotNull(this.pageObjectData);
+        this.pageObjectData.addContent(pageWebElement);
         return this;
     }
 
@@ -151,8 +151,8 @@ public class PageObjectGenerator extends AbstractJavaClassGenerator {
      */
     public PageObjectGenerator addInput(final WebElementField pageWebElement) {
         verifyNotNull(pageWebElement);
-        verifyNotNull(pageObjectData);
-        pageObjectData.addInput(pageWebElement);
+        verifyNotNull(this.pageObjectData);
+        this.pageObjectData.addInput(pageWebElement);
         return this;
     }
 
@@ -162,9 +162,7 @@ public class PageObjectGenerator extends AbstractJavaClassGenerator {
      * @return the page object generator
      */
     public PageObjectGenerator survey() {
-        log.info("survey");
-        log.info("this.pageUrl={}", pageUrl);
-        return survey(pageUrl);
+        return survey(this.pageUrl);
     }
 
     /**
@@ -174,21 +172,21 @@ public class PageObjectGenerator extends AbstractJavaClassGenerator {
      * @return the page object generator
      */
     public PageObjectGenerator survey(final String pageUrl) {
-        log.info("survey(pageUrl={})", pageUrl);
+        this.log.info("survey(pageUrl={})", pageUrl);
         addPageTitle("Landing Page");
         setClassName("LandingPage");
         return this;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see net.atf4j.pog.CodeGenerator#toString()
+    /* (non-Javadoc)
+     * @see net.atf4j.pog.AbstractJavaClassGenerator#toString()
      */
     @Override
     public String toString() {
-        verifyNotNull(pageObjectData);
-        return pageObjectData.toString();
+        return String.format("%s [pageUrl=%s, pageObjectData=%s, ]",
+                this.getClass().getSimpleName(),
+                this.pageUrl,
+                this.pageObjectData);
     }
 
 }

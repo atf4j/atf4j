@@ -15,20 +15,37 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.fdd;
+package net.atf4j.bdd;
 
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Test;
+
+import net.atf4j.bdd.AbstractBehaviourModel;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * Abstract Strategy class.
+ * Unit Test class for Behaviour Model.
  */
-public abstract class AbstractStrategy extends TestResultsReporting {
+public class BehaviourModelTest extends TestResultsReporting {
 
     /**
-     * Instantiates a new abstract strategy.
+     * Behaviour Model class.
      */
-    protected AbstractStrategy() {
-        super();
+    public class BehaviourModel extends AbstractBehaviourModel {
+        public BehaviourModel() {
+            super();
+        }
+    }
+
+    /**
+     * Test default constructor.
+     */
+    @Test
+    public void testDefaultConstructor() {
+        final BehaviourModel behaviour = new BehaviourModel();
+        log.debug("behaviour = {}", behaviour);
+        verifyNotNull(behaviour);
     }
 
 }

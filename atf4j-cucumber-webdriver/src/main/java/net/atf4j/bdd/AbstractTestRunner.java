@@ -15,7 +15,7 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.fdd;
+package net.atf4j.bdd;
 
 import org.junit.After;
 import org.junit.Before;

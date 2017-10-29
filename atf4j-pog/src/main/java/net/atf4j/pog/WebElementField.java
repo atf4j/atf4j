@@ -75,7 +75,7 @@ public class WebElementField extends ClassField {
          * @param asText the as text
          */
         Strategy(final String asText) {
-            value = asText;
+            this.value = asText;
         }
 
         /**
@@ -109,7 +109,7 @@ public class WebElementField extends ClassField {
          */
         @Override
         public String toString() {
-            return value;
+            return this.value;
         }
     }
 
@@ -176,7 +176,7 @@ public class WebElementField extends ClassField {
      * @return the locator type
      */
     public Strategy getLocatorType() {
-        return strategy;
+        return this.strategy;
     }
 
     /**
@@ -185,7 +185,7 @@ public class WebElementField extends ClassField {
      * @return the locator
      */
     public String getLocator() {
-        return locator;
+        return this.locator;
     }
 
     /*
@@ -195,7 +195,7 @@ public class WebElementField extends ClassField {
      */
     @Override
     public String toCode() {
-        final String locatorLine = String.format(FIND_BY_FORMAT, strategy, locator);
+        final String locatorLine = String.format(FIND_BY_FORMAT, this.strategy, this.locator);
         return String.format(FULL_FORMAT, locatorLine, super.toCode());
     }
 
@@ -208,8 +208,8 @@ public class WebElementField extends ClassField {
     public String debugString() {
         return String.format("%s [strategy=%s, locator=%s]",
                 this.getClass().getSimpleName(),
-                strategy,
-                locator);
+                this.strategy,
+                this.locator);
     }
 
     /*
@@ -219,8 +219,8 @@ public class WebElementField extends ClassField {
      */
     @Override
     public String toString() {
-        if (log.isDebugEnabled()) {
-            log.debug(debugString());
+        if (this.log.isDebugEnabled()) {
+            this.log.debug(debugString());
         }
         return toCode();
     }

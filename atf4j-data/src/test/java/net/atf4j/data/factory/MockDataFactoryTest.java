@@ -17,8 +17,6 @@
 
 package net.atf4j.data.factory;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
@@ -46,8 +44,8 @@ public final class MockDataFactoryTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final MockDataFactory testDataFactory = new MockDataFactory();
-        log.debug("new MockDataFactory() = {}", testDataFactory);
         verifyNotNull(testDataFactory);
+        log.debug("new MockDataFactory() = {}", testDataFactory);
     }
 
     /**
@@ -55,11 +53,7 @@ public final class MockDataFactoryTest extends TestResultsReporting {
      */
     @Test
     public void testStaticDataForTag() {
-        final MockDataFactory testDataFactory = new MockDataFactory();
-        log.debug("new MockDataFactory() = {}", testDataFactory);
-        verifyNotNull(testDataFactory);
-
-        final String dataForTag = testDataFactory.dataForTag("#Data");
+        final String dataForTag = new MockDataFactory().dataForTag("#Data");
         log.debug("dataFactory.dataForTag('#Data') = {}", dataForTag);
     }
 

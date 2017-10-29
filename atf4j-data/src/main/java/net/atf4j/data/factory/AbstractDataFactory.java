@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -50,14 +51,6 @@ public abstract class AbstractDataFactory extends TestResultsReporting {
      */
     protected AbstractDataFactory() {
         super();
-        initialise();
-    }
-
-    /**
-     * Initialise.
-     */
-    private void initialise() {
-        lines = load(filename());
     }
 
     /**
@@ -168,6 +161,23 @@ public abstract class AbstractDataFactory extends TestResultsReporting {
             }
         }
         return null;
+    }
+
+    /**
+     * To log.
+     */
+    public void toLog() {
+        log.info(toString());
+    }
+
+    /**
+     * To string.
+     *
+     * @return the string
+     */
+    @Override
+    public String toString() {
+        return String.format("%s [lines=%s]", this.getClass().getSimpleName(), Arrays.toString(lines));
     }
 
     /**

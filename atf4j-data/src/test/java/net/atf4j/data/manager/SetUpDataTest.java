@@ -21,10 +21,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.data.manager.AbstractSetUpData;
-import net.atf4j.data.manager.MockJdbcData;
-import net.atf4j.data.manager.MockJmsData;
-import net.atf4j.data.manager.MockRestfulData;
 
 /**
  * A Unit test class for SetUpData objects.

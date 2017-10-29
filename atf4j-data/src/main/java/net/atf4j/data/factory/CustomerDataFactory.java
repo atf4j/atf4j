@@ -24,9 +24,6 @@ import net.atf4j.data.Customer;
  */
 public final class CustomerDataFactory extends AbstractDataFactory {
 
-    /** The Constant CUSTOMER_DATA_TXT. */
-    private static final String CUSTOMER_DATA_TXT = "consumerData.txt";
-
     /** The customer data factory. */
     private static CustomerDataFactory customerDataFactory = null;
 
@@ -47,14 +44,6 @@ public final class CustomerDataFactory extends AbstractDataFactory {
      */
     private CustomerDataFactory() {
         super();
-        initialise();
-    }
-
-    /**
-     * Initialise.
-     */
-    protected void initialise() {
-        this.lines = load(CUSTOMER_DATA_TXT);
     }
 
     /**
@@ -63,7 +52,7 @@ public final class CustomerDataFactory extends AbstractDataFactory {
      * @return the customer
      */
     public static Customer create() {
-        return new Customer();
+        return Customer.create();
     }
 
     /**
@@ -72,7 +61,7 @@ public final class CustomerDataFactory extends AbstractDataFactory {
      * @return the string
      */
     public static Customer random() {
-        return new Customer();
+        return Customer.random();
     }
 
 }

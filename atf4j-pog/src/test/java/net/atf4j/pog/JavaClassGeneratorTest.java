@@ -60,6 +60,9 @@ public final class JavaClassGeneratorTest extends TestResultsReporting {
         javaClassGenerator.generate();
     }
 
+    /**
+     * Unit tests for the javaClassGeneratorTestString() method of JavaClassGenerator object.
+     */
     @Test
     public void testJavaClassGeneratorTestString() {
         final JavaClassGenerator javaClassGenerator = new JavaClassGenerator();

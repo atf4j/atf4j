@@ -17,8 +17,6 @@
 
 package net.atf4j.data.factory;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
@@ -35,8 +33,8 @@ public final class CustomerDataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final Customer customer = CustomerDataFactory.create();
-        log.debug("CustomerDataFactory.create() = {}", customer);
         verifyNotNull(customer);
+        log.debug("CustomerDataFactory.create() = {}", customer);
     }
 
     /**
@@ -45,8 +43,8 @@ public final class CustomerDataFactoryTest extends TestResultsReporting {
     @Test
     public void testRandom() {
         final Customer customer = CustomerDataFactory.random();
-        log.debug("CustomerDataFactory.random() = {}", customer);
         verifyNotNull(customer);
+        log.debug("CustomerDataFactory.random() = {}", customer);
     }
 
     /**
@@ -55,7 +53,7 @@ public final class CustomerDataFactoryTest extends TestResultsReporting {
     @Test
     public void testGetInstance() {
         final CustomerDataFactory customerDataFactory = CustomerDataFactory.getInstance();
-        log.debug("new CustomerDataFactory() = {}", customerDataFactory);
         verifyNotNull(customerDataFactory);
+        log.debug("new CustomerDataFactory() = {}", customerDataFactory);
     }
 }

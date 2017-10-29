@@ -22,25 +22,15 @@ package net.atf4j.data;
  */
 public class Business extends Name {
 
-    /** The address. */
+    /** business postal address. */
     private PostalAddress address = new PostalAddress();
 
-    /**
-     * Create new INSTANCE of create.
-     *
-     * @return the business
-     */
     public static Business create() {
         return new Business();
     }
 
-    /**
-     * Random.
-     *
-     * @return the business
-     */
     public static Business random() {
-        return create();
+        return new Business();
     }
 
     /**
@@ -103,7 +93,7 @@ public class Business extends Name {
     public void setAddressRow(final int lineNo, final String addressLine) {
         verifyNotNull(lineNo);
         verifyNotNull(addressLine);
-        this.address.setAddressRow(lineNo, addressLine);
+        address.setAddressRow(lineNo, addressLine);
     }
 
     /**
@@ -114,7 +104,7 @@ public class Business extends Name {
      */
     public PostalAddress setPostcode(final Postcode postcode) {
         verifyNotNull(postcode);
-        return this.address.setPostcode(postcode);
+        return address.setPostcode(postcode);
     }
 
     /**
@@ -123,7 +113,7 @@ public class Business extends Name {
      * @return the address
      */
     public PostalAddress getAddress() {
-        return this.address;
+        return address;
     }
 
     /*
@@ -133,7 +123,7 @@ public class Business extends Name {
      */
     @Override
     public String toString() {
-        return String.format("Business [address=%s]", this.address);
+        return String.format("Business [address=%s]", address);
     }
 
 }

@@ -108,7 +108,7 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
      * @return this for a fluent interface.
      */
     protected AbstractTemplateEngine prototype(final String templateFilename) {
-        log.info(toCode(templateFilename));
+        this.log.info(toCode(templateFilename));
         return this;
     }
 
@@ -119,11 +119,11 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
      * @return the code as a string.
      */
     protected String toCode(final String templateFilename) {
-        log.info("templateFilename = {}", templateFilename);
+        this.log.info("templateFilename = {}", templateFilename);
 
         final VelocityEngine velocityEngine = new VelocityEngine();
         velocityEngine.init();
-        velocityEngine.setProperty("file.resource.loader.path", basePath);
+        velocityEngine.setProperty("file.resource.loader.path", this.basePath);
 
         final Template template = velocityEngine.getTemplate(templateFilename);
         final VelocityContext context = new VelocityContext();
@@ -141,7 +141,7 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
      * @return the base path
      */
     public String getBasePath() {
-        return basePath;
+        return this.basePath;
     }
 
     /**
@@ -150,7 +150,7 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
      * @return the template filename
      */
     public String getTemplateFilename() {
-        return templateFilename;
+        return this.templateFilename;
     }
 
     /**
@@ -170,8 +170,8 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
     protected String debugString() {
         return String.format("%s [baseFolder=%s, templateFilename=%s]",
                 this.getClass().getSimpleName(),
-                basePath,
-                templateFilename);
+                this.basePath,
+                this.templateFilename);
     }
 
     /**
@@ -190,7 +190,7 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
      */
     @Override
     public String toString() {
-        if (log.isDebugEnabled()) {
+        if (this.log.isDebugEnabled()) {
             return debugString();
         } else {
             return toCode();
