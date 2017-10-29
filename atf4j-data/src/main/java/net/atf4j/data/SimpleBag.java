@@ -65,7 +65,7 @@ public class SimpleBag extends TestResultsReporting {
     public SimpleBag fill(final String[] values) {
         this.values = Arrays.copyOf(values, values.length);
         for (final String value : values) {
-            bag.add(value);
+            this.bag.add(value);
         }
         return this;
     }
@@ -77,7 +77,7 @@ public class SimpleBag extends TestResultsReporting {
      * @return the simple bag
      */
     public SimpleBag put(final String item) {
-        bag.add(item);
+        this.bag.add(item);
         return this;
     }
 
@@ -87,7 +87,7 @@ public class SimpleBag extends TestResultsReporting {
      * @return the string
      */
     public String pick() {
-        return bag.remove(random.nextInt(bag.size()));
+        return this.bag.remove(this.random.nextInt(this.bag.size()));
     }
 
     /**
@@ -105,7 +105,7 @@ public class SimpleBag extends TestResultsReporting {
      * @return the simple bag
      */
     public SimpleBag reset() {
-        return fill(values);
+        return fill(this.values);
     }
 
     /**
@@ -115,7 +115,7 @@ public class SimpleBag extends TestResultsReporting {
      * @see java.util.List#clear()
      */
     public SimpleBag clear() {
-        bag.clear();
+        this.bag.clear();
         return this;
     }
 
@@ -125,7 +125,7 @@ public class SimpleBag extends TestResultsReporting {
      * @return the int
      */
     public int count() {
-        return bag.size();
+        return this.bag.size();
     }
 
     /**
@@ -135,7 +135,7 @@ public class SimpleBag extends TestResultsReporting {
      * @see java.util.List#isEmpty()
      */
     public boolean isEmpty() {
-        return bag.isEmpty();
+        return this.bag.isEmpty();
     }
 
     /**
@@ -144,7 +144,7 @@ public class SimpleBag extends TestResultsReporting {
      * @return true, if successful, otherwise false.
      */
     public boolean occupied() {
-        return !bag.isEmpty();
+        return !this.bag.isEmpty();
     }
 
     /*
@@ -163,7 +163,7 @@ public class SimpleBag extends TestResultsReporting {
      * @return the string
      */
     public String debugString() {
-        return String.format("%s [values=%s]", this.getClass().getSimpleName(), Arrays.toString(values));
+        return String.format("%s [values=%s]", this.getClass().getSimpleName(), Arrays.toString(this.values));
     }
 
 }

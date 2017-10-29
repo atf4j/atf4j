@@ -54,7 +54,7 @@ public final class BankDataFactory extends AbstractDataFactory {
      * Initialise.
      */
     protected void initialise() {
-        lines = load(BANK_DATA_CSV);
+        this.lines = load(BANK_DATA_CSV);
     }
 
     /**

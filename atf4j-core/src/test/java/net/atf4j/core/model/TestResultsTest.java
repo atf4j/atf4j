@@ -17,14 +17,12 @@
 
 package net.atf4j.core.model;
 
-import static org.junit.Assert.assertNotNull;
-
 import java.util.Collection;
 
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
 import net.atf4j.core.TestResult;
+import net.atf4j.core.TestResultsReporting;
 
 /**
  * A UnitTest for TestResults objects.

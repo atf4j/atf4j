@@ -29,7 +29,7 @@ public class MessageWalkerExample {
     /**
      * Message Walker class that knows the message files location.
      */
-    public final class MessageWalker extends AbstractWalker {
+    public final class MessageWalker extends AbstractFolderWalker {
 
         /**
          * Instantiates a new message walker with folder name.

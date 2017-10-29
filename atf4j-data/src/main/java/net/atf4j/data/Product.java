@@ -104,7 +104,7 @@ public class Product extends TestResultsReporting {
      * @return the id
      */
     public String getId() {
-        return id;
+        return this.id;
     }
 
     /**
@@ -113,7 +113,7 @@ public class Product extends TestResultsReporting {
      * @return the name
      */
     public String getName() {
-        return name;
+        return this.name;
     }
 
     /**
@@ -122,7 +122,7 @@ public class Product extends TestResultsReporting {
      * @return the details
      */
     public String getDetails() {
-        return details;
+        return this.details;
     }
 
     /*
@@ -132,7 +132,7 @@ public class Product extends TestResultsReporting {
      */
     @Override
     public String toString() {
-        return String.format("Product [id=%s, name=%s, details=%s]", id, name, details);
+        return String.format("Product [id=%s, name=%s, details=%s]", this.id, this.name, this.details);
     }
 
 }

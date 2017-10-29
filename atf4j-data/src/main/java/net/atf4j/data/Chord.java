@@ -45,7 +45,7 @@ public class Chord extends TestResultsReporting {
      *
      * @param stem the new stem as any CharSequence.
      */
-    public Chord(CharSequence stem) {
+    public Chord(final CharSequence stem) {
         super();
         this.stem = stem;
     }
@@ -67,7 +67,7 @@ public class Chord extends TestResultsReporting {
      * @return the stem as a CharSequence.
      */
     public CharSequence getStem() {
-        return stem;
+        return this.stem;
     }
 
     /**
@@ -77,7 +77,7 @@ public class Chord extends TestResultsReporting {
      * @return true, if successful, otherwise false.
      */
     public Chord add(final Chord e) {
-        chords.add(e);
+        this.chords.add(e);
         return this;
     }
 
@@ -87,7 +87,7 @@ public class Chord extends TestResultsReporting {
      * @return the string
      */
     public String debugString() {
-        return String.format("Chord [stem=%s, children=%s]", stem, chords);
+        return String.format("Chord [stem=%s, children=%s]", this.stem, this.chords);
     }
 
     /*
@@ -97,7 +97,7 @@ public class Chord extends TestResultsReporting {
      */
     @Override
     public String toString() {
-        return String.format("%s %s", stem, chords);
+        return String.format("%s %s", this.stem, this.chords);
     }
 
 }

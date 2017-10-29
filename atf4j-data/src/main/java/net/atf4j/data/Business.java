@@ -17,8 +17,6 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertNotNull;
-
 /**
  * Business data.
  */
@@ -105,7 +103,7 @@ public class Business extends Name {
     public void setAddressRow(final int lineNo, final String addressLine) {
         verifyNotNull(lineNo);
         verifyNotNull(addressLine);
-        address.setAddressRow(lineNo, addressLine);
+        this.address.setAddressRow(lineNo, addressLine);
     }
 
     /**
@@ -116,7 +114,7 @@ public class Business extends Name {
      */
     public PostalAddress setPostcode(final Postcode postcode) {
         verifyNotNull(postcode);
-        return address.setPostcode(postcode);
+        return this.address.setPostcode(postcode);
     }
 
     /**
@@ -125,7 +123,7 @@ public class Business extends Name {
      * @return the address
      */
     public PostalAddress getAddress() {
-        return address;
+        return this.address;
     }
 
     /*
@@ -135,7 +133,7 @@ public class Business extends Name {
      */
     @Override
     public String toString() {
-        return String.format("Business [address=%s]", address);
+        return String.format("Business [address=%s]", this.address);
     }
 
 }

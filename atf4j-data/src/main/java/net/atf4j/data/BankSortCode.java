@@ -82,7 +82,7 @@ public final class BankSortCode extends TestResultsReporting {
      */
     public BankSortCode setBankSortCode(final String bankSortCode) {
         verifyNotNull(bankSortCode);
-        sortcode = bankSortCode;
+        this.sortcode = bankSortCode;
         return this;
     }
 
@@ -92,7 +92,7 @@ public final class BankSortCode extends TestResultsReporting {
      * @return the bankSortCode as String.
      */
     public String getBankSortCode() {
-        return sortcode;
+        return this.sortcode;
     }
 
     /**
@@ -113,7 +113,7 @@ public final class BankSortCode extends TestResultsReporting {
      * @return the string
      */
     public String debugString() {
-        return String.format("BankSortCode [bankName=%s, sortcode=%s]", bankName, sortcode);
+        return String.format("BankSortCode [bankName=%s, sortcode=%s]", this.bankName, this.sortcode);
     }
 
     /*
@@ -123,7 +123,7 @@ public final class BankSortCode extends TestResultsReporting {
      */
     @Override
     public String toString() {
-        return sortcode;
+        return this.sortcode;
     }
 
 }

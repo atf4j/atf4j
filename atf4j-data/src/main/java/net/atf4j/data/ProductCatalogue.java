@@ -62,7 +62,7 @@ public class ProductCatalogue extends TestResultsReporting {
      * @return true, if successful, otherwise false.
      */
     public boolean add(final Product e) {
-        return catalogue.add(e);
+        return this.catalogue.add(e);
     }
 
     /**
@@ -71,7 +71,7 @@ public class ProductCatalogue extends TestResultsReporting {
      * @return the productList
      */
     public Collection<Product> getProductList() {
-        return catalogue;
+        return this.catalogue;
     }
 
     /**
@@ -81,7 +81,7 @@ public class ProductCatalogue extends TestResultsReporting {
      */
     public String debugString() {
         final String className = this.getClass().getSimpleName();
-        return String.format("%s [catalog=%s]", className, catalogue);
+        return String.format("%s [catalog=%s]", className, this.catalogue);
     }
 
     /*

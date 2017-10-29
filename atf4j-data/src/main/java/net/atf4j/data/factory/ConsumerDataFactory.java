@@ -24,9 +24,9 @@ import net.atf4j.data.Consumer;
  */
 public final class ConsumerDataFactory extends AbstractDataFactory {
 
-    /** The Constant 			CONSUMER_DATA_TXT. */
+    /** The Constant CONSUMER_DATA_TXT. */
     private static final String CONSUMER_DATA_TXT = "consumerData.txt";
-    
+
     /** The consumer data factory. */
     private static ConsumerDataFactory consumerDataFactory = null;
 
@@ -54,7 +54,7 @@ public final class ConsumerDataFactory extends AbstractDataFactory {
      * Initialise.
      */
     protected void initialise() {
-        lines = load(CONSUMER_DATA_TXT);
+        this.lines = load(CONSUMER_DATA_TXT);
     }
 
     /**

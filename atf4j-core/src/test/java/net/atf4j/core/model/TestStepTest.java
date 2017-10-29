@@ -21,9 +21,9 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.VerificationError;
 import net.atf4j.core.TestResult;
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.core.VerificationError;
 
 /**
  * A UnitTest for TestStep objects.

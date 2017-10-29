@@ -24,7 +24,7 @@ import net.atf4j.data.Credentials;
  */
 public final class CredentialsDataFactory extends AbstractDataFactory {
 
-    /** The Constant 			CREDENTIALS_TXT. */
+    /** The Constant CREDENTIALS_TXT. */
     private static final String CREDENTIALS_TXT = "credentials.txt";
 
     /** The credentials data factory. */
@@ -54,7 +54,7 @@ public final class CredentialsDataFactory extends AbstractDataFactory {
      * Initialise.
      */
     protected void initialise() {
-        lines = load(CREDENTIALS_TXT);
+        this.lines = load(CREDENTIALS_TXT);
     }
 
     /**

@@ -91,7 +91,7 @@ public final class Nino extends TestResultsReporting {
      * @return the code
      */
     public String get() {
-        return nino;
+        return this.nino;
     }
 
     /**
@@ -100,7 +100,7 @@ public final class Nino extends TestResultsReporting {
      * @return the string
      */
     public String debugString() {
-        return String.format("Nino [nino=%s]", nino);
+        return String.format("Nino [nino=%s]", this.nino);
     }
 
     /*
@@ -110,6 +110,6 @@ public final class Nino extends TestResultsReporting {
      */
     @Override
     public String toString() {
-        return nino;
+        return this.nino;
     }
 }

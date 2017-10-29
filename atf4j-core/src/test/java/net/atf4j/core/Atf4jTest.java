@@ -17,8 +17,6 @@
 
 package net.atf4j.core;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 
 /**

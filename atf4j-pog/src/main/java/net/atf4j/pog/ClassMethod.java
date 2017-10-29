@@ -29,9 +29,10 @@ import net.atf4j.core.TestResultsReporting;
 public final class ClassMethod extends TestResultsReporting {
 
     /** Code Template for method. */
-    private static final String CREATE_CODE = "public %s create() { return new %s(); }";
+    private static final String METHOD_CODE = "public %s %s() { return new %s(); }";
     private static final String SET_CODE = "public %s set%s(%s %s) { this.%s = %s; return this.%s; }";
     private static final String GET_CODE = "public %s get%s() { return this.%s; }";
+    private static final String CREATE_CODE = "public %s create() { return new %s(); }";
 
     /** access modifiers. */
     private String access;
@@ -67,8 +68,35 @@ public final class ClassMethod extends TestResultsReporting {
         setName(methodName);
     }
 
-    public static ClassMethod addFactory(String string) {
-        return new ClassMethod();
+    /**
+     * Adds the method.
+     *
+     * @param returnType the return type
+     * @param methodName the method name
+     * @return the class method
+     */
+    public static ClassMethod addMethod(final String returnType, final String methodName) {
+        return new ClassMethod(returnType, methodName);
+    }
+
+    /**
+     * Adds the factory.
+     *
+     * @param fieldType the field type
+     * @return the class method
+     */
+    public static ClassMethod addFactory(final String fieldType) {
+        return new ClassMethod(fieldType, "create");
+    }
+
+    /**
+     * Factory method, to create factory method.
+     *
+     * @param fieldType the field type
+     * @return the class method
+     */
+    public static ClassMethod addFactory(final FieldType fieldType) {
+        return new ClassMethod(fieldType.name(), "create");
     }
 
     /**
@@ -159,7 +187,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the string
      */
     public String toCode() {
-        if (parameters.size() > 0) {
+        if (parameters.isEmpty()) {
             return String.format(CREATE_CODE, returnType, methodName, returnType);
         } else {
             return String.format(CREATE_CODE, returnType, methodName, returnType);
@@ -191,5 +219,4 @@ public final class ClassMethod extends TestResultsReporting {
             return toCode();
         }
     }
-
 }

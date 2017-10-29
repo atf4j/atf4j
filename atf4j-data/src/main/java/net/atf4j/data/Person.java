@@ -76,7 +76,7 @@ public class Person extends TestResultsReporting {
          * @param asText the as text
          */
         private Gender(final String asText) {
-            value = asText;
+            this.value = asText;
         }
 
         /**
@@ -101,7 +101,7 @@ public class Person extends TestResultsReporting {
          */
         @Override
         public String toString() {
-            return value;
+            return this.value;
         }
 
     };
@@ -147,7 +147,7 @@ public class Person extends TestResultsReporting {
          * @param asText the as text
          */
         private Title(final String asText) {
-            value = asText;
+            this.value = asText;
         }
 
         /**
@@ -172,7 +172,7 @@ public class Person extends TestResultsReporting {
          */
         @Override
         public String toString() {
-            return value;
+            return this.value;
         }
 
     }
@@ -226,7 +226,7 @@ public class Person extends TestResultsReporting {
      * @return the title
      */
     public Title title() {
-        return title;
+        return this.title;
     }
 
     /**
@@ -246,7 +246,7 @@ public class Person extends TestResultsReporting {
      * @return the string
      */
     public String forename() {
-        return forename;
+        return this.forename;
     }
 
     /**
@@ -266,7 +266,7 @@ public class Person extends TestResultsReporting {
      * @return the string
      */
     public String middlename() {
-        return middlename;
+        return this.middlename;
     }
 
     /**
@@ -286,7 +286,7 @@ public class Person extends TestResultsReporting {
      * @return the string
      */
     public String surname() {
-        return surname;
+        return this.surname;
     }
 
     /**
@@ -306,7 +306,7 @@ public class Person extends TestResultsReporting {
      * @return the calendar
      */
     public Calendar dateOfBirth() {
-        return dob;
+        return this.dob;
     }
 
     /**
@@ -319,8 +319,8 @@ public class Person extends TestResultsReporting {
         final int currentmonth = now.get(Calendar.MONTH);
         final int currentyear = now.get(Calendar.YEAR);
 
-        final int month = dob.get(Calendar.MONTH);
-        final int year = dob.get(Calendar.YEAR);
+        final int month = this.dob.get(Calendar.MONTH);
+        final int year = this.dob.get(Calendar.YEAR);
 
         return (currentyear * 12 + currentmonth - (year * 12 + month)) / 12;
     }
@@ -353,7 +353,7 @@ public class Person extends TestResultsReporting {
      * @return the string
      */
     public Gender gender() {
-        return gender;
+        return this.gender;
     }
 
     /**
@@ -373,7 +373,7 @@ public class Person extends TestResultsReporting {
      * @return the postal address
      */
     public PostalAddress postalAddress() {
-        return postalAddress;
+        return this.postalAddress;
     }
 
     /**
@@ -404,7 +404,7 @@ public class Person extends TestResultsReporting {
      * @return the email address
      */
     public String emailAddress() {
-        return emailAddress.toString();
+        return this.emailAddress.toString();
     }
 
     /*
@@ -416,13 +416,13 @@ public class Person extends TestResultsReporting {
     public String toString() {
         return String.format(
                 "Person [title=%s, forename=%s, middlename=%s, surname=%s, dob=%s, postalAddress=%s, emailAddress=%s]",
-                title,
-                forename,
-                middlename,
-                surname,
-                dob,
-                postalAddress,
-                emailAddress);
+                this.title,
+                this.forename,
+                this.middlename,
+                this.surname,
+                this.dob,
+                this.postalAddress,
+                this.emailAddress);
     }
 
 }

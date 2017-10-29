@@ -71,7 +71,7 @@ public class Consumer extends Person {
      * @return the credentials
      */
     public Credentials setUsername(final String username) {
-        return credentials.setUsername(username);
+        return this.credentials.setUsername(username);
     }
 
     /**
@@ -81,7 +81,7 @@ public class Consumer extends Person {
      * @return the credentials
      */
     public Credentials setPassword(final String password) {
-        return credentials.setPassword(password);
+        return this.credentials.setPassword(password);
     }
 
     /**
@@ -91,7 +91,7 @@ public class Consumer extends Person {
      * @return the credentials
      */
     public Credentials setEmail(final String email) {
-        return credentials.setEmail(email);
+        return this.credentials.setEmail(email);
     }
 
     /**
@@ -100,7 +100,7 @@ public class Consumer extends Person {
      * @return the username
      */
     public String getUsername() {
-        return credentials.getUsername();
+        return this.credentials.getUsername();
     }
 
     /**
@@ -109,7 +109,7 @@ public class Consumer extends Person {
      * @return the password
      */
     public String getPassword() {
-        return credentials.getPassword();
+        return this.credentials.getPassword();
     }
 
     /**
@@ -118,7 +118,7 @@ public class Consumer extends Person {
      * @return the email
      */
     public String getEmail() {
-        return credentials.getEmail();
+        return this.credentials.getEmail();
     }
 
     /**
@@ -127,7 +127,7 @@ public class Consumer extends Person {
      * @return the credentials
      */
     public Credentials getCredentials() {
-        return credentials;
+        return this.credentials;
     }
 
     /*
@@ -137,7 +137,7 @@ public class Consumer extends Person {
      */
     @Override
     public String toString() {
-        return String.format("Consumer [credentials=%s]", credentials);
+        return String.format("Consumer [credentials=%s]", this.credentials);
     }
 
 }

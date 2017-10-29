@@ -29,7 +29,7 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * AbstractWalker Class.
  */
-public abstract class AbstractWalker extends TestResultsReporting {
+public abstract class AbstractFolderWalker extends TestResultsReporting {
 
     /** The base path. */
     private String basePath = ".";
@@ -37,9 +37,9 @@ public abstract class AbstractWalker extends TestResultsReporting {
     /**
      * Instantiates a new abstract walker.
      */
-    public AbstractWalker() {
+    public AbstractFolderWalker() {
         super();
-        log.debug("AbstractWalker()");
+        this.log.debug("AbstractWalker()");
     }
 
     /**
@@ -47,9 +47,9 @@ public abstract class AbstractWalker extends TestResultsReporting {
      *
      * @param basePath the path
      */
-    public AbstractWalker(final String basePath) {
+    public AbstractFolderWalker(final String basePath) {
         super();
-        log.debug("AbstractWalker({})", basePath);
+        this.log.debug("AbstractWalker({})", basePath);
         setBasePath(basePath);
     }
 
@@ -59,7 +59,7 @@ public abstract class AbstractWalker extends TestResultsReporting {
      * @param basePath the base path
      * @return the abstract walker
      */
-    public AbstractWalker setBasePath(final String basePath) {
+    public AbstractFolderWalker setBasePath(final String basePath) {
         this.basePath = basePath;
         return this;
     }
@@ -69,8 +69,8 @@ public abstract class AbstractWalker extends TestResultsReporting {
      *
      * @return the abstract walker
      */
-    protected AbstractWalker walk() {
-        return walk(basePath);
+    protected AbstractFolderWalker walk() {
+        return walk(this.basePath);
     }
 
     /**
@@ -79,8 +79,8 @@ public abstract class AbstractWalker extends TestResultsReporting {
      * @param path the path
      * @return the abstract walker
      */
-    protected AbstractWalker walk(final String path) {
-        log.trace("walk({})", path);
+    protected AbstractFolderWalker walk(final String path) {
+        this.log.trace("walk({})", path);
         final URL resource = this.getClass().getResource(path);
         walk(resource);
         return this;
@@ -92,17 +92,17 @@ public abstract class AbstractWalker extends TestResultsReporting {
      * @param url the url
      */
     protected void walk(final URL url) {
-        log.trace("walk({})", url);
+        this.log.trace("walk({})", url);
         if (url != null) {
             URI uri;
             try {
                 uri = url.toURI();
                 walk(uri);
             } catch (final URISyntaxException e) {
-                log.error(e.toString());
+                this.log.error(e.toString());
             }
         } else {
-            log.error("url is null");
+            this.log.error("url is null");
         }
     }
 
@@ -112,12 +112,12 @@ public abstract class AbstractWalker extends TestResultsReporting {
      * @param uri the uri
      */
     protected void walk(final URI uri) {
-        log.trace("walk({})", uri);
+        this.log.trace("walk({})", uri);
         if (uri != null) {
             final File root = Paths.get(uri).toFile();
             walk(root);
         } else {
-            log.error("uri is null");
+            this.log.error("uri is null");
         }
     }
 
@@ -127,12 +127,12 @@ public abstract class AbstractWalker extends TestResultsReporting {
      * @param root the root
      */
     protected void walk(final File root) {
-        log.trace("walk({})", root);
+        this.log.trace("walk({})", root);
         if (root != null) {
             final File[] list = root.listFiles();
             walk(list);
         } else {
-            log.error("root is null");
+            this.log.error("root is null");
         }
     }
 
@@ -142,9 +142,9 @@ public abstract class AbstractWalker extends TestResultsReporting {
      * @param list the list
      */
     protected void walk(final File[] list) {
-        log.trace("walk({})", Arrays.toString(list));
+        this.log.trace("walk({})", Arrays.toString(list));
         if (list != null) {
-            log.trace("length:{}", list.length);
+            this.log.trace("length:{}", list.length);
             for (final File file : list) {
                 if (file.isDirectory()) {
                     walk(file.getAbsolutePath());
@@ -153,7 +153,7 @@ public abstract class AbstractWalker extends TestResultsReporting {
                 }
             }
         } else {
-            log.error("listFiles is null");
+            this.log.error("listFiles is null");
         }
     }
 
@@ -163,7 +163,7 @@ public abstract class AbstractWalker extends TestResultsReporting {
      * @param file the file
      */
     protected void processFile(final File file) {
-        log.debug("processFile({})", file.getName());
+        this.log.debug("processFile({})", file.getName());
     }
 
     /*
@@ -173,7 +173,7 @@ public abstract class AbstractWalker extends TestResultsReporting {
      */
     @Override
     public String toString() {
-        return String.format("AbstractWalker [basePath=%s]", basePath);
+        return String.format("AbstractWalker [basePath=%s]", this.basePath);
     }
 
 }

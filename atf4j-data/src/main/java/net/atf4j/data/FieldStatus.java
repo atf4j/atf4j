@@ -79,7 +79,7 @@ public enum FieldStatus {
      * @return the string
      */
     public String toDebugString() {
-        return String.format("FieldStatus [value=%s]", value);
+        return String.format("FieldStatus [value=%s]", this.value);
     }
 
     /*
@@ -89,7 +89,7 @@ public enum FieldStatus {
      */
     @Override
     public String toString() {
-        return value;
+        return this.value;
     }
 
 }

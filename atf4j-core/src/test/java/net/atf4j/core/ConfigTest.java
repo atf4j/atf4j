@@ -19,7 +19,6 @@ package net.atf4j.core;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -36,13 +35,15 @@ public class ConfigTest extends TestResultsReporting {
      * Mock a Default configuration class.
      */
     private class DefaultConfig extends AbstractConfig {
+        private DefaultConfig() {
+            super();
+        }
     }
 
     /**
      * Mock a Simple Configuration Class.
      */
     private class SimpleConfiguration extends AbstractConfig {
-
         /**
          * Instantiates a new simple configuration.
          */
@@ -87,14 +88,15 @@ public class ConfigTest extends TestResultsReporting {
     @Test
     public void testTypicalUsage() {
         final SimpleConfiguration simpleConfig = new SimpleConfiguration();
-        log.debug("simpleConfig = {}", simpleConfig.toString());
         verifyNotNull(simpleConfig);
+        log.debug("simpleConfig = {}", simpleConfig.toString());
 
         final String defaultValue = "defaultValue";
         assertEquals(defaultValue, simpleConfig.valueFor(MISSING_KEY, defaultValue));
         assertEquals(Integer.MAX_VALUE, simpleConfig.valueFor(MISSING_KEY, Integer.MAX_VALUE));
         assertEquals(Long.MAX_VALUE, simpleConfig.valueFor(MISSING_KEY, Long.MAX_VALUE));
-        assertEquals(true, simpleConfig.valueFor(MISSING_KEY, true));
+        assertTrue(simpleConfig.valueFor(MISSING_KEY, true));
+
         assertEquals("stringValue", simpleConfig.valueFor("keyForString", defaultValue));
         assertEquals(1, simpleConfig.valueFor("keyForIntOne", Integer.MAX_VALUE));
         assertEquals(1, simpleConfig.valueFor("keyForLongOne", Long.MAX_VALUE));

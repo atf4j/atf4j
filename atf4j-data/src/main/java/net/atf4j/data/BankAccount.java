@@ -17,8 +17,6 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertNotNull;
-
 import net.atf4j.core.TestResultsReporting;
 import net.atf4j.core.Text;
 
@@ -27,11 +25,11 @@ import net.atf4j.core.Text;
  */
 public final class BankAccount extends TestResultsReporting {
 
-    /** The bank. */
-    private Bank bank = new Bank();
-
     /** The account no. */
     private String accountNo = "";
+
+    /** The bank. */
+    private Bank bank = new Bank();
 
     /**
      * Creates the BankAccount object.
@@ -51,8 +49,8 @@ public final class BankAccount extends TestResultsReporting {
      */
     public static BankAccount random() {
         final BankAccount bankAccount = new BankAccount();
+        bankAccount.setBank(Bank.random());
         bankAccount.setAccountNo(Text.randomDigits(8));
-        bankAccount.setBank(Bank.create());
         return bankAccount;
     }
 
@@ -125,7 +123,7 @@ public final class BankAccount extends TestResultsReporting {
      * @return the bank
      */
     public Bank getBank() {
-        return bank;
+        return this.bank;
     }
 
     /**
@@ -134,7 +132,7 @@ public final class BankAccount extends TestResultsReporting {
      * @return the account no
      */
     public String getAccountNo() {
-        return accountNo;
+        return this.accountNo;
     }
 
     /**
@@ -143,7 +141,7 @@ public final class BankAccount extends TestResultsReporting {
      * @return the string
      */
     public String debugString() {
-        return String.format("BankAccount [bank=%s, accountNo=%s]", bank, accountNo);
+        return String.format("BankAccount [bank=%s, accountNo=%s]", this.bank, this.accountNo);
     }
 
     /*
@@ -153,7 +151,9 @@ public final class BankAccount extends TestResultsReporting {
      */
     @Override
     public String toString() {
-        return String.format("%s - %s", bank, accountNo);
+        if (this.log.isDebugEnabled()) {
+            this.log.debug(debugString());
+        }
+        return String.format("%s - %s", this.bank, this.accountNo);
     }
-
 }

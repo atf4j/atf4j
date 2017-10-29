@@ -17,8 +17,6 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
@@ -31,7 +29,7 @@ public final class WalkerTest extends TestResultsReporting {
     /**
      * MockWalker Class.
      */
-    public class MockWalker extends AbstractWalker {
+    public class MockWalker extends AbstractFolderWalker {
 
         /**
          * Instantiates a new mock walker.

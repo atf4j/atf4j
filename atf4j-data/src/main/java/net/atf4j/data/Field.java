@@ -28,10 +28,10 @@ public class Field<T> {
 
     /** The field status. */
     private FieldStatus fieldStatus = FieldStatus.PRISTINE;
-    
+
     /** The key. */
     private String key;
-    
+
     /** The value. */
     private T value;
 

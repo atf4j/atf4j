@@ -52,7 +52,7 @@ public abstract class TestResultsReporting {
         if (object == null) {
             throw new VerificationError(UNEXPECTED_NULL);
         }
-        log.trace("verifyNotNull({}) = ", object.getClass().getSimpleName(), object);
+        log.trace("verifyNotNull({}) = {}", object.getClass().getSimpleName(), object.toString());
     }
 
     /**
@@ -129,5 +129,4 @@ public abstract class TestResultsReporting {
         }
         return stringBuilder.toString();
     }
-
 }
