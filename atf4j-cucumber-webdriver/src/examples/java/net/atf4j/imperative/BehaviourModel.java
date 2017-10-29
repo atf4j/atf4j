@@ -21,8 +21,8 @@ import static org.junit.Assert.fail;
 
 import org.openqa.selenium.WebDriver;
 
+import net.atf4j.bdd.AbstractBehaviourModel;
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
-import net.atf4j.fdd.AbstractBehaviourModel;
 import net.atf4j.webdriver.BrowserFactory;
 
 /**

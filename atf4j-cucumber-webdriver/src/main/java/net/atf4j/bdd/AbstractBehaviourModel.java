@@ -15,31 +15,23 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.fdd;
+package net.atf4j.bdd;
 
-import net.atf4j.core.AbstractConfig;
+import net.atf4j.core.TestResultsReporting;
 
 /**
- * Automation Configuration Class.
+ * Abstract Behaviour Model Class.
  */
-public final class AutomationConfig extends AbstractConfig {
+public abstract class AbstractBehaviourModel extends TestResultsReporting {
+
+    /** The expected data. */
+    protected AbstractExpectedData expectedData;
 
     /**
-     * Instantiates a new automation config.
+     * Instantiates a new abstract behaviour model.
      */
-    public AutomationConfig() {
+    protected AbstractBehaviourModel() {
         super();
-    }
-
-    /**
-     * Instantiates a new automation config.
-     *
-     * @param propertyFilename the property filename
-     * @throws ConfigurationNotLoadedException the configuration not loaded
-     *             exception
-     */
-    public AutomationConfig(String propertyFilename) throws ConfigurationNotLoadedException {
-        super(propertyFilename);
     }
 
 }

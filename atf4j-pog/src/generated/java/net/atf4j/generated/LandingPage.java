@@ -1,5 +1,5 @@
 // generated from main/resources/templates/PageObject.vm
-// Generated 2017-10-29 15:03.16
+// Generated 2017-10-29 15:21.20
 
 package net.atf4j.generated;
 

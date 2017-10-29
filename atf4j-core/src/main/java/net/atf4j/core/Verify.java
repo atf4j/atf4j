@@ -31,14 +31,11 @@ import org.slf4j.LoggerFactory;
  */
 public final class Verify {
 
-    /** The Constant LOG. */
-    private static final Logger LOG = LoggerFactory.getLogger(Verify.class);
-
-    /** The Constant MESSAGE. */
+    /** Constant MESSAGE. */
     private static final String MESSAGE = "verify(expected(%s) == actual(%s)) - %s";
 
-    /** The Constant UNEXPECTED_NULL. */
-    private static final String UNEXPECTED_NULL = "Unexpected null.";
+    /** LOG constant. */
+    private static final Logger LOG = LoggerFactory.getLogger(Verify.class);
 
     /**
      * Instantiates a new verify.
@@ -50,6 +47,7 @@ public final class Verify {
     /**
      * Verify object is not null.
      *
+     * @param message the message
      * @param object the object
      */
     public static void verifyNotNull(final String message, Object object) {
@@ -61,6 +59,11 @@ public final class Verify {
         LOG.debug("verify({}) = {}", objectName, object);
     }
 
+    /**
+     * Verify not null.
+     *
+     * @param object the object
+     */
     public static void verifyNotNull(Object object) {
         assertNotNull(object);
         final String objectName = object.getClass().getSimpleName();

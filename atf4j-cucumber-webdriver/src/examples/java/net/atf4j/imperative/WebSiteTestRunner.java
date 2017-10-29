@@ -17,7 +17,7 @@
 
 package net.atf4j.imperative;
 
-import net.atf4j.fdd.AbstractTestRunner;
+import net.atf4j.bdd.AbstractTestRunner;
 
 /**
  * WebSiteTestRunner Class.

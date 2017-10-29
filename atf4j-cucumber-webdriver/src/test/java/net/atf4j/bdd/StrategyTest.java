@@ -15,20 +15,38 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.fdd;
+package net.atf4j.bdd;
 
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Test;
+
+import net.atf4j.bdd.AbstractStrategy;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * Abstract Expected Data Class.
+ * The StrategyTest Class.
  */
-public abstract class AbstractExpectedData extends TestResultsReporting {
+public class StrategyTest extends TestResultsReporting {
 
     /**
-     * Instantiates a new abstract expected data.
+     * The Strategy Class.
      */
-    protected AbstractExpectedData() {
-        super();
+    public class Strategy extends AbstractStrategy {
+
+        public Strategy() {
+            super();
+        }
+    }
+
+    /**
+     * Test default constructor.
+     */
+    @Test
+    public void testDefaultConstructor() {
+        final Strategy strategy = new Strategy();
+        log.debug("strategy = {}", strategy);
+        verifyNotNull(strategy);
     }
 
 }
