@@ -25,8 +25,8 @@ import javax.jms.JMSException;
 
 import org.junit.Test;
 
+import net.atf4j.core.TestContext;
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.core.model.TestContext;
 
 /**
  * The ProducerTest Class.

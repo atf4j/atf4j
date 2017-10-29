@@ -15,12 +15,13 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.core.model;
+package net.atf4j.core;
 
 import static org.junit.Assert.assertFalse;
 
 import org.junit.Test;
 
+import net.atf4j.core.TestContext;
 import net.atf4j.core.TestResultsReporting;
 
 /**

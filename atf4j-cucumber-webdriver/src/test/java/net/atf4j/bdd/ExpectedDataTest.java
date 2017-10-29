@@ -17,11 +17,8 @@
 
 package net.atf4j.bdd;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 
-import net.atf4j.bdd.AbstractExpectedData;
 import net.atf4j.core.TestResultsReporting;
 
 /**
@@ -33,6 +30,10 @@ public class ExpectedDataTest extends TestResultsReporting {
      * The ExpectedData Class.
      */
     public class ExpectedData extends AbstractExpectedData {
+        
+        /**
+         * Instantiates a new expected data.
+         */
         public ExpectedData() {
             super();
         }

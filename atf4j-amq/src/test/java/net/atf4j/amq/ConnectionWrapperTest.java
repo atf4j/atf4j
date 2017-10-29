@@ -24,7 +24,7 @@ import javax.jms.JMSException;
 
 import org.junit.Test;
 
-import net.atf4j.core.model.TestContext;
+import net.atf4j.core.TestContext;
 
 /**
  * Unit test for ConnectionWrapper class.

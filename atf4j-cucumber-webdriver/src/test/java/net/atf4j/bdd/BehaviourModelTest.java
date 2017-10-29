@@ -17,11 +17,8 @@
 
 package net.atf4j.bdd;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 
-import net.atf4j.bdd.AbstractBehaviourModel;
 import net.atf4j.core.TestResultsReporting;
 
 /**
@@ -33,6 +30,10 @@ public class BehaviourModelTest extends TestResultsReporting {
      * Behaviour Model class.
      */
     public class BehaviourModel extends AbstractBehaviourModel {
+        
+        /**
+         * Instantiates a new behaviour model.
+         */
         public BehaviourModel() {
             super();
         }

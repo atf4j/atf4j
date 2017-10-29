@@ -30,8 +30,13 @@ import net.atf4j.webdriver.BrowserFactory;
  */
 public class BehaviourModel extends AbstractBehaviourModel {
 
+    /** The web driver. */
     protected WebDriver webDriver;
+    
+    /** The target url. */
     protected String targetUrl = "http://127.0.0.1:8080";
+    
+    /** The landing page. */
     protected LandingPage landingPage;
 
     /**

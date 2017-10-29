@@ -31,8 +31,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import net.atf4j.core.TestContext;
 import net.atf4j.core.AbstractConfig.PropertyNotFoundException;
-import net.atf4j.core.model.TestContext;
 
 /**
  * A factory class for creating Browser objects.

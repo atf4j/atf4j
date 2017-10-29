@@ -15,9 +15,7 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.core.model;
-
-import net.atf4j.core.TestResultsReporting;
+package net.atf4j.core;
 
 /**
  * Test Context.
@@ -65,7 +63,8 @@ public final class TestContext extends TestResultsReporting {
     }
 
     /**
-     * Checks if a local server is available on http://127.0.0.1:8080/
+     * Checks if a local server is available on
+     * <code>http://127.0.0.1:8080/</code>.
      *
      * -DlocalServer=true
      *

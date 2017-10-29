@@ -17,11 +17,8 @@
 
 package net.atf4j.bdd;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 
-import net.atf4j.bdd.AbstractStrategy;
 import net.atf4j.core.TestResultsReporting;
 
 /**
@@ -34,6 +31,9 @@ public class StrategyTest extends TestResultsReporting {
      */
     public class Strategy extends AbstractStrategy {
 
+        /**
+         * Instantiates a new strategy.
+         */
         public Strategy() {
             super();
         }

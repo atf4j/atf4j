@@ -25,8 +25,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import net.atf4j.core.TestContext;
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.core.model.TestContext;
 
 /**
  * Smoke Tests for WebDriver.
