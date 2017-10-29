@@ -38,6 +38,9 @@ public class MessageFinderTest extends TestResultsReporting {
         verifyNotNull(folderWalker);
     }
 
+    /**
+     * Unit tests for the messageFinderWalk() method of MessageFinder object.
+     */
     @Test
     public void testMessageFinderWalk() {
         final MessageFinder folderWalker = new MessageFinder();
@@ -46,10 +49,13 @@ public class MessageFinderTest extends TestResultsReporting {
         final List<File> messages = folderWalker.walk();
         verifyNotNull(messages);
         for (final File file : messages) {
-            this.log.info("{} = {}", file.getName(), file.toString());
+            log.info("{} = {}", file.getName(), file.toString());
         }
     }
 
+    /**
+     * Unit tests for the messageFinderScan() method of MessageFinder object.
+     */
     @Test
     public void testMessageFinderScan() {
         final MessageFinder folderWalker = new MessageFinder();
@@ -58,7 +64,7 @@ public class MessageFinderTest extends TestResultsReporting {
         final List<File> messages = folderWalker.scan(".");
         verifyNotNull(messages);
         for (final File file : messages) {
-            this.log.info("{} = {}", file.getName(), file.toString());
+            log.info("{} = {}", file.getName(), file.toString());
         }
     }
 }

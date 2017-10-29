@@ -25,13 +25,15 @@ import javax.jms.Topic;
 
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import net.atf4j.core.TestResultsReporting;
 
 /**
- * The Class AbstractConnectionWrapper.
+ * An abstract class to wrap ActiveMQ Connections.
  */
-public abstract class AbstractConnectionWrapper implements ConnectionWrapperInterface {
+public abstract class AbstractConnectionWrapper
+        extends TestResultsReporting
+        implements ConnectionWrapperInterface {
 
     /** URL. */
     protected static String url = ActiveMQConnection.DEFAULT_BROKER_URL;
@@ -51,36 +53,33 @@ public abstract class AbstractConnectionWrapper implements ConnectionWrapperInte
     /** topic. */
     protected Topic topic;
 
-    /** logging. */
-    protected static final Logger log = LoggerFactory.getLogger(AbstractConnectionWrapper.class);
-
     /**
-     * Instantiates a new abstract connection wrapper.
+     * Default constructor instantiates a new connection wrapper.
      *
      * @throws JMSException the JMS exception exception.
      */
     protected AbstractConnectionWrapper() throws JMSException {
         super();
-        this.connection = initialise();
-        this.session = newSession(this.connection);
-        this.topic = this.session.createTopic(this.topicName);
+        connection = initialise();
+        session = newSession(connection);
+        topic = session.createTopic(topicName);
     }
 
     /**
-     * Initialise.
+     * Initialise the connection.
      *
      * @return the connection
      * @throws JMSException the JMS exception exception.
      */
     protected Connection initialise() throws JMSException {
-        this.connectionFactory = new ActiveMQConnectionFactory(url);
-        this.connection = this.connectionFactory.createConnection();
-        this.connection.start();
-        return this.connection;
+        connectionFactory = new ActiveMQConnectionFactory(url);
+        connection = connectionFactory.createConnection();
+        connection.start();
+        return connection;
     }
 
     /**
-     * New session.
+     * New session on the connection.
      *
      * @param connection the connection
      * @return the session

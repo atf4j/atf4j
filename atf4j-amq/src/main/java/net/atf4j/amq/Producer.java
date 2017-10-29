@@ -22,7 +22,7 @@ import javax.jms.MessageProducer;
 import javax.jms.TextMessage;
 
 /**
- * Producer Class.
+ * Message Producer Class.
  */
 public final class Producer extends AbstractConnectionWrapper {
 
@@ -36,7 +36,7 @@ public final class Producer extends AbstractConnectionWrapper {
     }
 
     /**
-     * Execute.
+     * Execute, add the messages to the queue.
      *
      * @param messages the messages
      * @return
@@ -44,16 +44,16 @@ public final class Producer extends AbstractConnectionWrapper {
      */
     public Producer execute(final String[] messages) throws JMSException {
 
-        final MessageProducer messageProducer = this.session.createProducer(this.topic);
+        final MessageProducer messageProducer = session.createProducer(topic);
 
-        final TextMessage textMessage = this.session.createTextMessage();
+        final TextMessage textMessage = session.createTextMessage();
 
         for (final String messageString : messages) {
             textMessage.setText(messageString);
             messageProducer.send(textMessage);
             log.info("Sent {}", messageString);
         }
-        this.connection.close();
+        connection.close();
         return this;
     }
 }

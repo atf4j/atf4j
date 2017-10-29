@@ -28,19 +28,19 @@ import java.util.List;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * Abstract Folder Walker class.
+ * An abstract class to walk folders.
  */
 public abstract class AbstractFolderWalker
         extends TestResultsReporting
         implements FolderWalkerInterface {
 
-    /** The path. */
+    /** base path. */
     private String path = ".";
 
-    /** The filter. */
+    /** filename filter. */
     private FilenameFilter filter = new Unfiltered();
 
-    /** The found files. */
+    /** list of found files. */
     private final List<File> foundFiles = new ArrayList<File>();
 
     /**
@@ -105,7 +105,7 @@ public abstract class AbstractFolderWalker
      */
     @Override
     public void setExtensionFilter(final FilenameFilter extensionFilter) {
-        this.filter = extensionFilter;
+        filter = extensionFilter;
     }
 
     /*
@@ -115,7 +115,7 @@ public abstract class AbstractFolderWalker
      */
     @Override
     public List<File> walk() {
-        return walk(this.path);
+        return walk(path);
     }
 
     /*
@@ -127,21 +127,21 @@ public abstract class AbstractFolderWalker
     public List<File> walk(final String path) {
         if (path != null) {
             final File dir = new File(path);
-            this.log.debug("dir = {}", dir.getAbsolutePath());
-            this.log.debug("file = {}", dir.getAbsoluteFile());
-            final File[] files = dir.listFiles(this.filter);
+            log.debug("dir = {}", dir.getAbsolutePath());
+            log.debug("file = {}", dir.getAbsoluteFile());
+            final File[] files = dir.listFiles(filter);
             if (files != null) {
                 for (final File file : files) {
                     if (file.isDirectory()) {
                         final String subDir = file.getAbsolutePath();
                         walk(subDir);
                     } else {
-                        this.foundFiles.add(file);
+                        foundFiles.add(file);
                     }
                 }
             }
         }
-        return this.foundFiles;
+        return foundFiles;
     }
 
     /*
@@ -155,14 +155,14 @@ public abstract class AbstractFolderWalker
         for (final File file : root.listFiles()) {
             if (file.isDirectory()) {
                 final String subDir = file.getAbsolutePath();
-                this.log.debug("{}", subDir);
+                log.debug("{}", subDir);
                 scan(subDir);
             } else {
-                this.log.debug("{}", file);
-                this.foundFiles.add(file);
+                log.debug("{}", file);
+                foundFiles.add(file);
             }
         }
-        return this.foundFiles;
+        return foundFiles;
     }
 
     /**
@@ -180,7 +180,7 @@ public abstract class AbstractFolderWalker
             uri = url.toURI();
             file = new File(uri);
         } catch (final URISyntaxException e) {
-            this.log.error(e.toString());
+            log.error(e.toString());
         }
         return file;
     }
@@ -192,7 +192,7 @@ public abstract class AbstractFolderWalker
      */
     @Override
     public String getPath() {
-        return this.path;
+        return path;
     }
 
     /*
@@ -202,7 +202,7 @@ public abstract class AbstractFolderWalker
      */
     @Override
     public List<File> getFoundFiles() {
-        return this.foundFiles;
+        return foundFiles;
     }
 
     /*
@@ -212,10 +212,11 @@ public abstract class AbstractFolderWalker
      */
     @Override
     public String toString() {
-        return String.format("AbstractFolderWalker [path=%s, filter=%s, foundFiles=%s]",
-                this.path,
-                this.filter,
-                this.foundFiles);
+        return String.format("%s [path=%s, filter=%s, foundFiles=%s]",
+                this.getClass().getSimpleName(),
+                path,
+                filter,
+                foundFiles);
     }
 
 }
