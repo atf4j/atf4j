@@ -23,7 +23,6 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.data.manager.DataManager;
 
 /**
  * The DataManagerTest Class.

@@ -24,9 +24,6 @@ import net.atf4j.data.Business;
  */
 public final class BusinessDataFactory extends AbstractDataFactory {
 
-    /** The Constant BUSINESS_DATA_TXT. */
-    private static final String BUSINESS_DATA_TXT = "businessData.txt";
-
     /** The business data factory. */
     private static BusinessDataFactory businessDataFactory = null;
 
@@ -47,14 +44,6 @@ public final class BusinessDataFactory extends AbstractDataFactory {
      */
     private BusinessDataFactory() {
         super();
-        initialise();
-    }
-
-    /**
-     * Initialise.
-     */
-    protected void initialise() {
-        this.lines = load(BUSINESS_DATA_TXT);
     }
 
     /**

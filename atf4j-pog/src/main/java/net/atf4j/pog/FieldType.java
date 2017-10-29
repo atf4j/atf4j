@@ -52,7 +52,7 @@ public enum FieldType {
      * @param asText the as text
      */
     private FieldType(final String asText) {
-        value = asText;
+        this.value = asText;
     }
 
     /**
@@ -86,6 +86,6 @@ public enum FieldType {
      */
     @Override
     public String toString() {
-        return value;
+        return this.value;
     }
 }

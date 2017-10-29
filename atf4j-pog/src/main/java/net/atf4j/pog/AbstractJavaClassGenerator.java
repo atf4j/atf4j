@@ -100,9 +100,10 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
     /**
      * Adds the boolean field.
      *
-     * @param string the string
+     * @param fieldName the field name
+     * @return the abstract java class generator
      */
-    public AbstractJavaClassGenerator addBooleanField(String fieldName) {
+    public AbstractJavaClassGenerator addBooleanField(final String fieldName) {
         addField(ClassField.makeBoolean(fieldName));
         return this;
     }
@@ -113,7 +114,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
      * @param fieldName the field name
      * @return the abstract java code generator
      */
-    public AbstractJavaClassGenerator addDateField(String fieldName) {
+    public AbstractJavaClassGenerator addDateField(final String fieldName) {
         addField(ClassField.makeDate(fieldName));
         return this;
     }
@@ -121,9 +122,10 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
     /**
      * Adds the object field.
      *
-     * @param string the string
+     * @param fieldName the field name
+     * @return the abstract java class generator
      */
-    public AbstractJavaClassGenerator addObjectField(String fieldName) {
+    public AbstractJavaClassGenerator addObjectField(final String fieldName) {
         addField(ClassField.makeObject(fieldName));
         return this;
     }
@@ -131,9 +133,10 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
     /**
      * Adds the string field.
      *
-     * @param string the string
+     * @param fieldName the field name
+     * @return the abstract java class generator
      */
-    public AbstractJavaClassGenerator addStringField(String fieldName) {
+    public AbstractJavaClassGenerator addStringField(final String fieldName) {
         addField(ClassField.makeString(fieldName));
         return this;
     }
@@ -147,7 +150,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
      */
     public AbstractJavaClassGenerator addField(final FieldType fieldType, final String fieldName) {
         final ClassField classField = new ClassField(fieldType, fieldName);
-        fields.add(classField);
+        this.fields.add(classField);
         return this;
     }
 
@@ -160,7 +163,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
      */
     public AbstractJavaClassGenerator addField(final String fieldType, final String fieldName) {
         final ClassField classField = new ClassField(fieldType, fieldName);
-        fields.add(classField);
+        this.fields.add(classField);
         return this;
     }
 
@@ -175,7 +178,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
         assumeNotNull(key);
         assumeTrue(key.length() > 0);
         assumeNotNull(value);
-        context.put(key, value);
+        this.context.put(key, value);
         return this;
     }
 
@@ -231,7 +234,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
      * @return the string
      */
     public String getTemplateFilename() {
-        return templateFilename;
+        return this.templateFilename;
     }
 
     /**
@@ -240,7 +243,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
      * @return the string
      */
     public String getPackageName() {
-        return packageName;
+        return this.packageName;
     }
 
     /**
@@ -249,7 +252,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
      * @return the string
      */
     public String className() {
-        return className;
+        return this.className;
     }
 
     /**
@@ -293,7 +296,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
      * @return this for a fluent interface.
      */
     public AbstractJavaClassGenerator addField(final ClassField classField) {
-        fields.add(classField);
+        this.fields.add(classField);
         return this;
     }
 
@@ -306,7 +309,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
      */
     public AbstractJavaClassGenerator addMethod(final String returnType, final String methodName) {
         final ClassMethod classField = new ClassMethod(returnType, methodName);
-        methods.add(classField);
+        this.methods.add(classField);
         return this;
     }
 
@@ -317,7 +320,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
      * @return this for a fluent interface.
      */
     public AbstractJavaClassGenerator addMethod(final ClassMethod classMethod) {
-        methods.add(classMethod);
+        this.methods.add(classMethod);
         return this;
     }
 
@@ -328,9 +331,9 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
      * @throws VerificationError the Atf4jException
      */
     public AbstractJavaClassGenerator generate() throws VerificationError {
-        assumeNotNull(templateFilename);
-        assumeTrue(templateFilename.length() > 0);
-        return generate(templateFilename);
+        assumeNotNull(this.templateFilename);
+        assumeTrue(this.templateFilename.length() > 0);
+        return generate(this.templateFilename);
     }
 
     /**
@@ -357,7 +360,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
 
         final Writer writer = destinationWriter();
         final String logTag = this.getClass().getSimpleName();
-        assertTrue(velocityEngine.evaluate(context, writer, logTag, templateReader));
+        assertTrue(this.velocityEngine.evaluate(this.context, writer, logTag, templateReader));
 
         cleanup(writer);
 
@@ -368,13 +371,13 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
      * Initialise.
      */
     private void initialise() {
-        velocityEngine.init();
+        this.velocityEngine.init();
         contextBinding("util", this);
         contextBinding("timeStamp", TimeStamp.getDateTime());
-        contextBinding("packageName", packageName);
-        contextBinding("className", className);
-        contextBinding("fields", fields);
-        contextBinding("methods", methods);
+        contextBinding("packageName", this.packageName);
+        contextBinding("className", this.className);
+        contextBinding("fields", this.fields);
+        contextBinding("methods", this.methods);
     }
 
     /**
@@ -385,9 +388,9 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
      *             exception.
      */
     private BufferedWriter destinationWriter() throws CodeNotGeneratedException {
-        final String packageFolder = packageFolder(packageName);
-        final String targetPath = targetPath(targetHomeFolder, packageFolder);
-        final String targetFile = targetFilename(targetPath, className);
+        final String packageFolder = packageFolder(this.packageName);
+        final String targetPath = targetPath(this.targetHomeFolder, packageFolder);
+        final String targetFile = targetFilename(targetPath, this.className);
         final File file = new File(targetFile);
         try {
             final FileWriter fileWriter = new FileWriter(file);
@@ -409,8 +412,8 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
             writer.flush();
             writer.close();
         } catch (final IOException e) {
-            log.error(e.toString());
-            throw new CodeNotGeneratedException(className);
+            this.log.error(e.toString());
+            throw new CodeNotGeneratedException(this.className);
         }
     }
 
@@ -422,7 +425,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
      * @throws TemplateNotLoadedException the template not loaded
      */
     private InputStreamReader templateReader(final String templateFilename) throws TemplateNotLoadedException {
-        log.debug("templateFilename = {}", templateFilename);
+        this.log.debug("templateFilename = {}", templateFilename);
         final InputStream resourceAsStream = resourceAsStream(templateFilename);
         if (resourceAsStream == null) {
             throw new TemplateNotLoadedException(templateFilename);
@@ -451,7 +454,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
      */
     private String targetFilename(final String targetPath, final String className) {
         final String targetFile = String.format("%s/%s.java", targetPath, className);
-        log.debug("generatedFile = {}", targetFile);
+        this.log.debug("generatedFile = {}", targetFile);
         return targetFile;
     }
 
@@ -466,7 +469,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
         verifyNotNull(homeFolder);
         verifyNotNull(packageFolder);
         final String targetPath = String.format("%s/%s", homeFolder, packageFolder);
-        log.debug("targetPath = {}", targetPath);
+        this.log.debug("targetPath = {}", targetPath);
         new File(targetPath).mkdirs();
         return targetPath;
     }
@@ -479,7 +482,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
      */
     private String packageFolder(final String packageName) {
         final String packageFolder = packageName.replace('.', File.separatorChar);
-        log.debug("packageFolder = {}", packageFolder);
+        this.log.debug("packageFolder = {}", packageFolder);
         return packageFolder;
     }
 
@@ -492,12 +495,12 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
         return String.format(
                 "%s [templateFilename=%s, packageName=%s, className=%s, fields=%s, methods=%s, targetHomeFolder=%s]",
                 this.getClass().getSimpleName(),
-                templateFilename,
-                packageName,
-                className,
-                fields,
-                methods,
-                targetHomeFolder);
+                this.templateFilename,
+                this.packageName,
+                this.className,
+                this.fields,
+                this.methods,
+                this.targetHomeFolder);
     }
 
     /*

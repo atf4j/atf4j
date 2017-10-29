@@ -20,14 +20,14 @@ package net.atf4j.data.factory;
 import net.atf4j.data.Card;
 
 /**
- * ChargeCardFactory.
+ * Factory class for making charge/credit card test data.
  */
 public final class CardDataFactory extends AbstractDataFactory {
 
-    /** The Constant CARD_DATA_TXT. */
+    /** Default filename for card data. */
     private static final String CARD_DATA_TXT = "cardData.txt";
 
-    /** The card data factory. */
+    /** card data factory instance. */
     private static CardDataFactory cardDataFactory = null;
 
     /**
@@ -54,7 +54,7 @@ public final class CardDataFactory extends AbstractDataFactory {
      * Initialise.
      */
     protected void initialise() {
-        this.lines = load(CARD_DATA_TXT);
+        lines = load(CARD_DATA_TXT);
     }
 
     /**
