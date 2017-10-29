@@ -17,30 +17,30 @@
 
 package net.atf4j.amq;
 
-import java.io.File;
-import java.util.List;
+import static org.junit.Assume.assumeTrue;
+
+import java.util.Arrays;
+
+import javax.jms.JMSException;
 
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.core.model.TestContext;
 
 /**
- * Message Finder Test class.
+ * The ProducerTest Class.
  */
-public final class MessageFinderExample extends TestResultsReporting {
+public class ProducerExample extends TestResultsReporting {
 
-    /**
-     * Unit test the expected usage of the message finder.
-     */
     @Test
-    public void testMessageFinder() {
-        final MessageFinder folderWalker = new MessageFinder();
-        verifyNotNull(folderWalker);
+    public void testExampleUsage() throws JMSException {
+        assumeTrue(TestContext.isActiveMQ());
+        final Producer producer = new Producer();
+        verifyNotNull(producer);
 
-        final List<File> messages = folderWalker.walk();
-        verifyNotNull(messages);
-        for (final File file : messages) {
-            log.info("{} = {}", file.getName(), file.toString());
-        }
+        final String[] messages = null;
+        log.debug("{}", Arrays.toString(messages));
+        verifyNotNull(producer.execute(messages));
     }
 }

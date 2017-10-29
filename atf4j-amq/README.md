@@ -22,3 +22,27 @@ In command line shell run:
 
     mvn -Doptions="value" test
 
+## Example Code
+### Message Finder
+
+        final MessageFinder folderWalker = new MessageFinder();
+        verifyNotNull(folderWalker);
+
+        final List<File> messages = folderWalker.walk();
+        verifyNotNull(messages);
+        for (final File file : messages) {
+            log.info("{} = {}", file.getName(), file.toString());
+        }
+
+### Message Producer
+
+        final String[] messages = ...;
+
+        final Producer producer = new Producer();
+        producer.execute(messages);
+
+### Message Consumer
+
+        final Consumer consumer = new Consumer();
+        final String[] messages = consumer.execute();
+ 
