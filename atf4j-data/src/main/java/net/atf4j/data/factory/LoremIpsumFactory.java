@@ -67,19 +67,19 @@ public final class LoremIpsumFactory extends AbstractDataFactory {
      * Initialise.
      */
     protected void initialise() {
-        rows = load(LOREM_IPSUM_TXT);
-        for (final String row : rows) {
+        this.rows = load(LOREM_IPSUM_TXT);
+        for (final String row : this.rows) {
             final String sanitised = row.replace(",", "").replace(".", "").replace("?", "");
             if (sanitised.length() > 0) {
                 final String[] words = sanitised.split("\\W");
-                log.debug(Arrays.toString(words));
+                this.log.debug(Arrays.toString(words));
                 for (final String word : words) {
                     this.words.add(word.trim().toLowerCase());
                 }
             }
         }
-        bounds = words.size();
-        log.debug(Arrays.toString(words.toArray()));
+        this.bounds = this.words.size();
+        this.log.debug(Arrays.toString(this.words.toArray()));
     }
 
     /**
@@ -98,7 +98,7 @@ public final class LoremIpsumFactory extends AbstractDataFactory {
      */
     protected String getText() {
         final StringBuilder stringBuilder = new StringBuilder();
-        for (final String row : rows) {
+        for (final String row : this.rows) {
             stringBuilder.append(row);
             stringBuilder.append(System.lineSeparator());
         }
@@ -206,8 +206,8 @@ public final class LoremIpsumFactory extends AbstractDataFactory {
     private String getWords(final int count) {
         final StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < count; i++) {
-            final int nextInt = random.nextInt(bounds);
-            final String word = words.get(nextInt);
+            final int nextInt = random.nextInt(this.bounds);
+            final String word = this.words.get(nextInt);
             stringBuilder.append(word);
             stringBuilder.append(' ');
         }

@@ -26,14 +26,14 @@ import java.nio.file.Paths;
 /**
  * FileWalker Class.
  */
-public class FileWalker extends AbstractWalker {
+public class FileWalker extends AbstractFolderWalker {
 
     /**
      * Instantiates a new file walker.
      */
     public FileWalker() {
         super();
-        log.debug("FileWalker()");
+        this.log.debug("FileWalker()");
     }
 
     /**
@@ -44,7 +44,7 @@ public class FileWalker extends AbstractWalker {
      */
     public FileWalker(final String path) throws Exception {
         super();
-        log.debug("FileWalker({})", path);
+        this.log.debug("FileWalker({})", path);
         setBasePath(path);
     }
 
@@ -57,11 +57,11 @@ public class FileWalker extends AbstractWalker {
     protected void processFile(final File f) {
         try {
             final File absoluteFile = f.getAbsoluteFile();
-            log.trace("FILE:{}", absoluteFile);
+            this.log.trace("FILE:{}", absoluteFile);
             final String string = readFile(absoluteFile.getPath());
-            log.debug("path = {}", string);
+            this.log.debug("path = {}", string);
         } catch (final IOException e) {
-            log.error(e.toString());
+            this.log.error(e.toString());
         }
     }
 

@@ -44,7 +44,7 @@ public final class EmailAddress extends TestResultsReporting {
     private String localPart = "email";
 
     /** The email. */
-    private String email = String.format("%s@%s", localPart, domain);
+    private String email = String.format("%s@%s", this.localPart, this.domain);
 
     /**
      * At.
@@ -74,7 +74,7 @@ public final class EmailAddress extends TestResultsReporting {
      */
     protected EmailAddress() {
         super();
-        setEmail(String.format("%s@%s", localPart, domain));
+        setEmail(String.format("%s@%s", this.localPart, this.domain));
     }
 
     /**
@@ -126,7 +126,7 @@ public final class EmailAddress extends TestResultsReporting {
      * @return the domain
      */
     public String getDomain() {
-        return domain;
+        return this.domain;
     }
 
     /**
@@ -135,7 +135,7 @@ public final class EmailAddress extends TestResultsReporting {
      * @return the local part
      */
     public String getLocalPart() {
-        return localPart;
+        return this.localPart;
     }
 
     /**
@@ -144,7 +144,7 @@ public final class EmailAddress extends TestResultsReporting {
      * @return the email
      */
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     /**
@@ -153,7 +153,7 @@ public final class EmailAddress extends TestResultsReporting {
      * @return true, if successful
      */
     public boolean verify() {
-        final Matcher matcher = PATTERN.matcher(email);
+        final Matcher matcher = PATTERN.matcher(this.email);
         return matcher.find();
     }
 
@@ -174,7 +174,10 @@ public final class EmailAddress extends TestResultsReporting {
      * @return the string
      */
     public String debugString() {
-        return String.format("EmailAddress [domain=%s, localPart=%s, email=%s]", domain, localPart, email);
+        return String.format("EmailAddress [domain=%s, localPart=%s, email=%s]",
+                this.domain,
+                this.localPart,
+                this.email);
     }
 
     /*
@@ -184,7 +187,7 @@ public final class EmailAddress extends TestResultsReporting {
      */
     @Override
     public String toString() {
-        return email;
+        return this.email;
     }
 
 }

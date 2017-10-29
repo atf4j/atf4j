@@ -26,10 +26,10 @@ public class Credentials extends TestResultsReporting {
 
     /** The username. */
     private String username = "";
-    
+
     /** The password. */
     private String password = "";
-    
+
     /** The email. */
     private String email = "";
 
@@ -38,9 +38,9 @@ public class Credentials extends TestResultsReporting {
      */
     public Credentials() {
         super();
-        username = "username";
-        password = "password";
-        email = "email@example.org";
+        this.username = "username";
+        this.password = "password";
+        this.email = "email@example.org";
     }
 
     /**
@@ -63,7 +63,7 @@ public class Credentials extends TestResultsReporting {
      * @return the username
      */
     public String getUsername() {
-        return username;
+        return this.username;
     }
 
     /**
@@ -105,7 +105,7 @@ public class Credentials extends TestResultsReporting {
      * @return the email
      */
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     /**
@@ -114,7 +114,7 @@ public class Credentials extends TestResultsReporting {
      * @return the password
      */
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     /*
@@ -125,9 +125,9 @@ public class Credentials extends TestResultsReporting {
     @Override
     public String toString() {
         return String.format("Credentials [username=%s, password=%s, email=%s]",
-                username,
-                password,
-                email);
+                this.username,
+                this.password,
+                this.email);
     }
 
 }

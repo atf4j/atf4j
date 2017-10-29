@@ -66,5 +66,4 @@ public final class ClassMethodTest extends TestResultsReporting {
         log.debug("classMethod.debugString() = {}", classMethod.debugString());
         log.debug("classMethod.toCode() =\n{}", classMethod.toCode());
     }
-
 }

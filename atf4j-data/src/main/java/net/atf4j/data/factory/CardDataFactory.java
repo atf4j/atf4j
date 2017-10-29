@@ -24,7 +24,7 @@ import net.atf4j.data.Card;
  */
 public final class CardDataFactory extends AbstractDataFactory {
 
-    /** The Constant 			CARD_DATA_TXT. */
+    /** The Constant CARD_DATA_TXT. */
     private static final String CARD_DATA_TXT = "cardData.txt";
 
     /** The card data factory. */
@@ -54,7 +54,7 @@ public final class CardDataFactory extends AbstractDataFactory {
      * Initialise.
      */
     protected void initialise() {
-        lines = load(CARD_DATA_TXT);
+        this.lines = load(CARD_DATA_TXT);
     }
 
     /**

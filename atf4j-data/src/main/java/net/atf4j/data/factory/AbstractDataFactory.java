@@ -17,8 +17,6 @@
 
 package net.atf4j.data.factory;
 
-import static org.junit.Assert.assertNotNull;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,6 +26,7 @@ import java.util.List;
 import java.util.Random;
 
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.core.VerificationError;
 
 /**
  * A factory for creating AbstractData objects.
@@ -35,7 +34,7 @@ import net.atf4j.core.TestResultsReporting;
 public abstract class AbstractDataFactory extends TestResultsReporting {
 
     /** FILE_NOT_FOUND_MSG. */
-    private static final String FILE_NOT_FOUND_MSG = "Expected file '%s' not found.";
+    private static final String FILE_NOT_FOUND_MSG = "Resource file '%s' not found.";
 
     /** FILE_EXT. */
     private static final String FILE_EXT = "csv";
@@ -92,8 +91,9 @@ public abstract class AbstractDataFactory extends TestResultsReporting {
         final InputStream inputStream = resourceAsStream(dataFilename);
         if (inputStream != null) {
             return load(inputStream);
+        } else {
+            throw new ResourceNotLoadedException(dataFilename);
         }
-        return null;
     }
 
     /**
@@ -170,4 +170,18 @@ public abstract class AbstractDataFactory extends TestResultsReporting {
         return null;
     }
 
+    /**
+     * Resource was not not Loaded.
+     */
+    @SuppressWarnings("serial")
+    public class ResourceNotLoadedException extends VerificationError {
+        /**
+         * Instantiates a missing configuration exception.
+         *
+         * @param resourceFilename the resource filename.
+         */
+        public ResourceNotLoadedException(final String resourceFilename) {
+            super(String.format(FILE_NOT_FOUND_MSG, resourceFilename));
+        }
+    }
 }

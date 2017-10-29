@@ -22,15 +22,13 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
-
 /**
  * A Unit test class for Text objects.
  */
 public final class TextTest extends TestResultsReporting {
 
     /**
-     * Test expected usage.
+     * Unit tests for the textFill() method of Text object.
      */
     @Test
     public void testTextFill() {
@@ -41,7 +39,7 @@ public final class TextTest extends TestResultsReporting {
     }
 
     /**
-     * Test text fill star.
+     * Unit tests for the textFillStar() method of Text object.
      */
     @Test
     public void testTextFillStar() {
@@ -65,7 +63,7 @@ public final class TextTest extends TestResultsReporting {
     }
 
     /**
-     * Unit Test for test fill int.
+     * Unit tests for the fillInt() method of Text object.
      */
     @Test
     public void testFillInt() {
@@ -75,7 +73,7 @@ public final class TextTest extends TestResultsReporting {
     }
 
     /**
-     * Unit Test for test fill int char.
+     * Unit tests for the fillIntChar() method of Text object.
      */
     @Test
     public void testFillIntChar() {
@@ -85,7 +83,7 @@ public final class TextTest extends TestResultsReporting {
     }
 
     /**
-     * Unit Test for test pad strin to length with spaces.
+     * Unit Test to pad a string to int length with spaces.
      */
     @Test
     public void testPadToLengthStringInt() {
@@ -96,7 +94,7 @@ public final class TextTest extends TestResultsReporting {
     }
 
     /**
-     * Unit Test for test pad to a string to length with character.
+     * Unit Test to pad a string to int length with spaces character.
      */
     @Test
     public void testPadToLengthStringIntChar() {

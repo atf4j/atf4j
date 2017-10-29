@@ -18,7 +18,6 @@
 package net.atf4j.data;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 

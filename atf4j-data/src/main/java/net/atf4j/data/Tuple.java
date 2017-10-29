@@ -24,10 +24,10 @@ package net.atf4j.data;
  * @param <V> the value type
  */
 public class Tuple<K, V> implements Keyed<K, V> {
-    
+
     /** The key. */
     private K key;
-    
+
     /** The value. */
     private V value;
 

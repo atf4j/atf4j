@@ -262,7 +262,7 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
     }
 
     /**
-     * The property file was not found.
+     * No property was found for the key.
      */
     @SuppressWarnings("serial")
     public class PropertyNotFoundException extends VerificationError {

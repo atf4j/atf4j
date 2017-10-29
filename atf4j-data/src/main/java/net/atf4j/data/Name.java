@@ -60,7 +60,7 @@ public abstract class Name extends AbstractDatum {
      * @return the name
      */
     public String getName() {
-        return name;
+        return this.name;
     }
 
     /**
@@ -89,7 +89,7 @@ public abstract class Name extends AbstractDatum {
      */
     @Override
     public String debugString() {
-        return String.format("%s [name=%s]", this.getClass().getSimpleName(), name);
+        return String.format("%s [name=%s]", this.getClass().getSimpleName(), this.name);
     }
 
     /*
@@ -99,7 +99,7 @@ public abstract class Name extends AbstractDatum {
      */
     @Override
     public String toString() {
-        return capitalise(name);
+        return capitalise(this.name);
     }
 
 }

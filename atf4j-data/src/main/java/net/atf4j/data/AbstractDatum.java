@@ -43,8 +43,8 @@ public abstract class AbstractDatum extends TestResultsReporting {
      * @return the datum
      */
     protected AbstractDatum fresh(final boolean isNew) {
-        isFresh = isNew;
-        isChanged = !isFresh;
+        this.isFresh = isNew;
+        this.isChanged = !this.isFresh;
         return this;
     }
 
@@ -55,8 +55,8 @@ public abstract class AbstractDatum extends TestResultsReporting {
      * @return the datum
      */
     protected AbstractDatum changed(final boolean isDirty) {
-        isChanged = isDirty;
-        isFresh = !isChanged;
+        this.isChanged = isDirty;
+        this.isFresh = !this.isChanged;
         return this;
     }
 
@@ -88,7 +88,7 @@ public abstract class AbstractDatum extends TestResultsReporting {
      * @return true, if is new
      */
     public boolean isFresh() {
-        return isFresh;
+        return this.isFresh;
     }
 
     /**
@@ -97,7 +97,7 @@ public abstract class AbstractDatum extends TestResultsReporting {
      * @return true, if is dirty
      */
     public boolean isChanged() {
-        return isChanged;
+        return this.isChanged;
     }
 
     /**
@@ -106,7 +106,7 @@ public abstract class AbstractDatum extends TestResultsReporting {
      * @return true, if is deleted
      */
     public boolean isDeleted() {
-        return isDeleted;
+        return this.isDeleted;
     }
 
     /**
@@ -115,7 +115,7 @@ public abstract class AbstractDatum extends TestResultsReporting {
      * @return true, if is used
      */
     public boolean isUsed() {
-        return isUsed;
+        return this.isUsed;
     }
 
     /**
@@ -126,10 +126,10 @@ public abstract class AbstractDatum extends TestResultsReporting {
     public String debugString() {
         return String.format("%s [isNew=%s, isDirty=%s, isDeleted=%s, isUsed=%s]",
                 this.getClass().getSimpleName(),
-                isFresh,
-                isChanged,
-                isDeleted,
-                isUsed);
+                this.isFresh,
+                this.isChanged,
+                this.isDeleted,
+                this.isUsed);
     }
 
     /*

@@ -29,16 +29,16 @@ import net.atf4j.data.Postcode;
  */
 public final class AddressDataFactory extends AbstractDataFactory {
 
-    /** The Constant 			ADDRESS_LINE_STEMS_TXT. */
+    /** The Constant ADDRESS_LINE_STEMS_TXT. */
     private static final String ADDRESS_LINE_STEMS_TXT = "addressLineStems.txt";
-    
-    /** The Constant 			ADDRESS_LINE_POSTFIX_TXT. */
+
+    /** The Constant ADDRESS_LINE_POSTFIX_TXT. */
     private static final String ADDRESS_LINE_POSTFIX_TXT = "addressLinePostfix.txt";
-    
-    /** The Constant 			ADDRESS_STEMS_TXT. */
+
+    /** The Constant ADDRESS_STEMS_TXT. */
     private static final String ADDRESS_STEMS_TXT = "addressStems.txt";
-    
-    /** The Constant 			ADDRESS_LOCALS_TXT. */
+
+    /** The Constant ADDRESS_LOCALS_TXT. */
     private static final String ADDRESS_LOCALS_TXT = "addressLocals.txt";
 
     /** The address data factory. */
@@ -46,13 +46,13 @@ public final class AddressDataFactory extends AbstractDataFactory {
 
     /** The address line stems. */
     private String[] addressLineStems;
-    
+
     /** The address line postfix. */
     private String[] addressLinePostfix;
-    
+
     /** The address locals. */
     private String[] addressLocals;
-    
+
     /** The address stems. */
     private String[] addressStems;
 
@@ -80,10 +80,10 @@ public final class AddressDataFactory extends AbstractDataFactory {
      * Initialise.
      */
     protected void initialise() {
-        addressLineStems = load(ADDRESS_LINE_STEMS_TXT);
-        addressLinePostfix = load(ADDRESS_LINE_POSTFIX_TXT);
-        addressStems = load(ADDRESS_STEMS_TXT);
-        addressLocals = load(ADDRESS_LOCALS_TXT);
+        this.addressLineStems = load(ADDRESS_LINE_STEMS_TXT);
+        this.addressLinePostfix = load(ADDRESS_LINE_POSTFIX_TXT);
+        this.addressStems = load(ADDRESS_STEMS_TXT);
+        this.addressLocals = load(ADDRESS_LOCALS_TXT);
     }
 
     /**
@@ -112,7 +112,7 @@ public final class AddressDataFactory extends AbstractDataFactory {
      * To log.
      */
     public void toLog() {
-        log.info(toString());
+        this.log.info(toString());
     }
 
     /**
@@ -132,17 +132,17 @@ public final class AddressDataFactory extends AbstractDataFactory {
      */
     @Override
     public String toString() {
-        assertNotNull(addressLineStems);
-        assertNotNull(addressLinePostfix);
-        assertNotNull(addressStems);
-        assertNotNull(addressLocals);
+        assertNotNull(this.addressLineStems);
+        assertNotNull(this.addressLinePostfix);
+        assertNotNull(this.addressStems);
+        assertNotNull(this.addressLocals);
 
         return String.format(
                 "AddressDataFactory [addressLineStems=%s, addressLinePostfix=%s, addressStems=%s, addressLocals=%s]",
-                fromatData(Arrays.toString(addressLineStems)),
-                fromatData(Arrays.toString(addressLinePostfix)),
-                fromatData(Arrays.toString(addressStems)),
-                fromatData(Arrays.toString(addressLocals)));
+                fromatData(Arrays.toString(this.addressLineStems)),
+                fromatData(Arrays.toString(this.addressLinePostfix)),
+                fromatData(Arrays.toString(this.addressStems)),
+                fromatData(Arrays.toString(this.addressLocals)));
     }
 
 }

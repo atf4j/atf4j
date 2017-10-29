@@ -79,7 +79,7 @@ public class Telephone extends TestResultsReporting {
          * @param name the name
          */
         private Type(final String name) {
-            typeName = name;
+            this.typeName = name;
         }
 
         /**
@@ -218,7 +218,7 @@ public class Telephone extends TestResultsReporting {
      * @return the number
      */
     public String getNumber() {
-        return number;
+        return this.number;
     }
 
     /**
@@ -227,8 +227,8 @@ public class Telephone extends TestResultsReporting {
      * @return the type
      */
     public String getType() {
-        if (type != null) {
-            return type.toString();
+        if (this.type != null) {
+            return this.type.toString();
         } else {
             return "Telephone";
         }
@@ -252,7 +252,7 @@ public class Telephone extends TestResultsReporting {
      * @return the string
      */
     public String debugString() {
-        return String.format("Telephone [number=%s, type=%s]", number, type);
+        return String.format("Telephone [number=%s, type=%s]", this.number, this.type);
     }
 
     /*

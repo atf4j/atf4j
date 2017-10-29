@@ -19,7 +19,6 @@ package net.atf4j.data;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Ignore;
@@ -38,8 +37,8 @@ public final class BankSortCodeTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final BankSortCode sortCode = BankSortCode.create();
-        log.debug("sortCode = {}", sortCode);
         verifyNotNull(sortCode);
+        log.debug("BankSortCode.create() = {}", sortCode);
     }
 
     /**
@@ -49,18 +48,8 @@ public final class BankSortCodeTest extends TestResultsReporting {
     @Ignore
     public void testRandom() {
         final BankSortCode sortCode = BankSortCode.random();
-        log.debug("sortCode ={}", sortCode);
         verifyNotNull(sortCode);
-    }
-
-    /**
-     * Test method for BankSortCode.
-     */
-    @Test
-    public void testDefaultConstructor() {
-        final BankSortCode bankSortCode = BankSortCode.create();
-        log.debug("sortCode ={}", bankSortCode);
-        verifyNotNull(bankSortCode);
+        log.debug("BankSortCode.random() = {}", sortCode);
     }
 
     /**
@@ -70,8 +59,8 @@ public final class BankSortCodeTest extends TestResultsReporting {
     public void testBankSortCodeString() {
         final String actual = "99:99:99";
         final BankSortCode sortCode = new BankSortCode(actual);
-        log.debug("sortCode ={}", sortCode);
         verifyNotNull(sortCode);
+        log.debug("new BankSortCode({}) = {}", actual, sortCode);
     }
 
     /**
@@ -80,8 +69,9 @@ public final class BankSortCodeTest extends TestResultsReporting {
     @Test
     public void testSetGetBankSortCode() {
         final String actual = "99:99:99";
-        final BankSortCode bankSortCode = BankSortCode.create();
-        assertEquals(actual, bankSortCode.setBankSortCode(actual).getBankSortCode());
+        final BankSortCode sortCode = BankSortCode.create();
+        verifyNotNull(sortCode);
+        assertEquals(actual, sortCode.setBankSortCode(actual).getBankSortCode());
     }
 
     /**
@@ -121,10 +111,9 @@ public final class BankSortCodeTest extends TestResultsReporting {
      * test BankSortCode object.
      */
     public void testDebugString() {
-        final BankSortCode bankSortCode = BankSortCode.create();
-        final String string = bankSortCode.debugString();
-        log.debug("BankSortCode().toString() = {}", string);
-        verifyNotNull(string);
+        final BankSortCode sortCode = BankSortCode.create();
+        verifyNotNull(sortCode);
+        log.debug("BankSortCode().debugString() = {}", sortCode.debugString());
     }
 
     /**
@@ -132,10 +121,8 @@ public final class BankSortCodeTest extends TestResultsReporting {
      */
     @Test
     public void testToString() {
-        final BankSortCode bankSortCode = BankSortCode.create();
-        final String string = bankSortCode.toString();
-        log.debug("BankSortCode().toString() = {}", string);
-        verifyNotNull(string);
+        final BankSortCode sortCode = BankSortCode.create();
+        verifyNotNull(sortCode);
+        log.debug("BankSortCode().toString() = {}", sortCode.toString());
     }
-
 }

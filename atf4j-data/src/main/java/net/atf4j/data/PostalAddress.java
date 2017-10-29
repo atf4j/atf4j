@@ -30,7 +30,7 @@ public class PostalAddress extends TestResultsReporting {
 
     /** The address lines. */
     private String[] addressLines = new String[8];
-    
+
     /** The postcode. */
     private Postcode postcode = new Postcode();
 
@@ -80,7 +80,7 @@ public class PostalAddress extends TestResultsReporting {
      * @return the postal address
      */
     public PostalAddress setAddressLines(final String[] address) {
-        addressLines = Arrays.copyOf(address, address.length);
+        this.addressLines = Arrays.copyOf(address, address.length);
         return this;
     }
 
@@ -92,8 +92,8 @@ public class PostalAddress extends TestResultsReporting {
      */
     public void setAddressRow(final int row, final String line) {
         assertTrue(row > 0);
-        assertTrue(row < addressLines.length);
-        addressLines[row] = line;
+        assertTrue(row < this.addressLines.length);
+        this.addressLines[row] = line;
     }
 
     /**
@@ -113,7 +113,7 @@ public class PostalAddress extends TestResultsReporting {
      * @return the address
      */
     public String[] getAddress() {
-        return Arrays.copyOf(addressLines, addressLines.length);
+        return Arrays.copyOf(this.addressLines, this.addressLines.length);
     }
 
     /**
@@ -122,7 +122,7 @@ public class PostalAddress extends TestResultsReporting {
      * @return the postcode
      */
     public Postcode getPostcode() {
-        return postcode;
+        return this.postcode;
     }
 
     /**
@@ -133,8 +133,8 @@ public class PostalAddress extends TestResultsReporting {
     public String debugString() {
         return String.format("%s [address=%s, postcode=%s]",
                 this.getClass().getSimpleName(),
-                Arrays.toString(addressLines),
-                postcode);
+                Arrays.toString(this.addressLines),
+                this.postcode);
     }
 
     /*
@@ -144,7 +144,7 @@ public class PostalAddress extends TestResultsReporting {
      */
     @Override
     public String toString() {
-        return String.format("%s, %s", Arrays.toString(addressLines), postcode);
+        return String.format("%s, %s", Arrays.toString(this.addressLines), this.postcode);
     }
 
 }

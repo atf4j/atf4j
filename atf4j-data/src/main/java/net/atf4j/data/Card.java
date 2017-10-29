@@ -32,19 +32,19 @@ public class Card extends TestResultsReporting {
 
     /** The provider. */
     private String provider = "";
-    
+
     /** The card number. */
     private String cardNumber = "";
-    
+
     /** The card name. */
     private String cardName = "";
-    
+
     /** The start date. */
     private Calendar startDate;
-    
+
     /** The end date. */
     private Calendar endDate;
-    
+
     /** The ccv. */
     private String ccv = "";
 
@@ -119,7 +119,7 @@ public class Card extends TestResultsReporting {
      * @return the provider
      */
     public String getProvider() {
-        return provider;
+        return this.provider;
     }
 
     /**
@@ -139,7 +139,7 @@ public class Card extends TestResultsReporting {
      * @return the card number
      */
     public String getCardNumber() {
-        return cardNumber;
+        return this.cardNumber;
     }
 
     /**
@@ -159,7 +159,7 @@ public class Card extends TestResultsReporting {
      * @return the card name
      */
     public String getCardName() {
-        return cardName;
+        return this.cardName;
     }
 
     /**
@@ -179,7 +179,7 @@ public class Card extends TestResultsReporting {
      * @return the start date
      */
     public Calendar getStartDate() {
-        return startDate;
+        return this.startDate;
     }
 
     /**
@@ -188,7 +188,7 @@ public class Card extends TestResultsReporting {
      * @return the end date
      */
     public Calendar getEndDate() {
-        return endDate;
+        return this.endDate;
     }
 
     /**
@@ -197,7 +197,7 @@ public class Card extends TestResultsReporting {
      * @return the ccv
      */
     public String getCcv() {
-        return ccv;
+        return this.ccv;
     }
 
     /**
@@ -331,12 +331,12 @@ public class Card extends TestResultsReporting {
     @Override
     public String toString() {
         return String.format("Card [provider=%s, cardNumber=%s, cardName=%s, startDate=%s, endDate=%s, ccv=%s]",
-                provider,
-                cardNumber,
-                cardName,
-                startDate,
-                endDate,
-                ccv);
+                this.provider,
+                this.cardNumber,
+                this.cardName,
+                this.startDate,
+                this.endDate,
+                this.ccv);
     }
 
 }

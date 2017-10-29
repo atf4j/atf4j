@@ -18,7 +18,6 @@
 package net.atf4j.data;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
@@ -30,74 +29,73 @@ import net.atf4j.core.TestResultsReporting;
 public final class BankTest extends TestResultsReporting {
 
     /**
-     * Test method for Bank.
+     * Unit tests to create a blank Bank object.
      */
     @Test
     public void testCreate() {
         final Bank bank = Bank.create();
-        log.debug("Bank.create() = {}", bank);
         verifyNotNull(bank);
+        log.debug("Bank.create() = {}", bank);
     }
 
     /**
-     * Test random.
+     * Unit test to create a random Bank object.
      */
     @Test
     public void testRandom() {
         final Bank bank = Bank.random();
-        log.debug("Bank.random() = {}", bank);
         verifyNotNull(bank);
+        log.debug("Bank.random() = {}", bank);
     }
 
     /**
-     * Test method for Bank.
+     * Unit tests for the Bank object.
      */
     @Test
     public void testDefaultConstructor() {
         final Bank bank = new Bank();
-        log.debug("new Bank() = {}", bank);
         verifyNotNull(bank);
+        log.debug("new Bank() = {}", bank);
     }
 
     /**
-     * Test method for void.
+     * Unit tests for the Bank object.
      */
     @Test
     public void testBank() {
         final Bank bank = new Bank("");
-        log.debug("new Bank('') = {}", bank);
         verifyNotNull(bank);
+        log.debug("new Bank('') = {}", bank);
     }
 
     /**
-     * Test method for void.
+     * Unit tests for the Bank object.
      */
     @Test
     public void testSetGetName() {
         final String bankName = "Bank Name";
         final Bank bank = new Bank(bankName);
-        log.debug("new Bank('Bank Name') = {}", bank);
+        verifyNotNull(bank);
         assertEquals(bankName, bank.setName(bankName).getName());
     }
 
     /**
-     * Test method for Bank.
+     * Unit tests for the Bank object.
      */
     @Test
     public void testDebugString() {
         final String string = new Bank().debugString();
-        log.debug("Bank().debugString() = {}", string);
         verifyNotNull(string);
+        log.debug("Bank().debugString() = {}", string);
     }
 
     /**
-     * Test method for Bank.
+     * Unit tests for the Bank object.
      */
     @Test
     public void testToString() {
         final String string = new Bank().toString();
-        log.debug("Bank().toString() = {}", string);
         verifyNotNull(string);
+        log.debug("Bank().toString() = {}", string);
     }
-
 }

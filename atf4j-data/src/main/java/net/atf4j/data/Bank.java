@@ -17,8 +17,6 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertNotNull;
-
 /**
  * Bank data class.
  */
@@ -58,8 +56,8 @@ public final class Bank extends Business {
      */
     public Bank(final BankSortCode sortcode, final String name) {
         super();
-        setBankSortCode(bankSortCode);
-        setName(bankName);
+        setBankSortCode(this.bankSortCode);
+        setName(this.bankName);
     }
 
     /**
@@ -69,7 +67,7 @@ public final class Bank extends Business {
      */
     public Bank(final String bankName) {
         super();
-        bankSortCode = BankSortCode.create();
+        this.bankSortCode = BankSortCode.create();
         setName(bankName);
     }
 
@@ -127,7 +125,7 @@ public final class Bank extends Business {
      * @return the bankSortCode
      */
     public BankSortCode getBankSortCode() {
-        return bankSortCode;
+        return this.bankSortCode;
     }
 
     /**
@@ -136,7 +134,7 @@ public final class Bank extends Business {
      * @return the bank name
      */
     public String getBankName() {
-        return bankName;
+        return this.bankName;
     }
 
     /**
@@ -145,12 +143,15 @@ public final class Bank extends Business {
      * @return the iban
      */
     public String getIban() {
-        return iban;
+        return this.iban;
     }
 
     @Override
     public String toString() {
-        return String.format("Bank [bankName=%s, bankSortCode=%s, iban=%s]", bankName, bankSortCode, iban);
+        return String.format("Bank [bankName=%s, bankSortCode=%s, iban=%s]",
+                this.bankName,
+                this.bankSortCode,
+                this.iban);
     }
 
 }

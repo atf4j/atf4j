@@ -18,7 +18,6 @@
 package net.atf4j.data.factory;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -53,7 +52,7 @@ public final class PostcodeDataFactoryTest extends TestResultsReporting {
         verifyNotNull(postcode);
 
         final boolean valid = Postcode.verify(postcode.toString());
-        log.info("Postcode.verify({}) = {}", postcode);
+        log.info("Postcode.verify({}) = {}", postcode, valid);
         assertTrue(valid);
     }
 

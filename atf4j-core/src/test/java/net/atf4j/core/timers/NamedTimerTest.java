@@ -17,8 +17,6 @@
 
 package net.atf4j.core.timers;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
@@ -28,81 +26,45 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class NamedTimerTest extends TestResultsReporting {
 
+    /**
+     * Unit tests for the default constructor of NamedTimer object.
+     */
     @Test
-    public void testMilliTimer() {
+    public void testDefaultConstructor() {
         final NamedTimer namedTimer = new NamedTimer();
-        log.debug("new MilliTimer() = {}", namedTimer);
         verifyNotNull(namedTimer);
+        log.debug("new NamedTimer() = {}", namedTimer);
     }
 
     /**
-     * Test method for MilliTimer.
+     * Test method for NamedTimer.
      */
     @Test
-    public void testMilliTimerString() {
+    public void testNamedTimerString() {
         final NamedTimer namedTimer = new NamedTimer("MilliTimer");
-        log.debug("new MilliTimer() = {}", namedTimer);
         verifyNotNull(namedTimer);
+        log.debug("new NamedTimer() = {}", namedTimer);
     }
 
     /**
-     * Test method for MilliTimer.
+     * Test method for starting and stopping a NamedTimer.
      */
     @Test
-    public void testStart() {
+    public void testStartStopNamedTimer() {
         final NamedTimer namedTimer = new NamedTimer();
-        log.debug("new MilliTimer() = {}", namedTimer);
-        verifyNotNull(namedTimer.start());
+        verifyNotNull(namedTimer);
+        log.debug("namedTimer.start = {}", namedTimer.start());
+        log.debug("namedTimer.stop = {}", namedTimer.stop());
     }
 
     /**
-     * Test method for MilliTimer.
-     */
-    @Test
-    public void testStop() {
-        final NamedTimer namedTimer = new NamedTimer();
-        log.debug("new MilliTimer() = {}", namedTimer);
-        verifyNotNull(namedTimer.stop());
-    }
-
-    /**
-     * Test method for MilliTimer.
-     */
-    @Test
-    public void testGetStartTime() {
-        final NamedTimer milliTimer = new NamedTimer();
-        log.debug("new MilliTimer() = {}", milliTimer);
-        verifyNotNull(milliTimer.getStartTime());
-    }
-
-    /**
-     * Test method for MilliTimer.
-     */
-    @Test
-    public void testGetElapsedTime() {
-        final NamedTimer namedTimer = new NamedTimer();
-        log.debug("new MilliTimer() = {}", namedTimer);
-        verifyNotNull(namedTimer.getElapsedTime());
-    }
-
-    /**
-     * Test method for MilliTimer.
+     * Test method for NamedTimer.
      */
     @Test
     public void testToString() {
         final NamedTimer namedTimer = new NamedTimer();
-        log.debug("new MilliTimer() = {}", namedTimer);
-        verifyNotNull(namedTimer.toString());
-    }
-
-    /**
-     * Test method for MilliTimer.
-     */
-    @Test
-    public void testGetTimerName() {
-        final NamedTimer namedTimer = new NamedTimer();
-        log.debug("new MilliTimer() = {}", namedTimer);
-        verifyNotNull(namedTimer.getTimerName());
+        verifyNotNull(namedTimer);
+        log.debug("namedTimer.toString() = {}", namedTimer.toString());
     }
 
 }
