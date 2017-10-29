@@ -20,18 +20,18 @@ package net.atf4j.csv;
 import java.util.Arrays;
 
 /**
- * Row from a CSV file.
+ * A class to represent a row from a CSV data file.
  */
 public class CsvRow {
 
-    /** The fields. */
+    /** fields. */
     private String[] fields = new String[0];
 
     /**
      * Instantiates a new CSV row.
      */
     public CsvRow() {
-        this.fields = new String[] {};
+        fields = new String[] {};
     }
 
     /**
@@ -49,9 +49,9 @@ public class CsvRow {
      * @param line the line
      */
     public void initialise(final String line) {
-        this.fields = line.trim().split(",");
-        for (int i = 0; i < this.fields.length; i++) {
-            this.fields[i] = this.fields[i].trim();
+        fields = line.trim().split(",");
+        for (int i = 0; i < fields.length; i++) {
+            fields[i] = fields[i].trim();
         }
     }
 
@@ -61,7 +61,7 @@ public class CsvRow {
      * @return the int
      */
     public int length() {
-        return this.fields.length;
+        return fields.length;
     }
 
     /**
@@ -71,7 +71,7 @@ public class CsvRow {
      * @return the field
      */
     public String getField(final int columnNumber) {
-        return this.fields[columnNumber - 1];
+        return fields[columnNumber - 1];
     }
 
     /**
@@ -80,7 +80,7 @@ public class CsvRow {
      * @return the fields
      */
     public String[] getFields() {
-        return this.fields;
+        return fields;
     }
 
     /**
@@ -90,7 +90,7 @@ public class CsvRow {
      * @see java.lang.Object#toString()
      */
     public String debugString() {
-        return String.format("%s [fields=%s]", this.getClass().getSimpleName(), Arrays.toString(this.fields));
+        return String.format("%s [fields=%s]", this.getClass().getSimpleName(), Arrays.toString(fields));
     }
 
     /*
@@ -100,7 +100,7 @@ public class CsvRow {
      */
     @Override
     public String toString() {
-        return Arrays.toString(this.fields).replaceAll("\\[|\\]", "");
+        return Arrays.toString(fields).replaceAll("\\[|\\]", "");
     }
 
 }
