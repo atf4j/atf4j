@@ -17,7 +17,7 @@ package net.atf4j.annotations;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * Abstract Annotated Test class.
+ * An abstract class for test annotations of the Automated Testing framework.
  */
 @Atf4j.TestScript
 public abstract class AbstractAtf4jAnnotation extends TestResultsReporting {
@@ -30,7 +30,7 @@ public abstract class AbstractAtf4jAnnotation extends TestResultsReporting {
     }
 
     /**
-     * Test tag.
+     * Get the test tag.
      *
      * @return the test tag as a String object.
      */
@@ -39,7 +39,7 @@ public abstract class AbstractAtf4jAnnotation extends TestResultsReporting {
     }
 
     /**
-     * Retrieve the Test Id from the annotation.
+     * Retrieve the test identifier from the annotation.
      *
      * @return the test id as a String object.
      */
@@ -48,7 +48,7 @@ public abstract class AbstractAtf4jAnnotation extends TestResultsReporting {
     }
 
     /**
-     * Retrieve the Test name from the annotation.
+     * Retrieve the test name from the annotation.
      *
      * @return the test name as a String.
      */
@@ -57,7 +57,7 @@ public abstract class AbstractAtf4jAnnotation extends TestResultsReporting {
     }
 
     /**
-     * Retrieve the Test description from the annotation.
+     * Retrieve the test description from the annotation.
      *
      * @return the test description as a String.
      */

@@ -24,7 +24,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Atf4j Interface.
+ * Atf4j Annotation Interface.
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
@@ -40,7 +40,7 @@ public @interface Atf4j {
     }
 
     /**
-     * Test Id Annotation Interface.
+     * Test tag Annotation Interface.
      */
     @Documented
     @Target(ElementType.METHOD)
