@@ -29,7 +29,7 @@ public final class Situation extends TestResultsReporting {
      */
     public Situation() {
         super();
-        log.info("{}", this.getClass().getSimpleName());
+        this.log.info("{}", this.getClass().getSimpleName());
     }
 
     /**
@@ -39,7 +39,7 @@ public final class Situation extends TestResultsReporting {
      */
     public Situation(final Given given) {
         super();
-        log.info("{}.Situation({})", this.getClass().getSimpleName(), given);
+        this.log.info("{}.Situation({})", this.getClass().getSimpleName(), given);
     }
 
 }

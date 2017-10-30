@@ -38,7 +38,7 @@ public final class AutomationConfig extends AbstractConfig {
      * @throws ConfigurationNotLoadedException the configuration not loaded
      *             exception
      */
-    public AutomationConfig(String propertyFilename) throws ConfigurationNotLoadedException {
+    public AutomationConfig(final String propertyFilename) throws ConfigurationNotLoadedException {
         super(propertyFilename);
     }
 

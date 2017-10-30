@@ -30,7 +30,7 @@ public class BehaviourModelTest extends TestResultsReporting {
      * Behaviour Model class.
      */
     public class BehaviourModel extends AbstractBehaviourModel {
-        
+
         /**
          * Instantiates a new behaviour model.
          */
@@ -45,7 +45,7 @@ public class BehaviourModelTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final BehaviourModel behaviour = new BehaviourModel();
-        log.debug("behaviour = {}", behaviour);
+        this.log.debug("behaviour = {}", behaviour);
         verifyNotNull(behaviour);
     }
 

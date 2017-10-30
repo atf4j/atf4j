@@ -52,7 +52,7 @@ public final class TestContext extends TestResultsReporting {
     }
 
     /**
-     * Checks if is jenkins is available.
+     * Checks if jenkins is available.
      *
      * -DisJenkins=true
      *
@@ -63,8 +63,9 @@ public final class TestContext extends TestResultsReporting {
     }
 
     /**
-     * Checks if a local server is available on
-     * <code>http://127.0.0.1:8080/</code>.
+     * Checks if a local server is available.
+     * <p>
+     * Default to <code>http://127.0.0.1:8080/</code>.
      *
      * -DlocalServer=true
      *
@@ -74,6 +75,11 @@ public final class TestContext extends TestResultsReporting {
         return Boolean.getBoolean("localServer");
     }
 
+    /**
+     * Checks if active MQ.
+     *
+     * @return true, if is active MQ
+     */
     public static boolean isActiveMQ() {
         return Boolean.getBoolean("isActiveMQ");
     }

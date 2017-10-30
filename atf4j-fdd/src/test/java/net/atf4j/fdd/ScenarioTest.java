@@ -17,8 +17,6 @@
 
 package net.atf4j.fdd;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Assert;
 import org.junit.Assume;
 import org.junit.Ignore;

@@ -17,8 +17,6 @@
 
 package net.atf4j.fdd;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Assert;
 import org.junit.Assume;
 import org.junit.Ignore;
@@ -42,7 +40,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Feature.Given("Pass Given")
         public void passGiven() {
-            log.debug("passGiven");
+            this.log.debug("passGiven");
             Assume.assumeTrue(true);
         }
 
@@ -51,7 +49,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Feature.When("Pass When")
         public void passWhen() {
-            log.debug("passWhen");
+            this.log.debug("passWhen");
             Assert.assertTrue(true);
         }
 
@@ -60,7 +58,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Feature.Then("Pass Then")
         public void passThen() {
-            log.debug("passThen");
+            this.log.debug("passThen");
             Assert.assertTrue(true);
         }
     }
@@ -75,7 +73,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Feature.Given("Fail Given")
         public void failGiven() {
-            log.debug("failGiven");
+            this.log.debug("failGiven");
             Assume.assumeTrue(false);
         }
 
@@ -84,7 +82,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Feature.When("Pass When")
         public void passWhen() {
-            log.debug("passWhen");
+            this.log.debug("passWhen");
             Assert.assertTrue(true);
         }
 
@@ -93,7 +91,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Feature.Then("Pass Then")
         public void passThen() {
-            log.debug("testPassThen");
+            this.log.debug("testPassThen");
             Assert.assertTrue(true);
         }
     }
@@ -108,7 +106,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Feature.Given("Pass Given")
         public void passGiven() {
-            log.debug("passGiven");
+            this.log.debug("passGiven");
             Assume.assumeTrue(true);
         }
 
@@ -117,7 +115,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Feature.When("Fail When")
         public void failWhen() {
-            log.debug("failWhen");
+            this.log.debug("failWhen");
             Assert.assertTrue(false);
         }
 
@@ -126,7 +124,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Feature.Then("Skipped Then")
         public void skippedThen() {
-            log.debug("skippedThen");
+            this.log.debug("skippedThen");
             Assert.assertTrue(true);
         }
     }
@@ -141,7 +139,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Feature.Given("Pass Given")
         public void passGiven() {
-            log.debug("passGiven");
+            this.log.debug("passGiven");
             Assume.assumeTrue(true);
         }
 
@@ -150,7 +148,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Feature.When("Pass When")
         public void passWhen() {
-            log.debug("passWhen");
+            this.log.debug("passWhen");
             Assert.assertTrue(true);
         }
 
@@ -159,7 +157,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
          */
         @Feature.Then("Fail Then")
         public void failThen() {
-            log.debug("failThen");
+            this.log.debug("failThen");
             Assert.assertTrue(false);
         }
     }
@@ -169,7 +167,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
      */
     @Test
     public void testScenarioExecution() {
-        log.debug("testScenarioExecution", this.getClass().getSimpleName());
+        this.log.debug("testScenarioExecution", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         final Scenario scenario = new Scenario();
         verifyNotNull(scenarioRunner);
@@ -181,7 +179,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
      */
     @Test
     public void testFailGivenScenario() {
-        log.debug("testFailGivenScenario", this.getClass().getSimpleName());
+        this.log.debug("testFailGivenScenario", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         final FailGivenScenario scenario = new FailGivenScenario();
         verifyNotNull(scenarioRunner);
@@ -193,7 +191,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
      */
     @Test
     public void testFailWhenScenario() {
-        log.debug("testFailWhenScenario", this.getClass().getSimpleName());
+        this.log.debug("testFailWhenScenario", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         final FailWhenScenario scenario = new FailWhenScenario();
         verifyNotNull(scenarioRunner);
@@ -205,7 +203,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
      */
     @Test
     public void testFailThenScenario() {
-        log.debug("testFailThenScenario", this.getClass().getSimpleName());
+        this.log.debug("testFailThenScenario", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         final FailThenScenario scenario = new FailThenScenario();
         verifyNotNull(scenarioRunner);
@@ -217,7 +215,7 @@ public final class ScenarioRunnerTest extends TestResultsReporting {
      */
     @Test
     public void testScenarioRunner() {
-        log.debug("testScenarioRunner", this.getClass().getSimpleName());
+        this.log.debug("testScenarioRunner", this.getClass().getSimpleName());
         final Scenario targetScenario = new Scenario();
         final ScenarioRunner scenarioRunner = new ScenarioRunner(targetScenario);
         verifyNotNull(scenarioRunner);

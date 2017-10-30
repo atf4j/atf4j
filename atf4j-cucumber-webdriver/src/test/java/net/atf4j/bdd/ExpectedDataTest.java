@@ -27,10 +27,10 @@ import net.atf4j.core.TestResultsReporting;
 public class ExpectedDataTest extends TestResultsReporting {
 
     /**
-     * The ExpectedData Class.
+     * ExpectedData Class.
      */
     public class ExpectedData extends AbstractExpectedData {
-        
+
         /**
          * Instantiates a new expected data.
          */
@@ -40,13 +40,13 @@ public class ExpectedDataTest extends TestResultsReporting {
     }
 
     /**
-     * Test default constructor.
+     * Unit Test default constructor.
      */
     @Test
     public void testDefaultConstructor() {
         final ExpectedData expectedData = new ExpectedData();
-        log.debug("expectedData = {}", expectedData);
         verifyNotNull(expectedData);
+        log.debug("expectedData = {}", expectedData);
     }
 
 }
