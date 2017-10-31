@@ -15,38 +15,42 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.bdd;
+package net.atf4j.core;
+
+import static org.junit.Assert.assertFalse;
 
 import org.junit.Test;
 
+import net.atf4j.core.TestContext;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * The ExpectedDataTest Class.
+ * A UnitTest for TestContext objects.
  */
-public class ExpectedDataTest extends TestResultsReporting {
+public class TestContextTest extends TestResultsReporting {
 
     /**
-     * ExpectedData Class.
+     * Unit Test Context.isLocal().
      */
-    public class ExpectedData extends AbstractExpectedData {
-
-        /**
-         * Instantiates a new expected data.
-         */
-        public ExpectedData() {
-            super();
-        }
+    @Test
+    public void testisLocal() {
+        assertFalse(TestContext.isLocal());
     }
 
     /**
-     * Unit Test default constructor.
+     * Test method for TestContext. Unit Test Context.isLocal().
      */
     @Test
-    public void testDefaultConstructor() {
-        final ExpectedData expectedData = new ExpectedData();
-        verifyNotNull(expectedData);
-        log.debug("expectedData = {}", expectedData);
+    public void testIsSeleniumGrid() {
+        assertFalse(TestContext.isGrid());
+    }
+
+    /**
+     * Unit Test Context.isLocal(). Test method for TestContext.
+     */
+    @Test
+    public void testIsJenkins() {
+        assertFalse(TestContext.isJenkins());
     }
 
 }

@@ -25,8 +25,8 @@ import javax.jms.JMSException;
 
 import org.junit.Test;
 
+import net.atf4j.core.TestContext;
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.core.model.TestContext;
 
 /**
  * The ConsumerTest Class.
@@ -34,7 +34,7 @@ import net.atf4j.core.model.TestContext;
 public final class ConsumerTest extends TestResultsReporting {
 
     /**
-     * Test reader.
+     * Unit Test for default constructor.
      *
      * @throws JMSException the JMS exception
      */
@@ -45,7 +45,7 @@ public final class ConsumerTest extends TestResultsReporting {
     }
 
     /**
-     * Test execute.
+     * Unit Test the execute method, to consume all the messages.
      *
      * @throws JMSException the JMS exception
      */
@@ -57,6 +57,6 @@ public final class ConsumerTest extends TestResultsReporting {
 
         final String[] messages = consumer.execute();
         verifyNotNull(messages);
-        this.log.debug("messages = {}", Arrays.toString(messages));
+        log.debug("messages = {}", Arrays.toString(messages));
     }
 }

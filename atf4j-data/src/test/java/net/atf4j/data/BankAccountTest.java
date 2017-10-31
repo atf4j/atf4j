@@ -106,7 +106,7 @@ public final class BankAccountTest extends TestResultsReporting {
         verifyNotNull(bankAccount);
         final String string = bankAccount.debugString();
         verifyNotNull(string);
-        log.debug("bankAccount.debugString() = {}", string);
+        this.log.debug("bankAccount.debugString() = {}", string);
     }
 
     /**
@@ -117,6 +117,6 @@ public final class BankAccountTest extends TestResultsReporting {
         final BankAccount bankAccount = BankAccount.create();
         verifyNotNull(bankAccount);
         final String string = bankAccount.toString();
-        log.error("bankAccount.toString() = {}", string);
+        this.log.error("bankAccount.toString() = {}", string);
     }
 }

@@ -33,7 +33,7 @@ public final class CardDataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final Card card = CardDataFactory.create();
-        log.debug("CardDataFactory.create() = {}", card);
+        this.log.debug("CardDataFactory.create() = {}", card);
         verifyNotNull(card);
     }
 
@@ -43,7 +43,7 @@ public final class CardDataFactoryTest extends TestResultsReporting {
     @Test
     public void testRandom() {
         final Card card = CardDataFactory.random();
-        log.debug("CardDataFactory.random() = {}", card);
+        this.log.debug("CardDataFactory.random() = {}", card);
         verifyNotNull(card);
     }
 
@@ -53,7 +53,7 @@ public final class CardDataFactoryTest extends TestResultsReporting {
     @Test
     public void testGetInstance() {
         final CardDataFactory cardDataFactory = CardDataFactory.getInstance();
-        log.debug("CardDataFactory.getInstance() = {}", cardDataFactory);
+        this.log.debug("CardDataFactory.getInstance() = {}", cardDataFactory);
         verifyNotNull(cardDataFactory);
     }
 

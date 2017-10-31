@@ -21,8 +21,8 @@ import java.util.Enumeration;
 import java.util.Stack;
 import java.util.UUID;
 
-import net.atf4j.core.VerificationError;
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.core.VerificationError;
 
 /**
  * NestedTimers. [GOF] Singleton.

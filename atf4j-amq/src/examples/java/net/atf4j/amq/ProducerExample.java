@@ -15,38 +15,32 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.bdd;
+package net.atf4j.amq;
+
+import static org.junit.Assume.assumeTrue;
+
+import java.util.Arrays;
+
+import javax.jms.JMSException;
 
 import org.junit.Test;
 
+import net.atf4j.core.TestContext;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * The ExpectedDataTest Class.
+ * The ProducerTest Class.
  */
-public class ExpectedDataTest extends TestResultsReporting {
+public class ProducerExample extends TestResultsReporting {
 
-    /**
-     * ExpectedData Class.
-     */
-    public class ExpectedData extends AbstractExpectedData {
-
-        /**
-         * Instantiates a new expected data.
-         */
-        public ExpectedData() {
-            super();
-        }
-    }
-
-    /**
-     * Unit Test default constructor.
-     */
     @Test
-    public void testDefaultConstructor() {
-        final ExpectedData expectedData = new ExpectedData();
-        verifyNotNull(expectedData);
-        log.debug("expectedData = {}", expectedData);
-    }
+    public void testExampleUsage() throws JMSException {
+        assumeTrue(TestContext.isActiveMQ());
+        final Producer producer = new Producer();
+        verifyNotNull(producer);
 
+        final String[] messages = null;
+        log.debug("{}", Arrays.toString(messages));
+        verifyNotNull(producer.execute(messages));
+    }
 }

@@ -39,7 +39,7 @@ public final class PersonTest extends TestResultsReporting {
     @Test
     public void testPerson() {
         final Person person = new Person();
-        log.debug("new Person() = {}", person);
+        this.log.debug("new Person() = {}", person);
         verifyNotNull(person);
         person.forename("Forname").middlename("MiddleName").surname("Surname");
     }
@@ -50,7 +50,7 @@ public final class PersonTest extends TestResultsReporting {
     @Test
     public void testPersonFornameMiddleSurname() {
         final Person person = new Person("Forname", "MiddleName", "Surname");
-        log.debug("new Person() = {}", person);
+        this.log.debug("new Person() = {}", person);
         verifyNotNull(person);
     }
 
@@ -60,7 +60,7 @@ public final class PersonTest extends TestResultsReporting {
     @Test
     public void testSetGetTitle() {
         final Person person = new Person();
-        log.debug("new Person() = {}", person);
+        this.log.debug("new Person() = {}", person);
         verifyNotNull(person);
         assertEquals(Title.SIR, person.title(Title.SIR).title());
     }
@@ -72,7 +72,7 @@ public final class PersonTest extends TestResultsReporting {
     @Test
     public void testSetGetForenameString() {
         final Person person = new Person();
-        log.debug("new Person() = {}", person);
+        this.log.debug("new Person() = {}", person);
         verifyNotNull(person);
 
         final String forename = "Forename";
@@ -87,7 +87,7 @@ public final class PersonTest extends TestResultsReporting {
     @Test
     public void testSetGetMiddlenameString() {
         final Person person = new Person();
-        log.debug("new Person() = {}", person);
+        this.log.debug("new Person() = {}", person);
         verifyNotNull(person);
 
         final String middlename = "Middlename";

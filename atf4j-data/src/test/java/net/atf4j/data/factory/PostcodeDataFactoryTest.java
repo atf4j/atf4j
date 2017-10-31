@@ -48,11 +48,11 @@ public final class PostcodeDataFactoryTest extends TestResultsReporting {
     @Test
     public void testPostcodeRandom() {
         final Postcode postcode = PostcodeDataFactory.random();
-        log.info("postcode = {}", postcode);
+        this.log.info("postcode = {}", postcode);
         verifyNotNull(postcode);
 
         final boolean valid = Postcode.verify(postcode.toString());
-        log.info("Postcode.verify({}) = {}", postcode, valid);
+        this.log.info("Postcode.verify({}) = {}", postcode, valid);
         assertTrue(valid);
     }
 
@@ -62,7 +62,7 @@ public final class PostcodeDataFactoryTest extends TestResultsReporting {
     @Test
     public void testPostcodeGetInstance() {
         final PostcodeDataFactory postcodeDataFactory = PostcodeDataFactory.getInstance();
-        log.debug("PostcodeDataFactory.getInstance() = {}", postcodeDataFactory);
+        this.log.debug("PostcodeDataFactory.getInstance() = {}", postcodeDataFactory);
         verifyNotNull(postcodeDataFactory);
 
         final PostcodeDataFactory same = PostcodeDataFactory.getInstance();

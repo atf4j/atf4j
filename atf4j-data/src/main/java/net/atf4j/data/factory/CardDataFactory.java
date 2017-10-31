@@ -54,7 +54,7 @@ public final class CardDataFactory extends AbstractDataFactory {
      * Initialise.
      */
     protected void initialise() {
-        lines = load(CARD_DATA_TXT);
+        this.lines = load(CARD_DATA_TXT);
     }
 
     /**

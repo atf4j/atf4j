@@ -19,6 +19,7 @@ package net.atf4j.core.model;
 
 import org.junit.Test;
 
+import net.atf4j.core.TestContext;
 import net.atf4j.core.TestResultsReporting;
 import net.atf4j.core.VerificationError;
 

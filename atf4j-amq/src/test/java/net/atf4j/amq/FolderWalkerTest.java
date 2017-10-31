@@ -30,7 +30,7 @@ import net.atf4j.core.TestResultsReporting;
 public class FolderWalkerTest extends TestResultsReporting {
 
     /**
-     * The FolderWalker Class.
+     * Unit Test the FolderWalker Class.
      */
     public class FolderWalker extends AbstractFolderWalker {
 
@@ -59,7 +59,7 @@ public class FolderWalkerTest extends TestResultsReporting {
              */
             @Override
             public boolean accept(final File dir, final String filename) {
-                return filename.endsWith(this.extension);
+                return filename.endsWith(extension);
             }
         }
 
@@ -81,55 +81,55 @@ public class FolderWalkerTest extends TestResultsReporting {
     }
 
     /**
-     * Test folder walker.
+     * Unit test folder walker.
      */
     @Test
     public void testFolderWalker() {
-        this.log.debug("testFolderWalker");
+        log.debug("testFolderWalker");
         final FolderWalkerInterface folderWalker = new FolderWalker();
         verifyNotNull(folderWalker);
         folderWalker.walk();
     }
 
     /**
-     * Test folder walker null.
+     * Unit test folder walker null.
      */
     @Test
     public void testFolderWalkerNull() {
-        this.log.debug("testFolderWalkerNull");
+        log.debug("testFolderWalkerNull");
         final FolderWalkerInterface folderWalker = new FolderWalker(null);
         verifyNotNull(folderWalker);
         folderWalker.walk();
     }
 
     /**
-     * Test folder walker empty.
+     * Unit test folder walker empty.
      */
     @Test
     public void testFolderWalkerEmpty() {
-        this.log.debug("testFolderWalkerEmpty");
+        log.debug("testFolderWalkerEmpty");
         final FolderWalkerInterface folderWalker = new FolderWalker("");
         verifyNotNull(folderWalker);
         folderWalker.walk();
     }
 
     /**
-     * Test folder walker dot.
+     * Unit test folder walker dot.
      */
     @Test
     public void testFolderWalkerDot() {
-        this.log.debug("testFolderWalkerDot");
+        log.debug("testFolderWalkerDot");
         final FolderWalkerInterface folderWalker = new FolderWalker(".");
         verifyNotNull(folderWalker);
         folderWalker.walk();
     }
 
     /**
-     * Test folder walker string.
+     * Unit test folder walker string.
      */
     @Test
     public void testFolderWalkerString() {
-        this.log.debug("testFolderWalkerString");
+        log.debug("testFolderWalkerString");
         final FolderWalkerInterface folderWalker = new FolderWalker("messages");
         verifyNotNull(folderWalker);
         folderWalker.walk();

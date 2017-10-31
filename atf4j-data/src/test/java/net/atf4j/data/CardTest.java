@@ -32,8 +32,13 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class CardTest extends TestResultsReporting {
 
+    /** PROVIDER constant. */
     private static final String PROVIDER = "Provider";
+    
+    /** CARD_NAME constant. */
     private static final String CARD_NAME = "Card Name";
+    
+    /** CARD_NUMBER constant. */
     private static final String CARD_NUMBER = "CardNumber";
 
     /** INVALID_NUMBER. */

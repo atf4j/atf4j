@@ -17,12 +17,9 @@
 
 package net.atf4j.bdd;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Ignore;
 import org.junit.Test;
 
-import net.atf4j.bdd.AutomationConfig;
 import net.atf4j.core.TestResultsReporting;
 
 /**
@@ -37,7 +34,7 @@ public class AutomationConfigTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final AutomationConfig config = new AutomationConfig();
-        log.debug("config = {}", config);
+        this.log.debug("config = {}", config);
         verifyNotNull(config);
     }
 

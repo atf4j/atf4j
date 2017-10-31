@@ -35,7 +35,7 @@ public final class JdbcDataTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final MockJdbcData jdbcData = new MockJdbcData();
-        log.debug("new JdbcData() = {}", jdbcData);
+        this.log.debug("new JdbcData() = {}", jdbcData);
         verifyNotNull(jdbcData);
     }
 
@@ -45,7 +45,7 @@ public final class JdbcDataTest extends TestResultsReporting {
     @Test
     public void testSetUp() {
         final MockJdbcData jdbcData = new MockJdbcData();
-        log.debug("new JdbcData() = {}", jdbcData);
+        this.log.debug("new JdbcData() = {}", jdbcData);
         assertNotNull(jdbcData);
         verifyNotNull(jdbcData);
     }
@@ -56,7 +56,7 @@ public final class JdbcDataTest extends TestResultsReporting {
     @Test
     public void testReset() {
         final MockJdbcData jdbcData = new MockJdbcData();
-        log.debug("new JdbcData() = {}", jdbcData);
+        this.log.debug("new JdbcData() = {}", jdbcData);
         assertNotNull(jdbcData);
         verifyNotNull(jdbcData);
     }
@@ -67,7 +67,7 @@ public final class JdbcDataTest extends TestResultsReporting {
     @Test
     public void testTearDown() {
         final MockJdbcData jdbcData = new MockJdbcData();
-        log.debug("new JdbcData() = {}", jdbcData);
+        this.log.debug("new JdbcData() = {}", jdbcData);
         assertNotNull(jdbcData);
         verifyNotNull(jdbcData);
     }

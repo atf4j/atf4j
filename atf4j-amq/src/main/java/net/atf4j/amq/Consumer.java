@@ -40,14 +40,14 @@ public final class Consumer extends AbstractConnectionWrapper {
     }
 
     /**
-     * Execute.
+     * Execute, consumer all messages.
      *
      * @return the string[]
      * @throws JMSException the JMS exception
      */
     public String[] execute() throws JMSException {
 
-        final MessageConsumer messageConsumer = this.session.createConsumer(this.topic);
+        final MessageConsumer messageConsumer = session.createConsumer(topic);
 
         final Message message = messageConsumer.receive(1000);
 
@@ -58,7 +58,7 @@ public final class Consumer extends AbstractConnectionWrapper {
         }
 
         messageConsumer.close();
-        this.connection.close();
+        connection.close();
         return new String[0];
     }
 

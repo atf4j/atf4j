@@ -25,8 +25,8 @@ import javax.jms.JMSException;
 
 import org.junit.Test;
 
+import net.atf4j.core.TestContext;
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.core.model.TestContext;
 
 /**
  * The ProducerTest Class.
@@ -34,7 +34,7 @@ import net.atf4j.core.model.TestContext;
 public class ProducerTest extends TestResultsReporting {
 
     /**
-     * Test producer.
+     * Unit test the message producer default constructor.
      *
      * @throws JMSException the JMS exception
      */
@@ -45,7 +45,7 @@ public class ProducerTest extends TestResultsReporting {
     }
 
     /**
-     * Test execute.
+     * Unit Test execute.
      *
      * @throws JMSException the JMS exception
      */
@@ -56,7 +56,7 @@ public class ProducerTest extends TestResultsReporting {
         verifyNotNull(producer);
 
         final String[] messages = null;
-        this.log.debug("{}", Arrays.toString(messages));
+        log.debug("{}", Arrays.toString(messages));
         verifyNotNull(producer.execute(messages));
     }
 }

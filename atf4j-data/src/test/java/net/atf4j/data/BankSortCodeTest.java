@@ -38,7 +38,7 @@ public final class BankSortCodeTest extends TestResultsReporting {
     public void testCreate() {
         final BankSortCode sortCode = BankSortCode.create();
         verifyNotNull(sortCode);
-        log.debug("BankSortCode.create() = {}", sortCode);
+        this.log.debug("BankSortCode.create() = {}", sortCode);
     }
 
     /**
@@ -49,7 +49,7 @@ public final class BankSortCodeTest extends TestResultsReporting {
     public void testRandom() {
         final BankSortCode sortCode = BankSortCode.random();
         verifyNotNull(sortCode);
-        log.debug("BankSortCode.random() = {}", sortCode);
+        this.log.debug("BankSortCode.random() = {}", sortCode);
     }
 
     /**
@@ -60,7 +60,7 @@ public final class BankSortCodeTest extends TestResultsReporting {
         final String actual = "99:99:99";
         final BankSortCode sortCode = new BankSortCode(actual);
         verifyNotNull(sortCode);
-        log.debug("new BankSortCode({}) = {}", actual, sortCode);
+        this.log.debug("new BankSortCode({}) = {}", actual, sortCode);
     }
 
     /**
@@ -113,7 +113,7 @@ public final class BankSortCodeTest extends TestResultsReporting {
     public void testDebugString() {
         final BankSortCode sortCode = BankSortCode.create();
         verifyNotNull(sortCode);
-        log.debug("BankSortCode().debugString() = {}", sortCode.debugString());
+        this.log.debug("BankSortCode().debugString() = {}", sortCode.debugString());
     }
 
     /**
@@ -123,6 +123,6 @@ public final class BankSortCodeTest extends TestResultsReporting {
     public void testToString() {
         final BankSortCode sortCode = BankSortCode.create();
         verifyNotNull(sortCode);
-        log.debug("BankSortCode().toString() = {}", sortCode.toString());
+        this.log.debug("BankSortCode().toString() = {}", sortCode.toString());
     }
 }

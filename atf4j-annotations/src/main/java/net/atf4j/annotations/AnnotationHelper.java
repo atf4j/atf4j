@@ -24,15 +24,25 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * An Annotation Helper class.
+ * Helper for test annotations of the Automated Testing framework.
+ * <P>
+ * Find and decode the Atf4j test annotations from the current call stack.
  */
 public final class AnnotationHelper {
 
+    /** EXPECTED_TEST_TAG constant. */
     private static final String EXPECTED_TEST_TAG = "Expected @Atf4j.TestTag annotation not found.";
+
+    /** EXPECTED_TEST_ID constant. */
     private static final String EXPECTED_TEST_ID = "Expected @Atf4j.TestId annotation not found.";
+
+    /** EXPECTED_TEST_NAME constant. */
     private static final String EXPECTED_TEST_NAME = "Expected @Atf4j.TestName annotation not found.";
+
+    /** EXPECTED_TEST_DESCRIPTION constant. */
     private static final String EXPECTED_TEST_DESCRIPTION = "Expected @Atf4j.TestDescription annotation not found.";
 
+    /** LOG constant. */
     private static final Logger LOG = LoggerFactory.getLogger(AnnotationHelper.class);
 
     /**

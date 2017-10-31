@@ -30,7 +30,7 @@ import net.atf4j.core.TestResultsReporting;
 public final class MessageFinderExample extends TestResultsReporting {
 
     /**
-     * Test message finder.
+     * Unit test the expected usage of the message finder.
      */
     @Test
     public void testMessageFinder() {

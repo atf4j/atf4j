@@ -25,10 +25,10 @@ import java.io.FilenameFilter;
  */
 public class MessageFinder extends AbstractFolderWalker {
 
-    /** XML_FILE constant. */
+    /** Default file extension . */
     private static final String XML_FILE = ".xml";
 
-    /** PATH constant. */
+    /** Default path. */
     private static final String PATH = "./messages";
 
     /**

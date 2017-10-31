@@ -15,41 +15,32 @@
  * along with atf4j.  If not, see http://www.gnu.org/licenses/.
  */
 
-package net.atf4j.core.model;
+package net.atf4j.amq;
 
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assume.assumeTrue;
+
+import java.util.Arrays;
+
+import javax.jms.JMSException;
 
 import org.junit.Test;
 
+import net.atf4j.core.TestContext;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * A UnitTest for TestContext objects.
+ * The ConsumerTest Class.
  */
-public class TestContextTest extends TestResultsReporting {
+public final class ConsumerExample extends TestResultsReporting {
 
-    /**
-     * Unit Test Context.isLocal().
-     */
     @Test
-    public void testisLocal() {
-        assertFalse(TestContext.isLocal());
-    }
+    public void testExampleUsage() throws JMSException {
+        assumeTrue(TestContext.isActiveMQ());
+        final Consumer consumer = new Consumer();
+        verifyNotNull(consumer.execute());
 
-    /**
-     * Test method for TestContext. Unit Test Context.isLocal().
-     */
-    @Test
-    public void testIsSeleniumGrid() {
-        assertFalse(TestContext.isGrid());
+        final String[] messages = consumer.execute();
+        verifyNotNull(messages);
+        log.debug("messages = {}", Arrays.toString(messages));
     }
-
-    /**
-     * Unit Test Context.isLocal(). Test method for TestContext.
-     */
-    @Test
-    public void testIsJenkins() {
-        assertFalse(TestContext.isJenkins());
-    }
-
 }

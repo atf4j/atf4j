@@ -18,7 +18,7 @@
 package net.atf4j.amq;
 
 /**
- * The ConnectionWrapperInterface Interface.
+ * Interface for the Connection wrapper.
  */
 public interface ConnectionWrapperInterface {
 

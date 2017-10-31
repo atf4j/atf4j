@@ -34,7 +34,7 @@ public final class PersonDataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final Person person = PersonDataFactory.create();
-        log.debug("PersonDataFactory.create() = {}", person);
+        this.log.debug("PersonDataFactory.create() = {}", person);
         verifyNotNull(person);
     }
 
@@ -44,7 +44,7 @@ public final class PersonDataFactoryTest extends TestResultsReporting {
     @Test
     public void testRandom() {
         final Person person = PersonDataFactory.random();
-        log.debug("PersonDataFactory.create() = {}", person);
+        this.log.debug("PersonDataFactory.create() = {}", person);
         verifyNotNull(person);
     }
 
@@ -54,7 +54,7 @@ public final class PersonDataFactoryTest extends TestResultsReporting {
     @Test
     public void testGetInstance() {
         final AbstractDataFactory personDataFactory = PersonDataFactory.getInstance();
-        log.debug("PersonDataFactory.getInstance() = {}", personDataFactory);
+        this.log.debug("PersonDataFactory.getInstance() = {}", personDataFactory);
         verifyNotNull(personDataFactory);
         verifyNotNull(personDataFactory.toString());
     }
@@ -65,17 +65,17 @@ public final class PersonDataFactoryTest extends TestResultsReporting {
     @Ignore
     @Test
     public void testExampleUsage() {
-        log.info("randomForename() = {}", PersonDataFactory.randomForename());
-        log.info("randomMaleForename() = {}", PersonDataFactory.randomMaleForename());
-        log.info("randomFemaleForename() = {}", PersonDataFactory.randomFemaleForename());
+        this.log.info("randomForename() = {}", PersonDataFactory.randomForename());
+        this.log.info("randomMaleForename() = {}", PersonDataFactory.randomMaleForename());
+        this.log.info("randomFemaleForename() = {}", PersonDataFactory.randomFemaleForename());
 
-        log.info("randomSurname() = {}", PersonDataFactory.randomSurname());
-        log.info("randomSurname() = {}", PersonDataFactory.randomSurname());
+        this.log.info("randomSurname() = {}", PersonDataFactory.randomSurname());
+        this.log.info("randomSurname() = {}", PersonDataFactory.randomSurname());
 
-        log.info("randomFullname() = {}", PersonDataFactory.randomFullname());
-        log.info("randomFullname() = {}", PersonDataFactory.randomFullname());
+        this.log.info("randomFullname() = {}", PersonDataFactory.randomFullname());
+        this.log.info("randomFullname() = {}", PersonDataFactory.randomFullname());
 
-        log.info("randomEmail() = {}", PersonDataFactory.randomEmail());
-        log.info("randomEmail() = {}", PersonDataFactory.randomEmail());
+        this.log.info("randomEmail() = {}", PersonDataFactory.randomEmail());
+        this.log.info("randomEmail() = {}", PersonDataFactory.randomEmail());
     }
 }

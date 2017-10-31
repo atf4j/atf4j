@@ -33,7 +33,7 @@ public final class BankDataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final Bank bank = BankDataFactory.create();
-        log.debug("bankDataFactory.create() = {}", bank);
+        this.log.debug("bankDataFactory.create() = {}", bank);
         verifyNotNull(bank);
     }
 
@@ -43,7 +43,7 @@ public final class BankDataFactoryTest extends TestResultsReporting {
     @Test
     public void testRandom() {
         final Bank randomBank = BankDataFactory.random();
-        log.debug("BankDataFactory.random() = {}", randomBank);
+        this.log.debug("BankDataFactory.random() = {}", randomBank);
         verifyNotNull(randomBank);
     }
 
@@ -53,7 +53,7 @@ public final class BankDataFactoryTest extends TestResultsReporting {
     @Test
     public void testGetInstance() {
         final BankDataFactory bankDataFactory = BankDataFactory.getInstance();
-        log.debug("BankDataFactory.getInstance() = {}", bankDataFactory);
+        this.log.debug("BankDataFactory.getInstance() = {}", bankDataFactory);
         verifyNotNull(bankDataFactory);
     }
 

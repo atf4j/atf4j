@@ -23,9 +23,10 @@ import static org.junit.Assume.assumeTrue;
 import java.util.ArrayDeque;
 import java.util.Collection;
 
-import net.atf4j.core.VerificationError;
+import net.atf4j.core.TestContext;
 import net.atf4j.core.TestResult;
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.core.VerificationError;
 
 /**
  * Abstract Test Base Class.

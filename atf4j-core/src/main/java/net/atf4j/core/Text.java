@@ -19,8 +19,6 @@ package net.atf4j.core;
 
 import java.util.Random;
 
-import net.atf4j.core.TestResultsReporting;
-
 /**
  * Text utilities class.
  */

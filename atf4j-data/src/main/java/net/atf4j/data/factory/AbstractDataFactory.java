@@ -60,7 +60,7 @@ public abstract class AbstractDataFactory extends TestResultsReporting {
      */
     protected AbstractDataFactory(final String dataFilename) {
         super();
-        lines = load(dataFilename);
+        this.lines = load(dataFilename);
     }
 
     /**
@@ -115,11 +115,11 @@ public abstract class AbstractDataFactory extends TestResultsReporting {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 lines.add(line);
-                log.trace(line);
+                this.log.trace(line);
             }
             bufferedReader.close();
         } catch (final IOException e) {
-            log.error(e.toString());
+            this.log.error(e.toString());
         }
         return lines.toArray(new String[lines.size()]);
     }
@@ -130,7 +130,7 @@ public abstract class AbstractDataFactory extends TestResultsReporting {
      * @return the string
      */
     protected String randomEntry() {
-        return randomEntry(lines);
+        return randomEntry(this.lines);
     }
 
     /**
@@ -153,7 +153,7 @@ public abstract class AbstractDataFactory extends TestResultsReporting {
      */
     public String dataForTag(final String tag) {
         if (tag.charAt(0) == '@') {
-            for (final String line : lines) {
+            for (final String line : this.lines) {
                 final String[] fields = line.split(",");
                 if (fields[0].contains(tag)) {
                     return line;
@@ -167,7 +167,7 @@ public abstract class AbstractDataFactory extends TestResultsReporting {
      * To log.
      */
     public void toLog() {
-        log.info(toString());
+        this.log.info(toString());
     }
 
     /**
@@ -177,7 +177,7 @@ public abstract class AbstractDataFactory extends TestResultsReporting {
      */
     @Override
     public String toString() {
-        return String.format("%s [lines=%s]", this.getClass().getSimpleName(), Arrays.toString(lines));
+        return String.format("%s [lines=%s]", this.getClass().getSimpleName(), Arrays.toString(this.lines));
     }
 
     /**

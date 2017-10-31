@@ -29,7 +29,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * A CSV Data File.
+ * A class to represent a CSV data file.
  */
 public class CsvFile {
 
@@ -74,7 +74,7 @@ public class CsvFile {
         try {
             load(configFilename());
         } catch (final FileNotFoundException e) {
-            this.log.warn(e.toString());
+            log.warn(e.toString());
         }
     }
 
@@ -115,18 +115,18 @@ public class CsvFile {
         try {
             String line = bufferedReader.readLine().trim();
             if (line.charAt(0) == '#') {
-                this.header = new HeaderLine(line.substring(1));
+                header = new HeaderLine(line.substring(1));
             } else {
-                this.data.add(new CsvRow(line));
+                data.add(new CsvRow(line));
             }
 
             while ((line = bufferedReader.readLine()) != null) {
-                this.data.add(new CsvRow(line));
+                data.add(new CsvRow(line));
             }
             bufferedReader.close();
 
         } catch (final IOException e) {
-            this.log.error(e.toString());
+            log.error(e.toString());
         }
     }
 
@@ -147,7 +147,7 @@ public class CsvFile {
      * @return the header
      */
     public HeaderLine getHeaderLine() {
-        return this.header;
+        return header;
     }
 
     /**
@@ -156,7 +156,7 @@ public class CsvFile {
      * @return the int
      */
     public int columnCount() {
-        return this.header.length();
+        return header.length();
     }
 
     /**
@@ -165,7 +165,7 @@ public class CsvFile {
      * @return the column names
      */
     public String[] getColumnNames() {
-        return this.header.getFields();
+        return header.getFields();
     }
 
     /**
@@ -175,7 +175,7 @@ public class CsvFile {
      * @return the header
      */
     public String getColumnName(final int columnNumber) {
-        return this.header.getField(columnNumber);
+        return header.getField(columnNumber);
     }
 
     /**
@@ -184,7 +184,7 @@ public class CsvFile {
      * @return the int
      */
     public int rowCount() {
-        return this.data.size();
+        return data.size();
     }
 
     /**
@@ -195,7 +195,7 @@ public class CsvFile {
      * @see java.util.List#get(int)
      */
     public CsvRow getRow(final int index) {
-        return this.data.get(index - 1);
+        return data.get(index - 1);
     }
 
     /**
@@ -205,7 +205,7 @@ public class CsvFile {
      * @see java.util.List#toArray()
      */
     public Object[] toArray() {
-        return this.data.toArray();
+        return data.toArray();
     }
 
     /**
@@ -216,7 +216,7 @@ public class CsvFile {
      */
     public String debugString() {
         final String simpleName = this.getClass().getSimpleName();
-        return String.format("%s [header=%s, data=%s]", simpleName, this.header.toString(), this.data.toString());
+        return String.format("%s [header=%s, data=%s]", simpleName, header.toString(), data.toString());
     }
 
     /*
@@ -227,7 +227,7 @@ public class CsvFile {
     @Override
     public String toString() {
         final String simpleName = this.getClass().getSimpleName();
-        return String.format("%s [header=%s, data=%s]", simpleName, this.header, this.data);
+        return String.format("%s [header=%s, data=%s]", simpleName, header, data);
     }
 
 }

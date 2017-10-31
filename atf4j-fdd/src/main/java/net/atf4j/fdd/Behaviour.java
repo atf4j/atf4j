@@ -17,8 +17,6 @@
 
 package net.atf4j.fdd;
 
-import static org.junit.Assert.assertNotNull;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -52,8 +50,8 @@ public abstract class Behaviour extends TestResultsReporting {
      * @return the behaviour
      */
     protected Behaviour given(final Given given) {
-        log.info("{}.given", this.getClass().getSimpleName());
-        givenList.add(given);
+        this.log.info("{}.given", this.getClass().getSimpleName());
+        this.givenList.add(given);
         return this;
     }
 
@@ -64,8 +62,8 @@ public abstract class Behaviour extends TestResultsReporting {
      * @return the behaviour
      */
     protected Behaviour when(final When when) {
-        log.info("{}.given", this.getClass().getSimpleName());
-        whenList.add(when);
+        this.log.info("{}.given", this.getClass().getSimpleName());
+        this.whenList.add(when);
         return this;
     }
 
@@ -76,8 +74,8 @@ public abstract class Behaviour extends TestResultsReporting {
      * @return the behaviour
      */
     protected Behaviour then(final Then then) {
-        log.info("{}.given", this.getClass().getSimpleName());
-        thenList.add(then);
+        this.log.info("{}.given", this.getClass().getSimpleName());
+        this.thenList.add(then);
         return this;
     }
 
@@ -88,18 +86,18 @@ public abstract class Behaviour extends TestResultsReporting {
      * @return the properties
      */
     public Properties execute(final Properties properties) {
-        log.info("{}.execute", this.getClass().getSimpleName());
-        for (final Given given : givenList) {
+        this.log.info("{}.execute", this.getClass().getSimpleName());
+        for (final Given given : this.givenList) {
             final Properties execute = given.execute(properties);
             verifyNotNull(execute);
         }
 
-        for (final When when : whenList) {
+        for (final When when : this.whenList) {
             final Properties execute = when.execute(properties);
             verifyNotNull(execute);
         }
 
-        for (final Then then : thenList) {
+        for (final Then then : this.thenList) {
             final Properties execute = then.execute(properties);
             verifyNotNull(execute);
         }

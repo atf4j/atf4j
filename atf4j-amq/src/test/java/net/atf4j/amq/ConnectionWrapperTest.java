@@ -24,7 +24,7 @@ import javax.jms.JMSException;
 
 import org.junit.Test;
 
-import net.atf4j.core.model.TestContext;
+import net.atf4j.core.TestContext;
 
 /**
  * Unit test for ConnectionWrapper class.
@@ -32,7 +32,7 @@ import net.atf4j.core.model.TestContext;
 public class ConnectionWrapperTest {
 
     /**
-     * The ConnectionWrapper class.
+     * Mock the connection wrapper class.
      */
     public class ConnectionWrapper extends AbstractConnectionWrapper {
 
@@ -57,5 +57,4 @@ public class ConnectionWrapperTest {
         final ConnectionWrapper connectionWrapper = new ConnectionWrapper();
         assertNotNull(connectionWrapper);
     }
-
 }

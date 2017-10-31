@@ -43,13 +43,14 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
  */
 public class WebSiteSteps {
 
+    /** The web site. */
     private final BehaviourModel webSite = new BehaviourModel();
+    
+    /** The log. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Named browser.
-     *
-     * @throws Exception the throwable
      */
     @Given("^a web browser is available$")
     public void namedBrowser() {
@@ -60,7 +61,6 @@ public class WebSiteSteps {
      * Named browser.
      *
      * @param browserName the browser name
-     * @throws Exception the throwable
      */
     @Given("^the (?:Chrome|Firefox|Headless) Browser$")
     public void namedBrowser(final String browserName) {
@@ -94,7 +94,6 @@ public class WebSiteSteps {
      * The page title is.
      *
      * @param expectedPageTitle the expected page title
-     * @throws Exception the throwable
      */
     @Then("^the pageTitle is \"([^\"]*)\"$")
     public void thePageTitleIs(final String expectedPageTitle) {
@@ -105,7 +104,6 @@ public class WebSiteSteps {
      * The cookie exists.
      *
      * @param cookieName the cookie name
-     * @throws Exception the throwable
      */
     @Then("^the cookie \"([^\"]*)\" exists$")
     public void theCookieExists(final String cookieName) {
@@ -117,7 +115,6 @@ public class WebSiteSteps {
      *
      * @param cookieName the cookie name
      * @param cookieValue the cookie value
-     * @throws Exception the throwable
      */
     @Then("^the cookie \"([^\"]*)\" has value \"([^\"]*)\"$")
     public void theCookieHasValue(final String cookieName, final String cookieValue) {
