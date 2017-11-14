@@ -49,16 +49,15 @@ public final class Narrator {
      * @return the string Object.
      */
     public static String reflectObjectToString(final Object object) {
-        // LOG.debug("reflectObjectToString(object = {})", object);
-        if (object != null) {
+        if (object == null) {
+            return NULL_OBJECT;
+        } else {
             final StringBuilder reflection = new StringBuilder();
             final Class<? extends Object> aClass = object.getClass();
             reflection
                 .append(Narrator.membersToString(object, aClass))
                 .append(Narrator.reflectClassToString(object, aClass));
             return String.format(LAYOUT_STYLE, aClass.getSimpleName(), reflection);
-        } else {
-            return NULL_OBJECT;
         }
     }
 
@@ -70,23 +69,18 @@ public final class Narrator {
      * @return the string
      */
     private static String reflectClassToString(final Object object, final Class<? extends Object> aClass) {
-        // LOG.debug("reflectClassToString(object = {}, aClass = {})", object,
-        // aClass);
-        final StringBuilder reflection = new StringBuilder();
         final Class<? extends Object> superClass = aClass.getSuperclass();
-        if (superClass != null) {
-            if (!superClass.isInstance(Object.class)) {
+        if (superClass == null) {
+            return NULL_SUPER_CLASS;
+        } else {
+            if (superClass.isInstance(Object.class)) {
+                return Narrator.membersToString(object, aClass);
+            } else {
                 final String simpleName = superClass.getSimpleName();
                 final String reflectClassToString = Narrator.reflectClassToString(object, superClass);
-                final String format = String.format(LAYOUT_STYLE, simpleName, reflectClassToString);
-                reflection.append(format);
-            } else {
-                reflection.append(Narrator.membersToString(object, aClass));
+                return String.format(LAYOUT_STYLE, simpleName, reflectClassToString);
             }
-        } else {
-            reflection.append(NULL_SUPER_CLASS);
         }
-        return reflection.toString();
     }
 
     /**
@@ -97,30 +91,26 @@ public final class Narrator {
      * @return the string
      */
     private static String membersToString(final Object object, final Class<?> aClass) {
-        if (object != null) {
-            final StringBuilder stringBuilder = new StringBuilder();
+        if (object == null) {
+            return "[NULL]";
+        } else {
             final Field[] declaredFields = aClass.getDeclaredFields();
-            if (declaredFields.length > 0) {
+            if (declaredFields.length == 0) {
+                return NO_MEMBERS;
+            } else {
+                final StringBuilder stringBuilder = new StringBuilder("");
                 for (final Field field : declaredFields) {
                     try {
-                        field.setAccessible(true);
                         final String fieldName = field.getName();
                         final Object fieldType = field.get(object);
                         final String memberStr = String.format("%s = %s,", fieldName, fieldType);
                         stringBuilder.append(memberStr);
                     } catch (IllegalArgumentException | IllegalAccessException e) {
-                        LOG.error(e.toString());
+                        LOG.trace(e.toString());
                     }
                 }
-                // stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-                LOG.debug(stringBuilder.toString());
-
                 return stringBuilder.toString();
-            } else {
-                return NO_MEMBERS;
             }
-        } else {
-            return "[NULL]";
         }
     }
 }

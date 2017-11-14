@@ -1,4 +1,4 @@
-// generated at 2017-11-14 11:29.08 from  main/resources/templates/FluentPojoClass.vm
+// generated at 2017-11-14 12:47.49 from  main/resources/templates/FluentPojoClass.vm
 
 package net.atf4j.generated;
 

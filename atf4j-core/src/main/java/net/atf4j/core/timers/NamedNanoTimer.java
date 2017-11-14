@@ -19,8 +19,6 @@ package net.atf4j.core.timers;
 
 import java.util.UUID;
 
-import net.atf4j.core.Narrator;
-
 /**
  * A named nano second Timer. (In most cases this offers no advantage over the
  * millisecond timer).
@@ -117,16 +115,6 @@ public class NamedNanoTimer implements TimerInterface {
     @Override
     public long getElapsedTime() {
         return elapsedTime;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public final String toString() {
-        return Narrator.reflectObjectToString(this);
     }
 
 }
