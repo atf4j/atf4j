@@ -17,13 +17,10 @@
 
 package net.atf4j.core;
 
-import static net.atf4j.core.Atf4j.document;
-import static net.atf4j.core.Atf4j.end;
-import static net.atf4j.core.Atf4j.start;
+import static net.atf4j.core.Atf4j.*;
 import static net.atf4j.core.Verify.verifyNotNull;
 import static org.junit.Assert.fail;
-import static org.junit.Assume.assumeNotNull;
-import static org.junit.Assume.assumeTrue;
+import static org.junit.Assume.*;
 
 import org.junit.Test;
 

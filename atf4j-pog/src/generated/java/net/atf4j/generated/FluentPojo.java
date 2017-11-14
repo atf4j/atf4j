@@ -7,43 +7,50 @@ import java.util.Date;
 
 public class FluentPojo {
 
-	//  String string;
-	private String string;
-	//  Date date;
-	private Date date;
-	//  Boolean bool;
-	private Boolean bool;
+    // String field;
+    private String string;
 
-	public FluentPojo() {
-		super();
-	}
+    // Date field;
+    private Date date;
 
-	// ClassField [accessModifier=DEFAULT, visibility=, fieldType=STRING, type=String, name=string, initialValue=null]
-	public FluentPojo setstring(final String string) {
-		this.string = string;
-		return this;
-	}
+    // Boolean field;
+    private Boolean bool;
 
-	public String getstring() {	
-		return this.string;
- 	}
-	// ClassField [accessModifier=DEFAULT, visibility=, fieldType=DATE, type=Date, name=date, initialValue=null]
-	public FluentPojo setdate(final Date date) {
-		this.date = date;
-		return this;
-	}
+    public FluentPojo() {
+        super();
+    }
 
-	public Date getdate() {	
-		return this.date;
- 	}
-	// ClassField [accessModifier=DEFAULT, visibility=, fieldType=BOOLEAN, type=Boolean, name=bool, initialValue=null]
-	public FluentPojo setbool(final Boolean bool) {
-		this.bool = bool;
-		return this;
-	}
+    // ClassField [accessModifier=DEFAULT, visibility=, fieldType=STRING,
+    // type=String, name=string, initialValue=null]
+    public FluentPojo setString(final String string) {
+        this.string = string;
+        return this;
+    }
 
-	public Boolean getbool() {	
-		return this.bool;
- 	}
+    public String getString() {
+        return string;
+    }
+
+    // ClassField [accessModifier=DEFAULT, visibility=, fieldType=DATE,
+    // type=Date, name=date, initialValue=null]
+    public FluentPojo setdate(final Date date) {
+        this.date = date;
+        return this;
+    }
+
+    public Date getdate() {
+        return date;
+    }
+
+    // ClassField [accessModifier=DEFAULT, visibility=, fieldType=BOOLEAN,
+    // type=Boolean, name=bool, initialValue=null]
+    public FluentPojo setbool(final Boolean bool) {
+        this.bool = bool;
+        return this;
+    }
+
+    public Boolean getbool() {
+        return bool;
+    }
 
 }
