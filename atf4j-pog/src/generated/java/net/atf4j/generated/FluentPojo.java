@@ -1,5 +1,4 @@
-// from main/resources/templates/FluentPojoClass.vm
-// Generated 2017-11-14 11:00.07
+// generated at 2017-11-14 11:29.08 from  main/resources/templates/FluentPojoClass.vm
 
 package net.atf4j.generated;
 
@@ -7,12 +6,15 @@ import java.util.Date;
 
 public class FluentPojo {
 
-	//  String string;
+	// $field.toCode()
 	private String string;
-	//  Date date;
+
+	// $field.toCode()
 	private Date date;
-	//  Boolean bool;
+
+	// $field.toCode()
 	private Boolean bool;
+
 
 	public FluentPojo() {
 		super();
@@ -27,6 +29,7 @@ public class FluentPojo {
 	public String getstring() {	
 		return this.string;
  	}
+ 	
 	// ClassField [accessModifier=DEFAULT, visibility=, fieldType=DATE, type=Date, name=date, initialValue=null]
 	public FluentPojo setdate(final Date date) {
 		this.date = date;
@@ -36,6 +39,7 @@ public class FluentPojo {
 	public Date getdate() {	
 		return this.date;
  	}
+ 	
 	// ClassField [accessModifier=DEFAULT, visibility=, fieldType=BOOLEAN, type=Boolean, name=bool, initialValue=null]
 	public FluentPojo setbool(final Boolean bool) {
 		this.bool = bool;
@@ -45,5 +49,5 @@ public class FluentPojo {
 	public Boolean getbool() {	
 		return this.bool;
  	}
-
+ 	
 }

@@ -17,9 +17,7 @@
 
 package net.atf4j.pog;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 import net.atf4j.core.TestResultsReporting;
 
@@ -30,13 +28,13 @@ public final class ClassMethod extends TestResultsReporting {
 
     /** Code Template for method. */
     private static final String METHOD_CODE = "public %s %s() { return new %s(); }";
-    
+
     /** SET_CODE constant. */
     private static final String SET_CODE = "public %s set%s(%s %s) { this.%s = %s; return this.%s; }";
-    
+
     /** GET_CODE constant. */
     private static final String GET_CODE = "public %s get%s() { return this.%s; }";
-    
+
     /** CREATE_CODE constant. */
     private static final String CREATE_CODE = "public %s create() { return new %s(); }";
 
@@ -85,6 +83,14 @@ public final class ClassMethod extends TestResultsReporting {
         return new ClassMethod(returnType, methodName);
     }
 
+    public static ClassMethod addSetter(final String returnType, final String fieldName) {
+        return new ClassMethod(returnType, fieldName);
+    }
+
+    public static ClassMethod addGetter(final String returnType, final String fieldName) {
+        return new ClassMethod(returnType, fieldName);
+    }
+
     /**
      * Adds the factory.
      *
@@ -123,7 +129,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the class method
      */
     public ClassMethod setType(final String type) {
-        this.returnType = type;
+        returnType = type;
         return this;
     }
 
@@ -134,7 +140,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the class method
      */
     public ClassMethod setName(final String name) {
-        this.methodName = methodCase(name);
+        methodName = methodCase(name);
         return this;
     }
 
@@ -145,7 +151,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return true, if successful, otherwise false.
      */
     public boolean add(final ClassField classField) {
-        return this.parameters.add(classField);
+        return parameters.add(classField);
     }
 
     /**
@@ -154,7 +160,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the access
      */
     public String getAccess() {
-        return this.access;
+        return access;
     }
 
     /**
@@ -163,7 +169,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the type
      */
     public String getType() {
-        return this.returnType;
+        return returnType;
     }
 
     /**
@@ -172,7 +178,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @return the name
      */
     public String getName() {
-        return this.methodName;
+        return methodName;
     }
 
     /**
@@ -187,17 +193,25 @@ public final class ClassMethod extends TestResultsReporting {
         return new String(charArray);
     }
 
+    public String toSetterMethod() {
+        return String.format(SET_CODE, returnType, methodName, returnType);
+    }
+
+    public String toGetterMethod() {
+        return String.format(GET_CODE, returnType, methodName, returnType);
+    }
+
+    public String toFactoryMethod() {
+        return String.format(CREATE_CODE, returnType, methodName, returnType);
+    }
+
     /**
      * To code.
      *
      * @return the string
      */
     public String toCode() {
-        if (this.parameters.isEmpty()) {
-            return String.format(CREATE_CODE, this.returnType, this.methodName, this.returnType);
-        } else {
-            return String.format(CREATE_CODE, this.returnType, this.methodName, this.returnType);
-        }
+        return String.format(METHOD_CODE, returnType, methodName, returnType);
     }
 
     /**
@@ -207,9 +221,9 @@ public final class ClassMethod extends TestResultsReporting {
      */
     public String debugString() {
         return String.format("ClassMethod [access=%s, returnType=%s, methodName=%s]",
-                this.access,
-                this.returnType,
-                this.methodName);
+                access,
+                returnType,
+                methodName);
     }
 
     /*
@@ -219,7 +233,7 @@ public final class ClassMethod extends TestResultsReporting {
      */
     @Override
     public String toString() {
-        if (this.log.isDebugEnabled()) {
+        if (log.isDebugEnabled()) {
             return debugString();
         } else {
             return toCode();
