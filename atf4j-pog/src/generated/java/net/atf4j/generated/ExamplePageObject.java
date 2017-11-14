@@ -1,5 +1,4 @@
-// generated from main/resources/templates/PageObject.vm
-// Generated 2017-10-29 15:21.20
+// generated at 2017-11-14 11:22.39 from main/resources/templates/PageObject.vm 
 
 package net.atf4j.generated;
 
@@ -13,20 +12,27 @@ import net.atf4j.webdriver.page.AbstractPageObject;
 
 public class ExamplePageObject extends AbstractPageObject {
 
-		@FindBy(id = "id")
-protected WebElement findById;
-		@FindBy(name = "name")
-protected WebElement findByName;
-		@FindBy(className = "className")
-protected WebElement findByClassName;
-		@FindBy(linkText = "linkText")
-protected WebElement findByLinkText;
-		@FindBy(partialLinkText = "partialLinkText")
-protected WebElement findByPartialLinkText;
-		@FindBy(xpath = "//a[contains(text(), 'ATF4J')]")
-protected WebElement findByXpath;
-		@FindBy(css = ".")
-protected WebElement findByCss;
+	@FindBy(id = "id")
+	protected WebElement findById;
+	
+	@FindBy(name = "name")
+	protected WebElement findByName;
+	
+	@FindBy(className = "className")
+	protected WebElement findByClassName;
+	
+	@FindBy(linkText = "linkText")
+	protected WebElement findByLinkText;
+	
+	@FindBy(partialLinkText = "partialLinkText")
+	protected WebElement findByPartialLinkText;
+	
+	@FindBy(xpath = "//a[contains(text(), 'ATF4J')]")
+	protected WebElement findByXpath;
+	
+	@FindBy(css = ".")
+	protected WebElement findByCss;
+	
 
 	public ExamplePageObject() {
 		super();
@@ -52,11 +58,13 @@ protected WebElement findByCss;
 		findByLinkText.click();
 		return this;
 	}
+
 	public ExamplePageObject navTofindByPartialLinkText() {
 		assertNotNull(findByPartialLinkText);
 		findByPartialLinkText.click();
 		return this;
 	}
+
 
 	// Input Elements
 	public ExamplePageObject inputTofindById(CharSequence inputText) {
@@ -64,6 +72,7 @@ protected WebElement findByCss;
 		findById.sendKeys(inputText);
 		return this;
 	}
+
 
 	// Content Elements
 }

@@ -23,10 +23,10 @@ package net.atf4j.pog;
 public class WebElementField extends ClassField {
 
     /** FIND_BY_FORMAT Annotation. */
-    private static final String FIND_BY_FORMAT = "\t@FindBy(%s = \"%s\")\n";
+    private static final String FIND_BY_FORMAT = "@FindBy(%s = \"%s\")";
 
     /** FULL_FORMAT. */
-    private static final String FULL_FORMAT = "%s%s";
+    private static final String FULL_FORMAT = "\t%s\n\t%s\n";
 
     /** WEB_ELEMENT_TYPE. */
     private static final String WEB_ELEMENT_TYPE = "WebElement";
@@ -75,7 +75,7 @@ public class WebElementField extends ClassField {
          * @param asText the as text
          */
         Strategy(final String asText) {
-            this.value = asText;
+            value = asText;
         }
 
         /**
@@ -109,7 +109,7 @@ public class WebElementField extends ClassField {
          */
         @Override
         public String toString() {
-            return this.value;
+            return value;
         }
     }
 
@@ -176,7 +176,7 @@ public class WebElementField extends ClassField {
      * @return the locator type
      */
     public Strategy getLocatorType() {
-        return this.strategy;
+        return strategy;
     }
 
     /**
@@ -185,7 +185,7 @@ public class WebElementField extends ClassField {
      * @return the locator
      */
     public String getLocator() {
-        return this.locator;
+        return String.format(FIND_BY_FORMAT, strategy, locator);
     }
 
     /*
@@ -193,10 +193,9 @@ public class WebElementField extends ClassField {
      *
      * @see net.atf4j.pog.ClassField#toCode()
      */
-    @Override
     public String toCode() {
-        final String locatorLine = String.format(FIND_BY_FORMAT, this.strategy, this.locator);
-        return String.format(FULL_FORMAT, locatorLine, super.toCode());
+        final String locatorLine = String.format(FIND_BY_FORMAT, strategy, locator);
+        return String.format(FULL_FORMAT, locatorLine, super.getField());
     }
 
     /*
@@ -208,8 +207,8 @@ public class WebElementField extends ClassField {
     public String debugString() {
         return String.format("%s [strategy=%s, locator=%s]",
                 this.getClass().getSimpleName(),
-                this.strategy,
-                this.locator);
+                strategy,
+                locator);
     }
 
     /*
@@ -219,8 +218,8 @@ public class WebElementField extends ClassField {
      */
     @Override
     public String toString() {
-        if (this.log.isDebugEnabled()) {
-            this.log.debug(debugString());
+        if (log.isDebugEnabled()) {
+            log.debug(debugString());
         }
         return toCode();
     }

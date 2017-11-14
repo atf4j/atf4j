@@ -1,6 +1,5 @@
 ## PageObject.vm
-// generated from main/resources/templates/PageObject.vm
-// Generated $timeStamp
+// generated at $timeStamp from main/resources/templates/PageObject.vm 
 
 package $packageName;
 
@@ -14,8 +13,10 @@ import net.atf4j.webdriver.page.AbstractPageObject;
 
 public class $className extends AbstractPageObject {
 
-#foreach($element in $pageElements)
-	$element
+#foreach($webElement in $pageElements)
+	$webElement.getLocator()
+	$webElement.getField()
+	
 #end
 
 	public $className() {
@@ -43,6 +44,7 @@ public class $className extends AbstractPageObject {
 		${element.getName()}.click();
 		return this;
 	}
+
 #end
 
 	// Input Elements
@@ -52,6 +54,7 @@ public class $className extends AbstractPageObject {
 		${element.getName()}.sendKeys(inputText);
 		return this;
 	}
+
 #end
 
 	// Content Elements
@@ -61,5 +64,6 @@ public class $className extends AbstractPageObject {
 		verify($element.getName());
 		return this;
 	}
+
 #end
 }

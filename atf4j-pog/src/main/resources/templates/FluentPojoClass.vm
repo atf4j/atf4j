@@ -1,6 +1,5 @@
 ## FluentPojoClass.vm.vm
-// from main/resources/templates/FluentPojoClass.vm
-// Generated $timeStamp
+// generated at $timeStamp from  main/resources/templates/FluentPojoClass.vm
 
 package $packageName;
 
@@ -11,6 +10,7 @@ public class $className {
 #foreach($field in $fields)
 	// $field.toCode()
 	private $field.type $field.name;
+
 #end
 
 	public $className() {
@@ -27,6 +27,6 @@ public class $className {
 	public $field.type get$field.getName()() {	
 		return this.$field.name;
  	}
+ 	
 #end
-
 }
