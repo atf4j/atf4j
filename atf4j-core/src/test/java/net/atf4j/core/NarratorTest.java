@@ -17,6 +17,8 @@
 
 package net.atf4j.core;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
 
 /**
@@ -28,20 +30,22 @@ public final class NarratorTest extends TestResultsReporting {
      * The Class ClassUnderTest.
      */
     public final class ClassUnderTest {
-        
+
         /** The object. */
         private final Object object = new Object();
-        
+
         /** The class name. */
         private final String className = this.getClass().getSimpleName();
-        
+
         /** The a boolean. */
         private final Boolean aBoolean = true;
-        
+
         /** The number. */
         private final long number = Long.MAX_VALUE;
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         *
          * @see java.lang.Object#toString()
          */
         @Override
@@ -60,8 +64,15 @@ public final class NarratorTest extends TestResultsReporting {
     @Test
     public void testReflectObjectToString() {
         final ClassUnderTest object = new ClassUnderTest();
-        log.info(object.toString());
-        log.info(Narrator.reflectObjectToString(object));
+        assertNotNull(object);
+
+        final String string = object.toString();
+        assertNotNull(object);
+        log.info("object.toString = {}", string);
+
+        final String narration = Narrator.reflectObjectToString(object);
+        assertNotNull(narration);
+        log.info("narration = {}", narration);
     }
 
 }

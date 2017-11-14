@@ -17,7 +17,7 @@
 
 package net.atf4j.core;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
@@ -76,13 +76,21 @@ public class StringBuilderTest extends TestResultsReporting {
     }
 
     /**
+     * Unit tests for the expectedUsage() method of StringBuilder object.
+     */
+    @Test
+    public void testExpectedUsage() {
+        log.info(Narrator.reflectObjectToString(getClass()));
+    }
+
+    /**
      * Test null class.
      */
     @Test
     public void testNullClass() {
         final String reflectionToString = Narrator.reflectObjectToString(null);
+        assertEquals("object=[NULL]", reflectionToString);
         log.debug(reflectionToString);
-        assertTrue("|testNullClass|", reflectionToString.equals("object=[NULL]"));
     }
 
     /**
@@ -91,9 +99,8 @@ public class StringBuilderTest extends TestResultsReporting {
     @Test
     public void testThisClass() {
         final String reflectionToString = Narrator.reflectObjectToString(this);
+        assertEquals("object=[NULL]", reflectionToString);
         log.debug(reflectionToString);
-        verifyNotNull(reflectionToString);
-        assertTrue("|testThisClass|", reflectionToString.length() > 0);
     }
 
     /**
@@ -103,9 +110,8 @@ public class StringBuilderTest extends TestResultsReporting {
     public void testSubClassWithoutProperties() {
         final SubClassWithoutProperties superClassWithoutProperties = new SubClassWithoutProperties();
         final String reflectionToString = Narrator.reflectObjectToString(superClassWithoutProperties);
+        assertEquals("object=[NULL]", reflectionToString);
         log.debug(reflectionToString);
-        verifyNotNull(reflectionToString);
-        assertTrue("expected none zero length", reflectionToString.length() > 0);
     }
 
     /**
@@ -115,17 +121,8 @@ public class StringBuilderTest extends TestResultsReporting {
     public void testSubClassWithProperties() {
         final SubClassWithProperties superClassWithProperties = new SubClassWithProperties();
         final String reflectionToString = Narrator.reflectObjectToString(superClassWithProperties);
+        assertEquals("object=[NULL]", reflectionToString);
         log.debug(reflectionToString);
-        verifyNotNull(reflectionToString);
-        assertTrue("expected none zero length", reflectionToString.length() > 0);
-    }
-
-    /**
-     * Test method for StringBuilder.
-     */
-    @Test
-    public void testRefection() {
-        log.info(Narrator.reflectObjectToString(getClass()));
     }
 
 }

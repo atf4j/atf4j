@@ -19,19 +19,21 @@ package net.atf4j.core;
 
 import java.lang.reflect.Field;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.slf4j.*;
 
 /**
  * Narrate a test from the call stack.
  */
 public final class Narrator {
 
-    /** The Constant 			LOG. */
-    private static final Logger LOG = LoggerFactory.getLogger(Narrator.class);
-    
-    /** The Constant 			LAYOUT_STYLE. */
+    private static final String NULL_OBJECT = "object is [NULL]";
+    private static final String NULL_SUPER_CLASS = "superClass is [NULL]";
+    private static final String NO_MEMBERS = "[NO MEMBERS]";
+
+    /** LAYOUT_STYLE. */
     private static final String LAYOUT_STYLE = "%s [%s]";
+
+    private static final Logger LOG = LoggerFactory.getLogger(Narrator.class);
 
     /**
      * private constructor to prevent rampant instantiation.
@@ -51,11 +53,12 @@ public final class Narrator {
         if (object != null) {
             final StringBuilder reflection = new StringBuilder();
             final Class<? extends Object> aClass = object.getClass();
-            reflection.append(Narrator.membersToString(object, aClass));
-            reflection.append(Narrator.reflectClassToString(object, aClass));
+            reflection
+                .append(Narrator.membersToString(object, aClass))
+                .append(Narrator.reflectClassToString(object, aClass));
             return String.format(LAYOUT_STYLE, aClass.getSimpleName(), reflection);
         } else {
-            return "object=[NULL]";
+            return NULL_OBJECT;
         }
     }
 
@@ -81,7 +84,7 @@ public final class Narrator {
                 reflection.append(Narrator.membersToString(object, aClass));
             }
         } else {
-            reflection.append("superClass == null");
+            reflection.append(NULL_SUPER_CLASS);
         }
         return reflection.toString();
     }
@@ -94,8 +97,6 @@ public final class Narrator {
      * @return the string
      */
     private static String membersToString(final Object object, final Class<?> aClass) {
-        // LOG.debug("membersToString(object = {}, aClass = {})", object,
-        // aClass);
         if (object != null) {
             final StringBuilder stringBuilder = new StringBuilder();
             final Field[] declaredFields = aClass.getDeclaredFields();
@@ -116,7 +117,7 @@ public final class Narrator {
 
                 return stringBuilder.toString();
             } else {
-                return "[NONE]";
+                return NO_MEMBERS;
             }
         } else {
             return "[NULL]";
