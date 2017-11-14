@@ -17,9 +17,7 @@
 
 package net.atf4j.amq;
 
-import javax.jms.JMSException;
-import javax.jms.MessageProducer;
-import javax.jms.TextMessage;
+import javax.jms.*;
 
 /**
  * Message Producer Class.
@@ -39,7 +37,7 @@ public final class Producer extends AbstractConnectionWrapper {
      * Execute, add the messages to the queue.
      *
      * @param messages the messages
-     * @return
+     * @return this for a fluent interface.
      * @throws JMSException the JMS exception
      */
     public Producer execute(final String[] messages) throws JMSException {
