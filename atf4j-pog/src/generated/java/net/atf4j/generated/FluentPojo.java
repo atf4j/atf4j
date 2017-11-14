@@ -1,5 +1,4 @@
-// from main/resources/templates/FluentPojoClass.vm
-// Generated 2017-10-29 15:21.20
+// generated at 2017-11-14 12:47.49 from  main/resources/templates/FluentPojoClass.vm
 
 package net.atf4j.generated;
 
@@ -7,50 +6,48 @@ import java.util.Date;
 
 public class FluentPojo {
 
-    // String field;
-    private String string;
+	// $field.toCode()
+	private String string;
 
-    // Date field;
-    private Date date;
+	// $field.toCode()
+	private Date date;
 
-    // Boolean field;
-    private Boolean bool;
+	// $field.toCode()
+	private Boolean bool;
 
-    public FluentPojo() {
-        super();
-    }
 
-    // ClassField [accessModifier=DEFAULT, visibility=, fieldType=STRING,
-    // type=String, name=string, initialValue=null]
-    public FluentPojo setString(final String string) {
-        this.string = string;
-        return this;
-    }
+	public FluentPojo() {
+		super();
+	}
 
-    public String getString() {
-        return string;
-    }
+	// ClassField [accessModifier=DEFAULT, visibility=, fieldType=STRING, type=String, name=string, initialValue=null]
+	public FluentPojo setstring(final String string) {
+		this.string = string;
+		return this;
+	}
 
-    // ClassField [accessModifier=DEFAULT, visibility=, fieldType=DATE,
-    // type=Date, name=date, initialValue=null]
-    public FluentPojo setdate(final Date date) {
-        this.date = date;
-        return this;
-    }
+	public String getstring() {	
+		return this.string;
+ 	}
+ 	
+	// ClassField [accessModifier=DEFAULT, visibility=, fieldType=DATE, type=Date, name=date, initialValue=null]
+	public FluentPojo setdate(final Date date) {
+		this.date = date;
+		return this;
+	}
 
-    public Date getdate() {
-        return date;
-    }
+	public Date getdate() {	
+		return this.date;
+ 	}
+ 	
+	// ClassField [accessModifier=DEFAULT, visibility=, fieldType=BOOLEAN, type=Boolean, name=bool, initialValue=null]
+	public FluentPojo setbool(final Boolean bool) {
+		this.bool = bool;
+		return this;
+	}
 
-    // ClassField [accessModifier=DEFAULT, visibility=, fieldType=BOOLEAN,
-    // type=Boolean, name=bool, initialValue=null]
-    public FluentPojo setbool(final Boolean bool) {
-        this.bool = bool;
-        return this;
-    }
-
-    public Boolean getbool() {
-        return bool;
-    }
-
+	public Boolean getbool() {	
+		return this.bool;
+ 	}
+ 	
 }

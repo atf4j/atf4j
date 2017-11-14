@@ -17,22 +17,19 @@
 
 package net.atf4j.webdriver;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.*;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriver.Options;
-import org.openqa.selenium.WebDriver.Timeouts;
+import org.openqa.selenium.WebDriver.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.remote.*;
+import org.slf4j.*;
 
-import net.atf4j.core.TestContext;
 import net.atf4j.core.AbstractConfig.PropertyNotFoundException;
+import net.atf4j.core.TestContext;
 
 /**
  * A factory class for creating Browser objects.
@@ -115,15 +112,18 @@ public class BrowserFactory implements BrowserFactoryInterface {
         WebDriver webDriver = null;
 
         switch (targetBrowser.toLowerCase()) {
-        case "chrome":
-            webDriver = new ChromeDriver();
-            break;
-        case "firefox":
-            webDriver = new FirefoxDriver();
-            break;
-        case "ie":
-            webDriver = new FirefoxDriver();
-            break;
+            case "chrome":
+                webDriver = new ChromeDriver();
+                break;
+            case "firefox":
+                webDriver = new FirefoxDriver();
+                break;
+            case "ie":
+                webDriver = new FirefoxDriver();
+                break;
+            default:
+                webDriver = new HtmlUnitDriver();
+                break;
         }
 
         return webDriver;
@@ -152,18 +152,18 @@ public class BrowserFactory implements BrowserFactoryInterface {
         final DesiredCapabilities desiredCapabilities;
 
         switch (targetBrowser.toLowerCase()) {
-        case "firefox":
-            desiredCapabilities = DesiredCapabilities.firefox();
-            break;
-        case "chrome":
-            desiredCapabilities = DesiredCapabilities.chrome();
-            break;
-        case "ie":
-            desiredCapabilities = DesiredCapabilities.internetExplorer();
-            break;
-        default:
-            desiredCapabilities = DesiredCapabilities.htmlUnit();
-            break;
+            case "firefox":
+                desiredCapabilities = DesiredCapabilities.firefox();
+                break;
+            case "chrome":
+                desiredCapabilities = DesiredCapabilities.chrome();
+                break;
+            case "ie":
+                desiredCapabilities = DesiredCapabilities.internetExplorer();
+                break;
+            default:
+                desiredCapabilities = DesiredCapabilities.htmlUnit();
+                break;
         }
 
         final String targetSeleniumGrid = BrowserFactory.config.seleniumUrl();

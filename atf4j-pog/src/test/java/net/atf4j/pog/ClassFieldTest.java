@@ -47,7 +47,7 @@ public final class ClassFieldTest extends TestResultsReporting {
         final ClassField classField = new ClassField();
         verifyNotNull(classField);
         log.debug("classField = {}", classField);
-        log.debug("classField.toCode() =\n{}", classField.toCode());
+        log.debug("classField.toCode() =\n{}", classField.getField());
     }
 
     /**
@@ -58,12 +58,12 @@ public final class ClassFieldTest extends TestResultsReporting {
         final ClassField classField = new ClassField(FieldType.BOOLEAN, "aBoolean");
         verifyNotNull(classField);
         log.debug("classField = {}", classField);
-        log.debug("classField.toCode() =\n{}", classField.toCode());
+        log.debug("classField.toCode() =\n{}", classField.getField());
 
         final ClassField booleanField = new ClassField("boolean", "aBoolean");
         verifyNotNull(booleanField);
         log.debug("booleanField = {}", booleanField);
-        log.debug("booleanField.toCode() =\n{}", booleanField.toCode());
+        log.debug("booleanField.toCode() =\n{}", booleanField.getField());
     }
 
     /**
@@ -74,12 +74,12 @@ public final class ClassFieldTest extends TestResultsReporting {
         final ClassField classField = new ClassField(FieldType.DATE, "date");
         verifyNotNull(classField);
         log.debug("classField = {}", classField);
-        log.debug("classField.toCode() =\n{}", classField.toCode());
+        log.debug("classField.toCode() =\n{}", classField.getField());
 
         final ClassField dateField = new ClassField("Date", "date");
         verifyNotNull(dateField);
         log.debug("dateField = {}", dateField);
-        log.debug("dateField.toCode() =\n{}", dateField.toCode());
+        log.debug("dateField.toCode() =\n{}", dateField.getField());
     }
 
     /**
@@ -90,12 +90,12 @@ public final class ClassFieldTest extends TestResultsReporting {
         final ClassField classField = new ClassField(FieldType.NUMBER, "number");
         verifyNotNull(classField);
         log.debug("classField = {}", classField);
-        log.debug("classField.toCode() =\n{}", classField.toCode());
+        log.debug("classField.toCode() =\n{}", classField.getField());
 
         final ClassField numberField = new ClassField("Number", "number");
         verifyNotNull(numberField);
         log.debug("numberField = {}", numberField);
-        log.debug("numberField.toCode() =\n{}", numberField.toCode());
+        log.debug("numberField.toCode() =\n{}", numberField.getField());
     }
 
     /**
@@ -106,12 +106,12 @@ public final class ClassFieldTest extends TestResultsReporting {
         final ClassField classField = new ClassField(FieldType.OBJECT, "object");
         verifyNotNull(classField);
         log.debug("classField = {}", classField);
-        log.debug("classField.toCode() =\n{}", classField.toCode());
+        log.debug("classField.toCode() =\n{}", classField.getField());
 
         final ClassField objectField = new ClassField("Object", "object");
         verifyNotNull(objectField);
         log.debug("objectField = {}", objectField);
-        log.debug("objectField.toCode() =\n{}", objectField.toCode());
+        log.debug("objectField.toCode() =\n{}", objectField.getField());
     }
 
     /**
@@ -122,12 +122,12 @@ public final class ClassFieldTest extends TestResultsReporting {
         final ClassField classField = new ClassField(FieldType.STRING, "string");
         verifyNotNull(classField);
         log.debug("classField = {}", classField);
-        log.debug("classField.toCode() =\n{}", classField.toCode());
+        log.debug("classField.toCode() =\n{}", classField.getField());
 
         final ClassField stringField = new ClassField("String", "string");
         verifyNotNull(stringField);
         log.debug("stringField = {}", stringField);
-        log.debug("stringField.toCode() =\n{}", stringField.toCode());
+        log.debug("stringField.toCode() =\n{}", stringField.getField());
     }
 
     /**
@@ -138,7 +138,7 @@ public final class ClassFieldTest extends TestResultsReporting {
         final ClassField customClass = new ClassField("CustomClass", "customClass");
         verifyNotNull(customClass);
         log.debug("customClass.debugString() = {}", customClass.debugString());
-        log.debug("customClass.toCode() =\n{}", customClass.toCode());
+        log.debug("customClass.toCode() =\n{}", customClass.getField());
     }
 
     /**
@@ -149,7 +149,7 @@ public final class ClassFieldTest extends TestResultsReporting {
         final ClassField webElement = new ClassField("WebElement", "webElement");
         verifyNotNull(webElement);
         log.debug("webElement.debugString() = {}", webElement.debugString());
-        log.debug("webElement.toCode() =\n{}", webElement.toCode());
+        log.debug("webElement.toCode() =\n{}", webElement.getField());
     }
 
 }

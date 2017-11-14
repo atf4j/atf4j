@@ -19,8 +19,6 @@ package net.atf4j.core.timers;
 
 import java.util.UUID;
 
-import net.atf4j.core.Narrator;
-
 /**
  * A simple named Timer.
  */
@@ -43,7 +41,7 @@ public class NamedTimer implements TimerInterface {
      */
     public NamedTimer() {
         super();
-        this.timerName = UUID.randomUUID().toString();
+        timerName = UUID.randomUUID().toString();
     }
 
     /**
@@ -53,7 +51,7 @@ public class NamedTimer implements TimerInterface {
      */
     public NamedTimer(final String useName) {
         super();
-        this.timerName = useName;
+        timerName = useName;
     }
 
     /*
@@ -63,7 +61,7 @@ public class NamedTimer implements TimerInterface {
      */
     @Override
     public final NamedTimer start() {
-        this.startTime = System.currentTimeMillis();
+        startTime = System.currentTimeMillis();
         return this;
     }
 
@@ -74,8 +72,8 @@ public class NamedTimer implements TimerInterface {
      */
     @Override
     public final NamedTimer stop() {
-        this.stopTime = System.currentTimeMillis();
-        this.elapsedTime = this.stopTime - this.startTime;
+        stopTime = System.currentTimeMillis();
+        elapsedTime = stopTime - startTime;
         return this;
     }
 
@@ -85,7 +83,7 @@ public class NamedTimer implements TimerInterface {
      * @return the timer name
      */
     public String getTimerName() {
-        return this.timerName;
+        return timerName;
     }
 
     /*
@@ -95,7 +93,7 @@ public class NamedTimer implements TimerInterface {
      */
     @Override
     public final long getStartTime() {
-        return this.startTime;
+        return startTime;
     }
 
     /*
@@ -105,7 +103,7 @@ public class NamedTimer implements TimerInterface {
      */
     @Override
     public final long getStopTime() {
-        return this.stopTime;
+        return stopTime;
     }
 
     /*
@@ -115,17 +113,16 @@ public class NamedTimer implements TimerInterface {
      */
     @Override
     public long getElapsedTime() {
-        return this.elapsedTime;
+        return elapsedTime;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#toString()
-     */
     @Override
-    public final String toString() {
-        return Narrator.reflectObjectToString(this);
+    public String toString() {
+        return String.format("NamedTimer [timerName=%s, startTime=%s, stopTime=%s, elapsedTime=%s]",
+                timerName,
+                startTime,
+                stopTime,
+                elapsedTime);
     }
 
 }

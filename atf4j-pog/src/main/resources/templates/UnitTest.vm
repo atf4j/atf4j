@@ -1,6 +1,5 @@
 ## UnitTest.vm
-// from main/resources/templates/UnitTest.vm
-// Generated $timeStamp
+// generated at $timeStamp from  main/resources/templates/UnitTest.vm
 
 package $packageName;
 
@@ -24,6 +23,6 @@ public class $className {
 		verify($element.name);
 		return this;
 	}
-#end
 	
+#end
 }
