@@ -1,12 +1,11 @@
 exclude_paths:
-- 'src/site/**/*'
+  - '**/site/**/*'
+  - '**/test/**/*'
+  - '**/generated/**/*'
 
 engines:
   duplication:
     enabled: true
-    exclude_paths:
-    - 'src/test/**/*'
-    - 'src/generated/**/*'
     config:
       languages:
       - java
@@ -16,18 +15,9 @@ engines:
 
   fixme:
     enabled: true
-    exclude_paths:
-    - 'src/test/**/*'
-    - 'src/generated/**/*'
 
   metrics:
     enabled: true
-    exclude_paths:
-    - 'src/test/**/*'
-    - 'src/generated/**/*'
 
   coverage:
     enabled: true
-    exclude_paths:
-    - 'src/test/**/*'
-    - 'src/generated/**/*'
