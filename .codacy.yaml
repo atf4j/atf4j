@@ -1,6 +1,3 @@
-exclude_paths:
-- 'src/site/**/*'
-
 engines:
   duplication:
     enabled: true
@@ -31,3 +28,8 @@ engines:
     exclude_paths:
     - 'src/test/**/*'
     - 'src/generated/**/*'
+
+exclude_paths:
+  - '**/site/**/*'
+  - '**/test/**/*'
+  - '**/generated/**/*'
