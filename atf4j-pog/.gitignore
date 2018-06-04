@@ -1,3 +1,7 @@
+# Intellij
+.idea/
+*.iml
+
 # Eclipse
 .classpath
 .project
@@ -7,12 +11,9 @@
 *.jar
 *.war
 *.ear
-/target/
-
-*.class
-*.jar
 
 /log4j/
-/velocity.log
-/velocity.log.*
-*.versionsBackup
+
+# Maven
+target/**
+*/pom.xml.versionsBackup
