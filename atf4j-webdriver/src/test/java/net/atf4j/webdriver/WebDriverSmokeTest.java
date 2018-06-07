@@ -19,6 +19,7 @@ package net.atf4j.webdriver;
 
 import static org.junit.Assume.assumeTrue;
 
+import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -31,7 +32,6 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * Smoke Tests for WebDriver.
  */
-@Ignore
 public final class WebDriverSmokeTest extends TestResultsReporting {
 
     /**
@@ -40,7 +40,7 @@ public final class WebDriverSmokeTest extends TestResultsReporting {
     @Test
     public void testChromeTomcat() {
         assumeTrue(TestContext.isLocal());
-        System.setProperty("webdriver.chrome.driver", "");
+        log.info("webdriver.chrome.driver = {}",System.getProperty("webdriver.chrome.driver"));        
         final WebDriver webDriver = new ChromeDriver();
         verifyNotNull(webDriver);
 
@@ -57,6 +57,7 @@ public final class WebDriverSmokeTest extends TestResultsReporting {
     @Test
     public void testFirefoxTomcat() {
         assumeTrue(TestContext.isLocal());
+        log.info("webdriver.gecko.driver = {}",System.getProperty("webdriver.gecko.driver"));        
         final WebDriver webDriver = new FirefoxDriver();
         verifyNotNull(webDriver);
 

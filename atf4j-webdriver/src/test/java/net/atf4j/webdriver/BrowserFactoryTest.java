@@ -28,7 +28,6 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * A UnitTest for BrowserFactory objects.
  */
-@Ignore
 public final class BrowserFactoryTest extends TestResultsReporting {
 
     /**

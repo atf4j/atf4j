@@ -49,11 +49,11 @@ public final class Atf4jExceptionTest extends TestResultsReporting {
     public void testAtf4jExceptionString() throws VerificationError {
         try {
             throw new VerificationError(EXCEPTION_MESSAGE);
-        } catch (final VerificationError e) {
-            log.error(e.toString());
-            assertEquals(EXCEPTION_MESSAGE, e.getMessage());
-            assertEquals(EXCEPTION_MESSAGE, e.getLocalizedMessage());
-            throw e;
+        } catch (final VerificationError exception) {
+            log.error(exception.toString());
+            assertEquals(EXCEPTION_MESSAGE, exception.getMessage());
+            assertEquals(EXCEPTION_MESSAGE, exception.getLocalizedMessage());
+            throw exception;
         }
     }
 
@@ -66,11 +66,11 @@ public final class Atf4jExceptionTest extends TestResultsReporting {
     public void testAtf4jExceptionAssertion() throws VerificationError {
         try {
             throw new VerificationError(new AssertionError(EXCEPTION_MESSAGE));
-        } catch (final VerificationError e) {
-            log.error(e.toString());
-            assertTrue(e.getMessage().contains(EXCEPTION_MESSAGE));
-            assertTrue(e.getMessage().contains("java.lang.AssertionError"));
-            throw e;
+        } catch (final VerificationError exception) {
+            log.error(exception.toString());
+            assertTrue(exception.getMessage().contains(EXCEPTION_MESSAGE));
+            assertTrue(exception.getMessage().contains("java.lang.AssertionError"));
+            throw exception;
         }
     }
 }

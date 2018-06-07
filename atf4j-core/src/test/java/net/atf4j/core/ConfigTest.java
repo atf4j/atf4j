@@ -103,4 +103,5 @@ public class ConfigTest extends TestResultsReporting {
         assertTrue(simpleConfig.valueFor("keyForTrue", false));
         assertFalse(simpleConfig.valueFor("keyForFalse", true));
     }
+
 }
