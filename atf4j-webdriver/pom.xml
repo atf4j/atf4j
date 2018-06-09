@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -19,14 +20,14 @@
 	<parent>
 		<groupId>net.atf4j</groupId>
 		<artifactId>atf4j</artifactId>
-		<version>0.12.0-SNAPSHOT</version>
+		<version>0.13.0-SNAPSHOT</version>
 	</parent>
 
 	<dependencies>
 		<dependency>
 			<groupId>net.atf4j</groupId>
 			<artifactId>atf4j-core</artifactId>
-			<version>0.12.0-SNAPSHOT</version>
+			<version>0.13.0-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
@@ -35,21 +36,18 @@
 			<version>${selenium.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-htmlunit-driver</artifactId>
-			<version>2.52.0</version>
-		</dependency>
-	</dependencies>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.seleniumhq.selenium</groupId> -->
+<!-- 			<artifactId>selenium-htmlunit-driver</artifactId> -->
+<!-- 			<version>2.52.0</version> -->
+<!-- 		</dependency> -->
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.4.2.v20170220</version>
-			</plugin>
-		</plugins>
-	</build>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.webjars.npm</groupId> -->
+<!-- 			<artifactId>phantomjs</artifactId> -->
+<!-- 			<version>2.1.1</version> -->
+<!-- 		</dependency> -->
+
+	</dependencies>
 
 </project>

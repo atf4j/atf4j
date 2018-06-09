@@ -6,7 +6,7 @@
 	<artifactId>atf4j-pog</artifactId>
 	<packaging>jar</packaging>
 	<name>ATF4J - Page Object Generator for Selenium WebDriver</name>
-	<description>Java Automation Testing Framework for generating Page Pbject for use with Selenium WebDriver.</description>
+	<description>Java Automation Testing Framework for generating Page object for use with Selenium WebDriver.</description>
 	<url>http://atf4j.net/atf4j-pog</url>
 
 	<distributionManagement>
@@ -19,7 +19,7 @@
 	<parent>
 		<groupId>net.atf4j</groupId>
 		<artifactId>atf4j</artifactId>
-		<version>0.12.0-SNAPSHOT</version>
+		<version>0.13.0-SNAPSHOT</version>
 	</parent>
 
 	<dependencies>
@@ -32,25 +32,13 @@
 		<dependency>
 			<groupId>net.atf4j</groupId>
 			<artifactId>atf4j-core</artifactId>
-			<version>0.12.0-SNAPSHOT</version>
+			<version>0.13.0-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
 			<groupId>net.atf4j</groupId>
 			<artifactId>atf4j-webdriver</artifactId>
-			<version>0.12.0-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>${selenium.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-htmlunit-driver</artifactId>
-			<version>2.52.0</version>
+			<version>0.13.0-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
