@@ -18,7 +18,6 @@
 package net.atf4j.webdriver;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
@@ -30,34 +29,35 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class WebDriverConfigTest extends TestResultsReporting {
 
-    /**
-     * Test method for {net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.
-     *
-     * @throws ConfigurationNotLoadedException the missing property file
-     *             exception
-     */
-    @Test
-    public void testDefaultConstructor() throws ConfigurationNotLoadedException {
-        final WebDriverConfig config = new WebDriverConfig();
-        verifyNotNull(config);
-    }
+	/**
+	 * Test method for {net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.
+	 *
+	 * @throws ConfigurationNotLoadedException
+	 *             the missing property file exception
+	 */
+	@Test
+	public void testDefaultConstructor() throws ConfigurationNotLoadedException {
+		final WebDriverConfig config = new WebDriverConfig();
+		verifyNotNull(config);
+	}
 
-    /**
-     * test WebDriverConfig object.
-     *
-     * @throws ConfigurationNotLoadedException the configuration not loaded
-     */
-    @Test
-    public void testHappyPath() throws ConfigurationNotLoadedException {
-        final WebDriverConfig config = new WebDriverConfig();
-        verifyNotNull(config);
-        verifyNotNull(config.targetBrowser());
-        verifyNotNull(config.targetUrl());
-        verifyNotNull(config.seleniumUrl());
-        verifyNotNull(config.chromeBinaryDriver());
-        verifyNotNull(config.firefoxBinaryDriver());
-        assertEquals(1000, config.pageLoadTimeout());
-        assertEquals(1, config.implicitWait());
-    }
+	/**
+	 * test WebDriverConfig object.
+	 *
+	 * @throws ConfigurationNotLoadedException
+	 *             the configuration not loaded
+	 */
+	@Test
+	public void testHappyPath() throws ConfigurationNotLoadedException {
+		final WebDriverConfig config = new WebDriverConfig();
+		verifyNotNull(config);
+		verifyNotNull(config.targetBrowser());
+		verifyNotNull(config.targetUrl());
+		verifyNotNull(config.seleniumUrl());
+		verifyNotNull(config.chromeBinaryDriver());
+		verifyNotNull(config.firefoxBinaryDriver());
+		assertEquals(1000, config.pageLoadTimeout());
+		assertEquals(1, config.implicitWait());
+	}
 
 }

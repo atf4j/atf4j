@@ -17,10 +17,8 @@
 
 package net.atf4j.webdriver;
 
-import static org.junit.Assume.assumeTrue;
+import static org.junit.Assert.assertTrue;
 
-import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -34,37 +32,35 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class WebDriverSmokeTest extends TestResultsReporting {
 
-    /**
-     * Smoke test ChromeDriver.
-     */
-    @Test
-    public void testChromeTomcat() {
-        assumeTrue(TestContext.isLocal());
-        log.info("webdriver.chrome.driver = {}",System.getProperty("webdriver.chrome.driver"));        
-        final WebDriver webDriver = new ChromeDriver();
-        verifyNotNull(webDriver);
+	/**
+	 * ChromeDriver Smoke test.
+	 */
+	@Test
+	public void testChromeTomcat() {
+		TestContext.assumeLocal();
+		final WebDriver webDriver = new ChromeDriver();
+		verifyNotNull(webDriver);
+		verifyTomcatPresent(webDriver);
+	}
 
-        assumeTrue(TestContext.localServer());
-        webDriver.get("http://127.0.0.1:8080/");
-        final String pageTitle = webDriver.getTitle();
-        verifyNotNull(webDriver);
-        log.info("pageTitle={}", pageTitle);
-    }
+	/**
+	 * FirefoxDriver Smoke test.
+	 */
+	@Test
+	public void testFirefoxTomcat() {
+		TestContext.assumeLocal();
+		final WebDriver webDriver = new FirefoxDriver();
+		verifyNotNull(webDriver);
+		verifyTomcatPresent(webDriver);
+	}
 
-    /**
-     * Smoke test FirefoxDriver.
-     */
-    @Test
-    public void testFirefoxTomcat() {
-        assumeTrue(TestContext.isLocal());
-        log.info("webdriver.gecko.driver = {}",System.getProperty("webdriver.gecko.driver"));        
-        final WebDriver webDriver = new FirefoxDriver();
-        verifyNotNull(webDriver);
-
-        assumeTrue(TestContext.localServer());
-        webDriver.get("http://127.0.0.1:8080/");
-        final String pageTitle = webDriver.getTitle();
-        log.info("pageTitle={}", pageTitle);
-    }
+	private void verifyTomcatPresent(final WebDriver webDriver) {
+		TestContext.assumeLocalServer();
+		webDriver.get("http://127.0.0.1:8080/");
+		final String pageTitle = webDriver.getTitle();
+		verifyNotNull(pageTitle);
+		assertTrue(pageTitle.contains("Apache Tomcat"));
+		this.log.info("pageTitle = {}", pageTitle);
+	}
 
 }

@@ -32,10 +32,10 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface TestUrl {
-    /**
-     * Value is String representation of a URL.
-     *
-     * @return the string
-     */
-    String value();
+	/**
+	 * Value is String representation of a URL.
+	 *
+	 * @return the string
+	 */
+	String value();
 }

@@ -20,6 +20,6 @@ package net.atf4j.webdriver;
 /**
  * The BrowserFactorConfig Class.
  */
-public class BrowserFactorConfig extends WebDriverConfig {
+public class BrowserFactoryConfig extends WebDriverConfig {
 
 }

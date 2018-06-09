@@ -19,6 +19,7 @@ package net.atf4j.core;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -27,80 +28,101 @@ import org.junit.Test;
  */
 public final class TextTest extends TestResultsReporting {
 
-    /**
-     * Unit tests for the textFill() method of Text object.
-     */
-    @Test
-    public void testTextFill() {
-        final String fill = Text.fill(10);
-        log.debug("Text.fill(10) = |{}|", fill);
-        assertNotNull(fill);
-        assertEquals(10, fill.length());
-    }
+	/**
+	 * Unit tests for the textFill() method of Text object.
+	 */
+	@Test
+	public void testTextFill() {
+		final String fill = Text.fill(10);
+		this.log.debug("Text.fill(10) = |{}|", fill);
+		assertNotNull(fill);
+		assertEquals(10, fill.length());
+	}
 
-    /**
-     * Unit tests for the textFillStar() method of Text object.
-     */
-    @Test
-    public void testTextFillStar() {
-        final String fill = Text.fill(10, '*');
-        log.debug("Text.fill(10, '*') = |{}|", fill);
-        assertNotNull(fill);
-        assertEquals(10, fill.length());
-    }
+	/**
+	 * Unit tests for the textFillStar() method of Text object.
+	 */
+	@Test
+	public void testTextFillStar() {
+		final String fill = Text.fill(10, '*');
+		this.log.debug("Text.fill(10, '*') = |{}|", fill);
+		assertNotNull(fill);
+		assertEquals(10, fill.length());
+	}
 
-    /**
-     * Unit Test for test capitalise.
-     */
-    @Test
-    public void testCapitalise() {
-        assertEquals("", Text.capitalise(null));
-        assertEquals("", Text.capitalise(""));
-        assertEquals("Set", Text.capitalise("Set"));
-        assertEquals("Set", Text.capitalise("Set"));
-        assertEquals("Set.", Text.capitalise("sET."));
-        assertEquals("Set.", Text.capitalise("sET."));
-    }
+	/**
+	 * Unit Test for test capitalise.
+	 */
+	@Test
+	public void testCapitalise() {
+		assertEquals("", Text.capitalise(null));
+		assertEquals("", Text.capitalise(""));
+		assertEquals("Set", Text.capitalise("Set"));
+		assertEquals("Set", Text.capitalise("Set"));
+		assertEquals("Set.", Text.capitalise("sET."));
+		assertEquals("Set.", Text.capitalise("sET."));
+	}
 
-    /**
-     * Unit tests for the fillInt() method of Text object.
-     */
-    @Test
-    public void testFillInt() {
-        assertEquals("", Text.fill(0));
-        assertEquals(" ", Text.fill(1));
-        assertEquals("  ", Text.fill(2));
-    }
+	/**
+	 * Unit tests for the fillInt() method of Text object.
+	 */
+	@Test
+	public void testFillInt() {
+		assertEquals("", Text.fill(0));
+		assertEquals(" ", Text.fill(1));
+		assertEquals("  ", Text.fill(2));
+	}
 
-    /**
-     * Unit tests for the fillIntChar() method of Text object.
-     */
-    @Test
-    public void testFillIntChar() {
-        assertEquals("", Text.fill(0, '*'));
-        assertEquals("*", Text.fill(1, '*'));
-        assertEquals("**", Text.fill(2, '*'));
-    }
+	/**
+	 * Unit tests for the fillIntChar() method of Text object.
+	 */
+	@Test
+	public void testFillIntChar() {
+		assertEquals("", Text.fill(0, '*'));
+		assertEquals("*", Text.fill(1, '*'));
+		assertEquals("**", Text.fill(2, '*'));
+	}
 
-    /**
-     * Unit Test to pad a string to int length with spaces.
-     */
-    @Test
-    public void testPadToLengthStringInt() {
-        final String padToLength = Text.padToLength("Stem", 5);
-        log.debug("Text.padToLength('Stem', 5) = |{}|", padToLength);
-        assertEquals(5, padToLength.length());
-        assertEquals("Stem ", padToLength);
-    }
+	/**
+	 * Unit Test to pad a string to int length with spaces.
+	 */
+	@Test
+	public void testPadToLengthStringInt() {
+		final String padToLength = Text.padToLength("Stem", 5);
+		this.log.debug("Text.padToLength('Stem', 5) = |{}|", padToLength);
+		assertEquals(5, padToLength.length());
+		assertEquals("Stem ", padToLength);
+	}
 
-    /**
-     * Unit Test to pad a string to int length with spaces character.
-     */
-    @Test
-    public void testPadToLengthStringIntChar() {
-        final String padToLength = Text.padToLength("Stem", 5, '*');
-        log.debug("Text.padToLength('Stem', 5, '*') = |{}|", padToLength);
-        assertEquals(5, padToLength.length());
-        assertEquals("Stem*", padToLength);
-    }
+	/**
+	 * Unit Test to pad a string to int length with spaces character.
+	 */
+	@Test
+	public void testPadToLengthStringIntChar() {
+		final String padToLength = Text.padToLength("Stem", 5, '*');
+		this.log.debug("Text.padToLength('Stem', 5, '*') = |{}|", padToLength);
+		assertEquals(5, padToLength.length());
+		assertEquals("Stem*", padToLength);
+	}
+
+	@Test
+	public void testRandomChar() {
+		assertTrue(Character.isLetter(Text.randomChar()));
+	}
+
+	@Test
+	public void testRandomString() {
+		assertEquals(10, Text.randomString(10).length());
+	}
+
+	@Test
+	public void testRandomDigit() {
+		assertTrue(Character.isDigit(Text.randomDigit()));
+	}
+
+	@Test
+	public void testRandomDigits() {
+		assertTrue(Text.randomDigits(10).length() == 10);
+	}
+
 }

@@ -35,82 +35,85 @@ import net.atf4j.core.TestResultsReporting;
 @Ignore
 public final class GuiMapTest extends TestResultsReporting {
 
-    /**
-     * The LogicalGuiMap Class.
-     */
-    public class LogicalGuiMap extends AbstractGuiMap {
-    }
+	/**
+	 * The LogicalGuiMap Class.
+	 */
+	public class LogicalGuiMap extends AbstractGuiMap {
+	}
 
-    /**
-     * The MissingGuiMap Class.
-     */
-    public class MissingGuiMap extends AbstractGuiMap {
-    }
+	/**
+	 * The MissingGuiMap Class.
+	 */
+	public class MissingGuiMap extends AbstractGuiMap {
+	}
 
-    /**
-     * Test method for { net.atf4j.webdriver.AbstractGuiMap#getKeys()}.
-     */
-    @Test
-    public void testGuiMapping() {
-        final AbstractGuiMap instance = new LogicalGuiMap();
-        final Enumeration<String> bundleKeys = instance.getKeys();
-        while (bundleKeys.hasMoreElements()) {
-            final String key = bundleKeys.nextElement();
-            verifyNotNull(key);
-            Assert.assertTrue(instance.containsKey(key));
-            verifyNotNull(instance.getString(key));
-            log.info("{}={}", key, instance.getString(key));
-        }
-    }
+	/**
+	 * Test method for { net.atf4j.webdriver.AbstractGuiMap#getKeys()}.
+	 */
+	@Test
+	public void testGuiMapping() {
+		final AbstractGuiMap instance = new LogicalGuiMap();
+		final Enumeration<String> bundleKeys = instance.getKeys();
+		while (bundleKeys.hasMoreElements()) {
+			final String key = bundleKeys.nextElement();
+			verifyNotNull(key);
+			Assert.assertTrue(instance.containsKey(key));
+			verifyNotNull(instance.getString(key));
+			this.log.info("{}={}", key, instance.getString(key));
+		}
+	}
 
-    /**
-     * Test method for AbstractGuiMap.
-     *
-     * @throws Exception the exception
-     */
-    @Test
-    public void testKeySet() throws Exception {
-        final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
-        verifyNotNull(abstractGuiMap);
-        final Set<String> keySet = abstractGuiMap.keySet();
-        for (final String key : keySet) {
-            final String value = abstractGuiMap.getString(key);
-            verifyNotNull(value);
-        }
-    }
+	/**
+	 * Test method for AbstractGuiMap.
+	 *
+	 * @throws Exception
+	 *             the exception
+	 */
+	@Test
+	public void testKeySet() throws Exception {
+		final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
+		verifyNotNull(abstractGuiMap);
+		final Set<String> keySet = abstractGuiMap.keySet();
+		for (final String key : keySet) {
+			final String value = abstractGuiMap.getString(key);
+			verifyNotNull(value);
+		}
+	}
 
-    /**
-     * test AbstractGuiMap object.
-     */
-    @Test(expected = MissingResourceException.class)
-    public void testMissingGuiMapping() {
-        assertNotNull(new MissingGuiMap());
-    }
+	/**
+	 * test AbstractGuiMap object.
+	 */
+	@Test(expected = MissingResourceException.class)
+	public void testMissingGuiMapping() {
+		assertNotNull(new MissingGuiMap());
+	}
 
-    /**
-     * Test method for AbstractGuiMap.
-     *
-     * @throws Exception the exception
-     */
-    @Test
-    public void testName() throws Exception {
-        final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
-        verifyNotNull(abstractGuiMap);
-        abstractGuiMap.dumpTo(System.out);
-    }
+	/**
+	 * Test method for AbstractGuiMap.
+	 *
+	 * @throws Exception
+	 *             the exception
+	 */
+	@Test
+	public void testName() throws Exception {
+		final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
+		verifyNotNull(abstractGuiMap);
+		abstractGuiMap.dumpTo(System.out);
+	}
 
-    /**
-     * Test method for AbstractGuiMap.
-     *
-     * @throws Exception the exception
-     */
-    @Test
-    public void testToString() throws Exception {
-        final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
-        verifyNotNull(abstractGuiMap);
-        log.info(abstractGuiMap.toString());
-        log.info(abstractGuiMap.getBaseBundleName());
-        log.info(abstractGuiMap.getLocale().toString());
-    }
+	/**
+	 * Test method for AbstractGuiMap.
+	 *
+	 * @throws Exception
+	 *             the exception
+	 */
+	@Test
+	public void testToString() throws Exception {
+		final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
+		verifyNotNull(abstractGuiMap);
+		this.log.info(abstractGuiMap.toString());
+		this.log.info(abstractGuiMap.getBaseBundleName());
+		this.log.info(abstractGuiMap.getLocale().toString());
+	}
 
 }

@@ -24,11 +24,11 @@ import net.atf4j.webdriver.WebDriverConfig;
  */
 public class PageConfig extends WebDriverConfig {
 
-    /**
-     * Instantiates a new page configuration.
-     */
-    public PageConfig() {
-        super();
-    }
+	/**
+	 * Instantiates a new page configuration.
+	 */
+	public PageConfig() {
+		super();
+	}
 
 }

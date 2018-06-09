@@ -25,22 +25,24 @@ import org.openqa.selenium.WebDriver;
  */
 public final class JavaScriptExecutor {
 
-    /**
-     * Private to prevent wild construction.
-     */
-    private JavaScriptExecutor() {
-        super();
-    }
+	/**
+	 * Private to prevent wild construction.
+	 */
+	private JavaScriptExecutor() {
+		super();
+	}
 
-    /**
-     * Inject JavaScript in to a page and execute.
-     *
-     * @param webDriver the driver
-     * @param script the JavaScript source.
-     * @return the execution object.
-     */
-    public static Object executeScript(final WebDriver webDriver, final String script) {
-        return ((JavascriptExecutor) webDriver).executeScript(script);
-    }
+	/**
+	 * Inject JavaScript in to a page and execute.
+	 *
+	 * @param webDriver
+	 *            the driver
+	 * @param script
+	 *            the JavaScript source.
+	 * @return the execution object.
+	 */
+	public static Object executeScript(final WebDriver webDriver, final String script) {
+		return ((JavascriptExecutor) webDriver).executeScript(script);
+	}
 
 }

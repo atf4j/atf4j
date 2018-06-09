@@ -29,86 +29,96 @@ import net.atf4j.core.VerificationError;
  */
 public class TestCaseTest extends TestResultsReporting {
 
-    /**
-     * The TestCaseReport Class.
-     */
-    public class MockTestReport implements TestReport {
-    }
+	/**
+	 * The TestCaseReport Class.
+	 */
+	public class MockTestReport implements TestReport {
+	}
 
-    /**
-     * The PassingCondition Class.
-     */
-    public class PassingCondition extends Condition {
-    }
+	/**
+	 * The PassingCondition Class.
+	 */
+	public class PassingCondition extends Condition {
+	}
 
-    /**
-     * Test method for TestCase.
-     */
-    @Test
-    public void testDefaultConstructor() {
-        verifyNotNull(new TestCase());
-    }
+	/**
+	 * Test method for TestCase.
+	 */
+	@Test
+	public void testDefaultConstructor() {
+		verifyNotNull(new TestCase());
+	}
 
-    /**
-     * Unit Test for test test case string.
-     */
-    @Test
-    public void testTestCaseString() {
-        verifyNotNull(new TestCase("TestCase"));
-    }
+	@Test
+	public void testTypical() {
+		final TestCase testCase = new TestCase();
+		this.log.info("testCase={}", testCase);
+		verifyNotNull(testCase);
+		testCase.start();
+		testCase.end();
+	}
 
-    /**
-     * Test method for TestCase.
-     *
-     * @throws VerificationError the Atf4jException
-     */
-    @Test
-    public void testRegisterLogging() throws VerificationError {
-        verifyNotNull(new TestCase().registerLogging(new MockTestReport()));
-    }
+	/**
+	 * Unit Test for test test case string.
+	 */
+	@Test
+	public void testTestCaseString() {
+		verifyNotNull(new TestCase("TestCase"));
+	}
 
-    /**
-     * Test method for TestCase.
-     */
-    @Test
-    public void testNumberOfTestSteps() {
-        final TestCase testCase = new TestCase();
-        assertEquals(0, testCase.numberOfTestSteps());
-    }
+	/**
+	 * Test method for TestCase.
+	 *
+	 * @throws VerificationError
+	 *             the Atf4jException
+	 */
+	@Test
+	public void testRegisterLogging() throws VerificationError {
+		verifyNotNull(new TestCase().registerLogging(new MockTestReport()));
+	}
 
-    /**
-     * Test method for TestCase.
-     */
-    @Test
-    public void testAddTestStep() {
-        final TestStep testStep = new TestStep();
-        verifyNotNull(testStep);
+	/**
+	 * Test method for TestCase.
+	 */
+	@Test
+	public void testNumberOfTestSteps() {
+		final TestCase testCase = new TestCase();
+		assertEquals(0, testCase.numberOfTestSteps());
+	}
 
-        final TestCase testCase = new TestCase();
-        verifyNotNull(testCase);
+	/**
+	 * Test method for TestCase.
+	 */
+	@Test
+	public void testAddTestStep() {
+		final TestStep testStep = new TestStep();
+		verifyNotNull(testStep);
 
-        final TestCase addTestStep = testCase.addTestStep(testStep);
-        verifyNotNull(testStep);
+		final TestCase testCase = new TestCase();
+		verifyNotNull(testCase);
 
-        assertEquals(1, addTestStep.numberOfTestSteps());
-    }
+		final TestCase addTestStep = testCase.addTestStep(testStep);
+		verifyNotNull(testStep);
 
-    /**
-     * Unit Test for test pre condition.
-     */
-    @Test
-    public void testPreCondition() {
-        final TestCase testCase = new TestCase();
-        verifyNotNull(testCase.addPreCondition(new PassingCondition()));
-    }
+		assertEquals(1, addTestStep.numberOfTestSteps());
+	}
 
-    /**
-     * Unit Test for test post condition.
-     */
-    @Test
-    public void testPostCondition() {
-        final TestCase testCase = new TestCase();
-        verifyNotNull(testCase.addPostCondition(new PassingCondition()));
-    }
+	/**
+	 * Unit Test for test pre condition.
+	 */
+	@Test
+	public void testPreCondition() {
+		final TestCase testCase = new TestCase();
+		verifyNotNull(testCase.addPreCondition(new PassingCondition()));
+	}
+
+	/**
+	 * Unit Test for test post condition.
+	 */
+	@Test
+	public void testPostCondition() {
+		final TestCase testCase = new TestCase();
+		verifyNotNull(testCase.addPostCondition(new PassingCondition()));
+	}
 
 }

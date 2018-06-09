@@ -29,33 +29,33 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class PageConfigTest extends TestResultsReporting {
 
-    /**
-     * Mock Page Configuration.
-     */
-    public class MockPageConfig extends PageConfig {
+	/**
+	 * Mock Page Configuration.
+	 */
+	public class MockPageConfig extends PageConfig {
 
-        /**
-         * Instantiates a new mock page config.
-         *
-         * @throws ConfigurationNotLoadedException the missing property file
-         *             exception
-         */
-        public MockPageConfig() throws ConfigurationNotLoadedException {
-            super();
-        }
-    }
+		/**
+		 * Instantiates a new mock page config.
+		 *
+		 * @throws ConfigurationNotLoadedException
+		 *             the missing property file exception
+		 */
+		public MockPageConfig() throws ConfigurationNotLoadedException {
+			super();
+		}
+	}
 
-    /**
-     * Test method for
-     * {net.atf4j.webdriver.page.AbstractPageConfig#AbstractPageConfig()}.
-     *
-     * @throws ConfigurationNotLoadedException the missing property file
-     *             exception
-     */
-    @Test
-    public void testPageConfig() throws ConfigurationNotLoadedException {
-        final PageConfig pageConfig = new MockPageConfig();
-        log.debug("pageConfig = {}", pageConfig);
-        assertNotNull("unexpected null", pageConfig);
-    }
+	/**
+	 * Test method for
+	 * {net.atf4j.webdriver.page.AbstractPageConfig#AbstractPageConfig()}.
+	 *
+	 * @throws ConfigurationNotLoadedException
+	 *             the missing property file exception
+	 */
+	@Test
+	public void testPageConfig() throws ConfigurationNotLoadedException {
+		final PageConfig pageConfig = new MockPageConfig();
+		this.log.debug("pageConfig = {}", pageConfig);
+		assertNotNull("unexpected null", pageConfig);
+	}
 }

@@ -27,41 +27,42 @@ import org.openqa.selenium.WebDriver;
  */
 public final class ExamplePageTest {
 
-    /**
-     * PageObject representing Home.
-     */
-    public class HomePage extends MockPageObject {
-    }
+	/**
+	 * PageObject representing Home.
+	 */
+	public class HomePage extends MockPageObject {
+	}
 
-    /**
-     * The PageObject Class.
-     */
-    public abstract class MockPageObject {
-        public Object driver;
+	/**
+	 * The PageObject Class.
+	 */
+	public abstract class MockPageObject {
+		public Object driver;
 
-        /**
-         * Instantiates a new page object.
-         */
-        MockPageObject() {
-            super();
-        }
+		/**
+		 * Instantiates a new page object.
+		 */
+		MockPageObject() {
+			super();
+		}
 
-        /**
-         * Instantiates a new page object.
-         *
-         * @param webDriver the web driver
-         */
-        MockPageObject(final WebDriver webDriver) {
-            driver = webDriver;
-        }
-    }
+		/**
+		 * Instantiates a new page object.
+		 *
+		 * @param webDriver
+		 *            the web driver
+		 */
+		MockPageObject(final WebDriver webDriver) {
+			this.driver = webDriver;
+		}
+	}
 
-    /**
-     * Test.
-     */
-    @Test
-    public void testHomePage() {
-        assertNotNull(new HomePage());
-    }
+	/**
+	 * Test.
+	 */
+	@Test
+	public void testHomePage() {
+		assertNotNull(new HomePage());
+	}
 
 }

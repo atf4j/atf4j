@@ -27,29 +27,31 @@ import net.atf4j.webdriver.TargetUrl;
 @TargetUrl("http://127.0.0.1:8080/boilerplate")
 public class BoilerplatePage extends AbstractPageObject {
 
-    /**
-     * Instantiates a new Html5 Boilerplate page object.
-     */
-    public BoilerplatePage() {
-        super();
-    }
+	/**
+	 * Instantiates a new Html5 Boilerplate page object.
+	 */
+	public BoilerplatePage() {
+		super();
+	}
 
-    /**
-     * Instantiates a new Html5 Boilerplate page object.
-     *
-     * @param webDriver the web driver
-     */
-    public BoilerplatePage(final WebDriver webDriver) {
-        super(webDriver);
-    }
+	/**
+	 * Instantiates a new Html5 Boilerplate page object.
+	 *
+	 * @param webDriver
+	 *            the web driver
+	 */
+	public BoilerplatePage(final WebDriver webDriver) {
+		super(webDriver);
+	}
 
-    /**
-     * Instantiates a new Html5 Boilerplate page object.
-     *
-     * @param targetUrl the target url
-     */
-    public BoilerplatePage(final String targetUrl) {
-        super(targetUrl);
-    }
+	/**
+	 * Instantiates a new Html5 Boilerplate page object.
+	 *
+	 * @param targetUrl
+	 *            the target url
+	 */
+	public BoilerplatePage(final String targetUrl) {
+		super(targetUrl);
+	}
 
 }

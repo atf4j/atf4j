@@ -18,39 +18,50 @@
 package net.atf4j.core;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
-
-import net.atf4j.core.TestContext;
-import net.atf4j.core.TestResultsReporting;
 
 /**
  * A UnitTest for TestContext objects.
  */
 public class TestContextTest extends TestResultsReporting {
 
-    /**
-     * Unit Test Context.isLocal().
-     */
-    @Test
-    public void testisLocal() {
-        assertFalse(TestContext.isLocal());
-    }
+	/**
+	 * Unit Test Context.isLocal().
+	 */
+	@Test
+	public void testIsLocal() {
+		assertFalse(TestContext.isLocal());
+		System.setProperty("isLocal", "true");
+		assertTrue(TestContext.isLocal());
+	}
 
-    /**
-     * Test method for TestContext. Unit Test Context.isLocal().
-     */
-    @Test
-    public void testIsSeleniumGrid() {
-        assertFalse(TestContext.isGrid());
-    }
+	/**
+	 * Test method for TestContext. Unit Test Context.isLocal().
+	 */
+	@Test
+	public void testIsSeleniumGrid() {
+		assertFalse(TestContext.isSeleniumGrid());
+		System.setProperty("isSeleniumGrid", "true");
+		assertTrue(TestContext.isSeleniumGrid());
+	}
 
-    /**
-     * Unit Test Context.isLocal(). Test method for TestContext.
-     */
-    @Test
-    public void testIsJenkins() {
-        assertFalse(TestContext.isJenkins());
-    }
+	/**
+	 * Unit Test Context.isLocal(). Test method for TestContext.
+	 */
+	@Test
+	public void testIsJenkins() {
+		assertFalse(TestContext.isJenkins());
+		System.setProperty("isJenkins", "true");
+		assertTrue(TestContext.isJenkins());
+	}
+
+	@Test
+	public void testIsActiveMQ() {
+		assertFalse(TestContext.isActiveMQ());
+		System.setProperty("isActiveMQ", "true");
+		assertTrue(TestContext.isActiveMQ());
+	}
 
 }

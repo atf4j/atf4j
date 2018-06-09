@@ -17,71 +17,93 @@
 
 package net.atf4j.core;
 
+import static org.junit.Assume.assumeTrue;
+
 /**
  * Test Context.
  */
 public final class TestContext extends TestResultsReporting {
 
-    /**
-     * Instantiates a new test context.
-     */
-    private TestContext() {
-        super();
-    }
+	/**
+	 * Instantiates a new test context.
+	 */
+	private TestContext() {
+		super();
+	}
 
-    /**
-     * Checks if running on a local machine.
-     *
-     * -DisLocal=true
-     *
-     * @return true, if local, otherwise false.
-     */
-    public static boolean isLocal() {
-        return Boolean.getBoolean("isLocal");
-    }
+	/**
+	 * Checks if running on a local machine.
+	 *
+	 * -DisLocal=true
+	 *
+	 * @return true, if local, otherwise false.
+	 */
+	public static boolean isLocal() {
+		return Boolean.getBoolean("isLocal");
+	}
 
-    /**
-     * Checks if Selenium grid is available.
-     *
-     * -DisGrid=true
-     *
-     * @return true, if grid is available, otherwise false.
-     */
-    public static boolean isGrid() {
-        return Boolean.getBoolean("isSelenium");
-    }
+	public static void assumeLocal() {
+		assumeTrue("Expected System property isLocal to be defined", TestContext.isLocal());
+	}
 
-    /**
-     * Checks if jenkins is available.
-     *
-     * -DisJenkins=true
-     *
-     * @return true, if jenkins is available, otherwise false.
-     */
-    public static boolean isJenkins() {
-        return Boolean.getBoolean("isJenkins");
-    }
+	/**
+	 * Checks if Selenium grid is available.
+	 *
+	 * -DisGrid=true
+	 *
+	 * @return true, if grid is available, otherwise false.
+	 */
+	public static boolean isSeleniumGrid() {
+		return Boolean.getBoolean("isSeleniumGrid");
+	}
 
-    /**
-     * Checks if a local server is available.
-     * <p>
-     * Default to <code>http://127.0.0.1:8080/</code>.
-     *
-     * -DlocalServer=true
-     *
-     * @return true, if local server is available, otherwise false.
-     */
-    public static boolean localServer() {
-        return Boolean.getBoolean("localServer");
-    }
+	public static void assumeSeleniumGrid() {
+		assumeTrue("Expected System property isSeleniumGrid to be defined", TestContext.isSeleniumGrid());
+	}
 
-    /**
-     * Checks if active MQ.
-     *
-     * @return true, if is active MQ
-     */
-    public static boolean isActiveMQ() {
-        return Boolean.getBoolean("isActiveMQ");
-    }
+	/**
+	 * Checks if jenkins is available.
+	 *
+	 * -DisJenkins=true
+	 *
+	 * @return true, if jenkins is available, otherwise false.
+	 */
+	public static boolean isJenkins() {
+		return Boolean.getBoolean("isJenkins");
+	}
+
+	public static void assumeJenkins() {
+		assumeTrue("Expected System property isJenkins to be defined", TestContext.isJenkins());
+	}
+
+	/**
+	 * Checks if a local server is available.
+	 * <p>
+	 * Default to <code>http://127.0.0.1:8080/</code>.
+	 *
+	 * -DlocalServer=true
+	 *
+	 * @return true, if local server is available, otherwise false.
+	 */
+	public static boolean localServer() {
+		return Boolean.getBoolean("localServer");
+	}
+
+	public static void assumeLocalServer() {
+		assumeTrue("Expected System property localServer to be defined", TestContext.localServer());
+	}
+
+	/**
+	 * Checks if active MQ.
+	 *
+	 * @return true, if is active MQ
+	 */
+	public static boolean isActiveMQ() {
+		return Boolean.getBoolean("isActiveMQ");
+	}
+
+	public static void assumeActiveMQ() {
+		assumeTrue("Expected System property isActiveMQ to be defined", TestContext.isActiveMQ());
+	}
 
 }

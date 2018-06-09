@@ -27,29 +27,31 @@ import net.atf4j.webdriver.TargetUrl;
 @TargetUrl("http://atf4j.net/bootstrap/")
 public class BootstrapPage extends AbstractPageObject {
 
-    /**
-     * Instantiates a new bootstrap page.
-     */
-    public BootstrapPage() {
-        super();
-    }
+	/**
+	 * Instantiates a new bootstrap page.
+	 */
+	public BootstrapPage() {
+		super();
+	}
 
-    /**
-     * Instantiates a new bootstrap page.
-     *
-     * @param targetUrl the target url
-     */
-    public BootstrapPage(final String targetUrl) {
-        super(targetUrl);
-    }
+	/**
+	 * Instantiates a new bootstrap page.
+	 *
+	 * @param targetUrl
+	 *            the target url
+	 */
+	public BootstrapPage(final String targetUrl) {
+		super(targetUrl);
+	}
 
-    /**
-     * Instantiates a new bootstrap page.
-     *
-     * @param webDriver the web driver
-     */
-    public BootstrapPage(final WebDriver webDriver) {
-        super(webDriver);
-    }
+	/**
+	 * Instantiates a new bootstrap page.
+	 *
+	 * @param webDriver
+	 *            the web driver
+	 */
+	public BootstrapPage(final WebDriver webDriver) {
+		super(webDriver);
+	}
 
 }

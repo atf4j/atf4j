@@ -22,7 +22,8 @@ import static org.junit.Assume.assumeNotNull;
 
 import org.junit.Ignore;
 import org.junit.Test;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import net.atf4j.core.TestResultsReporting;
 
@@ -32,57 +33,57 @@ import net.atf4j.core.TestResultsReporting;
 @Ignore
 public final class BoilerplatePageTest extends TestResultsReporting {
 
-    private static final String PAGE_URL = "http://atf4j.net/boilerplate/";
-    // private static final String PAGE_URL = "http://127.0.0.1:8080/bootstrap";
+	// private static final String PAGE_URL = "http://atf4j.net/boilerplate/";
+	private static final String PAGE_URL = "http://127.0.0.1:8080/boilerplate";
 
-    /**
-     * Unit Test for test boilerplate page.
-     */
-    @Test
-    public void testBoilerplatePage() {
-        final BoilerplatePage boilerplatePage = new BoilerplatePage();
-        assumeNotNull(boilerplatePage);
-        assertNotNull(boilerplatePage.open());
-        assertNotNull(boilerplatePage.verify());
-        assertNotNull(boilerplatePage.close());
-    }
+	/**
+	 * Unit Test for test boilerplate page.
+	 */
+	@Test
+	public void testBoilerplatePage() {
+		final BoilerplatePage boilerplatePage = new BoilerplatePage();
+		assumeNotNull(boilerplatePage);
+		assertNotNull(boilerplatePage.open());
+		assertNotNull(boilerplatePage.verify());
+		assertNotNull(boilerplatePage.close());
+	}
 
-    /**
-     * Unit Test for test boilerplate page url.
-     */
-    @Test
-    public void testBoilerplateLoad() {
-        final BoilerplatePage boilerplatePage = new BoilerplatePage();
-        assumeNotNull(boilerplatePage);
-        assertNotNull(boilerplatePage.open());
-        assertNotNull(boilerplatePage.verify());
-        assertNotNull(boilerplatePage.close());
-    }
+	/**
+	 * Unit Test for test boilerplate page url.
+	 */
+	@Test
+	public void testBoilerplateLoad() {
+		final BoilerplatePage boilerplatePage = new BoilerplatePage();
+		assumeNotNull(boilerplatePage);
+		assertNotNull(boilerplatePage.open());
+		assertNotNull(boilerplatePage.verify());
+		assertNotNull(boilerplatePage.close());
+	}
 
-    /**
-     * Unit Test for test boilerplate page url.
-     */
-    @Test
-    public void testBoilerplatePageUrl() {
-        final BoilerplatePage boilerplatePage = new BoilerplatePage(BoilerplatePageTest.PAGE_URL);
-        assumeNotNull(boilerplatePage);
-        assertNotNull(boilerplatePage.open());
-        assertNotNull(boilerplatePage.verify());
-        assertNotNull(boilerplatePage.close());
-    }
+	/**
+	 * Unit Test for test boilerplate page url.
+	 */
+	@Test
+	public void testBoilerplatePageUrl() {
+		final BoilerplatePage boilerplatePage = new BoilerplatePage(BoilerplatePageTest.PAGE_URL);
+		assumeNotNull(boilerplatePage);
+		assertNotNull(boilerplatePage.open());
+		assertNotNull(boilerplatePage.verify());
+		assertNotNull(boilerplatePage.close());
+	}
 
-    /**
-     * Unit Test for test boilerplate page web driver.
-     */
-    @Test
-    public void testBoilerplatePageWebDriver() {
-        final HtmlUnitDriver webDriver = new HtmlUnitDriver();
-        assumeNotNull(webDriver);
-        final BoilerplatePage boilerplatePage = new BoilerplatePage(webDriver);
-        assumeNotNull(boilerplatePage);
-        assertNotNull(boilerplatePage.open());
-        assertNotNull(boilerplatePage.verify());
-        assertNotNull(boilerplatePage.close());
-    }
+	/**
+	 * Unit Test for test boilerplate page web driver.
+	 */
+	@Test
+	public void testBoilerplatePageWebDriver() {
+		final WebDriver webDriver = new ChromeDriver();
+		assumeNotNull(webDriver);
+		final BoilerplatePage boilerplatePage = new BoilerplatePage(webDriver);
+		assumeNotNull(boilerplatePage);
+		assertNotNull(boilerplatePage.open());
+		assertNotNull(boilerplatePage.verify());
+		assertNotNull(boilerplatePage.close());
+	}
 
 }

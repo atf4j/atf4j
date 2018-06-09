@@ -22,25 +22,25 @@ package net.atf4j.webdriver.page;
  */
 public interface PageInterface {
 
-    /**
-     * Close page.
-     *
-     * @return this for a fluent interface
-     */
-    public abstract PageInterface close();
+	/**
+	 * Close page.
+	 *
+	 * @return this for a fluent interface
+	 */
+	public abstract PageInterface close();
 
-    /**
-     * Open page.
-     *
-     * @return this for a fluent interface
-     */
-    public abstract PageInterface open();
+	/**
+	 * Open page.
+	 *
+	 * @return this for a fluent interface
+	 */
+	public abstract PageInterface open();
 
-    /**
-     * Verify that.
-     *
-     * @return this for a fluent interface
-     */
-    public abstract PageInterface verify();
+	/**
+	 * Verify that.
+	 *
+	 * @return this for a fluent interface
+	 */
+	public abstract PageInterface verify();
 
 }
