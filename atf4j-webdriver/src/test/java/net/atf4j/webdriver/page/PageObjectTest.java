@@ -21,10 +21,10 @@ import static org.junit.Assume.assumeNotNull;
 
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.webdriver.BrowserFactory;
 
 /**
  * Unit Test for abstract PageObject.
@@ -45,7 +45,7 @@ public final class PageObjectTest extends TestResultsReporting {
          * @throws ConfigurationNotLoadedException the configuration not loaded
          */
         public MockPage() throws ConfigurationNotLoadedException {
-            super();
+            super(BrowserFactory.webDriver());
         }
 
         /**
@@ -115,7 +115,7 @@ public final class PageObjectTest extends TestResultsReporting {
     public void testOpenString() throws ConfigurationNotLoadedException {
         final MockPage mockPage = new MockPage();
         assumeNotNull(mockPage);
-        verifyNotNull(mockPage.open());
+        verifyNotNull(mockPage.open(MockPage.TARGET_URL));
     }
 
     /**
@@ -139,7 +139,7 @@ public final class PageObjectTest extends TestResultsReporting {
      */
     @Test
     public void testWebDriverConstructor() throws ConfigurationNotLoadedException {
-        final WebDriver webDriver = new ChromeDriver();
+        final WebDriver webDriver = BrowserFactory.webDriver();
         assumeNotNull(webDriver);
         final MockPage mockPage = new MockPage(webDriver);
         assumeNotNull(mockPage);

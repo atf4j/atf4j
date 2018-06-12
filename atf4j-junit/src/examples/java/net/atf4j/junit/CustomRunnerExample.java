@@ -42,6 +42,7 @@ public class CustomRunnerExample extends Runner {
      * @param aClass the a class
      */
     public CustomRunnerExample(final Class<?> aClass) {
+        super();
         testClass = new TestClass(aClass);
         final Method[] classMethods = aClass.getDeclaredMethods();
         for (final Method classMethod : classMethods) {
