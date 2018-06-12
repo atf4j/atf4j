@@ -81,13 +81,12 @@ public final class WebDriverSmokeTest extends TestResultsReporting {
     @Test
     public void testPhantomJsTomcat() {
         TestContext.assumeLocal();
+        assumeNotNull("Expected phantomjs.binary.path to be defined", System.getProperty("phantomjs.binary.path"));
         final DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setJavascriptEnabled(true);
         desiredCapabilities.setCapability(
                 PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
-                "./web-driver-bin/phantomjs.exe");
-        // assumeNotNull("Expected phantomjs.binary.path to be defined",
-        // System.getProperty("phantomjs.binary.path"));
+                "../web-driver-bin/phantomjs.exe");
         final WebDriver webDriver = new PhantomJSDriver(desiredCapabilities);
         verifyNotNull(webDriver);
         verifyTomcatPresent(webDriver);

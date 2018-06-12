@@ -35,6 +35,8 @@ import net.atf4j.annotations.Atf4j;
  */
 public class AnnotatedTestTwoExample extends AbstractAtf4jAnnotation {
 
+    // logger provided
+    
     /**
      * Annotated Test example two.
      *

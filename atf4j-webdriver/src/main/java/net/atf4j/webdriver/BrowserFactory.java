@@ -29,8 +29,11 @@ import org.openqa.selenium.WebDriver.Timeouts;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -145,14 +148,20 @@ public class BrowserFactory implements BrowserFactoryInterface {
             webDriver = new SafariDriver();
             break;
         case "phantomjs":
-            // webDriver = new PhantomJS();
+            // webDriver = new HtmlUnitDriver();
+            // assumeNotNull("Expected phantomjs.binary.path to be defined",
+            // System.getProperty("phantomjs.binary.path"));
+            final DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+            desiredCapabilities.setJavascriptEnabled(true);
+            desiredCapabilities.setCapability(
+                    PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
+                    "../web-driver-bin/phantomjs.exe");
+            webDriver = new PhantomJSDriver(desiredCapabilities);
             break;
         case "htmlunit":
-            // webDriver = new HtmlUnitDriver();
-            break;
         case "headless":
         default:
-            // webDriver = new HtmlUnitDriver();
+            webDriver = new HtmlUnitDriver();
             break;
         }
 

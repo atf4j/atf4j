@@ -21,4 +21,3 @@ In command line shell run:
 ## Overriding options
 
     mvn -Doptions="value" test
-    
