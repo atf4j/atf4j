@@ -9,7 +9,7 @@ Automated Test Framework for SOAPUI using Groovy and Java.
 	<dependency>
 		<groupId>net.atf4j</groupId>
 		<artifactId>atf4j-soapui</artifactId>
-		<version>0.10.0-SNAPSHOT</version>
+		<version>${atf4j.version}</version>
 	</dependency>
 
 ## Usage

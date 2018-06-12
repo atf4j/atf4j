@@ -29,96 +29,116 @@ import net.atf4j.core.TestResultsReporting;
  */
 public class TestSuiteTest extends TestResultsReporting {
 
-	/**
-	 * Test Case Report Class.
-	 */
-	public class MockTestReport implements TestReport {
-	}
+    /**
+     * Test Case Report Class.
+     */
+    public class MockTestReport implements TestReport {
+    }
 
-	/**
-	 * Passing Test Condition Class.
-	 */
-	public class PassingCondition extends Condition {
-	}
+    /**
+     * Passing Test Condition Class.
+     */
+    public class PassingCondition extends Condition {
+    }
 
-	/**
-	 * Test method for TestSuite.
-	 */
-	@Test
-	public void testDefaultConstructor() {
-		verifyNotNull(new TestSuite());
-	}
+    /**
+     * Test method for TestSuite.
+     */
+    @Test
+    public void testDefaultConstructor() {
+        verifyNotNull(new TestSuite());
+    }
 
-	@Test
-	public void testTypical() {
-		final TestSuite testSuite = new TestSuite();
-		this.log.info("testSuite={}", testSuite);
-		verifyNotNull(testSuite);
-		testSuite.start();
-		testSuite.end();
+    @Test
+    public void testTypical() {
+        final TestSuite testSuite = new TestSuite();
+        this.log.info("testSuite={}", testSuite);
+        verifyNotNull(testSuite);
+        testSuite.execute();
+    }
 
-	}
+    @Test
+    public void testMockTestReport() {
+        final TestSuite testSuite = new TestSuite(new MockTestReport());
+        this.log.info("testSuite={}", testSuite);
+        verifyNotNull(testSuite);
+        testSuite.execute();
+    }
 
-	/**
-	 * Test method for TestSuite.
-	 */
-	@Test
-	public void testTestSuite() {
-		final TestSuite testSuite = new TestSuite();
-		this.log.debug("testSuite = {}", testSuite);
-		verifyNotNull(testSuite);
-		final TestResult result = testSuite.result();
-		this.log.debug("result = {}", result);
-		verifyNotNull(result);
-	}
+    /**
+     * Unit Test for test test case string.
+     */
+    @Test
+    public void testTestCaseString() {
+        final TestSuite testSuite = new TestSuite();
+        verifyNotNull(testSuite);
+        verifyNotNull(testSuite.toString());
+    }
 
-	/**
-	 * Test method for TestSuite.
-	 */
-	@Test
-	public void testNumberOfTestCases() {
-		final TestSuite testSuite = new TestSuite();
-		final int numberOfTestCases = testSuite.numberOfTestCases();
-		assertEquals(0, numberOfTestCases);
-	}
+    /**
+     * Test method for TestSuite.
+     */
+    @Test
+    public void testTestSuite() {
+        final TestSuite testSuite = new TestSuite();
+        this.log.debug("testSuite = {}", testSuite);
+        verifyNotNull(testSuite);
+        final TestResult result = testSuite.result();
+        this.log.debug("result = {}", result);
+        verifyNotNull(result);
+    }
 
-	/**
-	 * Test method for TestSuite.
-	 */
-	@Test
-	public void testAddTestCase() {
-		final TestCase newTestCase = new TestCase();
-		final TestSuite testSuite = new TestSuite();
-		final TestSuite addTestCase = testSuite.addTestCase(newTestCase);
-		final int numberOfTestSteps = addTestCase.numberOfTestCases();
-		assertEquals(1, numberOfTestSteps);
-	}
+    /**
+     * Test method for TestSuite.
+     */
+    @Test
+    public void testNumberOfTestCases() {
+        final TestSuite testSuite = new TestSuite();
+        final int numberOfTestCases = testSuite.numberOfTestCases();
+        assertEquals(0, numberOfTestCases);
+    }
 
-	/**
-	 * Test method for TestSuite.
-	 */
-	@Test(expected = AssertionError.class)
-	public void testAddNullTestCase() {
-		final TestSuite testSuite = new TestSuite();
-		testSuite.addTestCase(null);
-	}
+    /**
+     * Test method for TestSuite.
+     */
+    @Test
+    public void testAddTestCase() {
+        final TestCase newTestCase = new TestCase();
+        final TestSuite testSuite = new TestSuite();
+        final TestSuite addTestCase = testSuite.addTestCase(newTestCase);
+        final int numberOfTestSteps = addTestCase.numberOfTestCases();
+        assertEquals(1, numberOfTestSteps);
+    }
 
-	/**
-	 * Unit Test for test pre condition.
-	 */
-	@Test
-	public void testPreCondition() {
-		final TestSuite testSuite = new TestSuite();
-		testSuite.addPreCondition(new PassingCondition());
-	}
+    /**
+     * Test method for TestSuite.
+     */
+    @Test(expected = AssertionError.class)
+    public void testAddNullTestCase() {
+        final TestSuite testSuite = new TestSuite();
+        testSuite.addTestCase(null);
+    }
 
-	/**
-	 * Unit Test for test post condition.
-	 */
-	@Test
-	public void testPostCondition() {
-		final TestSuite testSuite = new TestSuite();
-		testSuite.addPostCondition(new PassingCondition());
-	}
+    /**
+     * Unit Test for test pre condition.
+     */
+    @Test
+    public void testPreCondition() {
+        final TestSuite testSuite = new TestSuite();
+        final PassingCondition newPreCondition = new PassingCondition();
+        testSuite.addPreCondition(newPreCondition);
+        testSuite.execute();
+    }
+
+    /**
+     * Unit Test for test post condition.
+     */
+    @Test
+    public void testPostCondition() {
+        final TestSuite testSuite = new TestSuite();
+        final PassingCondition newPostCondition = new PassingCondition();
+        testSuite.addPostCondition(newPostCondition);
+        testSuite.execute();
+    }
 
 }

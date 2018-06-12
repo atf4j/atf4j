@@ -31,14 +31,27 @@ public class TestStep extends AbstractTestBase {
         super();
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see net.atf4j.core.model.AbstractTestBase#execute()
+     */
+    @Override
+    public AbstractTestBase execute() {
+        start();
+        this.log.info("execute");
+        end();
+        return this;
+    }
+
     /**
      * Start test suite.
      *
      * @return the test case
      */
     public AbstractTestBase start() {
-        log.info("start test step {}", this.getName());
-        log.info("start timer {}", MappedTimers.start("TestStep"));
+        this.log.info("start test step {}", this.getName());
+        this.log.info("start timer {}", MappedTimers.start("TestStep" + super.uniqueIdentifier.toString()));
         super.assumedPreConditions();
         return this;
     }
@@ -49,8 +62,8 @@ public class TestStep extends AbstractTestBase {
      * @return the test case
      */
     public AbstractTestBase end() {
-        log.info("end timer {}", MappedTimers.stop("TestStep"));
-        log.info("end test step {}", this.getName());
+        this.log.info("end timer {}", MappedTimers.stop("TestStep" + super.uniqueIdentifier.toString()));
+        this.log.info("end test step {}", this.getName());
         super.assertPostConditions();
         return this;
     }

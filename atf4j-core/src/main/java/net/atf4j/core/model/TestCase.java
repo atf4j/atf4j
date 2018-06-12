@@ -18,14 +18,13 @@
 package net.atf4j.core.model;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assume.assumeNotNull;
 import static org.junit.Assume.assumeTrue;
 
 import java.util.ArrayDeque;
 import java.util.Collection;
 
-import net.atf4j.core.TestContext;
-import net.atf4j.core.VerificationError;
 import net.atf4j.core.timers.MappedTimers;
 
 /**
@@ -33,6 +32,7 @@ import net.atf4j.core.timers.MappedTimers;
  */
 public class TestCase extends AbstractTestBase {
 
+    /** The test steps. */
     private final Collection<TestStep> testSteps = new ArrayDeque<TestStep>();
 
     /**
@@ -51,23 +51,27 @@ public class TestCase extends AbstractTestBase {
         super(name);
     }
 
-    /**
-     * Execute.
-     *
-     * @param context the context
-     * @return the abstract test result
-     * @throws VerificationError the atf4j exception
-     * @see net.atf4j.core.model.AbstractTestBase#execute(net.atf4j.core.TestContext)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see net.atf4j.core.model.AbstractTestBase#execute()
      */
     @Override
-    public TestCase execute(final TestContext context) throws VerificationError {
-        assumeNotNull(context);
-        assumeNotNull(testSteps);
-        for (final TestStep testStep : testSteps) {
-            final AbstractTestBase execute = testStep.execute(context);
-            assumeNotNull(execute);
-            assertEquals(testStep, execute);
+    public TestCase execute() {
+
+        start();
+
+        assertNotNull(this.testSteps);
+        if (this.testSteps.size() > 0) {
+            for (final TestStep testStep : this.testSteps) {
+                final AbstractTestBase execute = testStep.execute();
+                assumeNotNull(execute);
+                assertEquals(testStep, execute);
+            }
         }
+
+        end();
+
         return this;
     }
 
@@ -78,7 +82,7 @@ public class TestCase extends AbstractTestBase {
      * @see java.util.Collection#size()
      */
     public int numberOfTestSteps() {
-        return testSteps == null ? 0 : testSteps.size();
+        return this.testSteps == null ? 0 : this.testSteps.size();
     }
 
     /**
@@ -89,7 +93,7 @@ public class TestCase extends AbstractTestBase {
      * @see java.util.Collection#add(java.lang.Object)
      */
     public TestCase addTestStep(final TestStep newTestStep) {
-        final boolean result = testSteps.add(newTestStep);
+        final boolean result = this.testSteps.add(newTestStep);
         assumeTrue(result);
         return this;
     }
@@ -100,8 +104,8 @@ public class TestCase extends AbstractTestBase {
      * @return the test case
      */
     public TestCase start() {
-        log.info("start test case {}", this.getName());
-        log.info("start timer {}", MappedTimers.start("TestCase"));
+        this.log.info("start test case {}", this.getName());
+        this.log.info("start timer {}", MappedTimers.start("TestCase"));
         super.assumedPreConditions();
         return this;
     }
@@ -112,8 +116,8 @@ public class TestCase extends AbstractTestBase {
      * @return the test case
      */
     public TestCase end() {
-        log.info("end timer {}", MappedTimers.stop("TestCase"));
-        log.info("end test case {}", this.getName());
+        this.log.info("end timer {}", MappedTimers.stop("TestCase"));
+        this.log.info("end test case {}", this.getName());
         super.assertPostConditions();
         return this;
     }

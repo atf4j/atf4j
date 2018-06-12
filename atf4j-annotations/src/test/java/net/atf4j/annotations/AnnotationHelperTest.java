@@ -29,16 +29,16 @@ public class AnnotationHelperTest extends TestResultsReporting {
 
     /** TEST_FAIL_ID constant. */
     private static final String TEST_FAIL_ID = "FAIL-0001";
-    
+
     /** TEST_PASS_ID constant. */
     private static final String TEST_PASS_ID = "PASS-0001";
-    
+
     /** TEST_FAIL_NAME constant. */
     private static final String TEST_FAIL_NAME = "testAnnotationsWithFail";
-    
+
     /** TEST_PASS_NAME constant. */
     private static final String TEST_PASS_NAME = "testAnnotationsWithPass";
-    
+
     /** GIVEN_WHEN_THEN constant. */
     private static final String GIVEN_WHEN_THEN = "\n\tGiven...\n\tWhen...\n\tThen...\n";
 
@@ -70,6 +70,7 @@ public class AnnotationHelperTest extends TestResultsReporting {
         try {
             fail("Force a failure.");
         } finally {
+            assertEquals("ATF4J", AnnotationHelper.getTestTag());
             assertEquals(TEST_FAIL_ID, AnnotationHelper.getTestId());
             assertEquals(TEST_FAIL_NAME, AnnotationHelper.getTestName());
             assertEquals(GIVEN_WHEN_THEN, AnnotationHelper.getTestDescription());

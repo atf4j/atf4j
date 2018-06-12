@@ -30,19 +30,42 @@ import net.atf4j.core.VerificationError;
 
 /**
  * Abstract Test Base Class.
+ *
+ * This is a Hoare Triple {P} C {Q}
  */
 public abstract class AbstractTestBase extends TestResultsReporting {
 
+    /** The unique identifier. */
     protected TestIdentifier uniqueIdentifier = new TestIdentifier();
+
+    /** The test result. */
     protected TestResult testResult = TestResult.PENDING;
+
+    /** The test report. */
     protected TestReport testReport;
 
+    /** The tester. */
     private String tester; // test actor
+
+    /** The name. */
     private String name; // short name of test
+
+    /** The taxonomy. */
     private String taxonomy; // taxonomy of test
+
+    /** The description. */
     private String description; // full description of test
+
+    /** The timestamp. */
     private String timestamp; // ISO date.
+
+    /** The context. */
+    private TestContext context;
+
+    /** The pre conditions. */
     private Collection<Condition> preConditions;
+
+    /** The post conditions. */
     private Collection<Condition> postConditions;
 
     /**
@@ -50,8 +73,18 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      */
     public AbstractTestBase() {
         super();
-        testResult = TestResult.initialise();
-        uniqueIdentifier = new TestIdentifier();
+        this.testResult = TestResult.initialise();
+    }
+
+    /**
+     * Instantiates a new abstract test base.
+     *
+     * @param context the context
+     */
+    public AbstractTestBase(final TestContext context) {
+        super();
+        this.context = context;
+        this.testResult = TestResult.initialise();
     }
 
     /**
@@ -62,8 +95,16 @@ public abstract class AbstractTestBase extends TestResultsReporting {
     public AbstractTestBase(final String name) {
         super();
         this.name = name;
-        testResult = TestResult.initialise();
-        uniqueIdentifier = new TestIdentifier();
+        this.testResult = TestResult.initialise();
+    }
+
+    /**
+     * The Constructor.
+     *
+     * @param logging the logging
+     */
+    public AbstractTestBase(final TestReport logging) {
+        setLogging(logging);
     }
 
     /**
@@ -79,17 +120,6 @@ public abstract class AbstractTestBase extends TestResultsReporting {
     }
 
     /**
-     * Execute.
-     *
-     * @param context the context
-     * @return the test result
-     * @throws VerificationError the atf4j exception
-     */
-    public AbstractTestBase execute(final TestContext context) throws VerificationError {
-        throw new VerificationError("execute Must be overridden.");
-    }
-
-    /**
      * Adds the pre condition.
      *
      * @param newPreCondition as Condition
@@ -97,10 +127,10 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @see java.util.Collection#add(java.lang.Object)
      */
     public AbstractTestBase addPreCondition(final Condition newPreCondition) {
-        if (preConditions == null) {
-            preConditions = new ArrayDeque<Condition>();
+        if (this.preConditions == null) {
+            this.preConditions = new ArrayDeque<Condition>();
         }
-        assumeTrue(preConditions.add(newPreCondition));
+        assumeTrue(this.preConditions.add(newPreCondition));
         return this;
     }
 
@@ -110,10 +140,8 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the abstract test base
      */
     public AbstractTestBase assumedPreConditions() {
-        if (preConditions == null) {
-            return this;
-        } else {
-            for (final Condition condition : postConditions) {
+        if (this.preConditions != null) {
+            for (final Condition condition : this.preConditions) {
                 assumeTrue(condition.isTrue());
             }
         }
@@ -128,10 +156,10 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @see java.util.Collection#add(java.lang.Object)
      */
     public AbstractTestBase addPostCondition(final Condition newPostCondition) {
-        if (postConditions == null) {
-            postConditions = new ArrayDeque<Condition>();
+        if (this.postConditions == null) {
+            this.postConditions = new ArrayDeque<Condition>();
         }
-        assumeTrue(postConditions.add(newPostCondition));
+        assumeTrue(this.postConditions.add(newPostCondition));
         return this;
     }
 
@@ -141,10 +169,8 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the abstract test base
      */
     public AbstractTestBase assertPostConditions() {
-        if (postConditions == null) {
-            return this;
-        } else {
-            for (final Condition condition : postConditions) {
+        if (this.postConditions != null) {
+            for (final Condition condition : this.postConditions) {
                 assertTrue(condition.isTrue());
             }
         }
@@ -152,12 +178,13 @@ public abstract class AbstractTestBase extends TestResultsReporting {
     }
 
     /**
-     * Gets the test status.
+     * Execute.
      *
-     * @return the testStatus
+     * @return the abstract test base
+     * @throws VerificationError the verification error
      */
-    protected TestResult getTestStatus() {
-        return testResult;
+    public AbstractTestBase execute() throws VerificationError {
+        throw new VerificationError("execute Must be overridden.");
     }
 
     /**
@@ -167,17 +194,17 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the test base
      */
     protected AbstractTestBase setTestStatus(final TestResult testStatus) {
-        testResult = testStatus;
+        this.testResult = testStatus;
         return this;
     }
 
     /**
-     * Gets the unique identifier.
+     * Gets the test status.
      *
-     * @return the uniqueIdentifier
+     * @return the testStatus
      */
-    protected TestIdentifier getUniqueIdentifier() {
-        return uniqueIdentifier;
+    protected TestResult getTestStatus() {
+        return this.testResult;
     }
 
     /**
@@ -192,12 +219,12 @@ public abstract class AbstractTestBase extends TestResultsReporting {
     }
 
     /**
-     * Gets the tester.
+     * Gets the unique identifier.
      *
-     * @return the tester
+     * @return the uniqueIdentifier
      */
-    protected String getTester() {
-        return tester;
+    protected TestIdentifier getUniqueIdentifier() {
+        return this.uniqueIdentifier;
     }
 
     /**
@@ -212,12 +239,12 @@ public abstract class AbstractTestBase extends TestResultsReporting {
     }
 
     /**
-     * Gets the name.
+     * Gets the tester.
      *
-     * @return the name
+     * @return the tester
      */
-    protected String getName() {
-        return name;
+    protected String getTester() {
+        return this.tester;
     }
 
     /**
@@ -232,12 +259,12 @@ public abstract class AbstractTestBase extends TestResultsReporting {
     }
 
     /**
-     * Gets the taxonomy.
+     * Gets the name.
      *
-     * @return the taxonomy
+     * @return the name
      */
-    protected String getTaxonomy() {
-        return taxonomy;
+    protected String getName() {
+        return this.name;
     }
 
     /**
@@ -252,12 +279,12 @@ public abstract class AbstractTestBase extends TestResultsReporting {
     }
 
     /**
-     * Gets the description.
+     * Gets the taxonomy.
      *
-     * @return the description
+     * @return the taxonomy
      */
-    protected String getDescription() {
-        return description;
+    protected String getTaxonomy() {
+        return this.taxonomy;
     }
 
     /**
@@ -272,12 +299,12 @@ public abstract class AbstractTestBase extends TestResultsReporting {
     }
 
     /**
-     * Gets the timestamp.
+     * Gets the description.
      *
-     * @return the timestamp
+     * @return the description
      */
-    protected String getTimestamp() {
-        return timestamp;
+    protected String getDescription() {
+        return this.description;
     }
 
     /**
@@ -292,12 +319,21 @@ public abstract class AbstractTestBase extends TestResultsReporting {
     }
 
     /**
+     * Gets the timestamp.
+     *
+     * @return the timestamp
+     */
+    protected String getTimestamp() {
+        return this.timestamp;
+    }
+
+    /**
      * Gets the pre conditions.
      *
      * @return the preConditions
      */
     protected Collection<Condition> getPreConditions() {
-        return preConditions;
+        return this.preConditions;
     }
 
     /**
@@ -306,16 +342,7 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the postConditions
      */
     protected Collection<Condition> getPostConditions() {
-        return postConditions;
-    }
-
-    /**
-     * Gets the logging.
-     *
-     * @return the logging
-     */
-    public TestReport getLogging() {
-        return testReport;
+        return this.postConditions;
     }
 
     /**
@@ -325,8 +352,17 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the test base
      */
     public AbstractTestBase setLogging(final TestReport logging) {
-        testReport = logging;
+        this.testReport = logging;
         return this;
+    }
+
+    /**
+     * Gets the logging.
+     *
+     * @return the logging
+     */
+    public TestReport getLogging() {
+        return this.testReport;
     }
 
     /**
@@ -335,7 +371,7 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the test result
      */
     public TestResult result() {
-        return testResult;
+        return this.testResult;
     }
 
     /**
@@ -347,15 +383,15 @@ public abstract class AbstractTestBase extends TestResultsReporting {
         return String.format(
                 "%s [testStatus=%s, uniqueIdentifier=%s, tester=%s, name=%s, taxonomy=%s, description=%s, timestamp=%s, preConditions=%s, postConditions=%s]",
                 this.getClass().getSimpleName(),
-                testResult,
-                uniqueIdentifier,
-                tester,
-                name,
-                taxonomy,
-                description,
-                timestamp,
-                preConditions,
-                postConditions);
+                this.testResult,
+                this.uniqueIdentifier,
+                this.tester,
+                this.name,
+                this.taxonomy,
+                this.description,
+                this.timestamp,
+                this.preConditions,
+                this.postConditions);
     }
 
     /*

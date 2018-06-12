@@ -30,98 +30,110 @@ import net.atf4j.core.VerificationError;
  */
 public class TestStepTest extends TestResultsReporting {
 
-	/**
-	 * The TestCaseReport Class.
-	 */
-	public class MockTestReport implements TestReport {
-	}
+    /**
+     * The TestCaseReport Class.
+     */
+    public class MockTestReport implements TestReport {
+    }
 
-	/**
-	 * The PassingCondition Class.
-	 */
-	public class PassingCondition extends Condition {
-	}
+    /**
+     * The PassingCondition Class.
+     */
+    public class PassingCondition extends Condition {
+    }
 
-	@Test
-	public void testTypical() {
-		final TestStep testStep = new TestStep();
-		this.log.info("testStep={}", testStep);
-		verifyNotNull(testStep);
-		testStep.start();
-		testStep.end();
+    /**
+     * Unit Test for test default constructor.
+     */
+    @Test
+    public void testDefaultConstructor() {
+        verifyNotNull(new TestStep());
+    }
 
-	}
+    @Test
+    public void testTypical() {
+        final TestStep testStep = new TestStep();
+        this.log.info("testStep={}", testStep);
+        verifyNotNull(testStep);
+        testStep.execute();
+    }
 
-	/**
-	 * Unit Test for test default constructor.
-	 */
-	@Test
-	public void testDefaultConstructor() {
-		verifyNotNull(new TestStep());
-	}
+    /**
+     * Unit Test for test test case string.
+     */
+    @Test
+    public void testTestCaseString() {
+        final TestStep testStep = new TestStep();
+        this.log.info("testStep={}", testStep);
+        verifyNotNull(testStep);
+        verifyNotNull(testStep.toString());
+    }
 
-	/**
-	 * Unit Test for test test step.
-	 */
-	@Test
-	public void testTestStep() {
-		final TestStep testStep = new TestStep();
-		this.log.info("testStep={}", testStep);
-		verifyNotNull(testStep);
+    /**
+     * Unit Test for test test step.
+     */
+    @Test
+    public void testTestStep() {
+        final TestStep testStep = new TestStep();
+        this.log.info("testStep={}", testStep);
+        verifyNotNull(testStep);
 
-		final TestResult result = testStep.result();
-		this.log.info("testResult={}", result);
-		verifyNotNull(result);
-	}
+        final TestResult result = testStep.result();
+        this.log.info("testResult={}", result);
+        verifyNotNull(result);
+    }
 
-	/**
-	 * Test method for TestCase.
-	 *
-	 * @throws VerificationError
-	 *             the Atf4jException
-	 */
-	@Test
-	public void testRegisterLogging() throws VerificationError {
-		final TestCase testCase = new TestCase();
-		this.log.info("testCase ={}", testCase);
+    /**
+     * Test method for TestCase.
+     *
+     * @throws VerificationError the Atf4jException
+     */
+    @Test
+    public void testRegisterLogging() throws VerificationError {
+        final TestCase testCase = new TestCase();
+        this.log.info("testCase ={}", testCase);
 
-		final MockTestReport report = new MockTestReport();
-		this.log.info("report = {}", report);
-		verifyNotNull(testCase.registerLogging(report));
-	}
+        final MockTestReport report = new MockTestReport();
+        this.log.info("report = {}", report);
+        verifyNotNull(testCase.registerLogging(report));
+    }
 
-	/**
-	 * Unit Test for test pre condition.
-	 */
-	@Test
-	public void testPreCondition() {
-		final TestStep testStep = new TestStep();
-		this.log.info("testStep = {}", testStep);
-		verifyNotNull(testStep);
+    /**
+     * Unit Test for test pre condition.
+     */
+    @Test
+    public void testPreCondition() {
+        final TestStep testStep = new TestStep();
+        this.log.info("testStep = {}", testStep);
+        verifyNotNull(testStep);
 
-		final PassingCondition preCondition = new PassingCondition();
-		this.log.info("preCondition = {}", preCondition);
-		verifyNotNull(preCondition);
+        final PassingCondition preCondition = new PassingCondition();
+        this.log.info("preCondition = {}", preCondition);
+        verifyNotNull(preCondition);
 
-		assertNotNull(testStep.addPreCondition(preCondition));
-		this.log.info("testStep = {}", testStep);
-	}
+        assertNotNull(testStep.addPreCondition(preCondition));
+        this.log.info("testStep = {}", testStep);
 
-	/**
-	 * Unit Test for test post condition.
-	 */
-	@Test
-	public void testPostCondition() {
-		final TestStep testStep = new TestStep();
-		this.log.info("testStep = {}", testStep);
-		verifyNotNull(testStep);
+        testStep.execute();
+    }
 
-		final PassingCondition postCondition = new PassingCondition();
-		this.log.info("postCondition = {}", postCondition);
-		verifyNotNull(postCondition);
+    /**
+     * Unit Test for test post condition.
+     */
+    @Test
+    public void testPostCondition() {
+        final TestStep testStep = new TestStep();
+        this.log.info("testStep = {}", testStep);
+        verifyNotNull(testStep);
 
-		assertNotNull(testStep.addPostCondition(postCondition));
-		this.log.info("testStep = {}", testStep);
-	}
+        final PassingCondition postCondition = new PassingCondition();
+        this.log.info("postCondition = {}", postCondition);
+        verifyNotNull(postCondition);
+
+        assertNotNull(testStep.addPostCondition(postCondition));
+        this.log.info("testStep = {}", testStep);
+
+        testStep.execute();
+    }
 
 }

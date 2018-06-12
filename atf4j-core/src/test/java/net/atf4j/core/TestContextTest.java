@@ -22,6 +22,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+
 /**
  * A UnitTest for TestContext objects.
  */
@@ -57,6 +58,9 @@ public class TestContextTest extends TestResultsReporting {
 		assertTrue(TestContext.isJenkins());
 	}
 
+	/**
+	 * Test is active MQ.
+	 */
 	@Test
 	public void testIsActiveMQ() {
 		assertFalse(TestContext.isActiveMQ());

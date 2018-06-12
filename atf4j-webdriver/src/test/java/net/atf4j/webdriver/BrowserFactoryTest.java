@@ -18,10 +18,12 @@
 package net.atf4j.webdriver;
 
 import static org.junit.Assume.assumeNotNull;
+import static org.junit.Assume.assumeTrue;
 
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
+import net.atf4j.core.TestContext;
 import net.atf4j.core.TestResultsReporting;
 
 /**
@@ -29,61 +31,143 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class BrowserFactoryTest extends TestResultsReporting {
 
-	/**
-	 * test BrowserFactory returns Chrome.
-	 */
-	@Test
-	public void testChromeDriver() {
-		System.setProperty("targetBrowser", "chromeDriver");
-		final WebDriver webDriver = BrowserFactory.webDriver();
-		assumeNotNull("Chrome webDriver not available", webDriver);
-		verifyPageLoaded(webDriver);
-	}
+    private static final String TEST_URL = "http://127.0.0.1:8080";
 
-	/**
-	 * test BrowserFactory returns Firefox.
-	 */
-	@Test
-	public void testFirefoxDriver() {
-		System.setProperty("targetBrowser", "firefoxDriver");
-		final WebDriver webDriver = BrowserFactory.webDriver();
-		assumeNotNull("Firefox webDriver not available", webDriver);
-		verifyPageLoaded(webDriver);
-	}
+    /**
+     * test BrowserFactory default browser.
+     */
+    @Test
+    public void testWebDriver() {
+        final WebDriver webDriver = BrowserFactory.webDriver();
+        assumeNotNull("default webDriver not available", webDriver);
+        verifyPageLoaded(webDriver);
+    }
 
-	/**
-	 * Unit Test for test remote driver.
-	 */
-	@Test
-	public void testRemoteDriver() {
-		System.setProperty("targetBrowser", "remoteDriver");
-		final WebDriver webDriver = BrowserFactory.webDriver();
-		assumeNotNull("remote webDriver not available", webDriver);
-		verifyPageLoaded(webDriver);
-	}
+    /**
+     * test BrowserFactory returns Chrome.
+     */
+    @Test
+    public void testChromeDriver() {
+        System.setProperty("targetBrowser", "CHROME");
+        final WebDriver webDriver = BrowserFactory.webDriver();
+        assumeNotNull("Chrome webDriver not available", webDriver);
+        verifyPageLoaded(webDriver);
+    }
 
-	/**
-	 * test BrowserFactory default browser.
-	 */
-	@Test
-	public void testWebDriver() {
-		final WebDriver webDriver = BrowserFactory.webDriver();
-		assumeNotNull("default webDriver not available", webDriver);
-		verifyPageLoaded(webDriver);
-	}
+    /**
+     * test BrowserFactory returns Firefox.
+     */
+    @Test
+    public void testFirefoxDriver() {
+        assumeNotNull("Expected webdriver.gecko.driver to be defined", System.getProperty("webdriver.gecko.driver"));
+        System.setProperty("targetBrowser", "FIREFOX");
+        final WebDriver webDriver = BrowserFactory.webDriver();
+        assumeNotNull("Firefox webDriver not available", webDriver);
+        verifyPageLoaded(webDriver);
+    }
 
-	/**
-	 * Verify that verify page loaded.
-	 *
-	 * @param webDriver
-	 *            the web driver
-	 */
-	private void verifyPageLoaded(final WebDriver webDriver) {
-		webDriver.get("http://127.0.0.1:8080");
-		final String currentUrl = webDriver.getCurrentUrl();
-		this.log.info(currentUrl);
-		final String pageTitle = webDriver.getTitle();
-		this.log.info(pageTitle);
-	}
+    /**
+     * test BrowserFactory returns Firefox.
+     */
+    @Test
+    public void testEdgeDriver() {
+        assumeNotNull("Expected webdriver.edge.driver to be defined", System.getProperty("webdriver.edge.driver"));
+        System.setProperty("targetBrowser", "EDGE");
+        final WebDriver webDriver = BrowserFactory.webDriver();
+        assumeNotNull("Edge webDriver not available", webDriver);
+        verifyPageLoaded(webDriver);
+    }
+
+    /**
+     * test BrowserFactory returns Firefox.
+     */
+    @Test
+    public void testInternetExplorerDriver() {
+        System.setProperty("targetBrowser", "IE");
+        final WebDriver webDriver = BrowserFactory.webDriver();
+        assumeNotNull("IE webDriver not available", webDriver);
+        verifyPageLoaded(webDriver);
+    }
+
+    /**
+     * test BrowserFactory returns Safari.
+     */
+    @Test
+    public void testSafariDriver() {
+        System.setProperty("targetBrowser", "SAFARI");
+        final WebDriver webDriver = BrowserFactory.webDriver();
+        assumeNotNull("Safari webDriver not available", webDriver);
+        verifyPageLoaded(webDriver);
+    }
+
+    /**
+     * test BrowserFactory returns Opera.
+     */
+    @Test
+    public void testOperaDriver() {
+        System.setProperty("targetBrowser", "OPERA");
+        final WebDriver webDriver = BrowserFactory.webDriver();
+        assumeNotNull("Opera webDriver not available", webDriver);
+        verifyPageLoaded(webDriver);
+    }
+
+    /**
+     * test BrowserFactory returns PhantomJS.
+     */
+    @Test
+    public void testPhantomJS() {
+        assumeNotNull("Expected webdriver.edge.driver to be defined", System.getProperty("webdriver.edge.driver"));
+        System.setProperty("targetBrowser", "PHANTOMJS");
+        final WebDriver webDriver = BrowserFactory.webDriver();
+        assumeNotNull("PhantomJS webDriver not available", webDriver);
+        verifyPageLoaded(webDriver);
+    }
+
+    /**
+     * test BrowserFactory returns Opera.
+     */
+    @Test
+    public void testHtmlUnit() {
+        System.setProperty("targetBrowser", "HtmlUnit");
+        final WebDriver webDriver = BrowserFactory.webDriver();
+        assumeNotNull("HtmlUnit webDriver not available", webDriver);
+        verifyPageLoaded(webDriver);
+    }
+
+    /**
+     * test BrowserFactory returns Opera.
+     */
+    @Test
+    public void testHtmlHeadless() {
+        System.setProperty("targetBrowser", "HEADLESS");
+        final WebDriver webDriver = BrowserFactory.webDriver();
+        assumeNotNull("Headless webDriver not available", webDriver);
+        verifyPageLoaded(webDriver);
+    }
+
+    /**
+     * Unit Test for test remote driver.
+     */
+    @Test
+    public void testRemoteDriver() {
+        assumeTrue(TestContext.isSeleniumGrid());
+        System.setProperty("targetBrowser", "REMOTE");
+        final WebDriver webDriver = BrowserFactory.webDriver();
+        assumeNotNull("remote webDriver not available", webDriver);
+        verifyPageLoaded(webDriver);
+    }
+
+    /**
+     * Verify that verify page loaded.
+     *
+     * @param webDriver the web driver
+     */
+    private void verifyPageLoaded(final WebDriver webDriver) {
+        webDriver.get(TEST_URL);
+        final String currentUrl = webDriver.getCurrentUrl();
+        this.log.info(currentUrl);
+        final String pageTitle = webDriver.getTitle();
+        this.log.info(pageTitle);
+    }
 
 }

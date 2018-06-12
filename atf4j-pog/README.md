@@ -9,5 +9,5 @@ Page Object Generator for Selenium WebDriver.
 	<dependency>
 		<groupId>net.atf4j</groupId>
 		<artifactId>atf4j-pog</artifactId>
-		<version>0.4.0-SNAPSHOT</version>
+		<version>${atf4j.version}</version>
 	</dependency>

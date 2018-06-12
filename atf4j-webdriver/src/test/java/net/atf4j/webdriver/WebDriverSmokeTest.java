@@ -18,11 +18,16 @@
 package net.atf4j.webdriver;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assume.assumeNotNull;
 
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import net.atf4j.core.TestContext;
 import net.atf4j.core.TestResultsReporting;
@@ -32,35 +37,70 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class WebDriverSmokeTest extends TestResultsReporting {
 
-	/**
-	 * ChromeDriver Smoke test.
-	 */
-	@Test
-	public void testChromeTomcat() {
-		TestContext.assumeLocal();
-		final WebDriver webDriver = new ChromeDriver();
-		verifyNotNull(webDriver);
-		verifyTomcatPresent(webDriver);
-	}
+    /**
+     * Smoke Test ChromeDriver with Tomcat.
+     */
+    @Test
+    public void testChromeTomcat() {
+        TestContext.assumeLocal();
+        final WebDriver webDriver = new ChromeDriver();
+        verifyNotNull(webDriver);
+        verifyTomcatPresent(webDriver);
+        webDriver.close();
+    }
 
-	/**
-	 * FirefoxDriver Smoke test.
-	 */
-	@Test
-	public void testFirefoxTomcat() {
-		TestContext.assumeLocal();
-		final WebDriver webDriver = new FirefoxDriver();
-		verifyNotNull(webDriver);
-		verifyTomcatPresent(webDriver);
-	}
+    /**
+     * Smoke Test FirefoxDriver with Tomcat.
+     */
+    @Test
+    public void testFirefoxTomcat() {
+        TestContext.assumeLocal();
+        assumeNotNull("Expected webdriver.gecko.driver to be defined", System.getProperty("webdriver.gecko.driver"));
+        final WebDriver webDriver = new FirefoxDriver();
+        verifyNotNull(webDriver);
+        verifyTomcatPresent(webDriver);
+        webDriver.close();
+    }
 
-	private void verifyTomcatPresent(final WebDriver webDriver) {
-		TestContext.assumeLocalServer();
-		webDriver.get("http://127.0.0.1:8080/");
-		final String pageTitle = webDriver.getTitle();
-		verifyNotNull(pageTitle);
-		assertTrue(pageTitle.contains("Apache Tomcat"));
-		this.log.info("pageTitle = {}", pageTitle);
-	}
+    /**
+     * Smoke Test EdgeDriver with Tomcat.
+     */
+    @Test
+    public void testEdgeTomcat() {
+        TestContext.assumeLocal();
+        assumeNotNull("Expected webdriver.edge.driver to be defined", System.getProperty("webdriver.edge.driver"));
+        final WebDriver webDriver = new EdgeDriver();
+        verifyNotNull(webDriver);
+        verifyTomcatPresent(webDriver);
+        webDriver.close();
+    }
+
+    /**
+     * Test phantomjs tomcat.
+     */
+    @Test
+    public void testPhantomJsTomcat() {
+        TestContext.assumeLocal();
+        final DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+        desiredCapabilities.setJavascriptEnabled(true);
+        desiredCapabilities.setCapability(
+                PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
+                "./web-driver-bin/phantomjs.exe");
+        // assumeNotNull("Expected phantomjs.binary.path to be defined",
+        // System.getProperty("phantomjs.binary.path"));
+        final WebDriver webDriver = new PhantomJSDriver(desiredCapabilities);
+        verifyNotNull(webDriver);
+        verifyTomcatPresent(webDriver);
+        webDriver.close();
+    }
+
+    private void verifyTomcatPresent(final WebDriver webDriver) {
+        TestContext.assumeLocalServer();
+        webDriver.get("http://127.0.0.1:8080/");
+        final String pageTitle = webDriver.getTitle();
+        verifyNotNull(pageTitle);
+        assertTrue(pageTitle.contains("Apache Tomcat"));
+        this.log.info("pageTitle = {}", pageTitle);
+    }
 
 }

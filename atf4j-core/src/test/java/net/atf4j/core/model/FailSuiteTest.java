@@ -30,8 +30,18 @@ public class FailSuiteTest extends TestResultsReporting {
      * Unit Test for test fail case.
      */
     @Test
-    public void testFailCase() {
-        verifyNotNull(new FailCase());
+    public void testFailSuite() {
+        verifyNotNull(new FailSuite());
+    }
+
+    @Test
+    public void testFailSuiteNull() {
+        verifyNotNull(new FailSuite(null));
+    }
+
+    @Test
+    public void testFailSuiteString() {
+        verifyNotNull(new FailSuite("FailSuite"));
     }
 
 }

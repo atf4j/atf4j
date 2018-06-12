@@ -18,6 +18,8 @@
 package net.atf4j.webdriver;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
@@ -29,35 +31,40 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class WebDriverConfigTest extends TestResultsReporting {
 
-	/**
-	 * Test method for {net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.
-	 *
-	 * @throws ConfigurationNotLoadedException
-	 *             the missing property file exception
-	 */
-	@Test
-	public void testDefaultConstructor() throws ConfigurationNotLoadedException {
-		final WebDriverConfig config = new WebDriverConfig();
-		verifyNotNull(config);
-	}
+    /**
+     * Test method for {net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.
+     *
+     * @throws ConfigurationNotLoadedException the missing property file
+     *             exception
+     */
+    @Test
+    public void testDefaultConstructor() throws ConfigurationNotLoadedException {
+        final WebDriverConfig config = new WebDriverConfig();
+        verifyNotNull(config);
+        this.log.info(config.toString());
+    }
 
-	/**
-	 * test WebDriverConfig object.
-	 *
-	 * @throws ConfigurationNotLoadedException
-	 *             the configuration not loaded
-	 */
-	@Test
-	public void testHappyPath() throws ConfigurationNotLoadedException {
-		final WebDriverConfig config = new WebDriverConfig();
-		verifyNotNull(config);
-		verifyNotNull(config.targetBrowser());
-		verifyNotNull(config.targetUrl());
-		verifyNotNull(config.seleniumUrl());
-		verifyNotNull(config.chromeBinaryDriver());
-		verifyNotNull(config.firefoxBinaryDriver());
-		assertEquals(1000, config.pageLoadTimeout());
-		assertEquals(1, config.implicitWait());
-	}
+    /**
+     * test WebDriverConfig object.
+     *
+     * @throws ConfigurationNotLoadedException the configuration not loaded
+     */
+    @Test
+    public void testHappyPath() throws ConfigurationNotLoadedException {
+        final WebDriverConfig config = new WebDriverConfig();
+        assertNotNull(config);
+        assertNotNull(config.targetBrowser());
+        assertNotNull(config.targetUrl());
+        assertNotNull(config.seleniumUrl());
+        assertNotNull(config.chromeBinaryDriver());
+        assertNotNull(config.firefoxBinaryDriver());
+        assertEquals(1000, config.pageLoadTimeout());
+        assertEquals(1L, config.implicitWait());
+        assertEquals(1L, config.explicitWait());
+        assertFalse(config.maximiseBrowser());
+        assertEquals(1, config.playbackInterval());
+        assertEquals(1000, config.scriptTimeout());
+        assertEquals(1, config.timeOutInSeconds());
+    }
 
 }

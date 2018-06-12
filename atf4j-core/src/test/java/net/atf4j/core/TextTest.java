@@ -23,6 +23,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+
 /**
  * A Unit test class for Text objects.
  */
@@ -105,21 +106,33 @@ public final class TextTest extends TestResultsReporting {
 		assertEquals("Stem*", padToLength);
 	}
 
+	/**
+	 * Test random char.
+	 */
 	@Test
 	public void testRandomChar() {
 		assertTrue(Character.isLetter(Text.randomChar()));
 	}
 
+	/**
+	 * Test random string.
+	 */
 	@Test
 	public void testRandomString() {
 		assertEquals(10, Text.randomString(10).length());
 	}
 
+	/**
+	 * Test random digit.
+	 */
 	@Test
 	public void testRandomDigit() {
 		assertTrue(Character.isDigit(Text.randomDigit()));
 	}
 
+	/**
+	 * Test random digits.
+	 */
 	@Test
 	public void testRandomDigits() {
 		assertTrue(Text.randomDigits(10).length() == 10);

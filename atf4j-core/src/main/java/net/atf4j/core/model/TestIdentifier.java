@@ -21,11 +21,13 @@ import java.util.UUID;
 
 import net.atf4j.core.TestResultsReporting;
 
+
 /**
  * Unique TestIdentifier TODO : Make serializable?.
  */
 public class TestIdentifier extends TestResultsReporting {
 
+    /** The uuid. */
     private UUID uuid;
 
     /**

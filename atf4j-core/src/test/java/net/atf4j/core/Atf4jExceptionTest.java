@@ -22,6 +22,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+
 /**
  * A UnitTest for Atf4jException objects.
  */

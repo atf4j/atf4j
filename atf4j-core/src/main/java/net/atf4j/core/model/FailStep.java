@@ -19,6 +19,7 @@ package net.atf4j.core.model;
 
 import net.atf4j.core.VerificationError;
 
+
 /**
  * FailTestStep.
  */

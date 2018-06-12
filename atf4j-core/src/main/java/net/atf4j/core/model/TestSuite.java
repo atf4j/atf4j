@@ -20,13 +20,10 @@ package net.atf4j.core.model;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assume.assumeNotNull;
 
 import java.util.ArrayDeque;
 import java.util.Collection;
 
-import net.atf4j.core.TestContext;
-import net.atf4j.core.VerificationError;
 import net.atf4j.core.timers.MappedTimers;
 
 /**
@@ -34,82 +31,88 @@ import net.atf4j.core.timers.MappedTimers;
  */
 public class TestSuite extends AbstractTestBase {
 
-	protected Collection<TestCase> testCases;
+    /** The test cases. */
+    protected Collection<TestCase> testCases = new ArrayDeque<TestCase>();;
 
-	/**
-	 * Instantiates a new test suite.
-	 */
-	public TestSuite() {
-		super();
-	}
+    /**
+     * Instantiates a new test suite.
+     */
+    public TestSuite() {
+        super();
+    }
 
-	/**
-	 * Execute.
-	 *
-	 * @param context
-	 *            the context
-	 * @return the abstract test result
-	 * @throws VerificationError
-	 *             the atf4j exception
-	 * @see net.atf4j.core.model.AbstractTestBase#execute(net.atf4j.core.TestContext)
-	 */
-	@Override
-	public TestSuite execute(final TestContext context) throws VerificationError {
-		assumeNotNull(context);
-		assumeNotNull(this.testCases);
-		for (final TestCase testCase : this.testCases) {
-			assertEquals(testCase, testCase.execute(context));
-		}
-		return this;
-	}
+    public TestSuite(final TestReport testReport) {
+        super(testReport);
+    }
 
-	/**
-	 * numberOfTestCases.
-	 *
-	 * @return size of testStep collection as int.
-	 * @see java.util.Collection#size()
-	 */
-	public int numberOfTestCases() {
-		return this.testCases == null ? 0 : this.testCases.size();
-	}
+    /**
+     * Execute.
+     *
+     * @return the test suite
+     */
+    @Override
+    public TestSuite execute() {
 
-	/**
-	 * Adds the test case.
-	 *
-	 * @param newTestCase
-	 *            as TestCase
-	 * @return success as boolean.
-	 * @see java.util.Collection#add(java.lang.Object)
-	 */
-	public TestSuite addTestCase(final TestCase newTestCase) {
-		assertNotNull(newTestCase);
-		if (this.testCases == null) {
-			this.testCases = new ArrayDeque<TestCase>();
-		}
-		assertTrue(this.testCases.add(newTestCase));
-		return this;
-	}
+        start();
 
-	/**
-	 * Start test suite.
-	 *
-	 * @return the test suite
-	 */
-	public TestSuite start() {
-		this.log.info("start test suite {}", this.getName());
-		this.log.info("start timer {}", MappedTimers.start("TestSuite"));
-		return this;
-	}
+        assertNotNull(this.testCases);
+        if (this.testCases.size() > 0) {
+            for (final TestCase testCase : this.testCases) {
+                assertEquals(testCase, testCase.execute());
+            }
+        }
 
-	/**
-	 * End test suite.
-	 *
-	 * @return the test suite
-	 */
-	public TestSuite end() {
-		this.log.info("end timer {}", MappedTimers.stop("TestSuite"));
-		this.log.info("end test suite {}", this.getName());
-		return this;
-	}
+        end();
+
+        return this;
+    }
+
+    /**
+     * numberOfTestCases.
+     *
+     * @return size of testStep collection as int.
+     * @see java.util.Collection#size()
+     */
+    public int numberOfTestCases() {
+        return this.testCases == null ? 0 : this.testCases.size();
+    }
+
+    /**
+     * Adds the test case.
+     *
+     * @param newTestCase as TestCase
+     * @return success as boolean.
+     * @see java.util.Collection#add(java.lang.Object)
+     */
+    public TestSuite addTestCase(final TestCase newTestCase) {
+        assertNotNull(newTestCase);
+        if (this.testCases == null) {
+            this.testCases = new ArrayDeque<TestCase>();
+        }
+        assertTrue(this.testCases.add(newTestCase));
+        return this;
+    }
+
+    /**
+     * Start test suite.
+     *
+     * @return the test suite
+     */
+    public TestSuite start() {
+        this.log.info("start test suite {}", this.getName());
+        this.log.info("start timer {}", MappedTimers.start("TestSuite"));
+        return this;
+    }
+
+    /**
+     * End test suite.
+     *
+     * @return the test suite
+     */
+    public TestSuite end() {
+        this.log.info("end timer {}", MappedTimers.stop("TestSuite"));
+        this.log.info("end test suite {}", this.getName());
+        return this;
+    }
 
 }

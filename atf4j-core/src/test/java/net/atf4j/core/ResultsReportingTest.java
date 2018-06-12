@@ -19,6 +19,7 @@ package net.atf4j.core;
 
 import org.junit.Test;
 
+
 /**
  * A UnitTest for Reporting Test Results.
  */

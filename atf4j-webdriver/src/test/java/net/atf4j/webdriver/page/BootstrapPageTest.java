@@ -28,50 +28,52 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * A UnitTest for BootstrapPage objects.
+ * A UnitTest for a BootstrapPage object.
  */
 @Ignore
 public final class BootstrapPageTest extends TestResultsReporting {
 
-	// private static final String PAGE_URL = "http://atf4j.net/bootstrap/";
-	private static final String PAGE_URL = "http://127.0.0.1:8080/bootstrap";
+    // private static final String PAGE_URL = "http://atf4j.net/bootstrap/";
+    private static final String PAGE_URL = "http://127.0.0.1:8080/bootstrap";
 
-	/**
-	 * Unit Test for test bootstrap page.
-	 */
-	@Test
-	public void testBootstrapPage() {
-		final BootstrapPage bootstrapPage = new BootstrapPage();
-		assumeNotNull(bootstrapPage);
-		assertNotNull(bootstrapPage.open());
-		assertNotNull(bootstrapPage.verify());
-		assertNotNull(bootstrapPage.close());
-	}
+    @Test
+    public void testBootstrapPage() {
+        final BootstrapPage bootstrapPage = new BootstrapPage();
+        assumeNotNull(bootstrapPage);
+        assertNotNull(bootstrapPage.open());
+        assertNotNull(bootstrapPage.verify());
+        assertNotNull(bootstrapPage.close());
+    }
 
-	/**
-	 * Unit Test for test bootstrap page url.
-	 */
-	@Test
-	public void testBootstrapPageUrl() {
-		final BootstrapPage bootstrapPage = new BootstrapPage(BootstrapPageTest.PAGE_URL);
-		assumeNotNull(bootstrapPage);
-		assertNotNull(bootstrapPage.open());
-		assertNotNull(bootstrapPage.verify());
-		assertNotNull(bootstrapPage.close());
-	}
+    @Test
+    public void testBootstrapPageUrl() {
+        final BootstrapPage bootstrapPage = new BootstrapPage(PAGE_URL);
+        assumeNotNull(bootstrapPage);
+        assertNotNull(bootstrapPage.open());
+        assertNotNull(bootstrapPage.verify());
+        assertNotNull(bootstrapPage.close());
+    }
 
-	/**
-	 * Unit Test for test bootstrap page web driver.
-	 */
-	@Test
-	public void testBootstrapPageWebDriver() {
-		final WebDriver webDriver = new ChromeDriver();
-		assumeNotNull(webDriver);
-		final BootstrapPage bootstrapPage = new BootstrapPage(webDriver);
-		assumeNotNull(bootstrapPage);
-		assertNotNull(bootstrapPage.open());
-		assertNotNull(bootstrapPage.verify());
-		assertNotNull(bootstrapPage.close());
-	}
+    @Test
+    public void testBootstrapPageWebDriver() {
+        final WebDriver webDriver = new ChromeDriver();
+        assumeNotNull(webDriver);
+        final BootstrapPage bootstrapPage = new BootstrapPage(webDriver);
+        assumeNotNull(bootstrapPage);
+        assertNotNull(bootstrapPage.open(PAGE_URL));
+        assertNotNull(bootstrapPage.verify());
+        assertNotNull(bootstrapPage.close());
+    }
+
+    @Test
+    public void testInitializr() {
+        final WebDriver webDriver = new ChromeDriver();
+        assumeNotNull(webDriver);
+        final BootstrapPage bootstrapPage = new BootstrapPage(webDriver);
+        assumeNotNull(bootstrapPage);
+        assertNotNull(bootstrapPage.open("http://127.0.0.1:8080/initializr"));
+        assertNotNull(bootstrapPage.verify());
+        assertNotNull(bootstrapPage.close());
+    }
 
 }

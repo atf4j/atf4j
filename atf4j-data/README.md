@@ -9,7 +9,7 @@ Java Automation Test Framework for Data Driven Testing.
 	<dependency>
 		<groupId>net.atf4j</groupId>
 		<artifactId>atf4j-data</artifactId>
-		<version>0.10.0-SNAPSHOT</version>
+		<version>${atf4j.version}</version>
 	</dependency>
 
 ## Usage

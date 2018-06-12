@@ -29,7 +29,7 @@ public interface ConfigurationInterface {
      * @param defaultValue the default value as int.
      * @return int value.
      */
-    public int valueFor(final String key, final int defaultValue);
+    int valueFor(final String key, final int defaultValue);
 
     /**
      * Get the value of a long from configuration property by key.
@@ -38,7 +38,7 @@ public interface ConfigurationInterface {
      * @param defaultValue the default value as long.
      * @return long value.
      */
-    public long valueFor(final String key, final long defaultValue);
+    long valueFor(final String key, final long defaultValue);
 
     /**
      * Get the value of a long from configuration property by key.
@@ -48,7 +48,7 @@ public interface ConfigurationInterface {
      *            successful, otherwise false. otherwise false.
      * @return true, if successful, otherwise false.
      */
-    public boolean valueFor(final String key, final boolean defaultValue);
+    boolean valueFor(final String key, final boolean defaultValue);
 
     /**
      * Get the value of a long from configuration property by key.
@@ -57,6 +57,20 @@ public interface ConfigurationInterface {
      * @param defaultValue the default value as a String.
      * @return the configuration property as a String.
      */
-    public String valueFor(final String key, final String defaultValue);
+    String valueFor(final String key, final String defaultValue);
 
+    boolean get(final String key, final boolean defaultValue);
+
+    long get(final String key, final long defaultValue);
+
+    int get(final String key, final int defaultValue);
+
+    String get(final String key, final String defaultValue);
+
+    String get(final String key);
+
+    @Override
+    String toString();
+
+    String prettyString();
 }

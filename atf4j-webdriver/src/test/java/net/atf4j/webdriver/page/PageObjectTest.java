@@ -19,7 +19,6 @@ package net.atf4j.webdriver.page;
 
 import static org.junit.Assume.assumeNotNull;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -30,130 +29,122 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * Unit Test for abstract PageObject.
  */
-@Ignore
 public final class PageObjectTest extends TestResultsReporting {
 
-	/**
-	 * Mock Page to extend AbstractPageObject.
-	 */
-	public final class MockPage extends AbstractPageObject {
+    /**
+     * Mock Page to extend AbstractPageObject.
+     */
+    public final class MockPage extends AbstractPageObject {
 
-		/** The Constant TARGET_URL. */
-		protected static final String TARGET_URL = "http://127.0.0.1:8080";
+        /** The Constant TARGET_URL. */
+        protected static final String TARGET_URL = "http://127.0.0.1:8080";
 
-		/**
-		 * Instantiates a new mock page.
-		 *
-		 * @throws ConfigurationNotLoadedException
-		 *             the configuration not loaded
-		 */
-		public MockPage() throws ConfigurationNotLoadedException {
-			super();
-		}
+        /**
+         * Instantiates a new mock page.
+         *
+         * @throws ConfigurationNotLoadedException the configuration not loaded
+         */
+        public MockPage() throws ConfigurationNotLoadedException {
+            super();
+        }
 
-		/**
-		 * Instantiates a new mock page.
-		 *
-		 * @param webDriver
-		 *            the web driver
-		 */
-		public MockPage(final WebDriver webDriver) {
-			super(webDriver);
-		}
+        /**
+         * Instantiates a new mock page.
+         *
+         * @param webDriver the web driver
+         */
+        public MockPage(final WebDriver webDriver) {
+            super(webDriver);
+        }
 
-		/**
-		 * Instantiates a new mock page.
-		 *
-		 * @param targetUrl
-		 *            the target url
-		 * @throws ConfigurationNotLoadedException
-		 *             the configuration not loaded
-		 */
-		public MockPage(final String targetUrl) throws ConfigurationNotLoadedException {
-			super(targetUrl);
-		}
-	}
+        /**
+         * Instantiates a new mock page.
+         *
+         * @param targetUrl the target url
+         * @throws ConfigurationNotLoadedException the configuration not loaded
+         */
+        public MockPage(final String targetUrl) throws ConfigurationNotLoadedException {
+            super(targetUrl);
+        }
+    }
 
-	/**
-	 * Test method for {
-	 * net.atf4j.webdriver.page.AbstractPageObject#AbstractPageObject()}.
-	 *
-	 * @throws ConfigurationNotLoadedException
-	 *             the configuration not loaded
-	 */
-	@Test
-	public void testDefaultConstructor() throws ConfigurationNotLoadedException {
-		verifyNotNull(new MockPage());
-	}
+    /**
+     * Test method for {
+     * net.atf4j.webdriver.page.AbstractPageObject#AbstractPageObject()}.
+     *
+     * @throws ConfigurationNotLoadedException the configuration not loaded
+     */
+    @Test
+    public void testDefaultConstructor() throws ConfigurationNotLoadedException {
+        verifyNotNull(new MockPage());
+    }
 
-	/**
-	 * Test method for { net.net.atf4j.webdriver.page.AbstractPageObject#open()}.
-	 *
-	 * @throws ConfigurationNotLoadedException
-	 *             the configuration not loaded
-	 */
-	@Test
-	public void testDefaultOpen() throws ConfigurationNotLoadedException {
-		final MockPage mockPage = new MockPage();
-		assumeNotNull(mockPage);
-		verifyNotNull(mockPage.open());
-	}
+    /**
+     * Test method for {
+     * net.net.atf4j.webdriver.page.AbstractPageObject#open()}.
+     *
+     * @throws ConfigurationNotLoadedException the configuration not loaded
+     */
+    @Test
+    public void testDefaultOpen() throws ConfigurationNotLoadedException {
+        final MockPage mockPage = new MockPage();
+        assumeNotNull(mockPage);
+        verifyNotNull(mockPage.open());
+    }
 
-	/**
-	 * Test method for { net.net.atf4j.webdriver.page.AbstractPageObject#open()}.
-	 *
-	 * @throws ConfigurationNotLoadedException
-	 *             the configuration not loaded
-	 */
-	@Test
-	public void testOpen() throws ConfigurationNotLoadedException {
-		final MockPage mockPage = new MockPage(MockPage.TARGET_URL);
-		assumeNotNull(mockPage);
-		verifyNotNull(mockPage.open());
-	}
+    /**
+     * Test method for {
+     * net.net.atf4j.webdriver.page.AbstractPageObject#open()}.
+     *
+     * @throws ConfigurationNotLoadedException the configuration not loaded
+     */
+    @Test
+    public void testOpen() throws ConfigurationNotLoadedException {
+        final MockPage mockPage = new MockPage(MockPage.TARGET_URL);
+        assumeNotNull(mockPage);
+        verifyNotNull(mockPage.open());
+    }
 
-	/**
-	 * Test method for {
-	 * net.net.atf4j.webdriver.page.AbstractPageObject#open(java.lang.String)}.
-	 *
-	 * @throws ConfigurationNotLoadedException
-	 *             the configuration not loaded
-	 */
-	@Test
-	public void testOpenString() throws ConfigurationNotLoadedException {
-		final MockPage mockPage = new MockPage();
-		assumeNotNull(mockPage);
-		verifyNotNull(mockPage.open());
-	}
+    /**
+     * Test method for {
+     * net.net.atf4j.webdriver.page.AbstractPageObject#open(java.lang.String)}.
+     *
+     * @throws ConfigurationNotLoadedException the configuration not loaded
+     */
+    @Test
+    public void testOpenString() throws ConfigurationNotLoadedException {
+        final MockPage mockPage = new MockPage();
+        assumeNotNull(mockPage);
+        verifyNotNull(mockPage.open());
+    }
 
-	/**
-	 * Test method for { net.net.atf4j.webdriver.page.AbstractPageObject#verify()}.
-	 *
-	 * @throws ConfigurationNotLoadedException
-	 *             the configuration not loaded
-	 */
-	@Test
-	public void testVerify() throws ConfigurationNotLoadedException {
-		final MockPage mockPage = new MockPage();
-		assumeNotNull(mockPage);
-		verifyNotNull(mockPage.open());
-		verifyNotNull(mockPage.verify());
-	}
+    /**
+     * Test method for {
+     * net.net.atf4j.webdriver.page.AbstractPageObject#verify()}.
+     *
+     * @throws ConfigurationNotLoadedException the configuration not loaded
+     */
+    @Test
+    public void testVerify() throws ConfigurationNotLoadedException {
+        final MockPage mockPage = new MockPage();
+        assumeNotNull(mockPage);
+        verifyNotNull(mockPage.open());
+        verifyNotNull(mockPage.verify());
+    }
 
-	/**
-	 * test PageObject object.
-	 *
-	 * @throws ConfigurationNotLoadedException
-	 *             the configuration not loaded
-	 */
-	@Test
-	public void testWebDriverConstructor() throws ConfigurationNotLoadedException {
-		final WebDriver webDriver = new ChromeDriver();
-		assumeNotNull(webDriver);
-		final MockPage mockPage = new MockPage(webDriver);
-		assumeNotNull(mockPage);
-		verifyNotNull(mockPage.open());
-		verifyNotNull(mockPage.verify());
-	}
+    /**
+     * test PageObject object.
+     *
+     * @throws ConfigurationNotLoadedException the configuration not loaded
+     */
+    @Test
+    public void testWebDriverConstructor() throws ConfigurationNotLoadedException {
+        final WebDriver webDriver = new ChromeDriver();
+        assumeNotNull(webDriver);
+        final MockPage mockPage = new MockPage(webDriver);
+        assumeNotNull(mockPage);
+        verifyNotNull(mockPage.open());
+        verifyNotNull(mockPage.verify());
+    }
 
 }

@@ -25,16 +25,29 @@ import org.junit.Test;
 public class AnnotatedAtf4jTest extends AbstractAtf4jAnnotation {
 
     /**
+     * Test test tag.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void testTestTag() throws Exception {
+        this.log.debug("testTestTag", this.getClass().getSimpleName());
+        final String testTag = super.getTestTag();
+        verifyNotNull(testTag);
+        this.log.info("testTag = {}", testTag);
+    }
+
+    /**
      * Test method for AnnotatedTest.
      *
      * @throws Exception the exception
      */
     @Test
     public void testTestId() throws Exception {
-        log.debug("testTestId", this.getClass().getSimpleName());
+        this.log.debug("testTestId", this.getClass().getSimpleName());
         final String testId = super.getTestId();
         verifyNotNull(testId);
-        log.info("testId = {}", testId);
+        this.log.info("testId = {}", testId);
     }
 
     /**
@@ -42,10 +55,10 @@ public class AnnotatedAtf4jTest extends AbstractAtf4jAnnotation {
      */
     @Test
     public void testTestName() {
-        log.debug("testTestName", this.getClass().getSimpleName());
+        this.log.debug("testTestName", this.getClass().getSimpleName());
         final String testName = super.getTestName();
         verifyNotNull(testName);
-        log.info("testName = {}", testName);
+        this.log.info("testName = {}", testName);
     }
 
     /**
@@ -53,10 +66,10 @@ public class AnnotatedAtf4jTest extends AbstractAtf4jAnnotation {
      */
     @Test
     public void testTestDescription() {
-        log.debug("testTestDescription", this.getClass().getSimpleName());
+        this.log.debug("testTestDescription", this.getClass().getSimpleName());
         final String testDescription = super.getTestDescription();
         verifyNotNull(testDescription);
-        log.info("testDescription = {}", testDescription);
+        this.log.info("testDescription = {}", testDescription);
     }
 
 }

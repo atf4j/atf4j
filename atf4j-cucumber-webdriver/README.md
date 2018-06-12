@@ -9,59 +9,38 @@ Java Automated Test Framework for Feature Driven Development
 	<dependency>
 		<groupId>net.atf4j</groupId>
 		<artifactId>atf4j-cucumber-webdriver</artifactId>
-		<version>0.10.0-SNAPSHOT</version>
+		<version>${atf4j.version}</version>
 	</dependency>
 
 ## Usage
 
 This is the simplest possible build script setup for Cucumber using Java.
-There is nothing fancy like a webapp or browser testing. All this does is to show you how
-to install and run Cucumber!
+There is nothing fancy like a webapp or browser testing.
+All this does is to show you how to install and run Cucumber!
 
 Open a command window and run:
 
     mvn test
 
-This runs Cucumber features using Cucumber's JUnit runner. The `@RunWith(Cucumber.class)` annotation on the `RunCukesTest` class tells JUnit to kick off Cucumber.
+This runs Cucumber's runner as a test, which runs the feature files, see the `@RunWith(Cucumber.class)` annotation.
 
-## Overriding options
+## Overriding convention using cucumber.options
 
-The Cucumber runtime parses command line options to know what features to run, where the glue code lives, what plugins to use etc. When you use the JUnit runner, these options are generated from the `@CucumberOptions` annotation on your test.
-
-Sometimes it can be useful to override these options without changing or recompiling the JUnit class. This can be done with the `cucumber.options` system property. The general form is:
+The cucumber.options can be overridden using system properties.
 
     mvn -Dcucumber.options="..." test
 
-Let's look at some things you can do with `cucumber.options`. Try this:
-
-    -Dcucumber.options="--help"
-
-That should list all the available options.
-
-*IMPORTANT*
-
-When you override options with `-Dcucumber.options`, you will completely override whatever options are hard-coded in your `@CucumberOptions` or in the script calling `cucumber.api.cli.Main`. There is one exception to this rule, and that is the `--plugin` option. This will not _override_, but _add_ a plugin. The reason for this is to make it easier for 3rd party tools to automatically configure additional plugins by appending arguments to a `cucumber.properties` file.
-
 ### Run a subset of Features or Scenarios
 
-Specify a particular scenario by *line* (and use the pretty plugin, which prints the scenario back)
+Use `classpath:features` instead of `./src/test/resources/features` on your `classpath`.
 
-    -Dcucumber.options="classpath:skeleton/belly.feature:4 --plugin pretty"
+### Run a particular scenario by tag
 
-This works because Maven puts `./src/test/resources` on your `classpath`.
-You can also specify files to run by filesystem path:
+You can also specify what to run by *wip*:
 
-    -Dcucumber.options="src/test/resources/skeleton/belly.feature:4 --plugin pretty"
+    -Dcucumber.options="--tags @wip --plugin pretty"
 
-You can also specify what to run by *tag*:
-
-    -Dcucumber.options="--tags @bar --plugin pretty"
-
-### Running only the scenarios that failed in the previous run
-
-    -Dcucumber.options="@target/rerun.txt"
-
-This works as long as you have the `rerun` formatter enabled.
+    -Dcucumber.options="--tags not @ignore --plugin pretty"
 
 ### Specify a different formatter:
 

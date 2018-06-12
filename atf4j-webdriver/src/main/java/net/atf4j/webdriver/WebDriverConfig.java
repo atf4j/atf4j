@@ -24,132 +24,132 @@ import net.atf4j.core.AbstractConfig;
  */
 public class WebDriverConfig extends AbstractConfig {
 
-	private static final String LOCAL_GRID = "http://localhost:4444/wd/hub";
-	private static final String LOCAL_TARGET = "http://localhost:8080/";
+    private static final String LOCAL_GRID = "http://localhost:4444/wd/hub";
+    private static final String LOCAL_TARGET = "http://localhost:8080/";
 
-	/**
-	 * Default constructor.
-	 */
-	public WebDriverConfig() {
-		super();
-	}
+    /**
+     * Default constructor.
+     */
+    public WebDriverConfig() {
+        super();
+    }
 
-	/**
-	 * Gets the targetBrowser from the configuration.
-	 *
-	 * @return the name of target browser as String object.
-	 */
-	public String targetBrowser() {
-		final String targetBrowser = this.get("targetBrowser", "Firefox");
-		return targetBrowser;
-	}
+    /**
+     * Gets the targetBrowser from the configuration.
+     *
+     * @return the name of target browser as String object.
+     */
+    public String targetBrowser() {
+        final String targetBrowser = this.get("targetBrowser", "Firefox");
+        return targetBrowser;
+    }
 
-	/**
-	 * Path to the Chrome driver binary.
-	 *
-	 * @return path as String object.
-	 */
-	public String chromeBinaryDriver() {
-		return this.get("chromeBinaryDriver");
-	}
+    /**
+     * Path to the Chrome driver binary.
+     *
+     * @return path as String object.
+     */
+    public String chromeBinaryDriver() {
+        return this.get("chromeBinaryDriver");
+    }
 
-	/**
-	 * Path to the Firefox binary driver.
-	 *
-	 * @return path as String object.
-	 */
-	public String firefoxBinaryDriver() {
-		return this.get("firefoxBinaryDriver");
-	}
+    /**
+     * Path to the Firefox binary driver.
+     *
+     * @return path as String object.
+     */
+    public String firefoxBinaryDriver() {
+        return this.get("firefoxBinaryDriver");
+    }
 
-	/**
-	 * get the seleniumUrl from the configuration.
-	 *
-	 * @return seleniumUrl as String object.
-	 */
-	public String seleniumUrl() {
-		return this.get("seleniumUrl", WebDriverConfig.LOCAL_GRID);
-	}
+    /**
+     * get the seleniumUrl from the configuration.
+     *
+     * @return seleniumUrl as String object.
+     */
+    public String seleniumUrl() {
+        return this.get("seleniumUrl", WebDriverConfig.LOCAL_GRID);
+    }
 
-	/**
-	 * Gets the targetUrl from the configuration.
-	 *
-	 * @return the targetURL as String object.
-	 */
-	public String targetUrl() {
-		return this.get("targetUrl", WebDriverConfig.LOCAL_TARGET);
-	}
+    /**
+     * Gets the targetUrl from the configuration.
+     *
+     * @return the targetURL as String object.
+     */
+    public String targetUrl() {
+        return this.get("targetUrl", WebDriverConfig.LOCAL_TARGET);
+    }
 
-	/**
-	 * Gets the page load timeout.
-	 *
-	 * @return the page load timeout
-	 */
-	public long pageLoadTimeout() {
-		return this.get("pageLoadTimeOut", 1);
-	}
+    /**
+     * Gets the page load timeout.
+     *
+     * @return the page load timeout
+     */
+    public long pageLoadTimeout() {
+        return this.get("pageLoadTimeOut", 1);
+    }
 
-	/**
-	 * Gets the implicit wait.
-	 *
-	 * @return the implicit wait
-	 */
-	public long implicitWait() {
-		return this.get("implicitWait", 1);
-	}
+    /**
+     * Gets the implicit wait.
+     *
+     * @return the implicit wait
+     */
+    public long implicitWait() {
+        return this.get("implicitWait", 1);
+    }
 
-	/**
-	 * Explicit wait.
-	 *
-	 * @return the long
-	 */
-	public long explicitWait() {
-		return this.get("explicitWait", 1);
-	}
+    /**
+     * Explicit wait.
+     *
+     * @return the long
+     */
+    public long explicitWait() {
+        return this.get("explicitWait", 1);
+    }
 
-	/**
-	 * Polling interval.
-	 *
-	 * @return the long
-	 */
-	public long pollingInterval() {
-		return this.get("pollingInterval", 1);
-	}
+    /**
+     * Polling interval.
+     *
+     * @return the long
+     */
+    public long pollingInterval() {
+        return this.get("pollingInterval", 1);
+    }
 
-	/**
-	 * Maximise browser.
-	 *
-	 * @return the long
-	 */
-	public long maximiseBrowser() {
-		return this.get("maximiseBrowser", 1);
-	}
+    /**
+     * Maximise browser.
+     *
+     * @return the boolean
+     */
+    public boolean maximiseBrowser() {
+        return this.get("maximiseBrowser", false);
+    }
 
-	/**
-	 * Playback interval.
-	 *
-	 * @return the long
-	 */
-	public long playbackInterval() {
-		return this.get("playbackInterval", 1);
-	}
+    /**
+     * Playback interval.
+     *
+     * @return the long
+     */
+    public long playbackInterval() {
+        return this.get("playbackInterval", 1);
+    }
 
-	/**
-	 * Script timeout.
-	 *
-	 * @return the long
-	 */
-	public long scriptTimeout() {
-		return this.get("scriptTimeout", 1000);
-	}
+    /**
+     * Script timeout.
+     *
+     * @return the long
+     */
+    public long scriptTimeout() {
+        return this.get("scriptTimeout", 1000);
+    }
 
-	/**
-	 * Time out in seconds.
-	 *
-	 * @return the long
-	 */
-	public long timeOutInSeconds() {
-		return this.get("timeOutInSeconds", 1);
-	}
+    /**
+     * Time out in seconds.
+     *
+     * @return the long
+     */
+    public long timeOutInSeconds() {
+        return this.get("timeOutInSeconds", 1);
+    }
 
 }

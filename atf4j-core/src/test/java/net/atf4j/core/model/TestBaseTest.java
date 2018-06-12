@@ -19,7 +19,6 @@ package net.atf4j.core.model;
 
 import org.junit.Test;
 
-import net.atf4j.core.TestContext;
 import net.atf4j.core.TestResultsReporting;
 import net.atf4j.core.VerificationError;
 
@@ -33,16 +32,17 @@ public class TestBaseTest extends TestResultsReporting {
      */
     public class MockTestBase extends AbstractTestBase {
 
-        /*
-         * (non-Javadoc)
-         *
-         * @see net.atf4j.core.model.TestBase#execute(net.atf4j.core.model.
-         * TestContext)
-         */
         @Override
-        public AbstractTestBase execute(final TestContext context) throws VerificationError {
+        public AbstractTestBase execute() throws VerificationError {
             return this;
         }
+    }
+
+    /**
+     * The MockTestReport Class.
+     */
+    public class MockTestReport implements TestReport {
+
     }
 
     /**
@@ -52,15 +52,31 @@ public class TestBaseTest extends TestResultsReporting {
     }
 
     /**
-     * The MockTestReport Class.
-     */
-    public class MockTestReport implements TestReport {
-    }
-
-    /**
      * The PassingCondition Class.
      */
     public class PassingCondition extends Condition {
+    }
+
+    /**
+     * The FailingCondition Class .
+     */
+    public class FailingCondition extends Condition {
+    }
+
+    public class FailPostCondition extends Condition {
+
+    }
+
+    public class PassPostCondition extends Condition {
+
+    }
+
+    public class PassPreCondition extends Condition {
+
+    }
+
+    public class FailPreCondition extends Condition {
+
     }
 
     /**
@@ -69,6 +85,74 @@ public class TestBaseTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         verifyNotNull(new MockTestBase());
+    }
+
+    /**
+     * Test incomplete.
+     */
+    @Test(expected = VerificationError.class)
+    public void testIncomplete() {
+        new IncompleteTestBase().execute();
+    }
+
+    /**
+     * Test typical.
+     */
+    @Test
+    public void testTypical() {
+        final MockTestBase testBase = new MockTestBase();
+        this.log.info("testCase={}", testBase);
+        verifyNotNull(testBase);
+        testBase.execute();
+    }
+
+    @Test
+    public void testTypicalFail() {
+        final MockTestBase testBase = new MockTestBase();
+        this.log.info("testCase={}", testBase);
+        verifyNotNull(testBase);
+        testBase.addPreCondition(new FailPreCondition());
+        testBase.execute();
+    }
+
+    @Test
+    public void testTypicalPassFail() {
+        final MockTestBase testBase = new MockTestBase();
+        this.log.info("testCase={}", testBase);
+        verifyNotNull(testBase);
+        testBase.addPreCondition(new PassPreCondition());
+        testBase.addPreCondition(new FailPreCondition());
+        testBase.execute();
+    }
+
+    @Test
+    public void testTypicalPassPassFail() {
+        final MockTestBase testBase = new MockTestBase();
+        this.log.info("testCase={}", testBase);
+        verifyNotNull(testBase);
+        testBase.addPreCondition(new PassPreCondition());
+        testBase.addPreCondition(new FailPostCondition());
+        testBase.execute();
+    }
+
+    @Test
+    public void testTypicalPassPassPass() {
+        final MockTestBase testBase = new MockTestBase();
+        this.log.info("testCase={}", testBase);
+        verifyNotNull(testBase);
+        testBase.addPreCondition(new PassPreCondition());
+        testBase.addPreCondition(new PassPostCondition());
+        testBase.execute();
+    }
+
+    /**
+     * Unit Test for test test case string.
+     */
+    @Test
+    public void testTestCaseString() {
+        final TestCase testCase = new TestCase("TestCase");
+        verifyNotNull(testCase);
+        verifyNotNull(testCase.toString());
     }
 
     /**

@@ -9,7 +9,7 @@ Java Automated Test Framework for CSV data files.
 	<dependency>
 		<groupId>net.atf4j</groupId>
 		<artifactId>atf4j-csv</artifactId>
-		<version>0.10.0-SNAPSHOT</version>
+		<version>${atf4j.version}</version>
 	</dependency>
 
 ## Usage

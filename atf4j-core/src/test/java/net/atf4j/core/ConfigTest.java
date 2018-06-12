@@ -35,6 +35,10 @@ public class ConfigTest extends TestResultsReporting {
      * Mock a Default configuration class.
      */
     private class DefaultConfig extends AbstractConfig {
+
+        /**
+         * Instantiates a new default config.
+         */
         private DefaultConfig() {
             super();
         }
@@ -52,14 +56,30 @@ public class ConfigTest extends TestResultsReporting {
         }
     }
 
+    private class NamedConfig extends AbstractConfig {
+        /**
+         * Instantiates a new default config.
+         */
+        private NamedConfig() {
+            super("Config.properties");
+        }
+    }
+
     /**
      * Unit Test method for Default Configuration.
      */
     @Test
     public void testDefaultConfig() {
         final DefaultConfig defaultConfig = new DefaultConfig();
-        log.debug("defaultConfig.toString() = {}", defaultConfig.toString());
+        this.log.debug("defaultConfig.toString() = {}", defaultConfig.toString());
         verifyNotNull(defaultConfig);
+    }
+
+    @Test
+    public void testNamedConfig() {
+        final ConfigurationInterface config = new NamedConfig();
+        this.log.debug("NamedConfig.toString() = {}", config.toString());
+        verifyNotNull(config);
     }
 
     /**
@@ -68,7 +88,7 @@ public class ConfigTest extends TestResultsReporting {
     @Test
     public void testPrettyString() {
         final DefaultConfig defaultConfig = new DefaultConfig();
-        log.debug("defaultConfig.prettyString() = {}", defaultConfig.prettyString());
+        this.log.debug("defaultConfig.prettyString() = {}", defaultConfig.prettyString());
         verifyNotNull(defaultConfig);
     }
 
@@ -78,7 +98,7 @@ public class ConfigTest extends TestResultsReporting {
     @Test
     public void testSimpleConfiguration() {
         final SimpleConfiguration config = new SimpleConfiguration();
-        log.debug("config = {}", config.toString());
+        this.log.debug("config = {}", config.toString());
         verifyNotNull(config);
     }
 
@@ -89,7 +109,7 @@ public class ConfigTest extends TestResultsReporting {
     public void testTypicalUsage() {
         final SimpleConfiguration simpleConfig = new SimpleConfiguration();
         verifyNotNull(simpleConfig);
-        log.debug("simpleConfig = {}", simpleConfig.toString());
+        this.log.debug("simpleConfig = {}", simpleConfig.toString());
 
         final String defaultValue = "defaultValue";
         assertEquals(defaultValue, simpleConfig.valueFor(MISSING_KEY, defaultValue));

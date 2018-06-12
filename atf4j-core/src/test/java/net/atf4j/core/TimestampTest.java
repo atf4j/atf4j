@@ -19,6 +19,7 @@ package net.atf4j.core;
 
 import org.junit.Test;
 
+
 /**
  * Unit test class for Timestamp.
  */

@@ -25,11 +25,13 @@ import org.junit.Test;
 
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
 
+
 /**
  * Unit test class configuration with Defaults.
  */
 public final class ConfigWithDefaultTests extends TestResultsReporting {
 
+    /** The Constant MISSING_KEY. */
     private static final String MISSING_KEY = "missing";
 
     /**

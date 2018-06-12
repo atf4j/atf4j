@@ -108,7 +108,8 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
      * @param key the key
      * @return the string
      */
-    protected String get(final String key) {
+    @Override
+    public String get(final String key) {
         return get(key, null);
     }
 
@@ -120,7 +121,8 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
      * @param defaultValue the default value
      * @return the string
      */
-    protected String get(final String key, final String defaultValue) {
+    @Override
+    public String get(final String key, final String defaultValue) {
         String propertyValue = System.getProperty(key);
         if (propertyValue == null) {
             propertyValue = properties.getProperty(key, defaultValue);
@@ -139,7 +141,8 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
      * @param defaultValue the default value
      * @return the int
      */
-    protected int get(final String key, final int defaultValue) {
+    @Override
+    public int get(final String key, final int defaultValue) {
         return Integer.parseInt(this.get(key, Integer.toString(defaultValue)));
     }
 
@@ -150,7 +153,8 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
      * @param defaultValue the default value
      * @return the long
      */
-    protected long get(final String key, final long defaultValue) {
+    @Override
+    public long get(final String key, final long defaultValue) {
         return Long.parseLong(this.get(key, Long.toString(defaultValue)));
     }
 
@@ -161,7 +165,8 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
      * @param defaultValue the default value
      * @return the boolean
      */
-    protected boolean get(final String key, final boolean defaultValue) {
+    @Override
+    public boolean get(final String key, final boolean defaultValue) {
         return Boolean.parseBoolean(this.get(key, Boolean.toString(defaultValue)));
     }
 
@@ -214,6 +219,7 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
      *
      * @return the string
      */
+    @Override
     public String prettyString() {
         final String className = this.getClass().getSimpleName();
         return String.format("%s [properties=%s]", className, prettyProperties(properties));
