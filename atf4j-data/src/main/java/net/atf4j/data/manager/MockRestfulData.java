@@ -18,7 +18,7 @@
 package net.atf4j.data.manager;
 
 /**
- * The Class MockRestfulData.
+ * The MockRestfulData.
  */
 public class MockRestfulData extends AbstractSetUpData {
 

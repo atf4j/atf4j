@@ -23,12 +23,12 @@ import net.atf4j.core.TestResultsReporting;
 import net.atf4j.core.VerificationError;
 
 /**
- * The Class AbstractCodeGeneratorTest.
+ * The AbstractCodeGeneratorTest.
  */
 public class JavaCodeGeneratorTest extends TestResultsReporting {
 
     /**
-     * The Class JavaClassGenerator.
+ * The JavaClassGenerator.
      */
     public class JavaCodeGenerator extends AbstractJavaClassGenerator {
 
