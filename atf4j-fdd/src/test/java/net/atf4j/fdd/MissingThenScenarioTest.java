@@ -24,7 +24,7 @@ import net.atf4j.core.TestResultsReporting;
 import net.atf4j.fdd.Feature.Scenario;
 
 /**
- * The Class ScenarioMissingThen.
+ * The ScenarioMissingThen.
  */
 @Scenario("Scenario")
 public final class MissingThenScenarioTest extends TestResultsReporting {

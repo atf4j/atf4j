@@ -17,10 +17,10 @@
 
 package net.atf4j.core;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
-
 
 /**
  * A UnitTest for Narrator objects.
@@ -28,14 +28,13 @@ import org.junit.Test;
 public final class NarratorTest extends TestResultsReporting {
 
     /**
-     * The Class ClassUnderTest.
+     * The ClassUnderTest.
      */
     public final class ClassUnderTest {
 
         /** The object. */
         private final Object object = new Object();
 
-        /** The class name. */
         private final String className = this.getClass().getSimpleName();
 
         /** The a boolean. */
@@ -52,10 +51,10 @@ public final class NarratorTest extends TestResultsReporting {
         @Override
         public String toString() {
             return String.format("NarratorTest [object=%s, className=%s, aBoolean=%s, number=%s]",
-                    object,
-                    className,
-                    aBoolean,
-                    number);
+                    this.object,
+                    this.className,
+                    this.aBoolean,
+                    this.number);
         }
     }
 
@@ -76,7 +75,7 @@ public final class NarratorTest extends TestResultsReporting {
     }
 
     /**
-     * The Class SubClassWithProperties.
+     * The SubClassWithProperties.
      */
     public class SubClassWithProperties {
 
@@ -103,8 +102,8 @@ public final class NarratorTest extends TestResultsReporting {
                     this.getClass().getSimpleName(),
                     CONSTANT,
                     π,
-                    protectedString,
-                    publicString);
+                    this.protectedString,
+                    this.publicString);
         }
     }
 
@@ -114,7 +113,7 @@ public final class NarratorTest extends TestResultsReporting {
     @Test
     public void testExpectedUsage() {
         final String reflectObjectToString = Narrator.reflectObjectToString(getClass());
-        log.info(reflectObjectToString);
+        this.log.info(reflectObjectToString);
     }
 
     /**
@@ -124,7 +123,7 @@ public final class NarratorTest extends TestResultsReporting {
     public void testNullClass() {
         final String reflectionToString = Narrator.reflectObjectToString(null);
         assertEquals("object is [NULL]", reflectionToString);
-        log.debug(reflectionToString);
+        this.log.debug(reflectionToString);
     }
 
     /**
@@ -134,7 +133,7 @@ public final class NarratorTest extends TestResultsReporting {
     public void testThisClass() {
         final String reflectionToString = Narrator.reflectObjectToString(this);
         assertNotNull(reflectionToString);
-        log.debug(reflectionToString);
+        this.log.debug(reflectionToString);
     }
 
     /**
@@ -145,7 +144,7 @@ public final class NarratorTest extends TestResultsReporting {
         final SubClassWithoutProperties superClassWithoutProperties = new SubClassWithoutProperties();
         final String reflectionToString = Narrator.reflectObjectToString(superClassWithoutProperties);
         assertNotNull(reflectionToString);
-        log.debug(reflectionToString);
+        this.log.debug(reflectionToString);
     }
 
     /**
@@ -156,7 +155,7 @@ public final class NarratorTest extends TestResultsReporting {
         final SubClassWithProperties superClassWithProperties = new SubClassWithProperties();
         final String reflectionToString = Narrator.reflectObjectToString(superClassWithProperties);
         assertNotNull(reflectionToString);
-        log.debug(reflectionToString);
+        this.log.debug(reflectionToString);
     }
 
     /**
@@ -169,11 +168,11 @@ public final class NarratorTest extends TestResultsReporting {
 
         final String string = object.toString();
         assertNotNull(object);
-        log.info("object.toString = {}", string);
+        this.log.info("object.toString = {}", string);
 
         final String narration = Narrator.reflectObjectToString(object);
         assertNotNull(narration);
-        log.info("narration = {}", narration);
+        this.log.info("narration = {}", narration);
     }
 
 }

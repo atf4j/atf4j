@@ -5,6 +5,7 @@
 
 	<artifactId>atf4j-amq</artifactId>
 	<packaging>jar</packaging>
+
 	<name>ATF4J - Apache ActiveMQ</name>
 	<description>Java Automated Testing Framework for Apache ActiveMQ.</description>
 	<url>http://atf4j.net/atf4j-amq</url>
@@ -44,4 +45,5 @@
 -->
 
 	</dependencies>
+
 </project>

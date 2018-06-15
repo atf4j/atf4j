@@ -22,7 +22,7 @@ import java.util.*;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * A Class to represent a method of the class to be Generated.
+ * The to be Generated.
  */
 public final class ClassMethod extends TestResultsReporting {
 
@@ -77,7 +77,7 @@ public final class ClassMethod extends TestResultsReporting {
      *
      * @param returnType the return type
      * @param methodName the method name
-     * @return the class method
+ * The method
      */
     public static ClassMethod addMethod(final String returnType, final String methodName) {
         return new ClassMethod(returnType, methodName);
@@ -95,7 +95,7 @@ public final class ClassMethod extends TestResultsReporting {
      * Adds the factory.
      *
      * @param fieldType the field type
-     * @return the class method
+ * The method
      */
     public static ClassMethod addFactory(final String fieldType) {
         return new ClassMethod(fieldType, "create");
@@ -105,7 +105,7 @@ public final class ClassMethod extends TestResultsReporting {
      * Factory method, to create factory method.
      *
      * @param fieldType the field type
-     * @return the class method
+ * The method
      */
     public static ClassMethod addFactory(final FieldType fieldType) {
         return new ClassMethod(fieldType.name(), "create");
@@ -115,7 +115,7 @@ public final class ClassMethod extends TestResultsReporting {
      * Sets the access.
      *
      * @param access the access
-     * @return the class method
+ * The method
      */
     public ClassMethod setAccess(final String access) {
         this.access = access;
@@ -126,7 +126,7 @@ public final class ClassMethod extends TestResultsReporting {
      * Sets the type.
      *
      * @param type the type
-     * @return the class method
+ * The method
      */
     public ClassMethod setType(final String type) {
         returnType = type;
@@ -137,7 +137,7 @@ public final class ClassMethod extends TestResultsReporting {
      * Sets the name.
      *
      * @param name the name
-     * @return the class method
+ * The method
      */
     public ClassMethod setName(final String name) {
         methodName = methodCase(name);

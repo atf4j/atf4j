@@ -22,7 +22,7 @@ import java.util.UUID;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * A Class to represent a field of the class to be Generated.
+ * The to be Generated.
  */
 public class ClassField extends TestResultsReporting {
 
@@ -99,7 +99,7 @@ public class ClassField extends TestResultsReporting {
      * Make boolean.
      *
      * @param fieldName the field name
-     * @return the class field
+ * The field
      */
     public static ClassField makeBoolean(final String fieldName) {
         return new ClassField(FieldType.BOOLEAN, fieldName);
@@ -109,7 +109,7 @@ public class ClassField extends TestResultsReporting {
      * Make byte.
      *
      * @param fieldName the field name
-     * @return the class field
+ * The field
      */
     public static ClassField makeByte(final String fieldName) {
         return new ClassField(FieldType.BYTE, fieldName);
@@ -119,7 +119,7 @@ public class ClassField extends TestResultsReporting {
      * Make date.
      *
      * @param fieldName the field name
-     * @return the class field
+ * The field
      */
     public static ClassField makeDate(final String fieldName) {
         return new ClassField(FieldType.DATE, fieldName);
@@ -129,7 +129,7 @@ public class ClassField extends TestResultsReporting {
      * Make number.
      *
      * @param fieldName the field name
-     * @return the class field
+ * The field
      */
     public static ClassField makeNumber(final String fieldName) {
         return new ClassField(FieldType.NUMBER, fieldName);
@@ -139,7 +139,7 @@ public class ClassField extends TestResultsReporting {
      * Make object.
      *
      * @param fieldName the field name
-     * @return the class field
+ * The field
      */
     public static ClassField makeObject(final String fieldName) {
         return new ClassField(FieldType.OBJECT, fieldName);
@@ -149,7 +149,7 @@ public class ClassField extends TestResultsReporting {
      * Make string.
      *
      * @param fieldName the field name
-     * @return the class field
+ * The field
      */
     public static ClassField makeString(final String fieldName) {
         return new ClassField(FieldType.STRING, fieldName);
@@ -160,7 +160,7 @@ public class ClassField extends TestResultsReporting {
      *
      * @param type the type
      * @param fieldName the field name
-     * @return the class field
+ * The field
      */
     public static ClassField makeOther(final String type, final String fieldName) {
         return new ClassField(type, fieldName);
@@ -170,7 +170,7 @@ public class ClassField extends TestResultsReporting {
      * Sets the access modifier.
      *
      * @param accessModifier the access modifier
-     * @return the class field
+ * The field
      */
     protected ClassField setAccessModifier(final AccessModifier accessModifier) {
         this.accessModifier = accessModifier;
@@ -182,7 +182,7 @@ public class ClassField extends TestResultsReporting {
      * Sets the access modifier.
      *
      * @param accessModifier the access modifier
-     * @return the class field
+ * The field
      */
     protected ClassField setAccessModifier(final String accessModifier) {
         this.visibility = accessModifier;
@@ -194,7 +194,7 @@ public class ClassField extends TestResultsReporting {
      * Sets the field type.
      *
      * @param fieldType the field type
-     * @return the class field
+ * The field
      */
     protected ClassField setFieldType(final FieldType fieldType) {
         this.fieldType = fieldType;
@@ -206,7 +206,7 @@ public class ClassField extends TestResultsReporting {
      * Sets the field type.
      *
      * @param fieldTypeString the field type string
-     * @return the class field
+ * The field
      */
     protected ClassField setFieldType(final String fieldTypeString) {
         this.fieldType = FieldType.fromString(fieldTypeString);
@@ -222,7 +222,7 @@ public class ClassField extends TestResultsReporting {
      * Sets the field name.
      *
      * @param fieldName the field name
-     * @return the class field
+ * The field
      */
     protected ClassField setFieldName(final String fieldName) {
         this.name = fieldCase(fieldName);
@@ -233,7 +233,7 @@ public class ClassField extends TestResultsReporting {
      * Sets the initial value.
      *
      * @param initialValue the initial value
-     * @return the class field
+ * The field
      */
     protected ClassField setInitialValue(final String initialValue) {
         this.initialValue = initialValue;

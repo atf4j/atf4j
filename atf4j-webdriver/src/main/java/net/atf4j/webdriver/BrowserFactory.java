@@ -145,23 +145,21 @@ public class BrowserFactory implements BrowserFactoryInterface {
             webDriver = new OperaDriver();
             break;
         case "safari":
+            System.setProperty("webdriver.safari.noinstall", "true");
             webDriver = new SafariDriver();
             break;
+        case "htmlunit":
+            webDriver = new HtmlUnitDriver();
+            break;
         case "phantomjs":
-            // webDriver = new HtmlUnitDriver();
-            // assumeNotNull("Expected phantomjs.binary.path to be defined",
-            // System.getProperty("phantomjs.binary.path"));
+        case "headless":
+        default:
             final DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
             desiredCapabilities.setJavascriptEnabled(true);
             desiredCapabilities.setCapability(
                     PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
                     "../web-driver-bin/phantomjs.exe");
             webDriver = new PhantomJSDriver(desiredCapabilities);
-            break;
-        case "htmlunit":
-        case "headless":
-        default:
-            webDriver = new HtmlUnitDriver();
             break;
         }
 

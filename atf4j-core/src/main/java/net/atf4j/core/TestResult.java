@@ -60,7 +60,7 @@ public enum TestResult {
     }
 
     /**
-     * Initialise.
+     * Initialise this test result, defaults to PENDING.
      *
      * @return the test result
      */

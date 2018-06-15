@@ -244,12 +244,13 @@
 				</reportSets>
 			</plugin>
 
+<!--
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
 				<version>${maven-pmd-plugin.version}</version>
 			</plugin>
-
+-->
 		</plugins>
 	</reporting>
 </project>
