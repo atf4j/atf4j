@@ -6,7 +6,6 @@ An automated test framework for Java, acts as glue for a testing tools, follows 
 
 ## Automation Test Framework for Java
 
-
 ## Maven Dependency
 
 	<dependency>
