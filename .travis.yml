@@ -2,4 +2,4 @@ language: java
 jdk:
 - oraclejdk8
 script:
-- "mvn release:update-versions -DautoVersionSubmodules=true install site"
+- "mvn install site"

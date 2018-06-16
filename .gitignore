@@ -16,6 +16,6 @@
 
 # Maven
 target/**
-*/pom.xml.versionsBackup
+*.versionsBackup
 
 /web-driver-bin/
