@@ -105,7 +105,7 @@ public abstract class AbstractFolderWalker
      */
     @Override
     public void setExtensionFilter(final FilenameFilter extensionFilter) {
-        filter = extensionFilter;
+        this.filter = extensionFilter;
     }
 
     /*
@@ -115,7 +115,7 @@ public abstract class AbstractFolderWalker
      */
     @Override
     public List<File> walk() {
-        return walk(path);
+        return walk(this.path);
     }
 
     /*
@@ -127,21 +127,21 @@ public abstract class AbstractFolderWalker
     public List<File> walk(final String path) {
         if (path != null) {
             final File dir = new File(path);
-            log.debug("dir = {}", dir.getAbsolutePath());
-            log.debug("file = {}", dir.getAbsoluteFile());
-            final File[] files = dir.listFiles(filter);
+            this.log.debug("dir = {}", dir.getAbsolutePath());
+            this.log.debug("file = {}", dir.getAbsoluteFile());
+            final File[] files = dir.listFiles(this.filter);
             if (files != null) {
                 for (final File file : files) {
                     if (file.isDirectory()) {
                         final String subDir = file.getAbsolutePath();
                         walk(subDir);
                     } else {
-                        foundFiles.add(file);
+                        this.foundFiles.add(file);
                     }
                 }
             }
         }
-        return foundFiles;
+        return this.foundFiles;
     }
 
     /*
@@ -155,14 +155,14 @@ public abstract class AbstractFolderWalker
         for (final File file : root.listFiles()) {
             if (file.isDirectory()) {
                 final String subDir = file.getAbsolutePath();
-                log.debug("{}", subDir);
+                this.log.debug("{}", subDir);
                 scan(subDir);
             } else {
-                log.debug("{}", file);
-                foundFiles.add(file);
+                this.log.debug("{}", file);
+                this.foundFiles.add(file);
             }
         }
-        return foundFiles;
+        return this.foundFiles;
     }
 
     /**
@@ -180,7 +180,7 @@ public abstract class AbstractFolderWalker
             uri = url.toURI();
             file = new File(uri);
         } catch (final URISyntaxException e) {
-            log.error(e.toString());
+            this.log.error(e.toString());
         }
         return file;
     }
@@ -192,7 +192,7 @@ public abstract class AbstractFolderWalker
      */
     @Override
     public String getPath() {
-        return path;
+        return this.path;
     }
 
     /*
@@ -202,7 +202,7 @@ public abstract class AbstractFolderWalker
      */
     @Override
     public List<File> getFoundFiles() {
-        return foundFiles;
+        return this.foundFiles;
     }
 
     /*
@@ -214,9 +214,9 @@ public abstract class AbstractFolderWalker
     public String toString() {
         return String.format("%s [path=%s, filter=%s, foundFiles=%s]",
                 this.getClass().getSimpleName(),
-                path,
-                filter,
-                foundFiles);
+                this.path,
+                this.filter,
+                this.foundFiles);
     }
 
 }

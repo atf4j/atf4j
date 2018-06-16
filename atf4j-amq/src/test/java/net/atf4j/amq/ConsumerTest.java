@@ -57,6 +57,6 @@ public final class ConsumerTest extends TestResultsReporting {
 
         final String[] messages = consumer.execute();
         verifyNotNull(messages);
-        log.debug("messages = {}", Arrays.toString(messages));
+        this.log.debug("messages = {}", Arrays.toString(messages));
     }
 }

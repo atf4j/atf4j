@@ -1,4 +1,4 @@
-// generated at 2018-06-12 23:03.51 from  main/resources/templates/Class.vm
+// generated at 2018-06-16 02:14.26 from  main/resources/templates/Class.vm
 
 package net.atf4j.generated;
 

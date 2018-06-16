@@ -56,7 +56,7 @@ public class ProducerTest extends TestResultsReporting {
         verifyNotNull(producer);
 
         final String[] messages = null;
-        log.debug("{}", Arrays.toString(messages));
+        this.log.debug("{}", Arrays.toString(messages));
         verifyNotNull(producer.execute(messages));
     }
 }

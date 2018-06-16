@@ -207,9 +207,11 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
     }
 
     /**
- * The name.
+     * The name.
      *
- * The name
+     * The name
+     *
+     * @param className the class name
      * @return this for a fluent interface.
      */
     public AbstractJavaClassGenerator setClassName(final String className) {
@@ -292,7 +294,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
     /**
      * Adds the field.
      *
- * The field
+     * @param classField the class field
      * @return this for a fluent interface.
      */
     public AbstractJavaClassGenerator addField(final ClassField classField) {
@@ -316,7 +318,9 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
     /**
      * Adds the method.
      *
- * The method
+     * The method
+     *
+     * @param classMethod the class method
      * @return this for a fluent interface.
      */
     public AbstractJavaClassGenerator addMethod(final ClassMethod classMethod) {
@@ -449,7 +453,8 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
      * Target filename.
      *
      * @param targetPath the target path
- * The name
+     *            The name
+     * @param className the class name
      * @return the string
      */
     private String targetFilename(final String targetPath, final String className) {

@@ -188,6 +188,11 @@ public class WebElementField extends ClassField {
         return String.format(FIND_BY_FORMAT, strategy, locator);
     }
 
+    /**
+     * To code.
+     *
+     * @return the string
+     */
     /*
      * (non-Javadoc)
      *

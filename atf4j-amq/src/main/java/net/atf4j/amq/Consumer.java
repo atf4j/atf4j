@@ -47,18 +47,18 @@ public final class Consumer extends AbstractConnectionWrapper {
      */
     public String[] execute() throws JMSException {
 
-        final MessageConsumer messageConsumer = session.createConsumer(topic);
+        final MessageConsumer messageConsumer = this.session.createConsumer(this.topic);
 
         final Message message = messageConsumer.receive(1000);
 
         if (message != null) {
             final TextMessage textMessage = (TextMessage) message;
             final String text = textMessage.getText();
-            log.info("read {}", text);
+            this.log.info("read {}", text);
         }
 
         messageConsumer.close();
-        connection.close();
+        this.connection.close();
         return new String[0];
     }
 
