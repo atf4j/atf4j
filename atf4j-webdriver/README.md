@@ -27,6 +27,8 @@ In command line shell run:
 
     mvn test
 
+	mvn test -Dheadless=true
+	
 ## Overriding options
 
     mvn -Doptions="value" test

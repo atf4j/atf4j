@@ -49,6 +49,9 @@ public class TestSuiteTest extends TestResultsReporting {
         verifyNotNull(new TestSuite());
     }
 
+    /**
+     * Unit Test typical usage.
+     */
     @Test
     public void testTypical() {
         final TestSuite testSuite = new TestSuite();

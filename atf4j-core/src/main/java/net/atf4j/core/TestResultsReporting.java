@@ -33,7 +33,7 @@ public abstract class TestResultsReporting {
     /** Expected exception message. */
     protected static final String EXPECTED_EXCEPTION = "Expected exception but did not occur.";
 
-    /** logging */
+    /** provides logging. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**

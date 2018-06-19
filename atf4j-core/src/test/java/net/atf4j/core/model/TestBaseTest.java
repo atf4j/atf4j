@@ -96,7 +96,7 @@ public class TestBaseTest extends TestResultsReporting {
     }
 
     /**
-     * Test typical.
+     * Unit Test typical usage.
      */
     @Test
     public void testTypical() {

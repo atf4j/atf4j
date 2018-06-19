@@ -14,6 +14,13 @@ An automated test framework for Java, acts as glue for a testing tools, follows 
 		<version>${atf4j.version}</version>
 	</dependency>
 
-## Maven usage
+## Clone locally
 
-	mvn test
+	git clone https://github.com/atf4j/atf4j.git
+
+## Maven
+
+To install atf4j into your local repository.
+
+	mvn install
+

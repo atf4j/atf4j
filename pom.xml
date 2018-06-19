@@ -8,7 +8,7 @@
 	<artifactId>atf4j</artifactId>
 	<version>0.13.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	
+
 	<name>Automation Test Framework for Java</name>
 	<description>Automated Testing Framework for Java.</description>
 	<url>http://atf4j.net</url>
@@ -108,18 +108,19 @@
 			<version>${slf4j.version}</version>
 		</dependency>
 
-		<!-- <dependency> -->
-		<!-- <groupId>org.slf4j</groupId> -->
-		<!-- <artifactId>slf4j-simple</artifactId> -->
-		<!-- <version>1.7.21</version> -->
-		<!-- </dependency> -->
-
 		<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-simple</artifactId>
+		<version>1.7.21</version>
+		</dependency>
+
+<!--
+ 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
-
+ -->
 	</dependencies>
 
 	<build>
@@ -246,8 +247,14 @@
 				</reportSets>
 			</plugin>
 
-			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-pmd-plugin</artifactId> 
-				<version>${maven-pmd-plugin.version}</version> </plugin> -->
+<!--
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId> 
+				<version>${maven-pmd-plugin.version}</version>
+			</plugin>
+-->
+
 		</plugins>
 	</reporting>
 </project>

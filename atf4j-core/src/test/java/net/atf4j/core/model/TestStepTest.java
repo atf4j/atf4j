@@ -50,6 +50,9 @@ public class TestStepTest extends TestResultsReporting {
         verifyNotNull(new TestStep());
     }
 
+    /**
+     * Unit Test typical usage.
+     */
     @Test
     public void testTypical() {
         final TestStep testStep = new TestStep();

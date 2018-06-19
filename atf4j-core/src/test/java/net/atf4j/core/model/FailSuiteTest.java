@@ -34,11 +34,17 @@ public class FailSuiteTest extends TestResultsReporting {
         verifyNotNull(new FailSuite());
     }
 
+    /**
+     * Test fail suite null.
+     */
     @Test
     public void testFailSuiteNull() {
         verifyNotNull(new FailSuite(null));
     }
 
+    /**
+     * Test fail suite string.
+     */
     @Test
     public void testFailSuiteString() {
         verifyNotNull(new FailSuite("FailSuite"));

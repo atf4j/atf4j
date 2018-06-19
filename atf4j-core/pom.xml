@@ -10,13 +10,6 @@
 	<description>Java Automated Testing Framework for Java.</description>
 	<url>http://atf4j.net/atf4j-core</url>
 
-	<distributionManagement>
-		<site>
-			<id>atf4j-website</id>
-			<url>scp://atf4j.net/atf4j-core</url>
-		</site>
-	</distributionManagement>
-
 	<parent>
 		<groupId>net.atf4j</groupId>
 		<artifactId>atf4j</artifactId>

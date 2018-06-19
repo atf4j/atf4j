@@ -89,7 +89,7 @@ public final class ScenarioRunner extends TestResultsReporting {
     private ScenarioRunner executeGiven(final AbstractScenario scenario) {
         final Class<?> candidateClass = scenario.getClass();
         if (candidateClass.isAnnotationPresent(Feature.Scenario.class)) {
-            this.log.trace(candidateClass.toGenericString());
+            this.log.trace(candidateClass.toString());
             final Method[] declaredMethods = candidateClass.getDeclaredMethods();
             for (final Method method : declaredMethods) {
                 if (method.isAnnotationPresent(Feature.Given.class)) {
@@ -118,7 +118,7 @@ public final class ScenarioRunner extends TestResultsReporting {
     private ScenarioRunner executeWhen(final AbstractScenario scenario) {
         final Class<?> candidateClass = scenario.getClass();
         if (candidateClass.isAnnotationPresent(Feature.Scenario.class)) {
-            this.log.trace(candidateClass.toGenericString());
+            this.log.trace(candidateClass.toString());
             final Method[] declaredMethods = candidateClass.getDeclaredMethods();
             for (final Method method : declaredMethods) {
                 if (method.isAnnotationPresent(Feature.Given.class)) {
@@ -147,7 +147,7 @@ public final class ScenarioRunner extends TestResultsReporting {
     private ScenarioRunner executeThen(final AbstractScenario scenario) {
         final Class<?> candidateClass = scenario.getClass();
         if (candidateClass.isAnnotationPresent(Feature.Scenario.class)) {
-            this.log.trace(candidateClass.toGenericString());
+            this.log.trace(candidateClass.toString());
             final Method[] declaredMethods = candidateClass.getDeclaredMethods();
             for (final Method method : declaredMethods) {
                 if (method.isAnnotationPresent(Feature.Given.class)) {

@@ -17,16 +17,11 @@
 
 package net.atf4j.amq;
 
-import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
-import javax.jms.JMSException;
-import javax.jms.Session;
-import javax.jms.Topic;
-
+import net.atf4j.core.TestResultsReporting;
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
-import net.atf4j.core.TestResultsReporting;
+import javax.jms.*;
 
 /**
  * An abstract class to wrap ActiveMQ Connections.

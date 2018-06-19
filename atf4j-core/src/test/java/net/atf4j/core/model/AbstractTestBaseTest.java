@@ -21,15 +21,15 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
-import org.mortbay.log.Log;
 
 import net.atf4j.core.TestResult;
+import net.atf4j.core.TestResultsReporting;
 import net.atf4j.core.VerificationError;
 
 /**
- * The AbstractTestBaseTest Class.
+ * Test for abstract class TestBase.
  */
-public class AbstractTestBaseTest {
+public class AbstractTestBaseTest extends TestResultsReporting {
 
     /**
      * Passing Test Base class.
@@ -67,7 +67,7 @@ public class AbstractTestBaseTest {
     }
 
     /**
-     * Test typical usage.
+     * Unit test typical usage..
      */
     @Test
     public void testTypicalUsage() {
@@ -77,15 +77,23 @@ public class AbstractTestBaseTest {
         testBase.setDescription("description");
         testBase.setTaxonomy("taxonomy");
         testBase.setTester("tester");
-        Log.debug(testBase.debugString());
+        this.log.debug(testBase.debugString());
     }
 
     /**
-     * Test execute.
+     * Unit test execute with passing test.
      */
     @Test
     public void testExecute() {
         new PassTestBase().execute();
+    }
+
+    /**
+     * Unit test execute with failing test.
+     */
+    @Test(expected = VerificationError.class)
+    public void testExecuteFail() {
+        new FailTestBase().execute();
     }
 
     /**

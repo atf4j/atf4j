@@ -107,7 +107,6 @@ public final class GuiMapTest extends TestResultsReporting {
         final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
         verifyNotNull(abstractGuiMap);
         this.log.info(abstractGuiMap.toString());
-        this.log.info(abstractGuiMap.getBaseBundleName());
         this.log.info(abstractGuiMap.getLocale().toString());
     }
 
