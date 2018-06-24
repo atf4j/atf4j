@@ -20,13 +20,13 @@
 		<dependency>
 			<groupId>net.atf4j</groupId>
 			<artifactId>atf4j-core</artifactId>
-			<version>0.13.2-SNAPSHOT</version>
+			<version>${atf4j.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>2.53.0</version>
+			<version>${selenium.version}</version>
 		</dependency>
 
 <!--
