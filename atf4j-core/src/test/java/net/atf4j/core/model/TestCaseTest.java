@@ -50,7 +50,7 @@ public class TestCaseTest extends TestResultsReporting {
     }
 
     /**
-     * Test typical happy path.
+     * Unit Test typical usage.
      */
     @Test
     public void testTypical() {

@@ -77,16 +77,31 @@ public final class ClassMethod extends TestResultsReporting {
      *
      * @param returnType the return type
      * @param methodName the method name
- * The method
+     * The method
+     * @return the class method
      */
     public static ClassMethod addMethod(final String returnType, final String methodName) {
         return new ClassMethod(returnType, methodName);
     }
 
+    /**
+     * Adds the setter.
+     *
+     * @param returnType the return type
+     * @param fieldName the field name
+     * @return the class method
+     */
     public static ClassMethod addSetter(final String returnType, final String fieldName) {
         return new ClassMethod(returnType, fieldName);
     }
 
+    /**
+     * Adds the getter.
+     *
+     * @param returnType the return type
+     * @param fieldName the field name
+     * @return the class method
+     */
     public static ClassMethod addGetter(final String returnType, final String fieldName) {
         return new ClassMethod(returnType, fieldName);
     }
@@ -95,7 +110,8 @@ public final class ClassMethod extends TestResultsReporting {
      * Adds the factory.
      *
      * @param fieldType the field type
- * The method
+     * The method
+     * @return the class method
      */
     public static ClassMethod addFactory(final String fieldType) {
         return new ClassMethod(fieldType, "create");
@@ -105,7 +121,8 @@ public final class ClassMethod extends TestResultsReporting {
      * Factory method, to create factory method.
      *
      * @param fieldType the field type
- * The method
+     * The method
+     * @return the class method
      */
     public static ClassMethod addFactory(final FieldType fieldType) {
         return new ClassMethod(fieldType.name(), "create");
@@ -115,7 +132,8 @@ public final class ClassMethod extends TestResultsReporting {
      * Sets the access.
      *
      * @param access the access
- * The method
+     * The method
+     * @return the class method
      */
     public ClassMethod setAccess(final String access) {
         this.access = access;
@@ -126,7 +144,8 @@ public final class ClassMethod extends TestResultsReporting {
      * Sets the type.
      *
      * @param type the type
- * The method
+     * The method
+     * @return the class method
      */
     public ClassMethod setType(final String type) {
         returnType = type;
@@ -137,7 +156,8 @@ public final class ClassMethod extends TestResultsReporting {
      * Sets the name.
      *
      * @param name the name
- * The method
+     * The method
+     * @return the class method
      */
     public ClassMethod setName(final String name) {
         methodName = methodCase(name);
@@ -193,14 +213,29 @@ public final class ClassMethod extends TestResultsReporting {
         return new String(charArray);
     }
 
+    /**
+     * To setter method.
+     *
+     * @return the string
+     */
     public String toSetterMethod() {
         return String.format(SET_CODE, returnType, methodName, returnType);
     }
 
+    /**
+     * To getter method.
+     *
+     * @return the string
+     */
     public String toGetterMethod() {
         return String.format(GET_CODE, returnType, methodName, returnType);
     }
 
+    /**
+     * To factory method.
+     *
+     * @return the string
+     */
     public String toFactoryMethod() {
         return String.format(CREATE_CODE, returnType, methodName, returnType);
     }

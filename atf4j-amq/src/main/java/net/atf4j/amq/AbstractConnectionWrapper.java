@@ -17,16 +17,11 @@
 
 package net.atf4j.amq;
 
-import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
-import javax.jms.JMSException;
-import javax.jms.Session;
-import javax.jms.Topic;
-
+import net.atf4j.core.TestResultsReporting;
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
-import net.atf4j.core.TestResultsReporting;
+import javax.jms.*;
 
 /**
  * An abstract class to wrap ActiveMQ Connections.
@@ -60,9 +55,9 @@ public abstract class AbstractConnectionWrapper
      */
     protected AbstractConnectionWrapper() throws JMSException {
         super();
-        connection = initialise();
-        session = newSession(connection);
-        topic = session.createTopic(topicName);
+        this.connection = initialise();
+        this.session = newSession(this.connection);
+        this.topic = this.session.createTopic(this.topicName);
     }
 
     /**
@@ -72,10 +67,10 @@ public abstract class AbstractConnectionWrapper
      * @throws JMSException the JMS exception exception.
      */
     protected Connection initialise() throws JMSException {
-        connectionFactory = new ActiveMQConnectionFactory(url);
-        connection = connectionFactory.createConnection();
-        connection.start();
-        return connection;
+        this.connectionFactory = new ActiveMQConnectionFactory(url);
+        this.connection = this.connectionFactory.createConnection();
+        this.connection.start();
+        return this.connection;
     }
 
     /**

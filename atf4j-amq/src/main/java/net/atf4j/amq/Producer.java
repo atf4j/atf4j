@@ -39,21 +39,21 @@ public final class Producer extends AbstractConnectionWrapper {
      * Execute, add the messages to the queue.
      *
      * @param messages the messages
-     * @return
+     * @return the producer
      * @throws JMSException the JMS exception
      */
     public Producer execute(final String[] messages) throws JMSException {
 
-        final MessageProducer messageProducer = session.createProducer(topic);
+        final MessageProducer messageProducer = this.session.createProducer(this.topic);
 
-        final TextMessage textMessage = session.createTextMessage();
+        final TextMessage textMessage = this.session.createTextMessage();
 
         for (final String messageString : messages) {
             textMessage.setText(messageString);
             messageProducer.send(textMessage);
-            log.info("Sent {}", messageString);
+            this.log.info("Sent {}", messageString);
         }
-        connection.close();
+        this.connection.close();
         return this;
     }
 }

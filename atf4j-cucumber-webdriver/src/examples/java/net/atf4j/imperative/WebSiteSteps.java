@@ -46,7 +46,7 @@ public class WebSiteSteps {
     /** The web site. */
     private final BehaviourModel webSite = new BehaviourModel();
     
-    /** The log. */
+    /** provides logging. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**

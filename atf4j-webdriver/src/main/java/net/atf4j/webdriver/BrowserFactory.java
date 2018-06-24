@@ -19,8 +19,6 @@ package net.atf4j.webdriver;
 
 import static org.junit.Assume.assumeNotNull;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -29,13 +27,9 @@ import org.openqa.selenium.WebDriver.Timeouts;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -127,7 +121,6 @@ public class BrowserFactory implements BrowserFactoryInterface {
 
         switch (targetBrowser.toLowerCase()) {
         case "chrome":
-            System.setProperty("", "");
             webDriver = new ChromeDriver();
             break;
         case "ff":
@@ -148,19 +141,20 @@ public class BrowserFactory implements BrowserFactoryInterface {
             System.setProperty("webdriver.safari.noinstall", "true");
             webDriver = new SafariDriver();
             break;
-        case "htmlunit":
-            webDriver = new HtmlUnitDriver();
-            break;
-        case "phantomjs":
-        case "headless":
-        default:
-            final DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-            desiredCapabilities.setJavascriptEnabled(true);
-            desiredCapabilities.setCapability(
-                    PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
-                    "../web-driver-bin/phantomjs.exe");
-            webDriver = new PhantomJSDriver(desiredCapabilities);
-            break;
+        // case "htmlunit":
+        // webDriver = new HtmlUnitDriver();
+        // break;
+        // case "phantomjs":
+        // case "headless":
+        // default:
+        // final DesiredCapabilities desiredCapabilities = new
+        // DesiredCapabilities();
+        // desiredCapabilities.setJavascriptEnabled(true);
+        // desiredCapabilities.setCapability(
+        // PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
+        // "../web-driver-bin/phantomjs.exe");
+        // webDriver = new PhantomJSDriver(desiredCapabilities);
+        // break;
         }
 
         return webDriver;
@@ -203,16 +197,17 @@ public class BrowserFactory implements BrowserFactoryInterface {
             break;
         }
 
-        final String targetSeleniumGrid = BrowserFactory.config.seleniumUrl();
-        final URL gridUrl;
-        RemoteWebDriver remoteWebDriver = null;
-        try {
-            gridUrl = new URL(targetSeleniumGrid);
-            remoteWebDriver = new RemoteWebDriver(gridUrl, desiredCapabilities);
-        } catch (final MalformedURLException e) {
-            BrowserFactory.log.error(e.toString());
-        }
-        return remoteWebDriver;
+        // final String targetSeleniumGrid =
+        // BrowserFactory.config.seleniumUrl();
+        // final URL gridUrl;
+        // try {
+        // gridUrl = new URL(targetSeleniumGrid);
+        // remoteWebDriver = new RemoteWebDriver(gridUrl, desiredCapabilities);
+        // } catch (final MalformedURLException e) {
+        // BrowserFactory.log.error(e.toString());
+        // }
+        // return remoteWebDriver;
+        return null;
     }
 
 }

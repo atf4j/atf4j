@@ -25,8 +25,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import net.atf4j.core.TestContext;
@@ -83,14 +81,14 @@ public final class WebDriverSmokeTest extends TestResultsReporting {
         TestContext.assumeLocal();
         assumeNotNull("Expected phantomjs.binary.path to be defined", System.getProperty("phantomjs.binary.path"));
         final DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        desiredCapabilities.setJavascriptEnabled(true);
-        desiredCapabilities.setCapability(
-                PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
-                "../web-driver-bin/phantomjs.exe");
-        final WebDriver webDriver = new PhantomJSDriver(desiredCapabilities);
-        verifyNotNull(webDriver);
-        verifyTomcatPresent(webDriver);
-        webDriver.close();
+        // desiredCapabilities.setJavascriptEnabled(true);
+        // desiredCapabilities.setCapability(
+        // PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
+        // "../web-driver-bin/phantomjs.exe");
+        // final WebDriver webDriver = new PhantomJSDriver(desiredCapabilities);
+        // verifyNotNull(webDriver);
+        // verifyTomcatPresent(webDriver);
+        // webDriver.close();
     }
 
     private void verifyTomcatPresent(final WebDriver webDriver) {

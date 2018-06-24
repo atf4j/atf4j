@@ -49,7 +49,7 @@ public class MessageFinderTest extends TestResultsReporting {
         final List<File> messages = folderWalker.walk();
         verifyNotNull(messages);
         for (final File file : messages) {
-            log.info("{} = {}", file.getName(), file.toString());
+            this.log.info("{} = {}", file.getName(), file.toString());
         }
     }
 
@@ -64,7 +64,7 @@ public class MessageFinderTest extends TestResultsReporting {
         final List<File> messages = folderWalker.scan(".");
         verifyNotNull(messages);
         for (final File file : messages) {
-            log.info("{} = {}", file.getName(), file.toString());
+            this.log.info("{} = {}", file.getName(), file.toString());
         }
     }
 }
