@@ -15,7 +15,7 @@
 /log4j/
 
 # Maven
-target/**
-*.versionsBackup
+/target/**
+*/pom.xml.versionsBackup
 
 /web-driver-bin/
