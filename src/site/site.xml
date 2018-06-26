@@ -5,7 +5,7 @@
 
 	<publishDate position="bottom" />
 	<version position="bottom" />
- 	
+	
 	<bannerLeft>
 		<name>Maven</name>
 		<src>http://maven.apache.org/images/apache-maven-project.png</src>
@@ -27,8 +27,6 @@
 			<item name="Apache" href="http://www.apache.org" />
 		</links>
 
-		<menu name="My Inherited Menu" inherit="top">
- 
 		<menu name="Overview">
 			<item name="Index" href="index.html" />
 			<item name="About" href="about.html" />
