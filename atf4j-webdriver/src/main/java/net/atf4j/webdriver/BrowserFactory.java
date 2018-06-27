@@ -42,7 +42,7 @@ import net.atf4j.core.TestContext;
  */
 public class BrowserFactory implements BrowserFactoryInterface {
 
-    private static final Logger log = LoggerFactory.getLogger(BrowserFactory.class);
+    private static final Logger LOG  = LoggerFactory.getLogger(BrowserFactory.class);
     private static WebDriverConfig config;
 
     /**
@@ -105,7 +105,7 @@ public class BrowserFactory implements BrowserFactoryInterface {
      * @return the webDriver INSTANCE.
      */
     protected static WebDriver localWebDriver() {
-        BrowserFactory.log.trace("localWebDriver()");
+        LOG.trace("localWebDriver()");
         final String targetBrowser = BrowserFactory.config.targetBrowser();
         return localWebDriver(targetBrowser);
     }
@@ -178,7 +178,7 @@ public class BrowserFactory implements BrowserFactoryInterface {
      * @return the web driver
      */
     protected static WebDriver remoteWebDriver(final String targetBrowser) {
-        BrowserFactory.log.trace("remoteWebDriver(targetBrowser={})", targetBrowser);
+        LOG.trace("remoteWebDriver(targetBrowser={})", targetBrowser);
 
         final DesiredCapabilities desiredCapabilities;
 

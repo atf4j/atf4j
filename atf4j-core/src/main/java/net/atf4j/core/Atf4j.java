@@ -27,7 +27,7 @@ import net.atf4j.core.timers.NestedTimers;
 public final class Atf4j {
 
     /** The Constant 			LOG. */
-    private static final Logger LOG = LoggerFactory.getLogger(Atf4j.class);
+    private static final Logger LOG  = LoggerFactory.getLogger(Atf4j.class);
     
     /** The Constant 			nestedTimers. */
     private static final NestedTimers nestedTimers = NestedTimers.getInstance();
