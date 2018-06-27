@@ -33,7 +33,7 @@ public final class Narrator {
     /** LAYOUT_STYLE. */
     private static final String LAYOUT_STYLE = "%s [%s]";
 
-    private static final Logger LOG = LoggerFactory.getLogger(Narrator.class);
+    private static final Logger LOG  = LoggerFactory.getLogger(Narrator.class);
 
     /**
      * private constructor to prevent rampant instantiation.

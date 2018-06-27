@@ -35,7 +35,7 @@ public final class Verify {
     private static final String MESSAGE = "verify(expected(%s) == actual(%s)) - %s";
 
     /** LOG constant. */
-    private static final Logger LOG = LoggerFactory.getLogger(Verify.class);
+    private static final Logger LOG  = LoggerFactory.getLogger(Verify.class);
 
     /**
      * Instantiates a new verify.

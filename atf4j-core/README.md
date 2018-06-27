@@ -29,16 +29,12 @@ Core for the Automation Test Framework for Java.
 	mvn test -DisSeleniumGrid=true
 
 The following is a list of options that can be used to describe and configure the test context.
-    
--DisLocal={true|false}	- Expect and use local browsers
--DisSeleniumGrid={true|false} - expects selenium grid hub, use remote web driver. 
--DlocalServer={true|false} - expects selenium grid hub on localhost, uses remote web driver, 
--DisJenkins={true|false} - running on jenkins (in most case this idiom should work).
--DisActiveMQ={true|false} - activeMQ available on localhost
 
+	-DisLocal={true|false}				- Expect and use local browsers
+	-DisSeleniumGrid={true|false}		- expects selenium grid hub, use remote web driver. 
+	-DlocalServer={true|false}			- expects selenium grid hub on localhost, uses remote web driver, 
+	-DisJenkins={true|false}			- running on jenkins (in most case this idiom should work).
+	-DisActiveMQ={true|false}			- activeMQ available on localhost
 
 ## Example Code
-
-
-
 

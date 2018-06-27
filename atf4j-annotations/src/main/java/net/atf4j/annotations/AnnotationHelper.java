@@ -43,7 +43,7 @@ public final class AnnotationHelper {
     private static final String EXPECTED_TEST_DESCRIPTION = "Expected @Atf4j.TestDescription annotation not found.";
 
     /** LOG constant. */
-    private static final Logger LOG = LoggerFactory.getLogger(AnnotationHelper.class);
+    private static final Logger LOG  = LoggerFactory.getLogger(AnnotationHelper.class);
 
     /**
      * Prevent instantiation.
