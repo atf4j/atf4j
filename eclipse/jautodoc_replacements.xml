@@ -8,7 +8,8 @@
 	<replacement key="remove" scope="1" mode="0">Removes the ...</replacement>
 	<replacement key="init" scope="1" mode="0">Initialise the ...</replacement>
 	<replacement key="parse" scope="1" mode="0">Parses the ...</replacement>
-	<replacement key="create" scope="1" mode="0">Create new instance of ...</replacement>
+	<replacement key="create" scope="1" mode="0">Create new
+		instance of ...</replacement>
 	<replacement key="build" scope="1" mode="0">Build the ...</replacement>
 	<replacement key="is" scope="1" mode="0">Checks if ...</replacement>
 	<replacement key="log" scope="1" mode="0">Log the class state.</replacement>
