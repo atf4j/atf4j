@@ -1,29 +1,14 @@
-# Automated Test Framework for Java
+# ATF4J-AMQ Automated Test Framework for Java
 
-## Automated Test Framework for Java - ATF4J-AMQ
+## Apache ActiveMQ support 
 
-Automation Test Framework for Apache ActiveMQ
-
-## Maven Dependency
-
-	<dependency>
-		<groupId>net.atf4j</groupId>
-		<artifactId>atf4j-amq</artifactId>
-		<version>${atf4j.version}</version>
-	</dependency>
-
-## Usage
-
-In command line shell run:
-
-    mvn test
-
-## Overriding options
-
-    mvn -Doptions="value" test
+The module of the Automation Test Framework for Java provides support for use with Apache ActiveMQ.  It can be used to initialise a MessageQueue before a test.  It provides support to inject individual message to whole directories.  Messages can be retrieved from a queue for testing.
 
 ## Example Code
+
 ### Message Finder
+
+Find all the message files within a folder, traversing sub-directories as necessary, allows file filters to be applied.
 
         final MessageFinder folderWalker = new MessageFinder();
         verifyNotNull(folderWalker);
@@ -36,6 +21,8 @@ In command line shell run:
 
 ### Message Producer
 
+Messages can be added to a queue.
+
         final String[] messages = ...;
 
         final Producer producer = new Producer();
@@ -43,6 +30,15 @@ In command line shell run:
 
 ### Message Consumer
 
+Messages can be consumed from a queue.
+
         final Consumer consumer = new Consumer();
         final String[] messages = consumer.execute();
  
+## Maven Dependency
+
+	<dependency>
+		<groupId>net.atf4j</groupId>
+		<artifactId>atf4j-amq</artifactId>
+		<version>${atf4j.version}</version>
+	</dependency>
