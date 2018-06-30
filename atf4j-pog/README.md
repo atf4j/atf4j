@@ -14,6 +14,8 @@ Will generate a PageObject for web page on the Url, the page object will by defa
 
 See the generated [ExamplePageObject](https://github.com/atf4j/atf4j/blob/master/atf4j-pog/src/generated/java/net/atf4j/generated/ExamplePageObject.java).
 
+The default template for the PageObject will extend AbstractPageObject, the generator uses a (Velocity template)
+https://github.com/atf4j/atf4j/blob/master/atf4j-pog/src/main/resources/templates/PageObject.vm
 
 ### Automation Test Framework for Java
 
