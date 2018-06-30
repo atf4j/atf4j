@@ -24,12 +24,12 @@ Java Automation Test Framework for Data Driven Testing.
 
     @Test
     public void testLogin() {
-    	// Given an authorised user 
-	Credentials.for(Credentials.AUTHORISED);
+        // Given an authorised user
+        Credentials.for(Credentials.AUTHORISED);
     }
 
     @Test
     public void test() {
-	Customer customer = DataManager.for("@CREDIT-CUSTOMER");
-	orderPage.enterCustomerName(customer.name);
+        Customer customer = DataManager.for("@CREDIT-CUSTOMER");
+        orderPage.enterCustomerName(customer.name);
     }
