@@ -18,88 +18,97 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import static org.junit.Assert.assertNotNull;
+
 /**
- * Abstract Configuration class.
+ * An abstract Configuration class.
  */
 public abstract class AbstractConfig extends TestResultsReporting implements ConfigurationInterface {
 
     /** The properties. */
     protected final Properties properties = new Properties();
+    protected String propertyFilename;
 
     /**
-     * Default Constructor for Configuration.
+     * Instantiates a new abstract configuration.
      */
     public AbstractConfig() {
         super();
-        load();
+        loadPropertyFileFrom(defaultFilename());
     }
 
     /**
-     * Instantiates a new configuration.
+     * Instantiates a new abstract configuration.
      *
-     * @param propertyFilename as String
-     * @throws ConfigurationNotLoadedException the missing exception
+     * @param configFilename the Configuration filename
      */
-    public AbstractConfig(final String propertyFilename) throws ConfigurationNotLoadedException {
-        super();
-        load(propertyFilename);
+    public AbstractConfig(final String configFilename) {
+        this.propertyFilename = configFilename;
+        loadPropertyFileFrom(configFilename);
     }
 
     /**
-     * Load configuration from property file named after class.
-     *
-     * @return the abstract configuration
-     */
-    protected ConfigurationInterface load() {
-        try {
-            load(propertiesFilename());
-        } catch (final ConfigurationNotLoadedException e) {
-            log.warn("{}; using default values.", e.getMessage());
-        }
-        return this;
-    }
-
-    /**
-     * Properties filename.
+     * Default filename.
      *
      * @return the string
      */
-    protected String propertiesFilename() {
-        final String simpleName = this.getClass().getSimpleName();
-        return String.format("%s.properties", simpleName);
+    protected String defaultFilename() {
+        this.propertyFilename = this.getClass().getSimpleName();
+        return this.propertyFilename;
     }
 
     /**
-     * Load properties file.
+     * configuration from XML filename.
      *
-     * @param propertyFilename the property filename
-     * @return the abstract configuration
-     * @throws ConfigurationNotLoadedException the missing exception
+     * configuration filename
+     *
+     * @param configFilename the Configuration filename
      */
-    protected ConfigurationInterface load(final String propertyFilename) throws ConfigurationNotLoadedException {
-        try {
-            final InputStream resourceAsStream = resourceAsStream(propertyFilename);
-            if (resourceAsStream != null) {
-                properties.load(resourceAsStream);
-                properties.setProperty("propertiesFilename", propertyFilename);
-            } else {
-                throw new ConfigurationNotLoadedException(propertyFilename);
-            }
-        } catch (final IOException e) {
-            throw new ConfigurationNotLoadedException(e.getLocalizedMessage());
+    protected void loadPropertyFileFrom(final String configFilename) {
+        final InputStream inputStream = inputStream(toPropertyFilename(configFilename));
+        if (inputStream != null) {
+            loadPropertyFileFrom(inputStream);
+        } else {
+            this.log.warn("Using class default values, property file '{}' not found.", configFilename);
         }
-        return this;
     }
 
     /**
-     * Resource as stream.
+     * Load from property file.
      *
-     * @param resourceFilename the resource filename
+     * resource as stream
+     *
+     * @param resourceAsStream the resource as stream
+     */
+    protected void loadPropertyFileFrom(final InputStream resourceAsStream) {
+        assertNotNull(resourceAsStream);
+        try {
+            this.properties.load(resourceAsStream);
+        } catch (final IOException exception) {
+            this.log.error(exception.toString());
+        }
+    }
+
+    /**
+     * Input stream.
+     *
+     * @param resourceName the resource name
      * @return the input stream
      */
-    protected InputStream resourceAsStream(final String resourceFilename) {
-        final ClassLoader classLoader = this.getClass().getClassLoader();
-        return classLoader.getResourceAsStream(resourceFilename);
+    protected InputStream inputStream(final String resourceName) {
+        final ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+        final InputStream resourceAsStream = classloader.getResourceAsStream(resourceName);
+        return resourceAsStream;
+    }
+
+    /**
+     * To property filename.
+     *
+     * @param configFilename the Configuration filename
+     * @return the string
+     */
+    protected String toPropertyFilename(final String configFilename) {
+        return String.format("%s.properties", configFilename);
     }
 
     /**
@@ -125,10 +134,10 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
     public String get(final String key, final String defaultValue) {
         String propertyValue = System.getProperty(key);
         if (propertyValue == null) {
-            propertyValue = properties.getProperty(key, defaultValue);
-            log.trace("Using property file for key {} = {}", key, propertyValue);
+            propertyValue = this.properties.getProperty(key, defaultValue);
+            this.log.trace("Using property file for key {} = {}", key, propertyValue);
         } else {
-            log.info("Using system property override for key {} = {}", key, propertyValue);
+            this.log.warn("Using system property override for key {} = {}", key, propertyValue);
         }
 
         return propertyValue;
@@ -222,7 +231,7 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
     @Override
     public String prettyString() {
         final String className = this.getClass().getSimpleName();
-        return String.format("%s [properties=%s]", className, prettyProperties(properties));
+        return String.format("%s [properties=%s]", className, prettyProperties(this.properties));
     }
 
     /*
@@ -233,7 +242,7 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
     @Override
     public String toString() {
         final String className = this.getClass().getSimpleName();
-        return String.format("%s [properties=%s]", className, prettyProperties(properties));
+        return String.format("%s [properties=%s]", className, prettyProperties(this.properties));
     }
 
     /**
@@ -244,7 +253,7 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
      */
     protected String prettyProperties(final Properties properties) {
         if (properties == null) {
-            return "null";
+            return "{null}";
         } else if (properties.isEmpty()) {
             return "{empty}";
         } else {
