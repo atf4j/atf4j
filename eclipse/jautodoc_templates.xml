@@ -33,22 +33,23 @@
 				*/</text>
 		</template>
 	</template>
-	<template kind="1" name="Type.Test" default="false" signature="false">
+	<template kind="1" name="Type.Test" default="false"
+		signature="false">
 		<regex>(.+)Test</regex>
 		<example>ExampleTest</example>
 		<text>/**
 			* A UnitTest for ${e.g(1)} objects.
 			*/</text>
-		<template kind="3" name="Type.Test.Method.verify" default="false"
-			signature="false">
+		<template kind="3" name="Type.Test.Method.verify"
+			default="false" signature="false">
 			<regex>verify(.+)</regex>
 			<example>verifySomething</example>
 			<text>/**
 				* Verify ${e.p().g(1)} object.
 				*/</text>
 		</template>
-		<template kind="3" name="Type.Test.Method.afoo" default="false"
-			signature="false">
+		<template kind="3" name="Type.Test.Method.afoo"
+			default="false" signature="false">
 			<regex>foo(.+)</regex>
 			<example>fooBar</example>
 			<text>/**
@@ -60,8 +61,8 @@
 				*
 				*/</text>
 		</template>
-		<template kind="3" name="Type.Test.Method.test" default="false"
-			signature="false">
+		<template kind="3" name="Type.Test.Method.test"
+			default="false" signature="false">
 			<regex>test(.+)</regex>
 			<example>testSomething</example>
 			<text>/**
@@ -84,8 +85,8 @@
 		<text>/**
 			* A factory for creating ${e.g(1)} objects.
 			*/</text>
-		<template kind="3" name="Type.Factory.Method.create" default="false"
-			signature="false">
+		<template kind="3" name="Type.Factory.Method.create"
+			default="false" signature="false">
 			<regex>create(.+)</regex>
 			<example>createMessage</example>
 			<text>/**
@@ -223,8 +224,8 @@
 			${e.g(1).rsfl()}
 			*/</text>
 	</template>
-	<template kind="3" name="Method.boolean Getter" default="false"
-		signature="true">
+	<template kind="3" name="Method.boolean Getter"
+		default="false" signature="true">
 		<regex>boolean is(.+)\(.*\)</regex>
 		<example>boolean isBlue()</example>
 		<text>/**
@@ -260,8 +261,8 @@
 			* ${e.g(1).rsfu()}.
 			*/</text>
 	</template>
-	<template kind="3" name="Method.Returns boolean" default="false"
-		signature="true">
+	<template kind="3" name="Method.Returns boolean"
+		default="false" signature="true">
 		<regex>boolean (\S+)\(.*\)</regex>
 		<example>boolean doSomething(int parameter)</example>
 		<text>/**
@@ -335,10 +336,10 @@
 		<text>/**
 			* @param ${e} the ${e.rsfl()}
 			*/
-			</text>
+		</text>
 	</template>
-	<template kind="5" name="Exception.IOException" default="false"
-		signature="false">
+	<template kind="5" name="Exception.IOException"
+		default="false" signature="false">
 		<regex>IOException</regex>
 		<example>IOException</example>
 		<text>/**

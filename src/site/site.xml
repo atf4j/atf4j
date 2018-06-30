@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="atf4j the Automated Testing Framework for Java"
-	xmlns="http://maven.apache.org/DECORATION/1.6.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://maven.apache.org/DECORATION/1.6.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.6.0 http://maven.apache.org/xsd/decoration-1.6.0.xsd">
 
 	<publishDate position="bottom" />
 	<version position="bottom" />
-	
+
 	<bannerLeft>
 		<name>Maven</name>
 		<src>http://maven.apache.org/images/apache-maven-project.png</src>
@@ -43,14 +44,17 @@
 
 		<menu name="ATF4J API">
 			<item name="ATF4J AMQ" href="atf4j-amq/index.html" />
-			<item name="ATF4J Annotations" href="atf4j-annotations/index.html" />
+			<item name="ATF4J Annotations"
+				href="atf4j-annotations/index.html" />
 			<item name="ATF4J Core" href="atf4j-core/index.html" />
-			<item name="ATF4J Cucumber WebDriver" href="atf4j-cucumber-webdriver/index.html" />
+			<item name="ATF4J Cucumber WebDriver"
+				href="atf4j-cucumber-webdriver/index.html" />
 			<item name="ATF4J CSV" href="atf4j-csv/index.html" />
 			<item name="ATF4J Data" href="atf4j-data/index.html" />
 			<item name="ATF4J FDD" href="atf4j-fdd/index.html" />
 			<item name="ATF4J JUnit" href="atf4j-junit/index.html" />
-			<item name="ATF4J PageObject Generator" href="atf4j-pog/index.html" />
+			<item name="ATF4J PageObject Generator"
+				href="atf4j-pog/index.html" />
 			<item name="ATF4J SOAPUI" href="atf4j-soapui/index.html" />
 			<item name="ATF4J WebDriver" href="atf4j-webdriver/index.html" />
 		</menu>
