@@ -23,10 +23,14 @@ import static org.junit.Assert.assertNotNull;
 /**
  * An abstract Configuration class.
  */
-public abstract class AbstractConfig extends TestResultsReporting implements ConfigurationInterface {
+public abstract class AbstractConfig
+        extends TestResultsReporting
+        implements ConfigurationInterface {
 
     /** The properties. */
     protected final Properties properties = new Properties();
+
+    /** The property filename. */
     protected String propertyFilename;
 
     /**
@@ -108,7 +112,11 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
      * @return the string
      */
     protected String toPropertyFilename(final String configFilename) {
-        return String.format("%s.properties", configFilename);
+        if (configFilename.endsWith(".properties")) {
+            return configFilename;
+        } else {
+            return String.format("%s.properties", configFilename);
+        }
     }
 
     /**

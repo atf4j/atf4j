@@ -23,10 +23,10 @@ import java.io.FilenameFilter;
 /**
  * Message Finder class.
  */
-public class MessageFinder extends AbstractFolderWalker {
+public class XmlMessageFinder extends AbstractFolderWalker {
 
     /** Default file extension . */
-    private static final String MSG_FILE = ".msg";
+    private static final String XML_FILE = ".xml";
 
     /**
      * Xml Filter class.
@@ -39,14 +39,14 @@ public class MessageFinder extends AbstractFolderWalker {
          */
         @Override
         public boolean accept(final File dir, final String filename) {
-            return filename.endsWith(MSG_FILE);
+            return filename.endsWith(XML_FILE);
         }
     }
 
     /**
      * Instantiates a new message finder.
      */
-    public MessageFinder() {
+    public XmlMessageFinder() {
         super();
         final XmlFilter extensionFilter = new XmlFilter();
         super.useExtensionFilter(extensionFilter);

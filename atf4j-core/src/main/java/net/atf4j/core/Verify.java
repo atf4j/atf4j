@@ -17,11 +17,11 @@
 
 package net.atf4j.core;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Verification class provides a number of static helper methods.
@@ -35,7 +35,7 @@ public final class Verify {
     private static final String MESSAGE = "verify(expected(%s) == actual(%s)) - %s";
 
     /** LOG constant. */
-    private static final Logger LOG  = LoggerFactory.getLogger(Verify.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Verify.class);
 
     /**
      * Instantiates a new verify.
@@ -50,7 +50,7 @@ public final class Verify {
      * @param message the message
      * @param object the object
      */
-    public static void verifyNotNull(final String message, Object object) {
+    public static void verifyNotNull(final String message, final Object object) {
         if (object == null) {
             throw new VerificationError(message);
         }
@@ -64,7 +64,7 @@ public final class Verify {
      *
      * @param object the object
      */
-    public static void verifyNotNull(Object object) {
+    public static void verifyNotNull(final Object object) {
         assertNotNull(object);
         final String objectName = object.getClass().getSimpleName();
         assertNotNull(objectName);

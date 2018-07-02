@@ -22,8 +22,6 @@ import java.io.FilenameFilter;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 import net.atf4j.core.TestResultsReporting;
 
@@ -35,13 +33,14 @@ public abstract class AbstractFolderWalker
         implements FolderWalkerInterface {
 
     /** base path. */
-    private String path = ".";
+    private String path = "messages";
 
     /** filename filter. */
     private FilenameFilter filter = new Unfiltered();
 
     /** list of found files. */
-    private final List<File> foundFiles = new ArrayList<File>();
+    // private final List<File> foundFiles = new ArrayList<File>();
+    private final FoundFiles foundFiles = new FoundFiles();
 
     /**
      * Unfiltered filename class.
@@ -84,7 +83,7 @@ public abstract class AbstractFolderWalker
      */
     public AbstractFolderWalker(final FilenameFilter extensionFilter) {
         super();
-        setExtensionFilter(extensionFilter);
+        useExtensionFilter(extensionFilter);
     }
 
     /*
@@ -93,8 +92,9 @@ public abstract class AbstractFolderWalker
      * @see net.atf4j.amq.FolderWalkerInterface#setPath(java.lang.String)
      */
     @Override
-    public void setPath(final String path) {
+    public FolderWalkerInterface setPath(final String path) {
         this.path = path;
+        return this;
     }
 
     /*
@@ -104,8 +104,9 @@ public abstract class AbstractFolderWalker
      * FilenameFilter)
      */
     @Override
-    public void setExtensionFilter(final FilenameFilter extensionFilter) {
+    public FolderWalkerInterface useExtensionFilter(final FilenameFilter extensionFilter) {
         this.filter = extensionFilter;
+        return this;
     }
 
     /*
@@ -114,7 +115,7 @@ public abstract class AbstractFolderWalker
      * @see net.atf4j.amq.FolderWalkerInterface#walk()
      */
     @Override
-    public List<File> walk() {
+    public FoundFiles walk() {
         return walk(this.path);
     }
 
@@ -124,11 +125,9 @@ public abstract class AbstractFolderWalker
      * @see net.atf4j.amq.FolderWalkerInterface#walk(java.lang.String)
      */
     @Override
-    public List<File> walk(final String path) {
+    public FoundFiles walk(final String path) {
         if (path != null) {
             final File dir = new File(path);
-            this.log.debug("dir = {}", dir.getAbsolutePath());
-            this.log.debug("file = {}", dir.getAbsoluteFile());
             final File[] files = dir.listFiles(this.filter);
             if (files != null) {
                 for (final File file : files) {
@@ -144,22 +143,32 @@ public abstract class AbstractFolderWalker
         return this.foundFiles;
     }
 
+    @Override
+    public FoundFiles scan() {
+        return scan(this.path);
+    }
+
     /*
      * (non-Javadoc)
      *
      * @see net.atf4j.amq.FolderWalkerInterface#scan(java.lang.String)
      */
     @Override
-    public List<File> scan(final String path) {
-        final File root = new File(path);
-        for (final File file : root.listFiles()) {
-            if (file.isDirectory()) {
-                final String subDir = file.getAbsolutePath();
-                this.log.debug("{}", subDir);
-                scan(subDir);
-            } else {
-                this.log.debug("{}", file);
-                this.foundFiles.add(file);
+    public FoundFiles scan(final String folder) {
+        if (this.path != null) {
+            final ClassLoader loader = Thread.currentThread().getContextClassLoader();
+            final URL url = loader.getResource(folder);
+            final String path = url.getPath();
+            final File[] files = new File(path).listFiles(this.filter);
+            if (files != null) {
+                for (final File file : files) {
+                    if (file.isDirectory()) {
+                        final String subDir = file.getAbsolutePath();
+                        scan(subDir);
+                    } else {
+                        this.foundFiles.add(file);
+                    }
+                }
             }
         }
         return this.foundFiles;
@@ -201,15 +210,10 @@ public abstract class AbstractFolderWalker
      * @see net.atf4j.amq.FolderWalkerInterface#getFoundFiles()
      */
     @Override
-    public List<File> getFoundFiles() {
+    public FoundFiles getFoundFiles() {
         return this.foundFiles;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#toString()
-     */
     @Override
     public String toString() {
         return String.format("%s [path=%s, filter=%s, foundFiles=%s]",

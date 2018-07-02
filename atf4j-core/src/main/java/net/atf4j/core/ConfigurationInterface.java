@@ -59,18 +59,62 @@ public interface ConfigurationInterface {
      */
     String valueFor(final String key, final String defaultValue);
 
+    /**
+     * Gets the.
+     *
+     * @param key the key
+     * @param defaultValue the default value
+     * @return true, if gets the
+     */
     boolean get(final String key, final boolean defaultValue);
 
+    /**
+     * Gets the.
+     *
+     * @param key the key
+     * @param defaultValue the default value
+     * @return the long
+     */
     long get(final String key, final long defaultValue);
 
+    /**
+     * Gets the.
+     *
+     * @param key the key
+     * @param defaultValue the default value
+     * @return the int
+     */
     int get(final String key, final int defaultValue);
 
+    /**
+     * Gets the.
+     *
+     * @param key the key
+     * @param defaultValue the default value
+     * @return the string
+     */
     String get(final String key, final String defaultValue);
 
+    /**
+     * Gets the.
+     *
+     * @param key the key
+     * @return the string
+     */
     String get(final String key);
 
+    /**
+     * To string.
+     *
+     * @return the string
+     */
     @Override
     String toString();
 
+    /**
+     * Pretty string.
+     *
+     * @return the string
+     */
     String prettyString();
 }

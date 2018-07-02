@@ -17,30 +17,32 @@
 
 package net.atf4j.amq;
 
-import static org.junit.Assume.assumeTrue;
-
 import java.util.Arrays;
 
 import javax.jms.JMSException;
 
 import org.junit.Test;
 
+import static org.junit.Assume.assumeTrue;
+
 import net.atf4j.core.TestContext;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * The ProducerTest Class.
+ * Unit Test for message Producer class.
  */
 public class ProducerExample extends TestResultsReporting {
 
     @Test
-    public void testExampleUsage() throws JMSException {
+    public void exampleUsage() throws JMSException {
+        // Given an ActiveMQ server is expected.
         assumeTrue(TestContext.isActiveMQ());
         final Producer producer = new Producer();
         verifyNotNull(producer);
 
         final String[] messages = null;
-        log.debug("{}", Arrays.toString(messages));
+        this.log.debug("{}", Arrays.toString(messages));
         verifyNotNull(producer.execute(messages));
     }
+
 }

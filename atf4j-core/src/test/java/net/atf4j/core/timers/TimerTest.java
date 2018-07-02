@@ -17,10 +17,10 @@
 
 package net.atf4j.core.timers;
 
+import org.junit.Test;
+
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-
-import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
 
@@ -50,12 +50,12 @@ public final class TimerTest extends TestResultsReporting {
         assertNotNull(timer);
         assertNotNull(timer.start());
         assertNotNull(timer.stop());
-        log.debug("Start Time = {}", timer.getStartTime());
+        this.log.debug("Start Time = {}", timer.getStartTime());
         final long elapsedTime = timer.getElapsedTime();
-        log.debug("Elapsed Time = {} ", elapsedTime);
-        log.debug("Elapsed time not within delta (%s)", timer.toString(), delta);
-        final String message = String.format(" Elapsed time not within delta (%s)", timer, delta);
-        assertTrue(message, timer.getElapsedTime() <= DEFAULT_INTERVAL + delta);
+        this.log.debug("Elapsed Time = {} ", elapsedTime);
+        this.log.debug("Elapsed time within delta ({}) for {}", this.delta, timer.toString());
+        final String message = String.format(" Elapsed time not within delta (%s) for ", this.delta, timer.toString());
+        assertTrue(message, timer.getElapsedTime() <= DEFAULT_INTERVAL + this.delta);
     }
 
     /**
@@ -68,10 +68,10 @@ public final class TimerTest extends TestResultsReporting {
         assertNotNull(timer.start());
         waitDefaultInterval();
         assertNotNull(timer.stop());
-        log.debug("Start Time = {}", timer.getStartTime());
-        log.debug("Elapsed Time = {}", timer.getElapsedTime());
-        final String message = String.format(" Elapsed time not within delta (%s)", timer, delta);
-        assertTrue(message, timer.getElapsedTime() <= DEFAULT_INTERVAL + delta);
+        this.log.debug("Start Time = {}", timer.getStartTime());
+        this.log.debug("Elapsed Time = {}", timer.getElapsedTime());
+        final String message = String.format(" Elapsed time not within delta (%s)", timer, this.delta);
+        assertTrue(message, timer.getElapsedTime() <= DEFAULT_INTERVAL + this.delta);
     }
 
     /**
@@ -84,7 +84,7 @@ public final class TimerTest extends TestResultsReporting {
             // restore interrupt status.
             final Thread currentThread = Thread.currentThread();
             currentThread.interrupt();
-            log.error(interruptedException.toString());
+            this.log.error(interruptedException.toString());
         }
     }
 }

@@ -22,19 +22,19 @@ package net.atf4j.core.timers;
  */
 public class Interval implements IntervalInterface {
 
-    /** SECOND as 1000 Milliseconds. */
+    /** A SECOND as 1000 Milliseconds. */
     public static final int SECOND = 1000;
 
-    /** MINUTE as 60 Seconds. */
+    /** A MINUTE as 60 Seconds. */
     public static final int MINUTE = 60 * SECOND;
 
-    /** HOUR as 60 Minutes. */
+    /** An HOUR as 60 Minutes. */
     public static final int HOUR = 60 * MINUTE;
 
-    /** DAY as 24 Hours. */
+    /** A DAY as 24 Hours. */
     public static final int DAY = 24 * HOUR;
 
-    /** The time period. */
+    /** The time period of the elapsed interval. */
     public long timePeriod;
 
     /**

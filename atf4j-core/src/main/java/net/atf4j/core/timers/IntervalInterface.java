@@ -27,41 +27,41 @@ public interface IntervalInterface {
      *
      * @return timePeriod of Interval in Milliseconds as long.
      */
-    public long asLong();
+    long asLong();
 
     /**
      * asMilliSeconds.
      *
      * @return timePeriod of Interval in Milliseconds as long.
      */
-    public long asMilliSeconds();
+    long asMilliSeconds();
 
     /**
      * asSeconds.
      *
      * @return timePeriod of Interval in seconds as long.
      */
-    public long asSeconds();
+    long asSeconds();
 
     /**
      * asMinutes.
      *
      * @return timePeriod of Interval in seconds as long.
      */
-    public long asMinutes();
+    long asMinutes();
 
     /**
      * asHours.
      *
      * @return timePeriod of Interval in seconds as long.
      */
-    public long asHours();
+    long asHours();
 
     /**
      * asDays.
      *
      * @return timePeriod of Interval in seconds as long.
      */
-    public long asDays();
+    long asDays();
 
 }

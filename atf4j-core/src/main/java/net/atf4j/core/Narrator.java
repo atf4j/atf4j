@@ -19,21 +19,28 @@ package net.atf4j.core;
 
 import java.lang.reflect.Field;
 
-import org.slf4j.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Narrate a test from the call stack.
  */
 public final class Narrator {
 
+    /** The Constant NULL_OBJECT. */
     private static final String NULL_OBJECT = "object is [NULL]";
+    
+    /** The Constant NULL_SUPER_CLASS. */
     private static final String NULL_SUPER_CLASS = "superClass is [NULL]";
+    
+    /** The Constant NO_MEMBERS. */
     private static final String NO_MEMBERS = "[NO MEMBERS]";
 
     /** LAYOUT_STYLE. */
     private static final String LAYOUT_STYLE = "%s [%s]";
 
-    private static final Logger LOG  = LoggerFactory.getLogger(Narrator.class);
+    /** The Constant LOG. */
+    private static final Logger LOG = LoggerFactory.getLogger(Narrator.class);
 
     /**
      * private constructor to prevent rampant instantiation.

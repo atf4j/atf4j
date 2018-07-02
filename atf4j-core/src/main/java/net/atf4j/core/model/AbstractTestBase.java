@@ -17,11 +17,12 @@
 
 package net.atf4j.core.model;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assume.assumeTrue;
-
 import java.util.ArrayDeque;
 import java.util.Collection;
+
+import static org.junit.Assert.assertTrue;
+
+import static org.junit.Assume.assumeTrue;
 
 import net.atf4j.core.TestContext;
 import net.atf4j.core.TestResult;
@@ -35,7 +36,7 @@ import net.atf4j.core.VerificationError;
  */
 public abstract class AbstractTestBase extends TestResultsReporting {
 
-    /** The unique identifier. */
+    /** A Unique identifier. */
     protected TestIdentifier uniqueIdentifier = new TestIdentifier();
 
     /** The test result. */
@@ -44,28 +45,28 @@ public abstract class AbstractTestBase extends TestResultsReporting {
     /** The test report. */
     protected TestReport testReport;
 
-    /** The tester. */
-    private String tester; // test actor
+    /** The tester actor. */
+    private String tester;
 
-    /** The name. */
-    private String name; // short name of test
+    /** The short test name. */
+    private String name;
 
     /** The taxonomy. */
-    private String taxonomy; // taxonomy of test
+    private String taxonomy;
 
     /** The description. */
-    private String description; // full description of test
+    private String description;
 
-    /** The timestamp. */
-    private String timestamp; // ISO date.
+    /** The Timestamp is ISO format. */
+    private String timestamp;
 
     /** The context. */
     private TestContext context;
 
-    /** The pre conditions. */
+    /** Pre-Conditions. */
     private Collection<Condition> preConditions;
 
-    /** The post conditions. */
+    /** Post-Conditions. */
     private Collection<Condition> postConditions;
 
     /**

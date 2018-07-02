@@ -14,22 +14,25 @@
 
 package net.atf4j.core;
 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.atf4j.core.timers.NestedTimers;
+import net.atf4j.core.timers.TimerInterface;
 
 /**
  * Atf4j class.
  */
 public final class Atf4j {
 
-    /** The Constant 			LOG. */
-    private static final Logger LOG  = LoggerFactory.getLogger(Atf4j.class);
-    
-    /** The Constant 			nestedTimers. */
+    /** provides logging. */
+    private static final Logger LOG = LoggerFactory.getLogger(Atf4j.class);
+
+    /** Nested Timers. */
     private static final NestedTimers nestedTimers = NestedTimers.getInstance();
 
     /**
@@ -52,7 +55,7 @@ public final class Atf4j {
      * @param string the string
      */
     public static void start(final String string) {
-        LOG.info("start {}", string);
+        LOG.debug("start {}", string);
         nestedTimers.startTimer(string);
     }
 
@@ -60,11 +63,14 @@ public final class Atf4j {
      * End.
      */
     public static void end() {
-        LOG.info("end {}", nestedTimers.stopTimer().toString());
+        final TimerInterface stopTimer = nestedTimers.stopTimer();
+        final String string = stopTimer.toString();
+        LOG.debug("end {}", string);
     }
 
     /**
-     * Document.
+     * Document the current call stack from the test method.
+     * The test method must be marked with @Test annotation.
      */
     public static void document() {
         final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
@@ -78,38 +84,76 @@ public final class Atf4j {
      * @return the string
      */
     public static String document(final StackTraceElement[] stackTrace) {
-        final StringBuffer document = new StringBuffer();
+        final StringBuffer scenario = new StringBuffer();
         for (final StackTraceElement stackTraceElement : stackTrace) {
-            final String methodName = stackTraceElement.getMethodName();
-            final String phrase = unroll(methodName);
-            document.append(phrase);
-            LOG.debug(phrase);
+            if (isTest(stackTraceElement)) {
+                final String methodName = stackTraceElement.getMethodName();
+                final String phrase = unroll(methodName);
+                scenario.append(phrase);
+                LOG.info(phrase);
+            }
         }
-        return document.toString();
+        return scenario.toString();
+    }
+
+    private static boolean isTest(final StackTraceElement stackTraceElement) {
+        try {
+            final Class<?> aClass = Class.forName(stackTraceElement.getClassName());
+            LOG.info(aClass.toString());
+            printAnnotation("\t{}\n", aClass.getAnnotations());
+            final String methodName = stackTraceElement.getMethodName();
+            final Method[] methods = aClass.getMethods();
+            for (final Method method : methods) {
+                if (method.getName().equals(methodName)) {
+                    LOG.info("\t{}\n", method);
+                    printAnnotation("\t\t{}\n", method.getDeclaredAnnotations());
+                }
+            }
+        } catch (final ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (final SecurityException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    private static void printAnnotation(final String pattern, final Annotation[] annotations) {
+        for (final Annotation annotation : annotations) {
+            LOG.info(pattern, annotation);
+        }
     }
 
     /**
-     * Unroll.
+     * Unroll a string.
      *
      * @param input the input
      * @return the string
      */
-    private static String unroll(final String input) {
-        final StringBuffer phrase = new StringBuffer(input.length() * 2);
+    public static String unroll(final String input) {
         if (input != null) {
             if (input.length() > 0) {
+                final StringBuffer phrase = new StringBuffer(input.length() * 2);
                 for (int i = 0; i < input.length(); i++) {
-                    final char chr = input.charAt(i);
-                    if (Character.isUpperCase(chr)) {
-                        phrase.append(' ');
-                        phrase.append(Character.toLowerCase(chr));
+                    if (i == 0) {
+                        // capitalise the first character for sentence case.
+                        phrase.append(Character.toUpperCase(input.charAt(0)));
+                    } else {
+                        final char chr = input.charAt(i);
+                        if (chr == '_') {
+                            phrase.append(' ');
+                        } else if (Character.isUpperCase(chr)) {
+                            phrase.append(' ');
+                            phrase.append(Character.toLowerCase(chr));
+                        } else {
+                            phrase.append(chr);
+                        }
                     }
                 }
+                phrase.append('.');
                 return phrase.toString();
             }
         }
-        phrase.setCharAt(0, Character.toUpperCase(input.charAt(0)));
-        return phrase.toString();
+        return null;
     }
 
 }

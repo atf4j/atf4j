@@ -19,11 +19,25 @@ package net.atf4j.core;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 
 /**
  * The Atf4jTest Class.
  */
 public class Atf4jTest extends TestResultsReporting {
+
+    /**
+     * When the code uses business domain language in method calls.
+     * The method <code>Atf4j.document();</code> will provide a
+     * plausible natural language description of the scenario that
+     * lead to the current situation.
+     */
+    @Test
+    public void testDocument() {
+        Atf4j.start();
+        Atf4j.document();
+        Atf4j.end();
+    }
 
     /**
      * Test start end.
@@ -36,13 +50,33 @@ public class Atf4jTest extends TestResultsReporting {
     }
 
     /**
-     * Test document.
+     * Unit test to unroll.
      */
     @Test
-    public void testDocument() {
-        Atf4j.start();
-        Atf4j.document();
-        Atf4j.end();
+    public void testUnroll() {
+        final String input = "aLongStringToUnrollIntoASentence";
+        final String expected = "A long string to unroll into a sentence.";
+        final String unrolled = Atf4j.unroll(input);
+        assertEquals(expected, unrolled);
+        this.log.info(unrolled);
+    }
+
+    /**
+     * Unit test to unroll empty.
+     */
+    @Test
+    public void testUnrollEmpty() {
+        this.log.info(Atf4j.unroll(""));
+        this.log.info(Atf4j.unroll("_"));
+        this.log.info(Atf4j.unroll("a"));
+        this.log.info(Atf4j.unroll("_a"));
+        this.log.info(Atf4j.unroll("A"));
+        this.log.info(Atf4j.unroll("_A"));
+    }
+
+    @Test
+    public void testUnrollNull() {
+        this.log.info(Atf4j.unroll(null));
     }
 
 }
