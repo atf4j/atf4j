@@ -1,10 +1,12 @@
-# Automated Test Framework for Java
+# ATF4J-AMQ Automated Test Framework for Java
 
-## Automated Test Framework for Java - ATF4J-AMQ
+## Apache ActiveMQ support 
 
-Automation Test Framework for Apache ActiveMQ
+Automation Test Framework for use with Apache ActiveMQ.  The module of the Automation Test Framework for Java provides support for use with Apache ActiveMQ.  It can be used to initialise a MessageQueue before a test.  It provides support to inject individual message to whole directories.  Messages can be retrieved from a queue for testing.
 
 ## Example Code
+
+Find all the message files within a folder, traversing sub-directories as necessary, allows file filters to be applied.
 
 ### Message Finder
 
@@ -15,12 +17,16 @@ Automation Test Framework for Apache ActiveMQ
 
 ### Message Producer
 
+Messages can be added to a queue.
+
 	final String[] messages = ...;
 
 	final Producer producer = new Producer();
 	producer.execute(messages);
 
-### Message Consumer
+### Message Producer
+
+Messages can be added to a queue.
 
 	final Consumer consumer = new Consumer();
 	final String[] messages = consumer.execute();

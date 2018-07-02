@@ -4,20 +4,32 @@
 
 Java Automation Test Framework for Data Driven Testing.
 
-## Maven Dependency
-
-	<dependency>
-		<groupId>net.atf4j</groupId>
-		<artifactId>atf4j-data</artifactId>
-		<version>${atf4j.version}</version>
-	</dependency>
-
 ## Usage
 
-In command line shell run:
+### Find all the message files under the resources (src/main/resources) folder messages.
 
-    mvn test
+    public final class MessageWalker extends AbstractFolderWalker {
+        private MessageWalker() {
+            super("/messages");
+        }
+    }
 
-## Overriding options
+    @Test
+    public void testAbstractWalker() {
+        new MessageWalker().walk();
+    }
 
-    mvn -Doptions="value" test
+
+### Find data that fits a specific criteria
+
+    @Test
+    public void testLogin() {
+        // Given an authorised user
+        Credentials.for(Credentials.AUTHORISED);
+    }
+
+    @Test
+    public void test() {
+        Customer customer = DataManager.for("@CREDIT-CUSTOMER");
+        orderPage.enterCustomerName(customer.name);
+    }
