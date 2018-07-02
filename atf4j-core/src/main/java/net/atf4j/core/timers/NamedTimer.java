@@ -24,16 +24,16 @@ import java.util.UUID;
  */
 public class NamedTimer implements TimerInterface {
 
-    /** The start time. */
+    /** The start time in milliseconds. */
     private long startTime = 0;
 
-    /** The stop time. */
+    /** The stop time in milliseconds. */
     private long stopTime = 0;
 
-    /** The elapsed time. */
+    /** The elapsed time in milliseconds. */
     private long elapsedTime = 0;
 
-    /** The timer name. */
+    /** Name of the timer, if no name was provided, then its unique UUID */
     private final String timerName;
 
     /**
@@ -41,7 +41,7 @@ public class NamedTimer implements TimerInterface {
      */
     public NamedTimer() {
         super();
-        timerName = UUID.randomUUID().toString();
+        this.timerName = UUID.randomUUID().toString();
     }
 
     /**
@@ -51,7 +51,7 @@ public class NamedTimer implements TimerInterface {
      */
     public NamedTimer(final String useName) {
         super();
-        timerName = useName;
+        this.timerName = useName;
     }
 
     /*
@@ -61,7 +61,7 @@ public class NamedTimer implements TimerInterface {
      */
     @Override
     public final NamedTimer start() {
-        startTime = System.currentTimeMillis();
+        this.startTime = System.currentTimeMillis();
         return this;
     }
 
@@ -72,8 +72,8 @@ public class NamedTimer implements TimerInterface {
      */
     @Override
     public final NamedTimer stop() {
-        stopTime = System.currentTimeMillis();
-        elapsedTime = stopTime - startTime;
+        this.stopTime = System.currentTimeMillis();
+        this.elapsedTime = this.stopTime - this.startTime;
         return this;
     }
 
@@ -83,7 +83,7 @@ public class NamedTimer implements TimerInterface {
      * @return the timer name
      */
     public String getTimerName() {
-        return timerName;
+        return this.timerName;
     }
 
     /*
@@ -93,7 +93,7 @@ public class NamedTimer implements TimerInterface {
      */
     @Override
     public final long getStartTime() {
-        return startTime;
+        return this.startTime;
     }
 
     /*
@@ -103,7 +103,7 @@ public class NamedTimer implements TimerInterface {
      */
     @Override
     public final long getStopTime() {
-        return stopTime;
+        return this.stopTime;
     }
 
     /*
@@ -113,16 +113,17 @@ public class NamedTimer implements TimerInterface {
      */
     @Override
     public long getElapsedTime() {
-        return elapsedTime;
+        return this.elapsedTime;
     }
 
     @Override
     public String toString() {
-        return String.format("NamedTimer [timerName=%s, startTime=%s, stopTime=%s, elapsedTime=%s]",
-                timerName,
-                startTime,
-                stopTime,
-                elapsedTime);
+        return String.format("%s [timerName=%s, startTime=%s, stopTime=%s, elapsedTime=%s]",
+                this.getClass().getSimpleName(),
+                this.timerName,
+                this.startTime,
+                this.stopTime,
+                this.elapsedTime);
     }
 
 }

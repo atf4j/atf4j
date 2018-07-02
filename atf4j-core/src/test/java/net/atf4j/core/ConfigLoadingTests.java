@@ -17,15 +17,14 @@
 
 package net.atf4j.core;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
 
-
 /**
- * ConfigLoadingTests Class.
+ * Unit test for loading a Configuration from properties.
  */
 public final class ConfigLoadingTests extends TestResultsReporting {
 
@@ -33,7 +32,6 @@ public final class ConfigLoadingTests extends TestResultsReporting {
      * Missing Properties class.
      */
     private class MissingProperties extends AbstractConfig {
-
         /**
          * Instantiates a new missing properties.
          *
@@ -48,12 +46,13 @@ public final class ConfigLoadingTests extends TestResultsReporting {
      * A Mock Test Configuration from file.
      */
     private class ConfigFromFile extends AbstractConfig {
+
         /**
          * Instantiates a new Configuration from file.
          *
          * @throws ConfigurationNotLoadedException the configuration not loaded
          */
-        public ConfigFromFile() throws ConfigurationNotLoadedException {
+        public ConfigFromFile() {
             super("ConfigFromFile.properties");
         }
 
@@ -70,23 +69,26 @@ public final class ConfigLoadingTests extends TestResultsReporting {
     /**
      * Test method for MissingProperties.
      *
-     * @throws ConfigurationNotLoadedException the configuration not loaded exception
+     * @throws ConfigurationNotLoadedException the configuration not loaded
+     *             exception
      */
-    @Test(expected = ConfigurationNotLoadedException.class)
-    public void testMissingConfig() throws ConfigurationNotLoadedException {
-        new MissingProperties();
+    @Test
+    public void testMissingConfig() {
+        final MissingProperties missingProperties = new MissingProperties();
+        verifyNotNull(missingProperties);
     }
 
     /**
      * Test method for value from file.
      *
-     * @throws ConfigurationNotLoadedException the configuration not loaded exception
+     * @throws ConfigurationNotLoadedException
+     *             the configuration not loaded exception
      */
     @Test
-    public void testConfigFromFile() throws ConfigurationNotLoadedException {
+    public void testConfigFromFile() {
         final ConfigFromFile config = new ConfigFromFile();
-        log.debug("config = {}", config.toString());
         verifyNotNull(config);
+        this.log.debug(config.toString());
         final String propertyFilename = config.getPropertyFilename();
         assertEquals("ConfigFromFile.properties", propertyFilename);
     }
@@ -94,13 +96,14 @@ public final class ConfigLoadingTests extends TestResultsReporting {
     /**
      * Test method for System overriding.
      *
-     * @throws ConfigurationNotLoadedException the configuration not loaded exception
+     * @throws ConfigurationNotLoadedException the configuration not loaded
+     *             exception
      */
     @Test
-    public void testSystemOveridesConfig() throws ConfigurationNotLoadedException {
+    public void testSystemOveridesConfig() {
         final ConfigFromFile config = new ConfigFromFile();
-        log.debug("config = {}", config.toString());
         verifyNotNull(config);
+        this.log.debug(config.toString());
         final String key = "property";
         final String value = "FromSystem";
         System.setProperty(key, value);

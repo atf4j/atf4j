@@ -17,9 +17,9 @@
 
 package net.atf4j.core.timers;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertNotNull;
 
 import net.atf4j.core.TestResultsReporting;
 
@@ -36,8 +36,8 @@ public final class NestedTimersTest extends TestResultsReporting {
     @Test
     public void testGetInstance() {
         final NestedTimers nestedTimers = NestedTimers.getInstance();
-        log.debug("NestedTimers.getInstance() = {}", nestedTimers);
         verifyNotNull(nestedTimers);
+        this.log.debug(nestedTimers.toString());
     }
 
     /**
@@ -46,18 +46,20 @@ public final class NestedTimersTest extends TestResultsReporting {
     @Test
     public void testNestedTimers() {
         final NestedTimers nestedTimers = NestedTimers.getInstance();
-        log.debug("NestedTimers.getInstance() = {}", nestedTimers);
         verifyNotNull(nestedTimers);
+        this.log.debug(nestedTimers.toString());
 
         for (int i = 0; i < 10; i++) {
             final String message = String.format("Test case Timer %s", i);
             final TimerInterface startTimer = nestedTimers.startTimer(message);
-            log.debug("startTimer = ", startTimer);
+            this.log.info("startTimer = {}", startTimer.toString());
+            waitDefaultInterval();
         }
 
         for (int i = 0; i < 10; i++) {
             final TimerInterface stopTimer = nestedTimers.stopTimer();
-            log.debug("stopTimer = ", stopTimer);
+            this.log.info("stopTimer = {}", stopTimer.toString());
+            waitDefaultInterval();
         }
     }
 
@@ -68,7 +70,7 @@ public final class NestedTimersTest extends TestResultsReporting {
     @Test
     public void testTimerInstance() {
         final NestedTimers nestedTimers = NestedTimers.getInstance();
-        log.debug("NestedTimers.getInstance() = {}", nestedTimers);
+        this.log.debug(nestedTimers.toString());
         verifyNotNull(nestedTimers);
 
         nestedTimers.startTimer("Timer Instance : Test case 1");
@@ -86,23 +88,30 @@ public final class NestedTimersTest extends TestResultsReporting {
         nestedTimers.startTimer("Timer Instance : Test case 5");
         waitDefaultInterval();
 
-        log.debug("runningTimersAsString = {}", nestedTimers.runningTimersAsString());
+        this.log.debug(nestedTimers.runningTimersAsString());
 
         assertNotNull(NestedTimers.stopAll());
 
-        log.debug("stoppedTimersAsString() = {}", nestedTimers.stoppedTimersAsString());
+        this.log.debug(nestedTimers.stoppedTimersAsString());
     }
 
     /**
      * Wait default interval.
      */
     private void waitDefaultInterval() {
+        waitDefaultInterval(DEFAULT_INTERVAL);
+    }
+
+    /**
+     * Wait integer interval.
+     */
+    private void waitDefaultInterval(final int interval) {
         try {
-            Thread.sleep(DEFAULT_INTERVAL);
+            Thread.sleep(interval);
         } catch (final InterruptedException interruptedException) {
             final Thread currentThread = Thread.currentThread();
             currentThread.interrupt();
-            log.error(interruptedException.toString());
+            this.log.error(interruptedException.toString());
         }
     }
 

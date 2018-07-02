@@ -17,9 +17,7 @@
 
 package net.atf4j.amq;
 
-import java.io.File;
 import java.io.FilenameFilter;
-import java.util.List;
 
 /**
  * The FolderWalkerInterface.
@@ -31,21 +29,21 @@ public interface FolderWalkerInterface {
      *
      * @param path the new path
      */
-    public void setPath(String path);
+    FolderWalkerInterface setPath(final String path);
 
     /**
      * Sets the extension filter.
      *
      * @param extensionFilter the new extension filter
      */
-    public void setExtensionFilter(FilenameFilter extensionFilter);
+    FolderWalkerInterface useExtensionFilter(final FilenameFilter extensionFilter);
 
     /**
      * Walk.
      *
      * @return the list
      */
-    public List<File> walk();
+    FoundFiles walk();
 
     /**
      * Walk the path.
@@ -53,28 +51,35 @@ public interface FolderWalkerInterface {
      * @param path the path
      * @return the list
      */
-    public List<File> walk(String path);
+    FoundFiles walk(final String path);
 
     /**
-     * Scan the path.
+     * Scan the home folder downwards.
+     *
+     * @return the found files
+     */
+    FoundFiles scan();
+
+    /**
+     * Scan the path downwards.
      *
      * @param path the path
      * @return the list
      */
-    public List<File> scan(String path);
+    FoundFiles scan(final String path);
 
     /**
      * Gets the path.
      *
      * @return the path
      */
-    public String getPath();
+    String getPath();
 
     /**
      * Gets the found files.
      *
      * @return the found files
      */
-    public List<File> getFoundFiles();
+    FoundFiles getFoundFiles();
 
 }

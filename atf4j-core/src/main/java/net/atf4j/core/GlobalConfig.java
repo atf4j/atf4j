@@ -22,7 +22,7 @@ package net.atf4j.core;
  */
 public final class GlobalConfig extends AbstractConfig {
 
-    /** The Constant 			GLOBAL_CONFIG. */
+    /** The Constant GLOBAL_CONFIG. */
     private static final GlobalConfig GLOBAL_CONFIG = new GlobalConfig();
 
     /**
@@ -89,7 +89,7 @@ public final class GlobalConfig extends AbstractConfig {
      * @param defaultValue the default value
      * @return the boolean value if found, otherwise the default.
      */
-    public static boolean booleanValueFor(final String key, boolean defaultValue) {
+    public static boolean booleanValueFor(final String key, final boolean defaultValue) {
         return getInstance().get(key, defaultValue);
     }
 

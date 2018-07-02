@@ -27,15 +27,22 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * Message Finder Test class.
  */
-public class MessageFinderTest extends TestResultsReporting {
+public class PlatformMessageFinderTest extends TestResultsReporting {
 
     /**
      * Test message finder.
      */
     @Test
-    public void testMessageFinder() {
-        final MessageFinder folderWalker = new MessageFinder();
-        verifyNotNull(folderWalker);
+    public void testPlatformMessageFinder() {
+        final PlatformMessageFinder messageFinder = new PlatformMessageFinder();
+        verifyNotNull(messageFinder);
+        this.log.debug(messageFinder.toString());
+    }
+
+    @Test
+    public void testStaticMessageFinder() {
+        final PlatformMessageFinder forPlatform = PlatformMessageFinder.forPlatform("@dev");
+        final Object obj = forPlatform.with("@tag");
     }
 
     /**
@@ -43,10 +50,10 @@ public class MessageFinderTest extends TestResultsReporting {
      */
     @Test
     public void testMessageFinderWalk() {
-        final MessageFinder folderWalker = new MessageFinder();
-        verifyNotNull(folderWalker);
+        final PlatformMessageFinder messageFinder = new PlatformMessageFinder();
+        verifyNotNull(messageFinder);
 
-        final List<File> messages = folderWalker.walk();
+        final List<File> messages = messageFinder.walk();
         verifyNotNull(messages);
         for (final File file : messages) {
             this.log.info("{} = {}", file.getName(), file.toString());
@@ -58,10 +65,10 @@ public class MessageFinderTest extends TestResultsReporting {
      */
     @Test
     public void testMessageFinderScan() {
-        final MessageFinder folderWalker = new MessageFinder();
-        verifyNotNull(folderWalker);
+        final PlatformMessageFinder messageFinder = new PlatformMessageFinder();
+        verifyNotNull(messageFinder);
 
-        final List<File> messages = folderWalker.scan(".");
+        final List<File> messages = messageFinder.scan(".");
         verifyNotNull(messages);
         for (final File file : messages) {
             this.log.info("{} = {}", file.getName(), file.toString());

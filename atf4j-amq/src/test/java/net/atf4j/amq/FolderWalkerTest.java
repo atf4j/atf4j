@@ -85,7 +85,7 @@ public class FolderWalkerTest extends TestResultsReporting {
      */
     @Test
     public void testFolderWalker() {
-        this.log.debug("testFolderWalker");
+        this.log.trace("testFolderWalker");
         final FolderWalkerInterface folderWalker = new FolderWalker();
         verifyNotNull(folderWalker);
         folderWalker.walk();
@@ -96,7 +96,7 @@ public class FolderWalkerTest extends TestResultsReporting {
      */
     @Test
     public void testFolderWalkerNull() {
-        this.log.debug("testFolderWalkerNull");
+        this.log.trace("testFolderWalkerNull");
         final FolderWalkerInterface folderWalker = new FolderWalker(null);
         verifyNotNull(folderWalker);
         folderWalker.walk();
@@ -107,7 +107,7 @@ public class FolderWalkerTest extends TestResultsReporting {
      */
     @Test
     public void testFolderWalkerEmpty() {
-        this.log.debug("testFolderWalkerEmpty");
+        this.log.trace("testFolderWalkerEmpty");
         final FolderWalkerInterface folderWalker = new FolderWalker("");
         verifyNotNull(folderWalker);
         folderWalker.walk();
@@ -118,7 +118,7 @@ public class FolderWalkerTest extends TestResultsReporting {
      */
     @Test
     public void testFolderWalkerDot() {
-        this.log.debug("testFolderWalkerDot");
+        this.log.trace("testFolderWalkerDot");
         final FolderWalkerInterface folderWalker = new FolderWalker(".");
         verifyNotNull(folderWalker);
         folderWalker.walk();
@@ -129,7 +129,7 @@ public class FolderWalkerTest extends TestResultsReporting {
      */
     @Test
     public void testFolderWalkerString() {
-        this.log.debug("testFolderWalkerString");
+        this.log.trace("testFolderWalkerString");
         final FolderWalkerInterface folderWalker = new FolderWalker("messages");
         verifyNotNull(folderWalker);
         folderWalker.walk();

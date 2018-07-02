@@ -27,34 +27,34 @@ public interface TimerInterface {
      *
      * @return the timer
      */
-    public abstract TimerInterface start();
+    abstract TimerInterface start();
 
     /**
      * stop timer.
      *
      * @return the timer
      */
-    public abstract TimerInterface stop();
+    abstract TimerInterface stop();
 
     /**
      * Gets the start time.
      *
      * @return start time in milliseconds as long.
      */
-    public abstract long getStartTime();
+    abstract long getStartTime();
 
     /**
      * Gets the stop time.
      *
      * @return the stop time
      */
-    public abstract long getStopTime();
+    abstract long getStopTime();
 
     /**
      * Gets the elapsed time.
      *
      * @return time in milliseconds as long.
      */
-    public abstract long getElapsedTime();
+    abstract long getElapsedTime();
 
 }

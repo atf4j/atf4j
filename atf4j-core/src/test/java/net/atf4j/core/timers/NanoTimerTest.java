@@ -17,9 +17,9 @@
 
 package net.atf4j.core.timers;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 import net.atf4j.core.TestResultsReporting;
 
@@ -34,8 +34,8 @@ public final class NanoTimerTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final NamedNanoTimer nanoTimer = new NamedNanoTimer();
-        log.debug("nanoTimer = {}", nanoTimer);
         verifyNotNull(nanoTimer);
+        this.log.debug(nanoTimer.toString());
     }
 
     /**
@@ -45,9 +45,9 @@ public final class NanoTimerTest extends TestResultsReporting {
     public void testNanoTimerString() {
         final String actual = "Named NanoTimer";
         final NamedNanoTimer nanoTimer = new NamedNanoTimer(actual);
-        log.debug("nanoTimer = {}", nanoTimer);
         verifyNotNull(nanoTimer);
         assertEquals(actual, nanoTimer.getTimerName());
+        this.log.debug(nanoTimer.toString());
     }
 
     /**
@@ -56,8 +56,8 @@ public final class NanoTimerTest extends TestResultsReporting {
     @Test
     public void testStart() {
         final NamedNanoTimer nanoTimer = new NamedNanoTimer();
-        log.debug("nanoTimer = {}", nanoTimer);
         verifyNotNull(nanoTimer.start());
+        this.log.debug(nanoTimer.toString());
     }
 
     /**
@@ -66,8 +66,8 @@ public final class NanoTimerTest extends TestResultsReporting {
     @Test
     public void testStop() {
         final NamedNanoTimer nanoTimer = new NamedNanoTimer();
-        log.debug("nanoTimer = {}", nanoTimer);
         verifyNotNull(nanoTimer.stop());
+        this.log.debug(nanoTimer.toString());
     }
 
     /**
@@ -76,8 +76,8 @@ public final class NanoTimerTest extends TestResultsReporting {
     @Test
     public void testGetStartTime() {
         final NamedNanoTimer nanoTimer = new NamedNanoTimer();
-        log.debug("nanoTimer = {}", nanoTimer);
         verifyNotNull(nanoTimer.getStartTime());
+        this.log.debug(nanoTimer.toString());
     }
 
     /**
@@ -86,8 +86,8 @@ public final class NanoTimerTest extends TestResultsReporting {
     @Test
     public void testGetElapsedTime() {
         final NamedNanoTimer nanoTimer = new NamedNanoTimer();
-        log.debug("nanoTimer = {}", nanoTimer);
         verifyNotNull(nanoTimer.getElapsedTime());
+        this.log.debug(nanoTimer.toString());
     }
 
     /**
@@ -96,8 +96,8 @@ public final class NanoTimerTest extends TestResultsReporting {
     @Test
     public void testToString() {
         final NamedNanoTimer nanoTimer = new NamedNanoTimer();
-        log.debug("nanoTimer = {}", nanoTimer);
         verifyNotNull(nanoTimer.toString());
+        this.log.debug(nanoTimer.toString());
     }
 
 }

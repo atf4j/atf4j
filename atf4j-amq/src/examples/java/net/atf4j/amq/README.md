@@ -6,24 +6,24 @@ Automation Test Framework for Apache ActiveMQ
 
 ## Example Code
 
-### Message Finder
+### Message Consumer Example
+
+	final Consumer consumer = new Consumer();
+	final String[] messages = consumer.execute();
+
+### Message Finder Example
 
 	final MessageFinder folderWalker = new MessageFinder();
 	for (final File file : folderWalker.walk()) {
 		log.info("{} = {}", file.getName(), file.toString());
 	}
 
-### Message Producer
+### Message Producer Example
 
 	final String[] messages = ...;
 
 	final Producer producer = new Producer();
 	producer.execute(messages);
-
-### Message Consumer
-
-	final Consumer consumer = new Consumer();
-	final String[] messages = consumer.execute();
 
 ## Usage
 

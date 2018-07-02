@@ -33,38 +33,41 @@ public final class NamedTimerTest extends TestResultsReporting {
     public void testDefaultConstructor() {
         final NamedTimer namedTimer = new NamedTimer();
         verifyNotNull(namedTimer);
-        log.debug("new NamedTimer() = {}", namedTimer);
+        this.log.debug(namedTimer.toString());
     }
 
     /**
-     * Test method for NamedTimer.
+     * UnitT method for NamedTimer.
      */
     @Test
     public void testNamedTimerString() {
         final NamedTimer namedTimer = new NamedTimer("MilliTimer");
         verifyNotNull(namedTimer);
-        log.debug("new NamedTimer() = {}", namedTimer);
+        this.log.debug(namedTimer.toString());
     }
 
     /**
-     * Test method for starting and stopping a NamedTimer.
+     * UnitT method for starting and stopping a NamedTimer.
      */
     @Test
     public void testStartStopNamedTimer() {
         final NamedTimer namedTimer = new NamedTimer();
         verifyNotNull(namedTimer);
-        log.debug("namedTimer.start = {}", namedTimer.start());
-        log.debug("namedTimer.stop = {}", namedTimer.stop());
+        final NamedTimer started = namedTimer.start();
+        this.log.debug(started.toString());
+        final NamedTimer stopped = namedTimer.stop();
+        this.log.debug(stopped.toString());
     }
 
     /**
-     * Test method for NamedTimer.
+     * UnitT method for the NamedTimer class.
      */
     @Test
     public void testToString() {
         final NamedTimer namedTimer = new NamedTimer();
         verifyNotNull(namedTimer);
-        log.debug("namedTimer.toString() = {}", namedTimer.toString());
+        final String string = namedTimer.toString();
+        this.log.debug(string);
     }
 
 }

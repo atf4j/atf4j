@@ -17,30 +17,33 @@
 
 package net.atf4j.amq;
 
-import java.util.Arrays;
-
-import javax.jms.JMSException;
-
-import org.junit.Test;
-
-import static org.junit.Assume.assumeTrue;
-
-import net.atf4j.core.TestContext;
-import net.atf4j.core.TestResultsReporting;
-
 /**
- * The ConsumerTest Class.
+ * Message Finder class.
  */
-public final class ConsumerExample extends TestResultsReporting {
+public class PlatformMessageFinder extends AbstractFolderWalker {
 
-    @Test
-    public void exampleUsage() throws JMSException {
-        assumeTrue(TestContext.isActiveMQ());
-        final Consumer consumer = new Consumer();
-        verifyNotNull(consumer.execute());
-
-        final String[] messages = consumer.execute();
-        verifyNotNull(messages);
-        this.log.debug("messages = {}", Arrays.toString(messages));
+    /**
+     * Instantiates a new message finder.
+     */
+    public PlatformMessageFinder() {
+        super();
     }
+
+    public PlatformMessageFinder(final String path) {
+        super();
+        super.setPath(path);
+    }
+
+    public static PlatformMessageFinder forPlatform(final String string) {
+        return new PlatformMessageFinder();
+    }
+
+    public static PlatformMessageFinder path(final String path) {
+        return new PlatformMessageFinder();
+    }
+
+    public Object with(final String string) {
+        return this;
+    }
+
 }

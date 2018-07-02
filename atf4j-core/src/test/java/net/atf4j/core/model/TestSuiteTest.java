@@ -17,9 +17,9 @@
 
 package net.atf4j.core.model;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 import net.atf4j.core.TestResult;
 import net.atf4j.core.TestResultsReporting;
@@ -55,17 +55,19 @@ public class TestSuiteTest extends TestResultsReporting {
     @Test
     public void testTypical() {
         final TestSuite testSuite = new TestSuite();
-        this.log.info("testSuite={}", testSuite);
+        this.log.info(testSuite.toString());
         verifyNotNull(testSuite);
-        testSuite.execute();
+        assertEquals(testSuite, testSuite.execute());
+        this.log.info(testSuite.toString());
     }
 
     @Test
     public void testMockTestReport() {
         final TestSuite testSuite = new TestSuite(new MockTestReport());
-        this.log.info("testSuite={}", testSuite);
+        this.log.info(testSuite.toString());
         verifyNotNull(testSuite);
-        testSuite.execute();
+        assertEquals(testSuite, testSuite.execute());
+        this.log.info(testSuite.toString());
     }
 
     /**
@@ -75,7 +77,9 @@ public class TestSuiteTest extends TestResultsReporting {
     public void testTestCaseString() {
         final TestSuite testSuite = new TestSuite();
         verifyNotNull(testSuite);
-        verifyNotNull(testSuite.toString());
+        final String string = testSuite.toString();
+        verifyNotNull(string);
+        this.log.info(string);
     }
 
     /**
@@ -84,10 +88,12 @@ public class TestSuiteTest extends TestResultsReporting {
     @Test
     public void testTestSuite() {
         final TestSuite testSuite = new TestSuite();
-        this.log.debug("testSuite = {}", testSuite);
         verifyNotNull(testSuite);
+        final String string = testSuite.toString();
+        this.log.debug(string);
+        assertEquals(testSuite, testSuite.execute());
         final TestResult result = testSuite.result();
-        this.log.debug("result = {}", result);
+        this.log.info(result.toString());
         verifyNotNull(result);
     }
 
@@ -130,7 +136,7 @@ public class TestSuiteTest extends TestResultsReporting {
         final TestSuite testSuite = new TestSuite();
         final PassingCondition newPreCondition = new PassingCondition();
         testSuite.addPreCondition(newPreCondition);
-        testSuite.execute();
+        assertEquals(testSuite, testSuite.execute());
     }
 
     /**
@@ -141,7 +147,7 @@ public class TestSuiteTest extends TestResultsReporting {
         final TestSuite testSuite = new TestSuite();
         final PassingCondition newPostCondition = new PassingCondition();
         testSuite.addPostCondition(newPostCondition);
-        testSuite.execute();
+        assertEquals(testSuite, testSuite.execute());
     }
 
 }

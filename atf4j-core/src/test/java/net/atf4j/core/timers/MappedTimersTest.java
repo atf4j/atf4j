@@ -19,6 +19,8 @@ package net.atf4j.core.timers;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 import net.atf4j.core.TestResultsReporting;
 
 /**
@@ -32,8 +34,8 @@ public final class MappedTimersTest extends TestResultsReporting {
     @Test
     public void testGetInstance() {
         final MappedTimers timer = MappedTimers.getInstance();
-        log.debug("MappedTimers.getInstance() = {}", timer);
         verifyNotNull(timer);
+        this.log.debug(timer.toString());
     }
 
     /**
@@ -42,9 +44,9 @@ public final class MappedTimersTest extends TestResultsReporting {
     @Test
     public void testExpectedUsage() {
         final TimerInterface timer = MappedTimers.start("testExpectedUsage");
-        log.debug("MappedTimers.getInstance() = {}", timer);
         verifyNotNull(timer);
-        verifyNotNull(timer.stop());
+        assertEquals(timer, timer.stop());
+        this.log.debug(timer.toString());
     }
 
     /**
@@ -52,7 +54,8 @@ public final class MappedTimersTest extends TestResultsReporting {
      */
     @Test
     public void testStopAll() {
-        verifyNotNull(MappedTimers.stopAll());
+        MappedTimers timers = MappedTimers.stopAll();
+        verifyNotNull(timers);
     }
 
     /**
@@ -60,7 +63,7 @@ public final class MappedTimersTest extends TestResultsReporting {
      */
     @Test
     public void testToString() {
-        verifyNotNull(MappedTimers.debugString());
+        String debugString = MappedTimers.debugString();
+        verifyNotNull(debugString);
     }
-
 }

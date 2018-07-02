@@ -100,7 +100,7 @@ public enum TestResult {
      * @return true, if successful, otherwise false.
      */
     public boolean is(final TestResult result) {
-        return this.equals(result);
+        return equals(result);
     }
 
 }

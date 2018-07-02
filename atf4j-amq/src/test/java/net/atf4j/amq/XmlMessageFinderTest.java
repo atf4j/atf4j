@@ -27,17 +27,41 @@ import net.atf4j.core.TestResultsReporting;
 /**
  * Message Finder Test class.
  */
-public final class MessageFinderExample extends TestResultsReporting {
+public class XmlMessageFinderTest extends TestResultsReporting {
 
     /**
-     * Unit test the expected usage of the message finder.
+     * Test message finder.
      */
     @Test
-    public void exampleMessageFinder() {
-        final XmlMessageFinder folderWalker = new XmlMessageFinder();
-        verifyNotNull(folderWalker);
+    public void testMessageFinder() {
+        final XmlMessageFinder xmlMessageFinder = new XmlMessageFinder();
+        verifyNotNull(xmlMessageFinder);
+    }
 
-        final List<File> messages = folderWalker.walk();
+    /**
+     * Unit tests for the messageFinderWalk() method of MessageFinder object.
+     */
+    @Test
+    public void testMessageFinderWalk() {
+        final XmlMessageFinder xmlMessageFinder = new XmlMessageFinder();
+        verifyNotNull(xmlMessageFinder);
+
+        final List<File> messages = xmlMessageFinder.walk();
+        verifyNotNull(messages);
+        for (final File file : messages) {
+            this.log.info("{} = {}", file.getName(), file.toString());
+        }
+    }
+
+    /**
+     * Unit tests for the messageFinderScan() method of MessageFinder object.
+     */
+    @Test
+    public void testMessageFinderScan() {
+        final XmlMessageFinder xmlMessageFinder = new XmlMessageFinder();
+        verifyNotNull(xmlMessageFinder);
+
+        final List<File> messages = xmlMessageFinder.scan();
         verifyNotNull(messages);
         for (final File file : messages) {
             this.log.info("{} = {}", file.getName(), file.toString());
