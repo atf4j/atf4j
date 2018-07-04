@@ -22,7 +22,7 @@ import org.junit.Test;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * An AnnotatedTest Class.
+ * An AnnotatedTest class.
  */
 @Atf4j.TestScript
 public class AnnotationHelperTest extends TestResultsReporting {

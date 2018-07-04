@@ -27,7 +27,7 @@ import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * WebDriverConfigTest Class.
+ * WebDriverConfigTest class.
  */
 public final class WebDriverConfigTest extends TestResultsReporting {
 

@@ -24,7 +24,7 @@ import org.junit.Test;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * The CredentialsTest Class.
+ * The CredentialsTest class.
  */
 public final class CredentialsTest extends TestResultsReporting {
 

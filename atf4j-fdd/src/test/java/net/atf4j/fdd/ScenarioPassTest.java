@@ -25,7 +25,7 @@ import org.junit.Test;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * Pass Scenario test class.
+ * Pass Scenario Test class.
  */
 public final class ScenarioPassTest extends TestResultsReporting {
 

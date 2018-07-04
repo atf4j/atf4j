@@ -25,7 +25,7 @@ import org.junit.runner.RunWith;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * The CustomRunnerTest Class.
+ * The CustomRunnerTest class.
  */
 @RunWith(value = CustomRunner.class)
 public final class CustomRunnerTest extends TestResultsReporting {

@@ -23,7 +23,7 @@ import org.junit.Test;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * Scenario Fail test class.
+ * Scenario Fail Test class.
  */
 public final class ScenarioFailTest extends TestResultsReporting {
 

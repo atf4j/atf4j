@@ -24,7 +24,7 @@ import org.junit.Test;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * The NodeTest Class.
+ * The NodeTest class.
  */
 public final class NodeTest extends TestResultsReporting {
 

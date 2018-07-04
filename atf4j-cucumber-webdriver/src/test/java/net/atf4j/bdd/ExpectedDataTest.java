@@ -22,7 +22,7 @@ import org.junit.Test;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * The ExpectedDataTest Class.
+ * The ExpectedDataTest class.
  */
 public class ExpectedDataTest extends TestResultsReporting {
 
