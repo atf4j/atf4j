@@ -25,7 +25,7 @@ import org.junit.Test;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * The ChordTest Class.
+ * The ChordTest class.
  */
 public final class ChordTest extends TestResultsReporting {
 

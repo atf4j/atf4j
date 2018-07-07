@@ -29,7 +29,7 @@ import net.atf4j.core.TestContext;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * The ProducerTest Class.
+ * The ProducerTest class.
  */
 public class ProducerTest extends TestResultsReporting {
 

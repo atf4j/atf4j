@@ -26,7 +26,7 @@ import org.junit.Test;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * The PostcodeDataTest Class.
+ * The PostcodeDataTest class.
  */
 public final class PostcodeDataTest extends TestResultsReporting {
 

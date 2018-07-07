@@ -24,7 +24,7 @@ import org.junit.Test;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * The ConsumerTest Class.
+ * The ConsumerTest class.
  */
 public final class ConsumerTest extends TestResultsReporting {
 

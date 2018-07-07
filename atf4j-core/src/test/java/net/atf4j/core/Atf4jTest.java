@@ -22,7 +22,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * The Atf4jTest Class.
+ * The Atf4jTest class.
  */
 public class Atf4jTest extends TestResultsReporting {
 

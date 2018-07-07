@@ -25,7 +25,7 @@ import org.junit.Test;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * The DataManagerTest Class.
+ * The DataManagerTest class.
  */
 public final class DataManagerTest extends TestResultsReporting {
 

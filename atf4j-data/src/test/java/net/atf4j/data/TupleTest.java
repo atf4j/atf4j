@@ -24,7 +24,7 @@ import org.junit.Test;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * The TupleTest Class.
+ * The TupleTest class.
  */
 public final class TupleTest extends TestResultsReporting {
 

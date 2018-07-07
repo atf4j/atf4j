@@ -26,7 +26,7 @@ import net.atf4j.core.TestResultsReporting;
 import net.atf4j.data.Postcode;
 
 /**
- * The PostcodeDataFactoryTest Class.
+ * The PostcodeDataFactoryTest class.
  */
 public final class PostcodeDataFactoryTest extends TestResultsReporting {
 

@@ -23,7 +23,7 @@ import org.junit.Test;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * The AutomationConfigTest Class.
+ * The AutomationConfigTest class.
  */
 public class AutomationConfigTest extends TestResultsReporting {
 

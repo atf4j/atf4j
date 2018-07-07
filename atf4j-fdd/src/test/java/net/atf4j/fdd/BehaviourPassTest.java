@@ -22,7 +22,7 @@ import org.junit.Test;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * Behaviour Pass Test Class.
+ * Behaviour Pass Test class.
  */
 public final class BehaviourPassTest extends TestResultsReporting {
 

@@ -29,7 +29,7 @@ public final class Situation extends TestResultsReporting {
      */
     public Situation() {
         super();
-        this.log.info("{}", this.getClass().getSimpleName());
+        this.log.info(this.getClass().getSimpleName());
     }
 
     /**

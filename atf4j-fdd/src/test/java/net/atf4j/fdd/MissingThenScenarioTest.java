@@ -54,7 +54,7 @@ public final class MissingThenScenarioTest extends TestResultsReporting {
      */
     @Feature.When("Pass When")
     public void passWhen() {
-        this.log.info("{}", super.toString());
+        this.log.info(super.toString());
     }
 
     // Deliberately missing.

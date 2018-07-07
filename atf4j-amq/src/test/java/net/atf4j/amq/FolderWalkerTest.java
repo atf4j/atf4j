@@ -25,7 +25,7 @@ import org.junit.Test;
 import net.atf4j.core.TestResultsReporting;
 
 /**
- * The FolderWalkerTest Class.
+ * The FolderWalkerTest class.
  */
 public class FolderWalkerTest extends TestResultsReporting {
 
