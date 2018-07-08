@@ -2,7 +2,7 @@ package automation.groovy;
 
 class DataFactoryTest {
 
-	example() {
+	void example() {
 		final Calendar today = DataFactory.today();
 		}
 
