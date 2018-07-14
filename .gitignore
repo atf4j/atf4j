@@ -7,16 +7,9 @@
 .project
 .metadata/
 .settings/
-*.class
-*.jar
-*.war
-*.ear
-
-/log4j/
 
 # Maven
-/target/**
-*/pom.xml.versionsBackup
+**/target/
+**/pom.xml.versionsBackup
 
-/web-driver-bin/
-/target/
+**/web-driver-bin/
