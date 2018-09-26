@@ -147,4 +147,13 @@ public final class Text extends TestResultsReporting {
         return builder.toString();
     }
 
+    public static String prettyProperties(final String properties) {
+        return properties
+            .replace("[", "[\n\t")
+            .replace("{", "{\n\t")
+            .replace(", ", "\n\t")
+            .replace("}", "\n\t}")
+            .replace("]", "\n\t]}");
+    }
+
 }

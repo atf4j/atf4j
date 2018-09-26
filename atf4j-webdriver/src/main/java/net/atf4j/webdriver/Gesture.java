@@ -1,3 +1,4 @@
+
 package net.atf4j.webdriver;
 
 import org.openqa.selenium.By;
@@ -9,32 +10,32 @@ public class Gesture {
     protected WebElement webElement;
     protected By by;
 
-    public Gesture(By by) {
+    public Gesture(final By by) {
         this.by = by;
     }
 
-    public Gesture(WebElement webElement) {
+    public Gesture(final WebElement webElement) {
         this.webElement = webElement;
     }
 
-    public static Gesture on(WebElement webElement) {
-        Gesture gesture = new Gesture(webElement);
+    public static Gesture on(final WebElement webElement) {
+        final Gesture gesture = new Gesture(webElement);
         return gesture;
     }
 
-    public static Gesture on(By by) {
-        Gesture gesture = new Gesture(by);
+    public static Gesture on(final By by) {
+        final Gesture gesture = new Gesture(by);
         return gesture;
     }
 
-    private WebElement findElement(WebDriver driver) { 
-        String selector = "";
-        By id = By.id(selector);
-        WebElement element = driver.findElement(id); 
+    protected WebElement findElement(final WebDriver driver) {
+        final String selector = "";
+        final By id = By.id(selector);
+        WebElement element = driver.findElement(id);
         if (element == null) {
-            By name = By.name(selector);
+            final By name = By.name(selector);
             element = driver.findElement(name);
-            } 
-        return element;
         }
+        return element;
+    }
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="false" context="java-members" deleted="false" description="JUnit 4 test case set up method" enabled="true" name="setUp">@${testType:newType(org.junit.Before)}
+public void setUp() {
+  ${cursor}
+}</template><template autoinsert="false" context="java-members" deleted="false" description="JUnit 4 test case clean up method" enabled="true" name="tearDown">@${testType:newType(org.junit.After)}
+public void tearDown() {
+  ${cursor}
+}</template><template autoinsert="false" context="java-members" deleted="false" description="JUnit 4 test method" enabled="true" id="org.eclipse.jdt.ui.templates.test_junit4" name="test">@${testType:newType(org.junit.Test)}
+public void test${Name}() {
+	${cursor} 
+}</template><template autoinsert="false" context="java-members" deleted="false" description="Data collection method for parameterized JUnit test cases based on an enum type" enabled="true" name="parametersOverEnum">${a:importStatic(com.google.common.collect.Lists.newLinkedList)}${b:import(java.util.Collection)}@${annotation:newType(org.junit.runners.Parameterized.Parameters)}&#13;
+public static Collection&lt;Object[]&gt; data() {&#13;
+  Collection&lt;Object[]&gt; result = newLinkedList();&#13;
+  for( ${EnumType} ${element} : ${EnumType}.values() ) {&#13;
+    result.add( new Object[] { ${element}${cursor} } );&#13;
+  }&#13;
+  return result;&#13;
+}</template><template autoinsert="false" context="java-members" deleted="false" description="JUnit 4 rule definition" enabled="true" name="rule">@${annotationType:newType(org.junit.Rule)}
+public ${final} ${ruleType} ${variableName} = new ${ruleType}();${cursor}</template><template autoinsert="false" context="java-members" deleted="false" description="JUnit 4 test method with expected setting" enabled="true" name="testExpected">@${testType:newType(org.junit.Test)}( expected = ${throwableType}.class )
+public void test${Name}() {
+	${cursor} 
+}</template></templates>
