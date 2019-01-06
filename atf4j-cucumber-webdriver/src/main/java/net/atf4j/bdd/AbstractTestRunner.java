@@ -1,76 +1,44 @@
-/**
- * This file is part of Automated Testing Framework for Java (atf4j).
- *
- * Atf4j is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Atf4j is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with atf4j.  If not, see http://www.gnu.org/licenses/.
- */
 
 package net.atf4j.bdd;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import cucumber.api.CucumberOptions;
-import cucumber.api.SnippetType;
-import cucumber.api.junit.Cucumber;
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assume.assumeNotNull;
 
 /**
- * Abstract Test Runner for Cucumber.
+ * AbstractTestRunner class.
+ *
+ * If you wish to use a common Abstract base for your TestRunner(s) Then you
+ * must use 1.1.8+ of Cucumber-jvm other wise you will receive unexpected
+ * DuplicateStepDefinitionException errors
+ *
  */
-@RunWith(Cucumber.class)
-@CucumberOptions(
-        monochrome = true,
-        strict = true,
-        snippets = SnippetType.CAMELCASE,
-        features = "classpath:features",
-        tags = { "~@Ignore" })
-public abstract class AbstractTestRunner extends TestResultsReporting {
+public abstract class AbstractTestRunner {
+
+    /** Provides logging. */
+    protected static final Logger LOG = LoggerFactory.getLogger(AbstractTestRunner.class);
 
     /**
-     * Before class.
-     */
-    // @BeforeClass
-    // public static void beforeClass() {
-    // log.debug("beforeClass");
-    // final String targetEnvironment = System.getProperty("targetEnvironment");
-    // assertNotNull("Expected -DtargetEnvironment to be defined",
-    // targetEnvironment);
-    // }
-
-    /**
-     * Before test.
+     * Before test, an excellent place to test any assumptions common to the
+     * entire test suite such as any required environmental configurations or
+     * data setup.
      */
     @Before
-    public void beforeTest() {
-        this.log.trace("beforeFeature");
+    public void beforeTests() {
+        LOG.info("beforeTests - Executed before all tests in test suite.  Ideal place for data setup.");
+        final String targetEnvironment = System.getProperty("targetEnvironment", "local");
+        assumeNotNull("Expected the target environment to be specified in a Java System property (use -DtargetEnvironment={DEV|SIT|...})", targetEnvironment);
     }
 
     /**
-     * After test.
+     * After tests.
      */
     @After
-    public void afterTest() {
-        this.log.trace("afterTest");
+    public void afterTests() {
+        LOG.info("afterTests - Executed after all tests in test suite.  Ideal place for data cleanup.");
     }
-
-    /**
-     * After class.
-     */
-    // @AfterClass
-    // public static void afterClass() {
-    // log.trace("afterClass");
-    // }
 
 }

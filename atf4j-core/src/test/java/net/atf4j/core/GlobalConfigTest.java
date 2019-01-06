@@ -17,12 +17,11 @@
 
 package net.atf4j.core;
 
+import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
-import org.junit.Test;
-
 
 /**
  * Global Configuration Test.
@@ -31,10 +30,10 @@ public class GlobalConfigTest extends TestResultsReporting {
 
     /** KEY_FOR_INT. */
     private static final String KEY_FOR_INT = "keyForInt";
-    
+
     /** KEY_FOR_STRING. */
     private static final String KEY_FOR_STRING = "keyForString";
-    
+
     /** MISSING_KEY. */
     private static final String MISSING_KEY = "missingKey";
 
@@ -44,7 +43,7 @@ public class GlobalConfigTest extends TestResultsReporting {
     @Test
     public void testGetInstance() {
         final GlobalConfig globalConfig = GlobalConfig.getInstance();
-        log.debug("GlobalConfig.getInstance() = {}", globalConfig.toString());
+        this.log.debug("GlobalConfig.getInstance() = {}", globalConfig.toString());
         verifyNotNull(globalConfig);
     }
 
@@ -54,7 +53,7 @@ public class GlobalConfigTest extends TestResultsReporting {
     @Test
     public void testStaticValueForMissingKey() {
         final String value = GlobalConfig.valueFor(MISSING_KEY);
-        log.debug("Config.valueFor(key='{}') = {}", MISSING_KEY, value);
+        this.log.debug("Config.valueFor(key='{}') = {}", MISSING_KEY, value);
         verifyNotNull(value);
         assertEquals("default", value);
     }
@@ -65,7 +64,7 @@ public class GlobalConfigTest extends TestResultsReporting {
     @Test
     public void testStaticValueForKey() {
         final String value = GlobalConfig.valueFor(KEY_FOR_STRING);
-        log.debug("Config.valueFor(key='{}') = {}", KEY_FOR_STRING, value);
+        this.log.debug("Config.valueFor(key='{}') = {}", KEY_FOR_STRING, value);
         verifyNotNull(value);
         assertEquals("valueForString", value);
     }
@@ -76,7 +75,7 @@ public class GlobalConfigTest extends TestResultsReporting {
     @Test
     public void testStaticIntValueForMissingKey() {
         final int value = GlobalConfig.intValueFor(MISSING_KEY);
-        log.debug("Config.intValueFor(key='{}') = {}", MISSING_KEY, value);
+        this.log.debug("Config.intValueFor(key='{}') = {}", MISSING_KEY, value);
         verifyNotNull(value);
         assertEquals(0, value);
     }
@@ -87,7 +86,7 @@ public class GlobalConfigTest extends TestResultsReporting {
     @Test
     public void testStaticIntValueForKey() {
         final long intValue = GlobalConfig.intValueFor(KEY_FOR_INT);
-        log.debug("Config.intValueFor(key='{}') = {}", KEY_FOR_INT, intValue);
+        this.log.debug("Config.intValueFor(key='{}') = {}", KEY_FOR_INT, intValue);
         verifyNotNull(intValue);
         assertEquals(1, intValue);
     }
@@ -98,7 +97,7 @@ public class GlobalConfigTest extends TestResultsReporting {
     @Test
     public void testStaticLongValueFor() {
         final long value = GlobalConfig.longValueFor(MISSING_KEY);
-        log.debug("Config.longValueFor(key='{}') = {}", MISSING_KEY, value);
+        this.log.debug("Config.longValueFor(key='{}') = {}", MISSING_KEY, value);
         verifyNotNull(value);
         assertEquals(0L, value);
     }
@@ -110,7 +109,7 @@ public class GlobalConfigTest extends TestResultsReporting {
     public void testStaticLongValueForKey() {
         final String key = "keyForLong";
         final long longValue = GlobalConfig.longValueFor(key);
-        log.debug("Config.longValueFor(key='{}') = {}", key, longValue);
+        this.log.debug("Config.longValueFor(key='{}') = {}", key, longValue);
         verifyNotNull(longValue);
         assertEquals(1L, longValue);
     }
@@ -121,7 +120,7 @@ public class GlobalConfigTest extends TestResultsReporting {
     @Test
     public void testStaticBooleanValueForMissingKey() {
         final boolean value = GlobalConfig.booleanValueFor(MISSING_KEY);
-        log.debug("Config.booleanValueFor(key='{}') = {}", MISSING_KEY, value);
+        this.log.debug("Config.booleanValueFor(key='{}') = {}", MISSING_KEY, value);
         verifyNotNull(value);
         assertFalse(value);
     }
@@ -133,11 +132,16 @@ public class GlobalConfigTest extends TestResultsReporting {
     public void testStaticBooleanValueForKey() {
         final String key = "keyForBoolean";
         final boolean booleanValueFor = GlobalConfig.booleanValueFor(key);
-        log.debug("Config.longValueFor(key='{}') = {}", key, booleanValueFor);
+        this.log.debug("Config.longValueFor(key='{}') = {}", key, booleanValueFor);
         verifyNotNull(booleanValueFor);
         assertEquals(false, booleanValueFor);
         assertTrue(GlobalConfig.booleanValueFor("keyForTrue"));
         assertFalse(GlobalConfig.booleanValueFor("keyForFalse"));
+    }
+
+    @Test
+    public void testStaticBooleanValueDefault() {
+        assertTrue(GlobalConfig.booleanValueFor("missing-key", true));
     }
 
 }

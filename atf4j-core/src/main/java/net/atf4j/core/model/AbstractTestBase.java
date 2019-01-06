@@ -78,17 +78,6 @@ public abstract class AbstractTestBase extends TestResultsReporting {
     }
 
     /**
-     * Instantiates a new abstract test base.
-     *
-     * @param context the context
-     */
-    public AbstractTestBase(final TestContext context) {
-        super();
-        this.context = context;
-        this.testResult = TestResult.initialise();
-    }
-
-    /**
      * Instantiates a new test base.
      *
      * @param name the name
@@ -381,23 +370,11 @@ public abstract class AbstractTestBase extends TestResultsReporting {
      * @return the string
      */
     public String debugString() {
-        return String.format(
-                "%s [testStatus=%s, uniqueIdentifier=%s, tester=%s, name=%s, taxonomy=%s, description=%s, timestamp=%s, preConditions=%s, postConditions=%s]",
-                this.getClass().getSimpleName(),
-                this.testResult,
-                this.uniqueIdentifier,
-                this.tester,
-                this.name,
-                this.taxonomy,
-                this.description,
-                this.timestamp,
-                this.preConditions,
-                this.postConditions);
+        return String.format("%s [testStatus=%s, uniqueIdentifier=%s, tester=%s, name=%s, taxonomy=%s, description=%s, timestamp=%s, preConditions=%s, postConditions=%s]", this.getClass().getSimpleName(), this.testResult, this.uniqueIdentifier, this.tester, this.name, this.taxonomy, this.description, this.timestamp, this.preConditions, this.postConditions);
     }
 
     /*
      * (non-Javadoc)
-     *
      * @see java.lang.Object#toString()
      */
     @Override

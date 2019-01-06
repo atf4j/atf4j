@@ -31,7 +31,6 @@ public class TestBaseTest extends TestResultsReporting {
      * The MockTestBase Class.
      */
     public class MockTestBase extends AbstractTestBase {
-
         @Override
         public AbstractTestBase execute() throws VerificationError {
             return this;
@@ -42,7 +41,6 @@ public class TestBaseTest extends TestResultsReporting {
      * The MockTestReport Class.
      */
     public class MockTestReport implements TestReport {
-
     }
 
     /**
@@ -61,22 +59,15 @@ public class TestBaseTest extends TestResultsReporting {
      * The FailingCondition Class .
      */
     public class FailingCondition extends Condition {
-    }
+        @Override
+        public boolean isTrue() {
+            return false;
+        }
 
-    public class FailPostCondition extends Condition {
-
-    }
-
-    public class PassPostCondition extends Condition {
-
-    }
-
-    public class PassPreCondition extends Condition {
-
-    }
-
-    public class FailPreCondition extends Condition {
-
+        @Override
+        public boolean isFalse() {
+            return true;
+        }
     }
 
     /**
@@ -111,7 +102,7 @@ public class TestBaseTest extends TestResultsReporting {
         final MockTestBase testBase = new MockTestBase();
         this.log.info("testCase={}", testBase);
         verifyNotNull(testBase);
-        testBase.addPreCondition(new FailPreCondition());
+        testBase.addPreCondition(new FailingCondition());
         testBase.execute();
     }
 
@@ -120,8 +111,8 @@ public class TestBaseTest extends TestResultsReporting {
         final MockTestBase testBase = new MockTestBase();
         this.log.info("testCase={}", testBase);
         verifyNotNull(testBase);
-        testBase.addPreCondition(new PassPreCondition());
-        testBase.addPreCondition(new FailPreCondition());
+        testBase.addPreCondition(new PassingCondition());
+        testBase.addPostCondition(new FailingCondition());
         testBase.execute();
     }
 
@@ -130,8 +121,8 @@ public class TestBaseTest extends TestResultsReporting {
         final MockTestBase testBase = new MockTestBase();
         this.log.info("testCase={}", testBase);
         verifyNotNull(testBase);
-        testBase.addPreCondition(new PassPreCondition());
-        testBase.addPreCondition(new FailPostCondition());
+        testBase.addPreCondition(new PassingCondition());
+        testBase.addPostCondition(new FailingCondition());
         testBase.execute();
     }
 
@@ -140,8 +131,8 @@ public class TestBaseTest extends TestResultsReporting {
         final MockTestBase testBase = new MockTestBase();
         this.log.info("testCase={}", testBase);
         verifyNotNull(testBase);
-        testBase.addPreCondition(new PassPreCondition());
-        testBase.addPreCondition(new PassPostCondition());
+        testBase.addPreCondition(new PassingCondition());
+        testBase.addPostCondition(new PassingCondition());
         testBase.execute();
     }
 

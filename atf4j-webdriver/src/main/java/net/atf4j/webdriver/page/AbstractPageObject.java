@@ -18,8 +18,6 @@
 package net.atf4j.webdriver.page;
 
 import static net.atf4j.core.Verify.verifyNotNull;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -35,6 +33,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import net.atf4j.webdriver.BrowserFactory;
 import net.atf4j.webdriver.TargetUrl;
@@ -96,8 +98,7 @@ public abstract class AbstractPageObject {
         final Timeouts timeouts = manage.timeouts();
         timeouts.implicitlyWait(this.config.implicitWait(), TimeUnit.SECONDS);
         timeouts.pageLoadTimeout(this.config.pageLoadTimeout(), TimeUnit.SECONDS);
-        this.webDriverWait = new WebDriverWait(this.webDriver, this.config.timeOutInSeconds(),
-                this.config.pollingInterval());
+        this.webDriverWait = new WebDriverWait(this.webDriver, this.config.timeOutInSeconds(), this.config.pollingInterval());
     }
 
     /**
@@ -133,9 +134,10 @@ public abstract class AbstractPageObject {
     }
 
     /**
-     * Gets the title.
+     * Gets the the page title.
      *
      * @return the page title as a String object.
+     * @see org.openqa.selenium.WebDriver#getTitle()
      */
     protected String getTitle() {
         verifyNotNull(this.webDriver);
@@ -173,6 +175,24 @@ public abstract class AbstractPageObject {
         this.webDriver.get(pageUrl);
         PageFactory.initElements(this.webDriver, this);
         return this;
+    }
+
+    /**
+     * Checks if this page has loaded.
+     */
+    public void isLoaded() {
+        assertNotNull(this.webDriver.getCurrentUrl());
+        assertNotNull(this.webDriver.getTitle());
+    }
+
+    /**
+     * Gets the current url.
+     *
+     * @return the current url
+     * @see org.openqa.selenium.WebDriver#getCurrentUrl()
+     */
+    public String getCurrentUrl() {
+        return this.webDriver.getCurrentUrl();
     }
 
     /**
@@ -334,6 +354,11 @@ public abstract class AbstractPageObject {
         return true;
     }
 
+    public void contains(final String text) {
+        assertNotNull(text);
+        assertTrue(this.webDriver.getPageSource().contains(text));
+    }
+
     /**
      * Search finished.
      *
@@ -344,7 +369,6 @@ public abstract class AbstractPageObject {
 
             /*
              * (non-Javadoc)
-             *
              * @see com.google.common.base.Function#apply(java.lang.Object)
              */
             @Override
@@ -361,7 +385,7 @@ public abstract class AbstractPageObject {
      *
      * @return the abstract page object
      */
-    protected AbstractPageObject close() {
+    public AbstractPageObject close() {
         verifyNotNull(this.webDriver);
         if (this.webDriver != null) {
             this.webDriver.close();
@@ -374,12 +398,16 @@ public abstract class AbstractPageObject {
      *
      * @return the abstract page object
      */
-    protected AbstractPageObject quit() {
+    public AbstractPageObject quit() {
         verifyNotNull(this.webDriver);
         if (this.webDriver != null) {
             this.webDriver.quit();
         }
         return this;
+    }
+
+    protected String pageUrl() {
+        return null;
     }
 
 }
