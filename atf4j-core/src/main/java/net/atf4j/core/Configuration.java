@@ -18,7 +18,7 @@
 package net.atf4j.core;
 
 /**
- * An Example Configuration class.
+ * Configuration Example class.
  */
 public final class Configuration extends AbstractConfig {
 

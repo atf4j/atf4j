@@ -377,7 +377,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
     private void initialise() {
         this.velocityEngine.init();
         contextBinding("util", this);
-        contextBinding("timeStamp", TimeStamp.getDateTime());
+        contextBinding("timeStamp", TimeStamp.timestamp());
         contextBinding("packageName", this.packageName);
         contextBinding("className", this.className);
         contextBinding("fields", this.fields);

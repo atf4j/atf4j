@@ -17,6 +17,7 @@
 
 package net.atf4j.core;
 
+import org.junit.AssumptionViolatedException;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
@@ -32,11 +33,15 @@ import static org.junit.Assume.assumeTrue;
 public class TestContextTest extends TestResultsReporting {
 
     @Test
-    public void testAssumeLocal() {
-        if (TestContext.isLocal()) {
-            TestContext.assumeLocal();
-            assertTrue(TestContext.assumeLocal());
-        }
+    public void testAssumeLocalTrue() {
+        System.setProperty("isLocal", "True");
+        assertTrue(TestContext.assumeLocal());
+    }
+
+    @Test(expected = AssumptionViolatedException.class)
+    public void testAssumeLocalFalse() {
+        System.setProperty("isLocal", "False");
+        TestContext.assumeLocal();
     }
 
     @Test
@@ -44,6 +49,8 @@ public class TestContextTest extends TestResultsReporting {
         if (TestContext.isJenkins()) {
             TestContext.assumeJenkins();
             assertTrue(TestContext.assumeJenkins());
+        } else {
+            TestContext.assumeJenkins();
         }
     }
 
@@ -69,7 +76,7 @@ public class TestContextTest extends TestResultsReporting {
     @Test
     public void testIsSeleniumGrid() {
         TestContext.assumeSeleniumGrid();
-        assertFalse(TestContext.isSeleniumGrid());
+        assertTrue(TestContext.isSeleniumGrid());
         System.setProperty("isSeleniumGrid", "true");
         assertTrue(TestContext.isSeleniumGrid());
         assumeNotNull(TestContext.seleniumGridUrl());

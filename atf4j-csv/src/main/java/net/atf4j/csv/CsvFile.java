@@ -28,38 +28,156 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import net.atf4j.core.ResourceLoader;
+
 /**
- * A class to represent a CSV data file.
+ * The CsvFile class represents a dataLines file containing comma separated
+ * values.
  */
 public class CsvFile {
-
-    private HeaderLine header;
-    private final List<CsvRow> data = new ArrayList<CsvRow>();
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+
+    /** The filename. */
+    private String csvFilename;
+
+    private final List<HeaderLine> headerLines = new ArrayList<HeaderLine>();
+    private final List<CsvRow> dataLines = new ArrayList<CsvRow>();
+
+    /** The loaded successfully. */
+    private boolean loaded = false;
 
     /**
      * Default Constructor instantiates a new empty CsvFile object.
      */
     public CsvFile() {
         super();
-        load();
+        this.log.debug("CsvFile()");
+        initialise(defaultFilename());
     }
 
     /**
-     * Instantiates a new CSV file.
+     * Default filename.
      *
-     * @param dataFilename the data filename
-     * @throws FileNotFoundException the file not found exception
+     * @return the string
      */
-    public CsvFile(final String dataFilename) throws FileNotFoundException {
+    private String defaultFilename() {
+        if (this.csvFilename == null) {
+            final String stem = this.getClass().getSimpleName();
+            this.csvFilename = String.format("%s.csv", stem);
+        }
+        return this.csvFilename;
+    }
+
+    /**
+     * Instantiates a new csv file from filename.
+     *
+     * @param csvFilename the csv filename
+     */
+    public CsvFile(final String csvFilename) {
         super();
-        load(dataFilename);
+        this.log.debug("CsvFile({})", csvFilename);
+        initialise(csvFilename);
+    }
+
+    /**
+     * Initialise.
+     *
+     * @param csvFilename the csv filename
+     */
+    private void initialise(final String csvFilename) {
+        this.log.debug("initialise({})", csvFilename);
+        this.csvFilename = csvFilename;
+        readResource(this.csvFilename);
+    }
+
+    /**
+     * Read filename.
+     *
+     * @param resourceName the filename of the resource
+     */
+    private void readResource(final String resourceName) {
+        this.log.debug("read({})", resourceName);
+        final InputStream stream = ResourceLoader.streamFor(resourceName);
+        try {
+            read(stream);
+        } catch (final IOException e) {
+            this.log.error(e.getLocalizedMessage(), e);
+        }
+    }
+
+    /**
+     * Read a resource as a stream.
+     *
+     * @param resourceAsStream the resource as stream
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
+    private void read(final InputStream resourceAsStream) throws IOException {
+        final InputStreamReader inputStreamReader = new InputStreamReader(resourceAsStream);
+        read(inputStreamReader);
+        inputStreamReader.close();
+    }
+
+    /**
+     * Read input stream reader.
+     *
+     * @param inputStreamReader the input stream reader
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
+    private void read(final InputStreamReader inputStreamReader) throws IOException {
+        final BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        read(bufferedReader);
+        bufferedReader.close();
+    }
+
+    /**
+     * Read.
+     *
+     * @param bufferedReader the buffered reader
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
+    private void read(final BufferedReader bufferedReader) throws IOException {
+        String line = bufferedReader.readLine();
+        while (line != null) {
+            if (line.length() > 0) {
+                processLine(line.trim());
+            }
+            line = bufferedReader.readLine();
+        }
+        this.loaded = true;
+    }
+
+    /**
+     * Process line.
+     *
+     * @param line the line
+     */
+    private void processLine(final String line) {
+        if (line.charAt(0) == '#') {
+            addHeaderLine(line);
+        } else {
+            final CsvRow record = new CsvRow(line);
+            this.dataLines.add(record);
+            final String recordString = record.toString();
+        }
+    }
+
+    /**
+     * header line new header line.
+     *
+     * @param line the new header line
+     */
+    public void addHeaderLine(final HeaderLine line) {
+        this.headerLines.add(line);
+    }
+
+    public void addHeaderLine(final String line) {
+        this.headerLines.add(new HeaderLine(line));
     }
 
     /**
      * Factory Method returns file as CsvFile INSTANCE.
      *
-     * @param dataFilename the data filename
+     * @param dataFilename the dataLines filename
      * @return the csv file
      * @throws FileNotFoundException the file not found exception
      */
@@ -74,7 +192,7 @@ public class CsvFile {
         try {
             load(configFilename());
         } catch (final FileNotFoundException e) {
-            log.warn(e.toString());
+            this.log.warn(e.toString());
         }
     }
 
@@ -91,7 +209,7 @@ public class CsvFile {
     /**
      * Load.
      *
-     * @param csvFilename the data filename
+     * @param csvFilename the dataLines filename
      * @throws FileNotFoundException the file not found exception
      */
     public void load(final String csvFilename) throws FileNotFoundException {
@@ -115,18 +233,18 @@ public class CsvFile {
         try {
             String line = bufferedReader.readLine().trim();
             if (line.charAt(0) == '#') {
-                header = new HeaderLine(line.substring(1));
+                addHeaderLine(new HeaderLine(line.substring(1)));
             } else {
-                data.add(new CsvRow(line));
+                this.dataLines.add(new CsvRow(line));
             }
 
             while ((line = bufferedReader.readLine()) != null) {
-                data.add(new CsvRow(line));
+                this.dataLines.add(new CsvRow(line));
             }
             bufferedReader.close();
 
         } catch (final IOException e) {
-            log.error(e.toString());
+            this.log.error(e.toString());
         }
     }
 
@@ -142,21 +260,12 @@ public class CsvFile {
     }
 
     /**
-     * Gets the header.
-     *
-     * @return the header
-     */
-    public HeaderLine getHeaderLine() {
-        return header;
-    }
-
-    /**
      * Column count.
      *
      * @return the int
      */
     public int columnCount() {
-        return header.length();
+        return 0;
     }
 
     /**
@@ -165,7 +274,7 @@ public class CsvFile {
      * @return the column names
      */
     public String[] getColumnNames() {
-        return header.getFields();
+        return null;
     }
 
     /**
@@ -175,7 +284,7 @@ public class CsvFile {
      * @return the header
      */
     public String getColumnName(final int columnNumber) {
-        return header.getField(columnNumber);
+        return null;
     }
 
     /**
@@ -184,7 +293,7 @@ public class CsvFile {
      * @return the int
      */
     public int rowCount() {
-        return data.size();
+        return this.dataLines.size();
     }
 
     /**
@@ -195,39 +304,29 @@ public class CsvFile {
      * @see java.util.List#get(int)
      */
     public CsvRow getRow(final int index) {
-        return data.get(index - 1);
+        return this.dataLines.get(index - 1);
     }
 
     /**
-     * return the CSV file data as an array of rows.
+     * return the CSV file dataLines as an array of rows.
      *
      * @return the object[]
      * @see java.util.List#toArray()
      */
-    public Object[] toArray() {
-        return data.toArray();
+    public CsvRow[] toArray() {
+        return (CsvRow[]) this.dataLines.toArray();
     }
 
-    /**
-     * To string.
-     *
-     * @return the string
-     * @see java.lang.Object#toString()
-     */
-    public String debugString() {
-        final String simpleName = this.getClass().getSimpleName();
-        return String.format("%s [header=%s, data=%s]", simpleName, header.toString(), data.toString());
+    public HeaderLine getHeaderLine() {
+        return null;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
-        final String simpleName = this.getClass().getSimpleName();
-        return String.format("%s [header=%s, data=%s]", simpleName, header, data);
+    public boolean isLoaded() {
+        return false;
+    }
+
+    public CsvRow getRecord(final int index) {
+        return null;
     }
 
 }

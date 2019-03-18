@@ -25,11 +25,11 @@ import java.util.Date;
  */
 public final class TimeStamp {
 
-    /** ISO_DATE_TIME constant. */
+    /** ISO_DATE_TIME format constant. */
     public static final String ISO_DATE_TIME = "yyyy-MM-dd'T'HH:mm'Z'";
 
-    /** DATE_TIME_FORMAT constant. */
-    public static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm.ss";
+    /** Default TIMESTAP_FORMAT with millisec precision. */
+    public static final String TIMESTAMP_FORMAT = "yyyy-MM-dd HH:mm:ss.SSS";
 
     /**
      * private constructor to prevent wild instantiation.
@@ -43,17 +43,21 @@ public final class TimeStamp {
      *
      * @return the string
      */
-    public static String getDateTime() {
-        return new SimpleDateFormat(DATE_TIME_FORMAT).format(new Date());
+    public static String timestamp() {
+        return format(TIMESTAMP_FORMAT);
+    }
+
+    public static String iso() {
+        return format(ISO_DATE_TIME);
     }
 
     /**
-     * Date time.
+     * TimeStamp in passed format.
      *
      * @param format the format
      * @return the string
      */
-    public static String getDateTime(final String format) {
+    public static String format(final String format) {
         return new SimpleDateFormat(format).format(new Date());
     }
 

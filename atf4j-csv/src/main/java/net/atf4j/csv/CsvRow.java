@@ -17,21 +17,36 @@
 
 package net.atf4j.csv;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * A class to represent a row from a CSV data file.
  */
 public class CsvRow {
 
+    /**
+     * @param index
+     * @return
+     * @see java.util.List#get(int)
+     */
+    public String get(final int index) {
+        return this.fields.get(index);
+    }
+
     /** fields. */
-    private String[] fields = new String[0];
+    private List<String> fields = new ArrayList<String>();
+
+    public static CsvRow parse(final String lineOfData) {
+        return new CsvRow(lineOfData);
+    }
 
     /**
      * Instantiates a new CSV row.
      */
     public CsvRow() {
-        fields = new String[] {};
+        super();
     }
 
     /**
@@ -39,68 +54,32 @@ public class CsvRow {
      *
      * @param line the line
      */
-    public CsvRow(final String line) {
-        initialise(line);
+    public CsvRow(final String lineOfData) {
+        this.fields = Arrays.asList(lineOfData.split(","));
     }
 
-    /**
-     * Initialise.
-     *
-     * @param line the line
-     */
-    public void initialise(final String line) {
-        fields = line.trim().split(",");
-        for (int i = 0; i < fields.length; i++) {
-            fields[i] = fields[i].trim();
-        }
+    public int colCount() {
+        return 0;
     }
 
-    /**
-     * Length.
-     *
-     * @return the int
-     */
-    public int length() {
-        return fields.length;
+    public String getCol(final int col) {
+        return null;
     }
 
-    /**
-     * Gets the field.
-     *
-     * @param columnNumber the column number
-     * @return the field
-     */
-    public String getField(final int columnNumber) {
-        return fields[columnNumber - 1];
+    public Object length() {
+        return null;
     }
 
-    /**
-     * Gets the fields.
-     *
-     * @return the fields
-     */
+    public Object getField(final int i) {
+        return null;
+    }
+
     public String[] getFields() {
-        return fields;
+        return null;
     }
 
-    /**
-     * To string.
-     *
-     * @return the string
-     * @see java.lang.Object#toString()
-     */
-    public String debugString() {
-        return String.format("%s [fields=%s]", this.getClass().getSimpleName(), Arrays.toString(fields));
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
-        return Arrays.toString(fields).replaceAll("\\[|\\]", "");
+    public String getColumn(final int i) {
+        return null;
     }
 
 }

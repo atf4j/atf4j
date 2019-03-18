@@ -50,7 +50,7 @@ public class HeaderLineTest extends TestResultsReporting {
         final HeaderLine headerLine = new HeaderLine(HEADER_LINE);
         verifyNotNull(headerLine);
         assertEquals(2, headerLine.length());
-        final String headerLineString = headerLine.debugString();
+        final String headerLineString = headerLine.toString();
         assertEquals(EXPECTED_HEADER, headerLineString);
         assertEquals("ColumnOne", headerLine.getField(1));
         assertEquals("ColumnTwo", headerLine.getField(2));
@@ -66,10 +66,9 @@ public class HeaderLineTest extends TestResultsReporting {
         this.log.trace(headerLine.toString());
         verifyNotNull(headerLine);
         assertEquals(0, headerLine.length());
-        headerLine.initialise(HEADER_LINE);
         this.log.trace(headerLine.toString());
         assertEquals(2, headerLine.length());
-        final String headerLineString = headerLine.debugString();
+        final String headerLineString = headerLine.toString();
         this.log.trace(headerLineString.toString());
         assertEquals(EXPECTED_HEADER, headerLineString);
         assertEquals("ColumnOne", headerLine.getField(1));

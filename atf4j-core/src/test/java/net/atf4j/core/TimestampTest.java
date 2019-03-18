@@ -30,7 +30,7 @@ public class TimestampTest extends TestResultsReporting {
      */
     @Test
     public void testTimeStamp() {
-        verifyNotNull(TimeStamp.getDateTime());
+        verifyNotNull(TimeStamp.timestamp());
     }
 
     /**
@@ -38,7 +38,7 @@ public class TimestampTest extends TestResultsReporting {
      */
     @Test
     public void testTimeStampFormat() {
-        verifyNotNull(TimeStamp.getDateTime(TimeStamp.ISO_DATE_TIME));
+        verifyNotNull(TimeStamp.format(TimeStamp.ISO_DATE_TIME));
     }
 
 }

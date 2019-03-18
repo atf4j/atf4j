@@ -69,8 +69,8 @@ public final class Atf4j {
     }
 
     /**
-     * Document the current call stack from the test method.
-     * The test method must be marked with @Test annotation.
+     * Document the current call stack from the test method. The test method
+     * must be marked with @Test annotation.
      */
     public static void document() {
         final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
@@ -155,5 +155,4 @@ public final class Atf4j {
         }
         return null;
     }
-
 }

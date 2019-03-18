@@ -22,6 +22,7 @@ import static net.atf4j.core.Verify.verifyNotNull;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriver.Options;
@@ -46,7 +47,7 @@ import net.atf4j.webdriver.TargetUrl;
  */
 public abstract class AbstractPageObject {
 
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getName());
+    protected final Logger log = LoggerFactory.getLogger(this.getClass());
     protected PageConfig config;
     protected WebDriver webDriver;
     protected WebDriverWait webDriverWait;
@@ -139,7 +140,7 @@ public abstract class AbstractPageObject {
      * @return the page title as a String object.
      * @see org.openqa.selenium.WebDriver#getTitle()
      */
-    protected String getTitle() {
+    public String getTitle() {
         verifyNotNull(this.webDriver);
         return this.webDriver.getTitle();
     }
@@ -195,6 +196,10 @@ public abstract class AbstractPageObject {
         return this.webDriver.getCurrentUrl();
     }
 
+    protected String pageUrl() {
+        return null;
+    }
+
     /**
      * Gets the target url annotation.
      *
@@ -238,7 +243,7 @@ public abstract class AbstractPageObject {
      *            otherwise false.
      * @return true, if successful, otherwise false.
      */
-    protected boolean verifyElement(final WebElement webElement) {
+    protected boolean verifyWebElement(final WebElement webElement) {
         verifyNotNull(webElement);
         final boolean testStatus = true;
         verifyNotNull(webElement);
@@ -246,6 +251,18 @@ public abstract class AbstractPageObject {
         assertTrue(webElement.isDisplayed());
         assertTrue(webElement.isEnabled());
         return testStatus;
+    }
+
+    /**
+     * Click.
+     *
+     * @param text is the text to be clicked
+     */
+    public void click(final String text) {
+        final String xPath = String.format("//a[contains(text(),'%s')]", text);
+        final WebElement webElement = this.webDriver.findElement(By.xpath(xPath));
+        Assert.assertNotNull(webElement);
+        webElement.click();
     }
 
     /**
@@ -404,10 +421,6 @@ public abstract class AbstractPageObject {
             this.webDriver.quit();
         }
         return this;
-    }
-
-    protected String pageUrl() {
-        return null;
     }
 
 }

@@ -17,10 +17,10 @@
 
 package net.atf4j.csv;
 
+import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-
-import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
 
@@ -75,7 +75,7 @@ public class CsvRowTest extends TestResultsReporting {
         assertNotNull(fields);
         assertEquals(4, fields.length);
         for (final String field : fields) {
-            log.debug("field = {}", field);
+            this.log.debug("field = {}", field);
         }
     }
 
@@ -85,26 +85,12 @@ public class CsvRowTest extends TestResultsReporting {
     @Test
     public void testToString() {
         final CsvRow csvRow = new CsvRow(TEST_ROW);
-        log.debug("csvRow = {}", csvRow);
+        this.log.debug("csvRow = {}", csvRow);
         assertNotNull(csvRow);
         final String actual = csvRow.toString();
-        log.debug("csvRow.toString() = {}", actual);
+        this.log.debug("csvRow.toString() = {}", actual);
         assertNotNull(actual);
         assertEquals(TEST_ROW, actual);
-    }
-
-    /**
-     * Test method for CsvRow.
-     */
-    @Test
-    public void testDebugString() {
-        final CsvRow csvRow = new CsvRow(TEST_ROW);
-        log.debug("csvRow = {}", csvRow);
-        assertNotNull(csvRow);
-        final String actual = csvRow.debugString();
-        log.debug("csvRow.debugString() = {}", actual);
-        assertNotNull(actual);
-        assertEquals(EXPECTED, actual);
     }
 
 }

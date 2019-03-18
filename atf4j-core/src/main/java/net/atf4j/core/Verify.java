@@ -54,6 +54,7 @@ public final class Verify {
         if (object == null) {
             throw new VerificationError(message);
         }
+        assertNotNull(object);
         final String objectName = object.getClass().getSimpleName();
         verifyNotNull(objectName);
         LOG.debug("verify({}) = {}", objectName, object);
@@ -65,6 +66,9 @@ public final class Verify {
      * @param object the object
      */
     public static void verifyNotNull(final Object object) {
+        if (object == null) {
+            throw new VerificationError();
+        }
         assertNotNull(object);
         final String objectName = object.getClass().getSimpleName();
         assertNotNull(objectName);

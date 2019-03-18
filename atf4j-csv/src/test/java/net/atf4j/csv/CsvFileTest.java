@@ -17,13 +17,13 @@
 
 package net.atf4j.csv;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
 import java.io.FileNotFoundException;
 
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 import net.atf4j.core.TestResultsReporting;
 
@@ -92,8 +92,9 @@ public class CsvFileTest extends TestResultsReporting {
     @Test
     public void testExpectedUsage() throws Exception {
         final TestData testData = new TestData();
-        log.debug(testData.toString());
+        this.log.debug(testData.toString());
         assertNotNull(testData);
+        verifyContent(testData);
     }
 
     /**
@@ -104,8 +105,8 @@ public class CsvFileTest extends TestResultsReporting {
     @Test
     public void testConstructorWithDataPresent() throws Exception {
         final CsvFile csvFile = new CsvFile(TEST_DATA_CSV);
-        log.debug(csvFile.debugString());
         verifyNotNull(csvFile);
+        verifyContent(csvFile);
     }
 
     /**
@@ -116,7 +117,6 @@ public class CsvFileTest extends TestResultsReporting {
     @Test
     public void testReadPresentData() throws Exception {
         final CsvFile csvFile = CsvFile.read(TEST_DATA_CSV);
-        log.debug(csvFile.debugString());
         verifyNotNull(csvFile);
         verifyContent(csvFile);
     }
@@ -128,16 +128,14 @@ public class CsvFileTest extends TestResultsReporting {
      */
     private void verifyContent(final CsvFile csvFile) {
         verifyNotNull(csvFile);
-        log.debug(csvFile.debugString());
         final HeaderLine header = csvFile.getHeaderLine();
-        assertEquals(EXPECTED_HEADER, header.debugString());
-        log.debug("header = {}", header);
-        for (int i = 1; i < csvFile.rowCount(); i++) {
-            final CsvRow csvRow = csvFile.getRow(i);
-            log.debug("{}", csvRow);
-            for (int j = 1; j < csvRow.length(); j++) {
-                final String expected = String.format("data-%s-%s", i, j);
-                final String actual = csvRow.getField(j);
+        verifyNotNull(header);
+        for (int row = 1; row < csvFile.rowCount(); row++) {
+            final CsvRow csvRow = csvFile.getRow(row);
+            verifyNotNull(csvRow);
+            for (int col = 1; col < csvRow.colCount(); col++) {
+                final String expected = String.format("data-%s-%s", row, col);
+                final String actual = csvRow.getCol(col);
                 assertEquals(expected, actual);
             }
         }
@@ -154,4 +152,5 @@ public class CsvFileTest extends TestResultsReporting {
         final Object[] array = data.toArray();
         verifyNotNull(array);
     }
+
 }

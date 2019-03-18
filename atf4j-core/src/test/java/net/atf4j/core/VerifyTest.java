@@ -25,15 +25,34 @@ import org.junit.Test;
 public final class VerifyTest {
 
     /**
-     * Unit Test to verify object not null.
+     * Verify not null.
      */
     @Test
     public void verifyNotNull() {
+        Verify.verifyNotNull(this);
+    }
+
+    /**
+     * Unit Test to verify object not null.
+     */
+    @Test(expected = VerificationError.class)
+    public void verifyNotNullWithNull() {
         Verify.verifyNotNull(null);
     }
 
+    /**
+     * Verify not null with message.
+     */
     @Test
     public void verifyNotNullMessage() {
+        Verify.verifyNotNull(this, "Message.");
+    }
+
+    /**
+     * Verify not null message with null.
+     */
+    @Test(expected = VerificationError.class)
+    public void verifyNotNullMessageWithNull() {
         Verify.verifyNotNull(null, "Message.");
     }
 

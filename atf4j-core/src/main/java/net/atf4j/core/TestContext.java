@@ -263,11 +263,11 @@ public final class TestContext extends TestResultsReporting {
     }
 
     private static Boolean systemPropertyAsBoolean(final String key, final Boolean booleanDefault) {
-        return Boolean.valueOf(System.getProperty("isLocal", booleanDefault.toString()));
+        return Boolean.valueOf(System.getProperty(key, booleanDefault.toString()));
     }
 
     private static Long getSystemPropertyAsLong(final String key, final Long longDefault) {
-        return Long.valueOf(System.getProperty("isLocal", longDefault.toString()));
+        return Long.valueOf(System.getProperty(key, longDefault.toString()));
     }
 
 }
