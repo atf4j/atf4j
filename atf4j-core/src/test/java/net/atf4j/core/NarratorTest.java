@@ -66,7 +66,7 @@ public final class NarratorTest extends TestResultsReporting {
         /*
          * (non-Javadoc)
          *
-         * @see net.atf4j.core.StringBuilderTest#toString()
+         * @see net.atf4j.core.examples.StringBuilderTest#toString()
          */
         @Override
         public String toString() {
@@ -94,7 +94,7 @@ public final class NarratorTest extends TestResultsReporting {
         /*
          * (non-Javadoc)
          *
-         * @see net.atf4j.core.StringBuilderTest#toString()
+         * @see net.atf4j.core.examples.StringBuilderTest#toString()
          */
         @Override
         public String toString() {

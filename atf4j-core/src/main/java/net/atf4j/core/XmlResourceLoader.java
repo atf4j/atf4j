@@ -29,7 +29,7 @@ import static org.junit.Assert.fail;
  *
  * The properties file can be placed in the projects src/main/resource.
  */
-public final class XmlResourceLoader implements ResourceLoaderInterface {
+public final class XmlResourceLoader {
 
     /** SUFFIX constant. */
     private static final String DEFAULT_SUFFIX = ".xml";
@@ -52,7 +52,10 @@ public final class XmlResourceLoader implements ResourceLoaderInterface {
      * @return the xml resource
      */
     public static Document documentFor(final String resourceLocation, final String resourceName) {
-        return documentFor(resourceLocation + resourceName);
+        if (resourceLocation != null && resourceName != null) {
+            return documentFor(resourceLocation + resourceName);
+        }
+        return null;
     }
 
     /**
@@ -62,15 +65,18 @@ public final class XmlResourceLoader implements ResourceLoaderInterface {
      * @return the xml resource
      */
     public static Document documentFor(final String resourceName) {
-        final InputStream stream = ResourceLoader.streamFor(xmlFilename(resourceName));
-        try {
-            final DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            return builder.parse(stream);
-        } catch (final Exception exception) {
-            final String message = String.format("Failed to parse resource %s", resourceName);
-            LOG.error(message, exception);
-            throw new ResourceNotLoadedException(message, exception);
+        if (resourceName != null) {
+            final InputStream stream = ResourceLoader.streamFor(xmlFilename(resourceName));
+            try {
+                final DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+                return builder.parse(stream);
+            } catch (final Exception exception) {
+                final String message = String.format("Failed to parse resource %s", resourceName);
+                LOG.error(message, exception);
+                throw new ResourceNotLoadedException(message, exception);
+            }
         }
+        return null;
     }
 
     /**
@@ -80,12 +86,15 @@ public final class XmlResourceLoader implements ResourceLoaderInterface {
      * @return the string
      */
     private static String xmlFilename(final String resourceName) {
-        final String suffix = DEFAULT_SUFFIX;
-        if (resourceName.endsWith(suffix)) {
-            return resourceName;
-        } else {
-            return String.format("%s%s", resourceName, suffix);
+        if (resourceName != null) {
+            final String suffix = DEFAULT_SUFFIX;
+            if (resourceName.endsWith(suffix)) {
+                return resourceName;
+            } else {
+                return String.format("%s%s", resourceName, suffix);
+            }
         }
+        return null;
     }
 
     /**
@@ -95,20 +104,21 @@ public final class XmlResourceLoader implements ResourceLoaderInterface {
      * @return the string
      */
     public static String xmlToString(final Document xml) {
-        try {
-            final TransformerFactory factory = TransformerFactory.newInstance();
-            final Transformer transformer = factory.newTransformer();
-            transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
-            final StringWriter stringWriter = new StringWriter();
-            final DOMSource xmlSource = new DOMSource(xml);
-            final StreamResult outputTarget = new StreamResult(stringWriter);
-            transformer.transform(xmlSource, outputTarget);
-            return stringWriter.toString();
-        } catch (IllegalArgumentException | TransformerFactoryConfigurationError | TransformerException e) {
-            final String message = String.format("Failed to parse XML Document. %s", e.getLocalizedMessage());
-            LOG.error(message, e);
+        if (xml != null) {
+            try {
+                final TransformerFactory factory = TransformerFactory.newInstance();
+                final Transformer transformer = factory.newTransformer();
+                transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+                final StringWriter stringWriter = new StringWriter();
+                final DOMSource xmlSource = new DOMSource(xml);
+                final StreamResult outputTarget = new StreamResult(stringWriter);
+                transformer.transform(xmlSource, outputTarget);
+                return stringWriter.toString();
+            } catch (IllegalArgumentException | TransformerFactoryConfigurationError | TransformerException e) {
+                final String message = String.format("Failed to parse XML Document. %s", e.getLocalizedMessage());
+                LOG.error(message, e);
+            }
         }
         return null;
     }
-
 }

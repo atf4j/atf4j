@@ -21,7 +21,7 @@ import java.util.Properties;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * An abstract Configuration class.
+ * An abstract ExampleConfiguration class.
  */
 public abstract class AbstractConfig
         extends TestResultsReporting
@@ -44,7 +44,7 @@ public abstract class AbstractConfig
     /**
      * Instantiates a new abstract configuration.
      *
-     * @param configFilename the Configuration filename
+     * @param configFilename the ExampleConfiguration filename
      */
     public AbstractConfig(final String configFilename) {
         this.propertyFilename = configFilename;
@@ -66,7 +66,7 @@ public abstract class AbstractConfig
      *
      * configuration filename
      *
-     * @param configFilename the Configuration filename
+     * @param configFilename the ExampleConfiguration filename
      */
     protected void loadPropertyFileFrom(final String configFilename) {
         final InputStream inputStream = inputStream(toPropertyFilename(configFilename));
@@ -108,7 +108,7 @@ public abstract class AbstractConfig
     /**
      * To property filename.
      *
-     * @param configFilename the Configuration filename
+     * @param configFilename the ExampleConfiguration filename
      * @return the string
      */
     protected String toPropertyFilename(final String configFilename) {
@@ -190,7 +190,7 @@ public abstract class AbstractConfig
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String,
+     * @see net.atf4j.core.examples.ConfigurationInterface#valueFor(java.lang.String,
      * java.lang.String)
      */
     @Override
@@ -201,7 +201,7 @@ public abstract class AbstractConfig
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String,
+     * @see net.atf4j.core.examples.ConfigurationInterface#valueFor(java.lang.String,
      * int)
      */
     @Override
@@ -212,7 +212,7 @@ public abstract class AbstractConfig
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String,
+     * @see net.atf4j.core.examples.ConfigurationInterface#valueFor(java.lang.String,
      * long)
      */
     @Override
@@ -223,7 +223,7 @@ public abstract class AbstractConfig
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String,
+     * @see net.atf4j.core.examples.ConfigurationInterface#valueFor(java.lang.String,
      * boolean)
      */
     @Override
@@ -300,7 +300,7 @@ public abstract class AbstractConfig
     }
 
     /**
-     * Configuration Not Loaded.
+     * ExampleConfiguration Not Loaded.
      */
     @SuppressWarnings("serial")
     public class ConfigurationNotLoadedException extends VerificationError {

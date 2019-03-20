@@ -24,7 +24,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Global Configuration Test.
+ * Global ExampleConfiguration Test.
  */
 public class GlobalConfigTest extends TestResultsReporting {
 

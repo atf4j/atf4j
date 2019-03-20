@@ -69,7 +69,7 @@ public abstract class TestResultsReporting {
     }
 
     /**
-     * To description.
+     * To description from current context.
      *
      * @return the string
      */

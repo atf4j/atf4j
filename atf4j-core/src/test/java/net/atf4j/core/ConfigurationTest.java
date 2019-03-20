@@ -19,9 +19,8 @@ package net.atf4j.core;
 
 import org.junit.Test;
 
-
 /**
- * Configuration Test class.
+ * ExampleConfiguration Test class.
  */
 public final class ConfigurationTest extends TestResultsReporting {
 
@@ -32,50 +31,6 @@ public final class ConfigurationTest extends TestResultsReporting {
     public void testConfiguration() {
         final Configuration configuration = new Configuration();
         verifyNotNull(configuration);
-    }
-
-    /**
-     * Test my key.
-     */
-    @Test
-    public void testMyKey() {
-        final Configuration configuration = new Configuration();
-        verifyNotNull(configuration);
-        final String actual = configuration.myKey();
-        Verify.verifyEqual("myValue", actual);
-    }
-
-    /**
-     * Test my int value.
-     */
-    @Test
-    public void testMyIntValue() {
-        final Configuration configuration = new Configuration();
-        verifyNotNull(configuration);
-        final int actual = configuration.myIntValue();
-        Verify.verifyEqual(0, actual);
-    }
-
-    /**
-     * Test my long value.
-     */
-    @Test
-    public void testMyLongValue() {
-        final Configuration configuration = new Configuration();
-        verifyNotNull(configuration);
-        final long actual = configuration.myLongValue();
-        Verify.verifyEqual(0L, actual);
-    }
-
-    /**
-     * Test my bool value.
-     */
-    @Test
-    public void testMyBoolValue() {
-        final Configuration configuration = new Configuration();
-        verifyNotNull(configuration);
-        final boolean actual = configuration.myBooleanValue();
-        Verify.verifyEqual(true, actual);
     }
 
 }

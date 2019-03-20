@@ -65,7 +65,7 @@ public final class NestedTimersTest extends TestResultsReporting {
 
     /**
      * Test method for
-     * {net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
+     * {net.atf4j.core.examples.timers.MilliTimer#Timer(java.lang.String)}.
      */
     @Test
     public void testTimerInstance() {
@@ -126,7 +126,7 @@ public final class NestedTimersTest extends TestResultsReporting {
 
     /**
      * Test method for
-     * {net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
+     * {net.atf4j.core.examples.timers.MilliTimer#Timer(java.lang.String)}.
      */
     @Test
     public void testStaticNamedTimers() {

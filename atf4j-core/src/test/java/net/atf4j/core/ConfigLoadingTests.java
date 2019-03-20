@@ -24,7 +24,7 @@ import static org.junit.Assert.assertEquals;
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
 
 /**
- * Unit test for loading a Configuration from properties.
+ * Unit test for loading a ExampleConfiguration from properties.
  */
 public final class ConfigLoadingTests extends TestResultsReporting {
 
@@ -43,12 +43,12 @@ public final class ConfigLoadingTests extends TestResultsReporting {
     }
 
     /**
-     * A Mock Test Configuration from file.
+     * A Mock Test ExampleConfiguration from file.
      */
     private class ConfigFromFile extends AbstractConfig {
 
         /**
-         * Instantiates a new Configuration from file.
+         * Instantiates a new ExampleConfiguration from file.
          *
          * @throws ConfigurationNotLoadedException the configuration not loaded
          */

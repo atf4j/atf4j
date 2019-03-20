@@ -26,7 +26,7 @@ import static org.junit.Assert.fail;
  * ResourceBundle.getBundle ("some.pkg.resource");
  * </code>
  */
-public final class ResourceLoader implements ResourceLoaderInterface {
+public final class ResourceLoader {
 
     /** provide logging. */
     private static final Logger LOG = LoggerFactory.getLogger(ResourceLoader.class);
@@ -45,15 +45,18 @@ public final class ResourceLoader implements ResourceLoaderInterface {
      * @return the stream
      */
     public static InputStream streamFor(final String resourceName) {
-        final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        final InputStream resourceAsStream = classLoader.getResourceAsStream(resourceName);
-        if (resourceAsStream == null) {
-            final String message = makeMsg(resourceName);
-            LOG.error("{}", message);
-            throw new ResourceNotLoadedException(message);
-        } else {
-            return resourceAsStream;
+        if (resourceName != null) {
+            final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+            final InputStream resourceAsStream = classLoader.getResourceAsStream(resourceName);
+            if (resourceAsStream == null) {
+                final String message = makeMsg(resourceName);
+                LOG.error("{}", message);
+                throw new ResourceNotLoadedException(message);
+            } else {
+                return resourceAsStream;
+            }
         }
+        return null;
     }
 
     /**
@@ -63,7 +66,10 @@ public final class ResourceLoader implements ResourceLoaderInterface {
      * @return the stream
      */
     public static InputStream streamFor(final URL resourceUrl) {
-        return streamFor(resourceUrl.getFile());
+        if (resourceUrl != null) {
+            return streamFor(resourceUrl.getFile());
+        }
+        return null;
     }
 
     /**
@@ -73,8 +79,10 @@ public final class ResourceLoader implements ResourceLoaderInterface {
      * @return the stream
      */
     public static InputStream streamFor(final URI resourceUri) {
-        final String path = resourceUri.normalize().getPath();
-        return streamFor(path);
+        if (resourceUri != null) {
+            return streamFor(resourceUri.normalize().getPath());
+        }
+        return null;
     }
 
     /**

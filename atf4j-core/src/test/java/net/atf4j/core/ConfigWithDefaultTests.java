@@ -35,7 +35,7 @@ public final class ConfigWithDefaultTests extends TestResultsReporting {
     private static final String MISSING_KEY = "missing";
 
     /**
-     * A Mock Configuration with default values.
+     * A Mock ExampleConfiguration with default values.
      */
     private class ConfigWithDefaults extends AbstractConfig {
 

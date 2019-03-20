@@ -117,4 +117,5 @@ public interface ConfigurationInterface {
      * @return the string
      */
     String prettyString();
+
 }

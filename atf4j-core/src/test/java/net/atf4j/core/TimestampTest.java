@@ -19,18 +19,25 @@ package net.atf4j.core;
 
 import org.junit.Test;
 
-
 /**
  * Unit test class for Timestamp.
  */
 public class TimestampTest extends TestResultsReporting {
 
     /**
-     * Unit tests for the TimeStamp object.
+     * Unit tests for the TimeStamp.
      */
     @Test
     public void testTimeStamp() {
         verifyNotNull(TimeStamp.timestamp());
+    }
+
+    /**
+     * Unit tests for an ISO TimeStamp.
+     */
+    @Test
+    public void testIso() {
+        verifyNotNull(TimeStamp.iso());
     }
 
     /**

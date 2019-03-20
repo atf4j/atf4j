@@ -18,7 +18,7 @@
 package net.atf4j.core;
 
 /**
- * Configuration Example class.
+ * ExampleConfiguration Example class.
  */
 public final class Configuration extends AbstractConfig {
 
@@ -28,42 +28,6 @@ public final class Configuration extends AbstractConfig {
      */
     public Configuration() {
         super();
-    }
-
-    /**
-     * My key.
-     *
-     * @return the string
-     */
-    public String myKey() {
-        return super.get("myKey", "myValue");
-    }
-
-    /**
-     * My int value.
-     *
-     * @return the int
-     */
-    public int myIntValue() {
-        return super.get("myIntValue", 0);
-    }
-
-    /**
-     * My long value.
-     *
-     * @return the long
-     */
-    public long myLongValue() {
-        return super.get("myLongValue", 0L);
-    }
-
-    /**
-     * My bool value.
-     *
-     * @return true, if successful
-     */
-    public boolean myBooleanValue() {
-        return super.get("myBooleanValue", true);
     }
 
 }

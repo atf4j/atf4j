@@ -30,7 +30,7 @@ import net.atf4j.core.timers.TimerInterface;
 public final class Atf4j {
 
     /** provides logging. */
-    private static final Logger LOG = LoggerFactory.getLogger(Atf4j.class);
+    private static final Logger log = LoggerFactory.getLogger(Atf4j.class);
 
     /** Nested Timers. */
     private static final NestedTimers nestedTimers = NestedTimers.getInstance();
@@ -55,7 +55,7 @@ public final class Atf4j {
      * @param string the string
      */
     public static void start(final String string) {
-        LOG.debug("start {}", string);
+        log.debug("start {}", string);
         nestedTimers.startTimer(string);
     }
 
@@ -65,7 +65,7 @@ public final class Atf4j {
     public static void end() {
         final TimerInterface stopTimer = nestedTimers.stopTimer();
         final String string = stopTimer.toString();
-        LOG.debug("end {}", string);
+        log.debug("end {}", string);
     }
 
     /**
@@ -73,8 +73,7 @@ public final class Atf4j {
      * must be marked with @Test annotation.
      */
     public static void document() {
-        final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-        document(stackTrace);
+        document(Thread.currentThread().getStackTrace());
     }
 
     /**
@@ -90,7 +89,7 @@ public final class Atf4j {
                 final String methodName = stackTraceElement.getMethodName();
                 final String phrase = unroll(methodName);
                 scenario.append(phrase);
-                LOG.info(phrase);
+                log.info(phrase);
             }
         }
         return scenario.toString();
@@ -99,27 +98,27 @@ public final class Atf4j {
     private static boolean isTest(final StackTraceElement stackTraceElement) {
         try {
             final Class<?> aClass = Class.forName(stackTraceElement.getClassName());
-            LOG.info(aClass.toString());
-            printAnnotation("\t{}\n", aClass.getAnnotations());
+            log.info(aClass.toString());
+            logAnnotation("\t{}\n", aClass.getAnnotations());
             final String methodName = stackTraceElement.getMethodName();
             final Method[] methods = aClass.getMethods();
             for (final Method method : methods) {
                 if (method.getName().equals(methodName)) {
-                    LOG.info("\t{}\n", method);
-                    printAnnotation("\t\t{}\n", method.getDeclaredAnnotations());
+                    log.info("\t{}\n", method);
+                    logAnnotation("\t\t{}\n", method.getDeclaredAnnotations());
                 }
             }
         } catch (final ClassNotFoundException e) {
-            e.printStackTrace();
+            log.error("{}", e);
         } catch (final SecurityException e) {
-            e.printStackTrace();
+            log.error("{}", e);
         }
         return false;
     }
 
-    private static void printAnnotation(final String pattern, final Annotation[] annotations) {
+    private static void logAnnotation(final String pattern, final Annotation[] annotations) {
         for (final Annotation annotation : annotations) {
-            LOG.info(pattern, annotation);
+            log.info(pattern, annotation);
         }
     }
 
@@ -152,6 +151,7 @@ public final class Atf4j {
                 phrase.append('.');
                 return phrase.toString();
             }
+            return "";
         }
         return null;
     }

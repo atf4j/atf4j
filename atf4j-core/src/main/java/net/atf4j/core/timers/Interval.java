@@ -108,7 +108,7 @@ public class Interval implements IntervalInterface {
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.timers.IntervalInterface#asMilliSeconds()
+     * @see net.atf4j.core.examples.timers.IntervalInterface#asMilliSeconds()
      */
     @Override
     public final long asMilliSeconds() {
@@ -118,7 +118,7 @@ public class Interval implements IntervalInterface {
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.timers.IntervalInterface#asSeconds()
+     * @see net.atf4j.core.examples.timers.IntervalInterface#asSeconds()
      */
     @Override
     public final long asSeconds() {
@@ -128,7 +128,7 @@ public class Interval implements IntervalInterface {
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.timers.IntervalInterface#asMinutes()
+     * @see net.atf4j.core.examples.timers.IntervalInterface#asMinutes()
      */
     @Override
     public final long asMinutes() {
@@ -138,7 +138,7 @@ public class Interval implements IntervalInterface {
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.timers.IntervalInterface#asHours()
+     * @see net.atf4j.core.examples.timers.IntervalInterface#asHours()
      */
     @Override
     public final long asHours() {
@@ -148,7 +148,7 @@ public class Interval implements IntervalInterface {
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.timers.IntervalInterface#asDays()
+     * @see net.atf4j.core.examples.timers.IntervalInterface#asDays()
      */
     @Override
     public final long asDays() {
@@ -158,7 +158,7 @@ public class Interval implements IntervalInterface {
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.timers.IntervalInterface#asLong()
+     * @see net.atf4j.core.examples.timers.IntervalInterface#asLong()
      */
     @Override
     public final long asLong() {

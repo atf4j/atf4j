@@ -25,10 +25,11 @@ import static org.junit.Assert.fail;
  * some.pkg.Resource.properties some/pkg/Resource some/pkg/Resource.properties
  * /some/pkg/Resource /some/pkg/Resource.properties
  */
-public final class PropertiesResourceLoader implements ResourceLoaderInterface {
+public final class PropertiesResourceLoader {
 
     /** SUFFIX constant. */
     private static final String DEFAULT_SUFFIX = ".properties";
+    private static final String XML_SUFFIX = ".xml";
 
     /** provides logging. */
     private static final Logger LOG = LoggerFactory.getLogger(PropertiesResourceLoader.class);
@@ -48,12 +49,14 @@ public final class PropertiesResourceLoader implements ResourceLoaderInterface {
      */
     public static Properties propertiesFor(final String resourceName) {
         final Properties properties = new Properties();
-        try {
-            final InputStream stream = ResourceLoader.streamFor(propertiesFilename(resourceName));
-            properties.load(stream);
-            properties.setProperty("propertyFilename", resourceName);
-        } catch (final IOException e) {
-            LOG.error(e.getLocalizedMessage(), e);
+        if (resourceName != null) {
+            try {
+                final InputStream stream = ResourceLoader.streamFor(propertiesFilename(resourceName));
+                properties.load(stream);
+                properties.setProperty("propertyFilename", resourceName);
+            } catch (final IOException e) {
+                LOG.error(e.getLocalizedMessage(), e);
+            }
         }
         return properties;
     }
@@ -65,12 +68,14 @@ public final class PropertiesResourceLoader implements ResourceLoaderInterface {
      * @return the string
      */
     private static String propertiesFilename(final String resourceName) {
-        final String suffix = DEFAULT_SUFFIX;
-        if (resourceName.endsWith(suffix)) {
-            return resourceName;
-        } else {
-            return String.format("%s%s", resourceName, suffix);
+        if (resourceName != null) {
+            if (resourceName.endsWith(DEFAULT_SUFFIX)) {
+                return resourceName;
+            } else {
+                return String.format("%s%s", resourceName, DEFAULT_SUFFIX);
+            }
         }
+        return "";
     }
 
     /**
@@ -81,12 +86,14 @@ public final class PropertiesResourceLoader implements ResourceLoaderInterface {
      */
     public static Properties propertiesFromXml(final String resourceName) {
         final Properties properties = new Properties();
-        try {
-            final InputStream stream = ResourceLoader.streamFor(xmlPropertiesFilename(xmlPropertiesFilename(resourceName)));
-            properties.loadFromXML(stream);
-            properties.setProperty("propertyFilename", resourceName);
-        } catch (final IOException e) {
-            LOG.error(e.getLocalizedMessage(), e);
+        if (resourceName != null) {
+            try {
+                final InputStream stream = ResourceLoader.streamFor(xmlPropertiesFilename(xmlPropertiesFilename(resourceName)));
+                properties.loadFromXML(stream);
+                properties.setProperty("propertyFilename", resourceName);
+            } catch (final IOException e) {
+                LOG.error(e.getLocalizedMessage(), e);
+            }
         }
         return properties;
     }
@@ -98,12 +105,13 @@ public final class PropertiesResourceLoader implements ResourceLoaderInterface {
      * @return the string
      */
     private static String xmlPropertiesFilename(final String resourceName) {
-        final String suffix = DEFAULT_SUFFIX;
-        if (resourceName.endsWith(suffix)) {
-            return resourceName;
-        } else {
-            return String.format("%s%s", resourceName, suffix);
+        if (resourceName != null) {
+            if (resourceName.endsWith(XML_SUFFIX)) {
+                return resourceName;
+            } else {
+                return String.format("%s%s", resourceName, XML_SUFFIX);
+            }
         }
+        return null;
     }
-
 }

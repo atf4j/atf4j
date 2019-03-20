@@ -18,7 +18,7 @@
 package net.atf4j.core;
 
 /**
- * Globally accessible Configuration class, using static final instance.
+ * Globally accessible ExampleConfiguration class, using static final instance.
  */
 public final class GlobalConfig extends AbstractConfig {
 

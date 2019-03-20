@@ -18,89 +18,175 @@
 package net.atf4j.core.timers;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
 import net.atf4j.core.TestResultsReporting;
+import net.atf4j.core.timers.Interval;
+import net.atf4j.core.timers.IntervalInterface;
 
 /**
- * IntervalTester Class.
+ * A UnitTest for Interval objects.
  */
-public final class IntervalTest extends TestResultsReporting {
-
-    private static final long DEFAULT_INTERVAL = 1000L;
-    private static final long DELTA = 0L;
+public class IntervalTest extends TestResultsReporting {
 
     /**
-     * Test interval.
+     * Test method for Interval.
      */
     @Test
     public void testInterval() {
-        final long asMilliSeconds = new Interval(DEFAULT_INTERVAL).asMilliSeconds();
-        assertEquals(DEFAULT_INTERVAL, asMilliSeconds, DELTA);
+        final IntervalInterface interval = new Interval();
+        log.debug("interval = {}", interval);
+        assertNotNull(interval);
     }
 
     /**
-     * Test in milli seconds.
+     * Test method for Interval.
+     */
+    @Test
+    public void testIntervalLong() {
+        final long useTimePeriod = 1000;
+        final IntervalInterface interval = new Interval(useTimePeriod);
+        log.debug("interval = {}", interval);
+        verifyNotNull(interval);
+    }
+
+    /**
+     * Test method for Interval.
      */
     @Test
     public void testInMilliSeconds() {
-        final long asMilliSeconds = Interval.inMilliSeconds(DEFAULT_INTERVAL).asMilliSeconds();
-        assertEquals(DEFAULT_INTERVAL, asMilliSeconds, DELTA);
+        final long timePeriod = 1000;
+        final IntervalInterface inMilliSeconds = Interval.inMilliSeconds(timePeriod);
+        log.info("inMilliSeconds = {}", inMilliSeconds);
+        verifyNotNull(inMilliSeconds);
     }
 
     /**
-     * Test in seconds.
+     * Test method for Interval.
      */
     @Test
     public void testInSeconds() {
-        final long asMilliSeconds = Interval.inSeconds(1).asMilliSeconds();
-        assertEquals(DEFAULT_INTERVAL * 1, asMilliSeconds, DELTA);
+        final long timePeriod = 1;
+        final IntervalInterface inSeconds = Interval.inSeconds(timePeriod);
+        log.info("inSeconds = {}", inSeconds);
+        verifyNotNull(inSeconds);
     }
 
     /**
-     * Test in minutes.
+     * Test method for Interval.
      */
     @Test
     public void testInMinutes() {
-        final long asMilliSeconds = Interval.inMinutes(1).asMilliSeconds();
-        assertEquals(DEFAULT_INTERVAL * 60, asMilliSeconds, DELTA);
+        final long timePeriod = 1;
+        final IntervalInterface inMinutes = Interval.inMinutes(timePeriod);
+        log.info("inMinutes = {}", inMinutes);
+        verifyNotNull(inMinutes);
     }
 
     /**
-     * Test in hours.
+     * Test method for Interval.
      */
     @Test
     public void testInHours() {
-        final long asMilliSeconds = Interval.inHours(1).asMilliSeconds();
-        assertEquals(DEFAULT_INTERVAL * 60 * 60, asMilliSeconds, DELTA);
+        final long timePeriod = 1;
+        final IntervalInterface inHours = Interval.inHours(timePeriod);
+        log.info("inHours = {}", inHours);
+        verifyNotNull(inHours);
     }
 
     /**
-     * Test in days.
+     * Test method for Interval.
      */
     @Test
     public void testInDays() {
-        final long asMilliSeconds = Interval.inDays(1).asMilliSeconds();
-        assertEquals(DEFAULT_INTERVAL * 60 * 60 * 24, asMilliSeconds, DELTA);
+        final long timePeriod = 1;
+        final IntervalInterface inDays = Interval.inDays(timePeriod);
+        log.info("inDays = {}", inDays);
+        verifyNotNull(inDays);
     }
 
     /**
-     * Test as milli seconds.
-     */
-    @Test
-    public void testAsMilliSeconds() {
-        final long asMilliSeconds = new Interval(DEFAULT_INTERVAL).asMilliSeconds();
-        assertEquals(DEFAULT_INTERVAL, asMilliSeconds, DELTA);
-    }
-
-    /**
-     * Test as long.
+     * Test method for Interval.
      */
     @Test
     public void testAsLong() {
-        final long asLong = new Interval(DEFAULT_INTERVAL).asLong();
-        assertEquals(DEFAULT_INTERVAL, asLong, DELTA);
+        final IntervalInterface interval = new Interval();
+        verifyNotNull(interval);
+        final long asLong = interval.asLong();
+        log.info("asLong = {}", asLong);
+        assertEquals(0, asLong);
+    }
+
+    /**
+     * Test method for Interval.
+     */
+    @Test
+    public void testAsMilliSeconds() {
+        final IntervalInterface interval = new Interval();
+        verifyNotNull(interval);
+        final long asMilliSeconds = interval.asMilliSeconds();
+        log.info("asMilliSeconds = {}", asMilliSeconds);
+        assertEquals(0, asMilliSeconds);
+    }
+
+    /**
+     * Test method for Interval.
+     */
+    @Test
+    public void testAsSeconds() {
+        final IntervalInterface interval = new Interval();
+        verifyNotNull(interval);
+        final long asSeconds = interval.asSeconds();
+        log.info("asSeconds = {}", asSeconds);
+        assertEquals(0, asSeconds);
+    }
+
+    /**
+     * Test method for Interval.
+     */
+    @Test
+    public void testAsMinutes() {
+        final IntervalInterface interval = new Interval();
+        verifyNotNull(interval);
+        final long asMinutes = interval.asMinutes();
+        log.info("asMinutes = {}", asMinutes);
+        assertEquals(0, asMinutes);
+    }
+
+    /**
+     * Test method for Interval.
+     */
+    @Test
+    public void testAsHours() {
+        final IntervalInterface interval = new Interval();
+        verifyNotNull(interval);
+        final long asHours = interval.asHours();
+        log.info("asHours = {}", asHours);
+        assertEquals(0, asHours);
+    }
+
+    /**
+     * Test method for Interval.
+     */
+    @Test
+    public void testAsDays() {
+        final IntervalInterface interval = new Interval();
+        verifyNotNull(interval);
+        final long asDays = interval.asDays();
+        log.info("asDays = {}", asDays);
+        assertEquals(0, asDays);
+    }
+
+    /**
+     * Test method for Interval.
+     */
+    @Test
+    public void testIntervalToString() {
+        final IntervalInterface interval = new Interval();
+        log.info("interval = {}", interval);
+        verifyNotNull(interval);
     }
 
 }

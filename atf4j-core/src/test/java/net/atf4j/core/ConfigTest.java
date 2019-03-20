@@ -45,7 +45,7 @@ public class ConfigTest extends TestResultsReporting {
     }
 
     /**
-     * Mock a Simple Configuration Class.
+     * Mock a Simple ExampleConfiguration Class.
      */
     private class SimpleConfiguration extends AbstractConfig {
         /**
@@ -66,7 +66,7 @@ public class ConfigTest extends TestResultsReporting {
     }
 
     /**
-     * Unit Test method for Default Configuration.
+     * Unit Test method for Default ExampleConfiguration.
      */
     @Test
     public void testDefaultConfig() {
@@ -93,7 +93,7 @@ public class ConfigTest extends TestResultsReporting {
     }
 
     /**
-     * Unit Test Simple Configuration constructor.
+     * Unit Test Simple ExampleConfiguration constructor.
      */
     @Test
     public void testSimpleConfiguration() {

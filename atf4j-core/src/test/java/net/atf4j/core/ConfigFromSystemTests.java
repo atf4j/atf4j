@@ -28,7 +28,7 @@ import org.junit.Test;
 public final class ConfigFromSystemTests extends TestResultsReporting {
 
     /**
-     * Mock Configuration from System settings.
+     * Mock ExampleConfiguration from System settings.
      */
     private class ConfigFromSystem extends AbstractConfig {
 
