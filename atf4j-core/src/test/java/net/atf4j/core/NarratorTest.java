@@ -35,6 +35,7 @@ public final class NarratorTest extends TestResultsReporting {
         /** The object. */
         private final Object object = new Object();
 
+        /** The class name. */
         private final String className = this.getClass().getSimpleName();
 
         /** The a boolean. */

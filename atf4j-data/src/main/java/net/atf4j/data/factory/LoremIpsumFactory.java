@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import net.atf4j.core.Text;
+import net.atf4j.data.Text;
 
 /**
  * Lorem Ipsum text generator.

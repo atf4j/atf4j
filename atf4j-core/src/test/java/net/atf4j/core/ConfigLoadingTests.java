@@ -19,8 +19,6 @@ package net.atf4j.core;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
 
 /**
@@ -49,65 +47,19 @@ public final class ConfigLoadingTests extends TestResultsReporting {
 
         /**
          * Instantiates a new ExampleConfiguration from file.
-         *
-         * @throws ConfigurationNotLoadedException the configuration not loaded
          */
         public ConfigFromFile() {
             super("ConfigFromFile.properties");
-        }
-
-        /**
-         * Gets the property filename.
-         *
-         * @return the property filename
-         */
-        public String getPropertyFilename() {
-            return get("filename");
         }
     }
 
     /**
      * Test method for MissingProperties.
-     *
-     * @throws ConfigurationNotLoadedException the configuration not loaded
-     *             exception
      */
     @Test
     public void testMissingConfig() {
         final MissingProperties missingProperties = new MissingProperties();
         verifyNotNull(missingProperties);
-    }
-
-    /**
-     * Test method for value from file.
-     *
-     * @throws ConfigurationNotLoadedException
-     *             the configuration not loaded exception
-     */
-    @Test
-    public void testConfigFromFile() {
-        final ConfigFromFile config = new ConfigFromFile();
-        verifyNotNull(config);
-        this.log.debug(config.toString());
-        final String propertyFilename = config.getPropertyFilename();
-        assertEquals("ConfigFromFile.properties", propertyFilename);
-    }
-
-    /**
-     * Test method for System overriding.
-     *
-     * @throws ConfigurationNotLoadedException the configuration not loaded
-     *             exception
-     */
-    @Test
-    public void testSystemOveridesConfig() {
-        final ConfigFromFile config = new ConfigFromFile();
-        verifyNotNull(config);
-        this.log.debug(config.toString());
-        final String key = "property";
-        final String value = "FromSystem";
-        System.setProperty(key, value);
-        assertEquals(value, config.get(key));
     }
 
 }

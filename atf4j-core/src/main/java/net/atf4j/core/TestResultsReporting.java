@@ -52,7 +52,7 @@ public abstract class TestResultsReporting {
         if (object == null) {
             throw new VerificationError(UNEXPECTED_NULL);
         }
-        this.log.trace("verifyNotNull({}) = {}", object.getClass().getSimpleName(), object.toString());
+        log.trace("verifyNotNull({}) = {}", object.getClass().getSimpleName(), object.toString());
     }
 
     /**
@@ -65,7 +65,7 @@ public abstract class TestResultsReporting {
         if (object == null) {
             throw new VerificationError(message);
         }
-        this.log.trace("verifyNotNull({}) = ", object.getClass().getSimpleName(), object);
+        log.trace("verifyNotNull({}) = ", object.getClass().getSimpleName(), object);
     }
 
     /**
@@ -99,7 +99,7 @@ public abstract class TestResultsReporting {
     @After
     public void after() {
         final String ruleoff = fillString(40, '-');
-        this.log.trace(ruleoff);
+        log.trace(ruleoff);
     }
 
     /**

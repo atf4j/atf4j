@@ -28,6 +28,7 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class NestedTimersTest extends TestResultsReporting {
 
+    /** DEFAULT_INTERVAL */
     private static final int DEFAULT_INTERVAL = 100;
 
     /**
@@ -104,6 +105,8 @@ public final class NestedTimersTest extends TestResultsReporting {
 
     /**
      * Wait integer interval.
+     *
+     * @param interval the interval
      */
     private void waitDefaultInterval(final int interval) {
         try {

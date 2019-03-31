@@ -32,18 +32,27 @@ import static org.junit.Assume.assumeTrue;
  */
 public class TestContextTest extends TestResultsReporting {
 
+    /**
+     * Unit test to assume local true.
+     */
     @Test
     public void testAssumeLocalTrue() {
         System.setProperty("isLocal", "True");
         assertTrue(TestContext.assumeLocal());
     }
 
+    /**
+     * Unit test to assume local false.
+     */
     @Test(expected = AssumptionViolatedException.class)
     public void testAssumeLocalFalse() {
         System.setProperty("isLocal", "False");
         TestContext.assumeLocal();
     }
 
+    /**
+     * Unit test to assume jenkins.
+     */
     @Test
     public void testAssumeJenkins() {
         if (TestContext.isJenkins()) {
@@ -54,6 +63,9 @@ public class TestContextTest extends TestResultsReporting {
         }
     }
 
+    /**
+     * Unit test to assume local tomcat.
+     */
     @Test
     public void testAssumeLocalTomcat() {
         TestContext.assumeLocalTomcat();
@@ -82,6 +94,9 @@ public class TestContextTest extends TestResultsReporting {
         assumeNotNull(TestContext.seleniumGridUrl());
     }
 
+    /**
+     * Unit test to assume headless.
+     */
     @Test
     public void testAssumeHeadless() {
         TestContext.assumeHeadless();
@@ -110,6 +125,9 @@ public class TestContextTest extends TestResultsReporting {
         assertTrue(TestContext.isActiveMQ());
     }
 
+    /**
+     * Testlocal server.
+     */
     @Test
     public void testlocalServer() {
         TestContext.assumeLocalServer();
@@ -139,11 +157,17 @@ public class TestContextTest extends TestResultsReporting {
         assumeTrue(TestContext.retryInterval() > 0 && TestContext.retryInterval() < TestContext.explicitWait());
     }
 
+    /**
+     * Unit test to target platform.
+     */
     @Test
     public void testTargetPlatform() {
         assumeNotNull(TestContext.targetPlatform());
     }
 
+    /**
+     * Unit test to target environment.
+     */
     @Test
     public void testTargetEnvironment() {
         assumeNotNull(TestContext.targetEnvironment());

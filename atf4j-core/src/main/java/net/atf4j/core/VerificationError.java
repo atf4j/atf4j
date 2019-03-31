@@ -22,9 +22,6 @@ package net.atf4j.core;
  */
 public class VerificationError extends AssertionError {
 
-    /** serialVersionUID. */
-    private static final long serialVersionUID = 4462112926382796692L;
-
     /**
      * Instantiates a new atf4j exception.
      */

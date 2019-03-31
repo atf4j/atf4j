@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>net.atf4j</groupId>
 	<artifactId>atf4j</artifactId>
-	<version>0.13.4-SNAPSHOT</version>
+		<version>0.13.5-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Automation Test Framework for Java</name>
@@ -86,7 +84,6 @@
 		<module>atf4j-annotations</module>
 		<module>atf4j-fdd</module>
 		<module>atf4j-core</module>
-		<module>atf4j-csv</module>
 		<module>atf4j-cucumber-webdriver</module>
 		<module>atf4j-data</module>
 		<module>atf4j-junit</module>

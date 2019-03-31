@@ -18,7 +18,6 @@
 package net.atf4j.data;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.core.Text;
 
 /**
  * Bank Account Data. UK Bank Account Number @”^\d{8,8}$”;
@@ -146,7 +145,6 @@ public final class BankAccount extends TestResultsReporting {
 
     /*
      * (non-Javadoc)
-     *
      * @see java.lang.Object#toString()
      */
     @Override

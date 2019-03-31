@@ -47,6 +47,11 @@ public final class TimeStamp {
         return format(TIMESTAMP_FORMAT);
     }
 
+    /**
+     * Iso.
+     *
+     * @return the string
+     */
     public static String iso() {
         return format(ISO_DATE_TIME);
     }

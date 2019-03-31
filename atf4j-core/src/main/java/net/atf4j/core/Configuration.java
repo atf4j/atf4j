@@ -18,16 +18,58 @@
 package net.atf4j.core;
 
 /**
- * ExampleConfiguration Example class.
+ * Configuration Interface.
  */
-public final class Configuration extends AbstractConfig {
+public interface Configuration {
 
     /**
-     * Instantiates a new configuration. Private default constructor prevents
-     * wild instantiation.
+     * Long value of from configuration property by key.
+     *
+     * @param key the key of the value as String.
+     * @param defaultValue the default value as long.
+     * @return long value.
      */
-    public Configuration() {
-        super();
-    }
+    long valueFor(final String key, final long defaultValue);
+
+    /**
+     * The boolean value from configuration property by key.
+     *
+     * @param key the key of the value as String.
+     * @param defaultValue the default value as boolean. \* @return true, if
+     *            successful, otherwise false. otherwise false.
+     * @return true, if successful, otherwise false.
+     */
+    boolean valueFor(final String key, final boolean defaultValue);
+
+    /**
+     * A String from configuration property by key.
+     *
+     * @param key the key of the value as String.
+     * @param defaultValue the default value as a String.
+     * @return the configuration property as a String.
+     */
+    String valueFor(final String key, final String defaultValue);
+
+    /**
+     * Value for key
+     *
+     * @param key the key
+     * @return the string
+     */
+    String valueFor(final String key);
+
+    /**
+     * Send the configuration to the log.
+     *
+     * @return the string
+     */
+    void toLog();
+
+    /**
+     * The configuration as a Pretty string.
+     *
+     * @return the string
+     */
+    String prettyString();
 
 }

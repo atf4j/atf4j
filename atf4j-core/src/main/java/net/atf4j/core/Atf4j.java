@@ -95,6 +95,13 @@ public final class Atf4j {
         return scenario.toString();
     }
 
+    /**
+     * Checks if is unit test to.
+     *
+     * @param stackTraceElement the stack trace element
+     * @return true, if is
+     *         unit test to
+     */
     private static boolean isTest(final StackTraceElement stackTraceElement) {
         try {
             final Class<?> aClass = Class.forName(stackTraceElement.getClassName());
@@ -116,6 +123,12 @@ public final class Atf4j {
         return false;
     }
 
+    /**
+     * Log annotation.
+     *
+     * @param pattern the pattern
+     * @param annotations the annotations
+     */
     private static void logAnnotation(final String pattern, final Annotation[] annotations) {
         for (final Annotation annotation : annotations) {
             log.info(pattern, annotation);

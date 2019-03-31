@@ -46,7 +46,9 @@ public final class TestContext extends TestResultsReporting {
      * @return true, if successful
      */
     public static boolean assumeLocal() {
-        assumeTrue("The test assume the SUT is running locally, if this is true then define the system property 'isLocal' for the environment.", isLocal());
+        assumeTrue(
+            "The test assume the SUT is running locally, if this is true then define the system property 'isLocal' for the environment.",
+            isLocal());
         return true;
     }
 
@@ -56,7 +58,9 @@ public final class TestContext extends TestResultsReporting {
      * @return true, if successful
      */
     public static boolean assumeJenkins() {
-        assumeTrue("The test assume running under Jenkins, if this is true then define the system property 'isJenkins' for the environment.", isJenkins());
+        assumeTrue(
+            "The test assume running under Jenkins, if this is true then define the system property 'isJenkins' for the environment.",
+            isJenkins());
         return true;
     }
 
@@ -67,7 +71,9 @@ public final class TestContext extends TestResultsReporting {
      * @return true, if successful
      */
     public static boolean assumeLocalTomcat() {
-        assumeTrue("The test assume Tomcat is available on localhost, if this is true then define the system property 'isTomcat' for the environment.", isTomcat());
+        assumeTrue(
+            "The test assume Tomcat is available on localhost, if this is true then define the system property 'isTomcat' for the environment.",
+            isTomcat());
         return true;
     }
 
@@ -78,7 +84,9 @@ public final class TestContext extends TestResultsReporting {
      * @return true, if successful
      */
     public static boolean assumeSeleniumGrid() {
-        assumeTrue("The test assume Selenium Grid is available on localhost, if this is true then define the system property 'isSeleniumGrid' for the environment.", isSeleniumGrid());
+        assumeTrue(
+            "The test assume Selenium Grid is available on localhost, if this is true then define the system property 'isSeleniumGrid' for the environment.",
+            isSeleniumGrid());
         return true;
     }
 
@@ -88,7 +96,9 @@ public final class TestContext extends TestResultsReporting {
      * @return true, if successful
      */
     public static boolean assumeHeadless() {
-        assumeTrue("The test assume a headless webBrowser is available locally, if this is true then define the system property 'isHeadless' for the environment.", isHeadless());
+        assumeTrue(
+            "The test assume a headless webBrowser is available locally, if this is true then define the system property 'isHeadless' for the environment.",
+            isHeadless());
         return true;
     }
 
@@ -142,6 +152,11 @@ public final class TestContext extends TestResultsReporting {
         return systemPropertyAsBoolean("isJenkins", false);
     }
 
+    /**
+     * Jenkinst url.
+     *
+     * @return the string
+     */
     public static String jenkinstUrl() {
         return System.getProperty("tomcatUrl", LOCAL_JENKINS_URL);
     }
@@ -240,6 +255,11 @@ public final class TestContext extends TestResultsReporting {
         return getSystemPropertyAsLong("explicitWait", 1000L);
     }
 
+    /**
+     * Retry interval.
+     *
+     * @return the long
+     */
     public static long retryInterval() {
         return getSystemPropertyAsLong("retryInterval", 100L);
     }
@@ -262,10 +282,24 @@ public final class TestContext extends TestResultsReporting {
         return System.getProperty("targetEnvironment", "local");
     }
 
+    /**
+     * System property as boolean.
+     *
+     * @param key the key
+     * @param booleanDefault the boolean default
+     * @return the boolean
+     */
     private static Boolean systemPropertyAsBoolean(final String key, final Boolean booleanDefault) {
         return Boolean.valueOf(System.getProperty(key, booleanDefault.toString()));
     }
 
+    /**
+     * Gets the system property as long.
+     *
+     * @param key the key
+     * @param longDefault the long default
+     * @return the system property as long
+     */
     private static Long getSystemPropertyAsLong(final String key, final Long longDefault) {
         return Long.valueOf(System.getProperty(key, longDefault.toString()));
     }

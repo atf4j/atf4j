@@ -30,7 +30,7 @@ import net.atf4j.core.TestResultsReporting;
 public final class PageConfigTest extends TestResultsReporting {
 
 	/**
-	 * Mock Page Configuration.
+	 * Mock Page Atf4jConfiguration.
 	 */
 	public class MockPageConfig extends PageConfig {
 

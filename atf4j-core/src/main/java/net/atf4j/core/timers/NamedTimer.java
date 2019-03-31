@@ -33,7 +33,7 @@ public class NamedTimer implements TimerInterface {
     /** The elapsed time in milliseconds. */
     private long elapsedTime = 0;
 
-    /** Name of the timer, if no name was provided, then its unique UUID */
+    /**  Name of the timer, if no name was provided, then its unique UUID. */
     private final String timerName;
 
     /**
@@ -116,6 +116,9 @@ public class NamedTimer implements TimerInterface {
         return this.elapsedTime;
     }
 
+    /* (non-Javadoc)
+    * @see java.lang.Object#toString()
+    */
     @Override
     public String toString() {
         return String.format("%s [timerName=%s, startTime=%s, stopTime=%s, elapsedTime=%s]",

@@ -47,8 +47,8 @@ public final class Verify {
     /**
      * Verify object is not null.
      *
-     * @param message the message
      * @param object the object
+     * @param message the message
      */
     public static void verifyNotNull(final Object object, final String message) {
         if (object == null) {

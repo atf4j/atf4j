@@ -20,7 +20,7 @@ package net.atf4j.bdd;
 import net.atf4j.core.AbstractConfig;
 
 /**
- * Automation Configuration Class.
+ * Automation Atf4jConfiguration Class.
  */
 public final class AutomationConfig extends AbstractConfig {
 
@@ -34,7 +34,7 @@ public final class AutomationConfig extends AbstractConfig {
     /**
      * Instantiates a new automation config.
      *
-     * @param propertyFilename the property filename
+     * @param configFilename the property filename
      * @throws ConfigurationNotLoadedException the configuration not loaded
      *             exception
      */

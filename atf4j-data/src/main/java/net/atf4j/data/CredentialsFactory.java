@@ -8,9 +8,6 @@ import static org.junit.Assert.assertNotNull;
 
 import static org.junit.Assume.assumeTrue;
 
-import net.atf4j.csv.CsvFile;
-import net.atf4j.csv.CsvRow;
-
 /**
  * The CredentialsFactory class.
  */
@@ -125,12 +122,12 @@ public class CredentialsFactory extends AbstractExpectedData implements Expected
         for (int index = 0; index < rowCount; index++) {
             final CsvRow record = this.csvFile.getRecord(index);
             assertNotNull(record);
-            if (record.getColumn(0).contains(tag)) {
+            if (record.getField(0).contains(tag)) {
                 final Actor credentials = new Actor();
                 assertNotNull(credentials);
-                credentials.setUsername(record.getColumn(1));
-                credentials.setPassword(record.getColumn(2));
-                credentials.setEmail(record.getColumn(3));
+                credentials.setUsername(record.getField(1));
+                credentials.setPassword(record.getField(2));
+                credentials.setEmail(record.getField(3));
                 return credentials;
             }
         }

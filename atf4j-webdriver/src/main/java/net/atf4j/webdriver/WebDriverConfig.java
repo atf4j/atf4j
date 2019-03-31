@@ -20,7 +20,7 @@ package net.atf4j.webdriver;
 import net.atf4j.core.AbstractConfig;
 
 /**
- * Configuration for WebDriver.
+ * Atf4jConfiguration for WebDriver.
  */
 public class WebDriverConfig extends AbstractConfig {
 
@@ -50,7 +50,7 @@ public class WebDriverConfig extends AbstractConfig {
      * @return path as String object.
      */
     public String chromeBinaryDriver() {
-        return this.get("chromeBinaryDriver");
+        return this.valueFor("chromeBinaryDriver");
     }
 
     /**
@@ -59,7 +59,7 @@ public class WebDriverConfig extends AbstractConfig {
      * @return path as String object.
      */
     public String firefoxBinaryDriver() {
-        return this.get("firefoxBinaryDriver");
+        return this.valueFor("firefoxBinaryDriver");
     }
 
     /**
@@ -68,7 +68,7 @@ public class WebDriverConfig extends AbstractConfig {
      * @return seleniumUrl as String object.
      */
     public String seleniumUrl() {
-        return this.get("seleniumUrl", WebDriverConfig.LOCAL_GRID);
+        return this.valueFor("seleniumUrl", WebDriverConfig.LOCAL_GRID);
     }
 
     /**
@@ -77,7 +77,7 @@ public class WebDriverConfig extends AbstractConfig {
      * @return the targetURL as String object.
      */
     public String targetUrl() {
-        return this.get("targetUrl", WebDriverConfig.LOCAL_TARGET);
+        return this.valueFor("targetUrl", WebDriverConfig.LOCAL_TARGET);
     }
 
     /**
@@ -86,7 +86,7 @@ public class WebDriverConfig extends AbstractConfig {
      * @return the page load timeout
      */
     public long pageLoadTimeout() {
-        return this.get("pageLoadTimeOut", 1);
+        return this.valueFor("pageLoadTimeOut", 1);
     }
 
     /**
@@ -95,7 +95,7 @@ public class WebDriverConfig extends AbstractConfig {
      * @return the implicit wait
      */
     public long implicitWait() {
-        return this.get("implicitWait", 1);
+        return this.valueFor("implicitWait", 1);
     }
 
     /**
@@ -104,7 +104,7 @@ public class WebDriverConfig extends AbstractConfig {
      * @return the long
      */
     public long explicitWait() {
-        return this.get("explicitWait", 1);
+        return this.valueFor("explicitWait", 1);
     }
 
     /**
@@ -113,7 +113,7 @@ public class WebDriverConfig extends AbstractConfig {
      * @return the long
      */
     public long pollingInterval() {
-        return this.get("pollingInterval", 1);
+        return this.valueFor("pollingInterval", 1);
     }
 
     /**
@@ -122,7 +122,7 @@ public class WebDriverConfig extends AbstractConfig {
      * @return the boolean
      */
     public boolean maximiseBrowser() {
-        return this.get("maximiseBrowser", false);
+        return this.valueFor("maximiseBrowser", false);
     }
 
     /**
@@ -131,7 +131,7 @@ public class WebDriverConfig extends AbstractConfig {
      * @return the long
      */
     public long playbackInterval() {
-        return this.get("playbackInterval", 1);
+        return this.valueFor("playbackInterval", 1);
     }
 
     /**
@@ -140,7 +140,7 @@ public class WebDriverConfig extends AbstractConfig {
      * @return the long
      */
     public long scriptTimeout() {
-        return this.get("scriptTimeout", 1000);
+        return this.valueFor("scriptTimeout", 1000);
     }
 
     /**
@@ -149,7 +149,7 @@ public class WebDriverConfig extends AbstractConfig {
      * @return the long
      */
     public long timeOutInSeconds() {
-        return this.get("timeOutInSeconds", 1);
+        return this.valueFor("timeOutInSeconds", 1);
     }
 
 }

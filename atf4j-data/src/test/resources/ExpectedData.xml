@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<expected-data>
+	<columns>
+		<name>Tag</name>
+		<name>ColumnOne</name>
+		<name>ColumnTwo</name>
+		<name>ColumnThree</name>
+		<name>ColumnFour</name>
+	</columns>
+	<record>
+		<tags>@TagOne</tags>
+		<ColumnOne>value1x1</ColumnOne>
+		<ColumnTwo>value1x2</ColumnTwo>
+		<ColumnThree>value1x3</ColumnThree>
+		<ColumnFour>value1x4</ColumnFour>
+	</record>
+	<record>
+		<tags>@TagTwo</tags>
+		<ColumnOne>value2x1</ColumnOne>
+		<ColumnTwo>value2x2</ColumnTwo>
+		<ColumnThree>value2x3</ColumnThree>
+		<ColumnFour>value2x4</ColumnFour>
+	</record>
+	<record>
+		<tags>@TagThree</tags>
+		<ColumnOne>value3x1</ColumnOne>
+		<ColumnTwo>value3x2</ColumnTwo>
+		<ColumnThree>value3x3</ColumnThree>
+		<ColumnFour>value4x4</ColumnFour>
+	</record>
+	<record>
+		<tags>@TagFour</tags>
+		<ColumnOne>value4x1</ColumnOne>
+		<ColumnTwo>value4x2</ColumnTwo>
+		<ColumnThree>value4x3</ColumnThree>
+		<ColumnFour>value4x4</ColumnFour>
+	</record>
+</expected-data>

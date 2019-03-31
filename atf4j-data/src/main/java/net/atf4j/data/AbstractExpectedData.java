@@ -10,9 +10,6 @@ import static org.junit.Assert.assertNotNull;
 
 import static org.junit.Assume.assumeTrue;
 
-import net.atf4j.csv.CsvFile;
-import net.atf4j.csv.CsvRow;
-
 /**
  * The abstract ExpectedData class.
  */
@@ -53,9 +50,9 @@ public abstract class AbstractExpectedData implements ExpectedDataInterface {
         assumeTrue(this.csvFile.isLoaded());
         final int rowCount = this.csvFile.rowCount();
         for (int index = 0; index < rowCount; index++) {
-            final CsvRow record = this.csvFile.getRow(index);
+            final CsvRow record = this.csvFile.row(index);
             assertNotNull(record);
-            if (record.getColumn(0).toUpperCase().contains(tag.toUpperCase())) {
+            if (record.getField(0).toUpperCase().contains(tag.toUpperCase())) {
                 return record.toString();
             }
         }
@@ -74,9 +71,9 @@ public abstract class AbstractExpectedData implements ExpectedDataInterface {
         assumeTrue(this.csvFile.isLoaded());
         final int rowCount = this.csvFile.rowCount();
         for (int index = 0; index < rowCount; index++) {
-            final CsvRow record = this.csvFile.getRow(index);
+            final CsvRow record = this.csvFile.row(index);
             assertNotNull(record);
-            if (record.getColumn(0).toUpperCase().contains(tag.toUpperCase())) {
+            if (record.getField(0).toUpperCase().contains(tag.toUpperCase())) {
                 all.add(record.toString());
             }
         }
