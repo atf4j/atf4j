@@ -19,47 +19,26 @@ package net.atf4j.core;
 
 import org.junit.Test;
 
-import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
-
 /**
  * Unit test for loading a ExampleConfiguration from properties.
  */
 public final class ConfigLoadingTests extends TestResultsReporting {
 
     /**
-     * Missing Properties class.
+     * An Example of Configuration class loading from a properties file,
+     * which is loaded from the project's resources folder,
+     * Defaults to same name as the the class.
      */
-    private class MissingProperties extends AbstractConfig {
-        /**
-         * Instantiates a new missing properties.
-         *
-         * @throws ConfigurationNotLoadedException the configuration not loaded
-         */
-        public MissingProperties() throws ConfigurationNotLoadedException {
-            super("Missing.properties");
-        }
+    private class TestConfig extends AbstractConfig {
     }
 
     /**
-     * A Mock Test ExampleConfiguration from file.
-     */
-    private class ConfigFromFile extends AbstractConfig {
-
-        /**
-         * Instantiates a new ExampleConfiguration from file.
-         */
-        public ConfigFromFile() {
-            super("ConfigFromFile.properties");
-        }
-    }
-
-    /**
-     * Test method for MissingProperties.
+     * Test method for TestConfig.
      */
     @Test
-    public void testMissingConfig() {
-        final MissingProperties missingProperties = new MissingProperties();
-        verifyNotNull(missingProperties);
+    public void testTestConfig() {
+        final Configuration config = new TestConfig();
+        verifyNotNull(config);
     }
 
 }
