@@ -26,6 +26,7 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class ScenarioRunner extends TestResultsReporting {
 
+    /** The target scenario. */
     private AbstractScenario targetScenario;
 
     /**

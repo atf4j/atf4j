@@ -41,6 +41,11 @@ public class TestSuite extends AbstractTestBase {
         super();
     }
 
+    /**
+     * Instantiates a new unit test to suite.
+     *
+     * @param testReport the test report
+     */
     public TestSuite(final TestReport testReport) {
         super(testReport);
     }

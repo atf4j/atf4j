@@ -34,7 +34,11 @@ import org.junit.runners.model.TestClass;
  * Custom Test Runner class.
  */
 public class CustomRunner extends Runner {
+    
+    /** The test methods. */
     private final List<Method> testMethods = new ArrayList<Method>();
+    
+    /** The test class. */
     private final TestClass testClass;
 
     /**

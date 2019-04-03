@@ -51,7 +51,7 @@ public interface Configuration {
     String valueFor(final String key, final String defaultValue);
 
     /**
-     * Value for key
+     * Value for key.
      *
      * @param key the key
      * @return the string
@@ -60,8 +60,6 @@ public interface Configuration {
 
     /**
      * Send the configuration to the log.
-     *
-     * @return the string
      */
     void toLog();
 

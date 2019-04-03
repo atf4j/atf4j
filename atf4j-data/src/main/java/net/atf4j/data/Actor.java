@@ -12,6 +12,7 @@ public class Actor {
     /** The username. */
     private String username;
 
+    /** The credentials. */
     private Credentials credentials;
 
     /** The password. */

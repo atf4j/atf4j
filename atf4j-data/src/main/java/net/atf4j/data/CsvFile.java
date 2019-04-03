@@ -36,12 +36,23 @@ import net.atf4j.core.ResourceNotLoadedException;
  * values.
  */
 public class CsvFile {
+    
+    /** The log. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
+    /** The csv filename. */
     private String csvFilename;
+    
+    /** The loaded. */
     private boolean loaded = false;
+    
+    /** The header lines. */
     private final List<HeaderLine> headerLines = new ArrayList<HeaderLine>();
+    
+    /** The data lines. */
     private final List<CsvRow> dataLines = new ArrayList<CsvRow>();
+    
+    /** The column names. */
     private String[] columnNames;
 
     /**
@@ -168,6 +179,11 @@ public class CsvFile {
         this.headerLines.add(line);
     }
 
+    /**
+     * Adds the header line.
+     *
+     * @param line the line
+     */
     public void addHeaderLine(final String line) {
         this.headerLines.add(new HeaderLine(line));
     }
@@ -177,7 +193,7 @@ public class CsvFile {
      *
      * @param dataFilename the dataLines filename
      * @return the csv file
-     * @throws FileNotFoundException the file not found exception
+     * @throws ResourceNotLoadedException the resource not loaded exception
      */
     public static CsvFile read(final String dataFilename) throws ResourceNotLoadedException {
         return new CsvFile(dataFilename);
@@ -208,7 +224,7 @@ public class CsvFile {
      * Load.
      *
      * @param csvFilename the dataLines filename
-     * @throws FileNotFoundException the file not found exception
+     * @throws ResourceNotLoadedException the resource not loaded exception
      */
     public void load(final String csvFilename) throws ResourceNotLoadedException {
         final InputStream resourceAsStream = resourceAsStream(csvFilename);
@@ -258,10 +274,22 @@ public class CsvFile {
         return classLoader.getResourceAsStream(resourceFilename);
     }
 
+    /**
+     * Checks if is loaded.
+     *
+     * @return true, if is
+     * 			loaded
+     */
     public boolean isLoaded() {
         return this.loaded;
     }
 
+    /**
+     * Gets the record.
+     *
+     * @param index the index
+     * @return the record
+     */
     public CsvRow getRecord(final int index) {
         return this.dataLines.get(index);
     }
@@ -287,7 +315,7 @@ public class CsvFile {
     /**
      * Gets the header for a column.
      *
-     * @param columnNames the column number
+     * @param columnNo the column no
      * @return the header
      */
     public String getColumnName(final int columnNo) {

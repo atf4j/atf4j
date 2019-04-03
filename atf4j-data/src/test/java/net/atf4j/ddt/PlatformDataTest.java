@@ -19,7 +19,7 @@ public final class PlatformDataTest {
     private static final Logger LOG = LoggerFactory.getLogger(PlatformDataTest.class);
 
     /**
-     * Unit test to on platform.
+     * Unit test PlatformData.
      */
     @Test
     public void testPlatformDataOnPlatform() {

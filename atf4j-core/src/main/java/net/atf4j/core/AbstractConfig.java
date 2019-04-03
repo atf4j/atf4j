@@ -123,6 +123,9 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
         }
     }
 
+    /* (non-Javadoc)
+    * @see net.atf4j.core.Configuration#valueFor(java.lang.String)
+    */
     @Override
     public String valueFor(final String key) {
         return get(key, "");

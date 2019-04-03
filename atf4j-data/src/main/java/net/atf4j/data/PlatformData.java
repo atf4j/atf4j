@@ -37,7 +37,8 @@ public final class PlatformData extends AbstractExpectedData implements Expected
     }
 
     /**
-     * @param platform the platform
+     * Local.
+     *
      * @return the platform data
      */
     public static PlatformData local() {
@@ -45,7 +46,8 @@ public final class PlatformData extends AbstractExpectedData implements Expected
     }
 
     /**
-     * @param platform the platform
+     * Platform.
+     *
      * @return the platform data
      */
     public static PlatformData platform() {
@@ -53,6 +55,8 @@ public final class PlatformData extends AbstractExpectedData implements Expected
     }
 
     /**
+     * Platform.
+     *
      * @param platform the platform
      * @return the platform data
      */

@@ -17,8 +17,6 @@
 
 package net.atf4j.data;
 
-import java.io.FileNotFoundException;
-
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -33,11 +31,23 @@ import net.atf4j.core.TestResultsReporting;
  */
 public class CsvFileTest extends TestResultsReporting {
 
+    /** EXPECTED_HEADER constant. */
     private static final String EXPECTED_HEADER = "HeaderLine [fields=[ColumnOne, ColumnTwo, ColumnThree, ColumnFour]]";
+
+    /** MISSING_CSV constant. */
     private static final String MISSING_CSV = "missing.csv";
+
+    /** TEST_DATA_CSV constant. */
     private static final String TEST_DATA_CSV = "TestData.csv";
 
+    /**
+     * The Class TestData.
+     */
     public class TestData extends CsvFile {
+
+        /**
+         * Instantiates a new unit test to data.
+         */
         public TestData() {
             super();
         }
@@ -71,7 +81,7 @@ public class CsvFileTest extends TestResultsReporting {
     /**
      * Test constructor with missing file.
      *
-     * @throws FileNotFoundException the file not found exception
+     * @throws ResourceNotLoadedException the resource not loaded exception
      */
     @Test(expected = ResourceNotLoadedException.class)
     public void testConstructorWithMissingFile() throws ResourceNotLoadedException {
@@ -82,7 +92,7 @@ public class CsvFileTest extends TestResultsReporting {
     /**
      * Test read missing file.
      *
-     * @throws FileNotFoundException the file not found exception
+     * @throws ResourceNotLoadedException the resource not loaded exception
      */
     @Test(expected = ResourceNotLoadedException.class)
     public void testReadMissingFile() throws ResourceNotLoadedException {
@@ -93,7 +103,7 @@ public class CsvFileTest extends TestResultsReporting {
     /**
      * Test load missing file.
      *
-     * @throws FileNotFoundException the file not found exception
+     * @throws ResourceNotLoadedException the resource not loaded exception
      */
     @Test(expected = ResourceNotLoadedException.class)
     public void testLoadMissingFile() throws ResourceNotLoadedException {

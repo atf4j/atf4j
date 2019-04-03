@@ -22,10 +22,18 @@ package net.atf4j.data;
  */
 public class HeaderLine extends CsvRow {
 
+    /**
+     * Instantiates a new header line.
+     */
     public HeaderLine() {
         super();
     }
 
+    /**
+     * Instantiates a new header line.
+     *
+     * @param lineOfData the line of data
+     */
     public HeaderLine(final String lineOfData) {
         super(lineOfData);
     }
