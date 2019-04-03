@@ -27,6 +27,7 @@ import java.util.List;
  */
 public class CsvRow {
 
+    /** The values. */
     private List<String> values = new ArrayList<String>();
 
     /**
@@ -73,6 +74,7 @@ public class CsvRow {
     /**
      * Set the value in the specified column index.
      *
+     * @param index the index
      * @param value the field to be added.
      * @return this for a fluent interface.
      * @see java.util.List#set(int, java.lang.Object)

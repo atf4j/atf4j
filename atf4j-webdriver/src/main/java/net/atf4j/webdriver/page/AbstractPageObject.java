@@ -47,10 +47,19 @@ import net.atf4j.webdriver.TargetUrl;
  */
 public abstract class AbstractPageObject {
 
+    /** The log. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass());
+    
+    /** The config. */
     protected PageConfig config;
+    
+    /** The web driver. */
     protected WebDriver webDriver;
+    
+    /** The web driver wait. */
     protected WebDriverWait webDriverWait;
+    
+    /** The target url. */
     protected String targetUrl;
 
     /**
@@ -196,6 +205,11 @@ public abstract class AbstractPageObject {
         return this.webDriver.getCurrentUrl();
     }
 
+    /**
+     * Page url.
+     *
+     * @return the string
+     */
     protected String pageUrl() {
         return null;
     }
@@ -371,6 +385,11 @@ public abstract class AbstractPageObject {
         return true;
     }
 
+    /**
+     * Contains.
+     *
+     * @param text the text
+     */
     public void contains(final String text) {
         assertNotNull(text);
         assertTrue(this.webDriver.getPageSource().contains(text));

@@ -4,12 +4,25 @@ package net.atf4j.webdriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+/**
+ * The Class EnterText.
+ */
 public class EnterText extends Gesture {
 
+    /**
+     * Instantiates a new enter text.
+     *
+     * @param by the by
+     */
     public EnterText(final By by) {
         super(by);
     }
 
+    /**
+     * Slowly.
+     *
+     * @param text the text
+     */
     protected void slowly(final String text) {
         /// wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 

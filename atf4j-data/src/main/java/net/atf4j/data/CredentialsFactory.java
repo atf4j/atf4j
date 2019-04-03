@@ -15,28 +15,55 @@ public class CredentialsFactory extends AbstractExpectedData implements Expected
 
     /** Provides logging. */
     private static final Logger LOG = LoggerFactory.getLogger(CredentialsFactory.class);
-
-    /** The csv file. */
-    private CsvFile csvFile;
-
+    
     /** The platform. */
     private String platform;
+    
+    /** The csv file. */
+    private CsvFile csvFile;
 
     /**
      * On.
      *
      * @param platform the platform
      * @return the credentials factory
-     * @throws FileNotLoadedException the file not loaded exception
      */
     public static CredentialsFactory on(final String platform) {
         return new CredentialsFactory(platform);
     }
 
     /**
-     * Default constructor.
+     * With tag.
      *
-     * @throws FileNotLoadedException the file not loaded exception
+     * @param string the string
+     * @return the object
+     */
+    public static Object withTag(final String string) {
+        return null;
+    }
+
+    /**
+     * With characteristic.
+     *
+     * @param string the string
+     * @return the object
+     */
+    public static Object withCharacteristic(final String string) {
+        return null;
+    }
+
+    /**
+     * All with tag.
+     *
+     * @param string the string
+     * @return the object
+     */
+    public static Object allWithTag(final String string) {
+        return null;
+    }
+
+    /**
+     * Default constructor.
      */
     public CredentialsFactory() {
         super();
@@ -48,7 +75,6 @@ public class CredentialsFactory extends AbstractExpectedData implements Expected
      * The Constructor.
      *
      * @param platform the platform
-     * @throws FileNotLoadedException the file not loaded exception
      */
     public CredentialsFactory(final String platform) {
         super();
@@ -61,7 +87,6 @@ public class CredentialsFactory extends AbstractExpectedData implements Expected
      * Load from.
      *
      * @param credentialsFilename the credentials filename
-     * @throws FileNotLoadedException the file not loaded exception
      */
     private void loadFrom(final String credentialsFilename) {
         this.csvFile = new CsvFile(credentialsFilename);
@@ -141,18 +166,6 @@ public class CredentialsFactory extends AbstractExpectedData implements Expected
     @Override
     public String toString() {
         return String.format("%s [platform=%s, csvFile=%s]", this.getClass().getSimpleName(), this.platform, this.csvFile);
-    }
-
-    public static Object withTag(final String string) {
-        return null;
-    }
-
-    public static Object withCharacteristic(final String string) {
-        return null;
-    }
-
-    public static Object allWithTag(final String string) {
-        return null;
     }
 
 }

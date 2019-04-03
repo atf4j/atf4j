@@ -29,19 +29,42 @@ public class PlatformMessageFinder extends AbstractFolderWalker {
         super();
     }
 
+    /**
+     * Instantiates a new platform message finder.
+     *
+     * @param path the path
+     */
     public PlatformMessageFinder(final String path) {
         super();
         super.setPath(path);
     }
 
+    /**
+     * For platform.
+     *
+     * @param string the string
+     * @return the platform message finder
+     */
     public static PlatformMessageFinder forPlatform(final String string) {
         return new PlatformMessageFinder();
     }
 
+    /**
+     * Path.
+     *
+     * @param path the path
+     * @return the platform message finder
+     */
     public static PlatformMessageFinder path(final String path) {
         return new PlatformMessageFinder();
     }
 
+    /**
+     * With.
+     *
+     * @param string the string
+     * @return the object
+     */
     public Object with(final String string) {
         return this;
     }

@@ -34,7 +34,7 @@ public final class AutomationConfig extends AbstractConfig {
     /**
      * Instantiates a new automation config.
      *
-     * @param configFilename the property filename
+     * @param propertyFilename the property filename
      * @throws ConfigurationNotLoadedException the configuration not loaded
      *             exception
      */

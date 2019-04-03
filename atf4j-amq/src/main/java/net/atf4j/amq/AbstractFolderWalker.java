@@ -143,6 +143,9 @@ public abstract class AbstractFolderWalker
         return this.foundFiles;
     }
 
+    /* (non-Javadoc)
+    * @see net.atf4j.amq.FolderWalkerInterface#scan()
+    */
     @Override
     public FoundFiles scan() {
         return scan(this.path);
@@ -214,6 +217,9 @@ public abstract class AbstractFolderWalker
         return this.foundFiles;
     }
 
+    /* (non-Javadoc)
+    * @see java.lang.Object#toString()
+    */
     @Override
     public String toString() {
         return String.format("%s [path=%s, filter=%s, foundFiles=%s]",

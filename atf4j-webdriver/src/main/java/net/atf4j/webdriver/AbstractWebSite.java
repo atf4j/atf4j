@@ -73,8 +73,6 @@ public abstract class AbstractWebSite {
 
     /**
      * Click.
-     *
-     * @param text the text
      */
     // public void click(final String text) {
     // this.page.click(text);

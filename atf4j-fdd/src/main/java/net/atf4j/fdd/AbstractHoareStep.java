@@ -29,8 +29,13 @@ public abstract class AbstractHoareStep
         extends TestResultsReporting
         implements HoareStepInterface {
 
+    /** The id. */
     protected String id = UUID.randomUUID().toString();
+    
+    /** The step name. */
     protected String stepName = "";
+    
+    /** The properties. */
     protected Properties properties = new Properties();
 
     /**

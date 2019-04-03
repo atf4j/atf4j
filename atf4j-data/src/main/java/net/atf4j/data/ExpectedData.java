@@ -171,7 +171,6 @@ public final class ExpectedData extends AbstractExpectedData implements Expected
      *
      * @param tag the tag
      * @return the string
-     * @throws FileNotLoadedException the file not loaded exception
      */
     public static String withTag(final String tag) {
         return ExpectedData.getInstance().getTagged(tag);
@@ -182,7 +181,6 @@ public final class ExpectedData extends AbstractExpectedData implements Expected
      *
      * @param tag the tag
      * @return the string
-     * @throws FileNotLoadedException the file not loaded exception
      */
     public static String withCharacteristic(final String tag) {
         return ExpectedData.getInstance().getTagged(tag);
@@ -193,7 +191,6 @@ public final class ExpectedData extends AbstractExpectedData implements Expected
      *
      * @param tag the tag
      * @return the string[]
-     * @throws FileNotLoadedException the file not loaded exception
      */
     public static String[] allWithTag(final String tag) {
         return ExpectedData.getInstance().getAllTagged(tag);

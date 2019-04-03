@@ -29,7 +29,10 @@ import org.openqa.selenium.WebDriver;
  */
 public class CookieManager {
 
+	/** The web driver. */
 	private WebDriver webDriver = null;
+	
+	/** The cookies. */
 	private Set<Cookie> cookies = null;
 
 	/**

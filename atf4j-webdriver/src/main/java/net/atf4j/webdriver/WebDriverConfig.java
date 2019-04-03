@@ -24,7 +24,10 @@ import net.atf4j.core.AbstractConfig;
  */
 public class WebDriverConfig extends AbstractConfig {
 
+    /** LOCAL_GRID 			constant. */
     private static final String LOCAL_GRID = "http://localhost:4444/wd/hub";
+    
+    /** LOCAL_TARGET 			constant. */
     private static final String LOCAL_TARGET = "http://localhost:8080/";
 
     /**

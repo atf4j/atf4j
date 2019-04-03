@@ -99,6 +99,9 @@ public @interface Atf4j {
         String value();
     }
 
+    /**
+     * The Interface Resource.
+     */
     @Documented
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
@@ -111,6 +114,9 @@ public @interface Atf4j {
         String value();
     }
 
+    /**
+     * The Interface Properties.
+     */
     @Documented
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)

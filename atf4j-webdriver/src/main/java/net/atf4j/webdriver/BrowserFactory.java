@@ -42,7 +42,10 @@ import net.atf4j.core.TestContext;
  */
 public class BrowserFactory implements BrowserFactoryInterface {
 
+    /** LOG 			constant. */
     private static final Logger LOG  = LoggerFactory.getLogger(BrowserFactory.class);
+    
+    /** The config. */
     private static WebDriverConfig config;
 
     /**
