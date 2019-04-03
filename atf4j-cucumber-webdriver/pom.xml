@@ -18,7 +18,7 @@
 	<parent>
 		<groupId>net.atf4j</groupId>
 		<artifactId>atf4j</artifactId>
-		<version>0.13.5-SNAPSHOT</version>
+		<version>0.13.6-SNAPSHOT</version>
 	</parent>
 
 	<dependencies>
@@ -26,7 +26,7 @@
 		<dependency>
 			<groupId>net.atf4j</groupId>
 			<artifactId>atf4j-core</artifactId>
-			<version>0.13.5-SNAPSHOT</version>
+			<version>0.13.6-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
@@ -44,7 +44,7 @@
 		<dependency>
 			<groupId>net.atf4j</groupId>
 			<artifactId>atf4j-webdriver</artifactId>
-			<version>0.13.5-SNAPSHOT</version>
+			<version>0.13.6-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
