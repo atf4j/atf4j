@@ -1,40 +1,78 @@
+
 package net.atf4j.webdriver;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+/**
+ * The Class Gesture.
+ */
 public class Gesture {
+    
+    /** The web driver. */
     protected WebDriver webDriver;
+    
+    /** The web element. */
     protected WebElement webElement;
+    
+    /** The by. */
     protected By by;
 
-    public Gesture(By by) {
+    /**
+     * Instantiates a new gesture.
+     *
+     * @param by the by
+     */
+    public Gesture(final By by) {
         this.by = by;
     }
 
-    public Gesture(WebElement webElement) {
+    /**
+     * Instantiates a new gesture.
+     *
+     * @param webElement the web element
+     */
+    public Gesture(final WebElement webElement) {
         this.webElement = webElement;
     }
 
-    public static Gesture on(WebElement webElement) {
-        Gesture gesture = new Gesture(webElement);
+    /**
+     * On.
+     *
+     * @param webElement the web element
+     * @return the gesture
+     */
+    public static Gesture on(final WebElement webElement) {
+        final Gesture gesture = new Gesture(webElement);
         return gesture;
     }
 
-    public static Gesture on(By by) {
-        Gesture gesture = new Gesture(by);
+    /**
+     * On.
+     *
+     * @param by the by
+     * @return the gesture
+     */
+    public static Gesture on(final By by) {
+        final Gesture gesture = new Gesture(by);
         return gesture;
     }
 
-    private WebElement findElement(WebDriver driver) { 
-        String selector = "";
-        By id = By.id(selector);
-        WebElement element = driver.findElement(id); 
+    /**
+     * Find element.
+     *
+     * @param driver the driver
+     * @return the web element
+     */
+    protected WebElement findElement(final WebDriver driver) {
+        final String selector = "";
+        final By id = By.id(selector);
+        WebElement element = driver.findElement(id);
         if (element == null) {
-            By name = By.name(selector);
+            final By name = By.name(selector);
             element = driver.findElement(name);
-            } 
-        return element;
         }
+        return element;
+    }
 }

@@ -20,10 +20,10 @@ package net.atf4j.data.factory;
 import java.util.Random;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.core.Text;
-import net.atf4j.csv.CsvRow;
+import net.atf4j.data.CsvRow;
 import net.atf4j.data.Postcode;
 import net.atf4j.data.PostcodeData;
+import net.atf4j.data.Text;
 
 /**
  * A factory for creating PostcodeData objects.
@@ -73,20 +73,19 @@ public final class PostcodeDataFactory extends TestResultsReporting {
         final Postcode postcode = new Postcode();
         final int rowCount = POSTCODE_DATA.rowCount();
         final int randomRow = random.nextInt(rowCount);
-        final CsvRow row = POSTCODE_DATA.getRow(randomRow);
+        final CsvRow row = POSTCODE_DATA.row(randomRow);
         final String[] fields = row.getFields();
         postcode.setOutwardCode(fields[0]);
         final String inward = String.format("%c%C%C",
-                Text.randomDigit(),
-                Text.randomChar(),
-                Text.randomChar());
+            Text.randomDigit(),
+            Text.randomChar(),
+            Text.randomChar());
         postcode.setInwardCode(inward);
         return postcode;
     }
 
     /*
      * (non-Javadoc)
-     *
      * @see java.lang.Object#toString()
      */
     @Override

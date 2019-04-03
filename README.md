@@ -40,3 +40,15 @@ The project artifact will now be installed in your local repository and can be i
 - [Page Object Generator with atf4j-pog](/atf4j-pog)
 - [SOAPUI integration atf4j-soapui](/atf4j-soapui)
 - [Selenium WebDriver support with atf4j-webdriver](/atf4j-webdriver)
+
+## Glossary
+ I value the use of domain language for clarity so I try to avoid the use of acronyms, however on some occasions clarity comes with brevity.
+
+ - AMQ : Apache ActiveMQ
+ - CI : Continuous Integration
+ - CSV : Comma separated values
+ - CUT : Class under test.
+ - FDD : Feature driven development
+ - POG : Page Object Generator
+ - SUT : System under test
+ 

@@ -21,7 +21,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import net.atf4j.core.TestResultsReporting;
-import net.atf4j.core.Text;
 
 /**
  * EmailAddress.
@@ -175,14 +174,13 @@ public final class EmailAddress extends TestResultsReporting {
      */
     public String debugString() {
         return String.format("EmailAddress [domain=%s, localPart=%s, email=%s]",
-                this.domain,
-                this.localPart,
-                this.email);
+            this.domain,
+            this.localPart,
+            this.email);
     }
 
     /*
      * (non-Javadoc)
-     *
      * @see java.lang.Object#toString()
      */
     @Override

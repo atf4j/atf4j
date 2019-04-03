@@ -27,7 +27,8 @@ public interface FolderWalkerInterface {
     /**
      * Sets the path.
      *
-     * @param path the new path
+     * @param path the path
+     * @return this for fluent interface
      */
     FolderWalkerInterface setPath(final String path);
 
@@ -35,6 +36,7 @@ public interface FolderWalkerInterface {
      * Sets the extension filter.
      *
      * @param extensionFilter the new extension filter
+     * @return this for fluent interface
      */
     FolderWalkerInterface useExtensionFilter(final FilenameFilter extensionFilter);
 

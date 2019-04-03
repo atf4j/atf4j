@@ -28,6 +28,7 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class NestedTimersTest extends TestResultsReporting {
 
+    /** DEFAULT_INTERVAL */
     private static final int DEFAULT_INTERVAL = 100;
 
     /**
@@ -65,7 +66,7 @@ public final class NestedTimersTest extends TestResultsReporting {
 
     /**
      * Test method for
-     * {net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
+     * {net.atf4j.core.examples.timers.MilliTimer#Timer(java.lang.String)}.
      */
     @Test
     public void testTimerInstance() {
@@ -104,6 +105,8 @@ public final class NestedTimersTest extends TestResultsReporting {
 
     /**
      * Wait integer interval.
+     *
+     * @param interval the interval
      */
     private void waitDefaultInterval(final int interval) {
         try {
@@ -126,7 +129,7 @@ public final class NestedTimersTest extends TestResultsReporting {
 
     /**
      * Test method for
-     * {net.atf4j.core.timers.MilliTimer#Timer(java.lang.String)}.
+     * {net.atf4j.core.examples.timers.MilliTimer#Timer(java.lang.String)}.
      */
     @Test
     public void testStaticNamedTimers() {

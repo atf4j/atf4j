@@ -74,6 +74,9 @@ public class Atf4jTest extends TestResultsReporting {
         this.log.info(Atf4j.unroll("_A"));
     }
 
+    /**
+     * Unit test to unroll null.
+     */
     @Test
     public void testUnrollNull() {
         this.log.info(Atf4j.unroll(null));

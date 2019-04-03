@@ -29,10 +29,10 @@ public final class Narrator {
 
     /** The Constant NULL_OBJECT. */
     private static final String NULL_OBJECT = "object is [NULL]";
-    
+
     /** The Constant NULL_SUPER_CLASS. */
     private static final String NULL_SUPER_CLASS = "superClass is [NULL]";
-    
+
     /** The Constant NO_MEMBERS. */
     private static final String NO_MEMBERS = "[NO MEMBERS]";
 
@@ -62,8 +62,8 @@ public final class Narrator {
             final StringBuilder reflection = new StringBuilder();
             final Class<? extends Object> aClass = object.getClass();
             reflection
-                .append(Narrator.membersToString(object, aClass))
-                .append(Narrator.reflectClassToString(object, aClass));
+                    .append(Narrator.membersToString(object, aClass))
+                    .append(Narrator.reflectClassToString(object, aClass));
             return String.format(LAYOUT_STYLE, aClass.getSimpleName(), reflection);
         }
     }

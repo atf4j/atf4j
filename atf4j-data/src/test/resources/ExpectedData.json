@@ -1,0 +1,43 @@
+{
+  "expected-data": {
+    "columns": {
+      "name": [
+        "Tag",
+        "ColumnOne",
+        "ColumnTwo",
+        "ColumnThree",
+        "ColumnFour"
+      ]
+    },
+    "record": [
+      {
+        "tags": "@TagOne",
+        "ColumnOne": "value1x1",
+        "ColumnTwo": "value1x2",
+        "ColumnThree": "value1x3",
+        "ColumnFour": "value1x4"
+      },
+      {
+        "tags": "@TagTwo",
+        "ColumnOne": "value2x1",
+        "ColumnTwo": "value2x2",
+        "ColumnThree": "value2x3",
+        "ColumnFour": "value2x4"
+      },
+      {
+        "tags": "@TagThree",
+        "ColumnOne": "value3x1",
+        "ColumnTwo": "value3x2",
+        "ColumnThree": "value3x3",
+        "ColumnFour": "value4x4"
+      },
+      {
+        "tags": "@TagFour",
+        "ColumnOne": "value4x1",
+        "ColumnTwo": "value4x2",
+        "ColumnThree": "value4x3",
+        "ColumnFour": "value4x4"
+      }
+    ]
+  }
+}

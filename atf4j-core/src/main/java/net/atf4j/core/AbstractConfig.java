@@ -22,33 +22,37 @@ import static org.junit.Assert.assertNotNull;
 
 /**
  * An abstract Configuration class.
+ *
+ * Extend this class to define your desired Configuration, so :
+ * <code>TestConfig extends AbstractConfig</code> would expect the configuration
+ * to be defined in <code>TestConfig.properties</code>.
+ * <code>WebDriverConfig extends AbstractConfig</code> would expect the
+ * configuration to be defined in <code>WebDriverConfig.properties</code>.
+ *
  */
-public abstract class AbstractConfig
-        extends TestResultsReporting
-        implements ConfigurationInterface {
+public abstract class AbstractConfig extends TestResultsReporting implements Configuration {
+
+    /** The config filename. */
+    protected String configFilename;
 
     /** The properties. */
     protected final Properties properties = new Properties();
-
-    /** The property filename. */
-    protected String propertyFilename;
 
     /**
      * Instantiates a new abstract configuration.
      */
     public AbstractConfig() {
         super();
-        loadPropertyFileFrom(defaultFilename());
+        loadFrom(defaultFilename());
     }
 
     /**
      * Instantiates a new abstract configuration.
      *
-     * @param configFilename the Configuration filename
+     * @param configFilename the ExampleConfiguration filename
      */
     public AbstractConfig(final String configFilename) {
-        this.propertyFilename = configFilename;
-        loadPropertyFileFrom(configFilename);
+        loadFrom(configFilename);
     }
 
     /**
@@ -57,8 +61,7 @@ public abstract class AbstractConfig
      * @return the string
      */
     protected String defaultFilename() {
-        this.propertyFilename = this.getClass().getSimpleName();
-        return this.propertyFilename;
+        return this.getClass().getSimpleName();
     }
 
     /**
@@ -66,12 +69,13 @@ public abstract class AbstractConfig
      *
      * configuration filename
      *
-     * @param configFilename the Configuration filename
+     * @param configFilename the ExampleConfiguration filename
      */
-    protected void loadPropertyFileFrom(final String configFilename) {
-        final InputStream inputStream = inputStream(toPropertyFilename(configFilename));
+    protected void loadFrom(final String configFilename) {
+        this.configFilename = toPropertyFilename(configFilename);
+        final InputStream inputStream = inputStream(this.configFilename);
         if (inputStream != null) {
-            loadPropertyFileFrom(inputStream);
+            loadFrom(inputStream);
         } else {
             this.log.warn("Using class default values, property file '{}' not found.", configFilename);
         }
@@ -84,7 +88,7 @@ public abstract class AbstractConfig
      *
      * @param resourceAsStream the resource as stream
      */
-    protected void loadPropertyFileFrom(final InputStream resourceAsStream) {
+    protected void loadFrom(final InputStream resourceAsStream) {
         assertNotNull(resourceAsStream);
         try {
             this.properties.load(resourceAsStream);
@@ -108,7 +112,7 @@ public abstract class AbstractConfig
     /**
      * To property filename.
      *
-     * @param configFilename the Configuration filename
+     * @param configFilename the ExampleConfiguration filename
      * @return the string
      */
     protected String toPropertyFilename(final String configFilename) {
@@ -119,78 +123,18 @@ public abstract class AbstractConfig
         }
     }
 
-    /**
-     * Gets the value from the properties.
-     *
-     * @param key the key
-     * @return the string
-     */
+    /* (non-Javadoc)
+    * @see net.atf4j.core.Configuration#valueFor(java.lang.String)
+    */
     @Override
-    public String get(final String key) {
-        return get(key, null);
-    }
-
-    /**
-     * Get a property from System Property if available, otherwise from Property
-     * File if available, otherwise default.
-     *
-     * @param key the key
-     * @param defaultValue the default value
-     * @return the string
-     */
-    @Override
-    public String get(final String key, final String defaultValue) {
-        String propertyValue = System.getProperty(key);
-        if (propertyValue == null) {
-            propertyValue = this.properties.getProperty(key, defaultValue);
-            this.log.trace("Using property file for key {} = {}", key, propertyValue);
-        } else {
-            this.log.warn("Using system property override for key {} = {}", key, propertyValue);
-        }
-
-        return propertyValue;
-    }
-
-    /**
-     * Gets the value for the key.
-     *
-     * @param key the key
-     * @param defaultValue the default value
-     * @return the int
-     */
-    @Override
-    public int get(final String key, final int defaultValue) {
-        return Integer.parseInt(this.get(key, Integer.toString(defaultValue)));
-    }
-
-    /**
-     * Gets the value for the key.
-     *
-     * @param key the key
-     * @param defaultValue the default value
-     * @return the long
-     */
-    @Override
-    public long get(final String key, final long defaultValue) {
-        return Long.parseLong(this.get(key, Long.toString(defaultValue)));
-    }
-
-    /**
-     * Gets the value for the key.
-     *
-     * @param key the key
-     * @param defaultValue the default value
-     * @return the boolean
-     */
-    @Override
-    public boolean get(final String key, final boolean defaultValue) {
-        return Boolean.parseBoolean(this.get(key, Boolean.toString(defaultValue)));
+    public String valueFor(final String key) {
+        return get(key, "");
     }
 
     /*
      * (non-Javadoc)
-     *
-     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String,
+     * @see
+     * net.atf4j.core.examples.ConfigurationInterface#valueFor(java.lang.String,
      * java.lang.String)
      */
     @Override
@@ -200,35 +144,44 @@ public abstract class AbstractConfig
 
     /*
      * (non-Javadoc)
-     *
-     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String,
-     * int)
-     */
-    @Override
-    public int valueFor(final String key, final int defaultValue) {
-        return get(key, defaultValue);
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String,
+     * @see
+     * net.atf4j.core.examples.ConfigurationInterface#valueFor(java.lang.String,
      * long)
      */
     @Override
     public long valueFor(final String key, final long defaultValue) {
-        return get(key, defaultValue);
+        return Long.parseLong(get(key, Long.toString(defaultValue)));
     }
 
     /*
      * (non-Javadoc)
-     *
-     * @see net.atf4j.core.ConfigurationInterface#valueFor(java.lang.String,
+     * @see
+     * net.atf4j.core.examples.ConfigurationInterface#valueFor(java.lang.String,
      * boolean)
      */
     @Override
     public boolean valueFor(final String key, final boolean defaultValue) {
-        return get(key, defaultValue);
+        return Boolean.parseBoolean(get(key, Boolean.toString(defaultValue)));
+    }
+
+    /**
+     * If defined as a System Property, that value overrides all other settings.
+     * If it's defined in the <code>.properties</code> file, that is used.
+     * Otherwise default value is used.
+     *
+     * @param key the key
+     * @param defaultValue the default value
+     * @return the value as a String.
+     */
+    protected String get(final String key, final String defaultValue) {
+        String propertyValue = System.getProperty(key);
+        if (propertyValue == null) {
+            propertyValue = this.properties.getProperty(key, defaultValue);
+            this.log.trace("{} = {} from property file.", key, propertyValue);
+        } else {
+            this.log.warn("System property override key : {} with : {}", key, propertyValue);
+        }
+        return propertyValue;
     }
 
     /**
@@ -244,13 +197,21 @@ public abstract class AbstractConfig
 
     /*
      * (non-Javadoc)
-     *
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
         final String className = this.getClass().getSimpleName();
         return String.format("%s [properties=%s]", className, prettyProperties(this.properties));
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see net.atf4j.core.Configuration#toLog()
+     */
+    @Override
+    public void toLog() {
+        this.log.info(prettyProperties(this.properties));
     }
 
     /**
@@ -277,11 +238,11 @@ public abstract class AbstractConfig
      */
     protected String prettyProperties(final String properties) {
         return properties
-            .replace("[", "[\n\t")
-            .replace("{", "{\n\t")
-            .replace(", ", "\n\t")
-            .replace("}", "\n\t}")
-            .replace("]", "\n\t]}");
+                .replace("[", "[\n\t")
+                .replace("{", "{\n\t")
+                .replace(", ", "\n\t")
+                .replace("}", "\n\t}")
+                .replace("]", "\n\t]}");
     }
 
     /**
@@ -300,10 +261,11 @@ public abstract class AbstractConfig
     }
 
     /**
-     * Configuration Not Loaded.
+     * ExampleConfiguration Not Loaded.
      */
     @SuppressWarnings("serial")
     public class ConfigurationNotLoadedException extends VerificationError {
+
         /**
          * Instantiates a missing configuration exception.
          *

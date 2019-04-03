@@ -1,8 +1,16 @@
 # atf4j-core
 
+## Feature List
+
+* Manages Testing Environment configuration.
+* Automatically narrate tests.
+* Test Results recording
+* Functional verification support.
+* Test Instrumentation.
+
 ## Automation Test Framework for Java - Core
 
-Core for the Automation Test Framework for Java.
+Automation Test Framework for Java core.
 
 ## Maven Dependency
 
@@ -12,29 +20,63 @@ Core for the Automation Test Framework for Java.
 		<version>${atf4j.version}</version>
 	</dependency>
 
+
+
 ## Overriding options
+Any Atf4j Configuation parameter can be overridden using environmental properties
 
     mvn -Doptions="value" test
 
 ### Maven usage on local machine
+Test is running on a local machine
 
 	mvn test -DisLocal=true
 
+
+	@Test
+	testLocalThing() {
+		TestContext.assumeLocal();
+		...
+		}
+
 ### Maven usage on Jenkins 
+Test is running on a Jenkins CI platform
 
 	mvn test -DisJenkins=true
 
+	@Test
+	testLocalThing() {
+		TestContext.assumeJenkins();
+		...
+		}
+
 ### Maven usage with Selenium Grid
 
+Use Selenium grid Browsers.
+
 	mvn test -DisSeleniumGrid=true
+
 
 The following is a list of options that can be used to describe and configure the test context.
 
 	-DisLocal={true|false}				- Expect and use local browsers
 	-DisSeleniumGrid={true|false}		- expects selenium grid hub, use remote web driver. 
 	-DlocalServer={true|false}			- expects selenium grid hub on localhost, uses remote web driver, 
-	-DisJenkins={true|false}			- running on jenkins (in most case this idiom should work).
+	-DisJenkins={true|false}				- running on jenkins (in most case this idiom should work).
 	-DisActiveMQ={true|false}			- activeMQ available on localhost
 
 ## Example Code
 
+    @Test
+    public void testSimpleStep() {
+        start("start simple test step");
+        {
+            start("step one");
+            {
+                assumeNotNull(Thread.currentThread());
+                document(Thread.currentThread().getStackTrace());
+            }
+            end();
+        }
+        end();
+    }

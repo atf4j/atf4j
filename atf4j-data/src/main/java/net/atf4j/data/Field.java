@@ -74,7 +74,7 @@ public class Field<T> {
      * @param value the value
      * @return the field
      */
-    private Field set(final String key, final T value) {
+    private Field<T> set(final String key, final T value) {
         this.key = key;
         this.value = value;
         return this;
@@ -86,7 +86,7 @@ public class Field<T> {
      * @param key the key
      * @return the field
      */
-    public Field setKey(final String key) {
+    public Field<T> setKey(final String key) {
         this.key = key;
         this.fieldStatus = FieldStatus.CHANGED;
         return this;
@@ -98,7 +98,7 @@ public class Field<T> {
      * @param value the value
      * @return the field
      */
-    public Field setValue(final T value) {
+    public Field<T> setValue(final T value) {
         this.value = value;
         this.fieldStatus = FieldStatus.CHANGED;
         return this;
@@ -110,7 +110,7 @@ public class Field<T> {
      * @param fieldStatus the field status
      * @return the field
      */
-    public Field setStatus(final FieldStatus fieldStatus) {
+    public Field<T> setStatus(final FieldStatus fieldStatus) {
         this.fieldStatus = fieldStatus;
         return this;
     }

@@ -58,7 +58,7 @@ public class NamedNanoTimer implements TimerInterface {
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.timers.ITimer#start()
+     * @see net.atf4j.core.examples.timers.ITimer#start()
      */
     @Override
     public final NamedNanoTimer start() {
@@ -69,7 +69,7 @@ public class NamedNanoTimer implements TimerInterface {
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.timers.ITimer#stop()
+     * @see net.atf4j.core.examples.timers.ITimer#stop()
      */
     @Override
     public final NamedNanoTimer stop() {
@@ -90,7 +90,7 @@ public class NamedNanoTimer implements TimerInterface {
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.timers.ITimer#getStartTime()
+     * @see net.atf4j.core.examples.timers.ITimer#getStartTime()
      */
     @Override
     public final long getStartTime() {
@@ -100,7 +100,7 @@ public class NamedNanoTimer implements TimerInterface {
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.timers.TimerInterface#getStopTime()
+     * @see net.atf4j.core.examples.timers.TimerInterface#getStopTime()
      */
     @Override
     public long getStopTime() {
@@ -110,7 +110,7 @@ public class NamedNanoTimer implements TimerInterface {
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.timers.ITimer#getElapsedTime()
+     * @see net.atf4j.core.examples.timers.ITimer#getElapsedTime()
      */
     @Override
     public long getElapsedTime() {

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment># Config.xml example</comment>
+    <entry key="loaded">true</entry>
+    <entry key="filename">Config.xml</entry>
+    <entry key="keyForString">valueForString</entry>
+    <entry key="keyForInt">1</entry>
+    <entry key="keyForLong">1</entry>
+    <entry key="keyForFalse">false</entry>
+    <entry key="keyForTrue">true</entry>
+</properties>

@@ -1,5 +1,10 @@
 # atf4j-annotations
 
+## Feature List
+
+* Annotate Tests
+* Access annotations programatically
+
 ## Automation Test Framework for Java - Annotations
 
 Provides Annotations for enhanced reporting for automated unit tests for enhanced reporting.
@@ -12,8 +17,7 @@ Provides Annotations for enhanced reporting for automated unit tests for enhance
 		<version>${atf4j.version}</version>
 	</dependency>
 
-## Example Code
-
+## Annotation Example
 A simple example using the logger to log a test audit trail.
 
 	@Test
@@ -26,6 +30,23 @@ A simple example using the logger to log a test audit trail.
 		log.info("Test Description : = {} ", getTestDescription());
 		assertTrue(true);
 	}
+
+## Annotation Example with static imports
+
+	import static net.atf4j.annotations.AnnotationHelper.getTestDescription;
+	import static net.atf4j.annotations.AnnotationHelper.getTestId;
+	import static net.atf4j.annotations.AnnotationHelper.getTestName;
+
+    @Test
+    @TestId("EXAMPLE-0001")
+    @TestName("testEample")
+    @TestDescription("Example showing annotations with static context")
+    public void testExampleOne() throws Exception {
+        this.log.info("Test ID : = {} ", AnnotationHelper.getTestId());
+        this.log.info("Test Name : = {} ", AnnotationHelper.getTestName());
+        this.log.info("Test Description : = {} ", AnnotationHelper.getTestDescription());
+        assertTrue(true);
+    }
 
 ## Usage
 

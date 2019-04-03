@@ -99,4 +99,34 @@ public @interface Atf4j {
         String value();
     }
 
+    /**
+     * The Interface Resource.
+     */
+    @Documented
+    @Target(ElementType.METHOD)
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface Resource {
+        /**
+         * Value of test description.
+         *
+         * @return the test description as String
+         */
+        String value();
+    }
+
+    /**
+     * The Interface Properties.
+     */
+    @Documented
+    @Target(ElementType.METHOD)
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface Properties {
+        /**
+         * Value of test description.
+         *
+         * @return the properties resource as Properties
+         */
+        String value();
+    }
+
 }

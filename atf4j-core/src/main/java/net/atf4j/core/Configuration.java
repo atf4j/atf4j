@@ -18,52 +18,56 @@
 package net.atf4j.core;
 
 /**
- * An Example Configuration class.
+ * Configuration Interface.
  */
-public final class Configuration extends AbstractConfig {
+public interface Configuration {
 
     /**
-     * Instantiates a new configuration. Private default constructor prevents
-     * wild instantiation.
+     * Long value of from configuration property by key.
+     *
+     * @param key the key of the value as String.
+     * @param defaultValue the default value as long.
+     * @return long value.
      */
-    public Configuration() {
-        super();
-    }
+    long valueFor(final String key, final long defaultValue);
 
     /**
-     * My key.
+     * The boolean value from configuration property by key.
+     *
+     * @param key the key of the value as String.
+     * @param defaultValue the default value as boolean. \* @return true, if
+     *            successful, otherwise false. otherwise false.
+     * @return true, if successful, otherwise false.
+     */
+    boolean valueFor(final String key, final boolean defaultValue);
+
+    /**
+     * A String from configuration property by key.
+     *
+     * @param key the key of the value as String.
+     * @param defaultValue the default value as a String.
+     * @return the configuration property as a String.
+     */
+    String valueFor(final String key, final String defaultValue);
+
+    /**
+     * Value for key.
+     *
+     * @param key the key
+     * @return the string
+     */
+    String valueFor(final String key);
+
+    /**
+     * Send the configuration to the log.
+     */
+    void toLog();
+
+    /**
+     * The configuration as a Pretty string.
      *
      * @return the string
      */
-    public String myKey() {
-        return super.get("myKey", "myValue");
-    }
-
-    /**
-     * My int value.
-     *
-     * @return the int
-     */
-    public int myIntValue() {
-        return super.get("myIntValue", 0);
-    }
-
-    /**
-     * My long value.
-     *
-     * @return the long
-     */
-    public long myLongValue() {
-        return super.get("myLongValue", 0L);
-    }
-
-    /**
-     * My bool value.
-     *
-     * @return true, if successful
-     */
-    public boolean myBooleanValue() {
-        return super.get("myBooleanValue", true);
-    }
+    String prettyString();
 
 }

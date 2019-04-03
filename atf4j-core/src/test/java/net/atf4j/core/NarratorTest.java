@@ -35,6 +35,7 @@ public final class NarratorTest extends TestResultsReporting {
         /** The object. */
         private final Object object = new Object();
 
+        /** The class name. */
         private final String className = this.getClass().getSimpleName();
 
         /** The a boolean. */
@@ -66,7 +67,7 @@ public final class NarratorTest extends TestResultsReporting {
         /*
          * (non-Javadoc)
          *
-         * @see net.atf4j.core.StringBuilderTest#toString()
+         * @see net.atf4j.core.examples.StringBuilderTest#toString()
          */
         @Override
         public String toString() {
@@ -94,7 +95,7 @@ public final class NarratorTest extends TestResultsReporting {
         /*
          * (non-Javadoc)
          *
-         * @see net.atf4j.core.StringBuilderTest#toString()
+         * @see net.atf4j.core.examples.StringBuilderTest#toString()
          */
         @Override
         public String toString() {

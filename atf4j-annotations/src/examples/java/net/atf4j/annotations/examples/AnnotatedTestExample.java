@@ -39,7 +39,7 @@ import net.atf4j.annotations.Atf4j.TestName;
  */
 public class AnnotatedTestExample {
 
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getName());
+    protected final Logger log = LoggerFactory.getLogger(this.getClass());
 
     /**
      * A Simple Annotated Test example.

@@ -17,55 +17,160 @@
 
 package net.atf4j.core;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
+import org.junit.AssumptionViolatedException;
 import org.junit.Test;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import static org.junit.Assume.assumeNotNull;
+import static org.junit.Assume.assumeTrue;
 
 /**
  * A UnitTest for TestContext objects.
  */
 public class TestContextTest extends TestResultsReporting {
 
-	/**
-	 * Unit Test Context.isLocal().
-	 */
-	@Test
-	public void testIsLocal() {
-		assertFalse(TestContext.isLocal());
-		System.setProperty("isLocal", "true");
-		assertTrue(TestContext.isLocal());
-	}
+    /**
+     * Unit test to assume local true.
+     */
+    @Test
+    public void testAssumeLocalTrue() {
+        System.setProperty("isLocal", "True");
+        assertTrue(TestContext.assumeLocal());
+    }
 
-	/**
-	 * Test method for TestContext. Unit Test Context.isLocal().
-	 */
-	@Test
-	public void testIsSeleniumGrid() {
-		assertFalse(TestContext.isSeleniumGrid());
-		System.setProperty("isSeleniumGrid", "true");
-		assertTrue(TestContext.isSeleniumGrid());
-	}
+    /**
+     * Unit test to assume local false.
+     */
+    @Test(expected = AssumptionViolatedException.class)
+    public void testAssumeLocalFalse() {
+        System.setProperty("isLocal", "False");
+        TestContext.assumeLocal();
+    }
 
-	/**
-	 * Unit Test Context.isLocal(). Test method for TestContext.
-	 */
-	@Test
-	public void testIsJenkins() {
-		assertFalse(TestContext.isJenkins());
-		System.setProperty("isJenkins", "true");
-		assertTrue(TestContext.isJenkins());
-	}
+    /**
+     * Unit test to assume jenkins.
+     */
+    @Test
+    public void testAssumeJenkins() {
+        if (TestContext.isJenkins()) {
+            TestContext.assumeJenkins();
+            assertTrue(TestContext.assumeJenkins());
+        } else {
+            TestContext.assumeJenkins();
+        }
+    }
 
-	/**
-	 * Test is active MQ.
-	 */
-	@Test
-	public void testIsActiveMQ() {
-		assertFalse(TestContext.isActiveMQ());
-		System.setProperty("isActiveMQ", "true");
-		assertTrue(TestContext.isActiveMQ());
-	}
+    /**
+     * Unit test to assume local tomcat.
+     */
+    @Test
+    public void testAssumeLocalTomcat() {
+        TestContext.assumeLocalTomcat();
+    }
+
+    /**
+     * Unit Test Context.isLocal().
+     */
+    @Test
+    public void testIsLocal() {
+        TestContext.assumeLocal();
+        assertTrue(TestContext.isLocal());
+        System.setProperty("isLocal", "true");
+        assertTrue(TestContext.isLocal());
+    }
+
+    /**
+     * Test method for TestContext. Unit Test Context.isLocal().
+     */
+    @Test
+    public void testIsSeleniumGrid() {
+        TestContext.assumeSeleniumGrid();
+        assertTrue(TestContext.isSeleniumGrid());
+        System.setProperty("isSeleniumGrid", "true");
+        assertTrue(TestContext.isSeleniumGrid());
+        assumeNotNull(TestContext.seleniumGridUrl());
+    }
+
+    /**
+     * Unit test to assume headless.
+     */
+    @Test
+    public void testAssumeHeadless() {
+        TestContext.assumeHeadless();
+    }
+
+    /**
+     * Unit Test Context.isLocal(). Test method for TestContext.
+     */
+    @Test
+    public void testIsJenkins() {
+        TestContext.assumeJenkins();
+        assertFalse(TestContext.isJenkins());
+        System.setProperty("isJenkins", "true");
+        assertTrue(TestContext.isJenkins());
+        assertNotNull(TestContext.jenkinstUrl());
+    }
+
+    /**
+     * Test is active MQ.
+     */
+    @Test
+    public void testIsActiveMQ() {
+        TestContext.assumeActiveMQ();
+        TestContext.isActiveMQ();
+        System.setProperty("isActiveMQ", "true");
+        assertTrue(TestContext.isActiveMQ());
+    }
+
+    /**
+     * Testlocal server.
+     */
+    @Test
+    public void testlocalServer() {
+        TestContext.assumeLocalServer();
+        assertTrue(TestContext.localServer());
+        System.setProperty("isLocal", "true");
+        assertTrue(TestContext.isLocal());
+    }
+
+    /**
+     * Unit test to check if Apache Tomcat is available locally. If Tomcat is
+     * available, the URL must be provided.
+     */
+    @Test
+    public void testIsTomcat() {
+        assumeTrue(TestContext.isTomcat());
+        assertNotNull(TestContext.tomcatUrl());
+    }
+
+    /**
+     * Unit test for System property override of the webDriver waits.
+     */
+    @Test
+    public void testWebDriverWaits() {
+        assumeTrue(TestContext.pageWait() > 0);
+        assumeTrue(TestContext.implicitWait() > 0);
+        assumeTrue(TestContext.explicitWait() > 0);
+        assumeTrue(TestContext.retryInterval() > 0 && TestContext.retryInterval() < TestContext.explicitWait());
+    }
+
+    /**
+     * Unit test to target platform.
+     */
+    @Test
+    public void testTargetPlatform() {
+        assumeNotNull(TestContext.targetPlatform());
+    }
+
+    /**
+     * Unit test to target environment.
+     */
+    @Test
+    public void testTargetEnvironment() {
+        assumeNotNull(TestContext.targetEnvironment());
+    }
 
 }

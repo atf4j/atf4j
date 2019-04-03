@@ -29,7 +29,10 @@ import net.atf4j.core.TestResultsReporting;
  */
 public final class TimerTest extends TestResultsReporting {
 
+    /** DEFAULT_INTERVAL 			constant. */
     private static final int DEFAULT_INTERVAL = 100;
+    
+    /** The delta. */
     private final long delta = 1000;
 
     /**

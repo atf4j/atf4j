@@ -17,10 +17,7 @@
 
 package net.atf4j.core;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
-
 
 /**
  * Unit test for the Verify class.
@@ -28,12 +25,35 @@ import org.junit.Test;
 public final class VerifyTest {
 
     /**
-     * Unit Test to verify object not null.
+     * Verify not null.
      */
     @Test
     public void verifyNotNull() {
-        final byte actual = Byte.MAX_VALUE;
-        assertNotNull(actual);
+        Verify.verifyNotNull(this);
+    }
+
+    /**
+     * Unit Test to verify object not null.
+     */
+    @Test(expected = VerificationError.class)
+    public void verifyNotNullWithNull() {
+        Verify.verifyNotNull(null);
+    }
+
+    /**
+     * Verify not null with message.
+     */
+    @Test
+    public void verifyNotNullMessage() {
+        Verify.verifyNotNull(this, "Message.");
+    }
+
+    /**
+     * Verify not null message with null.
+     */
+    @Test(expected = VerificationError.class)
+    public void verifyNotNullMessageWithNull() {
+        Verify.verifyNotNull(null, "Message.");
     }
 
     /**
@@ -42,7 +62,7 @@ public final class VerifyTest {
     @Test
     public void verifyEqualByte() {
         final byte expected = Byte.MAX_VALUE;
-        assertNotNull(Verify.verifyEqual(expected, expected));
+        Verify.verifyEqual(expected, expected);
     }
 
     /**
@@ -52,7 +72,7 @@ public final class VerifyTest {
     public void verifyNotEqualByte() {
         final byte actual = Byte.MAX_VALUE;
         final byte expected = Byte.MIN_VALUE;
-        assertNotNull(Verify.verifyEqual(expected, actual));
+        Verify.verifyEqual(expected, actual);
     }
 
     /**
@@ -61,7 +81,7 @@ public final class VerifyTest {
     @Test
     public void verifyEqualChar() {
         final char expected = 'a';
-        assertNotNull(Verify.verifyEqual(expected, expected));
+        Verify.verifyEqual(expected, expected);
     }
 
     /**
@@ -71,7 +91,7 @@ public final class VerifyTest {
     public void verifyNotEqualChar() {
         final char actual = 'a';
         final char expected = 'z';
-        assertNotNull(Verify.verifyEqual(expected, actual));
+        Verify.verifyEqual(expected, actual);
     }
 
     /**
@@ -80,7 +100,7 @@ public final class VerifyTest {
     @Test
     public void verifyEqualInt() {
         final int expected = Integer.MAX_VALUE;
-        assertNotNull(Verify.verifyEqual(expected, expected));
+        Verify.verifyEqual(expected, expected);
     }
 
     /**
@@ -90,7 +110,7 @@ public final class VerifyTest {
     public void verifyNotEqualInt() {
         final int actual = Integer.MIN_VALUE;
         final int expected = Integer.MAX_VALUE;
-        assertNotNull(Verify.verifyEqual(expected, actual));
+        Verify.verifyEqual(expected, actual);
     }
 
     /**
@@ -99,7 +119,7 @@ public final class VerifyTest {
     @Test
     public void verifyEqualLong() {
         final long expected = Long.MAX_VALUE;
-        assertNotNull(Verify.verifyEqual(expected, expected));
+        Verify.verifyEqual(expected, expected);
     }
 
     /**
@@ -107,7 +127,7 @@ public final class VerifyTest {
      */
     @Test(expected = AssertionError.class)
     public void verifyNotEqualsLong() {
-        assertNotNull(Verify.verifyEqual(Long.MIN_VALUE, Long.MAX_VALUE));
+        Verify.verifyEqual(Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
     /**
@@ -116,7 +136,7 @@ public final class VerifyTest {
     @Test
     public void verifyEqualObjects() {
         final Object expected = new Object();
-        assertNotNull(Verify.verifyEqual(expected, expected));
+        Verify.verifyEqual(expected, expected);
     }
 
     /**
@@ -126,7 +146,7 @@ public final class VerifyTest {
     public void verifyNotEqualObjects() {
         final Object actual = new Object();
         final Object expected = new Object();
-        assertNotNull(Verify.verifyEqual(expected, actual));
+        Verify.verifyEqual(expected, actual);
     }
 
 }

@@ -33,7 +33,7 @@ public class NamedTimer implements TimerInterface {
     /** The elapsed time in milliseconds. */
     private long elapsedTime = 0;
 
-    /** Name of the timer, if no name was provided, then its unique UUID */
+    /**  Name of the timer, if no name was provided, then its unique UUID. */
     private final String timerName;
 
     /**
@@ -57,7 +57,7 @@ public class NamedTimer implements TimerInterface {
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.timers.ITimer#start()
+     * @see net.atf4j.core.examples.timers.ITimer#start()
      */
     @Override
     public final NamedTimer start() {
@@ -68,7 +68,7 @@ public class NamedTimer implements TimerInterface {
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.timers.ITimer#stop()
+     * @see net.atf4j.core.examples.timers.ITimer#stop()
      */
     @Override
     public final NamedTimer stop() {
@@ -89,7 +89,7 @@ public class NamedTimer implements TimerInterface {
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.timers.ITimer#getStartTime()
+     * @see net.atf4j.core.examples.timers.ITimer#getStartTime()
      */
     @Override
     public final long getStartTime() {
@@ -99,7 +99,7 @@ public class NamedTimer implements TimerInterface {
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.timers.TimerInterface#getStopTime()
+     * @see net.atf4j.core.examples.timers.TimerInterface#getStopTime()
      */
     @Override
     public final long getStopTime() {
@@ -109,13 +109,16 @@ public class NamedTimer implements TimerInterface {
     /*
      * (non-Javadoc)
      *
-     * @see net.atf4j.core.timers.ITimer#getElapsedTime()
+     * @see net.atf4j.core.examples.timers.ITimer#getElapsedTime()
      */
     @Override
     public long getElapsedTime() {
         return this.elapsedTime;
     }
 
+    /* (non-Javadoc)
+    * @see java.lang.Object#toString()
+    */
     @Override
     public String toString() {
         return String.format("%s [timerName=%s, startTime=%s, stopTime=%s, elapsedTime=%s]",

@@ -1,4 +1,4 @@
-// generated at 2018-06-21 07:44.19 from main/resources/templates/PageObject.vm 
+// generated at 2019-01-06 13:01:53.425 from main/resources/templates/PageObject.vm 
 
 package net.atf4j.generated;
 

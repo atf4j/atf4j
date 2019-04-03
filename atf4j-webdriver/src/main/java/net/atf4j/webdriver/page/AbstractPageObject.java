@@ -18,12 +18,11 @@
 package net.atf4j.webdriver.page;
 
 import static net.atf4j.core.Verify.verifyNotNull;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriver.Options;
@@ -36,6 +35,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import net.atf4j.webdriver.BrowserFactory;
 import net.atf4j.webdriver.TargetUrl;
 
@@ -44,10 +47,19 @@ import net.atf4j.webdriver.TargetUrl;
  */
 public abstract class AbstractPageObject {
 
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getName());
+    /** The log. */
+    protected final Logger log = LoggerFactory.getLogger(this.getClass());
+    
+    /** The config. */
     protected PageConfig config;
+    
+    /** The web driver. */
     protected WebDriver webDriver;
+    
+    /** The web driver wait. */
     protected WebDriverWait webDriverWait;
+    
+    /** The target url. */
     protected String targetUrl;
 
     /**
@@ -96,8 +108,7 @@ public abstract class AbstractPageObject {
         final Timeouts timeouts = manage.timeouts();
         timeouts.implicitlyWait(this.config.implicitWait(), TimeUnit.SECONDS);
         timeouts.pageLoadTimeout(this.config.pageLoadTimeout(), TimeUnit.SECONDS);
-        this.webDriverWait = new WebDriverWait(this.webDriver, this.config.timeOutInSeconds(),
-                this.config.pollingInterval());
+        this.webDriverWait = new WebDriverWait(this.webDriver, this.config.timeOutInSeconds(), this.config.pollingInterval());
     }
 
     /**
@@ -133,11 +144,12 @@ public abstract class AbstractPageObject {
     }
 
     /**
-     * Gets the title.
+     * Gets the the page title.
      *
      * @return the page title as a String object.
+     * @see org.openqa.selenium.WebDriver#getTitle()
      */
-    protected String getTitle() {
+    public String getTitle() {
         verifyNotNull(this.webDriver);
         return this.webDriver.getTitle();
     }
@@ -173,6 +185,33 @@ public abstract class AbstractPageObject {
         this.webDriver.get(pageUrl);
         PageFactory.initElements(this.webDriver, this);
         return this;
+    }
+
+    /**
+     * Checks if this page has loaded.
+     */
+    public void isLoaded() {
+        assertNotNull(this.webDriver.getCurrentUrl());
+        assertNotNull(this.webDriver.getTitle());
+    }
+
+    /**
+     * Gets the current url.
+     *
+     * @return the current url
+     * @see org.openqa.selenium.WebDriver#getCurrentUrl()
+     */
+    public String getCurrentUrl() {
+        return this.webDriver.getCurrentUrl();
+    }
+
+    /**
+     * Page url.
+     *
+     * @return the string
+     */
+    protected String pageUrl() {
+        return null;
     }
 
     /**
@@ -218,7 +257,7 @@ public abstract class AbstractPageObject {
      *            otherwise false.
      * @return true, if successful, otherwise false.
      */
-    protected boolean verifyElement(final WebElement webElement) {
+    protected boolean verifyWebElement(final WebElement webElement) {
         verifyNotNull(webElement);
         final boolean testStatus = true;
         verifyNotNull(webElement);
@@ -226,6 +265,18 @@ public abstract class AbstractPageObject {
         assertTrue(webElement.isDisplayed());
         assertTrue(webElement.isEnabled());
         return testStatus;
+    }
+
+    /**
+     * Click.
+     *
+     * @param text is the text to be clicked
+     */
+    public void click(final String text) {
+        final String xPath = String.format("//a[contains(text(),'%s')]", text);
+        final WebElement webElement = this.webDriver.findElement(By.xpath(xPath));
+        Assert.assertNotNull(webElement);
+        webElement.click();
     }
 
     /**
@@ -335,6 +386,16 @@ public abstract class AbstractPageObject {
     }
 
     /**
+     * Contains.
+     *
+     * @param text the text
+     */
+    public void contains(final String text) {
+        assertNotNull(text);
+        assertTrue(this.webDriver.getPageSource().contains(text));
+    }
+
+    /**
      * Search finished.
      *
      * @return the expected condition
@@ -344,7 +405,6 @@ public abstract class AbstractPageObject {
 
             /*
              * (non-Javadoc)
-             *
              * @see com.google.common.base.Function#apply(java.lang.Object)
              */
             @Override
@@ -361,7 +421,7 @@ public abstract class AbstractPageObject {
      *
      * @return the abstract page object
      */
-    protected AbstractPageObject close() {
+    public AbstractPageObject close() {
         verifyNotNull(this.webDriver);
         if (this.webDriver != null) {
             this.webDriver.close();
@@ -374,7 +434,7 @@ public abstract class AbstractPageObject {
      *
      * @return the abstract page object
      */
-    protected AbstractPageObject quit() {
+    public AbstractPageObject quit() {
         verifyNotNull(this.webDriver);
         if (this.webDriver != null) {
             this.webDriver.quit();

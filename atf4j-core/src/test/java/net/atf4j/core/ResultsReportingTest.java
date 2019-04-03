@@ -19,7 +19,6 @@ package net.atf4j.core;
 
 import org.junit.Test;
 
-
 /**
  * A UnitTest for Reporting Test Results.
  */
@@ -31,8 +30,8 @@ public final class ResultsReportingTest extends TestResultsReporting {
     @Test
     public void testToDescription() {
         final String description = super.toDescription();
-        log.debug(description);
         verifyNotNull(description);
+        this.log.info(description);
     }
 
 }

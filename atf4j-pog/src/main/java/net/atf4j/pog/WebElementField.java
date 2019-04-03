@@ -75,7 +75,7 @@ public class WebElementField extends ClassField {
          * @param asText the as text
          */
         Strategy(final String asText) {
-            value = asText;
+            this.value = asText;
         }
 
         /**
@@ -95,7 +95,7 @@ public class WebElementField extends ClassField {
          */
         public static Strategy fromString(final String asText) {
             for (final Strategy candidate : values()) {
-                if (candidate.equals(asText)) {
+                if (asText.equals(candidate.toString())) {
                     return candidate;
                 }
             }
@@ -104,12 +104,11 @@ public class WebElementField extends ClassField {
 
         /*
          * (non-Javadoc)
-         *
          * @see java.lang.Enum#toString()
          */
         @Override
         public String toString() {
-            return value;
+            return this.value;
         }
     }
 
@@ -176,7 +175,7 @@ public class WebElementField extends ClassField {
      * @return the locator type
      */
     public Strategy getLocatorType() {
-        return strategy;
+        return this.strategy;
     }
 
     /**
@@ -185,7 +184,7 @@ public class WebElementField extends ClassField {
      * @return the locator
      */
     public String getLocator() {
-        return String.format(FIND_BY_FORMAT, strategy, locator);
+        return String.format(FIND_BY_FORMAT, this.strategy, this.locator);
     }
 
     /**
@@ -195,36 +194,30 @@ public class WebElementField extends ClassField {
      */
     /*
      * (non-Javadoc)
-     *
      * @see net.atf4j.pog.ClassField#toCode()
      */
     public String toCode() {
-        final String locatorLine = String.format(FIND_BY_FORMAT, strategy, locator);
+        final String locatorLine = String.format(FIND_BY_FORMAT, this.strategy, this.locator);
         return String.format(FULL_FORMAT, locatorLine, super.getField());
     }
 
     /*
      * (non-Javadoc)
-     *
      * @see net.atf4j.pog.ClassField#debugString()
      */
     @Override
     public String debugString() {
-        return String.format("%s [strategy=%s, locator=%s]",
-                this.getClass().getSimpleName(),
-                strategy,
-                locator);
+        return String.format("%s [strategy=%s, locator=%s]", this.getClass().getSimpleName(), this.strategy, this.locator);
     }
 
     /*
      * (non-Javadoc)
-     *
      * @see net.atf4j.pog.ClassField#toString()
      */
     @Override
     public String toString() {
-        if (log.isDebugEnabled()) {
-            log.debug(debugString());
+        if (this.log.isDebugEnabled()) {
+            this.log.debug(debugString());
         }
         return toCode();
     }

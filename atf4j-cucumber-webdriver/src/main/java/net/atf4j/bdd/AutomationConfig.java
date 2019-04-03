@@ -20,7 +20,7 @@ package net.atf4j.bdd;
 import net.atf4j.core.AbstractConfig;
 
 /**
- * Automation Configuration Class.
+ * Automation Atf4jConfiguration Class.
  */
 public final class AutomationConfig extends AbstractConfig {
 

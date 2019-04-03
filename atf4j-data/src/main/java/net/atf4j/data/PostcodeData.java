@@ -17,8 +17,6 @@
 
 package net.atf4j.data;
 
-import net.atf4j.csv.CsvFile;
-
 /**
  * Postcode Data Class.
  */
