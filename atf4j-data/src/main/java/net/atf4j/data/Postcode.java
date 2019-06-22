@@ -17,12 +17,12 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertNotNull;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertNotNull;
+
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.core.VerificationError;
 
 /**
@@ -32,7 +32,7 @@ import net.atf4j.core.VerificationError;
  *  Inward_Code  ::= Postcode_Sector Postcode_Unit
  * </code>
  */
-public final class Postcode extends TestResultsReporting {
+@Slf4j public final class Postcode {
 
     /** The Constant POSTCODE. */
     private static final String POSTCODE = "XX99 9XX";

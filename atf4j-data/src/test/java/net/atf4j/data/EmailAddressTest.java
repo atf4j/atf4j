@@ -17,18 +17,21 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import org.junit.Ignore;
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A Unit test class for EmailAddress objects.
  */
-public final class EmailAddressTest extends TestResultsReporting {
+@Slf4j
+public final class EmailAddressTest {
 
     /** The Constant TEST_EXAMPLE_COM. */
     private static final String TEST_EXAMPLE_COM = "test@example.com";
@@ -42,11 +45,11 @@ public final class EmailAddressTest extends TestResultsReporting {
     @Test
     public void testExpected() {
         final EmailAddress emailAddress = new EmailAddress();
-        this.log.debug("new EmailAddress() = {}", emailAddress);
+        log.debug("new EmailAddress() = {}", emailAddress);
         verifyNotNull(emailAddress);
 
         final EmailAddress atExample = EmailAddress.at("example.com");
-        this.log.debug(atExample.toString());
+        log.debug(atExample.toString());
     }
 
     /**
@@ -55,7 +58,7 @@ public final class EmailAddressTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final EmailAddress emailAddress = new EmailAddress();
-        this.log.debug("new EmailAddress() = {}", emailAddress);
+        log.debug("new EmailAddress() = {}", emailAddress);
         verifyNotNull(emailAddress);
     }
 
@@ -65,7 +68,7 @@ public final class EmailAddressTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final EmailAddress emailAddress = EmailAddress.create();
-        this.log.debug("EmailAddress.create() = {}", emailAddress);
+        log.debug("EmailAddress.create() = {}", emailAddress);
         verifyNotNull(emailAddress);
     }
 
@@ -76,7 +79,7 @@ public final class EmailAddressTest extends TestResultsReporting {
     @Test
     public void testEmailAddressString() {
         final EmailAddress emailAddress = new EmailAddress(TEST_EXAMPLE_COM);
-        this.log.debug("new EmailAddress({}) = {}", TEST_EXAMPLE_COM, emailAddress);
+        log.debug("new EmailAddress({}) = {}", TEST_EXAMPLE_COM, emailAddress);
         verifyNotNull(emailAddress);
         assertEquals(TEST_EXAMPLE_COM, emailAddress);
     }
@@ -99,11 +102,11 @@ public final class EmailAddressTest extends TestResultsReporting {
     @Test
     public void testDebugString() {
         final EmailAddress emailAddress = new EmailAddress();
-        this.log.debug("new EmailAddress() = {}", emailAddress);
+        log.debug("new EmailAddress() = {}", emailAddress);
         verifyNotNull(emailAddress);
 
         final String string = emailAddress.debugString();
-        this.log.debug("emailAddress.debugString() = {}", emailAddress);
+        log.debug("emailAddress.debugString() = {}", emailAddress);
         verifyNotNull(string);
     }
 
@@ -113,11 +116,11 @@ public final class EmailAddressTest extends TestResultsReporting {
     @Test
     public void testToString() {
         final EmailAddress emailAddress = new EmailAddress();
-        this.log.debug("new EmailAddress() = {}", emailAddress);
+        log.debug("new EmailAddress() = {}", emailAddress);
         verifyNotNull(emailAddress);
 
         final String string = emailAddress.debugString();
-        this.log.debug("emailAddress.debugString() = {}", emailAddress);
+        log.debug("emailAddress.debugString() = {}", emailAddress);
         verifyNotNull(string);
     }
 }

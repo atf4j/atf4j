@@ -17,16 +17,19 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertEquals;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertEquals;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Unit test for Field class.
  */
-public final class FieldTest extends TestResultsReporting {
+@Slf4j
+public final class FieldTest {
 
     /**
      * Unit tests for the defaultConstructor() method of Field object.

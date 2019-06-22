@@ -17,14 +17,14 @@
 
 package net.atf4j.bdd;
 
-import org.junit.Test;
+import static net.atf4j.core.Verify.verifyNotNull;
 
-import net.atf4j.core.TestResultsReporting;
+import org.junit.Test;
 
 /**
  * Unit Test class for Behaviour Model.
  */
-public class BehaviourModelTest extends TestResultsReporting {
+public class BehaviourModelTest {
 
     /**
      * Behaviour Model class.
@@ -44,9 +44,7 @@ public class BehaviourModelTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        final BehaviourModel behaviour = new BehaviourModel();
-        this.log.debug("behaviour = {}", behaviour);
-        verifyNotNull(behaviour);
+        verifyNotNull(new BehaviourModel());
     }
 
 }

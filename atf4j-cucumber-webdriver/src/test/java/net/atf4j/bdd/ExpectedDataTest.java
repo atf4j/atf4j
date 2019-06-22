@@ -17,14 +17,14 @@
 
 package net.atf4j.bdd;
 
-import org.junit.Test;
+import static net.atf4j.core.Verify.verifyNotNull;
 
-import net.atf4j.core.TestResultsReporting;
+import org.junit.Test;
 
 /**
  * The ExpectedDataTest class.
  */
-public class ExpectedDataTest extends TestResultsReporting {
+public class ExpectedDataTest {
 
     /**
      * ExpectedData Class.
@@ -44,9 +44,7 @@ public class ExpectedDataTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        final ExpectedData expectedData = new ExpectedData();
-        verifyNotNull(expectedData);
-        log.debug("expectedData = {}", expectedData);
+        verifyNotNull(new ExpectedData());
     }
 
 }

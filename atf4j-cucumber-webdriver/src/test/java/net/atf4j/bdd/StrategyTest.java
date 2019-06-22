@@ -17,14 +17,14 @@
 
 package net.atf4j.bdd;
 
-import org.junit.Test;
+import static net.atf4j.core.Verify.verifyNotNull;
 
-import net.atf4j.core.TestResultsReporting;
+import org.junit.Test;
 
 /**
  * The StrategyTest class.
  */
-public class StrategyTest extends TestResultsReporting {
+public class StrategyTest {
 
     /**
      * The Strategy Class.
@@ -44,9 +44,7 @@ public class StrategyTest extends TestResultsReporting {
      */
     @Test
     public void testDefaultConstructor() {
-        final Strategy strategy = new Strategy();
-        this.log.debug("strategy = {}", strategy);
-        verifyNotNull(strategy);
+        verifyNotNull(new Strategy());
     }
 
 }

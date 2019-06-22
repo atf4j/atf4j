@@ -19,10 +19,12 @@ package net.atf4j.fdd;
 
 import java.util.UUID;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Given as a Hoare command for FDD.
  */
-public final class Given extends PreCondition {
+@Slf4j public final class Given extends PreCondition {
 
     /**
      * Instantiates a new given.

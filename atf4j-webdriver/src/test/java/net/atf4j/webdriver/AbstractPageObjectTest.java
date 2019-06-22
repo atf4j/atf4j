@@ -3,21 +3,18 @@ package net.atf4j.webdriver;
 
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.webdriver.page.AbstractPageObject;
 
 /**
  * Unit Test class for the AbstractPageObject class.
  */
+@Slf4j
 public final class AbstractPageObjectTest {
-
-    /** Provides logging. */
-    private static final Logger LOG = LoggerFactory.getLogger(AbstractPageObjectTest.class);
 
     /**
      * A Mock Page object to test the PageUrl annotation.
@@ -134,7 +131,7 @@ public final class AbstractPageObjectTest {
         assertNotNull(aPage);
         assertEquals(aPage, aPage.open());
         assertEquals(aPage, aPage.verify());
-        LOG.info(aPage.toString());
+        log.info(aPage.toString());
         aPage.quit();
     }
 
@@ -147,7 +144,7 @@ public final class AbstractPageObjectTest {
         assertNotNull(sitePage);
         assertEquals(sitePage, sitePage.open());
         assertEquals(sitePage, sitePage.verify());
-        LOG.info(sitePage.toString());
+        log.info(sitePage.toString());
         sitePage.quit();
     }
 

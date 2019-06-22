@@ -30,7 +30,7 @@ import static org.junit.Assume.assumeTrue;
 /**
  * A UnitTest for TestContext objects.
  */
-public class TestContextTest extends TestResultsReporting {
+public class TestContextTest {
 
     /**
      * Unit test to assume local true.

@@ -17,18 +17,18 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertNotNull;
-
 import java.io.FileNotFoundException;
 
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertNotNull;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * The PostcodeDataTest class.
  */
-public final class PostcodeDataTest extends TestResultsReporting {
+@Slf4j public final class PostcodeDataTest {
 
     /**
      * Test get instance.

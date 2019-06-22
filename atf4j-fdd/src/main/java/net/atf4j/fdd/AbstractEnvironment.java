@@ -2,7 +2,7 @@
 package net.atf4j.fdd;
 
 /**
- * The Class AbstractEnvironment.
+ * The AbstractEnvironment.
  */
 public class AbstractEnvironment implements Environment {
 

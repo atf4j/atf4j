@@ -19,31 +19,21 @@ package net.atf4j.core;
 
 import java.lang.reflect.Field;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Narrate a test from the call stack.
  */
+@Slf4j
 public final class Narrator {
 
-    /** The Constant NULL_OBJECT. */
     private static final String NULL_OBJECT = "object is [NULL]";
-
-    /** The Constant NULL_SUPER_CLASS. */
     private static final String NULL_SUPER_CLASS = "superClass is [NULL]";
-
-    /** The Constant NO_MEMBERS. */
     private static final String NO_MEMBERS = "[NO MEMBERS]";
-
-    /** LAYOUT_STYLE. */
     private static final String LAYOUT_STYLE = "%s [%s]";
 
-    /** The Constant LOG. */
-    private static final Logger LOG = LoggerFactory.getLogger(Narrator.class);
-
     /**
-     * private constructor to prevent rampant instantiation.
+     * private constructor to prevent unnecessary instantiation.
      */
     private Narrator() {
         super();
@@ -113,7 +103,7 @@ public final class Narrator {
                         final String memberStr = String.format("%s = %s,", fieldName, fieldType);
                         stringBuilder.append(memberStr);
                     } catch (IllegalArgumentException | IllegalAccessException e) {
-                        LOG.trace(e.toString());
+                        log.trace(e.toString());
                     }
                 }
                 return stringBuilder.toString();

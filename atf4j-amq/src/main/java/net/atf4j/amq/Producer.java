@@ -17,6 +17,8 @@
 
 package net.atf4j.amq;
 
+import javax.jms.Connection;
+import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
 import javax.jms.MessageProducer;
 import javax.jms.TextMessage;
@@ -36,6 +38,36 @@ public final class Producer extends AbstractConnectionWrapper {
     }
 
     /**
+     * Instantiates a new producer.
+     *
+     * @param connection the connection
+     * @throws JMSException the JMS exception
+     */
+    public Producer(final Connection connection) throws JMSException {
+        super(connection);
+    }
+
+    /**
+     * Instantiates a new producer.
+     *
+     * @param connectionFactory the connection factory
+     * @throws JMSException the JMS exception
+     */
+    public Producer(final ConnectionFactory connectionFactory) throws JMSException {
+        super(connectionFactory);
+    }
+
+    /**
+     * Instantiates a new producer.
+     *
+     * @param brokerUrl the broker url
+     * @throws JMSException the JMS exception
+     */
+    public Producer(final String brokerUrl) throws JMSException {
+        super(brokerUrl);
+    }
+
+    /**
      * Execute, add the messages to the queue.
      *
      * @param messages the messages
@@ -51,7 +83,6 @@ public final class Producer extends AbstractConnectionWrapper {
         for (final String messageString : messages) {
             textMessage.setText(messageString);
             messageProducer.send(textMessage);
-            this.log.info("Sent {}", messageString);
         }
         this.connection.close();
         return this;

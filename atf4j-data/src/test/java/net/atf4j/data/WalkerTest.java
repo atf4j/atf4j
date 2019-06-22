@@ -17,14 +17,17 @@
 
 package net.atf4j.data;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A Unit test class for AbstractWalker objects.
  */
-public final class WalkerTest extends TestResultsReporting {
+@Slf4j
+public final class WalkerTest {
 
     /**
      * MockWalker Class.
@@ -54,7 +57,7 @@ public final class WalkerTest extends TestResultsReporting {
     @Test
     public void testAbstractWalker() {
         final MockWalker mockWalker = new MockWalker();
-        this.log.debug("new MockWalker() = {}", mockWalker);
+        log.debug("new MockWalker() = {}", mockWalker);
         verifyNotNull(mockWalker);
         verifyNotNull(mockWalker.walk());
     }
@@ -65,7 +68,7 @@ public final class WalkerTest extends TestResultsReporting {
     @Test
     public void testAbstractWalkerDot() {
         final MockWalker mockWalker = new MockWalker(".");
-        this.log.debug("new MockWalker('.') = {}", mockWalker);
+        log.debug("new MockWalker('.') = {}", mockWalker);
         verifyNotNull(mockWalker);
         verifyNotNull(mockWalker.walk());
     }
@@ -76,7 +79,7 @@ public final class WalkerTest extends TestResultsReporting {
     @Test
     public void testAbstractWalkerFolder() {
         final MockWalker mockWalker = new MockWalker("/messages");
-        this.log.debug("new MockWalker('/messages') = {}", mockWalker);
+        log.debug("new MockWalker('/messages') = {}", mockWalker);
         verifyNotNull(mockWalker);
         verifyNotNull(mockWalker.walk());
     }
@@ -87,7 +90,7 @@ public final class WalkerTest extends TestResultsReporting {
     @Test
     public void testAbstractWalkerMissingFolder() {
         final MockWalker mockWalker = new MockWalker("/missing");
-        this.log.debug("new MockWalker('/missing') ={}", mockWalker);
+        log.debug("new MockWalker('/missing') ={}", mockWalker);
         verifyNotNull(mockWalker);
         verifyNotNull(mockWalker.walk());
     }

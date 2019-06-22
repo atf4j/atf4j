@@ -17,14 +17,17 @@
 
 package net.atf4j.core.timers;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A UnitTest for MilliTimer objects.
  */
-public final class NamedTimerTest extends TestResultsReporting {
+@Slf4j
+public final class NamedTimerTest {
 
     /**
      * Unit tests for the default constructor of NamedTimer object.
@@ -33,7 +36,7 @@ public final class NamedTimerTest extends TestResultsReporting {
     public void testDefaultConstructor() {
         final NamedTimer namedTimer = new NamedTimer();
         verifyNotNull(namedTimer);
-        this.log.debug(namedTimer.toString());
+        log.debug(namedTimer.toString());
     }
 
     /**
@@ -43,7 +46,7 @@ public final class NamedTimerTest extends TestResultsReporting {
     public void testNamedTimerString() {
         final NamedTimer namedTimer = new NamedTimer("MilliTimer");
         verifyNotNull(namedTimer);
-        this.log.debug(namedTimer.toString());
+        log.debug(namedTimer.toString());
     }
 
     /**
@@ -54,9 +57,9 @@ public final class NamedTimerTest extends TestResultsReporting {
         final NamedTimer namedTimer = new NamedTimer();
         verifyNotNull(namedTimer);
         final NamedTimer started = namedTimer.start();
-        this.log.debug(started.toString());
+        log.debug(started.toString());
         final NamedTimer stopped = namedTimer.stop();
-        this.log.debug(stopped.toString());
+        log.debug(stopped.toString());
     }
 
     /**
@@ -67,7 +70,7 @@ public final class NamedTimerTest extends TestResultsReporting {
         final NamedTimer namedTimer = new NamedTimer();
         verifyNotNull(namedTimer);
         final String string = namedTimer.toString();
-        this.log.debug(string);
+        log.debug(string);
     }
 
 }

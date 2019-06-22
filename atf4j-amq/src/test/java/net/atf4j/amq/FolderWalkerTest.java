@@ -17,17 +17,17 @@
 
 package net.atf4j.amq;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import java.io.File;
 import java.io.FilenameFilter;
 
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
-
 /**
  * The FolderWalkerTest class.
  */
-public class FolderWalkerTest extends TestResultsReporting {
+public class FolderWalkerTest {
 
     /**
      * Unit Test the FolderWalker Class.
@@ -53,7 +53,6 @@ public class FolderWalkerTest extends TestResultsReporting {
 
             /*
              * (non-Javadoc)
-             *
              * @see java.io.FilenameFilter#accept(java.io.File,
              * java.lang.String)
              */
@@ -85,7 +84,6 @@ public class FolderWalkerTest extends TestResultsReporting {
      */
     @Test
     public void testFolderWalker() {
-        this.log.trace("testFolderWalker");
         final FolderWalkerInterface folderWalker = new FolderWalker();
         verifyNotNull(folderWalker);
         folderWalker.walk();
@@ -96,7 +94,6 @@ public class FolderWalkerTest extends TestResultsReporting {
      */
     @Test
     public void testFolderWalkerNull() {
-        this.log.trace("testFolderWalkerNull");
         final FolderWalkerInterface folderWalker = new FolderWalker(null);
         verifyNotNull(folderWalker);
         folderWalker.walk();
@@ -107,7 +104,6 @@ public class FolderWalkerTest extends TestResultsReporting {
      */
     @Test
     public void testFolderWalkerEmpty() {
-        this.log.trace("testFolderWalkerEmpty");
         final FolderWalkerInterface folderWalker = new FolderWalker("");
         verifyNotNull(folderWalker);
         folderWalker.walk();
@@ -118,7 +114,6 @@ public class FolderWalkerTest extends TestResultsReporting {
      */
     @Test
     public void testFolderWalkerDot() {
-        this.log.trace("testFolderWalkerDot");
         final FolderWalkerInterface folderWalker = new FolderWalker(".");
         verifyNotNull(folderWalker);
         folderWalker.walk();
@@ -129,7 +124,6 @@ public class FolderWalkerTest extends TestResultsReporting {
      */
     @Test
     public void testFolderWalkerString() {
-        this.log.trace("testFolderWalkerString");
         final FolderWalkerInterface folderWalker = new FolderWalker("messages");
         verifyNotNull(folderWalker);
         folderWalker.walk();

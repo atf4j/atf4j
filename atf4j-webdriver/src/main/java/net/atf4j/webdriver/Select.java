@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 /**
- * The Class Select.
+ * The Select.
  */
 public class Select extends Gesture {
 

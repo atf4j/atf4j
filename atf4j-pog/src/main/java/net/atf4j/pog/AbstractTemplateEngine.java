@@ -23,13 +23,13 @@ import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.core.VerificationError;
 
 /**
  * Abstract Template Engine Class.
  */
-public abstract class AbstractTemplateEngine extends TestResultsReporting {
+@Slf4j public abstract class AbstractTemplateEngine {
 
     /** Default base path. */
     private static final String DEFAULT_PATH = ".";
@@ -108,7 +108,7 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
      * @return this for a fluent interface.
      */
     protected AbstractTemplateEngine prototype(final String templateFilename) {
-        this.log.info(toCode(templateFilename));
+        log.info(toCode(templateFilename));
         return this;
     }
 
@@ -119,7 +119,7 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
      * @return the code as a string.
      */
     protected String toCode(final String templateFilename) {
-        this.log.info("templateFilename = {}", templateFilename);
+        log.info("templateFilename = {}", templateFilename);
 
         final VelocityEngine velocityEngine = new VelocityEngine();
         velocityEngine.init();
@@ -190,7 +190,7 @@ public abstract class AbstractTemplateEngine extends TestResultsReporting {
      */
     @Override
     public String toString() {
-        if (this.log.isDebugEnabled()) {
+        if (log.isDebugEnabled()) {
             return debugString();
         } else {
             return toCode();

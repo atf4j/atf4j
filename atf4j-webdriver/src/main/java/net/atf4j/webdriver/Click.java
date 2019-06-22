@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 /**
- * The Class Click.
+ * The Click.
  */
 public class Click extends Gesture {
 

@@ -17,9 +17,14 @@
 
 package net.atf4j.data;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Bank data class.
  */
+@Slf4j
 public final class Bank extends Business {
 
     /** The bank sort code. */
@@ -156,15 +161,16 @@ public final class Bank extends Business {
         return this.iban;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
      * @see net.atf4j.data.Business#toString()
      */
     @Override
     public String toString() {
         return String.format("Bank [bankName=%s, bankSortCode=%s, iban=%s]",
-                this.bankName,
-                this.bankSortCode,
-                this.iban);
+            this.bankName,
+            this.bankSortCode,
+            this.iban);
     }
 
 }

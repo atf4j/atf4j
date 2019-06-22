@@ -17,14 +17,17 @@
 
 package net.atf4j.data;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A Unit test class for PostalAddress.
  */
-public final class PostalAddressTest extends TestResultsReporting {
+@Slf4j
+public final class PostalAddressTest {
 
     /** The Constant ADDRESS. */
     private static final String ADDRESS = "LineOne,LineTwo,LineThree,LineFour,LineFive,LineSix,LineSeven,LineEight";
@@ -35,7 +38,7 @@ public final class PostalAddressTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final PostalAddress address = new PostalAddress();
-        this.log.debug("new PostalAddress() = {}", address);
+        log.debug("new PostalAddress() = {}", address);
         verifyNotNull(address);
     }
 
@@ -45,7 +48,7 @@ public final class PostalAddressTest extends TestResultsReporting {
     @Test
     public void testPostalAddressString() {
         final PostalAddress address = new PostalAddress(ADDRESS);
-        this.log.debug("new PostalAddress({}) = {}", ADDRESS, address);
+        log.debug("new PostalAddress({}) = {}", ADDRESS, address);
         verifyNotNull(address);
     }
 
@@ -56,7 +59,7 @@ public final class PostalAddressTest extends TestResultsReporting {
     public void testPostalAddressStringArray() {
         final String[] addressLines = ADDRESS.split(",");
         final PostalAddress address = new PostalAddress(addressLines);
-        this.log.debug("new PostalAddress({}) = {}", addressLines, address);
+        log.debug("new PostalAddress({}) = {}", addressLines, address);
         verifyNotNull(address);
     }
 
@@ -66,7 +69,7 @@ public final class PostalAddressTest extends TestResultsReporting {
     @Test
     public void testToString() {
         final String addressString = new PostalAddress().toString();
-        this.log.debug("new PostalAddress().toString() = {}", addressString);
+        log.debug("new PostalAddress().toString() = {}", addressString);
         verifyNotNull(addressString);
     }
 
@@ -76,7 +79,7 @@ public final class PostalAddressTest extends TestResultsReporting {
     @Test
     public void testDebugString() {
         final String addressDebugString = new PostalAddress().debugString();
-        this.log.debug("new PostalAddress().debugString() = {}", addressDebugString);
+        log.debug("new PostalAddress().debugString() = {}", addressDebugString);
         verifyNotNull(addressDebugString);
     }
 

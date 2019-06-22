@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 /**
- * The Class EnterText.
+ * The EnterText.
  */
 public class EnterText extends Gesture {
 

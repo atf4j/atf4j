@@ -24,9 +24,10 @@ import static org.junit.Assert.assertTrue;
 
 import static org.junit.Assume.assumeTrue;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.core.TestContext;
+import net.atf4j.core.TestReport;
 import net.atf4j.core.TestResult;
-import net.atf4j.core.TestResultsReporting;
 import net.atf4j.core.VerificationError;
 
 /**
@@ -34,7 +35,8 @@ import net.atf4j.core.VerificationError;
  *
  * This is a Hoare Triple {P} C {Q}
  */
-public abstract class AbstractTestBase extends TestResultsReporting {
+@Slf4j
+public abstract class AbstractTestBase {
 
     /** A Unique identifier. */
     protected TestIdentifier uniqueIdentifier = new TestIdentifier();

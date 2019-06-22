@@ -1,9 +1,6 @@
 
 package net.atf4j.data;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import static org.junit.Assert.assertNotNull;
 
 import static org.junit.Assume.assumeTrue;
@@ -14,7 +11,7 @@ import static org.junit.Assume.assumeTrue;
 public class CredentialsFactory extends AbstractExpectedData implements ExpectedDataInterface {
 
     /** Provides logging. */
-    private static final Logger LOG = LoggerFactory.getLogger(CredentialsFactory.class);
+    
     
     /** The platform. */
     private String platform;
@@ -67,7 +64,7 @@ public class CredentialsFactory extends AbstractExpectedData implements Expected
      */
     public CredentialsFactory() {
         super();
-        LOG.debug("CredentialsFactory() : {}", this);
+        log.debug("CredentialsFactory() : {}", this);
         loadFrom(pathForPlatform());
     }
 
@@ -79,7 +76,7 @@ public class CredentialsFactory extends AbstractExpectedData implements Expected
     public CredentialsFactory(final String platform) {
         super();
         this.platform = platform;
-        LOG.debug("CredentialsFactory({}) : {}", platform, this);
+        log.debug("CredentialsFactory({}) : {}", platform, this);
         loadFrom(pathForPlatform());
     }
 

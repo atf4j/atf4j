@@ -17,19 +17,22 @@
 
 package net.atf4j.core.model;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
+import net.atf4j.core.TestReport;
 import net.atf4j.core.VerificationError;
 import net.atf4j.fdd.model.AbstractTestBase;
 import net.atf4j.fdd.model.Condition;
 import net.atf4j.fdd.model.TestCase;
-import net.atf4j.fdd.model.TestReport;
 
 /**
  * A UnitTest for TestBase objects.
  */
-public class TestBaseTest extends TestResultsReporting {
+@Slf4j
+public class TestBaseTest {
 
     /**
      * The MockTestBase Class.
@@ -96,7 +99,7 @@ public class TestBaseTest extends TestResultsReporting {
     @Test
     public void testTypical() {
         final MockTestBase testBase = new MockTestBase();
-        this.log.info("testCase={}", testBase);
+        log.info("testCase={}", testBase);
         verifyNotNull(testBase);
         testBase.execute();
     }
@@ -104,7 +107,7 @@ public class TestBaseTest extends TestResultsReporting {
     @Test
     public void testTypicalFail() {
         final MockTestBase testBase = new MockTestBase();
-        this.log.info("testCase={}", testBase);
+        log.info("testCase={}", testBase);
         verifyNotNull(testBase);
         testBase.addPreCondition(new FailingCondition());
         testBase.execute();
@@ -113,7 +116,7 @@ public class TestBaseTest extends TestResultsReporting {
     @Test
     public void testTypicalPassFail() {
         final MockTestBase testBase = new MockTestBase();
-        this.log.info("testCase={}", testBase);
+        log.info("testCase={}", testBase);
         verifyNotNull(testBase);
         testBase.addPreCondition(new PassingCondition());
         testBase.addPostCondition(new FailingCondition());
@@ -123,7 +126,7 @@ public class TestBaseTest extends TestResultsReporting {
     @Test
     public void testTypicalPassPassFail() {
         final MockTestBase testBase = new MockTestBase();
-        this.log.info("testCase={}", testBase);
+        log.info("testCase={}", testBase);
         verifyNotNull(testBase);
         testBase.addPreCondition(new PassingCondition());
         testBase.addPostCondition(new FailingCondition());
@@ -133,7 +136,7 @@ public class TestBaseTest extends TestResultsReporting {
     @Test
     public void testTypicalPassPassPass() {
         final MockTestBase testBase = new MockTestBase();
-        this.log.info("testCase={}", testBase);
+        log.info("testCase={}", testBase);
         verifyNotNull(testBase);
         testBase.addPreCondition(new PassingCondition());
         testBase.addPostCondition(new PassingCondition());

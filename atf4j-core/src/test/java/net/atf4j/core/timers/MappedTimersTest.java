@@ -17,16 +17,19 @@
 
 package net.atf4j.core.timers;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A UnitTest for MappedTimers objects.
  */
-public final class MappedTimersTest extends TestResultsReporting {
+@Slf4j
+public final class MappedTimersTest {
 
     /**
      * Test method for MappedTimers.
@@ -35,7 +38,7 @@ public final class MappedTimersTest extends TestResultsReporting {
     public void testGetInstance() {
         final MappedTimers timer = MappedTimers.getInstance();
         verifyNotNull(timer);
-        this.log.debug(timer.toString());
+        log.debug(timer.toString());
     }
 
     /**
@@ -46,7 +49,7 @@ public final class MappedTimersTest extends TestResultsReporting {
         final TimerInterface timer = MappedTimers.start("testExpectedUsage");
         verifyNotNull(timer);
         assertEquals(timer, timer.stop());
-        this.log.debug(timer.toString());
+        log.debug(timer.toString());
     }
 
     /**

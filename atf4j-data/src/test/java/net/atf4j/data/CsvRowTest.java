@@ -25,12 +25,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import net.atf4j.core.TestResultsReporting;
-
 /**
  * A UnitTest for CsvRow objects.
  */
-public class CsvRowTest extends TestResultsReporting {
+public class CsvRowTest {
 
     private static final String TEST_ROW = "One, Two, Three, Four";
     private static final String EXPECTED = "CsvRow [values=[One, Two, Three, Four]]";
@@ -113,7 +111,7 @@ public class CsvRowTest extends TestResultsReporting {
         Iterator<String> iterator = csvRow.iterator();
         assertNotNull(iterator);
         while (iterator.hasNext()) {
-            this.log.info("iterator.field = {}", iterator.next());
+            assertNotNull(iterator.next());
         }
     }
 

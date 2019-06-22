@@ -20,13 +20,13 @@ package net.atf4j.data;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * UK National Insurance number, commonly known as Nino.
  * ([0-9]){2}([0-9]){2}([0-9]){2}
  */
-public final class Nino extends TestResultsReporting {
+@Slf4j public final class Nino {
 
     /** REGULAR EXPRESSION. */
     private static final Pattern PATTERN = Pattern

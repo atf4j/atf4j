@@ -17,17 +17,20 @@
 
 package net.atf4j.fdd;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Ignore;
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.fdd.Feature.Scenario;
 
 /**
  * Scenario Missing When class.
  */
 @Scenario("Scenario")
-public final class MissingWhenScenarioTest extends TestResultsReporting {
+@Slf4j
+public final class MissingWhenScenarioTest {
 
     /**
      * Test scenario runner.
@@ -35,7 +38,7 @@ public final class MissingWhenScenarioTest extends TestResultsReporting {
     @Ignore
     @Test
     public void testScenarioRunner() {
-        this.log.debug("testScenarioRunner", this.getClass().getSimpleName());
+        log.debug("testScenarioRunner", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         verifyNotNull(scenarioRunner);
         verifyNotNull(scenarioRunner.execute());
@@ -46,7 +49,7 @@ public final class MissingWhenScenarioTest extends TestResultsReporting {
      */
     @Feature.Given("Pass Given")
     public void passGiven() {
-        this.log.debug("{}", super.toString());
+        log.debug("{}", super.toString());
     }
 
     // Deliberately missing.
@@ -59,7 +62,7 @@ public final class MissingWhenScenarioTest extends TestResultsReporting {
      */
     @Feature.Then("Skip Then")
     public void skipThen() {
-        this.log.debug("{}", super.toString());
+        log.debug("{}", super.toString());
     }
 
 }

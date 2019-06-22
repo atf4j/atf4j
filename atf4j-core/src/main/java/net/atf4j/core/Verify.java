@@ -17,11 +17,10 @@
 
 package net.atf4j.core;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Verification class provides a number of static helper methods.
@@ -29,19 +28,24 @@ import static org.junit.Assert.assertNotNull;
  * These are similar to Assertion in operation, but include results logging as
  * evidence of success.
  */
+@Slf4j
 public final class Verify {
-
-    /** Constant MESSAGE. */
     private static final String MESSAGE = "verify(expected(%s) == actual(%s)) - %s";
-
-    /** LOG constant. */
-    private static final Logger LOG = LoggerFactory.getLogger(Verify.class);
 
     /**
      * Instantiates a new verify.
      */
     private Verify() {
         super();
+    }
+
+    /**
+     * Verify not null.
+     *
+     * @param object the object
+     */
+    public static void verifyNotNull(final Object object) {
+        verifyNotNull(object, null);
     }
 
     /**
@@ -56,23 +60,8 @@ public final class Verify {
         }
         assertNotNull(object);
         final String objectName = object.getClass().getSimpleName();
-        verifyNotNull(objectName);
-        LOG.debug("verify({}) = {}", objectName, object);
-    }
-
-    /**
-     * Verify not null.
-     *
-     * @param object the object
-     */
-    public static void verifyNotNull(final Object object) {
-        if (object == null) {
-            throw new VerificationError();
-        }
-        assertNotNull(object);
-        final String objectName = object.getClass().getSimpleName();
         assertNotNull(objectName);
-        LOG.debug("verify({}) = {}", objectName, object);
+        log.debug("verify({}) = {}", objectName, object);
     }
 
     /**
@@ -85,7 +74,7 @@ public final class Verify {
     public static String verifyEqual(final byte expected, final byte actual) {
         final boolean result = actual == expected;
         final String message = resultMessage(expected, actual, result);
-        LOG.debug("message = {}", message);
+        log.debug("message = {}", message);
         assertEquals(message, expected, actual);
         return message;
     }
@@ -100,7 +89,7 @@ public final class Verify {
     public static String verifyEqual(final char expected, final char actual) {
         final boolean result = actual == expected;
         final String message = resultMessage(expected, actual, result);
-        LOG.debug("message = {}", message);
+        log.debug("message = {}", message);
         assertEquals(message, expected, actual);
         return message;
     }
@@ -115,7 +104,7 @@ public final class Verify {
     public static String verifyEqual(final int expected, final int actual) {
         final boolean result = actual == expected;
         final String message = resultMessage(expected, actual, result);
-        LOG.debug("message = {}", message);
+        log.debug("message = {}", message);
         assertEquals(message, expected, actual);
         return message;
     }
@@ -130,7 +119,7 @@ public final class Verify {
     public static String verifyEqual(final long expected, final long actual) {
         final boolean result = actual == expected;
         final String message = resultMessage(expected, actual, result);
-        LOG.debug("message = {}", message);
+        log.debug("message = {}", message);
         assertEquals(message, expected, actual);
         return message;
     }
@@ -147,7 +136,7 @@ public final class Verify {
         assertNotNull("Actual Value cannot be null", actual);
         final boolean result = actual.equals(expected);
         final String message = resultMessage(expected, actual, result);
-        LOG.debug("message = {}", message);
+        log.info("message = {}", message);
         assertEquals(message, expected, actual);
         return message;
     }

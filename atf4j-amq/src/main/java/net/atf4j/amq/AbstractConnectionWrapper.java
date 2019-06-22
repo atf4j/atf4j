@@ -17,36 +17,29 @@
 
 package net.atf4j.amq;
 
-import net.atf4j.core.TestResultsReporting;
+import javax.jms.Connection;
+import javax.jms.ConnectionFactory;
+import javax.jms.ConnectionMetaData;
+import javax.jms.JMSException;
+import javax.jms.Queue;
+import javax.jms.Session;
+import javax.jms.Topic;
+
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
-
-import javax.jms.*;
 
 /**
  * An abstract class to wrap ActiveMQ Connections.
  */
-public abstract class AbstractConnectionWrapper
-        extends TestResultsReporting
-        implements ConnectionWrapperInterface {
+public abstract class AbstractConnectionWrapper implements ConnectionWrapperInterface {
 
-    /** URL. */
-    protected static String url = ActiveMQConnection.DEFAULT_BROKER_URL;
-
-    /** connection factory. */
+    protected String brokerUrl = ActiveMQConnection.DEFAULT_BROKER_URL;
     protected ConnectionFactory connectionFactory;
-
-    /** connection. */
     protected Connection connection;
-
-    /** session. */
     protected Session session;
-
-    /** topic name. */
-    protected String topicName = "testQueue";
-
-    /** topic. */
+    protected String name;
     protected Topic topic;
+    protected Queue queue;
 
     /**
      * Default constructor instantiates a new connection wrapper.
@@ -55,32 +48,101 @@ public abstract class AbstractConnectionWrapper
      */
     protected AbstractConnectionWrapper() throws JMSException {
         super();
-        this.connection = initialise();
-        this.session = newSession(this.connection);
-        this.topic = this.session.createTopic(this.topicName);
+        this.connectionFactory = new ActiveMQConnectionFactory(this.brokerUrl);
+        this.connection = this.connectionFactory.createConnection();
+        this.connection.start();
     }
 
     /**
-     * Initialise the connection.
+     * Instantiates a new abstract connection wrapper.
      *
-     * @return the connection
-     * @throws JMSException the JMS exception exception.
+     * @param connectionFactory the connection factory
+     * @throws JMSException the JMS exception
      */
-    protected Connection initialise() throws JMSException {
-        this.connectionFactory = new ActiveMQConnectionFactory(url);
+    public AbstractConnectionWrapper(final ConnectionFactory connectionFactory) throws JMSException {
+        super();
+        this.connectionFactory = connectionFactory;
         this.connection = this.connectionFactory.createConnection();
         this.connection.start();
-        return this.connection;
+    }
+
+    /**
+     * Instantiates a new abstract connection wrapper.
+     *
+     * @param connection the connection
+     * @throws JMSException the JMS exception
+     */
+    public AbstractConnectionWrapper(final Connection connection) throws JMSException {
+        super();
+        this.connection = connection;
+        this.connection.start();
+    }
+
+    /**
+     * Instantiates a new abstract connection wrapper.
+     *
+     * @param brokerUrl the broker url
+     * @throws JMSException the JMS exception
+     */
+    public AbstractConnectionWrapper(final String brokerUrl) throws JMSException {
+        super();
+        this.connectionFactory = new ActiveMQConnectionFactory(brokerUrl);
+        this.connection = this.connectionFactory.createConnection();
+        this.connection.start();
     }
 
     /**
      * New session on the connection.
      *
-     * @param connection the connection
      * @return the session
      * @throws JMSException the JMS exception exception.
      */
-    protected Session newSession(final Connection connection) throws JMSException {
-        return connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+    @Override
+    public ConnectionWrapperInterface startSession() throws JMSException {
+        this.session = this.connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+        return this;
     }
+
+    /**
+     * Gets the meta data.
+     *
+     * @return the meta data
+     * @throws JMSException the JMS exception
+     * @see javax.jms.Connection#getMetaData()
+     */
+    @Override
+    public ConnectionMetaData getMetaData() throws JMSException {
+        return this.connection.getMetaData();
+    }
+
+    /**
+     * Creates the queue.
+     *
+     * @param queueName the queue name
+     * @return the queue
+     * @throws JMSException the JMS exception
+     * @see javax.jms.Session#createQueue(java.lang.String)
+     */
+    @Override
+    public ConnectionWrapperInterface createQueue(final String queueName) throws JMSException {
+        this.name = queueName;
+        this.queue = this.session.createQueue(this.name);
+        return this;
+    }
+
+    /**
+     * Creates the topic.
+     *
+     * @param topicName the topic name
+     * @return the topic
+     * @throws JMSException the JMS exception
+     * @see javax.jms.Session#createTopic(java.lang.String)
+     */
+    @Override
+    public ConnectionWrapperInterface createTopic(final String topicName) throws JMSException {
+        this.name = topicName;
+        this.topic = this.session.createTopic(this.name);
+        return this;
+    }
+
 }

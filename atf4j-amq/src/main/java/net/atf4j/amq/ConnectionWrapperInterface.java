@@ -17,9 +17,46 @@
 
 package net.atf4j.amq;
 
+import javax.jms.ConnectionMetaData;
+import javax.jms.JMSException;
+
 /**
  * Interface for the Connection wrapper.
  */
 public interface ConnectionWrapperInterface {
+
+    /**
+     * Creates the topic.
+     *
+     * @param topicName the topic name
+     * @return the connection wrapper interface
+     * @throws JMSException the JMS exception
+     */
+    ConnectionWrapperInterface createTopic(final String topicName) throws JMSException;
+
+    /**
+     * Creates the queue.
+     *
+     * @param queueName the queue name
+     * @return the connection wrapper interface
+     * @throws JMSException the JMS exception
+     */
+    ConnectionWrapperInterface createQueue(final String queueName) throws JMSException;
+
+    /**
+     * Gets the meta data.
+     *
+     * @return the meta data
+     * @throws JMSException the JMS exception
+     */
+    ConnectionMetaData getMetaData() throws JMSException;
+
+    /**
+     * Start session.
+     *
+     * @return the connection wrapper interface
+     * @throws JMSException the JMS exception
+     */
+    ConnectionWrapperInterface startSession() throws JMSException;
 
 }

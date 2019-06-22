@@ -17,21 +17,20 @@
 
 package net.atf4j.amq;
 
-import static org.junit.Assume.assumeTrue;
-
-import java.util.Arrays;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import javax.jms.JMSException;
 
 import org.junit.Test;
 
+import static org.junit.Assume.assumeTrue;
+
 import net.atf4j.core.TestContext;
-import net.atf4j.core.TestResultsReporting;
 
 /**
  * The ProducerTest class.
  */
-public class ProducerTest extends TestResultsReporting {
+public class ProducerTest {
 
     /**
      * Unit test the message producer default constructor.
@@ -41,7 +40,9 @@ public class ProducerTest extends TestResultsReporting {
     @Test
     public void testProducer() throws JMSException {
         assumeTrue(TestContext.isActiveMQ());
-        verifyNotNull(new Producer());
+        Producer producer = new Producer("vm://localhost?broker.persistent=false");
+        verifyNotNull(producer);
+        producer.startSession();
     }
 
     /**
@@ -56,7 +57,6 @@ public class ProducerTest extends TestResultsReporting {
         verifyNotNull(producer);
 
         final String[] messages = null;
-        this.log.debug("{}", Arrays.toString(messages));
         verifyNotNull(producer.execute(messages));
     }
 }

@@ -17,8 +17,6 @@
 
 package net.atf4j.webdriver;
 
-import static org.junit.Assume.assumeNotNull;
-
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -34,6 +32,8 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static org.junit.Assume.assumeNotNull;
+
 import net.atf4j.core.AbstractConfig.PropertyNotFoundException;
 import net.atf4j.core.TestContext;
 
@@ -42,10 +42,7 @@ import net.atf4j.core.TestContext;
  */
 public class BrowserFactory implements BrowserFactoryInterface {
 
-    /** LOG 			constant. */
-    private static final Logger LOG  = LoggerFactory.getLogger(BrowserFactory.class);
-    
-    /** The config. */
+    private static final Logger LOG = LoggerFactory.getLogger(BrowserFactory.class);
     private static WebDriverConfig config;
 
     /**
@@ -108,7 +105,6 @@ public class BrowserFactory implements BrowserFactoryInterface {
      * @return the webDriver INSTANCE.
      */
     protected static WebDriver localWebDriver() {
-        LOG.trace("localWebDriver()");
         final String targetBrowser = BrowserFactory.config.targetBrowser();
         return localWebDriver(targetBrowser);
     }
@@ -181,8 +177,6 @@ public class BrowserFactory implements BrowserFactoryInterface {
      * @return the web driver
      */
     protected static WebDriver remoteWebDriver(final String targetBrowser) {
-        LOG.trace("remoteWebDriver(targetBrowser={})", targetBrowser);
-
         final DesiredCapabilities desiredCapabilities;
 
         switch (targetBrowser.toLowerCase()) {

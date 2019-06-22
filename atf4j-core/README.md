@@ -65,6 +65,20 @@ The following is a list of options that can be used to describe and configure th
 	-DisJenkins={true|false}				- running on jenkins (in most case this idiom should work).
 	-DisActiveMQ={true|false}			- activeMQ available on localhost
 
+### Setup Chrome Driver
+
+	-DchromeDriver={true|false}			- Expect and use local browsers
+
+System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
+
+
+### Setup Firefox Driver
+
+	-DfirefoxDriver={true|false}		- Expect and use local browsers
+
+System.setProperty("webdriver.firefox.driver", "/path/to/firefoxdriver");
+
+
 ## Example Code
 
     @Test

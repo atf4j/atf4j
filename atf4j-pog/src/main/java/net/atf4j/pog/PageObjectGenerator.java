@@ -17,6 +17,8 @@
 
 package net.atf4j.pog;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -172,21 +174,21 @@ public class PageObjectGenerator extends AbstractJavaClassGenerator {
      * @return the page object generator
      */
     public PageObjectGenerator survey(final String pageUrl) {
-        this.log.info("survey(pageUrl={})", pageUrl);
         addPageTitle("Landing Page");
         setClassName("LandingPage");
         return this;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
      * @see net.atf4j.pog.AbstractJavaClassGenerator#toString()
      */
     @Override
     public String toString() {
         return String.format("%s [pageUrl=%s, pageObjectData=%s, ]",
-                this.getClass().getSimpleName(),
-                this.pageUrl,
-                this.pageObjectData);
+            this.getClass().getSimpleName(),
+            this.pageUrl,
+            this.pageObjectData);
     }
 
 }

@@ -17,12 +17,15 @@
 
 package net.atf4j.data;
 
-import net.atf4j.core.TestResultsReporting;
+import static net.atf4j.core.Verify.verifyNotNull;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Bank Account Data. UK Bank Account Number @”^\d{8,8}$”;
  */
-public final class BankAccount extends TestResultsReporting {
+@Slf4j
+public final class BankAccount {
 
     /** The account no. */
     private String accountNo = "";
@@ -149,8 +152,8 @@ public final class BankAccount extends TestResultsReporting {
      */
     @Override
     public String toString() {
-        if (this.log.isDebugEnabled()) {
-            this.log.debug(debugString());
+        if (log.isDebugEnabled()) {
+            log.debug(debugString());
         }
         return String.format("%s - %s", this.bank, this.accountNo);
     }

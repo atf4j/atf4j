@@ -17,15 +17,18 @@
 
 package net.atf4j.fdd;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Ignore;
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Scenario Fail Test class.
  */
-public final class ScenarioFailTest extends TestResultsReporting {
+@Slf4j
+public final class ScenarioFailTest {
 
     /**
      * Test scenario runner.
@@ -33,7 +36,7 @@ public final class ScenarioFailTest extends TestResultsReporting {
     @Ignore
     @Test
     public void testScenarioRunner() {
-        this.log.debug("testScenarioRunner", this.getClass().getSimpleName());
+        log.debug("testScenarioRunner", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         verifyNotNull(scenarioRunner);
         verifyNotNull(scenarioRunner.execute());

@@ -18,19 +18,22 @@
 package net.atf4j.data;
 
 import static net.atf4j.core.Verify.verifyEqual;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import org.junit.Ignore;
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A Unit test class for National Insurance number objects.
  */
-public final class NinoTest extends TestResultsReporting {
+@Slf4j
+public final class NinoTest {
 
     /** Blank National Insurance No. */
     private static final String BLANK = "";
@@ -66,7 +69,7 @@ public final class NinoTest extends TestResultsReporting {
     @Test
     public void testValidNino() {
         final Nino nino = new Nino(VALID);
-        this.log.debug("{}", nino);
+        log.debug("{}", nino);
         verifyNotNull(nino);
         assertEquals(VALID, nino.toString());
     }

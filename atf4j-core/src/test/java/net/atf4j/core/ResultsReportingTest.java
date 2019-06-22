@@ -17,21 +17,29 @@
 
 package net.atf4j.core;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A UnitTest for Reporting Test Results.
  */
-public final class ResultsReportingTest extends TestResultsReporting {
+@Slf4j
+public final class ResultsReportingTest {
+
+    public class MockTestReport extends AbstractTestReport {
+    }
 
     /**
      * Test method for ResultsReporting.
      */
     @Test
     public void testToDescription() {
-        final String description = super.toDescription();
+        final String description = new MockTestReport().toDescription();
         verifyNotNull(description);
-        this.log.info(description);
+        log.info(description);
     }
 
 }

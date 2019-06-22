@@ -19,12 +19,12 @@ package net.atf4j.fdd;
 
 import java.lang.reflect.Method;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Scenario Runner class.
  */
-public final class ScenarioRunner extends TestResultsReporting {
+@Slf4j public final class ScenarioRunner {
 
     /** The target scenario. */
     private AbstractScenario targetScenario;
@@ -90,11 +90,11 @@ public final class ScenarioRunner extends TestResultsReporting {
     private ScenarioRunner executeGiven(final AbstractScenario scenario) {
         final Class<?> candidateClass = scenario.getClass();
         if (candidateClass.isAnnotationPresent(Feature.Scenario.class)) {
-            this.log.trace(candidateClass.toString());
+            log.trace(candidateClass.toString());
             final Method[] declaredMethods = candidateClass.getDeclaredMethods();
             for (final Method method : declaredMethods) {
                 if (method.isAnnotationPresent(Feature.Given.class)) {
-                    this.log.debug(method.toGenericString());
+                    log.debug(method.toGenericString());
                 }
             }
         }
@@ -119,11 +119,11 @@ public final class ScenarioRunner extends TestResultsReporting {
     private ScenarioRunner executeWhen(final AbstractScenario scenario) {
         final Class<?> candidateClass = scenario.getClass();
         if (candidateClass.isAnnotationPresent(Feature.Scenario.class)) {
-            this.log.trace(candidateClass.toString());
+            log.trace(candidateClass.toString());
             final Method[] declaredMethods = candidateClass.getDeclaredMethods();
             for (final Method method : declaredMethods) {
                 if (method.isAnnotationPresent(Feature.Given.class)) {
-                    this.log.debug(method.toGenericString());
+                    log.debug(method.toGenericString());
                 }
             }
         }
@@ -148,11 +148,11 @@ public final class ScenarioRunner extends TestResultsReporting {
     private ScenarioRunner executeThen(final AbstractScenario scenario) {
         final Class<?> candidateClass = scenario.getClass();
         if (candidateClass.isAnnotationPresent(Feature.Scenario.class)) {
-            this.log.trace(candidateClass.toString());
+            log.trace(candidateClass.toString());
             final Method[] declaredMethods = candidateClass.getDeclaredMethods();
             for (final Method method : declaredMethods) {
                 if (method.isAnnotationPresent(Feature.Given.class)) {
-                    this.log.debug(method.toGenericString());
+                    log.debug(method.toGenericString());
                 }
             }
         }

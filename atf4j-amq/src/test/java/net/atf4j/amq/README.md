@@ -4,8 +4,13 @@
 
 Automation Test Framework for Apache ActiveMQ
 
+### Test Broker
+vm://localhost?broker.persistent=false
+
 ### ConnectionWrapper
 ### ConsumerTest
 ### FolderWalkerTest
 ### MessageFinderTest
+### PlatformMessageFinderTest
 ### ProducerTest
+### XmlMessageFinderTest

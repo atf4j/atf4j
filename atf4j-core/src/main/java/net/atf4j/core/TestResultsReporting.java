@@ -48,12 +48,13 @@ public abstract class TestResultsReporting {
      *
      * @param object the object
      */
-    protected void verifyNotNull(final Object object) {
-        if (object == null) {
-            throw new VerificationError(UNEXPECTED_NULL);
-        }
-        log.trace("verifyNotNull({}) = {}", object.getClass().getSimpleName(), object.toString());
-    }
+    // protected void verifyNotNull(final Object object) {
+    // if (object == null) {
+    // throw new VerificationError(UNEXPECTED_NULL);
+    // }
+    // log.trace("verifyNotNull({}) = {}", object.getClass().getSimpleName(),
+    // object.toString());
+    // }
 
     /**
      * Verify not null.
@@ -61,12 +62,13 @@ public abstract class TestResultsReporting {
      * @param message the message
      * @param object the object
      */
-    protected void verifyNotNull(final String message, final Object object) {
-        if (object == null) {
-            throw new VerificationError(message);
-        }
-        log.trace("verifyNotNull({}) = ", object.getClass().getSimpleName(), object);
-    }
+    // protected void verifyNotNull(final String message, final Object object) {
+    // if (object == null) {
+    // throw new VerificationError(message);
+    // }
+    // log.trace("verifyNotNull({}) = ", object.getClass().getSimpleName(),
+    // object);
+    // }
 
     /**
      * To description from current context.
@@ -99,7 +101,7 @@ public abstract class TestResultsReporting {
     @After
     public void after() {
         final String ruleoff = fillString(40, '-');
-        log.trace(ruleoff);
+        this.log.trace(ruleoff);
     }
 
     /**

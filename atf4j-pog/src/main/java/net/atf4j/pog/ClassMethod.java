@@ -17,14 +17,16 @@
 
 package net.atf4j.pog;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * The to be Generated.
  */
-public final class ClassMethod extends TestResultsReporting {
+@Slf4j public final class ClassMethod {
 
     /** Code Template for method. */
     private static final String METHOD_CODE = "public %s %s() { return new %s(); }";
@@ -78,6 +80,7 @@ public final class ClassMethod extends TestResultsReporting {
      * @param returnType the return type
      * @param methodName the method name
      * The method
+     * The method
      * @return the class method
      */
     public static ClassMethod addMethod(final String returnType, final String methodName) {
@@ -89,6 +92,7 @@ public final class ClassMethod extends TestResultsReporting {
      *
      * @param returnType the return type
      * @param fieldName the field name
+     * The method
      * @return the class method
      */
     public static ClassMethod addSetter(final String returnType, final String fieldName) {
@@ -100,6 +104,7 @@ public final class ClassMethod extends TestResultsReporting {
      *
      * @param returnType the return type
      * @param fieldName the field name
+     * The method
      * @return the class method
      */
     public static ClassMethod addGetter(final String returnType, final String fieldName) {
@@ -110,6 +115,7 @@ public final class ClassMethod extends TestResultsReporting {
      * Adds the factory.
      *
      * @param fieldType the field type
+     * The method
      * The method
      * @return the class method
      */
@@ -122,6 +128,7 @@ public final class ClassMethod extends TestResultsReporting {
      *
      * @param fieldType the field type
      * The method
+     * The method
      * @return the class method
      */
     public static ClassMethod addFactory(final FieldType fieldType) {
@@ -132,6 +139,7 @@ public final class ClassMethod extends TestResultsReporting {
      * Sets the access.
      *
      * @param access the access
+     * The method
      * The method
      * @return the class method
      */
@@ -145,6 +153,7 @@ public final class ClassMethod extends TestResultsReporting {
      *
      * @param type the type
      * The method
+     * The method
      * @return the class method
      */
     public ClassMethod setType(final String type) {
@@ -156,6 +165,7 @@ public final class ClassMethod extends TestResultsReporting {
      * Sets the name.
      *
      * @param name the name
+     * The method
      * The method
      * @return the class method
      */

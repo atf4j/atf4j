@@ -17,14 +17,17 @@
 
 package net.atf4j.data.factory;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A UnitTest for AbstractDataFactory objects.
  */
-public final class MockDataFactoryTest extends TestResultsReporting {
+@Slf4j
+public final class MockDataFactoryTest {
 
     /**
      * Mock Data Factory.
@@ -45,7 +48,7 @@ public final class MockDataFactoryTest extends TestResultsReporting {
     public void testDefaultConstructor() {
         final MockDataFactory testDataFactory = new MockDataFactory();
         verifyNotNull(testDataFactory);
-        this.log.debug("new MockDataFactory() = {}", testDataFactory);
+        log.debug("new MockDataFactory() = {}", testDataFactory);
     }
 
     /**
@@ -54,7 +57,7 @@ public final class MockDataFactoryTest extends TestResultsReporting {
     @Test
     public void testStaticDataForTag() {
         final String dataForTag = new MockDataFactory().dataForTag("#Data");
-        this.log.debug("dataFactory.dataForTag('#Data') = {}", dataForTag);
+        log.debug("dataFactory.dataForTag('#Data') = {}", dataForTag);
     }
 
 }

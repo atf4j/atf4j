@@ -2,7 +2,7 @@
 package net.atf4j.fdd;
 
 /**
- * The Class AbstractProject.
+ * The CAbstractProject class.
  */
 public class AbstractProject extends AbstractComposite implements Project {
 

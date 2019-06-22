@@ -20,12 +20,12 @@ package net.atf4j.data;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * EmailAddress.
  */
-public final class EmailAddress extends TestResultsReporting {
+@Slf4j public final class EmailAddress {
 
     /** LOCAL_PART. */
     private static final Pattern LOCAL_PART = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*$");

@@ -17,15 +17,18 @@
 
 package net.atf4j.pog;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.pog.WebElementField.Strategy;
 
 /**
  * A UnitTest for PageWebElement objects.
  */
-public final class WebElementTest extends TestResultsReporting {
+@Slf4j
+public final class WebElementTest {
 
     /**
      * Unit tests for the PageWebElement object.

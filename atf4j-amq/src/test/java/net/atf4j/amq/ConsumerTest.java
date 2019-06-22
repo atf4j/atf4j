@@ -17,21 +17,20 @@
 
 package net.atf4j.amq;
 
-import static org.junit.Assume.assumeTrue;
-
-import java.util.Arrays;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import javax.jms.JMSException;
 
 import org.junit.Test;
 
+import static org.junit.Assume.assumeTrue;
+
 import net.atf4j.core.TestContext;
-import net.atf4j.core.TestResultsReporting;
 
 /**
  * The ConsumerTest class.
  */
-public final class ConsumerTest extends TestResultsReporting {
+public final class ConsumerTest {
 
     /**
      * Unit Test for default constructor.
@@ -41,7 +40,8 @@ public final class ConsumerTest extends TestResultsReporting {
     @Test
     public void testReader() throws JMSException {
         assumeTrue(TestContext.isActiveMQ());
-        verifyNotNull(new Consumer());
+        Consumer consumer = new Consumer("vm://localhost?broker.persistent=false");
+        verifyNotNull(consumer);
     }
 
     /**
@@ -57,6 +57,5 @@ public final class ConsumerTest extends TestResultsReporting {
 
         final String[] messages = consumer.execute();
         verifyNotNull(messages);
-        this.log.debug("messages = {}", Arrays.toString(messages));
     }
 }

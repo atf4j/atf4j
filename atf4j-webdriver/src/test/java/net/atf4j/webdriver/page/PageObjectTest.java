@@ -17,19 +17,20 @@
 
 package net.atf4j.webdriver.page;
 
-import static org.junit.Assume.assumeNotNull;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
+import static org.junit.Assume.assumeNotNull;
+
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
-import net.atf4j.core.TestResultsReporting;
 import net.atf4j.webdriver.BrowserFactory;
 
 /**
  * Unit Test for abstract PageObject.
  */
-public final class PageObjectTest extends TestResultsReporting {
+public final class PageObjectTest {
 
     /**
      * Mock Page to extend AbstractPageObject.

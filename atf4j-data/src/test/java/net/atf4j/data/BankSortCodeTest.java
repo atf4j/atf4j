@@ -17,19 +17,22 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import org.junit.Ignore;
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A Unit test class for BankSortCode objects.
  */
-public final class BankSortCodeTest extends TestResultsReporting {
+@Slf4j
+public final class BankSortCodeTest {
 
     /**
      * Test method for void.
@@ -38,7 +41,7 @@ public final class BankSortCodeTest extends TestResultsReporting {
     public void testCreate() {
         final BankSortCode sortCode = BankSortCode.create();
         verifyNotNull(sortCode);
-        this.log.debug("BankSortCode.create() = {}", sortCode);
+        log.debug("BankSortCode.create() = {}", sortCode);
     }
 
     /**
@@ -49,7 +52,7 @@ public final class BankSortCodeTest extends TestResultsReporting {
     public void testRandom() {
         final BankSortCode sortCode = BankSortCode.random();
         verifyNotNull(sortCode);
-        this.log.debug("BankSortCode.random() = {}", sortCode);
+        log.debug("BankSortCode.random() = {}", sortCode);
     }
 
     /**
@@ -60,7 +63,7 @@ public final class BankSortCodeTest extends TestResultsReporting {
         final String actual = "99:99:99";
         final BankSortCode sortCode = new BankSortCode(actual);
         verifyNotNull(sortCode);
-        this.log.debug("new BankSortCode({}) = {}", actual, sortCode);
+        log.debug("new BankSortCode({}) = {}", actual, sortCode);
     }
 
     /**
@@ -113,7 +116,7 @@ public final class BankSortCodeTest extends TestResultsReporting {
     public void testDebugString() {
         final BankSortCode sortCode = BankSortCode.create();
         verifyNotNull(sortCode);
-        this.log.debug("BankSortCode().debugString() = {}", sortCode.debugString());
+        log.debug("BankSortCode().debugString() = {}", sortCode.debugString());
     }
 
     /**
@@ -123,6 +126,6 @@ public final class BankSortCodeTest extends TestResultsReporting {
     public void testToString() {
         final BankSortCode sortCode = BankSortCode.create();
         verifyNotNull(sortCode);
-        this.log.debug("BankSortCode().toString() = {}", sortCode.toString());
+        log.debug("BankSortCode().toString() = {}", sortCode.toString());
     }
 }

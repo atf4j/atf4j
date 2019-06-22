@@ -17,12 +17,14 @@
 
 package net.atf4j.core;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
 /**
  * Unit test class for Timestamp.
  */
-public class TimestampTest extends TestResultsReporting {
+public class TimestampTest {
 
     /**
      * Unit tests for the TimeStamp.

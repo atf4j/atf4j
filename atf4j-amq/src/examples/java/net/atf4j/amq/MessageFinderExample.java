@@ -17,17 +17,20 @@
 
 package net.atf4j.amq;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import java.io.File;
 import java.util.List;
 
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Message Finder Test class.
  */
-public final class MessageFinderExample extends TestResultsReporting {
+@Slf4j
+public final class MessageFinderExample {
 
     /**
      * Unit test the expected usage of the message finder.
@@ -40,7 +43,7 @@ public final class MessageFinderExample extends TestResultsReporting {
         final List<File> messages = folderWalker.walk();
         verifyNotNull(messages);
         for (final File file : messages) {
-            this.log.info("{} = {}", file.getName(), file.toString());
+            log.info("{} = {}", file.getName(), file.toString());
         }
     }
 }

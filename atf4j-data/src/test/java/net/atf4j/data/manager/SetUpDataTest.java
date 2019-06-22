@@ -14,18 +14,19 @@
 
 package net.atf4j.data.manager;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertTrue;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A Unit test class for SetUpData objects.
  */
-public final class SetUpDataTest extends TestResultsReporting {
+@Slf4j
+public final class SetUpDataTest {
 
     /** The jdbc data. */
     private final AbstractSetUpData jdbcData = new MockJdbcData();
@@ -49,7 +50,6 @@ public final class SetUpDataTest extends TestResultsReporting {
     /**
      * After.
      */
-    @Override
     @After
     public void after() {
         assertTrue(this.jdbcData.tearDown());

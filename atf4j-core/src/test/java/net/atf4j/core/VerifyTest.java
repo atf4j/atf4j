@@ -17,136 +17,142 @@
 
 package net.atf4j.core;
 
+import static net.atf4j.core.Verify.verifyEqual;
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Unit test for the Verify class.
  */
+@Slf4j
 public final class VerifyTest {
 
     /**
      * Verify not null.
      */
     @Test
-    public void verifyNotNull() {
-        Verify.verifyNotNull(this);
+    public void testVerifyNotNull() {
+        verifyNotNull(this);
     }
 
     /**
      * Unit Test to verify object not null.
      */
     @Test(expected = VerificationError.class)
-    public void verifyNotNullWithNull() {
-        Verify.verifyNotNull(null);
+    public void testVerifyNotNullWithNull() {
+        verifyNotNull(null);
     }
 
     /**
      * Verify not null with message.
      */
     @Test
-    public void verifyNotNullMessage() {
-        Verify.verifyNotNull(this, "Message.");
+    public void testVerifyNotNullMessage() {
+        verifyNotNull(this, "Message.");
     }
 
     /**
      * Verify not null message with null.
      */
     @Test(expected = VerificationError.class)
-    public void verifyNotNullMessageWithNull() {
-        Verify.verifyNotNull(null, "Message.");
+    public void testVerifyNotNullMessageWithNull() {
+        verifyNotNull(null, "Message.");
     }
 
     /**
      * Unit Test to verify equal byte.
      */
     @Test
-    public void verifyEqualByte() {
+    public void testVerifyEqualByte() {
         final byte expected = Byte.MAX_VALUE;
-        Verify.verifyEqual(expected, expected);
+        verifyEqual(expected, expected);
     }
 
     /**
      * Test verify not equal byte.
      */
     @Test(expected = AssertionError.class)
-    public void verifyNotEqualByte() {
+    public void testVerifyNotEqualByte() {
         final byte actual = Byte.MAX_VALUE;
         final byte expected = Byte.MIN_VALUE;
-        Verify.verifyEqual(expected, actual);
+        verifyEqual(expected, actual);
     }
 
     /**
      * Test verify equal char.
      */
     @Test
-    public void verifyEqualChar() {
+    public void testVerifyEqualChar() {
         final char expected = 'a';
-        Verify.verifyEqual(expected, expected);
+        verifyEqual(expected, expected);
     }
 
     /**
      * Test verify not equal char.
      */
     @Test(expected = AssertionError.class)
-    public void verifyNotEqualChar() {
+    public void testVerifyNotEqualChar() {
         final char actual = 'a';
         final char expected = 'z';
-        Verify.verifyEqual(expected, actual);
+        verifyEqual(expected, actual);
     }
 
     /**
      * Test verify equal int.
      */
     @Test
-    public void verifyEqualInt() {
+    public void testVerifyEqualInt() {
         final int expected = Integer.MAX_VALUE;
-        Verify.verifyEqual(expected, expected);
+        verifyEqual(expected, expected);
     }
 
     /**
      * Test verify not equal int.
      */
     @Test(expected = AssertionError.class)
-    public void verifyNotEqualInt() {
+    public void testVerifyNotEqualInt() {
         final int actual = Integer.MIN_VALUE;
         final int expected = Integer.MAX_VALUE;
-        Verify.verifyEqual(expected, actual);
+        verifyEqual(expected, actual);
     }
 
     /**
      * Test verify equal long.
      */
     @Test
-    public void verifyEqualLong() {
+    public void testVerifyEqualLong() {
         final long expected = Long.MAX_VALUE;
-        Verify.verifyEqual(expected, expected);
+        verifyEqual(expected, expected);
     }
 
     /**
      * Test verify not equals long.
      */
     @Test(expected = AssertionError.class)
-    public void verifyNotEqualsLong() {
-        Verify.verifyEqual(Long.MIN_VALUE, Long.MAX_VALUE);
+    public void testVerifyNotEqualsLong() {
+        verifyEqual(Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
     /**
      * Verify equal objects.
      */
     @Test
-    public void verifyEqualObjects() {
+    public void testVerifyEqualObjects() {
         final Object expected = new Object();
-        Verify.verifyEqual(expected, expected);
+        verifyEqual(expected, expected);
     }
 
     /**
      * Verify not equal objects.
      */
     @Test(expected = AssertionError.class)
-    public void verifyNotEqualObjects() {
+    public void testVerifyNotEqualObjects() {
         final Object actual = new Object();
         final Object expected = new Object();
-        Verify.verifyEqual(expected, actual);
+        verifyEqual(expected, actual);
     }
 
 }

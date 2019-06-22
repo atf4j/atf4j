@@ -17,10 +17,12 @@
 
 package net.atf4j.fdd;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Predicate.
  */
-public abstract class Predicate extends AbstractHoareStep {
+@Slf4j public abstract class Predicate extends AbstractHoareStep {
 
     /**
      * Instantiates a new predicate.

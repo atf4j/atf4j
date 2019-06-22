@@ -17,6 +17,8 @@
 
 package net.atf4j.data.factory;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -26,7 +28,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.Bank;
 import net.atf4j.data.Business;
 import net.atf4j.data.Card;
@@ -40,7 +42,8 @@ import net.atf4j.data.Text;
 /**
  * A UnitTest for DataFactory objects.
  */
-public final class DataFactoryTest extends TestResultsReporting {
+@Slf4j
+public final class DataFactoryTest {
 
     /**
      * Test create address.
@@ -48,7 +51,7 @@ public final class DataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreateAddress() {
         final PostalAddress address = DataFactory.createAddress();
-        this.log.debug("DataFactory.createAddress() = {}", address);
+        log.debug("DataFactory.createAddress() = {}", address);
         verifyNotNull(address);
     }
 
@@ -58,7 +61,7 @@ public final class DataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreateBank() {
         final Bank bank = DataFactory.createBank();
-        this.log.debug("DataFactory.createBank() = {}", bank);
+        log.debug("DataFactory.createBank() = {}", bank);
         verifyNotNull(bank);
     }
 
@@ -68,7 +71,7 @@ public final class DataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreateBusiness() {
         final Business business = DataFactory.createBusiness();
-        this.log.debug("DataFactory.createBusiness() = {}", business);
+        log.debug("DataFactory.createBusiness() = {}", business);
         verifyNotNull(business);
     }
 
@@ -78,7 +81,7 @@ public final class DataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreateCard() {
         final Card card = DataFactory.createCard();
-        this.log.debug("DataFactory.createCard() = {}", card);
+        log.debug("DataFactory.createCard() = {}", card);
         verifyNotNull(card);
     }
 
@@ -88,7 +91,7 @@ public final class DataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreateConsumer() {
         final Consumer consumer = DataFactory.createConsumer();
-        this.log.debug("DataFactory.createConsumer() = {}", consumer);
+        log.debug("DataFactory.createConsumer() = {}", consumer);
         verifyNotNull(consumer);
     }
 
@@ -98,7 +101,7 @@ public final class DataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreateCustomer() {
         final Customer customer = DataFactory.createCustomer();
-        this.log.debug("DataFactory.createCustomer() = {}", customer);
+        log.debug("DataFactory.createCustomer() = {}", customer);
         verifyNotNull(customer);
     }
 
@@ -109,7 +112,7 @@ public final class DataFactoryTest extends TestResultsReporting {
     public void testCreatePerson() {
         final Person person = DataFactory.createPerson();
         verifyNotNull(person);
-        this.log.debug("{}", person.toString());
+        log.debug("{}", person.toString());
     }
 
     /**
@@ -118,7 +121,7 @@ public final class DataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreatePostcode() {
         final Postcode postcode = DataFactory.createPostcode();
-        this.log.debug("{}", postcode.toString());
+        log.debug("{}", postcode.toString());
         verifyNotNull(postcode);
     }
 
@@ -128,28 +131,28 @@ public final class DataFactoryTest extends TestResultsReporting {
     @Test
     public void testExpectedUsage() {
         final Calendar today = DataFactory.today();
-        this.log.debug("DataFactory.today() = {}", DataFactory.format(today));
+        log.debug("DataFactory.today() = {}", DataFactory.format(today));
         verifyNotNull(today);
 
         final Calendar dateOfBirth = DataFactory.dateOfBirth();
         verifyNotNull(dateOfBirth);
-        this.log.debug("DataFactory.dateOfBirth() = {}", DataFactory.format(dateOfBirth));
+        log.debug("DataFactory.dateOfBirth() = {}", DataFactory.format(dateOfBirth));
 
         final Calendar dobOver18 = DataFactory.dobOver18();
         verifyNotNull(dobOver18);
-        this.log.debug("DataFactory.dobOver18() = {}", DataFactory.format(dobOver18));
+        log.debug("DataFactory.dobOver18() = {}", DataFactory.format(dobOver18));
 
         final Calendar dobUnder18 = DataFactory.dobUnder18();
         verifyNotNull(dobUnder18);
-        this.log.debug("DataFactory.dobUnder18() = {}", DataFactory.format(dobUnder18));
+        log.debug("DataFactory.dobUnder18() = {}", DataFactory.format(dobUnder18));
 
         final Calendar futureDate = DataFactory.futureDate();
         verifyNotNull(futureDate);
-        this.log.debug("DataFactory.futureDate() = {}", DataFactory.format(futureDate));
+        log.debug("DataFactory.futureDate() = {}", DataFactory.format(futureDate));
 
         final Calendar pastDate = DataFactory.pastDate();
         verifyNotNull(pastDate);
-        this.log.debug("DataFactory.pastDate() = {}", DataFactory.format(pastDate));
+        log.debug("DataFactory.pastDate() = {}", DataFactory.format(pastDate));
     }
 
     /**
@@ -161,11 +164,11 @@ public final class DataFactoryTest extends TestResultsReporting {
     public void testString() throws Exception {
         final char randomChar = Text.randomChar();
         verifyNotNull(randomChar);
-        this.log.debug("DataFactory.randomChar() = {}", randomChar);
+        log.debug("DataFactory.randomChar() = {}", randomChar);
 
         final String randomString = Text.randomString(10);
         verifyNotNull(randomString);
-        this.log.debug("DataFactory.randomString(10) = {}", randomString);
+        log.debug("DataFactory.randomString(10) = {}", randomString);
     }
 
     /**
@@ -177,11 +180,11 @@ public final class DataFactoryTest extends TestResultsReporting {
     public void testDigits() throws Exception {
         final char randomDigit = Text.randomDigit();
         verifyNotNull(randomDigit);
-        this.log.debug("DataFactory.randomDigit() = {}", randomDigit);
+        log.debug("DataFactory.randomDigit() = {}", randomDigit);
 
         final String randomDigits = Text.randomDigits(10);
         verifyNotNull(randomDigits);
-        this.log.debug("DataFactory.randomDigits(10) = {}", randomDigits);
+        log.debug("DataFactory.randomDigits(10) = {}", randomDigits);
     }
 
     /**
@@ -290,7 +293,7 @@ public final class DataFactoryTest extends TestResultsReporting {
      */
     private void verifyDateData(final Calendar dateData) {
         verifyNotNull(dateData);
-        this.log.debug("verifyDateData({})", dateData.toString());
+        log.debug("verifyDateData({})", dateData.toString());
 
         final String fromCalendar = DataFactory.format(dateData);
         verifyNotNull(fromCalendar);

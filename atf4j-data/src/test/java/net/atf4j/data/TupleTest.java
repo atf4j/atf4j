@@ -17,16 +17,19 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertEquals;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertEquals;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * The TupleTest class.
  */
-public final class TupleTest extends TestResultsReporting {
+@Slf4j
+public final class TupleTest {
 
     /**
      * Test set get key.
@@ -34,12 +37,12 @@ public final class TupleTest extends TestResultsReporting {
     @Test
     public void testSetGetKey() {
         final Tuple<String, String> tuple = new Tuple<String, String>();
-        this.log.debug("tuple = {}", tuple);
+        log.debug("tuple = {}", tuple);
         verifyNotNull(tuple);
 
         final String key = "key";
         tuple.setKey(key);
-        this.log.debug("tuple.setKey({}) = {}", key, tuple);
+        log.debug("tuple.setKey({}) = {}", key, tuple);
         assertEquals(key, tuple.key());
     }
 
@@ -49,12 +52,12 @@ public final class TupleTest extends TestResultsReporting {
     @Test
     public void testSetGetValue() {
         final Tuple<String, String> tuple = new Tuple<String, String>();
-        this.log.debug("tuple = {}", tuple);
+        log.debug("tuple = {}", tuple);
         verifyNotNull(tuple);
 
         final String value = "value";
         tuple.setValue(value);
-        this.log.debug("tuple.setKey({}) = {}", value, tuple);
+        log.debug("tuple.setKey({}) = {}", value, tuple);
         assertEquals(value, tuple.value());
     }
 

@@ -17,14 +17,19 @@
 
 package net.atf4j.core;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * The Atf4jTest class.
  */
-public class Atf4jTest extends TestResultsReporting {
+@Slf4j
+public class Atf4jTest {
 
     /**
      * When the code uses business domain language in method calls.
@@ -58,7 +63,7 @@ public class Atf4jTest extends TestResultsReporting {
         final String expected = "A long string to unroll into a sentence.";
         final String unrolled = Atf4j.unroll(input);
         assertEquals(expected, unrolled);
-        this.log.info(unrolled);
+        log.info(unrolled);
     }
 
     /**
@@ -66,12 +71,12 @@ public class Atf4jTest extends TestResultsReporting {
      */
     @Test
     public void testUnrollEmpty() {
-        this.log.info(Atf4j.unroll(""));
-        this.log.info(Atf4j.unroll("_"));
-        this.log.info(Atf4j.unroll("a"));
-        this.log.info(Atf4j.unroll("_a"));
-        this.log.info(Atf4j.unroll("A"));
-        this.log.info(Atf4j.unroll("_A"));
+        log.info(Atf4j.unroll(""));
+        log.info(Atf4j.unroll("_"));
+        log.info(Atf4j.unroll("a"));
+        log.info(Atf4j.unroll("_a"));
+        log.info(Atf4j.unroll("A"));
+        log.info(Atf4j.unroll("_A"));
     }
 
     /**
@@ -79,7 +84,7 @@ public class Atf4jTest extends TestResultsReporting {
      */
     @Test
     public void testUnrollNull() {
-        this.log.info(Atf4j.unroll(null));
+        log.info(Atf4j.unroll(null));
     }
 
 }

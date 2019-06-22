@@ -17,10 +17,12 @@
 
 package net.atf4j.fdd;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Abstract class for an Invariant.
  */
-public abstract class Invariant extends Predicate {
+@Slf4j public abstract class Invariant extends Predicate {
 
     /**
      * Instantiates a new Invariant.

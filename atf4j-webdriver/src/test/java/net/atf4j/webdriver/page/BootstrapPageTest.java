@@ -17,21 +17,22 @@
 
 package net.atf4j.webdriver.page;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assume.assumeNotNull;
-
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertNotNull;
+
+import static org.junit.Assume.assumeNotNull;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A UnitTest for a BootstrapPage object.
  */
 @Ignore
-public final class BootstrapPageTest extends TestResultsReporting {
+@Slf4j public final class BootstrapPageTest {
 
     // private static final String PAGE_URL = "http://atf4j.net/bootstrap/";
     private static final String PAGE_URL = "http://127.0.0.1:8080/bootstrap";

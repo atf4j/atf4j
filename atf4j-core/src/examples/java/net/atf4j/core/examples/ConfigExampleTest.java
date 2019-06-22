@@ -23,6 +23,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.core.Verify;
 
 /**
@@ -30,7 +31,7 @@ import net.atf4j.core.Verify;
  * ExampleConfig.properties
  * file from the resources folder. It make the ExampleConfiguration available by
  */
-public final class ConfigExampleTest {
+@Slf4j public final class ConfigExampleTest {
 
     /**
      * Test ExampleConfiguration example.

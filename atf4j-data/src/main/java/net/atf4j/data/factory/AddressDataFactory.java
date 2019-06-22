@@ -17,17 +17,18 @@
 
 package net.atf4j.data.factory;
 
-import static org.junit.Assert.assertNotNull;
-
 import java.util.Arrays;
 
+import static org.junit.Assert.assertNotNull;
+
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.PostalAddress;
 import net.atf4j.data.Postcode;
 
 /**
  * Address Data Factory.
  */
-public final class AddressDataFactory extends AbstractDataFactory {
+@Slf4j public final class AddressDataFactory extends AbstractDataFactory {
 
     /** Default filename for ADDRESS_LINE_STEMS_TXT. */
     private static final String ADDRESS_LINE_STEMS_TXT = "addressLineStems.txt";

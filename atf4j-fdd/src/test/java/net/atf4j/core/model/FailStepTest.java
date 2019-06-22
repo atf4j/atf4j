@@ -17,15 +17,16 @@
 
 package net.atf4j.core.model;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
 import net.atf4j.fdd.model.FailStep;
 
 /**
  * A UnitTest for FailStep objects.
  */
-public class FailStepTest extends TestResultsReporting {
+public class FailStepTest {
 
     /**
      * Unit Test for test fail step.

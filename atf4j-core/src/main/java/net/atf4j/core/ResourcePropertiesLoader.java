@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.fail;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Property Loader class.
  *
@@ -25,7 +27,7 @@ import static org.junit.Assert.fail;
  * some.pkg.Resource.properties some/pkg/Resource some/pkg/Resource.properties
  * /some/pkg/Resource /some/pkg/Resource.properties
  */
-public final class ResourcePropertiesLoader {
+@Slf4j public final class ResourcePropertiesLoader {
 
     /** SUFFIX constant. */
     private static final String DEFAULT_SUFFIX = ".properties";
@@ -34,7 +36,7 @@ public final class ResourcePropertiesLoader {
     private static final String XML_SUFFIX = ".xml";
 
     /** provides logging. */
-    private static final Logger LOG = LoggerFactory.getLogger(ResourcePropertiesLoader.class);
+    
 
     /**
      * Instantiates a new properties loader.
@@ -57,7 +59,7 @@ public final class ResourcePropertiesLoader {
                 properties.load(stream);
                 properties.setProperty("configFilename", resourceName);
             } catch (final IOException e) {
-                LOG.error(e.getLocalizedMessage(), e);
+                log.error(e.getLocalizedMessage(), e);
             }
         }
         return properties;
@@ -94,7 +96,7 @@ public final class ResourcePropertiesLoader {
                 properties.loadFromXML(stream);
                 properties.setProperty("configFilename", resourceName);
             } catch (final IOException e) {
-                LOG.error(e.getLocalizedMessage(), e);
+                log.error(e.getLocalizedMessage(), e);
             }
         }
         return properties;

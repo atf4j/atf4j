@@ -17,22 +17,25 @@
 
 package net.atf4j.core.model;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
 
+import lombok.extern.slf4j.Slf4j;
+import net.atf4j.core.TestReport;
 import net.atf4j.core.TestResult;
-import net.atf4j.core.TestResultsReporting;
 import net.atf4j.core.VerificationError;
 import net.atf4j.fdd.model.Condition;
 import net.atf4j.fdd.model.TestCase;
-import net.atf4j.fdd.model.TestReport;
 import net.atf4j.fdd.model.TestStep;
 
 /**
  * A UnitTest for TestStep objects.
  */
-public class TestStepTest extends TestResultsReporting {
+@Slf4j
+public class TestStepTest {
 
     /**
      * The TestCaseReport Class.
@@ -60,10 +63,10 @@ public class TestStepTest extends TestResultsReporting {
     @Test
     public void testTypical() {
         final TestStep testStep = new TestStep();
-        this.log.debug(testStep.toString());
+        log.debug(testStep.toString());
         verifyNotNull(testStep);
         testStep.execute();
-        this.log.info(testStep.toString());
+        log.info(testStep.toString());
     }
 
     /**
@@ -75,7 +78,7 @@ public class TestStepTest extends TestResultsReporting {
         verifyNotNull(testStep);
         final String string = testStep.toString();
         verifyNotNull(string);
-        this.log.info(string);
+        log.info(string);
     }
 
     /**
@@ -84,11 +87,11 @@ public class TestStepTest extends TestResultsReporting {
     @Test
     public void testTestStep() {
         final TestStep testStep = new TestStep();
-        this.log.debug(testStep.toString());
+        log.debug(testStep.toString());
         verifyNotNull(testStep);
 
         final TestResult result = testStep.result();
-        this.log.info(result.toString());
+        log.info(result.toString());
         verifyNotNull(result);
     }
 
@@ -100,10 +103,10 @@ public class TestStepTest extends TestResultsReporting {
     @Test
     public void testRegisterLogging() throws VerificationError {
         final TestCase testCase = new TestCase();
-        this.log.debug(testCase.toString());
+        log.debug(testCase.toString());
 
         final MockTestReport report = new MockTestReport();
-        this.log.info(report.toString());
+        log.info(report.toString());
         verifyNotNull(testCase.registerLogging(report));
     }
 
@@ -113,18 +116,18 @@ public class TestStepTest extends TestResultsReporting {
     @Test
     public void testPreCondition() {
         final TestStep testStep = new TestStep();
-        this.log.debug(testStep.toString());
+        log.debug(testStep.toString());
         verifyNotNull(testStep);
 
         final PassingCondition preCondition = new PassingCondition();
-        this.log.debug(preCondition.toString());
+        log.debug(preCondition.toString());
         verifyNotNull(preCondition);
 
         assertNotNull(testStep.addPreCondition(preCondition));
-        this.log.debug(testStep.toString());
+        log.debug(testStep.toString());
 
         testStep.execute();
-        this.log.debug(testStep.toString());
+        log.debug(testStep.toString());
     }
 
     /**
@@ -133,18 +136,18 @@ public class TestStepTest extends TestResultsReporting {
     @Test
     public void testPostCondition() {
         final TestStep testStep = new TestStep();
-        this.log.debug(testStep.toString());
+        log.debug(testStep.toString());
         verifyNotNull(testStep);
 
         final PassingCondition postCondition = new PassingCondition();
-        this.log.debug(postCondition.toString());
+        log.debug(postCondition.toString());
         verifyNotNull(postCondition);
 
         assertNotNull(testStep.addPostCondition(postCondition));
-        this.log.debug(testStep.toString());
+        log.debug(testStep.toString());
 
         testStep.execute();
-        this.log.info(testStep.toString());
+        log.info(testStep.toString());
     }
 
 }

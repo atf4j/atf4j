@@ -17,10 +17,12 @@
 
 package net.atf4j.data;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Name is an abstract datum.
  */
-public abstract class Name extends AbstractDatum {
+@Slf4j public abstract class Name extends AbstractDatum {
 
     /** The name. */
     private String name = "";

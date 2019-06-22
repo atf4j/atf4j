@@ -17,11 +17,12 @@
 
 package net.atf4j.fdd.model;
 
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Condition.
  */
-public abstract class Condition {
+@Slf4j public abstract class Condition {
 
     /**
      * isTrue.

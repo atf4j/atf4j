@@ -17,12 +17,13 @@
 
 package net.atf4j.bdd;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.core.AbstractConfig;
 
 /**
  * Automation Atf4jConfiguration Class.
  */
-public final class AutomationConfig extends AbstractConfig {
+@Slf4j public final class AutomationConfig extends AbstractConfig {
 
     /**
      * Instantiates a new automation config.

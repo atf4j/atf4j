@@ -17,17 +17,17 @@
 
 package net.atf4j.data;
 
+import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import org.junit.Test;
-
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * The ChordTest class.
  */
-public final class ChordTest extends TestResultsReporting {
+@Slf4j public final class ChordTest {
 
     /**
      * Test set stem.
@@ -35,7 +35,7 @@ public final class ChordTest extends TestResultsReporting {
     @Test
     public void testSetGetStem() {
         final Chord chord = new Chord();
-        this.log.debug("new Chord() = {}", chord);
+        log.debug("new Chord() = {}", chord);
         assertNotNull(chord);
         final String stem = "Stem";
         chord.setStem(stem);
@@ -48,7 +48,7 @@ public final class ChordTest extends TestResultsReporting {
     @Test
     public void testAdd() {
         final Chord chord = new Chord();
-        this.log.debug("new Chord() = {}", chord);
+        log.debug("new Chord() = {}", chord);
         assertNotNull(chord);
         chord.add(new Chord());
     }
@@ -59,10 +59,10 @@ public final class ChordTest extends TestResultsReporting {
     @Test
     public void testDebugString() {
         final Chord chord = new Chord();
-        this.log.debug("new Chord() = {}", chord.debugString());
+        log.debug("new Chord() = {}", chord.debugString());
         assertNotNull(chord);
         chord.add(new Chord());
-        this.log.debug("new Chord() = {}", chord.debugString());
+        log.debug("new Chord() = {}", chord.debugString());
     }
 
     /**
@@ -71,10 +71,10 @@ public final class ChordTest extends TestResultsReporting {
     @Test
     public void testToString() {
         final Chord chord = new Chord();
-        this.log.debug("new Chord() = {}", chord.toString());
+        log.debug("new Chord() = {}", chord.toString());
         assertNotNull(chord);
         chord.add(new Chord());
-        this.log.debug("new Chord() = {}", chord.toString());
+        log.debug("new Chord() = {}", chord.toString());
     }
 
 }

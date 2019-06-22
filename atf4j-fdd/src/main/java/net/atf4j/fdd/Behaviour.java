@@ -17,11 +17,13 @@
 
 package net.atf4j.fdd;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Behaviour, this is essential a Hoare triple.
@@ -32,7 +34,8 @@ import net.atf4j.core.TestResultsReporting;
  * Then Post-Conditions...
  * </code>
  */
-public abstract class Behaviour extends TestResultsReporting {
+@Slf4j
+public abstract class Behaviour {
 
     /** The given situation. */
     private final List<Given> givenList = new ArrayList<Given>();
@@ -50,7 +53,7 @@ public abstract class Behaviour extends TestResultsReporting {
      * @return the behaviour
      */
     protected Behaviour given(final Given given) {
-        this.log.info("{}.given", this.getClass().getSimpleName());
+        log.info("{}.given", this.getClass().getSimpleName());
         this.givenList.add(given);
         return this;
     }
@@ -62,7 +65,7 @@ public abstract class Behaviour extends TestResultsReporting {
      * @return the behaviour
      */
     protected Behaviour when(final When when) {
-        this.log.info("{}.given", this.getClass().getSimpleName());
+        log.info("{}.given", this.getClass().getSimpleName());
         this.whenList.add(when);
         return this;
     }
@@ -74,7 +77,7 @@ public abstract class Behaviour extends TestResultsReporting {
      * @return the behaviour
      */
     protected Behaviour then(final Then then) {
-        this.log.info("{}.given", this.getClass().getSimpleName());
+        log.info("{}.given", this.getClass().getSimpleName());
         this.thenList.add(then);
         return this;
     }
@@ -86,7 +89,7 @@ public abstract class Behaviour extends TestResultsReporting {
      * @return the properties
      */
     public Properties execute(final Properties properties) {
-        this.log.info("{}.execute", this.getClass().getSimpleName());
+        log.info("{}.execute", this.getClass().getSimpleName());
         for (final Given given : this.givenList) {
             final Properties execute = given.execute(properties);
             verifyNotNull(execute);

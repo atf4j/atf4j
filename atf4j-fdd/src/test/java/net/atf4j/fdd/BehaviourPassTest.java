@@ -17,14 +17,17 @@
 
 package net.atf4j.fdd;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Behaviour Pass Test class.
  */
-public final class BehaviourPassTest extends TestResultsReporting {
+@Slf4j
+public final class BehaviourPassTest {
 
     /**
      * Test given.
@@ -32,7 +35,7 @@ public final class BehaviourPassTest extends TestResultsReporting {
     @Test
     @Feature.Given("passGiven")
     public void passGiven() {
-        this.log.debug("passGiven");
+        log.debug("passGiven");
         final Given given = new Given();
         verifyNotNull(given);
         verifyNotNull(given.execute());
@@ -44,7 +47,7 @@ public final class BehaviourPassTest extends TestResultsReporting {
     @Test
     @Feature.When("passWhen")
     public void passWhen() {
-        this.log.debug("passWhen");
+        log.debug("passWhen");
         final When when = new When();
         verifyNotNull(when);
         verifyNotNull(when.execute());
@@ -56,7 +59,7 @@ public final class BehaviourPassTest extends TestResultsReporting {
     @Test
     @Feature.Then("passThen")
     public void passThen() {
-        this.log.debug("passThen");
+        log.debug("passThen");
         final Then then = new Then();
         verifyNotNull(then);
         verifyNotNull(then.execute());

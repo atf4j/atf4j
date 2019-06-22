@@ -17,27 +17,30 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import java.util.Date;
 
 import org.junit.Ignore;
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A Unit test class for Card objects.
  */
-public final class CardTest extends TestResultsReporting {
+@Slf4j
+public final class CardTest {
 
     /** PROVIDER constant. */
     private static final String PROVIDER = "Provider";
-    
+
     /** CARD_NAME constant. */
     private static final String CARD_NAME = "Card Name";
-    
+
     /** CARD_NUMBER constant. */
     private static final String CARD_NUMBER = "CardNumber";
 
@@ -107,11 +110,11 @@ public final class CardTest extends TestResultsReporting {
         final Date endDate = new Date();
         final Date startDate = new Date();
         final Card card = new Card()
-            .setProvider(provider)
-            .setCardNumber(cardNumber)
-            .setCardName(cardName)
-            .setStartDate(startDate)
-            .setEndDate(endDate);
+                .setProvider(provider)
+                .setCardNumber(cardNumber)
+                .setCardName(cardName)
+                .setStartDate(startDate)
+                .setEndDate(endDate);
         verifyNotNull(card);
     }
 

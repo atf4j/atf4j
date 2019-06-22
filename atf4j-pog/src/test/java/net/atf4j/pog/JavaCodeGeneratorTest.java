@@ -17,18 +17,19 @@
 
 package net.atf4j.pog;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
 import net.atf4j.core.VerificationError;
 
 /**
  * The AbstractCodeGeneratorTest.
  */
-public class JavaCodeGeneratorTest extends TestResultsReporting {
+public class JavaCodeGeneratorTest {
 
     /**
- * The JavaClassGenerator.
+     * The JavaClassGenerator.
      */
     public class JavaCodeGenerator extends AbstractJavaClassGenerator {
 

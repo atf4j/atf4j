@@ -1,7 +1,7 @@
 package net.atf4j.fdd;
 
 /**
- * The Class Actor.
+ * The Actor.
  */
 public class Actor {
 

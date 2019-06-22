@@ -17,15 +17,18 @@
 
 package net.atf4j.data.factory;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.PostalAddress;
 
 /**
  * A UnitTest for AddressDataFactory objects.
  */
-public final class AddressDataFactoryTest extends TestResultsReporting {
+@Slf4j
+public final class AddressDataFactoryTest {
 
     /**
      * Test method to create a postal address.
@@ -33,7 +36,7 @@ public final class AddressDataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final PostalAddress address = AddressDataFactory.create();
-        this.log.debug("AddressDataFactory.create() = {}", address);
+        log.debug("AddressDataFactory.create() = {}", address);
         verifyNotNull(address);
     }
 
@@ -43,7 +46,7 @@ public final class AddressDataFactoryTest extends TestResultsReporting {
     @Test
     public void testRandom() {
         final PostalAddress address = AddressDataFactory.random();
-        this.log.debug("AddressDataFactory.random() = {}", address);
+        log.debug("AddressDataFactory.random() = {}", address);
         verifyNotNull(address);
     }
 
@@ -53,7 +56,7 @@ public final class AddressDataFactoryTest extends TestResultsReporting {
     @Test
     public void testGetInstance() {
         final AddressDataFactory addressFactory = AddressDataFactory.getInstance();
-        this.log.debug("AddressDataFactory.getInstance() = {}", addressFactory);
+        log.debug("AddressDataFactory.getInstance() = {}", addressFactory);
         verifyNotNull(addressFactory);
     }
 

@@ -17,6 +17,8 @@
 
 package net.atf4j.pog;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 /**
  * A class to represent a WebElement decorated by FindBy annotation.
  */
@@ -216,9 +218,6 @@ public class WebElementField extends ClassField {
      */
     @Override
     public String toString() {
-        if (this.log.isDebugEnabled()) {
-            this.log.debug(debugString());
-        }
         return toCode();
     }
 }

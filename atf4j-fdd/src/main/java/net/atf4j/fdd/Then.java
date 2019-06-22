@@ -19,10 +19,12 @@ package net.atf4j.fdd;
 
 import java.util.UUID;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Then as a Hoare command for FDD.
  */
-public final class Then extends PostCondition {
+@Slf4j public final class Then extends PostCondition {
 
     /**
      * Instantiates a new then.

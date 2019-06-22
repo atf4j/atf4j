@@ -17,12 +17,17 @@
 
 package net.atf4j.core;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Unit test for loading a ExampleConfiguration from properties.
  */
-public final class ConfigLoadingTests extends TestResultsReporting {
+@Slf4j
+public final class ConfigLoadingTests {
 
     /**
      * An Example of Configuration class loading from a properties file,

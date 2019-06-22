@@ -23,9 +23,12 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * FileWalker Class.
  */
+@Slf4j
 public class FileWalker extends AbstractFolderWalker {
 
     /**
@@ -33,7 +36,7 @@ public class FileWalker extends AbstractFolderWalker {
      */
     public FileWalker() {
         super();
-        this.log.debug("FileWalker()");
+        log.debug("FileWalker()");
     }
 
     /**
@@ -44,7 +47,7 @@ public class FileWalker extends AbstractFolderWalker {
      */
     public FileWalker(final String path) throws Exception {
         super();
-        this.log.debug("FileWalker({})", path);
+        log.debug("FileWalker({})", path);
         setBasePath(path);
     }
 
@@ -57,11 +60,11 @@ public class FileWalker extends AbstractFolderWalker {
     protected void processFile(final File f) {
         try {
             final File absoluteFile = f.getAbsoluteFile();
-            this.log.trace("FILE:{}", absoluteFile);
+            log.trace("FILE:{}", absoluteFile);
             final String string = readFile(absoluteFile.getPath());
-            this.log.debug("path = {}", string);
+            log.debug("path = {}", string);
         } catch (final IOException e) {
-            this.log.error(e.toString());
+            log.error(e.toString());
         }
     }
 

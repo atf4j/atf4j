@@ -50,9 +50,9 @@ public class AnnotatedTestOneExample {
     @TestName("testEample")
     @TestDescription("Example showing annotations with static context")
     public void testExampleOne() throws Exception {
-        this.log.info("Test ID : = {} ", AnnotationHelper.getTestId());
-        this.log.info("Test Name : = {} ", AnnotationHelper.getTestName());
-        this.log.info("Test Description : = {} ", AnnotationHelper.getTestDescription());
+        log.info("Test ID : = {} ", AnnotationHelper.getTestId());
+        log.info("Test Name : = {} ", AnnotationHelper.getTestName());
+        log.info("Test Description : = {} ", AnnotationHelper.getTestDescription());
         assertTrue(true);
     }
 

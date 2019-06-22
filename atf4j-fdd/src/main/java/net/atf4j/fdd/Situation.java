@@ -17,19 +17,19 @@
 
 package net.atf4j.fdd;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Situation.
  */
-public final class Situation extends TestResultsReporting {
+@Slf4j public final class Situation {
 
     /**
      * Situation.
      */
     public Situation() {
         super();
-        this.log.info(this.getClass().getSimpleName());
+        log.info(this.getClass().getSimpleName());
     }
 
     /**
@@ -39,7 +39,7 @@ public final class Situation extends TestResultsReporting {
      */
     public Situation(final Given given) {
         super();
-        this.log.info("{}.Situation({})", this.getClass().getSimpleName(), given);
+        log.info("{}.Situation({})", this.getClass().getSimpleName(), given);
     }
 
 }

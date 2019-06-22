@@ -3,26 +3,25 @@ package net.atf4j.webdriver;
 
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import static org.junit.Assume.assumeTrue;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.core.TestContext;
 
 /**
  * Unit Test class for WebDriverFactory class.
  */
-public final class WebDriverFactoryTest {
+@Slf4j public final class WebDriverFactoryTest {
 
     /** The Constant TOMCAT_URL. */
     private static final String TOMCAT_URL = "http://127.0.0.1:8080";
 
     /** Provides logging. */
-    private static final Logger LOG = LoggerFactory.getLogger(WebDriverFactoryTest.class);
+    
 
     /**
      * Unit test to edge driver.
@@ -70,7 +69,7 @@ public final class WebDriverFactoryTest {
         final String pageTitle = webDriver.getTitle();
         assertNotNull(pageTitle);
         assertTrue(pageTitle.contains("Apache Tomcat"));
-        LOG.info("pageTitle = {}", pageTitle);
+        log.info("pageTitle = {}", pageTitle);
     }
 
 }

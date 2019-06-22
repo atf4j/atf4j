@@ -17,15 +17,18 @@
 
 package net.atf4j.core.model;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.fdd.model.Condition;
 
 /**
  * A UnitTest for Condition objects.
  */
-public class ConditionTest extends TestResultsReporting {
+@Slf4j
+public class ConditionTest {
 
     /**
      * PassingCondition Class.

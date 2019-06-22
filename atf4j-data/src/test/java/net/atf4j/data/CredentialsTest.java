@@ -17,16 +17,19 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertEquals;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertEquals;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * The CredentialsTest class.
  */
-public final class CredentialsTest extends TestResultsReporting {
+@Slf4j
+public final class CredentialsTest {
 
     /**
      * Test credentials.
@@ -34,7 +37,7 @@ public final class CredentialsTest extends TestResultsReporting {
     @Test
     public void testCredentials() {
         final Credentials credentials = new Credentials();
-        this.log.debug("new Credentials() = {}", credentials);
+        log.debug("new Credentials() = {}", credentials);
         verifyNotNull(credentials);
     }
 
@@ -44,7 +47,7 @@ public final class CredentialsTest extends TestResultsReporting {
     @Test
     public void testCredentialsUsernamePasswordEmail() {
         final Credentials credentials = new Credentials("Username", "Password", "email@example.org");
-        this.log.debug("new Credentials() = {}", credentials);
+        log.debug("new Credentials() = {}", credentials);
         verifyNotNull(credentials);
     }
 
@@ -54,11 +57,11 @@ public final class CredentialsTest extends TestResultsReporting {
     @Test
     public void testSetGetUsername() {
         final Credentials credentials = new Credentials();
-        this.log.debug("new Credentials() = {}", credentials);
+        log.debug("new Credentials() = {}", credentials);
         verifyNotNull(credentials);
 
         credentials.setUsername("username");
-        this.log.debug("credentials = {}", credentials);
+        log.debug("credentials = {}", credentials);
         assertEquals("username", credentials.getUsername());
     }
 
@@ -68,11 +71,11 @@ public final class CredentialsTest extends TestResultsReporting {
     @Test
     public void testSetGetPassword() {
         final Credentials credentials = new Credentials();
-        this.log.debug("new Credentials() = {}", credentials);
+        log.debug("new Credentials() = {}", credentials);
         verifyNotNull(credentials);
 
         credentials.setPassword("username");
-        this.log.debug("credentials = {}", credentials);
+        log.debug("credentials = {}", credentials);
         assertEquals("username", credentials.getPassword());
     }
 
@@ -82,11 +85,11 @@ public final class CredentialsTest extends TestResultsReporting {
     @Test
     public void testSetGetEmail() {
         final Credentials credentials = new Credentials();
-        this.log.debug("new Credentials() = {}", credentials);
+        log.debug("new Credentials() = {}", credentials);
         verifyNotNull(credentials);
 
         credentials.setEmail("email@example.org");
-        this.log.debug("credentials = {}", credentials);
+        log.debug("credentials = {}", credentials);
         assertEquals("email@example.org", credentials.getEmail());
     }
 

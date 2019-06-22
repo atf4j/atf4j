@@ -17,16 +17,19 @@
 
 package net.atf4j.pog;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.apache.velocity.exception.ResourceNotFoundException;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Unit Tests for Abstract Template Engine class.
  */
-public final class TemplateEngineTest extends TestResultsReporting {
+@Slf4j
+public final class TemplateEngineTest {
 
     /**
      * Mock the Abstract Template Engine.

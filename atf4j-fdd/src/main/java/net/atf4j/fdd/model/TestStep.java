@@ -17,11 +17,13 @@
 
 package net.atf4j.fdd.model;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.core.timers.MappedTimers;
 
 /**
  * TestStep.
  */
+@Slf4j
 public class TestStep extends AbstractTestBase {
 
     /**
@@ -38,7 +40,7 @@ public class TestStep extends AbstractTestBase {
     @Override
     public AbstractTestBase execute() {
         start();
-        this.log.info("execute");
+        log.info("execute");
         end();
         return this;
     }
@@ -49,8 +51,8 @@ public class TestStep extends AbstractTestBase {
      * @return the test case
      */
     public AbstractTestBase start() {
-        this.log.info("start test step {}", this.getName());
-        this.log.info("start timer {}", MappedTimers.start("TestStep" + super.uniqueIdentifier.toString()));
+        log.info("start test step {}", this.getName());
+        log.info("start timer {}", MappedTimers.start("TestStep" + super.uniqueIdentifier.toString()));
         super.assumedPreConditions();
         return this;
     }
@@ -61,8 +63,8 @@ public class TestStep extends AbstractTestBase {
      * @return the test case
      */
     public AbstractTestBase end() {
-        this.log.info("end timer {}", MappedTimers.stop("TestStep" + super.uniqueIdentifier.toString()));
-        this.log.info("end test step {}", this.getName());
+        log.info("end timer {}", MappedTimers.stop("TestStep" + super.uniqueIdentifier.toString()));
+        log.info("end test step {}", this.getName());
         super.assertPostConditions();
         return this;
     }

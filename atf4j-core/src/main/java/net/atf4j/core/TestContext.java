@@ -17,12 +17,16 @@
 
 package net.atf4j.core;
 
+import static org.junit.Assume.assumeNotNull;
 import static org.junit.Assume.assumeTrue;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Test Context.
  */
-public final class TestContext extends TestResultsReporting {
+@Slf4j
+public final class TestContext {
 
     /** LOCAL_TOMCAT_URL constant. */
     private static final String LOCAL_TOMCAT_URL = "http://localhost:8080";
@@ -99,6 +103,16 @@ public final class TestContext extends TestResultsReporting {
         assumeTrue(
             "The test assume a headless webBrowser is available locally, if this is true then define the system property 'isHeadless' for the environment.",
             isHeadless());
+        return true;
+    }
+
+    public static boolean assumeChromeAvailable() {
+        assumeNotNull(System.getProperty("webdriver.chrome.driver"));
+        return true;
+    }
+
+    public static boolean assumeFirefoxAvailable() {
+        assumeNotNull(System.getProperty("webdriver.firefox.driver"));
         return true;
     }
 

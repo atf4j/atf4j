@@ -17,10 +17,12 @@
 
 package net.atf4j.fdd;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * PostCondition.
  */
-public abstract class PostCondition extends Predicate {
+@Slf4j public abstract class PostCondition extends Predicate {
 
     /**
      * Instantiates a new post-condition.

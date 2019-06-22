@@ -5,10 +5,9 @@ import java.io.InputStream;
 import java.net.URI;
 import java.net.URL;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import static org.junit.Assert.fail;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Resource Loader class.
@@ -26,10 +25,8 @@ import static org.junit.Assert.fail;
  * ResourceBundle.getBundle ("some.pkg.resource");
  * </code>
  */
+@Slf4j
 public final class ResourceLoader {
-
-    /** provide logging. */
-    private static final Logger LOG = LoggerFactory.getLogger(ResourceLoader.class);
 
     /**
      * Instantiates a new resource loader.
@@ -50,7 +47,7 @@ public final class ResourceLoader {
             final InputStream resourceAsStream = classLoader.getResourceAsStream(resourceName);
             if (resourceAsStream == null) {
                 final String message = makeMsg(resourceName);
-                LOG.error("{}", message);
+                log.error("{}", message);
                 throw new ResourceNotLoadedException(message);
             } else {
                 return resourceAsStream;

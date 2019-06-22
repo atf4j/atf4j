@@ -17,9 +17,11 @@
 
 package net.atf4j.fdd;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Story Narrative for FDD.
  */
-public final class Story extends AbstractStory {
+@Slf4j public final class Story extends AbstractStory {
 
 }

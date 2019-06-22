@@ -17,14 +17,17 @@
 
 package net.atf4j.data;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A Unit test class for ProductCatalog objects.
  */
-public final class ProductCatalogTest extends TestResultsReporting {
+@Slf4j
+public final class ProductCatalogTest {
 
     /**
      * Test method for ProductCatalog.
@@ -32,7 +35,7 @@ public final class ProductCatalogTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final ProductCatalogue catalog = new ProductCatalogue();
-        this.log.debug("new ProductCatalogue() = {}", catalog);
+        log.debug("new ProductCatalogue() = {}", catalog);
         verifyNotNull(catalog);
     }
 
@@ -42,11 +45,11 @@ public final class ProductCatalogTest extends TestResultsReporting {
     @Test
     public void testProductCatalog() {
         final ProductCatalogue productCatalog = new ProductCatalogue();
-        this.log.debug("new ProductCatalogue() = {}", productCatalog);
+        log.debug("new ProductCatalogue() = {}", productCatalog);
         verifyNotNull(productCatalog);
         final Product product = new Product();
         productCatalog.add(product);
-        this.log.info("productCatalog = {}", productCatalog);
+        log.info("productCatalog = {}", productCatalog);
     }
 
     /**
@@ -55,7 +58,7 @@ public final class ProductCatalogTest extends TestResultsReporting {
     @Test
     public void testDebugString() {
         final ProductCatalogue productCatalog = new ProductCatalogue();
-        this.log.debug("productCatalog = {}", productCatalog.debugString());
+        log.debug("productCatalog = {}", productCatalog.debugString());
         verifyNotNull(productCatalog.debugString());
     }
 

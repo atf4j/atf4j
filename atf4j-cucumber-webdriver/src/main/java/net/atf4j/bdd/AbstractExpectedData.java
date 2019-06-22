@@ -17,12 +17,12 @@
 
 package net.atf4j.bdd;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Abstract Expected Data Class.
  */
-public abstract class AbstractExpectedData extends TestResultsReporting {
+@Slf4j public abstract class AbstractExpectedData {
 
     /**
      * Instantiates a new abstract expected data.

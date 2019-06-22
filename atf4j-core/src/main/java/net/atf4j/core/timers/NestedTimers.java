@@ -21,13 +21,14 @@ import java.util.Enumeration;
 import java.util.Stack;
 import java.util.UUID;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
+import net.atf4j.core.AbstractTestReport;
 import net.atf4j.core.VerificationError;
 
 /**
  * NestedTimers. [GOF] Singleton.
  */
-public final class NestedTimers extends TestResultsReporting {
+@Slf4j public final class NestedTimers {
 
     /** Singleton INSTANCE of this Class. */
     private static final NestedTimers TIMERS = new NestedTimers();

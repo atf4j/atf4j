@@ -17,14 +17,17 @@
 
 package net.atf4j.data;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A Unit test class for Business objects.
  */
-public final class BusinessTest extends TestResultsReporting {
+@Slf4j
+public final class BusinessTest {
 
     /**
      * Test method for Business.
@@ -33,7 +36,7 @@ public final class BusinessTest extends TestResultsReporting {
     public void testDefaultConstructor() {
         final Business business = new Business();
         verifyNotNull(business);
-        this.log.debug("new Business() = {}", business);
+        log.debug("new Business() = {}", business);
     }
 
     /**
@@ -43,7 +46,7 @@ public final class BusinessTest extends TestResultsReporting {
     public void testBusiness() {
         final Business business = new Business();
         verifyNotNull(business);
-        this.log.debug("new Business() = {}", business);
+        log.debug("new Business() = {}", business);
     }
 
     /**
@@ -53,7 +56,7 @@ public final class BusinessTest extends TestResultsReporting {
     public void testBusinessString() {
         final String businessName = "Business Name";
         final Business business = new Business(businessName);
-        this.log.debug("new Business(businessName) = {}", business);
+        log.debug("new Business(businessName) = {}", business);
         verifyNotNull(business);
     }
 
@@ -64,9 +67,9 @@ public final class BusinessTest extends TestResultsReporting {
     public void testBusinessStringPostcode() {
         final String businessName = "Business Name";
         final PostalAddress postalAddress = new PostalAddress();
-        this.log.debug("new PostalAddress() = {}", postalAddress);
+        log.debug("new PostalAddress() = {}", postalAddress);
         final Business business = new Business(businessName, postalAddress);
-        this.log.debug("new Business(businessName, postalAddress) = {}", business);
+        log.debug("new Business(businessName, postalAddress) = {}", business);
         verifyNotNull(business);
     }
 
@@ -76,7 +79,7 @@ public final class BusinessTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final Business business = Business.create();
-        this.log.debug("Business.create() = {}", business);
+        log.debug("Business.create() = {}", business);
         verifyNotNull(business);
     }
 
@@ -86,7 +89,7 @@ public final class BusinessTest extends TestResultsReporting {
     @Test
     public void testDebugString() {
         final String string = new Business().debugString();
-        this.log.debug("new Business().debugString() = {}", string);
+        log.debug("new Business().debugString() = {}", string);
         verifyNotNull(string);
     }
 
@@ -96,7 +99,7 @@ public final class BusinessTest extends TestResultsReporting {
     @Test
     public void testToString() {
         final String string = new Business().toString();
-        this.log.debug("new Business().toString() = {}", string);
+        log.debug("new Business().toString() = {}", string);
         verifyNotNull(string);
     }
 

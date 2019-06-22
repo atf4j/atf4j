@@ -17,12 +17,12 @@
 
 package net.atf4j.webdriver;
 
-import static org.junit.Assert.assertNotNull;
-
 import java.util.Set;
 
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
+
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Browser Cookie Manager, save and restore cookies to their original state.

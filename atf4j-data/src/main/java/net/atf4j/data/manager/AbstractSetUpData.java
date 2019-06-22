@@ -17,12 +17,12 @@
 
 package net.atf4j.data.manager;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * SetUpData Class.
  */
-public abstract class AbstractSetUpData extends TestResultsReporting {
+@Slf4j public abstract class AbstractSetUpData {
 
     /**
      * Instantiates a new sets the up data.

@@ -17,19 +17,22 @@
 
 package net.atf4j.core.model;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import java.util.UUID;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.fdd.model.TestIdentifier;
 
 /**
  * A UnitTest for TestIdentifier objects.
  */
-public class TestIdentifierTest extends TestResultsReporting {
+@Slf4j
+public class TestIdentifierTest {
 
     /**
      * Test method for TestIdentifier.

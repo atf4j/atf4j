@@ -19,12 +19,10 @@ package net.atf4j.data;
 
 import java.util.Calendar;
 
-import net.atf4j.core.TestResultsReporting;
-
 /**
  * Person.
  */
-public class Person extends TestResultsReporting {
+public class Person {
 
     /** The title of the person. */
     private Title title = Title.BLANK;

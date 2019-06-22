@@ -19,10 +19,12 @@ package net.atf4j.fdd;
 
 import java.util.UUID;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * When as a Hoare command for FDD.
  */
-public final class When extends AbstractHoareStep {
+@Slf4j public final class When extends AbstractHoareStep {
 
     /**
      * Instantiates a new when.

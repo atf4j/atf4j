@@ -19,12 +19,10 @@ package net.atf4j.pog;
 
 import java.util.UUID;
 
-import net.atf4j.core.TestResultsReporting;
-
 /**
  * The to be Generated.
  */
-public class ClassField extends TestResultsReporting {
+public class ClassField {
 
     /** Code Template for a field. */
     private static final String FIELD_CODE = "%s %s %s;";
@@ -99,6 +97,7 @@ public class ClassField extends TestResultsReporting {
      * Make boolean.
      *
      * @param fieldName the field name
+     * The field
      * @return the class field
      */
     public static ClassField makeBoolean(final String fieldName) {
@@ -109,6 +108,7 @@ public class ClassField extends TestResultsReporting {
      * Make byte.
      *
      * @param fieldName the field name
+     * The field
      * @return the class field
      */
     public static ClassField makeByte(final String fieldName) {
@@ -119,6 +119,7 @@ public class ClassField extends TestResultsReporting {
      * Make date.
      *
      * @param fieldName the field name
+     * The field
      * @return the class field
      */
     public static ClassField makeDate(final String fieldName) {
@@ -129,6 +130,7 @@ public class ClassField extends TestResultsReporting {
      * Make number.
      *
      * @param fieldName the field name
+     * The field
      * @return the class field
      */
     public static ClassField makeNumber(final String fieldName) {
@@ -139,6 +141,7 @@ public class ClassField extends TestResultsReporting {
      * Make object.
      *
      * @param fieldName the field name
+     * The field
      * @return the class field
      */
     public static ClassField makeObject(final String fieldName) {
@@ -146,10 +149,10 @@ public class ClassField extends TestResultsReporting {
     }
 
     /**
-     * 
      * Make string.
      *
      * @param fieldName the field name
+     * The field
      * @return the class field
      */
     public static ClassField makeString(final String fieldName) {
@@ -161,6 +164,7 @@ public class ClassField extends TestResultsReporting {
      *
      * @param type the type
      * @param fieldName the field name
+     * The field
      * @return the class field
      */
     public static ClassField makeOther(final String type, final String fieldName) {
@@ -171,6 +175,7 @@ public class ClassField extends TestResultsReporting {
      * Sets the access modifier.
      *
      * @param accessModifier the access modifier
+     * The field
      * @return the class field
      */
     protected ClassField setAccessModifier(final AccessModifier accessModifier) {
@@ -183,6 +188,7 @@ public class ClassField extends TestResultsReporting {
      * Sets the access modifier.
      *
      * @param accessModifier the access modifier
+     * The field
      * @return the class field
      */
     protected ClassField setAccessModifier(final String accessModifier) {
@@ -195,6 +201,7 @@ public class ClassField extends TestResultsReporting {
      * Sets the field type.
      *
      * @param fieldType the field type
+     * The field
      * @return the class field
      */
     protected ClassField setFieldType(final FieldType fieldType) {
@@ -207,6 +214,7 @@ public class ClassField extends TestResultsReporting {
      * Sets the field type.
      *
      * @param fieldTypeString the field type string
+     * The field
      * @return the class field
      */
     protected ClassField setFieldType(final String fieldTypeString) {
@@ -224,6 +232,7 @@ public class ClassField extends TestResultsReporting {
      *
      * @param fieldName the field name
      *            The field
+     * The field
      * @return the class field
      */
     protected ClassField setFieldName(final String fieldName) {
@@ -235,6 +244,7 @@ public class ClassField extends TestResultsReporting {
      * Sets the initial value.
      *
      * @param initialValue the initial value
+     * The field
      * @return the class field
      */
     protected ClassField setInitialValue(final String initialValue) {
@@ -308,15 +318,15 @@ public class ClassField extends TestResultsReporting {
         final String code;
         if (this.initialValue == null) {
             code = String.format(FIELD_CODE,
-                    this.accessModifier,
-                    this.type,
-                    this.name);
+                this.accessModifier,
+                this.type,
+                this.name);
         } else {
             code = String.format(ASSIGN_FIELD,
-                    this.accessModifier,
-                    this.fieldType,
-                    this.type,
-                    this.initialValue);
+                this.accessModifier,
+                this.fieldType,
+                this.type,
+                this.initialValue);
         }
         return code;
     }
@@ -328,28 +338,23 @@ public class ClassField extends TestResultsReporting {
      */
     protected String debugString() {
         final String debugString = String.format(
-                "%s [accessModifier=%s, visibility=%s, fieldType=%s, type=%s, name=%s, initialValue=%s]",
-                this.getClass().getSimpleName(),
-                this.accessModifier.name(),
-                this.visibility,
-                this.fieldType.name(),
-                this.type,
-                this.name,
-                this.initialValue);
+            "%s [accessModifier=%s, visibility=%s, fieldType=%s, type=%s, name=%s, initialValue=%s]",
+            this.getClass().getSimpleName(),
+            this.accessModifier.name(),
+            this.visibility,
+            this.fieldType.name(),
+            this.type,
+            this.name,
+            this.initialValue);
         return debugString;
     }
 
     /*
      * (non-Javadoc)
-     *
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        if (this.log.isDebugEnabled()) {
-            return debugString();
-        } else {
-            return getField();
-        }
+        return getField();
     }
 }

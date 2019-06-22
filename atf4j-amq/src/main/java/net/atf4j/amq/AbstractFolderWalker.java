@@ -23,14 +23,13 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * An abstract class to walk folders.
  */
-public abstract class AbstractFolderWalker
-        extends TestResultsReporting
-        implements FolderWalkerInterface {
+@Slf4j
+public abstract class AbstractFolderWalker implements FolderWalkerInterface {
 
     /** base path. */
     private String path = "messages";
@@ -39,7 +38,6 @@ public abstract class AbstractFolderWalker
     private FilenameFilter filter = new Unfiltered();
 
     /** list of found files. */
-    // private final List<File> foundFiles = new ArrayList<File>();
     private final FoundFiles foundFiles = new FoundFiles();
 
     /**
@@ -49,12 +47,11 @@ public abstract class AbstractFolderWalker
 
         /*
          * (non-Javadoc)
-         *
          * @see java.io.FilenameFilter#accept(java.io.File, java.lang.String)
          */
         @Override
         public boolean accept(final File dir, final String filename) {
-            AbstractFolderWalker.this.log.trace("accept({},{})", dir, filename);
+            AbstractFolderWalker.log.trace("accept({},{})", dir, filename);
             return true;
         }
     }
@@ -86,9 +83,20 @@ public abstract class AbstractFolderWalker
         useExtensionFilter(extensionFilter);
     }
 
+    /**
+     * Instantiates a new abstract folder walker.
+     *
+     * @param path the path
+     * @param extensionFilter the extension filter
+     */
+    public AbstractFolderWalker(final String path, final FilenameFilter extensionFilter) {
+        super();
+        setPath(path);
+        useExtensionFilter(extensionFilter);
+    }
+
     /*
      * (non-Javadoc)
-     *
      * @see net.atf4j.amq.FolderWalkerInterface#setPath(java.lang.String)
      */
     @Override
@@ -99,7 +107,6 @@ public abstract class AbstractFolderWalker
 
     /*
      * (non-Javadoc)
-     *
      * @see net.atf4j.amq.FolderWalkerInterface#setExtensionFilter(java.io.
      * FilenameFilter)
      */
@@ -111,7 +118,6 @@ public abstract class AbstractFolderWalker
 
     /*
      * (non-Javadoc)
-     *
      * @see net.atf4j.amq.FolderWalkerInterface#walk()
      */
     @Override
@@ -121,7 +127,6 @@ public abstract class AbstractFolderWalker
 
     /*
      * (non-Javadoc)
-     *
      * @see net.atf4j.amq.FolderWalkerInterface#walk(java.lang.String)
      */
     @Override
@@ -143,9 +148,10 @@ public abstract class AbstractFolderWalker
         return this.foundFiles;
     }
 
-    /* (non-Javadoc)
-    * @see net.atf4j.amq.FolderWalkerInterface#scan()
-    */
+    /*
+     * (non-Javadoc)
+     * @see net.atf4j.amq.FolderWalkerInterface#scan()
+     */
     @Override
     public FoundFiles scan() {
         return scan(this.path);
@@ -153,7 +159,6 @@ public abstract class AbstractFolderWalker
 
     /*
      * (non-Javadoc)
-     *
      * @see net.atf4j.amq.FolderWalkerInterface#scan(java.lang.String)
      */
     @Override
@@ -192,14 +197,13 @@ public abstract class AbstractFolderWalker
             uri = url.toURI();
             file = new File(uri);
         } catch (final URISyntaxException e) {
-            this.log.error(e.toString());
+            log.error(e.toString());
         }
         return file;
     }
 
     /*
      * (non-Javadoc)
-     *
      * @see net.atf4j.amq.FolderWalkerInterface#getPath()
      */
     @Override
@@ -209,7 +213,6 @@ public abstract class AbstractFolderWalker
 
     /*
      * (non-Javadoc)
-     *
      * @see net.atf4j.amq.FolderWalkerInterface#getFoundFiles()
      */
     @Override
@@ -217,16 +220,27 @@ public abstract class AbstractFolderWalker
         return this.foundFiles;
     }
 
-    /* (non-Javadoc)
-    * @see java.lang.Object#toString()
-    */
+    /**
+     * Size.
+     *
+     * @return the int
+     * @see java.util.ArrayList#size()
+     */
+    public int size() {
+        return this.foundFiles.size();
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return String.format("%s [path=%s, filter=%s, foundFiles=%s]",
-                this.getClass().getSimpleName(),
-                this.path,
-                this.filter,
-                this.foundFiles);
+            this.getClass().getSimpleName(),
+            this.path,
+            this.filter,
+            this.foundFiles);
     }
 
 }

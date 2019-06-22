@@ -19,6 +19,7 @@ package net.atf4j.amq;
 
 import javax.jms.JMSException;
 
+import org.apache.activemq.ActiveMQConnectionFactory;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
@@ -28,35 +29,52 @@ import static org.junit.Assume.assumeTrue;
 import net.atf4j.core.TestContext;
 
 /**
- * Unit test for ConnectionWrapper class.
+ * Unit test for ConnectionMock class.
  */
 public class ConnectionWrapperTest {
 
     /**
      * Mock the connection wrapper class.
+     *
+     * Using test broker
+     * vm:// localhost?broker.persistent=false
      */
-    public class ConnectionWrapper extends AbstractConnectionWrapper {
-
+    public class ConnectionMock extends AbstractConnectionWrapper {
         /**
          * Instantiates a new connection wrapper.
          *
          * @throws JMSException the JMS exception exception.
          */
-        protected ConnectionWrapper() throws JMSException {
-            super();
+        protected ConnectionMock() throws JMSException {
+            super(new ActiveMQConnectionFactory("vm://localhost?broker.persistent=false"));
         }
     }
 
     /**
-     * Unit tests for the ConnectionWrapper object.
+     * Unit tests for the ConnectionMock object.
      *
      * @throws JMSException the JMS exception exception.
      */
     @Test
     public void testConnectionWrapper() throws JMSException {
         assumeTrue(TestContext.isActiveMQ());
-        final ConnectionWrapper connection = new ConnectionWrapper();
+        final ConnectionMock connection = new ConnectionMock();
         assertNotNull(connection);
     }
+
+    // @Before
+    // public void setupAMQ(){
+    // broker = new BrokerService();
+    // TransportConnector connector = new TransportConnector();
+    // connector.setUri(new URI("tcp://localhost:61616"));
+    // broker.addConnector(connector);
+    // // More config here!
+    // broker.start()
+    // }
+    //
+    // @After
+    // public void tearDownAMQ() {
+    // broker.stop();
+    // }
 
 }

@@ -17,15 +17,18 @@
 
 package net.atf4j.data.factory;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.Consumer;
 
 /**
  * Unit Test Suite for the ConsumerDataFactory.
  */
-public final class ConsumerDataFactoryTest extends TestResultsReporting {
+@Slf4j
+public final class ConsumerDataFactoryTest {
 
     /**
      * Test method for void.
@@ -34,7 +37,7 @@ public final class ConsumerDataFactoryTest extends TestResultsReporting {
     public void testCreate() {
         final Consumer consumer = ConsumerDataFactory.create();
         verifyNotNull(consumer);
-        this.log.debug("ConsumerDataFactory.create() = {}", consumer);
+        log.debug("ConsumerDataFactory.create() = {}", consumer);
     }
 
     /**
@@ -44,7 +47,7 @@ public final class ConsumerDataFactoryTest extends TestResultsReporting {
     public void testRandom() {
         final Consumer consumer = ConsumerDataFactory.random();
         verifyNotNull(consumer);
-        this.log.debug("ConsumerDataFactory.random() = {}", consumer);
+        log.debug("ConsumerDataFactory.random() = {}", consumer);
     }
 
     /**
@@ -54,7 +57,7 @@ public final class ConsumerDataFactoryTest extends TestResultsReporting {
     public void testGetInstance() {
         final ConsumerDataFactory customerDataFactory = ConsumerDataFactory.getInstance();
         verifyNotNull(customerDataFactory);
-        this.log.debug("ConsumerDataFactory.getInstance() = {}", customerDataFactory);
+        log.debug("ConsumerDataFactory.getInstance() = {}", customerDataFactory);
     }
 
 }

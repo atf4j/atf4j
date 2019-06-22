@@ -1,8 +1,6 @@
 
 package net.atf4j.data;
 
-import net.atf4j.data.Credentials;
-
 /**
  * An Actor for automated testing. Represents a person using the system in a
  * role.

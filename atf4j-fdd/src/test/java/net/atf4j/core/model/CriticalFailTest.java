@@ -17,15 +17,16 @@
 
 package net.atf4j.core.model;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
 import net.atf4j.fdd.model.CriticalFail;
 
 /**
  * A UnitTest for CriticalFail objects.
  */
-public class CriticalFailTest extends TestResultsReporting {
+public class CriticalFailTest {
 
     /**
      * Test method for CriticalFail.

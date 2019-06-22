@@ -17,17 +17,20 @@
 
 package net.atf4j.pog;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import java.util.List;
 
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.pog.WebElementField.Strategy;
 
 /**
  * A UnitTest for PageObjectData objects.
  */
-public final class PageObjectDataTest extends TestResultsReporting {
+@Slf4j
+public final class PageObjectDataTest {
 
     /**
      * Test method for void.
@@ -38,13 +41,13 @@ public final class PageObjectDataTest extends TestResultsReporting {
         verifyNotNull(pageObjectData);
 
         pageObjectData
-            .add(new WebElementField(Strategy.ID, "id", "findById"))
-            .add(new WebElementField(Strategy.CLASS_NAME, "class-name", "findByClassName"))
-            .add(new WebElementField(Strategy.LINK_TEXT, "linkText", "findByLinkText"))
-            .add(new WebElementField(Strategy.PARTIAL_LINK_TEXT, "partialLinkText", "findByPartialLinkText"))
-            .add(new WebElementField(Strategy.NAME, "name", "findByName"))
-            .add(new WebElementField(Strategy.XPATH, "//A", "findByXpath"))
-            .add(new WebElementField(Strategy.CSS, ".", "findByCss"));
+                .add(new WebElementField(Strategy.ID, "id", "findById"))
+                .add(new WebElementField(Strategy.CLASS_NAME, "class-name", "findByClassName"))
+                .add(new WebElementField(Strategy.LINK_TEXT, "linkText", "findByLinkText"))
+                .add(new WebElementField(Strategy.PARTIAL_LINK_TEXT, "partialLinkText", "findByPartialLinkText"))
+                .add(new WebElementField(Strategy.NAME, "name", "findByName"))
+                .add(new WebElementField(Strategy.XPATH, "//A", "findByXpath"))
+                .add(new WebElementField(Strategy.CSS, ".", "findByCss"));
 
         logAttributes(pageObjectData);
     }

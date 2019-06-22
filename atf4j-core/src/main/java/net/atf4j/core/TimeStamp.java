@@ -20,10 +20,12 @@ package net.atf4j.core;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * TimeStamp class.
  */
-public final class TimeStamp {
+@Slf4j public final class TimeStamp {
 
     /** ISO_DATE_TIME format constant. */
     public static final String ISO_DATE_TIME = "yyyy-MM-dd'T'HH:mm'Z'";

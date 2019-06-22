@@ -22,10 +22,12 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * The JsonToPojo Class.
  */
-public final class JsonToPojo extends AbstractJavaClassGenerator {
+@Slf4j public final class JsonToPojo extends AbstractJavaClassGenerator {
 
     /**
      * To pretty json.

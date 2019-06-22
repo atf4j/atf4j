@@ -17,7 +17,7 @@
 
 package net.atf4j.webdriver;
 
-import static org.junit.Assert.assertNotNull;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import java.util.Enumeration;
 import java.util.MissingResourceException;
@@ -26,12 +26,15 @@ import java.util.Set;
 import org.junit.Assert;
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertNotNull;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A UnitTest for LogicalGuiMap objects.
  */
-public final class GuiMapTest extends TestResultsReporting {
+@Slf4j
+public final class GuiMapTest {
 
     /**
      * The LogicalGuiMap Class.
@@ -57,7 +60,7 @@ public final class GuiMapTest extends TestResultsReporting {
             verifyNotNull(key);
             Assert.assertTrue(instance.containsKey(key));
             verifyNotNull(instance.getString(key));
-            this.log.info("{}={}", key, instance.getString(key));
+            log.info("{}={}", key, instance.getString(key));
         }
     }
 
@@ -106,8 +109,8 @@ public final class GuiMapTest extends TestResultsReporting {
     public void testToString() throws Exception {
         final AbstractGuiMap abstractGuiMap = new LogicalGuiMap();
         verifyNotNull(abstractGuiMap);
-        this.log.info(abstractGuiMap.toString());
-        this.log.info(abstractGuiMap.getLocale().toString());
+        log.info(abstractGuiMap.toString());
+        log.info(abstractGuiMap.getLocale().toString());
     }
 
 }

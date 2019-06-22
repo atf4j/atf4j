@@ -17,17 +17,17 @@
 
 package net.atf4j.data.manager;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Ignore;
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertNotNull;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * The DataManagerTest class.
  */
-public final class DataManagerTest extends TestResultsReporting {
+@Slf4j public final class DataManagerTest {
 
     /**
      * Test static data for tag.

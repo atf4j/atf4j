@@ -24,15 +24,15 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import lombok.extern.slf4j.Slf4j;
+import net.atf4j.core.TestReport;
 import net.atf4j.core.timers.MappedTimers;
 
-/**
- * TestSuite.
- */
+@Slf4j
 public class TestSuite extends AbstractTestBase {
 
     /** The test cases. */
-    protected Collection<TestCase> testCases = new ArrayDeque<TestCase>();;
+    protected Collection<TestCase> testCases = new ArrayDeque<TestCase>();
 
     /**
      * Instantiates a new test suite.
@@ -104,8 +104,8 @@ public class TestSuite extends AbstractTestBase {
      * @return the test suite
      */
     public TestSuite start() {
-        this.log.info("start test suite {}", this.getName());
-        this.log.info("start timer {}", MappedTimers.start("TestSuite"));
+        log.info("start test suite {}", this.getName());
+        log.info("start timer {}", MappedTimers.start("TestSuite"));
         return this;
     }
 
@@ -115,8 +115,8 @@ public class TestSuite extends AbstractTestBase {
      * @return the test suite
      */
     public TestSuite end() {
-        this.log.info("end timer {}", MappedTimers.stop("TestSuite"));
-        this.log.info("end test suite {}", this.getName());
+        log.info("end timer {}", MappedTimers.stop("TestSuite"));
+        log.info("end test suite {}", this.getName());
         return this;
     }
 

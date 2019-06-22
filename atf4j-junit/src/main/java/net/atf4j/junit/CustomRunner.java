@@ -34,12 +34,9 @@ import org.junit.runners.model.TestClass;
  * Custom Test Runner class.
  */
 public class CustomRunner extends Runner {
-    
-    /** The test methods. */
+
     private final List<Method> testMethods = new ArrayList<Method>();
-    
-    /** The test class. */
-    private final TestClass testClass;
+    private final TestClass targetTestClass;
 
     /**
      * Instantiates a new custom runner.
@@ -48,7 +45,7 @@ public class CustomRunner extends Runner {
      */
     public CustomRunner(final Class<?> aClass) {
         super();
-        testClass = new TestClass(aClass);
+        this.targetTestClass = new TestClass(aClass);
         final Method[] classMethods = aClass.getDeclaredMethods();
         for (final Method classMethod : classMethods) {
             final Class<?> retClass = classMethod.getReturnType();
@@ -67,38 +64,36 @@ public class CustomRunner extends Runner {
             final String methodName = classMethod.getName();
             if (methodName.toUpperCase().startsWith("TEST")
                     || classMethod.getAnnotation(Test.class) != null) {
-                testMethods.add(classMethod);
+                this.testMethods.add(classMethod);
             }
 
             if (classMethod.getAnnotation(Ignore.class) != null) {
-                testMethods.remove(classMethod);
+                this.testMethods.remove(classMethod);
             }
         }
     }
 
     /*
      * (non-Javadoc)
-     *
      * @see org.junit.runner.Runner#getDescription()
      */
     @Override
     public Description getDescription() {
-        final String className = testClass.getName();
-        final Class<?> javaClass = testClass.getJavaClass();
+        final String className = this.targetTestClass.getName();
+        final Class<?> javaClass = this.targetTestClass.getJavaClass();
         final Annotation[] annotations = javaClass.getAnnotations();
         return Description.createSuiteDescription(className, annotations);
     }
 
     /*
      * (non-Javadoc)
-     *
      * @see
      * org.junit.runner.Runner#run(org.junit.runner.notification.RunNotifier)
      */
     @Override
     public void run(final RunNotifier runNotifier) {
-        for (int i = 0; i < testMethods.size(); i++) {
-            final Method method = testMethods.get(i);
+        for (int i = 0; i < this.testMethods.size(); i++) {
+            final Method method = this.testMethods.get(i);
             final Class<? extends Method> methodClass = method.getClass();
             final String methodName = method.getName();
             runNotifier.fireTestStarted(Description.createTestDescription(methodClass, methodName));

@@ -17,16 +17,16 @@
 
 package net.atf4j.data;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-import net.atf4j.core.TestResultsReporting;
-
 /**
  * A UnitTest for HeaderLine objects.
  */
-public class HeaderLineTest extends TestResultsReporting {
+public class HeaderLineTest {
 
     private static final String TEST_HEADER = "ColumnOne, ColumnTwo";
     private static final String EXPECTED_HEADER = "HeaderLine [values=[ColumnOne, ColumnTwo]]";
@@ -54,7 +54,6 @@ public class HeaderLineTest extends TestResultsReporting {
         assertEquals(EXPECTED_HEADER, headerLine.debugString());
         assertEquals("ColumnOne", headerLine.getField(1));
         assertEquals("ColumnTwo", headerLine.getField(2));
-        this.log.info("{}", headerLine);
     }
 
 }

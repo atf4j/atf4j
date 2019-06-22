@@ -19,7 +19,7 @@ package net.atf4j.data.factory;
 
 import java.util.Random;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.CsvRow;
 import net.atf4j.data.Postcode;
 import net.atf4j.data.PostcodeData;
@@ -28,7 +28,7 @@ import net.atf4j.data.Text;
 /**
  * A factory for creating PostcodeData objects.
  */
-public final class PostcodeDataFactory extends TestResultsReporting {
+@Slf4j public final class PostcodeDataFactory {
 
     /** POSTCODE_DATA_FACTORY. */
     private static final PostcodeDataFactory POSTCODE_DATA_FACTORY = new PostcodeDataFactory();

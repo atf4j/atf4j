@@ -17,14 +17,17 @@
 
 package net.atf4j.core.timers;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A UnitTest for SplitTimer objects.
  */
-public final class SplitTimerTest extends TestResultsReporting {
+@Slf4j
+public final class SplitTimerTest {
 
     /**
      * Test method for SplitTimer.

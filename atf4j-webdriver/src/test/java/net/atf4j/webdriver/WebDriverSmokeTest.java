@@ -17,6 +17,8 @@
 
 package net.atf4j.webdriver;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -30,20 +32,23 @@ import static org.junit.Assert.assertTrue;
 
 import static org.junit.Assume.assumeNotNull;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.core.TestContext;
-import net.atf4j.core.TestResultsReporting;
 
 /**
- * Smoke Tests for WebDriver.
+ * Smoke Tests for direct WebDriver.
  */
-public final class WebDriverSmokeTest extends TestResultsReporting {
+@Slf4j
+public final class WebDriverSmokeTest {
 
     /**
      * Smoke Test ChromeDriver with Tomcat.
      */
     @Test
     public void testChromeTomcat() {
-        // TestContext.assumeLocal();
+        TestContext.assumeChromeAvailable();
+        TestContext.assumeLocal();
+        TestContext.assumeLocalServer();
         final WebDriver webDriver = new ChromeDriver();
         verifyNotNull(webDriver);
         verifyTomcatPresent(webDriver);
@@ -101,7 +106,7 @@ public final class WebDriverSmokeTest extends TestResultsReporting {
         final String pageTitle = webDriver.getTitle();
         verifyNotNull(pageTitle);
         assertTrue(pageTitle.contains("Apache Tomcat"));
-        this.log.info("pageTitle = {}", pageTitle);
+        log.info("pageTitle = {}", pageTitle);
     }
 
 }

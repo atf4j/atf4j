@@ -17,16 +17,20 @@
 
 package net.atf4j.core;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A UnitTest for TestStatus objects. forString
  */
-public final class TestResultTest extends TestResultsReporting {
+@Slf4j
+public final class TestResultTest {
 
     /**
      * Test method for TestResult.

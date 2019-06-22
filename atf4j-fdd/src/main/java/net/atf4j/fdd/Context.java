@@ -1,7 +1,7 @@
 package net.atf4j.fdd;
 
 /**
- * The Class Context.
+ * The Context.
  */
 public class Context {
 

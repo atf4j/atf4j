@@ -17,9 +17,11 @@
 
 package net.atf4j.fdd;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Expectation.
  */
-public final class Expectation extends AbstractExpectation {
+@Slf4j public final class Expectation extends AbstractExpectation {
 
 }

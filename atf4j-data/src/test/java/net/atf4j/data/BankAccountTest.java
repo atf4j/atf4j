@@ -17,16 +17,19 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertEquals;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertEquals;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A Unit test class for BankAccount objects.
  */
-public final class BankAccountTest extends TestResultsReporting {
+@Slf4j
+public final class BankAccountTest {
 
     /**
      * Unit Test for BankAccount constructor with null string.
@@ -106,7 +109,7 @@ public final class BankAccountTest extends TestResultsReporting {
         verifyNotNull(bankAccount);
         final String string = bankAccount.debugString();
         verifyNotNull(string);
-        this.log.debug("bankAccount.debugString() = {}", string);
+        log.debug("bankAccount.debugString() = {}", string);
     }
 
     /**
@@ -117,6 +120,6 @@ public final class BankAccountTest extends TestResultsReporting {
         final BankAccount bankAccount = BankAccount.create();
         verifyNotNull(bankAccount);
         final String string = bankAccount.toString();
-        this.log.error("bankAccount.toString() = {}", string);
+        log.error("bankAccount.toString() = {}", string);
     }
 }

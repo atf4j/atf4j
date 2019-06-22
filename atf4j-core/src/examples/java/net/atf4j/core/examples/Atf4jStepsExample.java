@@ -17,17 +17,24 @@
 
 package net.atf4j.core.examples;
 
-import static net.atf4j.core.Atf4j.*;
+import static net.atf4j.core.Atf4j.document;
+import static net.atf4j.core.Atf4j.end;
+import static net.atf4j.core.Atf4j.start;
 import static net.atf4j.core.Verify.verifyNotNull;
-import static org.junit.Assert.fail;
-import static org.junit.Assume.*;
 
 import org.junit.Test;
+
+import static org.junit.Assert.fail;
+
+import static org.junit.Assume.assumeNotNull;
+import static org.junit.Assume.assumeTrue;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A UnitTest for Atf4jSteps objects.
  */
-public final class Atf4jStepsExample {
+@Slf4j public final class Atf4jStepsExample {
 
     /**
      * test Atf4jSteps object.

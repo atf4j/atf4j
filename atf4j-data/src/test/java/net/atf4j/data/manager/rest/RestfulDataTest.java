@@ -17,17 +17,20 @@
 
 package net.atf4j.data.manager.rest;
 
-import static org.junit.Assert.assertTrue;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertTrue;
+
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.manager.MockRestfulData;
 
 /**
  * A UnitTest for RestfulData objects.
  */
-public final class RestfulDataTest extends TestResultsReporting {
+@Slf4j
+public final class RestfulDataTest {
 
     /**
      * Test default constructor.
@@ -35,7 +38,7 @@ public final class RestfulDataTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final MockRestfulData restfulData = new MockRestfulData();
-        this.log.debug("restfulData = {}", restfulData);
+        log.debug("restfulData = {}", restfulData);
         verifyNotNull(restfulData);
     }
 
@@ -45,7 +48,7 @@ public final class RestfulDataTest extends TestResultsReporting {
     @Test
     public void testSetUp() {
         final MockRestfulData restfulData = new MockRestfulData();
-        this.log.debug("restfulData = {}", restfulData);
+        log.debug("restfulData = {}", restfulData);
         verifyNotNull(restfulData);
         assertTrue(restfulData.setUp());
     }
@@ -56,7 +59,7 @@ public final class RestfulDataTest extends TestResultsReporting {
     @Test
     public void testReset() {
         final MockRestfulData restfulData = new MockRestfulData();
-        this.log.debug("restfulData = {}", restfulData);
+        log.debug("restfulData = {}", restfulData);
         verifyNotNull(restfulData);
         assertTrue(restfulData.reset());
     }
@@ -67,7 +70,7 @@ public final class RestfulDataTest extends TestResultsReporting {
     @Test
     public void testTearDown() {
         final MockRestfulData restfulData = new MockRestfulData();
-        this.log.debug("restfulData = {}", restfulData);
+        log.debug("restfulData = {}", restfulData);
         verifyNotNull(restfulData);
         assertTrue(restfulData.tearDown());
     }

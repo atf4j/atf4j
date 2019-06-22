@@ -49,16 +49,16 @@ public abstract class AbstractPageObject {
 
     /** The log. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass());
-    
+
     /** The config. */
     protected PageConfig config;
-    
+
     /** The web driver. */
     protected WebDriver webDriver;
-    
+
     /** The web driver wait. */
     protected WebDriverWait webDriverWait;
-    
+
     /** The target url. */
     protected String targetUrl;
 

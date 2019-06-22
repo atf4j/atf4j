@@ -1,9 +1,11 @@
 
 package net.atf4j.bdd.gestures;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * The AbstractGesture.
  */
-public abstract class AbstractGesture implements GestureInterface {
+@Slf4j public abstract class AbstractGesture implements GestureInterface {
 
 }

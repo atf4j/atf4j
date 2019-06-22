@@ -17,12 +17,13 @@
 
 package net.atf4j.data.factory;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.Credentials;
 
 /**
  * PersonFactory, a data factory to create data.
  */
-public final class CredentialsDataFactory extends AbstractDataFactory {
+@Slf4j public final class CredentialsDataFactory extends AbstractDataFactory {
 
     /** The Constant CREDENTIALS_TXT. */
     private static final String CREDENTIALS_TXT = "credentials.txt";

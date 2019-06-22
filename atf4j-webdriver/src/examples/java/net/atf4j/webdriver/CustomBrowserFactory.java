@@ -19,9 +19,12 @@ package net.atf4j.webdriver;
 
 import org.openqa.selenium.WebDriver;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * A factory for creating Browser objects.
  */
+@Slf4j
 public final class CustomBrowserFactory extends BrowserFactory {
 
     private CustomBrowserFactory() {
@@ -30,7 +33,7 @@ public final class CustomBrowserFactory extends BrowserFactory {
 
     /**
      * Create new INSTANCE of create.
-     * 
+     *
      * @return the web driver
      */
     public static WebDriver create() {

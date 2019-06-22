@@ -18,7 +18,6 @@
 package net.atf4j.data;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -60,7 +59,7 @@ public class CsvFile {
      */
     public CsvFile() {
         super();
-        this.log.debug("CsvFile()");
+        log.debug("CsvFile()");
         initialise(defaultFilename());
     }
 
@@ -84,7 +83,7 @@ public class CsvFile {
      */
     public CsvFile(final String csvFilename) {
         super();
-        this.log.debug("CsvFile({})", csvFilename);
+        log.debug("CsvFile({})", csvFilename);
         initialise(csvFilename);
     }
 
@@ -94,7 +93,7 @@ public class CsvFile {
      * @param csvFilename the csv filename
      */
     private void initialise(final String csvFilename) {
-        this.log.debug("initialise({})", csvFilename);
+        log.debug("initialise({})", csvFilename);
         this.csvFilename = csvFilename;
         readResource(this.csvFilename);
     }
@@ -105,12 +104,12 @@ public class CsvFile {
      * @param resourceName the filename of the resource
      */
     private void readResource(final String resourceName) {
-        this.log.debug("read({})", resourceName);
+        log.debug("read({})", resourceName);
         final InputStream stream = ResourceLoader.streamFor(resourceName);
         try {
             read(stream);
         } catch (final IOException e) {
-            this.log.error(e.getLocalizedMessage(), e);
+            log.error(e.getLocalizedMessage(), e);
         }
     }
 
@@ -206,7 +205,7 @@ public class CsvFile {
         try {
             load(configFilename());
         } catch (final ResourceNotLoadedException e) {
-            this.log.warn(e.toString());
+            log.warn(e.toString());
         }
     }
 
@@ -259,7 +258,7 @@ public class CsvFile {
             bufferedReader.close();
 
         } catch (final IOException e) {
-            this.log.error(e.toString());
+            log.error(e.toString());
         }
     }
 

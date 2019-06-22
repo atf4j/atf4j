@@ -22,12 +22,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-import net.atf4j.core.TestResultsReporting;
-
 /**
  * A Simple Bag class.
  */
-public class SimpleBag extends TestResultsReporting {
+public class SimpleBag {
 
     /** The values. */
     private String[] values;

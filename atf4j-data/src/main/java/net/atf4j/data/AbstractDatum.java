@@ -17,12 +17,12 @@
 
 package net.atf4j.data;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Datum for providing field status.
  */
-public abstract class AbstractDatum extends TestResultsReporting {
+@Slf4j public abstract class AbstractDatum {
 
     /** The is fresh. */
     private boolean isFresh = true;

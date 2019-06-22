@@ -17,12 +17,12 @@
 
 package net.atf4j.bdd;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Abstract Strategy class.
  */
-public abstract class AbstractStrategy extends TestResultsReporting {
+@Slf4j public abstract class AbstractStrategy {
 
     /**
      * Instantiates a new abstract strategy.

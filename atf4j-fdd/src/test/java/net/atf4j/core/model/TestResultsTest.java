@@ -17,18 +17,19 @@
 
 package net.atf4j.core.model;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import java.util.Collection;
 
 import org.junit.Test;
 
 import net.atf4j.core.TestResult;
-import net.atf4j.core.TestResultsReporting;
 import net.atf4j.fdd.model.TestResults;
 
 /**
  * A UnitTest for TestResults objects.
  */
-public class TestResultsTest extends TestResultsReporting {
+public class TestResultsTest {
 
     /**
      * Unit Test for test default constructor.

@@ -49,9 +49,9 @@ public class AnnotatedTestExample {
     @TestName("testSteps")
     @TestDescription("Example showing annotations with static context")
     public void testSteps() {
-        this.log.info("Test ID : = {} ", getTestId());
-        this.log.info("Test Name : = {} ", getTestName());
-        this.log.info("Test Description : = {} ", getTestDescription());
+        log.info("Test ID : = {} ", getTestId());
+        log.info("Test Name : = {} ", getTestName());
+        log.info("Test Description : = {} ", getTestDescription());
     }
 
 }

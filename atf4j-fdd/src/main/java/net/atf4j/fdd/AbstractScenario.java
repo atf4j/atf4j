@@ -17,11 +17,11 @@
 
 package net.atf4j.fdd;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Logged Scenario Class.
  */
-public abstract class AbstractScenario extends TestResultsReporting {
+@Slf4j public abstract class AbstractScenario {
 
 }

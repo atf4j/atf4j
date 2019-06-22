@@ -17,14 +17,17 @@
 
 package net.atf4j.data;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A Unit test class for FileWalker objects.
  */
-public final class FileWalkerTest extends TestResultsReporting {
+@Slf4j
+public final class FileWalkerTest {
 
     /**
      * Unit Test for test walk.

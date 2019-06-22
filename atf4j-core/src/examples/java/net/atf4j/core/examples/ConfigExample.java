@@ -17,12 +17,13 @@
 
 package net.atf4j.core.examples;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.core.AbstractConfig;
 
 /**
  * Example ExampleConfiguration class.
  */
-public final class ConfigExample extends AbstractConfig {
+@Slf4j public final class ConfigExample extends AbstractConfig {
 
     /** The instance. */
     private static ConfigExample config = new ConfigExample();

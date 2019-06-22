@@ -17,10 +17,11 @@
 
 package net.atf4j.annotations.examples;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
 
+import static org.junit.Assert.assertTrue;
+
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.annotations.AbstractAtf4jAnnotation;
 import net.atf4j.annotations.AnnotationHelper;
 import net.atf4j.annotations.Atf4j;
@@ -33,10 +34,9 @@ import net.atf4j.annotations.Atf4j;
  *  getTestDescription();
  * </code>
  */
+@Slf4j
 public class AnnotatedTestTwoExample extends AbstractAtf4jAnnotation {
 
-    // logger provided
-    
     /**
      * Annotated Test example two.
      *

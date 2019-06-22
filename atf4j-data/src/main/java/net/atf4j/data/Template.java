@@ -153,7 +153,7 @@ public class Template {
                 int endOfTarget = startOfTarget + target.length();
                 this.template.replace(startOfTarget, endOfTarget, replacement);
             } else {
-                this.log.error("target {} not found in template\n\t{}", target, this.template.toString());
+                log.error("target {} not found in template\n\t{}", target, this.template.toString());
             }
         }
         return this;
@@ -205,7 +205,7 @@ public class Template {
      * @return the template
      */
     public Template toLog() {
-        this.log.info(toString());
+        log.info(toString());
         return this;
     }
 

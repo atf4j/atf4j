@@ -17,17 +17,16 @@
 
 package net.atf4j.amq;
 
+import javax.jms.Connection;
+import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageConsumer;
 import javax.jms.TextMessage;
 
-import org.junit.Ignore;
-
 /**
  * Consumer Class.
  */
-@Ignore
 public final class Consumer extends AbstractConnectionWrapper {
 
     /**
@@ -40,21 +39,48 @@ public final class Consumer extends AbstractConnectionWrapper {
     }
 
     /**
+     * Instantiates a new consumer.
+     *
+     * @param brokerUrl the broker url
+     * @throws JMSException the JMS exception
+     */
+    public Consumer(final String brokerUrl) throws JMSException {
+        super(brokerUrl);
+    }
+
+    /**
+     * Instantiates a new consumer.
+     *
+     * @param connection the connection
+     * @throws JMSException the JMS exception
+     */
+    public Consumer(final Connection connection) throws JMSException {
+        super(connection);
+    }
+
+    /**
+     * Instantiates a new consumer.
+     *
+     * @param connectionFactory the connection factory
+     * @throws JMSException the JMS exception
+     */
+    public Consumer(final ConnectionFactory connectionFactory) throws JMSException {
+        super(connectionFactory);
+    }
+
+    /**
      * Execute, consumer all messages.
      *
      * @return the string[]
      * @throws JMSException the JMS exception
      */
     public String[] execute() throws JMSException {
-
         final MessageConsumer messageConsumer = this.session.createConsumer(this.topic);
-
         final Message message = messageConsumer.receive(1000);
 
         if (message != null) {
             final TextMessage textMessage = (TextMessage) message;
             final String text = textMessage.getText();
-            this.log.info("read {}", text);
         }
 
         messageConsumer.close();

@@ -17,12 +17,13 @@
 
 package net.atf4j.data.factory;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.Consumer;
 
 /**
  * CustomerDataFactory.
  */
-public final class ConsumerDataFactory extends AbstractDataFactory {
+@Slf4j public final class ConsumerDataFactory extends AbstractDataFactory {
 
     /** The consumer data factory. */
     private static ConsumerDataFactory consumerDataFactory = null;

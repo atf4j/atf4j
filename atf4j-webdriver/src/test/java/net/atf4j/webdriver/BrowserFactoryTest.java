@@ -17,19 +17,19 @@
 
 package net.atf4j.webdriver;
 
-import static org.junit.Assume.assumeNotNull;
-import static org.junit.Assume.assumeTrue;
-
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
+import static org.junit.Assume.assumeNotNull;
+import static org.junit.Assume.assumeTrue;
+
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.core.TestContext;
-import net.atf4j.core.TestResultsReporting;
 
 /**
  * BrowserFactoryn unit tests.
  */
-public final class BrowserFactoryTest extends TestResultsReporting {
+@Slf4j public final class BrowserFactoryTest {
 
     private static final String TEST_URL = "http://127.0.0.1:8080";
 
@@ -165,9 +165,9 @@ public final class BrowserFactoryTest extends TestResultsReporting {
     private void verifyPageLoaded(final WebDriver webDriver) {
         webDriver.get(TEST_URL);
         final String currentUrl = webDriver.getCurrentUrl();
-        this.log.info(currentUrl);
+        log.info(currentUrl);
         final String pageTitle = webDriver.getTitle();
-        this.log.info(pageTitle);
+        log.info(pageTitle);
     }
 
 }

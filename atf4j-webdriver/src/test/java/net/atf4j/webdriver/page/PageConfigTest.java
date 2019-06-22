@@ -17,17 +17,17 @@
 
 package net.atf4j.webdriver.page;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 
+import static org.junit.Assert.assertNotNull;
+
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
-import net.atf4j.core.TestResultsReporting;
 
 /**
  * PageConfigTest.
  */
-public final class PageConfigTest extends TestResultsReporting {
+@Slf4j public final class PageConfigTest {
 
 	/**
 	 * Mock Page Atf4jConfiguration.
@@ -55,7 +55,7 @@ public final class PageConfigTest extends TestResultsReporting {
 	@Test
 	public void testPageConfig() throws ConfigurationNotLoadedException {
 		final PageConfig pageConfig = new MockPageConfig();
-		this.log.debug("pageConfig = {}", pageConfig);
+		log.debug("pageConfig = {}", pageConfig);
 		assertNotNull("unexpected null", pageConfig);
 	}
 }

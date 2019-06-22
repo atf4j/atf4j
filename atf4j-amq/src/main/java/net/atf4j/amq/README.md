@@ -18,12 +18,10 @@ In command line shell run:
 
     mvn test
 
-## Overriding options
-
-    mvn -Doptions="value" test
-
 ## Example Code
 ### Message Finder
+Find all the message files within a folder, traversing sub-directories as necessary, allows file filters to be applied.
+
 
         final MessageFinder folderWalker = new MessageFinder();
         verifyNotNull(folderWalker);
@@ -36,6 +34,8 @@ In command line shell run:
 
 ### Message Producer
 
+Messages can be added to a queue.
+
         final String[] messages = ...;
 
         final Producer producer = new Producer();
@@ -43,6 +43,9 @@ In command line shell run:
 
 ### Message Consumer
 
+Messages can be consumed from a queue.
+
         final Consumer consumer = new Consumer();
         final String[] messages = consumer.execute();
  
+

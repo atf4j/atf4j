@@ -24,12 +24,12 @@ import java.net.URL;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * AbstractWalker Class.
  */
-public abstract class AbstractFolderWalker extends TestResultsReporting {
+@Slf4j public abstract class AbstractFolderWalker {
 
     /** The base path. */
     private String basePath = ".";
@@ -39,7 +39,7 @@ public abstract class AbstractFolderWalker extends TestResultsReporting {
      */
     public AbstractFolderWalker() {
         super();
-        this.log.debug("AbstractWalker()");
+        log.debug("AbstractWalker()");
     }
 
     /**
@@ -49,7 +49,7 @@ public abstract class AbstractFolderWalker extends TestResultsReporting {
      */
     public AbstractFolderWalker(final String basePath) {
         super();
-        this.log.debug("AbstractWalker({})", basePath);
+        log.debug("AbstractWalker({})", basePath);
         setBasePath(basePath);
     }
 
@@ -80,7 +80,7 @@ public abstract class AbstractFolderWalker extends TestResultsReporting {
      * @return the abstract walker
      */
     protected AbstractFolderWalker walk(final String path) {
-        this.log.trace("walk({})", path);
+        log.trace("walk({})", path);
         final URL resource = this.getClass().getResource(path);
         walk(resource);
         return this;
@@ -92,17 +92,17 @@ public abstract class AbstractFolderWalker extends TestResultsReporting {
      * @param url the url
      */
     protected void walk(final URL url) {
-        this.log.trace("walk({})", url);
+        log.trace("walk({})", url);
         if (url != null) {
             URI uri;
             try {
                 uri = url.toURI();
                 walk(uri);
             } catch (final URISyntaxException e) {
-                this.log.error(e.toString());
+                log.error(e.toString());
             }
         } else {
-            this.log.error("url is null");
+            log.error("url is null");
         }
     }
 
@@ -112,12 +112,12 @@ public abstract class AbstractFolderWalker extends TestResultsReporting {
      * @param uri the uri
      */
     protected void walk(final URI uri) {
-        this.log.trace("walk({})", uri);
+        log.trace("walk({})", uri);
         if (uri != null) {
             final File root = Paths.get(uri).toFile();
             walk(root);
         } else {
-            this.log.error("uri is null");
+            log.error("uri is null");
         }
     }
 
@@ -127,12 +127,12 @@ public abstract class AbstractFolderWalker extends TestResultsReporting {
      * @param root the root
      */
     protected void walk(final File root) {
-        this.log.trace("walk({})", root);
+        log.trace("walk({})", root);
         if (root != null) {
             final File[] list = root.listFiles();
             walk(list);
         } else {
-            this.log.error("root is null");
+            log.error("root is null");
         }
     }
 
@@ -142,9 +142,9 @@ public abstract class AbstractFolderWalker extends TestResultsReporting {
      * @param list the list
      */
     protected void walk(final File[] list) {
-        this.log.trace("walk({})", Arrays.toString(list));
+        log.trace("walk({})", Arrays.toString(list));
         if (list != null) {
-            this.log.trace("length:{}", list.length);
+            log.trace("length:{}", list.length);
             for (final File file : list) {
                 if (file.isDirectory()) {
                     walk(file.getAbsolutePath());
@@ -153,7 +153,7 @@ public abstract class AbstractFolderWalker extends TestResultsReporting {
                 }
             }
         } else {
-            this.log.error("listFiles is null");
+            log.error("listFiles is null");
         }
     }
 
@@ -163,7 +163,7 @@ public abstract class AbstractFolderWalker extends TestResultsReporting {
      * @param file the file
      */
     protected void processFile(final File file) {
-        this.log.debug("processFile({})", file.getName());
+        log.debug("processFile({})", file.getName());
     }
 
     /*

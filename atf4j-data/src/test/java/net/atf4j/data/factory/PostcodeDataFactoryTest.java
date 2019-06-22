@@ -17,18 +17,21 @@
 
 package net.atf4j.data.factory;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.Postcode;
 
 /**
  * The PostcodeDataFactoryTest class.
  */
-public final class PostcodeDataFactoryTest extends TestResultsReporting {
+@Slf4j
+public final class PostcodeDataFactoryTest {
 
     /**
      * Test postcode random.
@@ -48,11 +51,11 @@ public final class PostcodeDataFactoryTest extends TestResultsReporting {
     @Test
     public void testPostcodeRandom() {
         final Postcode postcode = PostcodeDataFactory.random();
-        this.log.info("postcode = {}", postcode);
+        log.info("postcode = {}", postcode);
         verifyNotNull(postcode);
 
         final boolean valid = Postcode.verify(postcode.toString());
-        this.log.info("Postcode.verify({}) = {}", postcode, valid);
+        log.info("Postcode.verify({}) = {}", postcode, valid);
         assertTrue(valid);
     }
 
@@ -62,7 +65,7 @@ public final class PostcodeDataFactoryTest extends TestResultsReporting {
     @Test
     public void testPostcodeGetInstance() {
         final PostcodeDataFactory postcodeDataFactory = PostcodeDataFactory.getInstance();
-        this.log.debug("PostcodeDataFactory.getInstance() = {}", postcodeDataFactory);
+        log.debug("PostcodeDataFactory.getInstance() = {}", postcodeDataFactory);
         verifyNotNull(postcodeDataFactory);
 
         final PostcodeDataFactory same = PostcodeDataFactory.getInstance();

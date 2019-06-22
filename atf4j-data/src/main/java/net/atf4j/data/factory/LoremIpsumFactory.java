@@ -21,12 +21,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.Text;
 
 /**
  * Lorem Ipsum text generator.
  */
-public final class LoremIpsumFactory extends AbstractDataFactory {
+@Slf4j public final class LoremIpsumFactory extends AbstractDataFactory {
 
     /** LOREM_IPSUM_TXT. */
     private static final String LOREM_IPSUM_TXT = "lorem-ipsum.txt";
@@ -72,14 +73,14 @@ public final class LoremIpsumFactory extends AbstractDataFactory {
             final String sanitised = row.replace(",", "").replace(".", "").replace("?", "");
             if (sanitised.length() > 0) {
                 final String[] words = sanitised.split("\\W");
-                this.log.debug(Arrays.toString(words));
+                log.debug(Arrays.toString(words));
                 for (final String word : words) {
                     this.words.add(word.trim().toLowerCase());
                 }
             }
         }
         this.bounds = this.words.size();
-        this.log.debug(Arrays.toString(this.words.toArray()));
+        log.debug(Arrays.toString(this.words.toArray()));
     }
 
     /**

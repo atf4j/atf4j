@@ -25,16 +25,15 @@ import java.io.FilenameFilter;
  */
 public class MessageFinder extends AbstractFolderWalker {
 
-    /** Default file extension . */
-    private static final String MSG_FILE = ".msg";
-
     /**
      * Xml Filter class.
      */
-    public class XmlFilter implements FilenameFilter {
+    public class MsgFilter implements FilenameFilter {
+        /** Default file extension . */
+        private static final String MSG_FILE = ".msg";
+
         /*
          * (non-Javadoc)
-         *
          * @see java.io.FilenameFilter#accept(java.io.File, java.lang.String)
          */
         @Override
@@ -48,9 +47,26 @@ public class MessageFinder extends AbstractFolderWalker {
      */
     public MessageFinder() {
         super();
-        final XmlFilter extensionFilter = new XmlFilter();
+        final FilenameFilter extensionFilter = new MsgFilter();
         super.useExtensionFilter(extensionFilter);
-        walk();
+    }
+
+    /**
+     * Instantiates a new message finder.
+     *
+     * @param path the path
+     */
+    public MessageFinder(final String path) {
+        super(path);
+    }
+
+    /**
+     * Instantiates a new message finder.
+     *
+     * @param extensionFilter the extension filter
+     */
+    public MessageFinder(final FilenameFilter extensionFilter) {
+        super(extensionFilter);
     }
 
 }

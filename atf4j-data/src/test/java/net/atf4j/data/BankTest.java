@@ -17,16 +17,19 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertEquals;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertEquals;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A Unit test class for Bank objects.
  */
-public final class BankTest extends TestResultsReporting {
+@Slf4j
+public final class BankTest {
 
     /**
      * Unit tests to create a blank Bank object.
@@ -35,7 +38,7 @@ public final class BankTest extends TestResultsReporting {
     public void testCreate() {
         final Bank bank = Bank.create();
         verifyNotNull(bank);
-        this.log.debug("Bank.create() = {}", bank);
+        log.debug("Bank.create() = {}", bank);
     }
 
     /**
@@ -45,7 +48,7 @@ public final class BankTest extends TestResultsReporting {
     public void testRandom() {
         final Bank bank = Bank.random();
         verifyNotNull(bank);
-        this.log.debug("Bank.random() = {}", bank);
+        log.debug("Bank.random() = {}", bank);
     }
 
     /**
@@ -55,7 +58,7 @@ public final class BankTest extends TestResultsReporting {
     public void testDefaultConstructor() {
         final Bank bank = new Bank();
         verifyNotNull(bank);
-        this.log.debug("new Bank() = {}", bank);
+        log.debug("new Bank() = {}", bank);
     }
 
     /**
@@ -65,7 +68,7 @@ public final class BankTest extends TestResultsReporting {
     public void testBank() {
         final Bank bank = new Bank("");
         verifyNotNull(bank);
-        this.log.debug("new Bank('') = {}", bank);
+        log.debug("new Bank('') = {}", bank);
     }
 
     /**
@@ -86,7 +89,7 @@ public final class BankTest extends TestResultsReporting {
     public void testDebugString() {
         final String string = new Bank().debugString();
         verifyNotNull(string);
-        this.log.debug("Bank().debugString() = {}", string);
+        log.debug("Bank().debugString() = {}", string);
     }
 
     /**
@@ -96,6 +99,6 @@ public final class BankTest extends TestResultsReporting {
     public void testToString() {
         final String string = new Bank().toString();
         verifyNotNull(string);
-        this.log.debug("Bank().toString() = {}", string);
+        log.debug("Bank().toString() = {}", string);
     }
 }

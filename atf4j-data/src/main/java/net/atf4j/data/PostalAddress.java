@@ -17,16 +17,14 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertTrue;
-
 import java.util.Arrays;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Address data class.
  */
-public class PostalAddress extends TestResultsReporting {
+public class PostalAddress {
 
     /** The address lines. */
     private String[] addressLines = new String[8];

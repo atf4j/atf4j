@@ -3,18 +3,17 @@ package net.atf4j.ddt;
 
 import org.junit.Ignore;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.ExpectedData;
 
 /**
  * Unit tests for ExpectedData class.
  */
-public final class ExpectedDataTest {
+@Slf4j public final class ExpectedDataTest {
 
     /** PLATFORM constant. */
     private static final String PLATFORM = "dev";
@@ -23,7 +22,7 @@ public final class ExpectedDataTest {
     private static final String TAG = "@AUTHORISED";
 
     /** Provides logging. */
-    private static final Logger LOG = LoggerFactory.getLogger(ExpectedDataTest.class);
+    
 
     /**
      * Unit test to expected data from csv.
@@ -34,7 +33,7 @@ public final class ExpectedDataTest {
     public void testExpectedDataFromCsv() throws Exception {
         ExpectedData fromCsv = ExpectedData.fromCsv();
         assertNotNull(fromCsv);
-        LOG.info("{}", fromCsv);
+        log.info("{}", fromCsv);
     }
 
     /**
@@ -46,7 +45,7 @@ public final class ExpectedDataTest {
     public void testExpectedDataFromNamedCsv() throws Exception {
         ExpectedData fromCsv = ExpectedData.fromCsv("data.csv");
         assertNotNull(fromCsv);
-        LOG.info("{}", fromCsv);
+        log.info("{}", fromCsv);
     }
 
     /**
@@ -58,7 +57,7 @@ public final class ExpectedDataTest {
     public void testExpectedDataFromXml() throws Exception {
         ExpectedData fromXml = ExpectedData.fromXml();
         assertNotNull(fromXml);
-        LOG.info("{}", fromXml);
+        log.info("{}", fromXml);
     }
 
     /**
@@ -70,7 +69,7 @@ public final class ExpectedDataTest {
     public void testExpectedDataFromNamedXml() throws Exception {
         ExpectedData fromXml = ExpectedData.fromXml("data.xml");
         assertNotNull(fromXml);
-        LOG.info("{}", fromXml);
+        log.info("{}", fromXml);
     }
 
     /**
@@ -82,7 +81,7 @@ public final class ExpectedDataTest {
     public void testExpectedDataFromJson() throws Exception {
         ExpectedData fromJson = ExpectedData.fromJson();
         assertNotNull(fromJson);
-        LOG.info("{}", fromJson);
+        log.info("{}", fromJson);
     }
 
     /**
@@ -94,7 +93,7 @@ public final class ExpectedDataTest {
     public void testExpectedDataFromNamedJson() throws Exception {
         ExpectedData fromJson = ExpectedData.fromJson("data.json");
         assertNotNull(fromJson);
-        LOG.info("{}", fromJson);
+        log.info("{}", fromJson);
     }
 
     /**

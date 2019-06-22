@@ -19,12 +19,10 @@ package net.atf4j.fdd.model;
 
 import java.util.UUID;
 
-import net.atf4j.core.TestResultsReporting;
-
 /**
  * Unique TestIdentifier TODO : Make serializable?.
  */
-public class TestIdentifier extends TestResultsReporting {
+public class TestIdentifier {
 
     /** The uuid. */
     private UUID uuid;

@@ -17,17 +17,20 @@
 
 package net.atf4j.data.manager.jdbc;
 
-import static org.junit.Assert.assertNotNull;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertNotNull;
+
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.manager.MockJdbcData;
 
 /**
  * A UnitTest for JdbcData objects.
  */
-public final class JdbcDataTest extends TestResultsReporting {
+@Slf4j
+public final class JdbcDataTest {
 
     /**
      * Test default constructor.
@@ -35,7 +38,7 @@ public final class JdbcDataTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final MockJdbcData jdbcData = new MockJdbcData();
-        this.log.debug("new JdbcData() = {}", jdbcData);
+        log.debug("new JdbcData() = {}", jdbcData);
         verifyNotNull(jdbcData);
     }
 
@@ -45,7 +48,7 @@ public final class JdbcDataTest extends TestResultsReporting {
     @Test
     public void testSetUp() {
         final MockJdbcData jdbcData = new MockJdbcData();
-        this.log.debug("new JdbcData() = {}", jdbcData);
+        log.debug("new JdbcData() = {}", jdbcData);
         assertNotNull(jdbcData);
         verifyNotNull(jdbcData);
     }
@@ -56,7 +59,7 @@ public final class JdbcDataTest extends TestResultsReporting {
     @Test
     public void testReset() {
         final MockJdbcData jdbcData = new MockJdbcData();
-        this.log.debug("new JdbcData() = {}", jdbcData);
+        log.debug("new JdbcData() = {}", jdbcData);
         assertNotNull(jdbcData);
         verifyNotNull(jdbcData);
     }
@@ -67,7 +70,7 @@ public final class JdbcDataTest extends TestResultsReporting {
     @Test
     public void testTearDown() {
         final MockJdbcData jdbcData = new MockJdbcData();
-        this.log.debug("new JdbcData() = {}", jdbcData);
+        log.debug("new JdbcData() = {}", jdbcData);
         assertNotNull(jdbcData);
         verifyNotNull(jdbcData);
     }

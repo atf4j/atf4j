@@ -17,14 +17,17 @@
 
 package net.atf4j.fdd;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Behaviour Fail Test class.
  */
-public final class BehaviourFailTest extends TestResultsReporting {
+@Slf4j
+public final class BehaviourFailTest {
 
     /**
      * Test Given.
@@ -32,7 +35,7 @@ public final class BehaviourFailTest extends TestResultsReporting {
     @Test
     @Feature.Given("testGiven")
     public void testGiven() {
-        this.log.debug("testGiven");
+        log.debug("testGiven");
         final Given given = new Given();
         verifyNotNull(given);
         verifyNotNull(given.execute());
@@ -44,7 +47,7 @@ public final class BehaviourFailTest extends TestResultsReporting {
     @Test
     @Feature.When("testWhen")
     public void testWhen() {
-        this.log.debug("testGiven");
+        log.debug("testGiven");
         final When when = new When();
         verifyNotNull(when);
         verifyNotNull(when.execute());
@@ -56,7 +59,7 @@ public final class BehaviourFailTest extends TestResultsReporting {
     @Test
     @Feature.Then("testThen")
     public void testThen() {
-        this.log.debug("testGiven");
+        log.debug("testGiven");
         final Then then = new Then();
         verifyNotNull(then);
         verifyNotNull(then.execute());

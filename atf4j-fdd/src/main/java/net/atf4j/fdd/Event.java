@@ -17,9 +17,11 @@
 
 package net.atf4j.fdd;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Event.
  */
-public final class Event extends AbstractEvent {
+@Slf4j public final class Event extends AbstractEvent {
 
 }

@@ -14,18 +14,16 @@
 
 package net.atf4j.annotations;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 /**
  * An AnnotatedTest class.
  */
 @Atf4j.TestScript
-public class AnnotationHelperTest extends TestResultsReporting {
+public class AnnotationHelperTest {
 
     /** TEST_FAIL_ID constant. */
     private static final String TEST_FAIL_ID = "FAIL-0001";

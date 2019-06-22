@@ -17,15 +17,18 @@
 
 package net.atf4j.pog;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.pog.WebElementField.Strategy;
 
 /**
  * A UnitTest for PageObjectGenerator objects.
  */
-public final class PageObjectGeneratorTest extends TestResultsReporting {
+@Slf4j
+public final class PageObjectGeneratorTest {
 
     /** HTTP_ATF4J_NET. */
     private static final String HTTP_ATF4J_NET = "http://atf4j.net";
@@ -50,27 +53,31 @@ public final class PageObjectGeneratorTest extends TestResultsReporting {
 
         final WebElementField nameElement = new WebElementField(Strategy.NAME, "name", "findByName");
 
-        final WebElementField classNameElement = new WebElementField(Strategy.CLASS_NAME, "className",
+        final WebElementField classNameElement = new WebElementField(Strategy.CLASS_NAME,
+                "className",
                 "findByClassName");
 
         final WebElementField linkTextElement = new WebElementField(Strategy.LINK_TEXT, "linkText", "findByLinkText");
 
         final WebElementField partialLinkTextElement = new WebElementField(
-                Strategy.PARTIAL_LINK_TEXT, "partialLinkText", "findByPartialLinkText");
+                Strategy.PARTIAL_LINK_TEXT,
+                "partialLinkText",
+                "findByPartialLinkText");
 
         final WebElementField xpathElement = new WebElementField(Strategy.XPATH,
-                "//a[contains(text(), 'ATF4J')]", "findByXpath");
+                "//a[contains(text(), 'ATF4J')]",
+                "findByXpath");
 
         final WebElementField cssElement = new WebElementField(Strategy.CSS, ".", "findByCss");
 
         pageObjectData
-            .add(idElement)
-            .add(nameElement)
-            .add(classNameElement)
-            .add(linkTextElement)
-            .add(partialLinkTextElement)
-            .add(xpathElement)
-            .add(cssElement);
+                .add(idElement)
+                .add(nameElement)
+                .add(classNameElement)
+                .add(linkTextElement)
+                .add(partialLinkTextElement)
+                .add(xpathElement)
+                .add(cssElement);
 
         pageObjectData.addNav(linkTextElement);
         pageObjectData.addNav(partialLinkTextElement);

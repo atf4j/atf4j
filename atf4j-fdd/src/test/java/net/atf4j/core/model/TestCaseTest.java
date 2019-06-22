@@ -17,21 +17,24 @@
 
 package net.atf4j.core.model;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
+import net.atf4j.core.TestReport;
 import net.atf4j.core.VerificationError;
 import net.atf4j.fdd.model.Condition;
 import net.atf4j.fdd.model.TestCase;
-import net.atf4j.fdd.model.TestReport;
 import net.atf4j.fdd.model.TestStep;
 
 /**
  * A UnitTest for TestCase objects.
  */
-public class TestCaseTest extends TestResultsReporting {
+@Slf4j
+public class TestCaseTest {
 
     /**
      * The TestCaseReport Class.
@@ -59,7 +62,7 @@ public class TestCaseTest extends TestResultsReporting {
     @Test
     public void testTypical() {
         final TestCase testBase = new TestCase();
-        this.log.info("testCase = {}", testBase);
+        log.info("testCase = {}", testBase);
         verifyNotNull(testBase);
         testBase.execute();
     }

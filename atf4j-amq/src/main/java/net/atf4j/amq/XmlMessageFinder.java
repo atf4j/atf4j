@@ -25,16 +25,15 @@ import java.io.FilenameFilter;
  */
 public class XmlMessageFinder extends AbstractFolderWalker {
 
-    /** Default file extension . */
-    private static final String XML_FILE = ".xml";
-
     /**
      * Xml Filter class.
      */
     public class XmlFilter implements FilenameFilter {
+        /** Default file extension . */
+        private static final String XML_FILE = ".xml";
+
         /*
          * (non-Javadoc)
-         *
          * @see java.io.FilenameFilter#accept(java.io.File, java.lang.String)
          */
         @Override
@@ -48,9 +47,26 @@ public class XmlMessageFinder extends AbstractFolderWalker {
      */
     public XmlMessageFinder() {
         super();
-        final XmlFilter extensionFilter = new XmlFilter();
+        final FilenameFilter extensionFilter = new XmlFilter();
         super.useExtensionFilter(extensionFilter);
-        walk();
+    }
+
+    /**
+     * Instantiates a new xml message finder.
+     *
+     * @param path the path
+     */
+    public XmlMessageFinder(final String path) {
+        super(path);
+    }
+
+    /**
+     * Instantiates a new xml message finder.
+     *
+     * @param extensionFilter the extension filter
+     */
+    public XmlMessageFinder(final FilenameFilter extensionFilter) {
+        super(extensionFilter);
     }
 
 }

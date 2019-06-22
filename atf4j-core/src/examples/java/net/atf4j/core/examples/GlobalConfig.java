@@ -17,12 +17,13 @@
 
 package net.atf4j.core.examples;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.core.AbstractConfig;
 
 /**
  * Globally accessible ExampleConfiguration class, using static final instance.
  */
-public final class GlobalConfig extends AbstractConfig {
+@Slf4j public final class GlobalConfig extends AbstractConfig {
 
     /** The Constant GLOBAL_CONFIG. */
     private static final GlobalConfig GLOBAL_CONFIG = new GlobalConfig();

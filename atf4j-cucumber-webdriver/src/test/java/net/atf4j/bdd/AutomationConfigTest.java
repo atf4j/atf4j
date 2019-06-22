@@ -17,15 +17,15 @@
 
 package net.atf4j.bdd;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Ignore;
 import org.junit.Test;
-
-import net.atf4j.core.TestResultsReporting;
 
 /**
  * The AutomationConfigTest class.
  */
-public class AutomationConfigTest extends TestResultsReporting {
+public class AutomationConfigTest {
 
     /**
      * Test default constructor.
@@ -33,9 +33,7 @@ public class AutomationConfigTest extends TestResultsReporting {
     @Ignore
     @Test
     public void testDefaultConstructor() {
-        final AutomationConfig config = new AutomationConfig();
-        this.log.debug("config = {}", config);
-        verifyNotNull(config);
+        verifyNotNull(new AutomationConfig());
     }
 
 }

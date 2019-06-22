@@ -17,17 +17,20 @@
 
 package net.atf4j.fdd;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Assert;
 import org.junit.Assume;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Pass Scenario Test class.
  */
-public final class ScenarioPassTest extends TestResultsReporting {
+@Slf4j
+public final class ScenarioPassTest {
 
     /**
      * Test scenario runner.
@@ -35,7 +38,7 @@ public final class ScenarioPassTest extends TestResultsReporting {
     @Ignore
     @Test
     public void testScenarioRunner() {
-        this.log.debug("testScenarioRunner", this.getClass().getSimpleName());
+        log.debug("testScenarioRunner", this.getClass().getSimpleName());
         final ScenarioRunner scenarioRunner = new ScenarioRunner(this);
         verifyNotNull(scenarioRunner);
         verifyNotNull(scenarioRunner.execute());
@@ -46,7 +49,7 @@ public final class ScenarioPassTest extends TestResultsReporting {
      */
     @Feature.Given("Given")
     public void passGiven() {
-        this.log.debug("passGiven");
+        log.debug("passGiven");
         Assume.assumeTrue(true);
     }
 
@@ -55,7 +58,7 @@ public final class ScenarioPassTest extends TestResultsReporting {
      */
     @Feature.When("When")
     public void passWhen() {
-        this.log.debug("passWhen");
+        log.debug("passWhen");
         Assert.assertTrue(true);
     }
 
@@ -64,7 +67,7 @@ public final class ScenarioPassTest extends TestResultsReporting {
      */
     @Feature.Then("Then")
     public void passThen() {
-        this.log.debug("passThen");
+        log.debug("passThen");
         Assert.assertTrue(true);
     }
 

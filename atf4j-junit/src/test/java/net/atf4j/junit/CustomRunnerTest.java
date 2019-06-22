@@ -17,32 +17,48 @@
 
 package net.atf4j.junit;
 
-import static org.junit.Assert.assertTrue;
-
+import org.junit.AssumptionViolatedException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertTrue;
 
-/**
- * The CustomRunnerTest class.
- */
+import static org.junit.Assume.assumeTrue;
+
 @RunWith(value = CustomRunner.class)
-public final class CustomRunnerTest extends TestResultsReporting {
+public final class CustomRunnerTest {
 
     /**
      * Test custom runner with pass.
      */
     @Test
     public void testCustomRunnerWithPass() {
-        assertTrue(true);
+        assumeTrue(passTest());
+        assertTrue(passTest());
+    }
+
+    /**
+     * Test custom runner with fail.
+     */
+    @Test(expected = AssumptionViolatedException.class)
+    public void testCustomRunnerWithFailAssumption() {
+        assumeTrue(fail());
     }
 
     /**
      * Test custom runner with fail.
      */
     @Test(expected = AssertionError.class)
-    public void testCustomRunnerWithFail() {
-        assertTrue(false);
+    public void testCustomRunnerWithFailTest() {
+        assertTrue(fail());
     }
+
+    public boolean passTest() {
+        return true;
+    }
+
+    public boolean fail() {
+        return false;
+    }
+
 }

@@ -17,14 +17,17 @@
 
 package net.atf4j.pog;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A UnitTest for JavaClassGenerator objects.
  */
-public final class JavaClassGeneratorTest extends TestResultsReporting {
+@Slf4j
+public final class JavaClassGeneratorTest {
 
     /**
      * The JavaClassGenerator Class.
@@ -61,7 +64,8 @@ public final class JavaClassGeneratorTest extends TestResultsReporting {
     }
 
     /**
-     * Unit tests for the javaClassGeneratorTestString() method of JavaClassGenerator object.
+     * Unit tests for the javaClassGeneratorTestString() method of
+     * JavaClassGenerator object.
      */
     @Test
     public void testJavaClassGeneratorTestString() {

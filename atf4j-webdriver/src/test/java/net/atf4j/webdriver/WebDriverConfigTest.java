@@ -17,19 +17,22 @@
 
 package net.atf4j.webdriver;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
+import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
-import org.junit.Test;
-
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
-import net.atf4j.core.TestResultsReporting;
 
 /**
  * WebDriverConfigTest class.
  */
-public final class WebDriverConfigTest extends TestResultsReporting {
+@Slf4j
+public final class WebDriverConfigTest {
 
     /**
      * Test method for {net.atf4j.webdriver.WebDriverConfig#WebDriverConfig()}.
@@ -41,7 +44,7 @@ public final class WebDriverConfigTest extends TestResultsReporting {
     public void testDefaultConstructor() throws ConfigurationNotLoadedException {
         final WebDriverConfig config = new WebDriverConfig();
         verifyNotNull(config);
-        this.log.info(config.toString());
+        log.info(config.toString());
     }
 
     /**

@@ -2,8 +2,6 @@
 package net.atf4j.ddt;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -11,22 +9,17 @@ import static org.junit.Assert.assertNull;
 
 import static org.junit.Assume.assumeNotNull;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.Actor;
 import net.atf4j.data.CredentialsFactory;
 
 /**
  * Unit tests for Credentials class.
  */
+@Slf4j
 public final class CredentialsTest {
-
-    /** PLATFORM constant. */
     private static final String PLATFORM = "dev";
-
-    /** TAG constant. */
     private static final String TAG = "@AUTHORISED";
-
-    /** Provides logging. */
-    private static final Logger LOG = LoggerFactory.getLogger(CredentialsTest.class);
 
     /**
      * Unit test to credentials factory static.
@@ -35,7 +28,7 @@ public final class CredentialsTest {
     public void testCredentialsFactoryStatic() {
         final Actor actor = CredentialsFactory.on(PLATFORM).tagged(TAG);
         assertNotNull(actor);
-        LOG.info(actor.toString());
+        log.info(actor.toString());
     }
 
     /**
@@ -46,11 +39,11 @@ public final class CredentialsTest {
         // Given a credentials factory
         final CredentialsFactory credentials = new CredentialsFactory();
         assertNotNull(credentials);
-        LOG.info(credentials.toString());
+        log.info(credentials.toString());
 
         final Actor actor = credentials.onPlatform(PLATFORM).tagged(TAG);
         assertNotNull(actor);
-        LOG.info(actor.toString());
+        log.info(actor.toString());
     }
 
     /**
@@ -61,11 +54,11 @@ public final class CredentialsTest {
         // Given a credentials factory
         final CredentialsFactory credentials = new CredentialsFactory(PLATFORM);
         assertNotNull(credentials);
-        LOG.info(credentials.toString());
+        log.info(credentials.toString());
 
         final Actor actor = credentials.tagged(TAG);
         assertNotNull(actor);
-        LOG.info(actor.toString());
+        log.info(actor.toString());
     }
 
     /**
@@ -84,7 +77,7 @@ public final class CredentialsTest {
         // Given a credentials factory
         final CredentialsFactory credentials = new CredentialsFactory(PLATFORM);
         assumeNotNull(credentials);
-        LOG.info(credentials.toString());
+        log.info(credentials.toString());
 
         // When we retrieve admin credentials
         final Actor actor = credentials.tagged("@ADMIN");
@@ -92,7 +85,7 @@ public final class CredentialsTest {
         assertEquals("admin", actor.getUsername());
         assertEquals("password", actor.getPassword());
         assertEquals("admin@example.com", actor.getEmail());
-        LOG.info(actor.toString());
+        log.info(actor.toString());
     }
 
     /**

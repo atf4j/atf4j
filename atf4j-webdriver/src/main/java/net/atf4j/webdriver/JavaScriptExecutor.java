@@ -20,10 +20,12 @@ package net.atf4j.webdriver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * The JavaScriptExecutor Class.
  */
-public final class JavaScriptExecutor {
+@Slf4j public final class JavaScriptExecutor {
 
 	/**
 	 * Private to prevent wild construction.

@@ -17,20 +17,23 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import org.junit.Ignore;
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.Postcode.InvalidPostcodeException;
 
 /**
  * A Unit test class for Postcode objects.
  */
-public final class PostcodeTest extends TestResultsReporting {
+@Slf4j
+public final class PostcodeTest {
 
     /** The Constant BLANK_POSTCODE. */
     private static final String BLANK_POSTCODE = "";
@@ -53,7 +56,7 @@ public final class PostcodeTest extends TestResultsReporting {
     @Test
     public void testDefaultConstructor() {
         final Postcode postcode = new Postcode();
-        this.log.debug("new Postcode() = {}", postcode);
+        log.debug("new Postcode() = {}", postcode);
         verifyNotNull(postcode);
     }
 
@@ -63,7 +66,7 @@ public final class PostcodeTest extends TestResultsReporting {
     @Test
     public void testPostcodeCreate() {
         final Postcode postcode = Postcode.create();
-        this.log.debug("Postcode.create() = {}", postcode);
+        log.debug("Postcode.create() = {}", postcode);
         verifyNotNull(postcode);
     }
 
@@ -76,7 +79,7 @@ public final class PostcodeTest extends TestResultsReporting {
     @Test(expected = InvalidPostcodeException.class)
     public void testPostcodeEmpty() throws InvalidPostcodeException {
         final Postcode invalidPostcode = new Postcode(BLANK_POSTCODE);
-        this.log.debug("new Postcode(BLANK_POSTCODE) = {}", invalidPostcode);
+        log.debug("new Postcode(BLANK_POSTCODE) = {}", invalidPostcode);
         verifyNotNull(invalidPostcode);
     }
 
@@ -88,7 +91,7 @@ public final class PostcodeTest extends TestResultsReporting {
     @Test(expected = InvalidPostcodeException.class)
     public void testInvalidPostcode() throws InvalidPostcodeException {
         final Postcode invalidPostcode = new Postcode(INVALID_POSTCODE);
-        this.log.debug("new Postcode({}) = {}", INVALID_POSTCODE, invalidPostcode);
+        log.debug("new Postcode({}) = {}", INVALID_POSTCODE, invalidPostcode);
         verifyNotNull(invalidPostcode);
     }
 
@@ -101,7 +104,7 @@ public final class PostcodeTest extends TestResultsReporting {
     @Test(expected = InvalidPostcodeException.class)
     public void testValidPostcode() throws InvalidPostcodeException {
         final Postcode validPostcode = new Postcode(VALID_POSTCODE);
-        this.log.debug("new Postcode({}) = {}", VALID_POSTCODE, validPostcode);
+        log.debug("new Postcode({}) = {}", VALID_POSTCODE, validPostcode);
         verifyNotNull(validPostcode);
     }
 
@@ -113,10 +116,10 @@ public final class PostcodeTest extends TestResultsReporting {
     @Test(expected = InvalidPostcodeException.class)
     public void testSetInvalidPostcode() throws InvalidPostcodeException {
         final Postcode postcode = new Postcode();
-        this.log.debug("new Postcode() = {}", postcode);
+        log.debug("new Postcode() = {}", postcode);
         verifyNotNull(postcode);
         postcode.setPostCode(INVALID_POSTCODE);
-        fail(EXPECTED_EXCEPTION);
+        fail("EXPECTED_EXCEPTION");
     }
 
     /**
@@ -127,7 +130,7 @@ public final class PostcodeTest extends TestResultsReporting {
     @Test
     public void testSetGetPostcode() throws InvalidPostcodeException {
         final Postcode postcode = new Postcode();
-        this.log.debug("postcode = {}", postcode);
+        log.debug("postcode = {}", postcode);
         assertEquals(postcode, postcode.setPostCode(VALID_POSTCODE));
         assertEquals(VALID_POSTCODE, postcode.getPostCode());
     }
@@ -140,12 +143,12 @@ public final class PostcodeTest extends TestResultsReporting {
     @Test
     public void testOutwardPart() throws InvalidPostcodeException {
         final Postcode postcode = new Postcode(VALID_POSTCODE);
-        this.log.debug("postcode = {}", postcode);
+        log.debug("postcode = {}", postcode);
         verifyNotNull(postcode);
         final String outwardCode = postcode.getOutwardCode();
         verifyNotNull(outwardCode);
         assertEquals(EXPECTED_OUTWARD, outwardCode);
-        this.log.debug("outwardCode = {}", outwardCode);
+        log.debug("outwardCode = {}", outwardCode);
     }
 
     /**
@@ -156,11 +159,11 @@ public final class PostcodeTest extends TestResultsReporting {
     @Test
     public void testInwardPart() throws InvalidPostcodeException {
         final Postcode postcode = new Postcode(VALID_POSTCODE);
-        this.log.debug("postcode = {}", postcode);
+        log.debug("postcode = {}", postcode);
         final String inwardCode = postcode.getInwardCode();
         verifyNotNull(inwardCode);
         assertEquals(EXPECTED_INWARD, inwardCode);
-        this.log.debug("inwardCode = {}", inwardCode);
+        log.debug("inwardCode = {}", inwardCode);
     }
 
     /**
@@ -179,12 +182,12 @@ public final class PostcodeTest extends TestResultsReporting {
     @Test
     public void testToString() throws InvalidPostcodeException {
         final Postcode postcode = new Postcode(VALID_POSTCODE);
-        this.log.debug("postcode = {}", postcode);
+        log.debug("postcode = {}", postcode);
         verifyNotNull(postcode);
         final String string = postcode.toString();
         verifyNotNull(string);
         assertEquals(VALID_POSTCODE, string);
-        this.log.debug("postcode = {}", postcode);
+        log.debug("postcode = {}", postcode);
     }
 
 }

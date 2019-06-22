@@ -17,10 +17,12 @@
 
 package net.atf4j.data;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Postcode Data Class.
  */
-public final class PostcodeData extends CsvFile {
+@Slf4j public final class PostcodeData extends CsvFile {
 
     /** INSTANCE. */
     private static final PostcodeData POSTCODE_DATA = new PostcodeData();

@@ -17,12 +17,13 @@
 
 package net.atf4j.data.factory;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.Bank;
 
 /**
  * BankAccountFactory.
  */
-public final class BankDataFactory extends AbstractDataFactory {
+@Slf4j public final class BankDataFactory extends AbstractDataFactory {
 
     /** The Constant BANK_DATA_CSV. */
     private static final String BANK_DATA_CSV = "sortcodesData.csv";

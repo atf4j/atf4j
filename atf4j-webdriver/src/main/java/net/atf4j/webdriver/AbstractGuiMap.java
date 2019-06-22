@@ -23,12 +23,14 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * A base abstraction to encapsulate GUI Mapping logical elements. Uses Resource
  * Bundles with basename_languageCode_countryCode example: PageObjectGuiMap uses
  * PageObjectGuiMap_en_GB.properties
  */
-public abstract class AbstractGuiMap {
+@Slf4j public abstract class AbstractGuiMap {
 
     /** The resource bundle. */
     private final ResourceBundle resourceBundle;

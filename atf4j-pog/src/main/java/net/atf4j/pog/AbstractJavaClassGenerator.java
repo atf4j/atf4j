@@ -17,9 +17,7 @@
 
 package net.atf4j.pog;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assume.assumeNotNull;
-import static org.junit.Assume.assumeTrue;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -34,14 +32,20 @@ import java.util.List;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertTrue;
+
+import static org.junit.Assume.assumeNotNull;
+import static org.junit.Assume.assumeTrue;
+
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.core.TimeStamp;
 import net.atf4j.core.VerificationError;
 
 /**
  * Abstract Code Generator class.
  */
-public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
+@Slf4j
+public abstract class AbstractJavaClassGenerator {
 
     /** Default template folder. */
     private static final String DEFAULT_CLASS_TEMPLATE = "templates/Class.vm";
@@ -208,7 +212,9 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
 
     /**
      * The name.
-     *
+     * 
+     * The name
+     * 
      * The name
      *
      * @param className the class name
@@ -293,6 +299,8 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
 
     /**
      * Adds the field.
+     * 
+     * The field
      *
      * @param classField the class field
      * @return this for a fluent interface.
@@ -317,7 +325,9 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
 
     /**
      * Adds the method.
-     *
+     * 
+     * The method
+     * 
      * The method
      *
      * @param classMethod the class method
@@ -416,7 +426,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
             writer.flush();
             writer.close();
         } catch (final IOException e) {
-            this.log.error(e.toString());
+            log.error(e.toString());
             throw new CodeNotGeneratedException(this.className);
         }
     }
@@ -429,7 +439,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
      * @throws TemplateNotLoadedException the template not loaded
      */
     private InputStreamReader templateReader(final String templateFilename) throws TemplateNotLoadedException {
-        this.log.debug("templateFilename = {}", templateFilename);
+        log.debug("templateFilename = {}", templateFilename);
         final InputStream resourceAsStream = resourceAsStream(templateFilename);
         if (resourceAsStream == null) {
             throw new TemplateNotLoadedException(templateFilename);
@@ -454,12 +464,13 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
      *
      * @param targetPath the target path
      *            The name
+     * The name
      * @param className the class name
      * @return the string
      */
     private String targetFilename(final String targetPath, final String className) {
         final String targetFile = String.format("%s/%s.java", targetPath, className);
-        this.log.debug("generatedFile = {}", targetFile);
+        log.debug("generatedFile = {}", targetFile);
         return targetFile;
     }
 
@@ -474,7 +485,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
         verifyNotNull(homeFolder);
         verifyNotNull(packageFolder);
         final String targetPath = String.format("%s/%s", homeFolder, packageFolder);
-        this.log.debug("targetPath = {}", targetPath);
+        log.debug("targetPath = {}", targetPath);
         new File(targetPath).mkdirs();
         return targetPath;
     }
@@ -487,7 +498,7 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
      */
     private String packageFolder(final String packageName) {
         final String packageFolder = packageName.replace('.', File.separatorChar);
-        this.log.debug("packageFolder = {}", packageFolder);
+        log.debug("packageFolder = {}", packageFolder);
         return packageFolder;
     }
 
@@ -498,19 +509,18 @@ public abstract class AbstractJavaClassGenerator extends TestResultsReporting {
      */
     public String debugString() {
         return String.format(
-                "%s [templateFilename=%s, packageName=%s, className=%s, fields=%s, methods=%s, targetHomeFolder=%s]",
-                this.getClass().getSimpleName(),
-                this.templateFilename,
-                this.packageName,
-                this.className,
-                this.fields,
-                this.methods,
-                this.targetHomeFolder);
+            "%s [templateFilename=%s, packageName=%s, className=%s, fields=%s, methods=%s, targetHomeFolder=%s]",
+            this.getClass().getSimpleName(),
+            this.templateFilename,
+            this.packageName,
+            this.className,
+            this.fields,
+            this.methods,
+            this.targetHomeFolder);
     }
 
     /*
      * (non-Javadoc)
-     *
      * @see java.lang.Object#toString()
      */
     @Override

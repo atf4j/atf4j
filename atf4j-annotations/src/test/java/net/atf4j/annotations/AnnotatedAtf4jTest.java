@@ -17,11 +17,16 @@
 
 package net.atf4j.annotations;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A UnitTest for AnnotatedTest objects.
  */
+@Slf4j
 public class AnnotatedAtf4jTest extends AbstractAtf4jAnnotation {
 
     /**
@@ -31,10 +36,10 @@ public class AnnotatedAtf4jTest extends AbstractAtf4jAnnotation {
      */
     @Test
     public void testTestTag() throws Exception {
-        this.log.debug("testTestTag", this.getClass().getSimpleName());
+        log.debug("testTestTag", this.getClass().getSimpleName());
         final String testTag = super.getTestTag();
         verifyNotNull(testTag);
-        this.log.info("testTag = {}", testTag);
+        log.info("testTag = {}", testTag);
     }
 
     /**
@@ -44,10 +49,10 @@ public class AnnotatedAtf4jTest extends AbstractAtf4jAnnotation {
      */
     @Test
     public void testTestId() throws Exception {
-        this.log.debug("testTestId", this.getClass().getSimpleName());
+        log.debug("testTestId", this.getClass().getSimpleName());
         final String testId = super.getTestId();
         verifyNotNull(testId);
-        this.log.info("testId = {}", testId);
+        log.info("testId = {}", testId);
     }
 
     /**
@@ -55,10 +60,10 @@ public class AnnotatedAtf4jTest extends AbstractAtf4jAnnotation {
      */
     @Test
     public void testTestName() {
-        this.log.debug("testTestName", this.getClass().getSimpleName());
+        log.debug("testTestName", this.getClass().getSimpleName());
         final String testName = super.getTestName();
         verifyNotNull(testName);
-        this.log.info("testName = {}", testName);
+        log.info("testName = {}", testName);
     }
 
     /**
@@ -66,10 +71,10 @@ public class AnnotatedAtf4jTest extends AbstractAtf4jAnnotation {
      */
     @Test
     public void testTestDescription() {
-        this.log.debug("testTestDescription", this.getClass().getSimpleName());
+        log.debug("testTestDescription", this.getClass().getSimpleName());
         final String testDescription = super.getTestDescription();
         verifyNotNull(testDescription);
-        this.log.info("testDescription = {}", testDescription);
+        log.info("testDescription = {}", testDescription);
     }
 
 }

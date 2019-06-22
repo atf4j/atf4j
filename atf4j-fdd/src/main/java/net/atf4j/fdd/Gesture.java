@@ -1,7 +1,7 @@
 package net.atf4j.fdd;
 
 /**
- * The Class Gesture.
+ * The Gesture.
  */
 public class Gesture {
 

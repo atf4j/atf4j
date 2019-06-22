@@ -21,13 +21,12 @@ import java.util.ArrayDeque;
 import java.util.Collection;
 
 import net.atf4j.core.TestResult;
-import net.atf4j.core.TestResultsReporting;
 
 
 /**
  * TestResults.
  */
-public class TestResults extends TestResultsReporting {
+public class TestResults {
 
     /** The test results. */
     private final Collection<TestResult> testResults = new ArrayDeque<TestResult>();

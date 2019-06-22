@@ -17,19 +17,19 @@
 
 package net.atf4j.core.timers;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
-import net.atf4j.core.timers.Interval;
-import net.atf4j.core.timers.IntervalInterface;
+import static org.junit.Assert.assertEquals;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A UnitTest for Interval objects.
  */
-public class IntervalTest extends TestResultsReporting {
+@Slf4j
+public class IntervalTest {
 
     /**
      * Test method for Interval.
@@ -38,7 +38,7 @@ public class IntervalTest extends TestResultsReporting {
     public void testInterval() {
         final IntervalInterface interval = new Interval();
         log.debug("interval = {}", interval);
-        assertNotNull(interval);
+        verifyNotNull(interval);
     }
 
     /**

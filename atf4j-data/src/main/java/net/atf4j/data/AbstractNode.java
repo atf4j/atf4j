@@ -17,13 +17,15 @@
 
 package net.atf4j.data;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Node Class.
  *
  * @param <L> the generic type
  * @param <R> the generic type
  */
-public abstract class AbstractNode<L, R> {
+@Slf4j public abstract class AbstractNode<L, R> {
 
     /** The left. */
     private L left = null;

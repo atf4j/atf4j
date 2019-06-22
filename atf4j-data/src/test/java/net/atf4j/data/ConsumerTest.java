@@ -17,16 +17,19 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertNotNull;
+import static net.atf4j.core.Verify.verifyNotNull;
 
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertNotNull;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * The ConsumerTest class.
  */
-public final class ConsumerTest extends TestResultsReporting {
+@Slf4j
+public final class ConsumerTest {
 
     /**
      * Test consumer.

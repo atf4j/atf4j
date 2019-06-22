@@ -17,15 +17,18 @@
 
 package net.atf4j.data.factory;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.Customer;
 
 /**
  * Unit Test Suite for the CustomerDataFactory.
  */
-public final class CustomerDataFactoryTest extends TestResultsReporting {
+@Slf4j
+public final class CustomerDataFactoryTest {
 
     /**
      * Test method for void.
@@ -34,7 +37,7 @@ public final class CustomerDataFactoryTest extends TestResultsReporting {
     public void testCreate() {
         final Customer customer = CustomerDataFactory.create();
         verifyNotNull(customer);
-        this.log.debug("CustomerDataFactory.create() = {}", customer);
+        log.debug("CustomerDataFactory.create() = {}", customer);
     }
 
     /**
@@ -44,7 +47,7 @@ public final class CustomerDataFactoryTest extends TestResultsReporting {
     public void testRandom() {
         final Customer customer = CustomerDataFactory.random();
         verifyNotNull(customer);
-        this.log.debug("CustomerDataFactory.random() = {}", customer);
+        log.debug("CustomerDataFactory.random() = {}", customer);
     }
 
     /**
@@ -54,6 +57,6 @@ public final class CustomerDataFactoryTest extends TestResultsReporting {
     public void testGetInstance() {
         final CustomerDataFactory customerDataFactory = CustomerDataFactory.getInstance();
         verifyNotNull(customerDataFactory);
-        this.log.debug("new CustomerDataFactory() = {}", customerDataFactory);
+        log.debug("new CustomerDataFactory() = {}", customerDataFactory);
     }
 }

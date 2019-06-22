@@ -14,13 +14,14 @@
 
 package net.atf4j.annotations;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
+import net.atf4j.core.AbstractTestReport;
 
 /**
  * An abstract class for test annotations of the Automated Testing framework.
  */
 @Atf4j.TestScript
-public abstract class AbstractAtf4jAnnotation extends TestResultsReporting {
+@Slf4j public abstract class AbstractAtf4jAnnotation {
 
     /**
      * Instantiates a new abstract annotated test.

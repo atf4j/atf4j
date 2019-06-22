@@ -17,12 +17,13 @@
 
 package net.atf4j.data.factory;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.Business;
 
 /**
  * Business Data Factory.
  */
-public final class BusinessDataFactory extends AbstractDataFactory {
+@Slf4j public final class BusinessDataFactory extends AbstractDataFactory {
 
     /** The business data factory. */
     private static BusinessDataFactory businessDataFactory = null;

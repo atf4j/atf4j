@@ -22,17 +22,18 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import lombok.extern.slf4j.Slf4j;
+import net.atf4j.core.TestReport;
 import net.atf4j.core.TestResult;
-import net.atf4j.core.TestResultsReporting;
 import net.atf4j.core.VerificationError;
 import net.atf4j.fdd.model.AbstractTestBase;
 import net.atf4j.fdd.model.TestIdentifier;
-import net.atf4j.fdd.model.TestReport;
 
 /**
  * Test for abstract class TestBase.
  */
-public class AbstractTestBaseTest extends TestResultsReporting {
+@Slf4j
+public class AbstractTestBaseTest {
 
     /**
      * Passing Test Base class.
@@ -80,7 +81,7 @@ public class AbstractTestBaseTest extends TestResultsReporting {
         testBase.setDescription("description");
         testBase.setTaxonomy("taxonomy");
         testBase.setTester("tester");
-        this.log.debug(testBase.debugString());
+        log.debug(testBase.debugString());
     }
 
     /**

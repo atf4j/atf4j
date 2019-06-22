@@ -17,6 +17,8 @@
 
 package net.atf4j.data;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 /**
  * Business data.
  */
@@ -128,7 +130,6 @@ public class Business extends Name {
 
     /*
      * (non-Javadoc)
-     *
      * @see net.atf4j.data.Name#toString()
      */
     @Override

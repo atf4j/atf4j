@@ -21,6 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.Bank;
 import net.atf4j.data.Business;
 import net.atf4j.data.Card;
@@ -33,7 +34,7 @@ import net.atf4j.data.Postcode;
 /**
  * Factory for random data.
  */
-public final class DataFactory extends AbstractDataFactory {
+@Slf4j public final class DataFactory extends AbstractDataFactory {
 
     /** The Constant ISO_DATE_TIME. */
     public static final String ISO_DATE_TIME = "yyyy-MM-dd'T'HH:mm'Z'";

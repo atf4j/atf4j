@@ -21,14 +21,15 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
+import net.atf4j.core.AbstractTestReport;
 import net.atf4j.core.VerificationError;
 
 /**
  * MappedTimers. [GOF] Singleton.
  *
  */
-public final class MappedTimers extends TestResultsReporting {
+@Slf4j public final class MappedTimers {
 
     /** Single INSTANCE of this Class. */
     private static final MappedTimers MAPPED_TIMERS = new MappedTimers();

@@ -19,13 +19,14 @@ package net.atf4j.data.factory;
 
 import java.util.Arrays;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.EmailAddress;
 import net.atf4j.data.Person;
 
 /**
  * PersonFactory, a data factory to create data.
  */
-public final class PersonDataFactory extends AbstractDataFactory {
+@Slf4j public final class PersonDataFactory extends AbstractDataFactory {
 
     /** The Constant FEMALE_FORENAMES_TXT. */
     private static final String FEMALE_FORENAMES_TXT = "femaleForenames.txt";

@@ -17,9 +17,9 @@
 
 package net.atf4j.data;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Example class for walker folders looking for message files.

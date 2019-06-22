@@ -17,15 +17,18 @@
 
 package net.atf4j.data.factory;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.Card;
 
 /**
  * A UnitTest for CardDataFactory objects.
  */
-public final class CardDataFactoryTest extends TestResultsReporting {
+@Slf4j
+public final class CardDataFactoryTest {
 
     /**
      * Test method for void.
@@ -33,7 +36,7 @@ public final class CardDataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final Card card = CardDataFactory.create();
-        this.log.debug("CardDataFactory.create() = {}", card);
+        log.debug("CardDataFactory.create() = {}", card);
         verifyNotNull(card);
     }
 
@@ -43,7 +46,7 @@ public final class CardDataFactoryTest extends TestResultsReporting {
     @Test
     public void testRandom() {
         final Card card = CardDataFactory.random();
-        this.log.debug("CardDataFactory.random() = {}", card);
+        log.debug("CardDataFactory.random() = {}", card);
         verifyNotNull(card);
     }
 
@@ -53,7 +56,7 @@ public final class CardDataFactoryTest extends TestResultsReporting {
     @Test
     public void testGetInstance() {
         final CardDataFactory cardDataFactory = CardDataFactory.getInstance();
-        this.log.debug("CardDataFactory.getInstance() = {}", cardDataFactory);
+        log.debug("CardDataFactory.getInstance() = {}", cardDataFactory);
         verifyNotNull(cardDataFactory);
     }
 

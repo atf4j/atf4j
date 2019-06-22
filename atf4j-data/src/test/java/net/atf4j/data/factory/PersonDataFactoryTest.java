@@ -17,16 +17,19 @@
 
 package net.atf4j.data.factory;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Ignore;
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.Person;
 
 /**
  * Unit Test Suite for the PersonDataFactory.
  */
-public final class PersonDataFactoryTest extends TestResultsReporting {
+@Slf4j
+public final class PersonDataFactoryTest {
 
     /**
      * Test create.
@@ -34,7 +37,7 @@ public final class PersonDataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final Person person = PersonDataFactory.create();
-        this.log.debug("PersonDataFactory.create() = {}", person);
+        log.debug("PersonDataFactory.create() = {}", person);
         verifyNotNull(person);
     }
 
@@ -44,7 +47,7 @@ public final class PersonDataFactoryTest extends TestResultsReporting {
     @Test
     public void testRandom() {
         final Person person = PersonDataFactory.random();
-        this.log.debug("PersonDataFactory.create() = {}", person);
+        log.debug("PersonDataFactory.create() = {}", person);
         verifyNotNull(person);
     }
 
@@ -54,7 +57,7 @@ public final class PersonDataFactoryTest extends TestResultsReporting {
     @Test
     public void testGetInstance() {
         final AbstractDataFactory personDataFactory = PersonDataFactory.getInstance();
-        this.log.debug("PersonDataFactory.getInstance() = {}", personDataFactory);
+        log.debug("PersonDataFactory.getInstance() = {}", personDataFactory);
         verifyNotNull(personDataFactory);
         verifyNotNull(personDataFactory.toString());
     }
@@ -65,17 +68,17 @@ public final class PersonDataFactoryTest extends TestResultsReporting {
     @Ignore
     @Test
     public void testExampleUsage() {
-        this.log.info("randomForename() = {}", PersonDataFactory.randomForename());
-        this.log.info("randomMaleForename() = {}", PersonDataFactory.randomMaleForename());
-        this.log.info("randomFemaleForename() = {}", PersonDataFactory.randomFemaleForename());
+        log.info("randomForename() = {}", PersonDataFactory.randomForename());
+        log.info("randomMaleForename() = {}", PersonDataFactory.randomMaleForename());
+        log.info("randomFemaleForename() = {}", PersonDataFactory.randomFemaleForename());
 
-        this.log.info("randomSurname() = {}", PersonDataFactory.randomSurname());
-        this.log.info("randomSurname() = {}", PersonDataFactory.randomSurname());
+        log.info("randomSurname() = {}", PersonDataFactory.randomSurname());
+        log.info("randomSurname() = {}", PersonDataFactory.randomSurname());
 
-        this.log.info("randomFullname() = {}", PersonDataFactory.randomFullname());
-        this.log.info("randomFullname() = {}", PersonDataFactory.randomFullname());
+        log.info("randomFullname() = {}", PersonDataFactory.randomFullname());
+        log.info("randomFullname() = {}", PersonDataFactory.randomFullname());
 
-        this.log.info("randomEmail() = {}", PersonDataFactory.randomEmail());
-        this.log.info("randomEmail() = {}", PersonDataFactory.randomEmail());
+        log.info("randomEmail() = {}", PersonDataFactory.randomEmail());
+        log.info("randomEmail() = {}", PersonDataFactory.randomEmail());
     }
 }

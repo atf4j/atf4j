@@ -17,6 +17,8 @@
 
 package net.atf4j.amq;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import java.util.Arrays;
 
 import javax.jms.JMSException;
@@ -25,13 +27,14 @@ import org.junit.Test;
 
 import static org.junit.Assume.assumeTrue;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.core.TestContext;
-import net.atf4j.core.TestResultsReporting;
 
 /**
  * Unit Test for message Producer class.
  */
-public class ProducerExample extends TestResultsReporting {
+@Slf4j
+public class ProducerExample {
 
     @Test
     public void exampleUsage() throws JMSException {
@@ -41,7 +44,7 @@ public class ProducerExample extends TestResultsReporting {
         verifyNotNull(producer);
 
         final String[] messages = null;
-        this.log.debug("{}", Arrays.toString(messages));
+        log.debug("{}", Arrays.toString(messages));
         verifyNotNull(producer.execute(messages));
     }
 

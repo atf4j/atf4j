@@ -20,6 +20,8 @@ import java.util.Properties;
 
 import static org.junit.Assert.assertNotNull;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * An abstract Configuration class.
  *
@@ -30,12 +32,13 @@ import static org.junit.Assert.assertNotNull;
  * configuration to be defined in <code>WebDriverConfig.properties</code>.
  *
  */
-public abstract class AbstractConfig extends TestResultsReporting implements Configuration {
+@Slf4j
+public abstract class AbstractConfig implements Configuration {
 
-    /** The config filename. */
+    /** The configuration filename. */
     protected String configFilename;
 
-    /** The properties. */
+    /** The properties values loaded from file. */
     protected final Properties properties = new Properties();
 
     /**
@@ -77,7 +80,7 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
         if (inputStream != null) {
             loadFrom(inputStream);
         } else {
-            this.log.warn("Using class default values, property file '{}' not found.", configFilename);
+            log.warn("Using class default values, property file '{}' not found.", configFilename);
         }
     }
 
@@ -93,7 +96,7 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
         try {
             this.properties.load(resourceAsStream);
         } catch (final IOException exception) {
-            this.log.error(exception.toString());
+            log.error(exception.toString());
         }
     }
 
@@ -123,9 +126,10 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
         }
     }
 
-    /* (non-Javadoc)
-    * @see net.atf4j.core.Configuration#valueFor(java.lang.String)
-    */
+    /*
+     * (non-Javadoc)
+     * @see net.atf4j.core.Configuration#valueFor(java.lang.String)
+     */
     @Override
     public String valueFor(final String key) {
         return get(key, "");
@@ -177,9 +181,9 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
         String propertyValue = System.getProperty(key);
         if (propertyValue == null) {
             propertyValue = this.properties.getProperty(key, defaultValue);
-            this.log.trace("{} = {} from property file.", key, propertyValue);
+            log.trace("{} = {} from property file.", key, propertyValue);
         } else {
-            this.log.warn("System property override key : {} with : {}", key, propertyValue);
+            log.warn("System property override key : {} with : {}", key, propertyValue);
         }
         return propertyValue;
     }
@@ -211,7 +215,7 @@ public abstract class AbstractConfig extends TestResultsReporting implements Con
      */
     @Override
     public void toLog() {
-        this.log.info(prettyProperties(this.properties));
+        log.info(prettyProperties(this.properties));
     }
 
     /**

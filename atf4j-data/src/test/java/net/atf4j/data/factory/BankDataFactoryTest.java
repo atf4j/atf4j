@@ -17,15 +17,18 @@
 
 package net.atf4j.data.factory;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.data.Bank;
 
 /**
  * A UnitTest for BankDataFactory objects.
  */
-public final class BankDataFactoryTest extends TestResultsReporting {
+@Slf4j
+public final class BankDataFactoryTest {
 
     /**
      * Test create.
@@ -33,7 +36,7 @@ public final class BankDataFactoryTest extends TestResultsReporting {
     @Test
     public void testCreate() {
         final Bank bank = BankDataFactory.create();
-        this.log.debug("bankDataFactory.create() = {}", bank);
+        log.debug("bankDataFactory.create() = {}", bank);
         verifyNotNull(bank);
     }
 
@@ -43,7 +46,7 @@ public final class BankDataFactoryTest extends TestResultsReporting {
     @Test
     public void testRandom() {
         final Bank randomBank = BankDataFactory.random();
-        this.log.debug("BankDataFactory.random() = {}", randomBank);
+        log.debug("BankDataFactory.random() = {}", randomBank);
         verifyNotNull(randomBank);
     }
 
@@ -53,7 +56,7 @@ public final class BankDataFactoryTest extends TestResultsReporting {
     @Test
     public void testGetInstance() {
         final BankDataFactory bankDataFactory = BankDataFactory.getInstance();
-        this.log.debug("BankDataFactory.getInstance() = {}", bankDataFactory);
+        log.debug("BankDataFactory.getInstance() = {}", bankDataFactory);
         verifyNotNull(bankDataFactory);
     }
 

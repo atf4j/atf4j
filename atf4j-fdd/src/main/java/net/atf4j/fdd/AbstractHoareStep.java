@@ -20,21 +20,22 @@ package net.atf4j.fdd;
 import java.util.Properties;
 import java.util.UUID;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Abstract class for a Hoare step. c.f. Hoare Logic
  */
+@Slf4j
 public abstract class AbstractHoareStep
-        extends TestResultsReporting
-        implements HoareStepInterface {
+        implements
+        HoareStepInterface {
 
     /** The id. */
     protected String id = UUID.randomUUID().toString();
-    
+
     /** The step name. */
     protected String stepName = "";
-    
+
     /** The properties. */
     protected Properties properties = new Properties();
 
@@ -45,7 +46,7 @@ public abstract class AbstractHoareStep
      */
     public AbstractHoareStep(final String stepName) {
         super();
-        this.log.debug("AbstractHoareStep({})", stepName);
+        log.debug("AbstractHoareStep({})", stepName);
         this.stepName = stepName;
     }
 
@@ -55,18 +56,17 @@ public abstract class AbstractHoareStep
      * @return the properties
      */
     public Properties execute() {
-        this.log.debug("AbstractHoareStep({})", this.stepName);
+        log.debug("AbstractHoareStep({})", this.stepName);
         return this.properties;
     }
 
     /*
      * (non-Javadoc)
-     *
      * @see net.atf4j.fdd.HoareStepInterface#execute(java.util.Properties)
      */
     @Override
     public Properties execute(final Properties properties) {
-        this.log.debug("AbstractHoareStep({}", this.stepName);
+        log.debug("AbstractHoareStep({}", this.stepName);
         this.properties = properties;
         return properties;
     }

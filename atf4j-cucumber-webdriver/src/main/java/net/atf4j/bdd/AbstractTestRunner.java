@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 
 import static org.junit.Assume.assumeNotNull;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * AbstractTestRunner class.
  *
@@ -16,7 +18,7 @@ import static org.junit.Assume.assumeNotNull;
  * DuplicateStepDefinitionException errors
  *
  */
-public abstract class AbstractTestRunner {
+@Slf4j public abstract class AbstractTestRunner {
 
     /** Provides logging. */
     protected static final Logger LOG = LoggerFactory.getLogger(AbstractTestRunner.class);
@@ -28,7 +30,7 @@ public abstract class AbstractTestRunner {
      */
     @Before
     public void beforeTests() {
-        LOG.info("beforeTests - Executed before all tests in test suite.  Ideal place for data setup.");
+        log.info("beforeTests - Executed before all tests in test suite.  Ideal place for data setup.");
         final String targetEnvironment = System.getProperty("targetEnvironment", "local");
         assumeNotNull("Expected the target environment to be specified in a Java System property (use -DtargetEnvironment={DEV|SIT|...})", targetEnvironment);
     }
@@ -38,7 +40,7 @@ public abstract class AbstractTestRunner {
      */
     @After
     public void afterTests() {
-        LOG.info("afterTests - Executed after all tests in test suite.  Ideal place for data cleanup.");
+        log.info("afterTests - Executed after all tests in test suite.  Ideal place for data cleanup.");
     }
 
 }

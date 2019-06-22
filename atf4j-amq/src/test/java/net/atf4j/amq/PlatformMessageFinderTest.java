@@ -17,17 +17,20 @@
 
 package net.atf4j.amq;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import java.io.File;
 import java.util.List;
 
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Message Finder Test class.
  */
-public class PlatformMessageFinderTest extends TestResultsReporting {
+@Slf4j
+public class PlatformMessageFinderTest {
 
     /**
      * Test message finder.
@@ -36,7 +39,7 @@ public class PlatformMessageFinderTest extends TestResultsReporting {
     public void testPlatformMessageFinder() {
         final PlatformMessageFinder messageFinder = new PlatformMessageFinder();
         verifyNotNull(messageFinder);
-        this.log.debug(messageFinder.toString());
+        log.debug(messageFinder.toString());
     }
 
     @Test
@@ -56,7 +59,7 @@ public class PlatformMessageFinderTest extends TestResultsReporting {
         final List<File> messages = messageFinder.walk();
         verifyNotNull(messages);
         for (final File file : messages) {
-            this.log.info("{} = {}", file.getName(), file.toString());
+            log.info("{} = {}", file.getName(), file.toString());
         }
     }
 
@@ -71,7 +74,7 @@ public class PlatformMessageFinderTest extends TestResultsReporting {
         final List<File> messages = messageFinder.scan(".");
         verifyNotNull(messages);
         for (final File file : messages) {
-            this.log.info("{} = {}", file.getName(), file.toString());
+            log.info("{} = {}", file.getName(), file.toString());
         }
     }
 }

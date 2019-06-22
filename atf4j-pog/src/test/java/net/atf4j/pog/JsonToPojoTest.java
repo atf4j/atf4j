@@ -17,16 +17,16 @@
 
 package net.atf4j.pog;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import static org.junit.Assert.assertNotNull;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A UnitTest for JsonToPojo objects.
  */
-public final class JsonToPojoTest extends TestResultsReporting {
+@Slf4j public final class JsonToPojoTest {
 
     /**
      * Test method for void.

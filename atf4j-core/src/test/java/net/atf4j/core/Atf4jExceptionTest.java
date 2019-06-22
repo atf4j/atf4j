@@ -22,10 +22,12 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * A UnitTest for Atf4jException objects.
  */
-public final class Atf4jExceptionTest extends TestResultsReporting {
+@Slf4j public final class Atf4jExceptionTest {
 
     /** EXCEPTION_MESSAGE 			constant. */
     private static final String EXCEPTION_MESSAGE = "Force a Atf4jException";
@@ -50,7 +52,7 @@ public final class Atf4jExceptionTest extends TestResultsReporting {
         try {
             throw new VerificationError(EXCEPTION_MESSAGE);
         } catch (final VerificationError exception) {
-            this.log.error(exception.toString());
+            log.error(exception.toString());
             assertEquals(EXCEPTION_MESSAGE, exception.getMessage());
             assertEquals(EXCEPTION_MESSAGE, exception.getLocalizedMessage());
             throw exception;
@@ -67,7 +69,7 @@ public final class Atf4jExceptionTest extends TestResultsReporting {
         try {
             throw new VerificationError(new AssertionError(EXCEPTION_MESSAGE));
         } catch (final VerificationError exception) {
-            this.log.error(exception.toString());
+            log.error(exception.toString());
             assertTrue(exception.getMessage().contains(EXCEPTION_MESSAGE));
             assertTrue(exception.getMessage().contains("java.lang.AssertionError"));
             throw exception;

@@ -17,12 +17,12 @@
 
 package net.atf4j.data.manager;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * The DataManager Class.
  */
-public final class DataManager extends TestResultsReporting {
+@Slf4j public final class DataManager {
 
     /**
      * Instantiates a new data manager.

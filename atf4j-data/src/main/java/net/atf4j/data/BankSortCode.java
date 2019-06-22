@@ -17,17 +17,20 @@
 
 package net.atf4j.data;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.core.Verify;
 
 /**
  * BankSortCode data class. UK Bank
  * SortCode @”^\d{6,6}$|^\d{2,2}\-\d{2,2}\-\d{2,2}$”;
  */
-public final class BankSortCode extends TestResultsReporting {
+@Slf4j
+public final class BankSortCode {
 
     /** The Constant PATTERN. */
     private static final Pattern PATTERN = Pattern.compile("^(\\d){2}-(\\d){2}-(\\d){2}$");
@@ -118,7 +121,6 @@ public final class BankSortCode extends TestResultsReporting {
 
     /*
      * (non-Javadoc)
-     *
      * @see java.lang.Object#toString()
      */
     @Override

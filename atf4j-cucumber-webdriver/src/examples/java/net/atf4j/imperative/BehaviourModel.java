@@ -17,10 +17,11 @@
 
 package net.atf4j.imperative;
 
-import static org.junit.Assert.fail;
-
 import org.openqa.selenium.WebDriver;
 
+import static org.junit.Assert.fail;
+
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.bdd.AbstractBehaviourModel;
 import net.atf4j.core.AbstractConfig.ConfigurationNotLoadedException;
 import net.atf4j.webdriver.BrowserFactory;
@@ -28,14 +29,15 @@ import net.atf4j.webdriver.BrowserFactory;
 /**
  * A UnitTest for SystemUnder objects.
  */
+@Slf4j
 public class BehaviourModel extends AbstractBehaviourModel {
 
     /** The web driver. */
     protected WebDriver webDriver;
-    
+
     /** The target url. */
     protected String targetUrl = "http://127.0.0.1:8080";
-    
+
     /** The landing page. */
     protected LandingPage landingPage;
 
@@ -44,7 +46,7 @@ public class BehaviourModel extends AbstractBehaviourModel {
      */
     public void aBrowser() {
         log.debug("aBrowser()");
-        webDriver = BrowserFactory.webDriver();
+        this.webDriver = BrowserFactory.webDriver();
     }
 
     /**
@@ -54,7 +56,7 @@ public class BehaviourModel extends AbstractBehaviourModel {
      */
     public void useBrowser(final String browserName) {
         log.debug("useBrowser({})", browserName);
-        webDriver = BrowserFactory.webDriver(browserName);
+        this.webDriver = BrowserFactory.webDriver(browserName);
     }
 
     /**
@@ -64,8 +66,8 @@ public class BehaviourModel extends AbstractBehaviourModel {
      */
     public void open() throws ConfigurationNotLoadedException {
         log.debug("open()");
-        landingPage = new LandingPage();
-        landingPage.open();
+        this.landingPage = new LandingPage();
+        this.landingPage.open();
     }
 
     /**
@@ -77,8 +79,8 @@ public class BehaviourModel extends AbstractBehaviourModel {
      */
     public void open(final String targetUrl) throws ConfigurationNotLoadedException {
         log.debug("open({})", targetUrl);
-        landingPage = new LandingPage();
-        landingPage.open(targetUrl);
+        this.landingPage = new LandingPage();
+        this.landingPage.open(targetUrl);
     }
 
     /**
@@ -86,7 +88,7 @@ public class BehaviourModel extends AbstractBehaviourModel {
      */
     public void verify() {
         log.debug("verify()");
-        landingPage.verify();
+        this.landingPage.verify();
     }
 
     /**
@@ -96,7 +98,7 @@ public class BehaviourModel extends AbstractBehaviourModel {
      */
     public void pageTitleShouldBe(final String expectedPageTitle) {
         log.debug("pageTitleShouldBe({})", expectedPageTitle);
-        landingPage.verifyPageTitle(expectedPageTitle);
+        this.landingPage.verifyPageTitle(expectedPageTitle);
     }
 
     /**

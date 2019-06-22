@@ -17,14 +17,17 @@
 
 package net.atf4j.webdriver;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+
+import static org.junit.Assert.assertNotNull;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A UnitTest for ExamplePage objects.
  */
+@Slf4j
 public final class ExamplePageTest {
 
     /**
@@ -56,9 +59,6 @@ public final class ExamplePageTest {
         }
     }
 
-    /**
-     * Test.
-     */
     @Test
     public void testHomePage() {
         assertNotNull(new HomePage());

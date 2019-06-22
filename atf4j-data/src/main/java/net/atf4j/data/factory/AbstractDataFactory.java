@@ -17,6 +17,8 @@
 
 package net.atf4j.data.factory;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,13 +28,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.core.VerificationError;
 
 /**
  * A factory for creating AbstractData objects.
  */
-public abstract class AbstractDataFactory extends TestResultsReporting {
+@Slf4j
+public abstract class AbstractDataFactory {
 
     /** FILE_NOT_FOUND_MSG. */
     private static final String FILE_NOT_FOUND_MSG = "Resource file '%s' not found.";
@@ -115,11 +118,11 @@ public abstract class AbstractDataFactory extends TestResultsReporting {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 lines.add(line);
-                this.log.trace(line);
+                log.trace(line);
             }
             bufferedReader.close();
         } catch (final IOException e) {
-            this.log.error(e.toString());
+            log.error(e.toString());
         }
         return lines.toArray(new String[lines.size()]);
     }
@@ -167,7 +170,7 @@ public abstract class AbstractDataFactory extends TestResultsReporting {
      * To log.
      */
     public void toLog() {
-        this.log.info(toString());
+        log.info(toString());
     }
 
     /**

@@ -17,22 +17,24 @@
 
 package net.atf4j.core.examples;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Atf4jConfiguration Test class.
  */
-public final class Atf4jConfigurationTest extends TestResultsReporting {
+@Slf4j
+public final class Atf4jConfigurationTest {
 
     /**
      * Unit test to configuration.
      */
     @Test
     public void testConfiguration() {
-        final Atf4jConfiguration configuration = new Atf4jConfiguration();
-        verifyNotNull(configuration);
+        verifyNotNull(new Atf4jConfiguration());
     }
 
 }

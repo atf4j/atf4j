@@ -26,11 +26,13 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assume.assumeNotNull;
 import static org.junit.Assume.assumeTrue;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.core.timers.MappedTimers;
 
 /**
  * TestCase.
  */
+@Slf4j
 public class TestCase extends AbstractTestBase {
 
     /** The test steps. */
@@ -104,8 +106,8 @@ public class TestCase extends AbstractTestBase {
      * @return the test case
      */
     public TestCase start() {
-        this.log.info("start test case {}", this.getName());
-        this.log.info("start timer {}", MappedTimers.start("TestCase"));
+        log.info("start test case {}", this.getName());
+        log.info("start timer {}", MappedTimers.start("TestCase"));
         super.assumedPreConditions();
         return this;
     }
@@ -116,8 +118,8 @@ public class TestCase extends AbstractTestBase {
      * @return the test case
      */
     public TestCase end() {
-        this.log.info("end timer {}", MappedTimers.stop("TestCase"));
-        this.log.info("end test case {}", this.getName());
+        log.info("end timer {}", MappedTimers.stop("TestCase"));
+        log.info("end test case {}", this.getName());
         super.assertPostConditions();
         return this;
     }

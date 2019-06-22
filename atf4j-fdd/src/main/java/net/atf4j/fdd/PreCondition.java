@@ -17,10 +17,12 @@
 
 package net.atf4j.fdd;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Predicate PreCondition.
  */
-public abstract class PreCondition extends Predicate {
+@Slf4j public abstract class PreCondition extends Predicate {
 
     /**
      * Instantiates a new pre-condition.

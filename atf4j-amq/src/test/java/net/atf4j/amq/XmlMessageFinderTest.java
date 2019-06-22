@@ -17,25 +17,25 @@
 
 package net.atf4j.amq;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import java.io.File;
-import java.util.List;
 
 import org.junit.Test;
 
-import net.atf4j.core.TestResultsReporting;
+import lombok.extern.slf4j.Slf4j;
 
-/**
- * Message Finder Test class.
- */
-public class XmlMessageFinderTest extends TestResultsReporting {
+@Slf4j
+public class XmlMessageFinderTest {
 
-    /**
-     * Test message finder.
-     */
     @Test
     public void testMessageFinder() {
-        final XmlMessageFinder xmlMessageFinder = new XmlMessageFinder();
-        verifyNotNull(xmlMessageFinder);
+        verifyNotNull(new XmlMessageFinder());
+    }
+
+    @Test
+    public void testMessageFinderXML() {
+        verifyNotNull(new XmlMessageFinder("XML"));
     }
 
     /**
@@ -43,13 +43,10 @@ public class XmlMessageFinderTest extends TestResultsReporting {
      */
     @Test
     public void testMessageFinderWalk() {
-        final XmlMessageFinder xmlMessageFinder = new XmlMessageFinder();
-        verifyNotNull(xmlMessageFinder);
-
-        final List<File> messages = xmlMessageFinder.walk();
+        final FoundFiles messages = new XmlMessageFinder().walk();
         verifyNotNull(messages);
         for (final File file : messages) {
-            this.log.info("{} = {}", file.getName(), file.toString());
+            log.info("{} = {}", file.getName(), file.toString());
         }
     }
 
@@ -58,13 +55,10 @@ public class XmlMessageFinderTest extends TestResultsReporting {
      */
     @Test
     public void testMessageFinderScan() {
-        final XmlMessageFinder xmlMessageFinder = new XmlMessageFinder();
-        verifyNotNull(xmlMessageFinder);
-
-        final List<File> messages = xmlMessageFinder.scan();
+        final FoundFiles messages = new XmlMessageFinder().scan();
         verifyNotNull(messages);
         for (final File file : messages) {
-            this.log.info("{} = {}", file.getName(), file.toString());
+            log.info("{} = {}", file.getName(), file.toString());
         }
     }
 }

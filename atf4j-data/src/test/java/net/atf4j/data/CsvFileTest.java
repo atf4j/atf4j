@@ -17,19 +17,19 @@
 
 package net.atf4j.data;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
 import net.atf4j.core.ResourceNotLoadedException;
-import net.atf4j.core.TestResultsReporting;
 
 /**
  * Unit Test for CsvFile class.
  */
-public class CsvFileTest extends TestResultsReporting {
+public class CsvFileTest {
 
     /** EXPECTED_HEADER constant. */
     private static final String EXPECTED_HEADER = "HeaderLine [fields=[ColumnOne, ColumnTwo, ColumnThree, ColumnFour]]";
@@ -41,7 +41,7 @@ public class CsvFileTest extends TestResultsReporting {
     private static final String TEST_DATA_CSV = "TestData.csv";
 
     /**
-     * The Class TestData.
+ * The TestData.
      */
     public class TestData extends CsvFile {
 
@@ -60,10 +60,7 @@ public class CsvFileTest extends TestResultsReporting {
      */
     @Test
     public void testExpectedUsage() throws Exception {
-        final TestData testData = new TestData();
-        this.log.debug(testData.toString());
-        assertNotNull(testData);
-        verifyContent(testData);
+        verifyContent(new TestData());
     }
 
     /**
@@ -73,9 +70,7 @@ public class CsvFileTest extends TestResultsReporting {
      */
     @Test
     public void testConstructorWithDataPresent() throws Exception {
-        final CsvFile csvFile = new CsvFile(TEST_DATA_CSV);
-        verifyNotNull(csvFile);
-        verifyContent(csvFile);
+        verifyContent(new CsvFile(TEST_DATA_CSV));
     }
 
     /**
@@ -107,9 +102,7 @@ public class CsvFileTest extends TestResultsReporting {
      */
     @Test(expected = ResourceNotLoadedException.class)
     public void testLoadMissingFile() throws ResourceNotLoadedException {
-        final CsvFile csvFile = new CsvFile();
-        verifyNotNull(csvFile);
-        csvFile.load(MISSING_CSV);
+        verifyContent(new CsvFile());
         fail("expected FileNotFoundException");
     }
 

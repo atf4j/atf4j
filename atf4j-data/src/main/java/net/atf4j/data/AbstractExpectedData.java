@@ -11,7 +11,9 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assume.assumeTrue;
 
 /**
- * The abstract ExpectedData class.
+ * The abstract class ExpectedData.
+ *
+ * Used to provide expected data for Automated Data Driven Testing.
  */
 public abstract class AbstractExpectedData implements ExpectedDataInterface {
 

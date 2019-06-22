@@ -22,13 +22,12 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import net.atf4j.core.TestResultsReporting;
 import net.atf4j.data.factory.DataFactory;
 
 /**
  * Card data class.
  */
-public class Card extends TestResultsReporting {
+public class Card {
 
     /** The provider. */
     private String provider = "";

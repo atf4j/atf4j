@@ -5,7 +5,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 /**
- * The Class FoundFiles.
+ * The FoundFiles.
  */
 public class FoundFiles extends ArrayList<File> {
 

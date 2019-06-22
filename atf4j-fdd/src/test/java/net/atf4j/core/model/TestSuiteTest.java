@@ -17,26 +17,29 @@
 
 package net.atf4j.core.model;
 
+import static net.atf4j.core.Verify.verifyNotNull;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+import lombok.extern.slf4j.Slf4j;
+import net.atf4j.core.AbstractTestReport;
 import net.atf4j.core.TestResult;
-import net.atf4j.core.TestResultsReporting;
 import net.atf4j.fdd.model.Condition;
 import net.atf4j.fdd.model.TestCase;
-import net.atf4j.fdd.model.TestReport;
 import net.atf4j.fdd.model.TestSuite;
 
 /**
  * A UnitTest for TestSuite objects.
  */
-public class TestSuiteTest extends TestResultsReporting {
+@Slf4j
+public class TestSuiteTest {
 
     /**
      * Test Case Report Class.
      */
-    public class MockTestReport implements TestReport {
+    public class MockTestReport extends AbstractTestReport {
     }
 
     /**
@@ -59,20 +62,19 @@ public class TestSuiteTest extends TestResultsReporting {
     @Test
     public void testTypical() {
         final TestSuite testSuite = new TestSuite();
-        this.log.info(testSuite.toString());
         verifyNotNull(testSuite);
         assertEquals(testSuite, testSuite.execute());
-        this.log.info(testSuite.toString());
     }
 
-    @Test
-    public void testMockTestReport() {
-        final TestSuite testSuite = new TestSuite(new MockTestReport());
-        this.log.info(testSuite.toString());
-        verifyNotNull(testSuite);
-        assertEquals(testSuite, testSuite.execute());
-        this.log.info(testSuite.toString());
-    }
+    // @Test
+    // public void testMockTestReport() {
+    // MockTestReport mockTestReport = new MockTestReport();
+    // final TestSuite testSuite = new TestSuite(mockTestReport);
+    // log.info(testSuite.toString());
+    // verifyNotNull(testSuite);
+    // assertEquals(testSuite, testSuite.execute());
+    // log.info(testSuite.toString());
+    // }
 
     /**
      * Unit Test for test test case string.
@@ -83,7 +85,7 @@ public class TestSuiteTest extends TestResultsReporting {
         verifyNotNull(testSuite);
         final String string = testSuite.toString();
         verifyNotNull(string);
-        this.log.info(string);
+        log.info(string);
     }
 
     /**
@@ -94,10 +96,10 @@ public class TestSuiteTest extends TestResultsReporting {
         final TestSuite testSuite = new TestSuite();
         verifyNotNull(testSuite);
         final String string = testSuite.toString();
-        this.log.debug(string);
+        log.debug(string);
         assertEquals(testSuite, testSuite.execute());
         final TestResult result = testSuite.result();
-        this.log.info(result.toString());
+        log.info(result.toString());
         verifyNotNull(result);
     }
 

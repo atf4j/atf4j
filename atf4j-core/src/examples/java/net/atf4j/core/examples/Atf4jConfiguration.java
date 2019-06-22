@@ -17,12 +17,13 @@
 
 package net.atf4j.core.examples;
 
+import lombok.extern.slf4j.Slf4j;
 import net.atf4j.core.AbstractConfig;
 
 /**
  * Atf4jConfiguration class.
  */
-public final class Atf4jConfiguration extends AbstractConfig {
+@Slf4j public final class Atf4jConfiguration extends AbstractConfig {
 
     /**
      * Instantiates the configuration.
